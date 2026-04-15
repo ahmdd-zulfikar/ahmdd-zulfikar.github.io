@@ -3,42 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Halaman Tidak Ditemukan | MTsN 6 Demak</title>
+    <title>404 - Halaman Tidak Ditemukan | Ahmad Zulfikar,S.Pd</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f0fdf4; /* Light Green background */
-            /* Pola background yang sama dengan halaman utama */
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2316a34a' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-        }
-
-        .back-btn {
-            transition: all 0.3s ease;
-        }
-
-        .back-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(22, 163, 74, 0.3);
+            background-color: #f8fafc; /* Slate 50 */
+            color: #334155; /* Slate 700 */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         
-        /* Animasi mengambang untuk icon 404 */
+        /* Islamic Pattern Overlay */
+        .pattern-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeIn { 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        /* Floating Icon Animation */
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -49,58 +64,69 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center">
+<body class="selection:bg-teal-200 selection:text-teal-900">
 
-    <!-- Navbar / Header (Sama Persis) -->
-    <header class="w-full bg-green-700 text-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+    <!-- Navigation -->
+    <nav class="bg-teal-900 text-white sticky top-0 z-50 border-b border-teal-800 backdrop-blur-md bg-opacity-95">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center max-w-5xl">
             <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-green-700 font-bold text-lg border-2 border-green-200">
+                <div class="bg-teal-800 p-2 rounded-lg text-amber-400 border border-teal-700">
                     <i class="fa-solid fa-school"></i>
                 </div>
-                <div>
-                    <h1 class="font-bold text-lg leading-tight">MTsN 6 Demak</h1>
-                    <p class="text-xs text-green-100">Portal Belajar Online</p>
-                </div>
+                <span class="text-xl font-bold tracking-tight font-heading">Ahmad Zulfikar, S.Pd</span>
             </div>
-            <div class="hidden md:block text-sm font-medium">
-                Tahun Ajaran 2025/2026
-            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-teal-900 relative pt-16 pb-36 overflow-hidden pattern-bg flex-shrink-0">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-teal-900/90"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 max-w-4xl text-center">
+            <span class="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/50 text-red-100 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-6 shadow-sm">
+                <i class="fa-solid fa-triangle-exclamation text-red-400"></i> Error 404
+            </span>
+            <h1 class="text-7xl md:text-8xl font-bold mb-4 text-white font-heading drop-shadow-md">
+                404
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-bold text-amber-400 font-heading">
+                Halaman Tidak Ditemukan
+            </h2>
         </div>
     </header>
 
-    <!-- Main Content 404 -->
-    <main class="flex-grow w-full max-w-2xl px-4 py-8 flex flex-col items-center justify-center text-center">
-
-        <div class="glass-card w-full rounded-2xl p-8 mb-8 border-t-4 border-red-500">
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 -mt-24 relative z-20 flex justify-center pb-16">
+        
+        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-slate-200 max-w-2xl w-full text-center fade-in">
+            
             <!-- 404 Illustration -->
-            <div class="mb-6 relative">
-                <div class="floating-icon inline-block p-6 rounded-full bg-red-50 text-red-500 border-4 border-red-100">
-                    <i class="fa-solid fa-compass-drafting text-6xl"></i>
+            <div class="mb-8 relative">
+                <div class="absolute inset-0 bg-red-100 rounded-full blur-xl opacity-50 w-32 h-32 mx-auto"></div>
+                <div class="floating-icon relative inline-flex items-center justify-center w-28 h-28 rounded-full bg-red-50 text-red-500 border-4 border-white shadow-lg text-5xl z-10 overflow-hidden p-3">
+                    <!-- Anda bisa mengupload gambar ilustrasi 404 ke github dan mengubah nama file di bawah ini -->
+                    <img src="logo-404.png" alt="Halaman Tidak Ditemukan" class="w-full h-full object-contain hover:scale-110 transition-transform duration-300" onerror="this.outerHTML='<i class=\'fa-solid fa-file-circle-question text-red-500\'></i>'">
                 </div>
             </div>
-
-            <h1 class="text-6xl font-bold text-green-800 mb-2 tracking-wider">404</h1>
-            <h2 class="text-2xl font-bold text-gray-800 mb-3">Halaman Tidak Ditemukan</h2>
             
-            <p class="text-gray-500 mb-8 max-w-md mx-auto">
+            <p class="text-lg text-slate-600 mb-10 max-w-md mx-auto leading-relaxed">
                 Maaf, halaman yang Anda cari mungkin telah dihapus, dipindahkan, atau alamatnya salah ketik. Silakan kembali ke ruang kelas.
             </p>
 
             <!-- Back Button -->
-            <a href="https://mtsn6-demak.github.io/" class="back-btn inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-emerald-600 to-green-700 text-white px-8 py-3 rounded-full font-semibold hover:no-underline group">
+            <a href="https://ahmdd-zulfikar.github.io/" class="inline-flex items-center justify-center space-x-2 bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 group">
                 <i class="fa-solid fa-house group-hover:scale-110 transition-transform"></i>
                 <span>Kembali ke Beranda</span>
             </a>
+            
         </div>
 
     </main>
 
-    <!-- Footer (Sama Persis) -->
-    <footer class="w-full bg-gray-800 text-gray-400 py-6 text-center text-xs mt-auto">
-        <div class="max-w-2xl mx-auto px-4">
-            <p class="mb-2">&copy; 2026 MTsN 6 Demak. All Rights Reserved.</p>
-            <p>Dikembangkan untuk Pembelajaran Daring.</p>
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-10 border-t border-slate-800 mt-auto">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-xs mt-6 opacity-60 font-medium tracking-wide">&copy; 2026 Ahmad Zulfikar, S.Pd. All rights reserved.</p>
         </div>
     </footer>
 
