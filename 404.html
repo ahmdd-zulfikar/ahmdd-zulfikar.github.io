@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Halaman Tidak Ditemukan | MTsN 6 Demak</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0fdf4; /* Light Green background */
+            /* Pola background yang sama dengan halaman utama */
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2316a34a' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+
+        .back-btn {
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(22, 163, 74, 0.3);
+        }
+        
+        /* Animasi mengambang untuk icon 404 */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center">
+
+    <!-- Navbar / Header (Sama Persis) -->
+    <header class="w-full bg-green-700 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-green-700 font-bold text-lg border-2 border-green-200">
+                    <i class="fa-solid fa-school"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight">MTsN 6 Demak</h1>
+                    <p class="text-xs text-green-100">Portal Belajar Online</p>
+                </div>
+            </div>
+            <div class="hidden md:block text-sm font-medium">
+                Tahun Ajaran 2025/2026
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content 404 -->
+    <main class="flex-grow w-full max-w-2xl px-4 py-8 flex flex-col items-center justify-center text-center">
+
+        <div class="glass-card w-full rounded-2xl p-8 mb-8 border-t-4 border-red-500">
+            <!-- 404 Illustration -->
+            <div class="mb-6 relative">
+                <div class="floating-icon inline-block p-6 rounded-full bg-red-50 text-red-500 border-4 border-red-100">
+                    <i class="fa-solid fa-compass-drafting text-6xl"></i>
+                </div>
+            </div>
+
+            <h1 class="text-6xl font-bold text-green-800 mb-2 tracking-wider">404</h1>
+            <h2 class="text-2xl font-bold text-gray-800 mb-3">Halaman Tidak Ditemukan</h2>
+            
+            <p class="text-gray-500 mb-8 max-w-md mx-auto">
+                Maaf, halaman yang Anda cari mungkin telah dihapus, dipindahkan, atau alamatnya salah ketik. Silakan kembali ke ruang kelas.
+            </p>
+
+            <!-- Back Button -->
+            <a href="https://mtsn6-demak.github.io/" class="back-btn inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-emerald-600 to-green-700 text-white px-8 py-3 rounded-full font-semibold hover:no-underline group">
+                <i class="fa-solid fa-house group-hover:scale-110 transition-transform"></i>
+                <span>Kembali ke Beranda</span>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer (Sama Persis) -->
+    <footer class="w-full bg-gray-800 text-gray-400 py-6 text-center text-xs mt-auto">
+        <div class="max-w-2xl mx-auto px-4">
+            <p class="mb-2">&copy; 2026 MTsN 6 Demak. All Rights Reserved.</p>
+            <p>Dikembangkan untuk Pembelajaran Daring.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
