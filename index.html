@@ -1,26 +1,406 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-    <title>Portofolio Ahmad Zulfikar, S.Pd</title>
-    <style>
-        html, body {
-            margin: 0 !important;
-            padding: 0 !important;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background-color: #e9ecef;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Ahmad Zulfikar</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://github.com/ahmdd-zulfikar/ahmdd-zulfikar.github.io/blob/main/foto-profil.jpg?raw=true">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    },
+                    colors: {
+                        teal: {
+                            850: '#0f5d56',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        }
+                    }
+                }
+            }
         }
-        .app-frame {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
+    </script>
+    
+    <style>
+        body {
+            background-color: #f1f5f9; /* Slate 100 */
+            color: #334155;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Islamic Pattern Overlay */
+        .pattern-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+
+        @keyframes fadeIn { 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        /* Card Hover */
+        .menu-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .menu-card:hover {
+            transform: translateY(-4px) scale(1.01);
+            border-color: #14b8a6; /* Teal 500 */
+            box-shadow: 0 10px 25px -5px rgba(20, 184, 166, 0.15), 0 8px 10px -6px rgba(20, 184, 166, 0.1);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
-<body>
-    <iframe class="app-frame" src="https://script.google.com/macros/s/AKfycbybX5LImrUNRcnApwzHVU5o7hwU556QFIJ4IxdQYodyP4eUwExvqOWoPTkiuO-xgZxN0w/exec"></iframe>
+<body class="min-h-screen flex items-center justify-center font-sans antialiased selection:bg-teal-200 selection:text-teal-900 p-4 md:p-8 lg:p-12">
+
+    <!-- Main Container: Responsive Width (Max 1024px) -->
+    <main class="w-full max-w-5xl bg-white min-h-[90vh] md:min-h-[80vh] rounded-3xl md:rounded-[2.5rem] shadow-2xl relative flex flex-col md:flex-row overflow-hidden border border-slate-200/60 fade-in">
+        
+        <!-- ================= LEFT PANEL (PROFILE) ================= -->
+        <section class="relative w-full md:w-5/12 bg-teal-900 pattern-bg flex flex-col items-center justify-center p-8 md:p-12 text-center shrink-0">
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-b from-teal-850/80 to-teal-950/95"></div>
+            
+            <!-- Decorative Elements -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="absolute -top-20 -left-20 w-64 h-64 bg-teal-500 opacity-20 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-10 -right-10 w-48 h-48 bg-amber-400 opacity-10 rounded-full blur-2xl"></div>
+            </div>
+            
+            <!-- Content -->
+            <div class="relative z-10 flex flex-col items-center w-full">
+                <!-- Bismillah Text -->
+                <p class="font-arabic text-2xl text-teal-100/90 mb-8 fade-in delay-100 tracking-wider">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+                
+                <!-- Profile Photo -->
+                <div class="relative group fade-in delay-200 mb-6">
+                    <div class="absolute -inset-2 bg-gradient-to-tr from-amber-400 to-teal-300 rounded-full blur-md opacity-40 group-hover:opacity-75 transition duration-500 animate-pulse"></div>
+                    <img src="https://github.com/ahmdd-zulfikar/ahmdd-zulfikar.github.io/blob/main/foto-profil.jpg?raw=true" 
+                         alt="Foto Profil Ahmad Zulfikar" 
+                         onerror="this.src='https://ui-avatars.com/api/?name=Ahmad+Zulfikar&background=0d9488&color=fff&size=200'"
+                         class="relative w-36 h-36 md:w-44 md:h-44 rounded-full border-4 border-white shadow-2xl object-cover bg-white transition-transform duration-500 group-hover:scale-105">
+                    
+                    <!-- Status Badge -->
+                    <div class="absolute bottom-2 right-2 w-8 h-8 bg-amber-500 border-2 border-white rounded-full flex items-center justify-center shadow-lg transform hover:rotate-12 transition-transform" title="Aktif Mengajar">
+                        <i class="fa-solid fa-graduation-cap text-white text-xs"></i>
+                    </div>
+                </div>
+
+                <!-- Name & Title -->
+                <div class="fade-in delay-300">
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight font-heading mb-2">Ahmad Zulfikar<span class="text-xl md:text-2xl font-semibold text-teal-200">, S.Pd</span></h1>
+                    
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-effect text-teal-50 text-sm font-medium mb-6">
+                        <i class="fa-solid fa-book-open text-teal-300"></i>
+                        <span>Pendidik</span>
+                    </div>
+                    
+                    <div class="relative">
+                        <i class="fa-solid fa-quote-left text-teal-700/50 text-3xl absolute -top-2 -left-4"></i>
+                        <p class="text-sm md:text-base text-teal-100/90 leading-relaxed font-light max-w-[280px] mx-auto italic px-4">
+                            "Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia lainnya."
+                        </p>
+                        <i class="fa-solid fa-quote-right text-teal-700/50 text-3xl absolute -bottom-2 -right-2"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Social/Contact Icons (Optional Add-on) -->
+            <div class="relative z-10 flex gap-4 mt-10 fade-in delay-400">
+                <a href="https://wa.me/6285888892326" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full glass-effect flex items-center justify-center text-white hover:bg-white hover:text-teal-900 transition-all shadow-lg" title="Hubungi via WhatsApp">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                </a>
+                <a href="mailto:ahmadzulfikar600@gmail.com" class="w-10 h-10 rounded-full glass-effect flex items-center justify-center text-white hover:bg-white hover:text-teal-900 transition-all shadow-lg" title="Kirim Email">
+                    <i class="fa-regular fa-envelope text-lg"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- ================= RIGHT PANEL (LINKS) ================= -->
+        <section class="w-full md:w-7/12 bg-slate-50 flex flex-col p-6 sm:p-8 md:p-12 lg:p-14 overflow-y-auto">
+            
+            <!-- Section Title -->
+            <div class="mb-8 fade-in delay-200">
+                <h2 class="text-xl md:text-2xl font-bold text-slate-800 font-heading">Portofolio</h2>
+                <div class="h-1 w-12 bg-teal-500 rounded-full mt-2"></div>
+                <p class="text-sm text-slate-500 mt-3">Rekam jejak pengabdian dalam dunia pendidikan.</p>
+            </div>
+
+            <!-- Menu Container -->
+            <div class="space-y-4 md:space-y-5 flex-1">
+                
+                <!-- Menu 1: PPTQ At-Tibyan Laren -->
+                <a href="javascript:void(0)" onclick="showModal('attibyan')" class="group block w-full fade-in delay-300">
+                    <div class="menu-card relative flex items-center p-4 md:p-5 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-r from-teal-50/50 to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+                        
+                        <!-- Icon/Logo -->
+                        <div class="relative w-14 h-14 md:w-16 md:h-16 flex-shrink-0 bg-white border border-slate-100 rounded-xl flex items-center justify-center shadow-sm p-2 z-10 group-hover:border-teal-200 transition-colors">
+                            <img src="https://github.com/ahmdd-zulfikar/ahmdd-zulfikar.github.io/blob/main/logo-pptq.png?raw=true" 
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                                 alt="Logo PPTQ At-Tibyan" 
+                                 class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300">
+                            <!-- Fallback Icon if Image Fails -->
+                            <i class="fa-solid fa-mosque text-teal-600 text-xl hidden"></i>
+                        </div>
+                        
+                        <!-- Text -->
+                        <div class="relative ml-4 md:ml-5 flex-1">
+                            <h3 class="font-bold text-base md:text-lg text-slate-800 font-heading group-hover:text-teal-700 transition-colors">PPTQ At-Tibyan Laren</h3>
+                        </div>
+                        
+                        <!-- Arrow -->
+                        <div class="relative text-slate-300 group-hover:text-teal-500 transition-colors duration-300 transform translate-x-2 group-hover:translate-x-0 w-8 flex justify-end">
+                            <i class="fa-solid fa-arrow-right-long text-lg"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Menu 2: MAN 2 Brebes -->
+                <a href="javascript:void(0)" onclick="showModal('man2brebes')" class="group block w-full fade-in delay-400">
+                    <div class="menu-card relative flex items-center p-4 md:p-5 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-r from-teal-50/50 to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+                        
+                        <!-- Icon/Logo -->
+                        <div class="relative w-14 h-14 md:w-16 md:h-16 flex-shrink-0 bg-white border border-slate-100 rounded-xl flex items-center justify-center shadow-sm p-2 z-10 group-hover:border-teal-200 transition-colors">
+                            <img src="https://github.com/ahmdd-zulfikar/ahmdd-zulfikar.github.io/blob/main/logo-man2.png?raw=true" 
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                                 alt="Logo MAN 2 Brebes" 
+                                 class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300">
+                            <i class="fa-solid fa-school text-teal-600 text-xl hidden"></i>
+                        </div>
+                        
+                        <div class="relative ml-4 md:ml-5 flex-1">
+                            <h3 class="font-bold text-base md:text-lg text-slate-800 font-heading group-hover:text-teal-700 transition-colors">MAN 2 Brebes</h3>
+                        </div>
+                        
+                        <div class="relative text-slate-300 group-hover:text-teal-500 transition-colors duration-300 transform translate-x-2 group-hover:translate-x-0 w-8 flex justify-end">
+                            <i class="fa-solid fa-arrow-right-long text-lg"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Menu 3: MTsN 6 Demak -->
+                <a href="javascript:void(0)" onclick="showModal('mtsn6demak')" class="group block w-full fade-in delay-500">
+                    <div class="menu-card relative flex items-center p-4 md:p-5 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-r from-teal-50/50 to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+                        
+                        <!-- Icon/Logo -->
+                        <div class="relative w-14 h-14 md:w-16 md:h-16 flex-shrink-0 bg-white border border-slate-100 rounded-xl flex items-center justify-center shadow-sm p-2 z-10 group-hover:border-teal-200 transition-colors">
+                            <img src="https://github.com/ahmdd-zulfikar/ahmdd-zulfikar.github.io/blob/main/logo-mtsn6.png?raw=true" 
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                                 alt="Logo MTsN 6 Demak" 
+                                 class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300">
+                             <i class="fa-solid fa-school text-teal-600 text-xl hidden"></i>
+                        </div>
+                        
+                        <div class="relative ml-4 md:ml-5 flex-1">
+                            <h3 class="font-bold text-base md:text-lg text-slate-800 font-heading group-hover:text-teal-700 transition-colors">MTsN 6 Demak</h3>
+                        </div>
+                        
+                        <div class="relative text-slate-300 group-hover:text-teal-500 transition-colors duration-300 transform translate-x-2 group-hover:translate-x-0 w-8 flex justify-end">
+                            <i class="fa-solid fa-arrow-right-long text-lg"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Menu 4: MTSS Al-Ishlah Laren -->
+                <a href="javascript:void(0)" onclick="showModal('alishlah')" class="group block w-full fade-in delay-500">
+                    <div class="menu-card relative flex items-center p-4 md:p-5 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-r from-teal-50/50 to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+                        
+                        <!-- Icon/Logo -->
+                        <div class="relative w-14 h-14 md:w-16 md:h-16 flex-shrink-0 bg-white border border-slate-100 rounded-xl flex items-center justify-center shadow-sm p-2 z-10 group-hover:border-teal-200 transition-colors">
+                            <img src="https://github.com/ahmdd-zulfikar/ahmdd-zulfikar.github.io/blob/main/logo-alishlah.png?raw=true" 
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                                 alt="Logo MTSS Al-Ishlah Laren" 
+                                 class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300">
+                             <i class="fa-solid fa-school text-teal-600 text-xl hidden"></i>
+                        </div>
+                        
+                        <div class="relative ml-4 md:ml-5 flex-1">
+                            <h3 class="font-bold text-base md:text-lg text-slate-800 font-heading group-hover:text-teal-700 transition-colors">MTSS Al-Ishlah Laren</h3>
+                        </div>
+                        
+                        <div class="relative text-slate-300 group-hover:text-teal-500 transition-colors duration-300 transform translate-x-2 group-hover:translate-x-0 w-8 flex justify-end">
+                            <i class="fa-solid fa-arrow-right-long text-lg"></i>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Modal Popup Kelembagaan -->
+    <div id="inst-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative bg-white w-full max-w-sm md:max-w-md rounded-3xl shadow-2xl p-6 md:p-8 transform scale-95 opacity-0 transition-all duration-300 flex flex-col" id="inst-modal-content">
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-red-50 hover:text-red-500 transition-colors focus:outline-none">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <h3 id="inst-title" class="text-xl md:text-2xl font-bold text-slate-800 font-heading text-center mb-6 px-4">Nama Lembaga</h3>
+            
+            <div id="inst-links" class="flex flex-col gap-3">
+                <!-- Tautan akan diisi melalui JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Skrip Logika Popup -->
+    <script>
+        const institutions = {
+            'attibyan': {
+                name: 'PPTQ At-Tibyan Laren',
+                links: [
+                    { label: 'Instagram', icon: 'fa-brands fa-instagram', url: 'https://www.instagram.com/pptq_attibyan_laren/', color: 'text-pink-600' },
+                    { label: 'TikTok', icon: 'fa-brands fa-tiktok', url: null, color: 'text-slate-800' },
+                    { label: 'YouTube', icon: 'fa-brands fa-youtube', url: null, color: 'text-red-600' },
+                    { label: 'Website', icon: 'fa-solid fa-globe', url: null, color: 'text-blue-600' },
+                    { label: 'Belajar Online', icon: 'fa-solid fa-book-open', url: null, color: 'text-teal-600' }
+                ]
+            },
+            'man2brebes': {
+                name: 'MAN 2 Brebes',
+                links: [
+                    { label: 'Instagram', icon: 'fa-brands fa-instagram', url: 'https://www.instagram.com/man2brebes/', color: 'text-pink-600' },
+                    { label: 'TikTok', icon: 'fa-brands fa-tiktok', url: 'https://www.tiktok.com/@man2brebes', color: 'text-slate-800' },
+                    { label: 'YouTube', icon: 'fa-brands fa-youtube', url: 'https://www.youtube.com/@man2brebes', color: 'text-red-600' },
+                    { label: 'Website', icon: 'fa-solid fa-globe', url: 'https://www.man2brebes.sch.id/', color: 'text-blue-600' },
+                    { label: 'Belajar Online', icon: 'fa-solid fa-book-open', url: null, color: 'text-teal-600' }
+                ]
+            },
+            'mtsn6demak': {
+                name: 'MTsN 6 Demak',
+                links: [
+                    { label: 'Instagram', icon: 'fa-brands fa-instagram', url: 'https://www.instagram.com/mtsnegeri6demak/', color: 'text-pink-600' },
+                    { label: 'TikTok', icon: 'fa-brands fa-tiktok', url: 'https://www.tiktok.com/@mtsn6demak', color: 'text-slate-800' },
+                    { label: 'YouTube', icon: 'fa-brands fa-youtube', url: 'https://www.youtube.com/@mtsn6demakchannel', color: 'text-red-600' },
+                    { label: 'Website', icon: 'fa-solid fa-globe', url: 'https://mtsn6demak.sch.id/', color: 'text-blue-600' },
+                    { label: 'Belajar Online', icon: 'fa-solid fa-book-open', url: 'https://ahmdd-zulfikar.github.io/mtsn6-demak/', color: 'text-teal-600' }
+                ]
+            },
+            'alishlah': {
+                name: 'MTSS Al-Ishlah Laren',
+                links: [
+                    { label: 'Instagram', icon: 'fa-brands fa-instagram', url: 'https://www.instagram.com/mtsalishlahlaren/', color: 'text-pink-600' },
+                    { label: 'TikTok', icon: 'fa-brands fa-tiktok', url: 'https://www.tiktok.com/@mts.alishlah3', color: 'text-slate-800' },
+                    { label: 'YouTube', icon: 'fa-brands fa-youtube', url: 'https://www.youtube.com/@mts.al-ishlah6760', color: 'text-red-600' },
+                    { label: 'Website', icon: 'fa-solid fa-globe', url: 'https://mtsalislahlaren.sch.id/web/', color: 'text-blue-600' },
+                    { label: 'Belajar Online', icon: 'fa-solid fa-book-open', url: null, color: 'text-teal-600' }
+                ]
+            }
+        };
+
+        function showModal(id) {
+            const data = institutions[id];
+            if(!data) return;
+            
+            document.getElementById('inst-title').textContent = data.name;
+            
+            const linksContainer = document.getElementById('inst-links');
+            linksContainer.innerHTML = '';
+            
+            data.links.forEach(link => {
+                if(link.url) {
+                    // Tautan yang tersedia
+                    linksContainer.innerHTML += `
+                        <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 p-3 rounded-xl bg-slate-50 hover:bg-teal-50 border border-slate-100 hover:border-teal-200 transition-all group">
+                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform ${link.color}">
+                                <i class="${link.icon} text-lg"></i>
+                            </div>
+                            <span class="font-semibold text-slate-700 group-hover:text-teal-800 flex-1">${link.label}</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-slate-300 group-hover:text-teal-500 text-sm"></i>
+                        </a>
+                    `;
+                } else {
+                    // Tautan yang belum tersedia (terkunci)
+                    linksContainer.innerHTML += `
+                        <div class="flex items-center gap-4 p-3 rounded-xl bg-slate-50/40 border border-slate-100/50 cursor-not-allowed select-none">
+                            <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-300">
+                                <i class="${link.icon} text-lg"></i>
+                            </div>
+                            <div class="flex-1 flex flex-col">
+                                <span class="font-semibold text-slate-400">${link.label}</span>
+                                <span class="text-[10px] text-slate-400/80 font-medium italic">Belum Tersedia</span>
+                            </div>
+                            <i class="fa-solid fa-lock text-slate-200 text-xs"></i>
+                        </div>
+                    `;
+                }
+            });
+            
+            const modal = document.getElementById('inst-modal');
+            const content = document.getElementById('inst-modal-content');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Animasi membesar (pop in)
+            setTimeout(() => {
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('inst-modal');
+            const content = document.getElementById('inst-modal-content');
+            
+            // Animasi mengecil (pop out)
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300); // Sinkron dengan durasi CSS transition
+        }
+    </script>
 </body>
 </html>
