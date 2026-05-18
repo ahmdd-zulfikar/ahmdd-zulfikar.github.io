@@ -149,12 +149,12 @@
 
         // ==========================================
         // DATA KISI-KISI TERSTRUKTUR (FIKIH KELAS 7)
-        // SETIAP INDIKATOR MEMILIKI 3 SOAL
+        // Telah disesuaikan 100% dengan urutan kolom PDF
         // ==========================================
         const kisiKisiData = [
-            // --- KELOMPOK 1: SHALAT JUM'AT ---
+            // --- KELOMPOK 1: SHALAT JUM'AT (17 Indikator) ---
             {
-                no: 1, tp: CP_TEXT, rowspan_tp: 15, materi: "Pengertian shalat Jum'at", rowspan_materi: 1, 
+                no: 1, tp: CP_TEXT, rowspan_tp: 17, materi: "Pengertian shalat Jum'at",
                 indikator: "Disajikan suatu pernyataan mengenai pelaksanaan Sholat Jum'at, peserta didik mampu menguraikan pengertian Sholat Jum'at secara tepat dalam bahasa yang baik dan benar", 
                 bentuk: "PG", nomor: "1",
                 questions: [
@@ -164,7 +164,7 @@
                 ]
             },
             {
-                no: 2, materi: "Hukum pelaksanaan shalat Jumat", rowspan_materi: 2,
+                materi: "Hukum pelaksanaan shalat Jumat",
                 indikator: "Disajikan nash Al-Qur'an Q.S. Al-Jumu'ah ayat 9 tentang perintah shalat Jumat, peserta didik mampu menjelaskan hukum pelaksanaan shalat Jumat dengan benar", 
                 bentuk: "PG", nomor: "2",
                 questions: [
@@ -174,7 +174,7 @@
                 ]
             },
             {
-                no: 3, 
+                materi: "Golongan yang tidak wajib melaksanakan shalat Jum'at",
                 indikator: "Disajikan kutipan hadis riwayat Abu Dawud tentang kewajiban shalat Jum'at, peserta didik dapat menjelaskan golongan yang tidak wajib melaksanakan shalat Jum'at dengan benar.", 
                 bentuk: "Uraian", nomor: "31",
                 questions: [
@@ -184,7 +184,7 @@
                 ]
             },
             {
-                no: 4, materi: "Syarat wajib shalat Jum'at", rowspan_materi: 2,
+                materi: "Syarat wajib shalat Jum'at",
                 indikator: "Disajikan ilustrasi tentang kondisi seseorang, peserta didik dapat menganalisis dan menentukan terpenuhi atau tidaknya syarat wajib shalat Jum'at dengan tepat.", 
                 bentuk: "PG", nomor: "3",
                 questions: [
@@ -194,17 +194,7 @@
                 ]
             },
             {
-                no: 5, 
-                indikator: "Disajikan beberapa pernyataan tentang kondisi seseorang, peserta didik dapat menganalisis dan menentukan syarat wajib shalat Jum'at yang benar.", 
-                bentuk: "PG Komplek", nomor: "21",
-                questions: [
-                    { type: "PGK", text: "1. Manakah dari pernyataan di bawah ini yang termasuk ke dalam SYARAT WAJIB pelaksanaan shalat Jum'at? (Pilih dua jawaban benar)", options: ["Laki-laki", "Berjamaah minimal 40 orang", "Dilaksanakan pada waktu Dzuhur", "Sehat jasmani dan rohani"], answers: [0, 3], exp: "Berjamaah 40 orang dan waktu dzuhur adalah 'Syarat Sah', bukan 'Syarat Wajib'. Syarat wajib melekat pada kondisi personal individu (Islam, Laki-laki, Sehat, Baligh, Berakal, Mukim)." },
-                    { type: "PGK", text: "2. Berikut ini adalah keadaan-keadaan yang dapat MENGGUGURKAN kewajiban seseorang dari shalat Jum'at (Pilih dua jawaban benar):", options: ["Hilang akal (gila) atau pingsan", "Hamba sahaya (budak)", "Sedang berdagang di pasar", "Lupa tidak membawa peci"], answers: [0, 1], exp: "Hilang akal dan status sebagai hamba sahaya (budak) secara otomatis menggugurkan kewajiban shalat Jum'at. Berdagang di pasar saat azan Jumat justru diharamkan." },
-                    { type: "PGK", text: "3. Syarat wajib artinya syarat yang membuat seseorang dikenai beban (mukalaf) untuk shalat Jum'at. Manakah yang merupakan syarat wajib tersebut? (Pilih dua jawaban benar):", options: ["Berakal sehat", "Mandi sebelum ke masjid", "Menetap / Mukim (bukan musafir)", "Mendengarkan khutbah dengan tenang"], answers: [0, 2], exp: "Berakal sehat dan menetap (mukim) adalah syarat wajib. Mandi adalah sunnah, dan mendengarkan khutbah adalah adab/tata krama Jum'at." }
-                ]
-            },
-            {
-                no: 6, materi: "Syarat sah shalat jum'at, jumlah jamaah (40 orang muqim)", rowspan_materi: 3,
+                materi: "Syarat sah shalat jum'at, jumlah jamaah (40 orang muqim)", rowspan_materi: 2,
                 indikator: "Disajikan ilustrasi tentang pelaksanaan shalat Jum'at di suatu tempat, peserta didik dapat menganalisis terpenuhi atau tidaknya syarat sah shalat Jum'at berdasarkan kondisi yang diberikan.", 
                 bentuk: "PG", nomor: "4",
                 questions: [
@@ -214,7 +204,6 @@
                 ]
             },
             {
-                no: 7, 
                 indikator: "Disajikan kasus jumlah jamaah lebih dari 40 orang sebagian ada musafir, peserta didik mampu menganalisis sah atau tidaknya sholat Jumat.", 
                 bentuk: "PG", nomor: "5",
                 questions: [
@@ -224,17 +213,17 @@
                 ]
             },
             {
-                no: 8, 
-                indikator: "Disajikan beberapa pernyataan tentang ketentuan shalat Jum'at, peserta didik dapat menyebutkan dua pernyataan yang termasuk syarat sah shalat Jum'at dengan benar.", 
-                bentuk: "PG Komplek", nomor: "22",
+                materi: "Syarat wajib shalat Jum'at",
+                indikator: "Disajikan beberapa pernyataan tentang kondisi seseorang, peserta didik dapat menganalisis dan menentukan syarat wajib shalat Jum'at yang benar.", 
+                bentuk: "PG Komplek", nomor: "21",
                 questions: [
-                    { type: "PGK", text: "1. Dari daftar berikut, manakah yang merupakan SYARAT SAH dilaksanakannya shalat Jum'at? (Pilih dua jawaban benar)", options: ["Mandi sunnah sebelum berangkat ke masjid", "Dilaksanakan secara berjamaah di kawasan pemukiman", "Didahului oleh dua khutbah Jum'at", "Memakai pakaian yang putih dan wangi"], answers: [1, 2], exp: "Dilaksanakan berjamaah di area mukim dan didahului dua khutbah adalah rukun/syarat sah agar ibadah Jumatnya sah. Sedangkan mandi dan parfum adalah sunnah." },
-                    { type: "PGK", text: "2. Pernyataan mana sajakah yang membedakan syarat SAH shalat Jum'at dari shalat fardhu lainnya? (Pilih dua jawaban benar)", options: ["Harus dikerjakan pada rentang waktu Dzuhur", "Harus dilakukan secara berjamaah (tidak sah jika sendirian/munfarid)", "Wajib didahului oleh penyampaian dua khutbah", "Harus menghadap arah kiblat"], answers: [1, 2], exp: "Shalat fardhu lain sah dikerjakan sendirian, tapi Jumat wajib berjamaah. Shalat fardhu lain tidak butuh khutbah, tapi Jumat tidak akan sah tanpa didahului dua khutbah. Menghadap kiblat dan masuk waktu dzuhur adalah syarat sah shalat secara umum." },
-                    { type: "PGK", text: "3. Agar shalat Jum'at bernilai sah di mata syariat, suatu wilayah harus memastikan dua hal mutlak berikut ini terpenuhi: (Pilih dua jawaban benar)", options: ["Jumlah jamaah laki-laki mukim minimal 40 orang (mazhab Syafi'i)", "Terdapat khatib yang menyampaikan rukun-rukun khutbah sebelum shalat", "Seluruh jamaah menggunakan sorban panjang", "Masjidnya harus dibangun dari donasi masyarakat penuh"], answers: [0, 1], exp: "Kuota minimal 40 jamaah mukim dan keberadaan rukun khutbah merupakan pondasi syarat sahnya didirikannya shalat Jum'at di suatu tempat." }
+                    { type: "PGK", text: "1. Manakah dari pernyataan di bawah ini yang termasuk ke dalam SYARAT WAJIB pelaksanaan shalat Jum'at? (Pilih dua jawaban benar)", options: ["Laki-laki", "Berjamaah minimal 40 orang", "Dilaksanakan pada waktu Dzuhur", "Sehat jasmani dan rohani"], answers: [0, 3], exp: "Berjamaah 40 orang dan waktu dzuhur adalah 'Syarat Sah', bukan 'Syarat Wajib'. Syarat wajib melekat pada kondisi personal individu (Islam, Laki-laki, Sehat, Baligh, Berakal, Mukim)." },
+                    { type: "PGK", text: "2. Berikut ini adalah keadaan-keadaan yang dapat MENGGUGURKAN kewajiban seseorang dari shalat Jum'at (Pilih dua jawaban benar):", options: ["Hilang akal (gila) atau pingsan", "Hamba sahaya (budak)", "Sedang berdagang di pasar", "Lupa tidak membawa peci"], answers: [0, 1], exp: "Hilang akal dan status sebagai hamba sahaya (budak) secara otomatis menggugurkan kewajiban shalat Jum'at. Berdagang di pasar saat azan Jumat justru diharamkan." },
+                    { type: "PGK", text: "3. Syarat wajib artinya syarat yang membuat seseorang dikenai beban (mukalaf) untuk shalat Jum'at. Manakah yang merupakan syarat wajib tersebut? (Pilih dua jawaban benar):", options: ["Berakal sehat", "Mandi sebelum ke masjid", "Menetap / Mukim (bukan musafir)", "Mendengarkan khutbah dengan tenang"], answers: [0, 2], exp: "Berakal sehat dan menetap (mukim) adalah syarat wajib. Mandi adalah sunnah, dan mendengarkan khutbah adalah adab/tata krama Jum'at." }
                 ]
             },
             {
-                no: 9, materi: "Amalan-amalan sunnah yang dianjurkan sebelum shalat Jum'at", rowspan_materi: 1,
+                materi: "Amalan-amalan sunnah yang dianjurkan sebelum shalat Jum'at",
                 indikator: "Disajikan ilustrasi tentang persiapan seseorang sebelum melaksanakan shalat Jum'at, peserta didik dapat menentukan amalan-amalan sunnah yang dianjurkan sebelum shalat Jum'at dengan tepat.", 
                 bentuk: "PG", nomor: "6",
                 questions: [
@@ -244,7 +233,17 @@
                 ]
             },
             {
-                no: 10, materi: "Pengertian khutbah Jum'at", rowspan_materi: 1,
+                materi: "syarat sah shalat Jum'at",
+                indikator: "Disajikan beberapa pernyataan tentang ketentuan shalat Jum'at, peserta didik dapat menyebutkan dua pernyataan yang termasuk syarat sah shalat Jum'at dengan benar.", 
+                bentuk: "PG Komplek", nomor: "22",
+                questions: [
+                    { type: "PGK", text: "1. Dari daftar berikut, manakah yang merupakan SYARAT SAH dilaksanakannya shalat Jum'at? (Pilih dua jawaban benar)", options: ["Mandi sunnah sebelum berangkat ke masjid", "Dilaksanakan secara berjamaah di kawasan pemukiman", "Didahului oleh dua khutbah Jum'at", "Memakai pakaian yang putih dan wangi"], answers: [1, 2], exp: "Dilaksanakan berjamaah di area mukim dan didahului dua khutbah adalah rukun/syarat sah agar ibadah Jumatnya sah. Sedangkan mandi dan parfum adalah sunnah." },
+                    { type: "PGK", text: "2. Pernyataan mana sajakah yang membedakan syarat SAH shalat Jum'at dari shalat fardhu lainnya? (Pilih dua jawaban benar)", options: ["Harus dikerjakan pada rentang waktu Dzuhur", "Harus dilakukan secara berjamaah (tidak sah jika sendirian/munfarid)", "Wajib didahului oleh penyampaian dua khutbah", "Harus menghadap arah kiblat"], answers: [1, 2], exp: "Shalat fardhu lain sah dikerjakan sendirian, tapi Jumat wajib berjamaah. Shalat fardhu lain tidak butuh khutbah, tapi Jumat tidak akan sah tanpa didahului dua khutbah. Menghadap kiblat dan masuk waktu dzuhur adalah syarat sah shalat secara umum." },
+                    { type: "PGK", text: "3. Agar shalat Jum'at bernilai sah di mata syariat, suatu wilayah harus memastikan dua hal mutlak berikut ini terpenuhi: (Pilih dua jawaban benar)", options: ["Jumlah jamaah laki-laki mukim minimal 40 orang (mazhab Syafi'i)", "Terdapat khatib yang menyampaikan rukun-rukun khutbah sebelum shalat", "Seluruh jamaah menggunakan sorban panjang", "Masjidnya harus dibangun dari donasi masyarakat penuh"], answers: [0, 1], exp: "Kuota minimal 40 jamaah mukim dan keberadaan rukun khutbah merupakan pondasi syarat sahnya didirikannya shalat Jum'at di suatu tempat." }
+                ]
+            },
+            {
+                materi: "pengertian khutbah Jum'at dengan benar.",
                 indikator: "Disajikan pernyataan atau uraian tentang khutbah Jum'at, peserta didik dapat menjelaskan pengertian khutbah Jum'at dengan benar.", 
                 bentuk: "PG", nomor: "7",
                 questions: [
@@ -254,7 +253,7 @@
                 ]
             },
             {
-                no: 11, materi: "Syarat-syarat khutbah Jum'at", rowspan_materi: 1,
+                materi: "syarat-syarat khutbah Jum'at",
                 indikator: "Disajikan ilustrasi tentang pelaksanaan khutbah Jum'at, peserta didik dapat menganalisis kesesuaian pelaksanaan khutbah Jum'at dengan syarat-syarat khutbah Jum'at secara tepat.", 
                 bentuk: "PG", nomor: "8",
                 questions: [
@@ -264,7 +263,7 @@
                 ]
             },
             {
-                no: 12, materi: "Rukun khutbah Jum'at", rowspan_materi: 2,
+                materi: "Rukun khutbah Jum'at",
                 indikator: "Disajikan pernyataan tentang pelaksanaan khutbah Jum'at, peserta didik dapat menganalisis bagian khutbah yang termasuk rukun khutbah Jum'at dengan tepat.", 
                 bentuk: "PG", nomor: "9",
                 questions: [
@@ -274,7 +273,7 @@
                 ]
             },
             {
-                no: 13, 
+                materi: "Rukun khutbah Jum'at",
                 indikator: "Disajikan ilustrasi tentang pelaksanaan khutbah Jum'at, peserta didik dapat menyebutkan rukun khutbah jum'at dengan tepat.", 
                 bentuk: "Uraian", nomor: "32",
                 questions: [
@@ -284,7 +283,7 @@
                 ]
             },
             {
-                no: 14, materi: "Adab ketika khutbah sedang berlangsung", rowspan_materi: 1,
+                materi: "Adab ketika khutbah sedang berlangsung",
                 indikator: "Disajikan ilustrasi situasi ketika khutbah Jum'at sedang berlangsung, peserta didik dapat menentukan sikap yang sesuai dengan adab ketika khutbah berlangsung dengan tepat.", 
                 bentuk: "PG", nomor: "10",
                 questions: [
@@ -294,7 +293,7 @@
                 ]
             },
             {
-                no: 15, materi: "Hal-hal yang membatalkan / mengurangi pahala shalat Jum'at", rowspan_materi: 2,
+                materi: "Hal-hal yang membatalkan shalat Jum'at dan pahala shalat Jum'at", rowspan_materi: 2,
                 indikator: "Disajikan ilustrasi atau kasus tentang pelaksanaan shalat Jum'at, peserta didik dapat menganalisis perbuatan yang menyebabkan shalat Jum'at menjadi tidak sah atau batal dengan tepat.", 
                 bentuk: "PG", nomor: "11",
                 questions: [
@@ -303,10 +302,29 @@
                     { type: "PG", text: "3. Budi telat datang ke masjid. Ia baru takbiratul ihram ketika Imam sudah bangun dari rukuk pada rakaat KEDUA. Apa yang harus Budi lakukan setelah imam salam?", options: ["A. Menambah 1 rakaat sendiri agar genap 2 rakaat (sebagai shalat Jumat)", "B. Langsung salam mengikuti imam", "C. Berdiri lagi dan mengerjakan shalat Dzuhur 4 rakaat utuh secara mandiri", "D. Shalatnya batal sama sekali"], answer: 2, exp: "Seseorang dianggap 'Mendapatkan' jamaah shalat Jumat jika ia minimal ikut Rukuk bersama imam di rakaat kedua. Jika ia tertinggal rukuk terakhir tersebut, maka ia wajib menyempurnakan shalatnya menjadi Dzuhur 4 rakaat setelah imam salam." }
                 ]
             },
-
-            // --- KELOMPOK 2: SHALAT JAMAK & QASHAR ---
             {
-                no: 16, tp: CP_TEXT, rowspan_tp: 11, materi: "Pengertian shalat Jamak", rowspan_materi: 1,
+                indikator: "Disajikan beberapa pernyataan tentang pelaksanaan shalat Jum'at, peserta didik dapat menyebutkan hal-hal yang dapat mengurangi pahala shalat Jum'at dengan benar.", 
+                bentuk: "PG Komplek", nomor: "23",
+                questions: [
+                    { type: "PGK", text: "1. Manakah dari perbuatan berikut ini yang dapat menyebabkan pahala ibadah shalat Jum'at menjadi sia-sia (lagha) menurut hadis Nabi? (Pilih dua jawaban benar)", options: ["Bermain kerikil atau HP saat khatib sedang berkhutbah", "Menegur orang lain untuk diam saat khutbah berlangsung", "Memejamkan mata karena khusyuk", "Berjalan dengan tenang menuju masjid"], answers: [0, 1], exp: "Sabda Nabi SAW menyebutkan bahwa menyentuh kerikil (bermain-main) atau bahkan berkata 'diamlah' kepada teman saat khutbah akan membuat Jumatnya sia-sia (hilang pahalanya)." },
+                    { type: "PGK", text: "2. Saat pelaksanaan khutbah Jum'at berlangsung, jamaah sangat dilarang melakukan aktivitas yang mengganggu. Hal yang diharamkan dan dapat membatalkan pahala di antaranya adalah... (Pilih dua jawaban benar)", options: ["Berbicara atau mengobrol dengan teman sebelah", "Makan dan minum cemilan ringan", "Duduk bersila menghadap kiblat", "Memperhatikan khatib dengan khusyuk"], answers: [0, 1], exp: "Mengobrol dan makan/minum memecah konsentrasi (inshat) yang diwajibkan saat mendengarkan khutbah. Hal ini melanggar rukun mendengar khutbah sehingga pahalanya hilang." },
+                    { type: "PGK", text: "3. Apa saja adab mendengarkan khutbah agar tidak kehilangan pahala shalat Jum'at? (Pilih dua jawaban benar)", options: ["Diam dan menyimak dengan seksama (inshat)", "Tidak melakukan gerakan yang sia-sia seperti memainkan kuku", "Membaca Al-Qur'an secara tartil agar dapat pahala ganda", "Tidur terlentang di shaf belakang"], answers: [0, 1], exp: "Diam total dan tidak melakukan gerakan sia-sia adalah adab mutlak. Membaca Al-Qur'an atau berdzikir secara lisan saat khatib berkhutbah juga dilarang karena dapat mengalihkan perhatian dari khutbah." }
+                ]
+            },
+            {
+                materi: "hikmah khutbah dan shalat Jum'at",
+                indikator: "Disajikan ilustrasi tentang pelaksanaan khutbah Jum'at, peserta didik dapat menjelaskan hikmah pelaksanaan khutbah Jum'at dalam kehidupan sehari-hari dengan benar.", 
+                bentuk: "Uraian", nomor: "33",
+                questions: [
+                    { type: "ESSAY", text: "1. Mengapa sebelum shalat Jum'at didirikan, syariat mewajibkan adanya penyampaian dua khutbah terlebih dahulu? Jelaskan hikmahnya bagi kehidupan umat Islam!", exp: "Jawab: Khutbah Jum'at berfungsi sebagai forum pengingat (tazkirah) dan sarana edukasi rutin mingguan. Hikmahnya adalah untuk senantiasa menyegarkan kembali iman jamaah, memberikan wasiat ketaqwaan, serta membahas isu-isu sosial keagamaan yang relevan agar umat Islam tetap berada di jalan yang lurus." },
+                    { type: "ESSAY", text: "2. Pelaksanaan shalat Jum'at yang mewajibkan seluruh pria muslim berkumpul di satu masjid memiliki dampak sosial yang besar. Sebutkan 2 (dua) hikmah sosial dari syariat tersebut!", exp: "Jawab: 1) Mempererat ukhuwah Islamiyah (persaudaraan) karena warga saling bertemu dan bertegur sapa setiap pekan. 2) Menghilangkan sekat kasta sosial, karena kaya dan miskin duduk berdampingan di shaf yang sama untuk tunduk kepada Allah." },
+                    { type: "ESSAY", text: "3. Jelaskan bagaimana pemahaman terhadap isi khutbah Jum'at dapat mencegah seorang muslim dari perbuatan maksiat dalam kesehariannya!", exp: "Jawab: Khutbah Jum'at selalu berisi 'Wasiat Taqwa' (perintah menjalankan aturan Allah dan menjauhi larangan-Nya). Jika jamaah menyimak dengan sungguh-sungguh, nasihat tersebut akan membekas di hati dan menjadi rem spiritual (pengendali diri) agar ia takut melakukan maksiat selama seminggu ke depan." }
+                ]
+            },
+
+            // --- KELOMPOK 2: SHALAT JAMAK & QASHAR (10 Indikator) ---
+            {
+                no: 2, tp: CP_TEXT, rowspan_tp: 10, materi: "Pengertian shalat Jamak",
                 indikator: "Disajikan pernyataan tentang pelaksanaan shalat jamak, peserta didik dapat menjelaskan pengertian shalat jamak dengan benar.", 
                 bentuk: "PG", nomor: "12",
                 questions: [
@@ -316,7 +334,7 @@
                 ]
             },
             {
-                no: 17, materi: "Pembagian shalat jamak", rowspan_materi: 1,
+                materi: "Pembagian shalat jamak",
                 indikator: "Disajikan ilustrasi tentang kondisi seseorang yang sedang melakukan perjalanan jauh, peserta didik dapat menganalisis pembagian shalat jamak dengan tepat.", 
                 bentuk: "PG", nomor: "13",
                 questions: [
@@ -326,7 +344,7 @@
                 ]
             },
             {
-                no: 18, materi: "Syarat shalat jamak & qashar", rowspan_materi: 3,
+                materi: "Syarat shalat jamak",
                 indikator: "Disajikan beberapa pernyataan tentang ketentuan shalat jamak, peserta didik dapat menyebutkan syarat diperbolehkannya melaksanakan shalat jamak dengan memilih dua jawaban yang benar.", 
                 bentuk: "PG Komplek", nomor: "24",
                 questions: [
@@ -336,27 +354,7 @@
                 ]
             },
             {
-                no: 19, 
-                indikator: "Disajikan ilustrasi tentang seseorang yang sedang melakukan perjalanan (safar), peserta didik dapat menyebutkan syarat diperbolehkannya melaksanakan shalat jamak dan qashar berdasarkan ketentuan fikih dengan tepat.", 
-                bentuk: "PG Komplek", nomor: "26",
-                questions: [
-                    { type: "PGK", text: "1. Agar seorang musafir diizinkan Allah mengambil keringanan shalat Jamak dan Qashar, perjalanannya wajib memenuhi beberapa kriteria. Apa sajakah itu? (Pilih dua jawaban benar)", options: ["Perjalanan dilakukan untuk niat maksiat (seperti judi di luar kota)", "Jarak perjalanannya mencapai batas minimal jauhnya (sekitar 80,6 km)", "Tujuan perjalanannya jelas dan bukan untuk kemaksiatan (Mubah/Baik)", "Hanya menggunakan transportasi berjalan kaki"], answers: [1, 2], exp: "Syarat utamanya adalah: 1) Jaraknya sudah melewati 2 marhalah (>80 km). 2) Niat musafirnya legal/mubah, tidak berniat untuk maksiat/dosa." },
-                    { type: "PGK", text: "2. Status sebagai musafir yang berhak mengqashar shalat akan GUGUR/BERAKHIR apabila terjadi hal-hal berikut ini: (Pilih dua jawaban benar)", options: ["Musafir berniat untuk menetap di kota tujuan selama lebih dari 4 hari (menurut Syafi'i)", "Telah kembali dan tiba lagi di tapal batas kota tempat tinggal asalnya", "Beristirahat tidur di rest area semalam", "Mengganti kendaraan bus dengan kereta"], answers: [0, 1], exp: "Jika ia niat mukim >4 hari di tujuan, ia dianggap warga sana (bukan musafir). Begitu pula bila ia telah menjejakkan kaki masuk batas kota tempat asalnya, ia otomatis jadi warga mukim lagi." },
-                    { type: "PGK", text: "3. Dalam menetapkan tujuan dan jarak safar yang sah, hukum fikih menegaskan prinsip-prinsip berikut ini: (Pilih dua jawaban benar)", options: ["Perjalanan orang yang kabur dari tanggungan hutang wajib tidak sah diqashar", "Seseorang yang berkelana tanpa tujuan arah yang jelas (Haim) tetap boleh qashar", "Musafir boleh mulai mengqashar asalkan ia sudah keluar dari batas desa/kotanya", "Jarak dihitung dari dalam kamar rumah"], answers: [0, 2], exp: "Qashar tidak berlaku bagi orang maksiat/buronan. Hitungan sah jarak dimulai saat musafir keluar melewati palang batas desa/kelurahan asalnya, bukan saat masih di garasi rumah." }
-                ]
-            },
-            {
-                no: 20, 
-                indikator: "Disajikan ilustrasi tentang perjalanan seseorang, peserta didik dapat menjelaskan ketentuan jarak perjalanan yang membolehkan seseorang melaksanakan salat dengan cara jamak dan qasar dengan benar", 
-                bentuk: "PG", nomor: "15",
-                questions: [
-                    { type: "PG", text: "1. Mayoritas ulama (Jumhur) menetapkan batas minimal jarak perjalanan (safar) agar seseorang diperbolehkan MENGQASHAR shalat adalah sejauh '2 marhalah'. Dalam konversi ukuran kilometer modern, jarak tersebut disetarakan dengan ....", options: ["A. 15 km", "B. 40 km", "C. 80,6 km hingga 90 km", "D. 150 km"], answer: 2, exp: "Ulama fikih menghitung 2 marhalah (jarak tempuh 2 hari perjalanan unta normal padang pasir) setara dengan sekitar 80,6 kilometer (dibulatkan >81 km)." },
-                    { type: "PG", text: "2. Pada zaman Nabi Muhammad SAW, ukuran satuan 2 marhalah secara harfiah merupakan patokan jarak yang dapat ditempuh dengan cara ....", options: ["A. Berjalan kaki secara cepat selama 1 jam tanpa henti", "B. Mengendarai unta muatan normal dengan durasi berjalan 2 hari", "C. Berlari kencang selama seharian penuh", "D. Mengendarai kuda perang selama 3 jam"], answer: 1, exp: "Satu marhalah adalah jarak tempuh satu etape perjalanan harian unta dengan beban barang wajar. Maka 2 marhalah adalah 2 etape (kurang lebih 2 hari 2 malam perjalanan)." },
-                    { type: "PG", text: "3. Jika Budi berkendara antarkota dengan jarak pasti sejauh 55 kilometer, maka berdasarkan ukuran syarat Qashar (minimal 80,6 km), Budi ....", options: ["A. Boleh Qashar dan Jamak secara bebas", "B. Wajib Qashar shalat", "C. Hanya mubah (boleh-boleh saja) qashar asal bawa bekal", "D. Tidak memenuhi syarat minimal untuk boleh meng-Qashar shalat"], answer: 3, exp: "Karena jaraknya 55 km (kurang dari batas minimal mutlak 80,6 km), Budi belum berstatus musafir penuh. Ia tidak diizinkan MENGQASHAR shalat (jumlah rakaat harus tetap 4)." }
-                ]
-            },
-            {
-                no: 21, materi: "Shalat yang boleh & tidak boleh dijamak/diqashar", rowspan_materi: 2,
+                materi: "Shalat yang boleh dijamak dan diqasar",
                 indikator: "Disajikan ilustrasi tentang seseorang yang sedang melakukan perjalanan jauh, peserta didik dapat menentukan salat yang boleh dijamak dan diqasar dengan tepat.", 
                 bentuk: "PG", nomor: "14",
                 questions: [
@@ -366,7 +364,7 @@
                 ]
             },
             {
-                no: 22, 
+                materi: "Shalat yang tidak boleh di qosor",
                 indikator: "Disajikan beberapa jenis shalat wajib, peserta didik dapat menganalisis dan menentukan dua jenis shalat yang tidak boleh diqashar dengan benar.", 
                 bentuk: "PG Komplek", nomor: "25",
                 questions: [
@@ -376,7 +374,27 @@
                 ]
             },
             {
-                no: 23, materi: "Dalil dan Perbedaan shalat qashar", rowspan_materi: 2,
+                materi: "Syarat salat jamak dan qasar",
+                indikator: "Disajikan ilustrasi tentang seseorang yang sedang melakukan perjalanan (safar), peserta didik dapat menyebutkan syarat diperbolehkannya melaksanakan shalat jamak dan qashar berdasarkan ketentuan fikih dengan tepat.", 
+                bentuk: "PG Komplek", nomor: "26",
+                questions: [
+                    { type: "PGK", text: "1. Agar seorang musafir diizinkan Allah mengambil keringanan shalat Jamak dan Qashar, perjalanannya wajib memenuhi beberapa kriteria. Apa sajakah itu? (Pilih dua jawaban benar)", options: ["Perjalanan dilakukan untuk niat maksiat (seperti judi di luar kota)", "Jarak perjalanannya mencapai batas minimal jauhnya (sekitar 80,6 km)", "Tujuan perjalanannya jelas dan bukan untuk kemaksiatan (Mubah/Baik)", "Hanya menggunakan transportasi berjalan kaki"], answers: [1, 2], exp: "Syarat utamanya adalah: 1) Jaraknya sudah melewati 2 marhalah (>80 km). 2) Niat musafirnya legal/mubah, tidak berniat untuk maksiat/dosa." },
+                    { type: "PGK", text: "2. Status sebagai musafir yang berhak mengqashar shalat akan GUGUR/BERAKHIR apabila terjadi hal-hal berikut ini: (Pilih dua jawaban benar)", options: ["Musafir berniat untuk menetap di kota tujuan selama lebih dari 4 hari (menurut Syafi'i)", "Telah kembali dan tiba lagi di tapal batas kota tempat tinggal asalnya", "Beristirahat tidur di rest area semalam", "Mengganti kendaraan bus dengan kereta"], answers: [0, 1], exp: "Jika ia niat mukim >4 hari di tujuan, ia dianggap warga sana (bukan musafir). Begitu pula bila ia telah menjejakkan kaki masuk batas kota tempat asalnya, ia otomatis jadi warga mukim lagi." },
+                    { type: "PGK", text: "3. Dalam menetapkan tujuan dan jarak safar yang sah, hukum fikih menegaskan prinsip-prinsip berikut ini: (Pilih dua jawaban benar)", options: ["Perjalanan orang yang kabur dari tanggungan hutang wajib tidak sah diqashar", "Seseorang yang berkelana tanpa tujuan arah yang jelas (Haim) tetap boleh qashar", "Musafir boleh mulai mengqashar asalkan ia sudah keluar dari batas desa/kotanya", "Jarak dihitung dari dalam kamar rumah"], answers: [0, 2], exp: "Qashar tidak berlaku bagi orang maksiat/buronan. Hitungan sah jarak dimulai saat musafir keluar melewati palang batas desa/kelurahan asalnya, bukan saat masih di garasi rumah." }
+                ]
+            },
+            {
+                materi: "Syarat salat jamak dan qasar",
+                indikator: "Disajikan ilustrasi tentang perjalanan seseorang, peserta didik dapat menjelaskan ketentuan jarak perjalanan yang membolehkan seseorang melaksanakan salat dengan cara jamak dan qasar dengan benar", 
+                bentuk: "PG", nomor: "15",
+                questions: [
+                    { type: "PG", text: "1. Mayoritas ulama (Jumhur) menetapkan batas minimal jarak perjalanan (safar) agar seseorang diperbolehkan MENGQASHAR shalat adalah sejauh '2 marhalah'. Dalam konversi ukuran kilometer modern, jarak tersebut disetarakan dengan ....", options: ["A. 15 km", "B. 40 km", "C. 80,6 km hingga 90 km", "D. 150 km"], answer: 2, exp: "Ulama fikih menghitung 2 marhalah (jarak tempuh 2 hari perjalanan unta normal padang pasir) setara dengan sekitar 80,6 kilometer (dibulatkan >81 km)." },
+                    { type: "PG", text: "2. Pada zaman Nabi Muhammad SAW, ukuran satuan 2 marhalah secara harfiah merupakan patokan jarak yang dapat ditempuh dengan cara ....", options: ["A. Berjalan kaki secara cepat selama 1 jam tanpa henti", "B. Mengendarai unta muatan normal dengan durasi berjalan 2 hari", "C. Berlari kencang selama seharian penuh", "D. Mengendarai kuda perang selama 3 jam"], answer: 1, exp: "Satu marhalah adalah jarak tempuh satu etape perjalanan harian unta dengan beban barang wajar. Maka 2 marhalah adalah 2 etape (kurang lebih 2 hari 2 malam perjalanan)." },
+                    { type: "PG", text: "3. Jika Budi berkendara antarkota dengan jarak pasti sejauh 55 kilometer, maka berdasarkan ukuran syarat Qashar (minimal 80,6 km), Budi ....", options: ["A. Boleh Qashar dan Jamak secara bebas", "B. Wajib Qashar shalat", "C. Hanya mubah (boleh-boleh saja) qashar asal bawa bekal", "D. Tidak memenuhi syarat minimal untuk boleh meng-Qashar shalat"], answer: 3, exp: "Karena jaraknya 55 km (kurang dari batas minimal mutlak 80,6 km), Budi belum berstatus musafir penuh. Ia tidak diizinkan MENGQASHAR shalat (jumlah rakaat harus tetap 4)." }
+                ]
+            },
+            {
+                materi: "Dalil tentang shalat qasar",
                 indikator: "Disajikan beberapa pernyataan atau potongan dalil tentang shalat qashar, peserta didik dapat menentukan dalil yang menjadi dasar disyariatkannya shalat qashar dengan tepat.", 
                 bentuk: "PG", nomor: "16",
                 questions: [
@@ -386,7 +404,7 @@
                 ]
             },
             {
-                no: 24, 
+                materi: "Perbedaan shalat jamak dan shalat qasar",
                 indikator: "Disajikan ilustrasi perjalanan seseorang, peserta didik dapat menganalisis perbedaan shalat jamak dan shalat qasar dengan tepat.", 
                 bentuk: "PG", nomor: "17",
                 questions: [
@@ -396,7 +414,7 @@
                 ]
             },
             {
-                no: 25, materi: "Tata cara pelaksanaan shalat jamak qashar", rowspan_materi: 1,
+                materi: "Tata cara pelaksanaan shalat jamak qashar",
                 indikator: "Disajikan ilustrasi tentang seseorang yang sedang melakukan perjalanan jauh (musafir), peserta didik dapat menuliskan niat shalat jamak qashar yang sesuai dengan kondisi tersebut dengan benar.", 
                 bentuk: "Uraian", nomor: "34",
                 questions: [
@@ -406,9 +424,9 @@
                 ]
             },
 
-            // --- KELOMPOK 3: SHALAT KONDISI DARURAT & SUNNAH ---
+            // --- KELOMPOK 3: SHALAT KONDISI DARURAT & SUNNAH (8 Indikator) ---
             {
-                no: 26, tp: CP_TEXT, rowspan_tp: 10, materi: "Tata cara Shalat bagi orang sakit", rowspan_materi: 1,
+                no: 3, tp: CP_TEXT, rowspan_tp: 8, materi: "Tata cara Shalat bagi orang sakit",
                 indikator: "Disajikan sebuah hadis tentang tata cara shalat bagi orang yang sedang sakit, peserta didik dapat menganalisis dan menjelaskan ketentuan pelaksanaan shalat dalam keadaan sakit sesuai dengan kandungan hadis.", 
                 bentuk: "PG", nomor: "18",
                 questions: [
@@ -418,7 +436,7 @@
                 ]
             },
             {
-                no: 27, materi: "Ketentuan shalat khauf & kendaraan", rowspan_materi: 2,
+                materi: "Ketentuan shalat khauf & kendaraan", rowspan_materi: 2,
                 indikator: "Disajikan ilustrasi situasi yang menimbulkan rasa khawatir atau takut ketika melaksanakan shalat, peserta didik dapat menyebutkan penyebab rasa khawatir atau takut dalam pelaksanaan shalat khauf dengan tepat.", 
                 bentuk: "PG", nomor: "27",
                 questions: [
@@ -428,7 +446,6 @@
                 ]
             },
             {
-                no: 28, 
                 indikator: "Disajikan ilustrasi tentang seseorang yang shalat di atas kendaraan, peserta didik dapat menjelaskan hukum menghadap kiblat ketika shalat sunnah di atas kendaraan dengan tepat.", 
                 bentuk: "PG Komplek", nomor: "19",
                 questions: [
@@ -438,7 +455,7 @@
                 ]
             },
             {
-                no: 29, materi: "Macam-macam shalat sunnah", rowspan_materi: 1,
+                materi: "Macam-macam shalat sunnah",
                 indikator: "Disajikan beberapa pernyataan tentang macam-macam shalat sunnah, peserta didik dapat mengidentifikasi shalat sunnah muakkadah dengan benar.", 
                 bentuk: "PG", nomor: "28",
                 questions: [
@@ -448,7 +465,7 @@
                 ]
             },
             {
-                no: 30, materi: "Shalat tahiyyatul masjid", rowspan_materi: 1,
+                materi: "Shalat tahiyyatul masjid",
                 indikator: "Disajikan ilustrasi kondisi seseorang saat memasuki masjid, peserta didik dapat menentukan pelaksanaan shalat tahiyyatul masjid yang sesuai dengan syarat-syaratnya dengan tepat.", 
                 bentuk: "PG", nomor: "20",
                 questions: [
@@ -458,7 +475,7 @@
                 ]
             },
             {
-                no: 31, materi: "Shalat tahajjud", rowspan_materi: 1,
+                materi: "Shalat tahajjud",
                 indikator: "Disajikan beberapa pernyataan/ilustrasi tentang shalat tahajud, peserta didik dapat menganalisis ketentuan shalat tahajud dan menentukan dua pernyataan yang benar.", 
                 bentuk: "PG Komplek", nomor: "29",
                 questions: [
@@ -468,7 +485,7 @@
                 ]
             },
             {
-                no: 32, materi: "Keutamaan sholat Dhuha", rowspan_materi: 1,
+                materi: "keutamaan sholat Dhuha",
                 indikator: "Disajikan beberapa pernyataan tentang pelaksanaan dan manfaat sholat Dhuha, peserta didik dapat menganalisis nilai-nilai keutamaan sholat Dhuha dan menentukan dua pernyataan yang paling tepat.", 
                 bentuk: "PG Komplek", nomor: "30",
                 questions: [
@@ -478,7 +495,7 @@
                 ]
             },
             {
-                no: 33, materi: "Sunnah-sunnah dalam shalat istisqa", rowspan_materi: 1,
+                materi: "sunnah-sunnah dalam shalat istisqa",
                 indikator: "Disajikan ilustrasi pelaksanaan shalat istisqa, peserta didik dapat menentukan sunnah-sunnah dalam shalat istisqa yang sesuai dengan situasi tersebut.", 
                 bentuk: "Uraian", nomor: "35",
                 questions: [
@@ -504,23 +521,23 @@
             let html = '';
 
             kisiKisiData.forEach((row, index) => {
-                html += `<tr class="hover:bg-gray-50 transition-colors duration-150 border-b border-black">`;
+                html += `<tr class="hover:bg-emerald-50 transition-colors duration-150 border-b border-black">`;
                 
-                // Merge kolom NO. berdasarkan Tujuan Pembelajaran
+                // NO dan Capaian Pembelajaran (Hanya dirender pada awal kelompok)
                 if (row.rowspan_tp) {
-                    const sectionNo = index === 0 ? 1 : (index === 15 ? 2 : 3);
-                    html += `<td rowspan="${row.rowspan_tp}" class="border-r border-black px-2 py-3 text-center align-top font-bold text-base">${sectionNo}</td>`;
-                }
-                
-                if (row.rowspan_tp) {
+                    html += `<td rowspan="${row.rowspan_tp}" class="border-r border-black px-2 py-3 text-center align-top font-bold text-base">${row.no}</td>`;
                     html += `<td rowspan="${row.rowspan_tp}" class="border-r border-black px-4 py-3 align-top whitespace-pre-wrap leading-relaxed text-justify">${row.tp}</td>`;
                 }
+                
+                // Materi Pokok (Mendukung rowspan untuk materi yang tergabung di PDF)
                 if (row.rowspan_materi) {
                     html += `<td rowspan="${row.rowspan_materi}" class="border-r border-black px-3 py-3 align-top font-semibold text-gray-700">${row.materi}</td>`;
+                } else if (row.materi) {
+                    html += `<td class="border-r border-black px-3 py-3 align-top font-semibold text-gray-700">${row.materi}</td>`;
                 }
                 
                 html += `
-                    <td class="border-r border-black px-3 py-3 align-top cursor-pointer group hover:bg-emerald-50 transition-colors" onclick="openModal(${index})">
+                    <td class="border-r border-black px-3 py-3 align-top cursor-pointer group hover:bg-emerald-100 transition-colors" onclick="openModal(${index})">
                         <span class="text-emerald-700 font-medium group-hover:text-emerald-900 group-hover:underline block leading-relaxed">${row.indikator}</span>
                         <span class="text-xs text-gray-400 font-sans mt-2 inline-block italic opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
                             <i data-lucide="layout-list" class="w-3 h-3 text-emerald-500"></i> Klik untuk 3 Contoh Soal
