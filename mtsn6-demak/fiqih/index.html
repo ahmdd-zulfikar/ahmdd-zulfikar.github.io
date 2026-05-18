@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Online</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    },
+                    colors: {
+                        teal: {
+                            850: '#0f5d56',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #f8fafc; /* Slate 50 */
+            color: #334155; /* Slate 700 */
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Islamic Pattern Overlay */
+        .pattern-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+
+        @keyframes fadeIn { 
+            to { opacity: 1; } 
+        }
+
+        /* Card Hover Effects */
+        .menu-card, .hover-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .menu-card:hover, .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-backdrop {
+            background-color: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(4px);
+            animation: fadeInModal 0.2s ease-out;
+        }
+        .modal-content {
+            animation: fadeInModal 0.3s ease-out forwards;
+        }
+
+        @keyframes fadeInModal { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-teal-200 selection:text-teal-900 overflow-x-hidden flex flex-col min-h-screen">
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Brand -->
+                <a href="https://ahmdd-zulfikar.github.io/mtsn6-demak/" target="_top" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <div class="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-book-open text-sm"></i>
+                    </div>
+                    <span class="font-heading font-bold text-lg tracking-wide text-slate-800">Belajar<span class="text-teal-600">Online</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <!-- Menu Terpilih (Active) -->
+                    <a href="https://ahmdd-zulfikar.github.io/mtsn6-demak/fiqih" target="_top" class="text-sm font-bold text-teal-600 relative after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-0.5 after:bg-teal-600 transition-colors">
+                        Materi Fiqih
+                    </a>
+                    <a href="https://ahmdd-zulfikar.github.io/mtsn6-demak/IPA" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Materi IPA
+                    </a>
+                    <a href="https://ahmdd-zulfikar.github.io/mtsn6-demak/formatif" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Uji Kompetensi
+                    </a>
+                    <a href="https://ahmdd-zulfikar.github.io/mtsn6-demak/nilai-siswa" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Rekap Nilai
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-slate-600 hover:text-teal-600 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full">
+            <div class="px-4 pt-4 pb-6 space-y-2">
+                <!-- Menu Terpilih Mobile (Active) -->
+                <a href="https://ahmdd-zulfikar.github.io/mtsn6-demak/fiqih" target="_top" class="block px-4 py-3 rounded-md text-base font-bold text-teal-700 bg-teal-50 border-l-4 border-teal-600 transition-colors">Materi Fiqih</a>
+                <a href="https://ahmdd-zulfikar.github.io/mtsn6-demak/IPA" target="_top" class="block px-4 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-teal-50 transition-colors">Materi IPA</a>
+                <a href="https://ahmdd-zulfikar.github.io/mtsn6-demak/formatif" target="_top" class="block px-4 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-teal-50 transition-colors">Uji Kompetensi</a>
+                <a href="https://ahmdd-zulfikar.github.io/mtsn6-demak/nilai-siswa" target="_top" class="block px-4 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-teal-50 transition-colors">Rekap Nilai</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= HERO SECTION ================= -->
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#beranda" class="block px-3 py-3 rounded-md text-base font-medium text-teal-600 bg-teal-50">Beranda</a>
+                <div class="px-3 py-2">
+                    <button onclick="document.getElementById('mobile-elearning-dropdown').classList.toggle('hidden'); this.querySelector('i.fa-chevron-down').classList.toggle('rotate-180');" class="flex justify-between items-center w-full text-left text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 mt-2 focus:outline-none">
+                        <span>E-Learning</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div id="mobile-elearning-dropdown" class="hidden space-y-1 pl-2 mt-3 mb-2 border-l-2 border-slate-100 ml-1">
+                        <a href="https://ahmdd-zulfikar.github.io/mtsn6-demak/fiqih" target="_top" class="block text-sm text-slate-600 py-2.5 pl-3 hover:text-teal-600 hover:bg-teal-50 rounded-r-md transition-colors"><i class="fa-solid fa-mosque w-5 text-teal-500"></i> Materi Fiqih</a>
+                        <a href="https://ahmdd-zulfikar.github.io/mtsn6-demak/IPA" target="_top" class="block text-sm text-slate-600 py-2.5 pl-3 hover:text-blue-600 hover:bg-blue-50 rounded-r-md transition-colors"><i class="fa-solid fa-flask-vial w-5 text-blue-500"></i> Materi IPA</a>
+                        <a href="https://ahmdd-zulfikar.github.io/mtsn6-demak/formatif" target="_top" class="block text-sm text-slate-600 py-2.5 pl-3 hover:text-amber-600 hover:bg-amber-50 rounded-r-md transition-colors"><i class="fa-solid fa-file-pen w-5 text-amber-500"></i> Uji Kompetensi</a>
+                        <a href="https://ahmdd-zulfikar.github.io/mtsn6-demak/nilai-siswa" target="_top" class="block text-sm text-slate-600 py-2.5 pl-3 hover:text-orange-600 hover:bg-orange-50 rounded-r-md transition-colors"><i class="fa-solid fa-chart-pie w-5 text-orange-500"></i> Rekap Nilai</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= HEADER / TOP SECTION ================= -->
+    <header class="w-full bg-teal-900 relative pt-32 pb-24 overflow-hidden pattern-bg">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-teal-900/90"></div>
+        <div class="container mx-auto px-6 relative z-10 max-w-4xl text-center fade-in">
+            <span class="inline-flex items-center gap-2 bg-teal-800/80 border border-teal-700 text-teal-100 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-6 shadow-sm">
+                <i class="fa-solid fa-book-bookmark text-amber-400"></i> Materi Pembelajaran
+            </span>
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 font-arabic" dir="rtl">الفقه الإسلامي</h2>
+            <h3 class="text-2xl md:text-3xl font-bold text-amber-400 mb-4 font-heading">Modul Pembelajaran Fiqih</h3>
+            <p class="text-teal-100/90 text-sm md:text-base max-w-lg mx-auto leading-relaxed font-light mb-2">
+                Pahami hukum Islam dengan mudah dan interaktif. Silakan pilih topik materi di bawah ini untuk memulai.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content: Topic Grid -->
+    <main id="modul" class="flex-grow w-full max-w-5xl px-6 pb-16 -mt-10 mx-auto relative z-20">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Card 1: Shalat Jumat -->
+            <div onclick="openSelectionModal()" class="cursor-pointer group fade-in delay-100 h-full">
+                <div class="menu-card bg-white border border-slate-200 rounded-2xl p-6 h-full flex flex-col items-center text-center shadow-sm hover:shadow-md relative overflow-hidden">
+                    <div class="w-14 h-14 bg-teal-50 rounded-xl flex items-center justify-center text-teal-600 mb-5 text-2xl group-hover:bg-teal-600 group-hover:text-white transition-all duration-300 shadow-sm border border-teal-100 group-hover:border-teal-600">
+                        <i class="fas fa-users-viewfinder"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2 font-heading group-hover:text-teal-700 transition-colors">Shalat Jumat</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Pelajari tata cara Shalat Jumat dan panduan Khutbah yang benar.</p>
+                    
+                    <div class="mt-auto w-full">
+                        <span class="flex items-center justify-center gap-2 w-full py-2.5 bg-slate-50 text-teal-700 text-xs font-semibold rounded-xl group-hover:bg-teal-50 border border-slate-100 group-hover:border-teal-200 transition-all">
+                            Buka Materi <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Shalat Jama' & Qasar -->
+            <div onclick="openJamaQasarModal()" class="cursor-pointer group fade-in delay-100 h-full">
+                <div class="menu-card bg-white border border-slate-200 rounded-2xl p-6 h-full flex flex-col items-center text-center shadow-sm hover:shadow-md relative overflow-hidden">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 mb-5 text-2xl group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm border border-blue-100 group-hover:border-blue-600">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2 font-heading group-hover:text-blue-700 transition-colors">Jama' & Qasar</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Keringanan shalat bagi musafir dalam perjalanan jauh.</p>
+                    
+                    <div class="mt-auto w-full">
+                        <span class="flex items-center justify-center gap-2 w-full py-2.5 bg-slate-50 text-blue-700 text-xs font-semibold rounded-xl group-hover:bg-blue-50 border border-slate-100 group-hover:border-blue-200 transition-all">
+                            Buka Materi <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Kondisi Darurat -->
+            <div onclick="openDaruratModal()" class="cursor-pointer group fade-in delay-200 h-full">
+                <div class="menu-card bg-white border border-slate-200 rounded-2xl p-6 h-full flex flex-col items-center text-center shadow-sm hover:shadow-md relative overflow-hidden">
+                    <div class="w-14 h-14 bg-amber-50 rounded-xl flex items-center justify-center text-amber-600 mb-5 text-2xl group-hover:bg-amber-500 group-hover:text-white transition-all duration-300 shadow-sm border border-amber-100 group-hover:border-amber-500">
+                        <i class="fas fa-wheelchair"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2 font-heading group-hover:text-amber-700 transition-colors">Kondisi Khusus</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Panduan shalat saat sakit dan di kendaraan.</p>
+                    
+                    <div class="mt-auto w-full">
+                        <span class="flex items-center justify-center gap-2 w-full py-2.5 bg-slate-50 text-amber-700 text-xs font-semibold rounded-xl group-hover:bg-amber-50 border border-slate-100 group-hover:border-amber-200 transition-all">
+                            Buka Materi <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Shalat Sunnah (Coming Soon) -->
+            <div onclick="showComingSoon('Shalat Sunnah')" class="cursor-pointer group fade-in delay-200 h-full">
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 h-full flex flex-col items-center text-center relative overflow-hidden opacity-80 hover:opacity-100 transition-opacity">
+                    <div class="w-14 h-14 bg-slate-200 rounded-xl flex items-center justify-center text-slate-400 mb-5 text-2xl border border-slate-300">
+                        <i class="fas fa-star-and-crescent"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-600 mb-2 font-heading">Shalat Sunnah</h3>
+                    <p class="text-xs text-slate-400 mb-6 leading-relaxed flex-grow">Macam-macam shalat sunnah Muakkad & Ghairu Muakkad.</p>
+                    
+                    <div class="mt-auto w-full">
+                        <span class="block w-full py-2.5 bg-slate-200 text-slate-500 text-[10px] uppercase tracking-widest font-bold rounded-xl border border-slate-300">
+                            Segera Hadir
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="w-full bg-teal-950 text-teal-200 py-10 border-t border-teal-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <div class="flex items-center justify-center gap-3 mb-4 text-white">
+                <i class="fa-solid fa-book-open text-xl text-teal-500"></i>
+                <span class="font-heading font-bold text-xl tracking-wide">Belajar<span class="text-teal-500">Online</span></span>
+            </div>
+            <p class="text-sm text-teal-400/80 max-w-md mx-auto mb-8">
+                Belajar Online adalah Sistem Pembelajaran Berbasis Digital untuk Memudahkan Guru dan Murid dalam Mencapai Tujuan Pembelajaran.
+            </p>
+            
+            <div class="pt-6 border-t border-teal-900/50 text-xs text-teal-500">
+                <p>&copy; 2026 Ahmad Zulfikar, S.Pd.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODALS -->
+
+    <!-- Coming Soon Modal -->
+    <div id="comingSoonModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center modal-backdrop px-4">
+        <div class="bg-white rounded-2xl shadow-xl p-8 max-w-sm w-full modal-content border border-slate-100 text-center relative">
+            <div class="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400 text-2xl">
+                <i class="fas fa-clock"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-2 font-heading">Belum Tersedia</h3>
+            <p class="text-slate-500 mb-6 text-sm leading-relaxed">
+                Materi <span id="modalTopic" class="font-bold text-teal-600">Topik</span> sedang dalam tahap penyusunan oleh guru pengampu.
+            </p>
+            <button onclick="closeModal('comingSoonModal')" class="w-full bg-teal-600 text-white py-3 rounded-xl hover:bg-teal-700 transition duration-200 font-medium text-sm shadow-sm">
+                Mengerti
+            </button>
+        </div>
+    </div>
+
+    <!-- Selection Modal (Shalat Jumat) -->
+    <div id="selectionModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center modal-backdrop px-4">
+        <div class="bg-white rounded-2xl shadow-xl p-6 max-w-sm w-full modal-content border border-slate-100 relative">
+            <!-- Close Button -->
+            <button onclick="closeModal('selectionModal')" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-50 text-slate-400 hover:bg-red-50 hover:text-red-500 flex items-center justify-center transition-all">
+                <i class="fas fa-times text-sm"></i>
+            </button>
+
+            <div class="text-center mb-6 pt-2">
+                <h3 class="text-xl font-bold text-slate-800 font-heading">Pilih Sub-Materi</h3>
+                <p class="text-slate-500 text-xs mt-1">Topik: Shalat Jumat & Khutbah</p>
+            </div>
+
+            <div class="space-y-3">
+                <a href="https://ahmdd-zulfikar.github.io/mtsn6-demak/fiqih/shalat-jumat" target="_top" class="block w-full group">
+                    <div class="flex items-center p-4 border border-slate-200 rounded-xl hover:border-teal-400 hover:bg-teal-50 transition duration-300 bg-white shadow-sm hover:shadow-md">
+                        <div class="bg-teal-50 text-teal-600 w-10 h-10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="text-left flex-grow">
+                            <h4 class="font-bold text-slate-800 text-sm font-heading group-hover:text-teal-700">Shalat Jumat</h4>
+                            <p class="text-[10px] text-slate-500">Tata cara, syarat & hukum</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-slate-300 group-hover:text-teal-500 text-xs transition-colors"></i>
+                    </div>
+                </a>
+                
+                <a href="https://ahmdd-zulfikar.github.io/mtsn6-demak/fiqih/khutbah" target="_top" class="block w-full group">
+                    <div class="flex items-center p-4 border border-slate-200 rounded-xl hover:border-teal-400 hover:bg-teal-50 transition duration-300 bg-white shadow-sm hover:shadow-md">
+                        <div class="bg-teal-50 text-teal-600 w-10 h-10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                            <i class="fas fa-microphone-alt"></i>
+                        </div>
+                        <div class="text-left flex-grow">
+                            <h4 class="font-bold text-slate-800 text-sm font-heading group-hover:text-teal-700">Khutbah Jumat</h4>
+                            <p class="text-[10px] text-slate-500">Rukun, sunnah & adab</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-slate-300 group-hover:text-teal-500 text-xs transition-colors"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Jama' & Qasar -->
+    <div id="jamaQasarModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center modal-backdrop px-4">
+        <div class="bg-white rounded-2xl shadow-xl p-6 max-w-sm w-full modal-content border border-slate-100 relative">
+            <!-- Close Button -->
+            <button onclick="closeModal('jamaQasarModal')" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-50 text-slate-400 hover:bg-red-50 hover:text-red-500 flex items-center justify-center transition-all">
+                <i class="fas fa-times text-sm"></i>
+            </button>
+
+            <div class="text-center mb-6 pt-2">
+                <h3 class="text-xl font-bold text-slate-800 font-heading">Keringanan Shalat</h3>
+                <p class="text-slate-500 text-xs mt-1">Bagi Musafir (Perjalanan Jauh)</p>
+            </div>
+
+            <div class="space-y-3">
+                <a href="https://ahmdd-zulfikar.github.io/mtsn6-demak/fiqih/jama/" target="_top" class="block w-full group">
+                    <div class="flex items-center p-4 border border-slate-200 rounded-xl hover:border-blue-400 hover:bg-blue-50 transition duration-300 bg-white shadow-sm hover:shadow-md">
+                        <div class="bg-blue-50 text-blue-600 w-10 h-10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                            <i class="fas fa-calendar-plus"></i>
+                        </div>
+                        <div class="text-left flex-grow">
+                            <h4 class="font-bold text-slate-800 text-sm font-heading group-hover:text-blue-700">Shalat Jama'</h4>
+                            <p class="text-[10px] text-slate-500">Menggabungkan dua waktu</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-slate-300 group-hover:text-blue-500 text-xs transition-colors"></i>
+                    </div>
+                </a>
+                
+                <a href="https://ahmdd-zulfikar.github.io/mtsn6-demak/fiqih/qashar/" target="_top" class="block w-full group">
+                    <div class="flex items-center p-4 border border-slate-200 rounded-xl hover:border-blue-400 hover:bg-blue-50 transition duration-300 bg-white shadow-sm hover:shadow-md">
+                        <div class="bg-blue-50 text-blue-600 w-10 h-10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                            <i class="fas fa-scissors"></i>
+                        </div>
+                        <div class="text-left flex-grow">
+                            <h4 class="font-bold text-slate-800 text-sm font-heading group-hover:text-blue-700">Shalat Qasar</h4>
+                            <p class="text-[10px] text-slate-500">Meringkas jumlah rakaat</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-slate-300 group-hover:text-blue-500 text-xs transition-colors"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Kondisi Darurat -->
+    <div id="daruratModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center modal-backdrop px-4">
+        <div class="bg-white rounded-2xl shadow-xl p-6 max-w-sm w-full modal-content border border-slate-100 relative">
+            <!-- Close Button -->
+            <button onclick="closeModal('daruratModal')" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-50 text-slate-400 hover:bg-red-50 hover:text-red-500 flex items-center justify-center transition-all">
+                <i class="fas fa-times text-sm"></i>
+            </button>
+
+            <div class="text-center mb-6 pt-2">
+                <h3 class="text-xl font-bold text-slate-800 font-heading">Kondisi Khusus</h3>
+                <p class="text-slate-500 text-xs mt-1">Panduan Shalat Keadaan Darurat</p>
+            </div>
+
+            <div class="space-y-3">
+                <a href="https://ahmdd-zulfikar.github.io/mtsn6-demak/fiqih/shalat-sedang-sakit/" target="_top" class="block w-full group">
+                    <div class="flex items-center p-4 border border-slate-200 rounded-xl hover:border-amber-400 hover:bg-amber-50 transition duration-300 bg-white shadow-sm hover:shadow-md">
+                        <div class="bg-amber-50 text-amber-600 w-10 h-10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                            <i class="fas fa-bed-pulse"></i>
+                        </div>
+                        <div class="text-left flex-grow">
+                            <h4 class="font-bold text-slate-800 text-sm font-heading group-hover:text-amber-700">Orang Sakit</h4>
+                            <p class="text-[10px] text-slate-500">Tata cara shalat berbaring atau duduk</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-slate-300 group-hover:text-amber-500 text-xs transition-colors"></i>
+                    </div>
+                </a>
+                
+                <a href="https://ahmdd-zulfikar.github.io/mtsn6-demak/fiqih/shalat-dalam-kendaraan/" target="_top" class="block w-full group">
+                    <div class="flex items-center p-4 border border-slate-200 rounded-xl hover:border-amber-400 hover:bg-amber-50 transition duration-300 bg-white shadow-sm hover:shadow-md">
+                        <div class="bg-amber-50 text-amber-600 w-10 h-10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                            <i class="fas fa-bus"></i>
+                        </div>
+                        <div class="text-left flex-grow">
+                            <h4 class="font-bold text-slate-800 text-sm font-heading group-hover:text-amber-700">Di Kendaraan</h4>
+                            <p class="text-[10px] text-slate-500">Tata cara shalat saat di perjalanan</p>
+                        </div>
+                        <i class="fas fa-chevron-right text-slate-300 group-hover:text-amber-500 text-xs transition-colors"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        const comingSoonModal = document.getElementById('comingSoonModal');
+        const modalTopic = document.getElementById('modalTopic');
+
+        function showComingSoon(topicName) {
+            modalTopic.textContent = topicName;
+            comingSoonModal.classList.remove('hidden');
+        }
+
+        const selectionModal = document.getElementById('selectionModal');
+        function openSelectionModal() {
+            selectionModal.classList.remove('hidden');
+        }
+
+        const jamaQasarModal = document.getElementById('jamaQasarModal');
+        function openJamaQasarModal() {
+            jamaQasarModal.classList.remove('hidden');
+        }
+
+        const daruratModal = document.getElementById('daruratModal');
+        function openDaruratModal() {
+            daruratModal.classList.remove('hidden');
+        }
+
+        window.onclick = function(event) {
+            if (event.target === comingSoonModal) closeModal('comingSoonModal');
+            if (event.target === selectionModal) closeModal('selectionModal');
+            if (event.target === jamaQasarModal) closeModal('jamaQasarModal');
+            if (event.target === daruratModal) closeModal('daruratModal');
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal('comingSoonModal');
+                closeModal('selectionModal');
+                closeModal('jamaQasarModal');
+                closeModal('daruratModal');
+            }
+        });
+    </script>
+</body>
+</html>

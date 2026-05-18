@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisi-Kisi Interaktif Asesmen Sumatif IPA</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .modal-animate {
+            animation: slideDown 0.3s ease-out;
+        }
+        /* Custom scrollbar for better appearance */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-serif text-gray-800 antialiased min-h-screen">
+
+    <!-- Main Container -->
+    <div class="py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto bg-white shadow-xl p-8 border border-gray-200">
+            
+            <!-- Document Header -->
+            <div class="text-center mb-8 border-b-2 border-black pb-4">
+                <h1 class="text-xl font-bold uppercase">Kisi–Kisi Penulisan Asesmen Sumatif Akhir Semester</h1>
+                <h2 class="text-lg font-bold uppercase mt-1">Tahun Pelajaran 2025/2026</h2>
+            </div>
+
+            <!-- Metadata -->
+            <div class="mb-8">
+                <table class="text-sm md:text-base text-gray-800">
+                    <tbody>
+                        <tr><td class="w-40 font-semibold py-1">Mata Pelajaran</td><td class="w-4 text-center">:</td><td>IPA</td></tr>
+                        <tr><td class="font-semibold py-1">Jenjang</td><td class="text-center">:</td><td>MTs</td></tr>
+                        <tr><td class="font-semibold py-1">Kelas</td><td class="text-center">:</td><td>VIII</td></tr>
+                        <tr><td class="font-semibold py-1">Kurikulum</td><td class="text-center">:</td><td>KURIKULUM MERDEKA</td></tr>
+                        <tr><td class="font-semibold py-1">Semester</td><td class="text-center">:</td><td>GENAP</td></tr>
+                        <tr><td class="font-semibold py-1">Jumlah Soal</td><td class="text-center">:</td><td>30 (15 PG, 10 PG Komplek dan 5 Uraian)</td></tr>
+                        <tr><td class="font-semibold py-1">Bentuk Soal</td><td class="text-center">:</td><td>PG, PGK, DAN ESSAY</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- User Instruction -->
+            <div class="bg-blue-50 border-l-4 border-blue-600 p-4 mb-6 rounded-r">
+                <p class="text-sm text-blue-800 font-sans">
+                    <strong>Petunjuk Interaktif:</strong> Silakan klik pada teks di kolom <strong>"INDIKATOR SOAL/KKTP"</strong> yang berwarna biru. Di dalam pop-up soal yang muncul, Anda <strong>dapat mengklik langsung pada opsi jawaban</strong> untuk melihat apakah tebakan tersebut benar (HIJAU) atau salah (MERAH), yang langsung diikuti dengan kolom <strong>pembahasan</strong>.
+                </p>
+            </div>
+
+            <!-- Main Table -->
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse border border-black text-sm">
+                    <thead class="bg-gray-200 text-center font-bold">
+                        <tr>
+                            <th class="border border-black px-2 py-3 w-12">NO.</th>
+                            <th class="border border-black px-2 py-3 w-64">TUJUAN PEMBELAJARAN (TP)</th>
+                            <th class="border border-black px-2 py-3 w-48">MATERI</th>
+                            <th class="border border-black px-2 py-3">INDIKATOR SOAL/KKTP</th>
+                            <th class="border border-black px-2 py-3 w-20">BENTUK SOAL</th>
+                            <th class="border border-black px-2 py-3 w-20">NOMOR SOAL</th>
+                        </tr>
+                    </thead>
+                    <tbody id="kisi-kisi-tbody">
+                        <!-- Data will be injected here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Footer Signature -->
+            <div class="mt-12 flex justify-end">
+                <div class="text-center w-64">
+                    <p class="mb-16">Guru,</p>
+                    <p class="font-bold underline">Ahmad Zulfikar, S.Pd</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal Backdrop -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden font-sans">
+        <!-- Modal Content -->
+        <div class="bg-gray-100 rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] flex flex-col transform modal-animate border overflow-hidden">
+            <!-- Modal Header -->
+            <div class="px-6 py-4 flex justify-between items-center bg-blue-700 text-white shadow-md z-10">
+                <div>
+                    <h3 class="font-bold text-lg" id="modal-title">Simulasi Soal</h3>
+                    <span class="text-blue-200 text-sm opacity-90 mt-1 block">Silakan coba jawab soal interaktif di bawah ini</span>
+                </div>
+                <button onclick="closeModal()" class="text-white bg-blue-800 hover:bg-blue-900 w-10 h-10 flex items-center justify-center rounded-full transition-colors font-bold text-2xl leading-none focus:outline-none focus:ring focus:ring-blue-300" title="Tutup">
+                    &times;
+                </button>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="p-6 overflow-y-auto flex-grow flex flex-col relative z-0">
+                <div class="bg-white border-l-4 border-blue-500 p-4 rounded-r shadow-sm mb-6">
+                    <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Pernyataan Indikator:</h4>
+                    <p class="text-gray-800 font-medium leading-relaxed italic" id="modal-indicator-text"></p>
+                    <div class="mt-3 text-sm flex gap-3">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full border border-blue-200">Jenis Soal: <b id="modal-bentuk-soal"></b></span>
+                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full border border-gray-200">Posisi di Kisi-kisi: Nomor <b id="modal-nomor-soal"></b></span>
+                    </div>
+                </div>
+
+                <!-- Questions Container -->
+                <div id="modal-questions-container" class="space-y-2"></div>
+            </div>
+            
+            <!-- Modal Footer -->
+            <div class="p-4 border-t bg-white flex justify-end shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] z-10">
+                <button onclick="closeModal()" class="px-8 py-2.5 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold rounded-md transition-colors">
+                    Selesai & Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Script -->
+    <script>
+        // ==========================================
+        // ILUSTRASI GAMBAR (BUATAN AI - SVG STRINGS)
+        // ==========================================
+        const SvgBandulABC = `<svg viewBox="0 0 200 150" class="w-full h-full max-h-48 drop-shadow-md">
+            <rect x="0" y="0" width="200" height="150" fill="#f8fafc" rx="8" />
+            <line x1="50" y1="20" x2="150" y2="20" stroke="#334155" stroke-width="6" stroke-linecap="round" />
+            <rect x="80" y="10" width="40" height="10" fill="#cbd5e1" rx="2" />
+            <line x1="100" y1="20" x2="100" y2="100" stroke="#475569" stroke-width="3" />
+            <circle cx="100" cy="100" r="12" fill="#ef4444" />
+            <text x="95" y="130" font-size="16" font-weight="bold" fill="#1e293b">B</text>
+            <line x1="100" y1="20" x2="50" y2="85" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4" />
+            <circle cx="50" cy="85" r="12" fill="white" stroke="#ef4444" stroke-width="3" opacity="0.6" />
+            <text x="44" y="115" font-size="16" font-weight="bold" fill="#64748b">A</text>
+            <line x1="100" y1="20" x2="150" y2="85" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4" />
+            <circle cx="150" cy="85" r="12" fill="white" stroke="#ef4444" stroke-width="3" opacity="0.6" />
+            <text x="144" y="115" font-size="16" font-weight="bold" fill="#64748b">C</text>
+            <path d="M 50 85 Q 100 115 150 85" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4" />
+        </svg>`;
+
+        const SvgBandul10cm = `<svg viewBox="0 0 200 150" class="w-full h-full max-h-48 drop-shadow-md">
+            <rect x="0" y="0" width="200" height="150" fill="#f8fafc" rx="8" />
+            <line x1="50" y1="20" x2="150" y2="20" stroke="#334155" stroke-width="6" stroke-linecap="round" />
+            <line x1="100" y1="20" x2="100" y2="100" stroke="#475569" stroke-width="3" />
+            <circle cx="100" cy="100" r="12" fill="#ef4444" />
+            <text x="95" y="125" font-size="14" font-weight="bold" fill="#1e293b">B</text>
+            <line x1="100" y1="20" x2="50" y2="85" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4" />
+            <circle cx="50" cy="85" r="12" fill="white" stroke="#ef4444" stroke-width="3" opacity="0.6" />
+            <text x="44" y="110" font-size="14" font-weight="bold" fill="#64748b">A</text>
+            <line x1="100" y1="20" x2="150" y2="85" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4" />
+            <circle cx="150" cy="85" r="12" fill="white" stroke="#ef4444" stroke-width="3" opacity="0.6" />
+            <text x="144" y="110" font-size="14" font-weight="bold" fill="#64748b">C</text>
+            <line x1="50" y1="135" x2="150" y2="135" stroke="#22c55e" stroke-width="3" />
+            <polygon points="50,135 58,131 58,139" fill="#22c55e" />
+            <polygon points="150,135 142,131 142,139" fill="#22c55e" />
+            <text x="82" y="147" font-size="12" font-weight="bold" fill="#166534">10 cm</text>
+        </svg>`;
+
+        const SvgGelombang = `<svg viewBox="0 0 200 150" class="w-full h-full max-h-48 drop-shadow-md">
+            <rect x="0" y="0" width="200" height="150" fill="#f8fafc" rx="8" />
+            <line x1="20" y1="75" x2="180" y2="75" stroke="#94a3b8" stroke-width="2" />
+            <line x1="30" y1="10" x2="30" y2="140" stroke="#94a3b8" stroke-width="2" />
+            <path d="M 30 75 Q 47.5 15 65 75 T 100 75 T 135 75 T 170 75" fill="none" stroke="#2563eb" stroke-width="4" />
+            <text x="155" y="68" font-size="10" font-weight="bold" fill="#1e293b">Jarak</text>
+            <line x1="30" y1="75" x2="30" y2="18" stroke="#ef4444" stroke-width="2" stroke-dasharray="2" />
+            <text x="35" y="45" font-size="10" font-weight="bold" fill="#ef4444">10 cm</text>
+            <line x1="30" y1="135" x2="170" y2="135" stroke="#16a34a" stroke-width="2" stroke-dasharray="3" />
+            <polygon points="170,135 165,132 165,138" fill="#16a34a" />
+            <text x="90" y="130" font-size="11" font-weight="bold" fill="#16a34a">4 Meter</text>
+            <circle cx="47.5" cy="45" r="3" fill="#ef4444" />
+            <circle cx="117.5" cy="45" r="3" fill="#ef4444" />
+        </svg>`;
+
+        const SvgSonar = `<svg viewBox="0 0 200 150" class="w-full h-full max-h-48 drop-shadow-md">
+            <rect x="0" y="0" width="200" height="150" fill="#e0f2fe" rx="8" />
+            <polygon points="80,30 120,30 130,20 70,20" fill="#475569" />
+            <rect x="90" y="10" width="20" height="10" fill="#1e293b" />
+            <path d="M 0 130 Q 50 120 100 140 T 200 130 L 200 150 L 0 150 Z" fill="#854d0e" />
+            <path d="M 90 35 L 50 125" stroke="#ef4444" stroke-width="2" stroke-dasharray="5" />
+            <polygon points="50,125 53,118 58,121" fill="#ef4444" />
+            <path d="M 110 35 L 150 125" stroke="#22c55e" stroke-width="2" stroke-dasharray="5" />
+            <polygon points="110,35 113,42 108,39" fill="#22c55e" />
+            <rect x="10" y="10" width="65" height="30" fill="white" opacity="0.8" rx="4" />
+            <text x="15" y="22" font-size="9" font-weight="bold" fill="#1e293b">v = 1.500 m/s</text>
+            <text x="15" y="34" font-size="9" font-weight="bold" fill="#1e293b">t = 4 sekon</text>
+        </svg>`;
+
+        const SvgPembiasan = `<svg viewBox="0 0 200 150" class="w-full h-full max-h-48 drop-shadow-md">
+            <rect x="0" y="0" width="200" height="150" fill="#f8fafc" rx="8" />
+            <path d="M 60 40 L 60 130 A 10 10 0 0 0 70 140 L 130 140 A 10 10 0 0 0 140 130 L 140 40" fill="none" stroke="#94a3b8" stroke-width="4" />
+            <ellipse cx="100" cy="40" rx="40" ry="10" fill="none" stroke="#94a3b8" stroke-width="4" />
+            <path d="M 62 80 L 62 130 A 8 8 0 0 0 70 138 L 130 138 A 8 8 0 0 0 138 130 L 138 80 Z" fill="#bae6fd" opacity="0.7" />
+            <ellipse cx="100" cy="80" rx="38" ry="8" fill="#7dd3fc" opacity="0.7" />
+            <line x1="125" y1="20" x2="105" y2="80" stroke="#64748b" stroke-width="6" stroke-linecap="round" />
+            <line x1="105" y1="80" x2="75" y2="125" stroke="#475569" stroke-width="6" stroke-linecap="round" />
+            <ellipse cx="75" cy="125" rx="10" ry="14" fill="#475569" transform="rotate(-30 75 125)" />
+        </svg>`;
+
+        const SvgFiltrasi = `<svg viewBox="0 0 200 150" class="w-full h-full max-h-48 drop-shadow-md">
+            <rect x="0" y="0" width="200" height="150" fill="#f8fafc" rx="8" />
+            <path d="M 90 90 L 90 100 L 65 140 A 5 5 0 0 0 70 145 L 130 145 A 5 5 0 0 0 135 140 L 110 100 L 110 90 Z" fill="#f1f5f9" stroke="#64748b" stroke-width="3" />
+            <path d="M 70 135 L 130 135 L 120 115 L 80 115 Z" fill="#bae6fd" />
+            <polygon points="65,30 135,30 105,75 105,95 95,95 95,75" fill="white" stroke="#334155" stroke-width="3" stroke-linejoin="round" />
+            <polygon points="72,30 128,30 100,70" fill="#93c5fd" opacity="0.8" />
+            <circle cx="100" cy="55" r="7" fill="#78350f" />
+            <circle cx="92" cy="50" r="5" fill="#78350f" />
+            <circle cx="107" cy="48" r="6" fill="#78350f" />
+            <circle cx="103" cy="62" r="4" fill="#78350f" />
+            <circle cx="100" cy="103" r="3" fill="#3b82f6" />
+            <circle cx="100" cy="113" r="3" fill="#3b82f6" />
+            <text x="145" y="55" font-size="11" font-weight="bold" fill="#78350f">Residu</text>
+            <line x1="112" y1="52" x2="140" y2="52" stroke="#78350f" stroke-width="1.5" />
+            <text x="145" y="130" font-size="11" font-weight="bold" fill="#0284c7">Filtrat</text>
+            <line x1="125" y1="127" x2="140" y2="127" stroke="#0284c7" stroke-width="1.5" />
+        </svg>`;
+
+        const SvgStrukturBumi = `<svg viewBox="0 0 200 150" class="w-full h-full max-h-48 drop-shadow-md">
+            <rect x="0" y="0" width="200" height="150" fill="#f8fafc" rx="8" />
+            <g transform="translate(100, 140)">
+            <path d="M 0 0 L -75 -115 A 135 135 0 0 1 75 -115 Z" fill="#f97316" stroke="white" stroke-width="1" />
+            <path d="M 0 0 L -45 -70 A 82 82 0 0 1 45 -70 Z" fill="#ef4444" stroke="white" stroke-width="1" />
+            <path d="M 0 0 L -20 -30 A 36 36 0 0 1 20 -30 Z" fill="#facc15" stroke="white" stroke-width="1" />
+            <path d="M -75 -115 A 135 135 0 0 1 75 -115 L 80 -122 A 145 145 0 0 0 -80 -122 Z" fill="#78350f" />
+            </g>
+            <rect x="5" y="20" width="45" height="18" fill="white" rx="3" />
+            <text x="8" y="32" font-size="9" font-weight="bold">1. Kerak</text>
+            <line x1="45" y1="28" x2="70" y2="25" stroke="#1e293b" />
+            <rect x="5" y="60" width="50" height="18" fill="white" rx="3" />
+            <text x="8" y="72" font-size="9" font-weight="bold">2. Mantel</text>
+            <line x1="48" y1="68" x2="80" y2="75" stroke="#1e293b" />
+            <rect x="145" y="80" width="50" height="18" fill="white" rx="3" />
+            <text x="148" y="92" font-size="9" font-weight="bold">3. Inti Luar</text>
+            <line x1="145" y1="88" x2="120" y2="95" stroke="#1e293b" />
+            <rect x="140" y="115" width="55" height="18" fill="white" rx="3" />
+            <text x="143" y="127" font-size="9" font-weight="bold">4. Inti Dalam</text>
+            <line x1="140" y1="124" x2="110" y2="125" stroke="#1e293b" />
+        </svg>`;
+
+        const SvgDivergen = `<svg viewBox="0 0 200 150" class="w-full h-full max-h-48 drop-shadow-md">
+            <rect x="0" y="0" width="200" height="150" fill="#f8fafc" rx="8" />
+            <rect x="0" y="0" width="200" height="50" fill="#38bdf8" opacity="0.3" />
+            <rect x="0" y="90" width="200" height="60" fill="#ef4444" />
+            <path d="M 0 40 L 90 40 L 80 90 L 0 90 Z" fill="#854d0e" stroke="#422006" stroke-width="2" />
+            <path d="M 200 40 L 110 40 L 120 90 L 200 90 Z" fill="#854d0e" stroke="#422006" stroke-width="2" />
+            <line x1="60" y1="65" x2="20" y2="65" stroke="white" stroke-width="5" />
+            <polygon points="20,65 30,58 30,72" fill="white" />
+            <line x1="140" y1="65" x2="180" y2="65" stroke="white" stroke-width="5" />
+            <polygon points="180,65 170,58 170,72" fill="white" />
+            <path d="M 85 90 L 95 30 Q 100 25 105 30 L 115 90 Z" fill="#f97316" />
+            <path d="M 92 90 L 98 45 L 102 45 L 108 90 Z" fill="#fde047" />
+            <text x="75" y="130" fill="white" font-size="14" font-weight="bold">MAGMA</text>
+        </svg>`;
+
+        // ==========================================
+        // DATA KISI-KISI TERSTRUKTUR 
+        // ==========================================
+        const kisiKisiData = [
+        {
+            no: 1, tp: "Memahami konsep getaran dalam kehidupan sehari-hari, menjelaskan bahwa gelombang adalah getaran yang merambat serta menunjukkan contoh-contoh gelombang, menganalisis fenomena perambatan gelombang cahaya, Memahami teknologi teropong dan kamera secara sederhana", rowspan_tp: 10, materi: "Getaran, Gelombang, Cahaya dan Alat Optik", rowspan_materi: 10, indikator: "Peserta didik mampu menjelaskan pengertian getaran dan contohnya dalam kehidupan sehari-hari.", bentuk: "PG", nomor: "1",
+            questions: [
+            { type: "PG", text: "1. Peristiwa gerak bolak-balik suatu benda secara periodik yang selalu melalui titik kesetimbangannya dikenal dengan istilah ....", options: ["A. Gelombang", "B. Frekuensi", "C. Getaran", "D. Periode"], answer: 2, exp: "Getaran didefinisikan sebagai gerak bolak-balik suatu benda di sekitar titik kesetimbangannya. Gelombang adalah getaran yang merambat." },
+            { type: "PG", text: "2. Salah satu contoh peristiwa dalam kehidupan sehari-hari yang menunjukkan konsep getaran yaitu ....", options: ["A. Jatuhnya buah kelapa dari pohon", "B. Aliran air sungai yang deras", "C. Gerakan ayunan bandul pada jam dinding", "D. Mobil yang melaju lurus"], answer: 2, exp: "Ayunan bandul jam berayun bolak-balik ke kiri dan kanan melewati titik tengah (kesetimbangan). Ini adalah contoh murni dari getaran mekanik." },
+            { type: "PG", text: "3. Gerakan naik turun secara terus-menerus pada sebuah pegas yang ditarik kemudian dilepaskan dikategorikan sebagai ....", options: ["A. Getaran mekanik", "B. Gelombang transversal", "C. Gelombang bunyi", "D. Gerak lurus beraturan"], answer: 0, exp: "Gerak naik turun pegas adalah bentuk dari getaran mekanik, karena ia bergerak bolak-balik (naik-turun) melalui titik normalnya akibat gaya pegas." }
+            ]
+        },
+        {
+            no: 2, indikator: "Disajikan gambar, peserta didik mampu menentukan jumlah getaran, menghitung periode, frekuensi, dan simpangan suatu getaran dari data yang diberikan.", bentuk: "PG", nomor: "2",
+            questions: [
+            { type: "PG", image: SvgBandulABC, text: "1. Jika bandul bergerak melalui lintasan A-B-C-B dalam waktu 1,5 sekon, maka frekuensi getarannya adalah .... (Ket: Gerak A-B-C-B = 0,75 getaran)", options: ["A. 0,5 Hz", "B. 1,0 Hz", "C. 2,0 Hz", "D. 2,5 Hz"], answer: 0, exp: "Rumus frekuensi (f) = jumlah getaran (n) / waktu (t). Diketahui n = 0,75 dan t = 1,5 s. Maka f = 0,75 / 1,5 = 0,5 Hz." },
+            { type: "PG", text: "2. Sebuah penggaris plastik bergetar menghasilkan 120 getaran dalam 1 menit. Periode getaran penggaris tersebut bernilai ....", options: ["A. 0,5 sekon", "B. 2 sekon", "C. 60 sekon", "D. 120 sekon"], answer: 0, exp: "Periode (T) = waktu (t) / jumlah getaran (n). Waktu 1 menit = 60 sekon. T = 60 / 120 = 0,5 sekon." },
+            { type: "PG", image: SvgBandul10cm, text: "3. Berdasarkan gambar, ukuran simpangan terjauh (amplitudo) dari ayunan bandul tersebut sebesar ....", options: ["A. 2,5 cm", "B. 5 cm", "C. 10 cm", "D. 20 cm"], answer: 1, exp: "Amplitudo adalah jarak dari titik setimbang (B) ke simpangan terjauh (A atau C). Jarak A ke C = 10 cm. Maka Amplitudo (A-B atau B-C) adalah 10 cm / 2 = 5 cm." }
+            ]
+        },
+        {
+            no: 3, indikator: "Peserta didik mampu menyebutkan faktor yang mempengaruhi periode suatu getaran", bentuk: "PGK", nomor: "16",
+            questions: [
+            { type: "PGK", text: "1. Besaran periode pada suatu ayunan bandul sederhana sangat dipengaruhi oleh faktor-faktor tertentu, di antaranya yaitu .... (Pilih jawaban benar)", options: ["Massa beban bandul", "Panjang tali ayunan", "Percepatan gravitasi bumi", "Amplitudo awal ayunan"], answers: [1, 2], exp: "Sesuai rumus periode bandul T = 2π√(L/g). Periode (T) hanya dipengaruhi oleh panjang tali (L) dan percepatan gravitasi (g). Massa dan Amplitudo tidak berpengaruh." },
+            { type: "PGK", text: "2. Pernyataan yang tepat mengenai hubungan frekuensi dan periode pada getaran pegas yaitu .... (Pilih dua jawaban benar)", options: ["Periode pegas dipengaruhi massa beban.", "Tingkat kekakuan pegas tidak memengaruhi frekuensi.", "Semakin kaku pegas, semakin besar frekuensinya.", "Amplitudo memengaruhi periode pegas."], answers: [0, 2], exp: "Pada pegas, T = 2π√(m/k) dan f = (1/2π)√(k/m). Periode (T) berbanding lurus dengan akar massa (m). Frekuensi (f) berbanding lurus dengan akar konstanta kekakuan (k)." },
+            { type: "PGK", text: "3. Hubungan matematis besaran-besaran pada ayunan bandul yang benar adalah .... (Pilih jawaban benar)", options: ["Makin panjang tali, periode makin kecil.", "Semakin panjang tali, frekuensi ayunan semakin kecil.", "Hubungan antara periode dan frekuensi adalah berbanding terbalik."], answers: [1, 2], exp: "Tali makin panjang (L naik) membuat Periode (T) membesar. Karena frekuensi berbanding terbalik dengan periode (f = 1/T), maka jika tali makin panjang, frekuensi makin mengecil." }
+            ]
+        },
+        {
+            no: 4, indikator: "Disajikan gambar gelombang transversal, peserta didik mampu menentukan Amplitudo, panjang gelombang serta menghitung cepat rambat gelombang", bentuk: "Essay", nomor: "26",
+            questions: [
+            { type: "ESSAY", image: SvgGelombang, text: "1. Perhatikan gambar gelombang transversal berikut!\nTentukanlah: a) Amplitudo, b) Panjang gelombang (λ), dan c) Cepat rambat gelombang jika waktu tempuhnya 2 sekon!", exp: "Penyelesaian:\na) Amplitudo adalah tinggi puncak/lembah. Karena jarak vertikal dari lembah ke puncak 10 cm, maka Amplitudo = 10/2 = 5 cm (atau 0,05 m).\nb) Terdapat 2 siklus gelombang sepanjang 4 meter. Panjang 1 gelombang (λ) = 4 m / 2 = 2 meter.\nc) Waktu total t = 2 s untuk jarak total s = 4 m. Cepat rambat v = s/t = 4/2 = 2 m/s." },
+            { type: "ESSAY", text: "2. Gelombang air merambat dalam waktu 5 detik membentuk 10 gelombang penuh. Jarak antar dua puncak berdekatan (λ) adalah 20 cm. Hitunglah cepat rambat gelombang tersebut!", exp: "Penyelesaian:\n- Panjang gelombang (λ) = 20 cm = 0,2 meter.\n- Frekuensi (f) = n/t = 10 gelombang / 5 detik = 2 Hz.\n- Cepat rambat (v) = λ × f = 0,2 m × 2 Hz = 0,4 m/s." },
+            { type: "ESSAY", text: "3. Jelaskan cara mencari panjang satu gelombang (λ) pada gelombang transversal jika diketahui grafik memiliki 1,5 siklus gelombang sepanjang 12 cm!", exp: "Penyelesaian:\nSatu panjang gelombang (λ) didefinisikan sebagai panjang 1 siklus penuh (1 bukit + 1 lembah).\nJika 1,5 gelombang panjangnya 12 cm, maka cara mencarinya adalah: λ = Panjang total / jumlah gelombang = 12 cm / 1,5 = 8 cm." }
+            ]
+        },
+        {
+            no: 5, indikator: "Disajikan gambar tentang pemantulan bunyi (kapal menembakan sonar kebawah laut), peserta mampu menghitung kedalaman laut jika diketahui waktu pantul serta cepat rambat bunyi didalam air", bentuk: "PG", nomor: "3",
+            questions: [
+            { type: "PG", image: SvgSonar, text: "1. Gelombang sonar ditembakkan ke dasar laut dan pantulannya diterima setelah 4 detik. Jika cepat rambat bunyi di air laut 1.500 m/s, maka kedalaman laut adalah ....", options: ["A. 1.500 m", "B. 3.000 m", "C. 4.500 m", "D. 6.000 m"], answer: 1, exp: "Rumus pemantulan sonar: s = (v × t) / 2. \n s = (1.500 m/s × 4 s) / 2 = 6.000 / 2 = 3.000 meter." },
+            { type: "PG", text: "2. Alat fathometer memancarkan ultrasonik ke dasar laut yang kedalamannya 1.750 m. Jika gema tertangkap kembali setelah 2,5 sekon, nilai cepat rambat bunyi di air laut tersebut yaitu ....", options: ["A. 700 m/s", "B. 1.400 m/s", "C. 1.500 m/s", "D. 4.375 m/s"], answer: 1, exp: "Gunakan rumus v = (2 × s) / t.\nv = (2 × 1.750 m) / 2,5 s = 3.500 / 2,5 = 1.400 m/s." },
+            { type: "PG", text: "3. Waktu rambat total sebuah gelombang bunyi dari kapal ke dasar laut hingga memantul ke permukaan adalah 6 detik. Dengan cepat rambat 1.400 m/s, kedalaman laut mencapai ....", options: ["A. 4.200 m", "B. 8.400 m", "C. 2.100 m", "D. 700 m"], answer: 0, exp: "s = (v × t) / 2 = (1.400 m/s × 6 s) / 2 = 8.400 / 2 = 4.200 meter." }
+            ]
+        },
+        {
+            no: 6, indikator: "Disajikan beberapa contoh gelombang, peserta didik dapat mengkategorikan sifat gelombang bunyi", bentuk: "PGK", nomor: "17",
+            questions: [
+            { type: "PGK", text: "1. Saat merambat di berbagai medium, gelombang bunyi memiliki karakteristik atau sifat-sifat tertentu, di antaranya yaitu .... (Pilih jawaban benar)", options: ["Termasuk gelombang longitudinal.", "Merupakan gelombang elektromagnetik.", "Membutuhkan medium materi untuk merambat.", "Dapat merambat di ruang hampa udara."], answers: [0, 2], exp: "Bunyi adalah gelombang mekanik (butuh medium) dan arah getarnya sejajar arah rambat (longitudinal). Bunyi tidak bisa merambat di ruang hampa." },
+            { type: "PGK", text: "2. Fenomena dalam kehidupan yang membuktikan gelombang bunyi memiliki sifat refleksi (dapat dipantulkan) yaitu .... (Pilih jawaban benar)", options: ["Terjadinya gema di depan tebing.", "Bunyi sirene makin keras saat mendekat.", "Pengukuran kedalaman laut dengan sistem sonar.", "Kaca jendela bergetar saat pesawat lewat."], answers: [0, 2], exp: "Gema dan cara kerja Sonar murni memanfaatkan pantulan (refleksi) gelombang bunyi yang menabrak bidang keras." },
+            { type: "PGK", text: "3. Karakteristik yang menjadi pembeda utama antara gelombang bunyi dan gelombang cahaya yaitu .... (Pilih jawaban benar)", options: ["Bunyi merambat lebih lambat daripada cahaya.", "Bunyi tidak bisa dibiaskan, cahaya bisa.", "Cahaya merambat tanpa medium, bunyi wajib medium."], answers: [0, 2], exp: "Kecepatan bunyi (~340 m/s) jauh tertinggal dari cahaya (~300.000.000 m/s). Cahaya bisa lewat ruang hampa (elektromagnetik), bunyi tidak (mekanik). Keduanya sama-sama bisa dibiaskan." }
+            ]
+        },
+        {
+            no: 7, indikator: "Disajikan gambar gelas yang berisi air dan sendok, peserta didik dapat menyimpulkan hasil percobaan tersebut.", bentuk: "PG", nomor: "4",
+            questions: [
+            { type: "PG", image: SvgPembiasan, text: "1. Sendok di dalam gelas bening berisi air tampak patah pada batas udara dan air. Peristiwa optik ini membuktikan sifat cahaya dapat ....", options: ["A. Dipantulkan (Refleksi)", "B. Dibiaskan (Refraksi)", "C. Merambat lurus", "D. Diuraikan (Dispersi)"], answer: 1, exp: "Pensil atau sendok tampak patah/bengkok karena cahaya berbelok ketika berpindah dari medium kurang rapat (udara) ke medium lebih rapat (air). Ini disebut pembiasan (Refraksi)." },
+            { type: "PG", text: "2. Kesimpulan paling tepat dari percobaan mencelupkan pensil lurus ke dalam gelas berisi air murni hingga tampak bengkok adalah ....", options: ["A. Kerapatan optik air lebih besar, cahaya dibelokkan mendekati garis normal", "B. Kerapatan optik udara lebih besar, cahaya menjauhi garis normal", "C. Air gelas memantulkan cahaya pensil 100% langsung ke mata", "D. Cahaya mengalami peleburan warna batas kaca gelas"], answer: 0, exp: "Air lebih rapat dari udara. Saat cahaya masuk dari udara ke air, lajunya melambat dan lintasannya dibelokkan mendekati garis normal (garis tegak lurus bidang batas)." },
+            { type: "PG", text: "3. Objek yang berada di dasar air jernih selalu terlihat lebih dangkal dari posisi aslinya karena mata menangkap cahaya yang mengalami ....", options: ["A. Dispersi cahaya", "B. Pembiasan cahaya", "C. Difraksi cahaya", "D. Pemantulan total"], answer: 1, exp: "Pembiasan cahaya mengubah sudut pandang mata kita, menciptakan ilusi optik di mana posisi bayangan benda di dalam air tampak seolah ditarik lebih ke atas mendekati permukaan." }
+            ]
+        },
+        {
+            no: 8, indikator: "Disediakan data peristiwa yang terkait pengukuran jarak fokus pada lensa cembung, siswa dapat menentukan besar jarak bayangan yang terbentuk", bentuk: "Essay", nomor: "27",
+            questions: [
+            { type: "ESSAY", text: "1. Benda diletakkan pada jarak 15 cm (s) di depan lensa cembung dengan jarak fokus 10 cm (f). Tentukan jarak bayangan (s')!", exp: "Rumus lensa: 1/f = 1/s + 1/s'\n1/10 = 1/15 + 1/s'\n1/s' = 1/10 - 1/15 = 3/30 - 2/30 = 1/30\ns' = 30 cm. (Bayangan nyata terletak 30 cm di belakang lensa)." },
+            { type: "ESSAY", text: "2. Jarak fokus lensa cembung adalah 12 cm. Lilin diletakkan 36 cm dari lensa. Hitung jarak bayangannya!", exp: "1/s' = 1/f - 1/s\n1/s' = 1/12 - 1/36 = 3/36 - 1/36 = 2/36\ns' = 36/2 = 18 cm." },
+            { type: "ESSAY", text: "3. Benda sejauh 20 cm diletakkan di depan lensa cembung. Jika bayangan maya terbentuk pada jarak 30 cm di depan lensa, berapakah jarak fokus lensa cembung tersebut?", exp: "Karena bayangan maya berada di depan lensa, s' bernilai negatif (-30 cm). s = 20 cm.\n1/f = 1/s + 1/s' = 1/20 + (1/-30) = 3/60 - 2/60 = 1/60\nJarak fokus (f) = 60 cm." }
+            ]
+        },
+        {
+            no: 9, indikator: "Disajikan suatu permasalahan, siswa mampu menganalisis sifat pembentukan bayangan yang terbentuk dari Teropong", bentuk: "PG", nomor: "5",
+            questions: [
+            { type: "PG", text: "1. Teropong bintang difungsikan khusus untuk mengamati benda-benda langit. Sifat bayangan akhir yang dihasilkan oleh teropong bintang ini yaitu ....", options: ["A. Nyata, terbalik, diperbesar", "B. Maya, terbalik, diperbesar", "C. Maya, tegak, diperbesar", "D. Nyata, tegak, diperkecil"], answer: 1, exp: "Teropong bintang menggunakan lensa okuler cembung sebagai lup, sehingga bayangan akhir bersifat Maya (bayangan virtual di mata), Terbalik (atas jadi bawah), dan Diperbesar. Terbalik tidak masalah karena benda langit bulat." },
+            { type: "PG", text: "2. Agar pengamat tidak melihat objek di permukaan bumi terbalik saat memakai teropong bumi, maka di antara lensa objektif dan okuler disisipkan ....", options: ["A. Lensa cekung sebagai pembalik", "B. Cermin cembung pembalik", "C. Lensa cembung pembalik", "D. Prisma segitiga tunggal"], answer: 2, exp: "Teropong bumi menggunakan satu lensa cembung ekstra di tengah yang fungsinya murni hanya untuk membalikkan posisi bayangan (lensa pembalik) agar tegak, tanpa mengubah ukuran bayangannya." },
+            { type: "PG", text: "3. Teropong Galileo mampu menghasilkan bayangan akhir maya, tegak, dan diperbesar tanpa lensa pembalik. Hal ini terjadi karena lensa okulernya menggunakan jenis ....", options: ["A. Lensa cembung", "B. Cermin cekung", "C. Lensa cekung", "D. Cermin datar"], answer: 2, exp: "Teropong panggung (Galileo) menggunakan lensa divergen (lensa cekung) sebagai okulernya. Lensa cekung ini berfungsi membiaskan sinar konvergen dari objektif menjadi sinar sejajar yang tegak ke mata pengamat." }
+            ]
+        },
+        {
+            no: 10, indikator: "Peserta didik mampu menyebutkan alat optik yang mampu melihat benda-benda yang kecil", bentuk: "PGK", nomor: "18",
+            questions: [
+            { type: "PGK", text: "1. Untuk mengamati struktur benda atau organisme renik yang berukuran sangat kecil, peneliti membutuhkan bantuan alat optik berupa .... (Pilih jawaban benar)", options: ["Lup (Kaca Pembesar)", "Mikroskop", "Periskop", "Teleskop"], answers: [0, 1], exp: "Lup dan Mikroskop dirancang untuk memperbesar sudut pandang mata terhadap benda-benda di jarak sangat dekat. Periskop untuk melihat kapal selam, teleskop untuk benda jauh." },
+            { type: "PGK", text: "2. Karakteristik yang tepat mengenai susunan lensa pada mikroskop maupun lup yaitu .... (Pilih jawaban benar)", options: ["Mikroskop memakai dua lensa cembung (objektif & okuler).", "Lup memberi perbesaran maksimum jika mata berakomodasi maksimum.", "Fokus okuler pada mikroskop selalu dirancang lebih kecil dari objektif."], answers: [0, 1], exp: "Mikroskop terdiri dari 2 lensa positif (cembung). Lup bekerja maksimal (paling besar bayangannya) saat otot mata berakomodasi sekuatnya (bayangan jatuh di titik dekat mata). Fokus okuler mikroskop umumnya LEBIH BESAR dari objektifnya." },
+            { type: "PGK", text: "3. Pasangan alat optik pembesar dan fungsi pengamatan yang menunjukkan kesesuaian adalah .... (Pilih jawaban benar)", options: ["Mikroskop - Melihat struktur sel tumbuhan.", "Lup - Digunakan tukang arloji melihat komponen gerigi mesin.", "Teropong - Mengamati bakteri air kolam."], answers: [0, 1], exp: "Mikroskop dipakai di laboratorium untuk sel/bakteri. Lup (kaca pembesar) umum dipakai tukang jam untuk melihat bagian kecil tapi tak terlalu mikroskopis." }
+            ]
+        },
+        // MATERI 2: UNSUR SENYAWA CAMPURAN
+        {
+            no: 11, tp: "Mengetahui unsur dan sifat sifatnya serta menjelaskan perbedaan unsur logam dan non- logam berdasarkan sifat- sifatnya. Mendeskripsikan perbedaan antara unsur dan senyawa serta menyajikan informasi tentang penggunaan unsur tertentu dan senyawanya dalam kehidupan sehari hari. Mendeskripsikan perbedaan antara unsur, senyawa, dan campuran serta berbagai metode untuk memisahkan campuran", rowspan_tp: 10, materi: "Unsur, Senyawa, Campuran, Pemisahan campuran", rowspan_materi: 10, indikator: "Disajikan beberapa jenis unsur, peserta didik dapat menentukan unsur logam dan bukan logam dengan benar", bentuk: "PG", nomor: "6",
+            questions: [
+            { type: "PG", text: "1. Dari data: 1) Besi, 2) Belerang, 3) Tembaga, 4) Karbon, 5) Emas. Kelompok materi yang tergolong unsur logam adalah nomor ....", options: ["A. 1, 2, dan 3", "B. 1, 3, dan 5", "C. 2, 4, dan 5", "D. 3, 4, dan 5"], answer: 1, exp: "Besi (Fe), Tembaga (Cu), dan Emas (Au) bersifat mengkilap, konduktor panas & listrik, serta keras (sifat logam). Belerang dan Karbon rapuh dan non-konduktor (non-logam)." },
+            { type: "PG", text: "2. Ciri khas unsur non-logam pada suhu ruang yang membedakannya secara mutlak dari logam adalah ....", options: ["A. Penghantar panas yang baik", "B. Berwujud gas, cair, atau padatan rapuh", "C. Memancarkan kilau saat digosok", "D. Ulet dan mudah ditempa menjadi kawat"], answer: 1, exp: "Logam umumnya berwujud padat keras dan ulet. Sebaliknya, non-logam memiliki wujud beragam (oksigen berwujud gas, bromin cair, belerang/karbon padat tapi mudah hancur/rapuh)." },
+            { type: "PG", text: "3. Kelompok zat murni yang seluruhnya tergolong sebagai unsur non-logam dan berwujud gas pada suhu ruang meliputi ....", options: ["A. Natrium, Magnesium, Kalsium", "B. Oksigen, Nitrogen, Helium", "C. Raksa, Bromin, Iodin", "D. Karbon, Fosfor, Belerang"], answer: 1, exp: "Oksigen, Nitrogen, dan Helium merupakan unsur-unsur golongan non-logam yang partikelnya saling renggang membentuk wujud gas alami di udara." }
+            ]
+        },
+        {
+            no: 12, indikator: "Disajikan sebuah ilustrasi, peserta didik dapat membedakan antara unsur dan campuran", bentuk: "PG", nomor: "7",
+            questions: [
+            { type: "PG", text: "1. Emas 24 karat diklasifikasikan sebagai unsur, sedangkan perunggu (paduan tembaga & timah) adalah campuran. Perbedaan mendasarnya yaitu ....", options: ["A. Campuran terbentuk lewat ikatan kimia permanen, unsur tidak", "B. Unsur hanya terdiri 1 jenis atom, campuran gabungan fisis zat berbeda tanpa reaksi kimia", "C. Unsur dipisahkan mekanik, campuran dipisahkan kimia", "D. Campuran selalu berfase homogen"], answer: 1, exp: "Unsur (emas) adalah materi paling murni dari atom sejenis. Perunggu adalah aloi/paduan logam, di mana dua materi dicairkan dan dicampur secara fisika tanpa ikatan reaksi kimia baru." },
+            { type: "PG", text: "2. Hasil pelarutan dan pengadukan kristal garam dapur (NaCl) ke dalam segelas air hingga sempurna tergolong ke dalam kelompok ....", options: ["A. Unsur logam", "B. Molekul unsur", "C. Senyawa murni", "D. Campuran homogen"], answer: 3, exp: "Garam dan air tidak bereaksi membentuk zat baru, mereka hanya bercampur rata. Karena butiran garam tidak bisa dibedakan lagi dari air secara visual, ini disebut campuran homogen (larutan)." },
+            { type: "PG", text: "3. Oksigen murni di tabung pernapasan digolongkan unsur, sedangkan udara bebas di lingkungan sekitar digolongkan sebagai ....", options: ["A. Unsur buatan", "B. Senyawa kompleks", "C. Campuran homogen gas", "D. Molekul diatomik"], answer: 2, exp: "Udara merupakan kumpulan dari banyak sekali gas (nitrogen, oksigen, karbon dioksida, argon) yang bercampur rata menjadi satu fase, sehingga ia adalah campuran homogen gas." }
+            ]
+        },
+        {
+            no: 13, indikator: "Disajikan beberapa contoh molekul, peserta didik mampu menunjukan yang tergolong molekul unsur", bentuk: "Essay", nomor: "29",
+            questions: [
+            { type: "ESSAY", text: "1. Dari H₂O, O₂, CO₂, dan N₂. Tentukan mana yang termasuk molekul unsur beserta alasannya!", exp: "Jawab: O₂ (Oksigen) dan N₂ (Nitrogen).\nAlasannya: Molekul unsur terbentuk dari gabungan dua atau lebih atom yang berjenis/unsur SAMA persis. Sedangkan H₂O dan CO₂ adalah molekul senyawa karena atom penyusunnya berbeda." },
+            { type: "ESSAY", text: "2. Jelaskan perbedaan mendasar antara molekul unsur dan molekul senyawa!", exp: "Jawab: \n- Molekul Unsur terbentuk oleh atom-atom dari unsur yang sama berikatan (Contoh: Oksigen/O₂, Klorin/Cl₂).\n- Molekul Senyawa terbentuk oleh atom-atom dari unsur yang berbeda jenis berikatan kimia (Contoh: Air/H₂O, Garam/NaCl)." },
+            { type: "ESSAY", text: "3. Antara Gas klorin (Cl₂) dan Asam klorida (HCl), analisislah mana yang tergolong molekul unsur!", exp: "Jawab: Gas klorin (Cl₂) adalah molekul unsur karena hanya tersusun oleh dua atom yang seragam yaitu Klorin (Cl). HCl adalah molekul senyawa karena terdiri dari Hidrogen (H) dan Klorin (Cl)." }
+            ]
+        },
+        {
+            no: 14, indikator: "Peserta didik mampu menguraikan rumus kimia suatu senyawa berdasarkan indeks atom masing masing atom penyusunnya", bentuk: "PG", nomor: "8",
+            questions: [
+            { type: "PG", text: "1. Rumus glukosa adalah C₆H₁₂O₆. Jumlah total atom penyusun satu molekul glukosa adalah sebanyak ....", options: ["A. 3 atom", "B. 6 atom", "C. 12 atom", "D. 24 atom"], answer: 3, exp: "Total atom = 6 (Carbon) + 12 (Hydrogen) + 6 (Oxygen) = 24 atom." },
+            { type: "PG", text: "2. Pada 2 molekul asam sulfat (2 H₂SO₄), total atom oksigen (O) yang terkandung di dalamnya berjumlah ....", options: ["A. 4 atom", "B. 6 atom", "C. 8 atom", "D. 14 atom"], answer: 2, exp: "Angka indeks oksigen adalah 4 dalam satu molekul H₂SO₄. Karena ada koefisien 2 di depan (berarti ada dua molekul), maka 2 × 4 = 8 atom oksigen." },
+            { type: "PG", text: "3. Pada senyawa Al₂(SO₄)₃, rincian jumlah atom Belerang (S) dan atom Oksigen (O) berturut-turut sebanyak ....", options: ["A. 1 atom S dan 4 atom O", "B. 3 atom S dan 4 atom O", "C. 3 atom S dan 12 atom O", "D. 2 atom S dan 12 atom O"], answer: 2, exp: "Tanda kurung mengalikan indeks yang ada di dalamnya dengan indeks di luar kurung. (SO₄)₃ berarti ada atom S = 1×3 = 3 atom, dan atom O = 4×3 = 12 atom." }
+            ]
+        },
+        {
+            no: 15, indikator: "Disajikan tabel tentang nama molekul, rumus kimia serta manfaat, peserta didik mampu menganalisis yang golong molekul senyawa", bentuk: "PGK", nomor: "19",
+            questions: [
+            { type: "PGK", text: "1. Pasangan antara rumus kimia senyawa dan manfaatnya yang menunjukkan korelasi tepat adalah .... (Pilih jawaban benar)", options: ["NaCl (Natrium Klorida) - Bumbu masak / asin.", "H₂O (Dihidrogen Monoksida) - Pelarut universal tubuh.", "CH₃COOH (Asam Asetat) - Bahan bakar gas kompor.", "CO₂ (Karbon Dioksida) - Diperlukan tumbuhan fotosintesis."], answers: [0, 1, 3], exp: "Asam Asetat (CH₃COOH) adalah cuka masak, bukan bahan bakar kompor (itu Metana CH₄ atau LPG Propana/Butana)." },
+            { type: "PGK", text: "2. Kelompok rumus kimia yang material penyusunnya HANYA tergolong ke dalam molekul senyawa meliputi .... (Pilih jawaban benar)", options: ["H₂O, CO₂, dan NaCl", "O₂, N₂, dan Cl₂", "NH₃, CH₄, dan HCl", "Au, Ag, dan Fe"], answers: [0, 2], exp: "Molekul senyawa harus memuat 2 huruf besar atau lebih (gabungan unsur beda). Oksigen (O₂) adalah molekul unsur. Emas (Au) adalah atom tunggal unsur." },
+            { type: "PGK", text: "3. Karakteristik yang secara spesifik mendeskripsikan sifat molekul senyawa yaitu .... (Pilih jawaban benar)", options: ["Tersusun atas gabungan dua atom dari unsur sejenis.", "Terdiri ikatan kimia dari dua unsur atau lebih yang beda jenis.", "Sifat fisik/kimia senyawa seringkali jauh berbeda dari sifat unsur aslinya."], answers: [1, 2], exp: "Senyawa terbentuk dari unsur yang beda. Sifatnya akan sama sekali baru (contoh: Na logam reaktif ledak + Cl gas beracun = NaCl garam masak lezat/aman)." }
+            ]
+        },
+        {
+            no: 16, indikator: "Disajikan gambar pemisahan campuran secara filtrasi, siswa dapat menentukan bagian yang dinamakan filtrat dan residu", bentuk: "PG", nomor: "9",
+            questions: [
+            { type: "PG", image: SvgFiltrasi, text: "1. Cairan jernih yang berhasil lolos menembus pori kertas saring dan tertampung di gelas kimia bawah dinamakan ....", options: ["A. Residu", "B. Destilat", "C. Filtrat", "D. Suspensi"], answer: 2, exp: "Air hasil saringan yang menetes melewati medium berpori (kertas saring) disebut produk saringan atau 'Filtrat'." },
+            { type: "PG", text: "2. Saat menyaring minuman kopi kasar, endapan bubuk kopi hitam yang tertinggal pada saringan disebut ....", options: ["A. Pelarut", "B. Residu", "C. Ekstrak", "D. Filtrat"], answer: 1, exp: "Zat buangan atau endapan kotor yang ukurannya lebih besar dari pori-pori dan menyangkut tertahan di atas kertas saring disebut 'Residu' (ampas)." },
+            { type: "PG", text: "3. Dalam proses filtrasi, zat padat yang tertahan akibat ukurannya lebih besar dari pori-pori alat penyaring disebut istilah ....", options: ["A. Filtrat", "B. Solut", "C. Residu", "D. Kromatogram"], answer: 2, exp: "Residu adalah materi sisa/ampas (seperti kerikil, pasir kotor) yang tidak mampu melewati filter penyaring." }
+            ]
+        },
+        {
+            no: 17, indikator: "Disajikan tabel, peserta didik mampu mengkorelasikan jenis zat beserta Contohnya", bentuk: "PG", nomor: "10",
+            questions: [
+            { type: "PG", text: "1. 1) Unsur = Air (H₂O), 2) Senyawa = Garam Dapur (NaCl), 3) Campuran Homogen = Sirup Melon, 4) Campuran Heterogen = Emas (Au). Pasangan yang tepat adalah nomor ....", options: ["A. 1 dan 2", "B. 2 dan 3", "C. 3 dan 4", "D. 1 dan 4"], answer: 1, exp: "Air adalah senyawa, Emas adalah unsur. Yang benar adalah Garam (Senyawa karena dari Na + Cl) dan Sirup Melon (Campuran homogen yang melarut sempurna)." },
+            { type: "PG", text: "2. Korelasi yang tepat antara tingkat penyusunan materi (unsur/senyawa/campuran) beserta wujud spesifiknya yaitu ....", options: ["A. Karbon (unsur padat), Udara (campuran gas)", "B. Besi (senyawa padat), Alkohol (campuran cair)", "C. Gula (unsur padat), Nitrogen (campuran gas)", "D. Emas murni (senyawa padat), Susu (unsur cair)"], answer: 0, exp: "Karbon (C) adalah unsur murni padat, sedangkan udara (O2, N2, CO2) adalah campuran benda-benda gas. Besi bukan senyawa, gula bukan unsur." },
+            { type: "PG", text: "3. Zat tunggal murni yang tidak dapat diuraikan lagi menjadi zat lain yang lebih sederhana disebut unsur. Contoh unsur adalah ....", options: ["A. Air, Tanah, Udara", "B. Belerang, Karbon, Perak", "C. Gula, Garam, Cuka", "D. Baja, Perunggu, Kuningan"], answer: 1, exp: "Belerang (S), Karbon (C), dan Perak (Ag) semuanya muncul dalam Tabel Periodik Unsur. Air dan gula itu senyawa. Baja/Perunggu itu campuran paduan." }
+            ]
+        },
+        {
+            no: 18, indikator: "Peserta didik mampu menyebutkan perbedaan senyawa dan campuran", bentuk: "Essay", nomor: "28",
+            questions: [
+            { type: "ESSAY", text: "1. Uraikan 3 perbedaan utama sifat senyawa dan sifat campuran!", exp: "Jawab:\n1. Terbentuk: Senyawa lewat reaksi kimia, Campuran hanya percampuran fisika biasa.\n2. Komposisi: Senyawa perbandingan massanya selalu tetap, Campuran sembarang/bebas.\n3. Sifat Asal: Senyawa kehilangan sifat unsur asalnya jadi baru, Campuran tetap mempertahankan sifat zat penyusunnya." },
+            { type: "ESSAY", text: "2. Belerang + Serbuk besi bisa dipisah dengan magnet. Namun jika dipanaskan jadi besi sulfida, magnet tak bereaksi. Mengapa?", exp: "Jawab: Belerang campur besi biasa adalah 'Campuran', di mana besi masih mempertahankan sifat asalnya menempel pada magnet. Namun pemanasan menyatukan mereka secara kimia menjadi 'Senyawa' besi sulfida (FeS) yang sama sekali tidak memiliki sifat tarik menarik magnetik layaknya unsur besi murni." },
+            { type: "ESSAY", text: "3. Jelaskan mengapa air murni tergolong senyawa sedangkan air susu tergolong campuran!", exp: "Jawab: Air murni (H2O) adalah zat tunggal yang terbentuk lewat reaksi kimia mutlak antara gas Hidrogen dan Oksigen dengan ikatan kovalen yang tak kasat mata. Air Susu terbentuk hanya dengan menuangkan gula, perasa, krim dan air di dalam gelas tanpa ada ikatan kimia kuat (campuran)." }
+            ]
+        },
+        {
+            no: 19, indikator: "Disajikan beberapa pernyataan tentang pemisahan campuran, peserta didik mampu menganalisis yang menggunakan pemisahan secara filtrasi", bentuk: "PGK", nomor: "20",
+            questions: [
+            { type: "PGK", text: "1. Peristiwa sehari-hari yang merupakan bentuk penerapan langsung metode pemisahan penyaringan (filtrasi) meliputi .... (Pilih jawaban benar)", options: ["Memisahkan ampas teh hijau dari airnya.", "Menjemur air laut di ladang garam.", "Memeras santan kelapa pakai saringan kain.", "Menyuling mawar untuk parfum."], answers: [0, 2], exp: "Menyaring ampas teh teh atau santan kelapa pakai saringan adalah bentuk asli filtrasi mekanik. Menjemur garam itu evaporasi (penguapan). Menyuling parfum itu distilasi." },
+            { type: "PGK", text: "2. Prinsip kerja atau syarat mutlak yang menjadi dasar bekerjanya proses filtrasi adalah .... (Pilih jawaban benar)", options: ["Campuran terdiri cairan dan cairan yang saling larut.", "Didasarkan pada perbedaan ukuran partikel zat penyusun.", "Membutuhkan medium penghalang berpori mikroskopis.", "Bergantung pada perbedaan titik didih antar senyawa."], answers: [1, 2], exp: "Filtrasi hanya bekerja jika ada perbedaan ukuran partikel (yang satu kasar menahan, yang satu halus lolos) dan memerlukan alat pelolosan berpori (seperti kertas saring/kain)." },
+            { type: "PGK", text: "3. Dari persoalan berikut, masalah yang penyelesaiannya paling tepat memakai filtrasi yaitu .... (Pilih jawaban benar)", options: ["Memisahkan pecahan kerikil dari pasir halus semen.", "Membersihkan air sumur keruh berlumpur kotor.", "Menguraikan komposisi ragam zat warna spidol."], answers: [0, 1], exp: "Ayakan kuli bangunan (kerikil-pasir) dan saringan air minum/sumur memanfaatkan lubang mikro (pori) untuk menangkap lumpur/batu kotor. Tinta spidol dipisah dengan Kromatografi." }
+            ]
+        },
+        {
+            no: 20, indikator: "Diberikan permasalahannya dimana seorang anak mencampur kapur barus dengan pasir, siswa dapat memilih solusi pemisahaan campuran tersebut dengan menentukan metode pemisahan yang benar", bentuk: "PGK", nomor: "21",
+            questions: [
+            { type: "PGK", text: "1. Kapur barus tercampur pasir kering di lantai. Langkah paling tepat untuk mengumpulkan kembali kapur barus murni tersebut melalui proses .... (Pilih jawaban benar)", options: ["Melarutkan air, mengaduk, menyaring pasirnya (Filtrasi).", "Memanaskan cawan terbuka (Evaporasi).", "Memanaskan wadah tertutup yang didinginkan atasnya (Sublimasi).", "Memutar campuran dalam tabung (Sentrifugasi)."], answers: [2], exp: "Sublimasi memanaskan campuran. Kapur barus menyublim jadi gas. Gas menabrak penutup wadah yang diberi suhu dingin, mengkristal kembali jadi padat murni tanpa pasir." },
+            { type: "PGK", text: "2. Dasar pemikiran/prinsip fisika yang memungkinkan campuran kapur barus dan pasir dipisahkan memakai metode pemanasan (Sublimasi) yaitu .... (Pilih jawaban benar)", options: ["Kapur barus memiliki sifat unik langsung menyublim jadi gas.", "Pasir memiliki titik didih teramat sangat jauh lebih tinggi.", "Uap kapur panas bisa kembali padat (mengkristal) bila kena dingin."], answers: [0, 1, 2], exp: "Ketiga poin tersebut menopang teori Sublimasi: Kapur menguap (karena zat gas mudah terbang), pasir tertinggal kotoran (tahan panas ekstrem), lalu uap ditangkap didinginkan agar jadi padat kapur bersih." },
+            { type: "PGK", text: "3. Langkah kerja yang benar dan aman ketika mempraktikkan proses sublimasi campuran kapur barus di laboratorium meliputi .... (Pilih jawaban benar)", options: ["Campuran diletakkan di cawan penguap lalu dipanaskan.", "Bagian atas ditutup kaca arloji dan diberi es batu.", "Campuran wajib ditetesi alkohol hingga terendam basah."], answers: [0, 1], exp: "Proses Sublimasi dilakukan dalam keadaan kering murni (pemanasan padat kering). Kaca arloji dan es batu di atas berfungsi mendadak mendinginkan uap agar segera mengkristal di kaca tersebut." }
+            ]
+        },
+        // MATERI 3: STRUKTUR BUMI, GEMPA, GUNUNG
+        {
+            no: 21, tp: "Mendeskripsikan lapisan-lapisan penyusun bumi berupa wujud, kandungan didalamnya, suhu dan kedalamannya. Mendeskripsikan tiga tipe pergerakan lempeng, Mendeskripsikan jenis- jenis gempa berdasarkan penyebabnya, Mengidentifikasi bagian-bagian gunung berapi, Membuat mitigasi bencana gempa/gunung berapi", rowspan_tp: 10, materi: "Struktur bumi, lempeng tektonik, Gempa Bumi, Gunung Berapi", rowspan_materi: 10, indikator: "Disajikan gambar struktur bumi, siswa dapat menentukan bagian dari struktur bumi tersebut dengan kandungan materi di setiap lapisannya", bentuk: "PG", nomor: "11",
+            questions: [
+            { type: "PG", image: SvgStrukturBumi, text: "1. Lapisan batuan padat terluar bumi (pijakan makhluk hidup) yang kaya materi silikat dan aluminium ditunjukkan oleh nomor ....", options: ["A. 1 (Kerak bumi)", "B. 2 (Mantel bumi)", "C. 3 (Inti luar)", "D. 4 (Inti dalam)"], answer: 0, exp: "Lapisan pelindung luar bumi yang sangat tipis bak cangkang telur dan tempat semua makhluk hidup berada adalah Kerak Bumi (Crust) - Nomor 1." },
+            { type: "PG", text: "2. Lapisan nomor 2 yang berada pada bagian selubung (mantel bumi / astenosfer) memiliki wujud fisis dominan berupa ....", options: ["A. Lempengan batuan kaku bersuhu dingin", "B. Fluida murni lelehan besi nikel cair", "C. Massa batuan pekat panas plastis (dapat mengalir kental)", "D. Gumpalan logam padat kristalin"], answer: 2, exp: "Mantel Bumi atau selubung (Nomor 2) menyumbang volume terbesar di Bumi. Karena tekanan dan panasnya, batuan silikat di sana layaknya lelehan kental aspal pijar (magma plastis) yang selalu bergolak." },
+            { type: "PG", text: "3. Meskipun nomor 4 berlokasi paling dalam dan bersuhu ekstrem, lapisan inti dalam bumi justru berwujud PADAT kokoh. Hal ini diakibatkan oleh ....", options: ["A. Suhu beku memusat di inti bumi", "B. Tekanan teramat tinggi memampatkan logam leleh jadi padat", "C. Kerapatan gas hidrogen menyatu", "D. Es kosmik terperangkap di dasar"], answer: 1, exp: "Gaya gravitasi di kedalaman 6000 km menghimpit inti dalam dengan daya tekan puluhan juta kali lipat. Tekanan gila ini memaksa atom-atom logam besi/nikel untuk tetap merapat padat meski suhunya >5000°C." }
+            ]
+        },
+        {
+            no: 22, indikator: "Disediakan pernyataan tentang ciri salah satu bagian struktur bumi yang membedakan dengan bagian struktur bumi yang lainnya yaitu ciri bahwa lapisannya terdiri dari cairan yang pekat (cairan magma), tidak ada air, cairannya berasal dari lelehan besi dan nikel. Siswa dapat menentukan ciri tersebut pada struktur bumi yang paling tepat", bentuk: "PG", nomor: "12",
+            questions: [
+            { type: "PG", text: "1. Lapisan bumi yang material penyusunnya terdiri dari cairan pekat super panas tanpa unsur air berupa lelehan unsur murni besi dan nikel adalah ....", options: ["A. Kerak benua", "B. Mantel atas", "C. Inti luar (Outer core)", "D. Inti dalam (Inner core)"], answer: 2, exp: "Inti Luar adalah satu-satunya wilayah interior Bumi yang benar-benar dipastikan berwujud fluida logam cair (liquid alloy besi dan nikel yang mendidih)." },
+            { type: "PG", text: "2. Pergerakan konveksi material lelehan logam (besi-nikel) yang terus berputar dinamis pada zona Inti Luar memberikan dampak pelindung mutlak berupa ....", options: ["A. Terciptanya medan magnet raksasa pelindung radiasi bumi", "B. Perubahan fluktuasi iklim harian", "C. Siklus hidrologi laut-awan", "D. Penumbuhan karang laut dalam"], answer: 0, exp: "Efek dinamo Bumi dihasilkan dari miliaran ton lelehan besi cair di Inti Luar yang berputar seiring putaran Bumi. Ini melahirkan kutub magnet Utara-Selatan dan tameng (magnetosfer) yang menepis badai matahari." },
+            { type: "PG", text: "3. Ciri fisis dan komposisi kimia yang menjadi parameter pembeda utama antara Inti Luar dan Mantel Bumi adalah ....", options: ["A. Inti luar: logam besi-nikel cair, Mantel: batuan silikat plastis kental", "B. Inti luar tipis terluar, Mantel dalam", "C. Inti luar stabil dingin, Mantel panas meletus", "D. Inti luar wujud gas tebal, Mantel air"], answer: 0, exp: "Mantel didominasi batuan peleburan silikon-oksigen (bertekstur aspal kental). Inti Luar sama sekali tak punya batu silikat, ia adalah murni lelehan besi cair mengalir." }
+            ]
+        },
+        {
+            no: 23, indikator: "Siswa dapat membedakan bentuk permukaan bumi dengan benar", bentuk: "PG", nomor: "13",
+            questions: [
+            { type: "PG", text: "1. Bentuk patahan relief di dasar samudra yang strukturnya menjorok sangat curam ke bawah dan memanjang mirip jurang mematikan dinamakan ....", options: ["A. Paparan dangkal benua", "B. Palung laut (Trench)", "C. Rantai punggung samudra", "D. Gunung api dasar laut"], answer: 1, exp: "Palung Laut (seperti Palung Mariana) terbentuk akibat satu kerak samudra yang amblas menekuk terjun ke bawah mantel bersilangan dengan kerak lain." },
+            { type: "PG", text: "2. Wilayah area daratan yang sangat luas membentang dengan ketinggian muka tanah melampaui 400 mdpl (meter di atas laut) berpermukaan relatif datar disebut ....", options: ["A. Dataran rendah", "B. Lembah ngarai", "C. Dataran tinggi / plato", "D. Depresi patahan"], answer: 2, exp: "Dataran tinggi (Plato) seperti Dataran Tinggi Dieng/Bandung adalah bentangan lahan horizontal yang jauh lebih tinggi dan sejuk dari kawasan bibir pantai." },
+            { type: "PG", text: "3. Di antara relief daratan, bentang alam yang secara langsung terbentuk sebagai akibat tabrakan dan pengerutan lipatan lapisan kerak bumi yaitu ....", options: ["A. Ambang laut dangkal", "B. Jajaran pegunungan panjang", "C. Dasar palung laut", "D. Cekungan lubuk laut (Basin)"], answer: 1, exp: "Pegunungan (Gunung lipatan raksasa Himalaya, Alpen, Bukit Barisan) lahir layaknya kap mobil yang penyok naik ke atas saat ditabrak kuat dari dua arah (lempeng benua tabrakan)." }
+            ]
+        },
+        {
+            no: 24, indikator: "Disajiakan nama-nama gunung yang ada di Jawa Tengah, peserta didik mampu menunjukan yang tergolong gunung berapi", bentuk: "PGK", nomor: "22",
+            questions: [
+            { type: "PGK", text: "1. Deretan gugusan gunung api yang terus dipantau aktivitas vulkanisnya dan secara geografis berada di wilayah Provinsi Jawa Tengah meliputi .... (Pilih jawaban benar)", options: ["Gunung Merapi", "Gunung Slamet", "Gunung Bromo", "Gunung Krakatau"], answers: [0, 1], exp: "Merapi terletak di batas DIY & Jateng, Slamet di Purwokerto/Tegal (Jateng). Bromo ada di Jawa Timur, sedangkan Krakatau di Selat Sunda (antara Jawa Barat - Lampung)." },
+            { type: "PGK", text: "2. Nama-nama gunung pada daftar berikut yang BUKAN berada di dalam kawasan Jawa Tengah adalah .... (Pilih jawaban benar)", options: ["Gunung Sindoro", "Gunung Sumbing", "Gunung Rinjani", "Gunung Kerinci"], answers: [2, 3], exp: "Sindoro dan Sumbing adalah gunung kembar indah di Temanggung-Wonosobo (Jateng). Rinjani membentang di Pulau Lombok (NTB), dan Kerinci atap Pulau Sumatera ada di Jambi." },
+            { type: "PGK", text: "3. Keberadaan gunung api aktif raksasa dengan riwayat letusan magmatik kuat di kawasan lingkar Boyolali, Magelang, hingga Semarang meliputi .... (Pilih jawaban benar)", options: ["Gunung Lawu", "Gunung Merbabu", "Gunung Semeru"], answers: [0, 1], exp: "Lawu ada di timur Jateng-Jatim, Merbabu bersebelahan menempel dekat Merapi. Semeru (Mahameru) letaknya jauh di perbatasan Malang-Lumajang Jawa Timur." }
+            ]
+        },
+        {
+            no: 25, indikator: "Disajikan tabel tentang status gunung berapi beserta tindakan, Peserta didik mampu menganalisis pasangan yang tepat sesuai status keadaan gunung berapi", bentuk: "PGK", nomor: "23",
+            questions: [
+            { type: "PGK", text: "1. Kesesuaian tindakan darurat mitigasi warga selaras dengan penetapan tingkatan status gunung apinya dari PVMBG meliputi .... (Pilih jawaban benar)", options: ["AWAS (Level 4): Wilayah radius merah dikosongkan total, warga dievakuasi turun.", "SIAGA (Level 3): Warga berkemas surat penting, bersiap di titik kumpul desa.", "WASPADA (Level 2): Wisatawan bebas kemah mendirikan tenda tepat di kawah mendidih.", "NORMAL (Level 1): Aktivitas wisata/kebun beroperasi damai sedia kala."], answers: [0, 1, 3], exp: "Saat level Waspada (2), wisatawan DILARANG KERAS masuk mendekati tepi kawah akibat gas solfatara beracun dan letusan abu tiba-tiba. (Poin C salah)." },
+            { type: "PGK", text: "2. Jika indikator gunung api mendadak berstatus SIAGA (Level 3), langkah antisipasi standar bagi masyarakat lereng adalah .... (Pilih jawaban benar)", options: ["Menggelar jadwal ronda ekstra pantauan api di atas gunung malam hari.", "Mengungsi mandiri malam itu juga melarikan diri keluar batas pulau.", "Menyiapkan TAS SIAGA DARURAT (obat, senter, dokumen) dekat pintu."], answers: [0, 2], exp: "Status SIAGA berarti ancaman mendekat tapi letusan maut belum tentu meledak detik itu. Menyiapkan tas darurat dan ronda itu wajib, tapi eksodus liar luar pulau belum perlu sebelum instruksi AWAS." },
+            { type: "PGK", text: "3. Status alarm darurat yang mewajibkan sirine evakuasi dibunyikan karena letusan utama besar DI DEPAN MATA (sedang/mulai terjadi) adalah tingkat .... (Pilih jawaban benar)", options: ["Waspada (Level 2)", "Siaga (Level 3)", "Awas (Level 4)"], answers: [2], exp: "AWAS atau level 4 menandakan proses Erupsi Besar Hancur sedang menuju titik memuntahkan isinya. Keselamatan dicapai dengan kosongkan batas radius sekian KM tanpa tawar menawar." }
+            ]
+        },
+        {
+            no: 26, indikator: "Disajikan bahan-bahan yang ada pada gunung berapi, peserta didik dapat membedakan bahan-bahan yang dikeluarkan saat gunung berapi meletus", bentuk: "PGK", nomor: "24",
+            questions: [
+            { type: "PGK", text: "1. Erupsi eksplosif memuntahkan serpihan partikel material padat ke udara (eflata). Benda-benda lontaran yang tergolong eflata padat ini meliputi .... (Pilih jawaban benar)", options: ["Bom vulkanik (bongkahan batu pijar raksasa).", "Lapili (kerikil batu kecil vulkanik).", "Mofet (gas berat beracun berupa karbon dioksida).", "Lava (lelehan batu cair)."], answers: [0, 1], exp: "Eflata = benda tegar padat. Bom (batu besar mematikan), Lapili (kerikil), dan Pasir Abu (debu) itu material PADAT. Gas Mofet itu gas, Lava itu fase Cair mengalir." },
+            { type: "PGK", text: "2. Material berwujud cair merah pijar bersuhu menyala lambat merayap turun dari celah lereng kepundan murni dari perut bumi dinamakan .... (Pilih jawaban benar)", options: ["Lahar dingin kawah", "Lahar panas letusan", "Lava murni"], answers: [2], exp: "Selama material pijar itu murni berasal menetas dari kawah batuan dan belum bercampur unsur lingkungan luar (air hujan / lumpur tepi), namanya adalah LAVA. Jika sudah menabrak sungai air meluap, ia jadi lahar." },
+            { type: "PGK", text: "3. Ekshalasi atau hembusan senyawa unsur gas beracun maut akibat aktivitas kawah gunung yang paling dihindari regu SAR yaitu .... (Pilih jawaban benar)", options: ["Solfatar (gas hidrogen sulfida menyengat telur busuk).", "Mofet (gas tak terlihat pekat karbon dioksida mendasar cekungan lembah).", "Magma kental.", "Batu apung."], answers: [0, 1], exp: "Ekshalasi = pelepasan wujud gas fumarol (Mofet & Solfatar). Khusus Mofet CO2 mematikan tanpa disadari karena tak berbau dan bersembunyi merayap menyelimuti rumput rendah cekungan (contoh Tragedi Kawah Sinila Dieng)." }
+            ]
+        },
+        {
+            no: 27, indikator: "Disediakan pernyataan tentang Indonesia memiliki banyak gunung berapi siswa dapat mendeskripsikan manfaat memiliki banyak gunung berapi", bentuk: "Essay", nomor: "30",
+            questions: [
+            { type: "ESSAY", text: "1. Deskripsikan 3 (tiga) manfaat positif bagi kehidupan warga dari banyaknya keberadaan deretan gunung-gunung berapi di Indonesia (Ring of Fire)!", exp: "Jawab: 1) Abu vulkanik letusan bertindak sebagai pupuk organik yang meregenerasi kesuburan tanah tiada tara. 2) Tangkapan awan membuat hujan di lereng melimpah, menyediakan cadangan mata air bersih raksasa bagi kota di bawahnya. 3) Menghasilkan keindahan geowisata & kawah belerang penyedia wisata alam." },
+            { type: "ESSAY", text: "2. Mengapa tanah pertanian hasil letusan (kawasan vulkanik) jauh lebih hijau subur dibanding tanah perkapuran atau pesisir karang?", exp: "Jawab: Material magma yang dimuntahkan ke permukaan tersusun oleh beragam mineral hara mentah (Kalsium, Kalium, Fosfor, Magnesium). Pelapukan hancuran abu vulkanik halus ini bercampur tanah humus dan membentuk koktail nutrisi sempurna untuk urat akar tumbuhan." },
+            { type: "ESSAY", text: "3. Sebutkan dan jelaskan potensi sumber daya tambang ekonomi/energi spesifik hasil aktivitas magma dapur gunung berapi!", exp: "Jawab: 1) Geotermal / Panas Bumi: Sumur turbin PLTP bisa menyuling uap tanah panas pegunungan untuk sumber listrik raksasa bersih. 2) Penambangan Pasir Batu Galian C kualitas prima. 3) Tambang Endapan Belerang Murni untuk obat farmasi/bahan kimia industri." }
+            ]
+        },
+        {
+            no: 28, indikator: "Disediakan gambar tipe-tipe gerakan lempeng pada bumi siswa dapat menentukan tipe gerakan lempeng yang sesuai gambar atau definisi gerakan lempeng tersebut", bentuk: "PG", nomor: "14",
+            questions: [
+            { type: "PG", image: SvgDivergen, text: "1. Tipe pergerakan batuan lempeng tektonik yang saling merekah menjauh (menyemburkan lantai dasar samudra magma baru) sesuai gambar di atas adalah ....", options: ["A. Konvergen", "B. Divergen", "C. Transform (Sesar mendatar)", "D. Subduksi"], answer: 1, exp: "Divergen = 'Divide/Menjauh'. Dua lempeng terseret konveksi mantel ke arah berlawanan memicu punggung lantai dasar laut merekah terbelah diisi cairan magma lautan baru." },
+            { type: "PG", text: "2. Kemunculan Rantai Pegunungan Tinggi Himalaya tercipta dari hasil pengerutan dua lempeng benua raksasa yang saling merangsek bertumbukan keras (bertarung muka). Dinamika ini dikategorikan ....", options: ["A. Konvergen", "B. Divergen", "C. Transform", "D. Ekstrusi"], answer: 0, exp: "Konvergen = 'Collide/Menabrak'. Tabrakan maut Lempeng Benua India menusuk masuk Eurasia memaksa batuan terjepit merangkak remuk menyundul ke atas setinggi Gunung Everest." },
+            { type: "PG", text: "3. Pergerakan bergesekan pada Patahan Sesar San Andreas tercipta murni lantaran dua plat meluncur menyamping, menggesek sejajar berlawanan arah tanpa saling menumbuk/menjauh. Ini dikenal sebagai patahan ....", options: ["A. Sesar naik miring", "B. Lempeng subduksi", "C. Sesar mendatar (Transform fault)", "D. Sesar turun amblas"], answer: 2, exp: "Transform/Sesar Mendatar: Dua mobil saling berpapasan rapat menggesek pinggir di gang sempit tanpa tabrakan kepala. Inilah mengapa rel patahan San Andreas di California selalu terbelah mendatar bergeser kekiri/kanan (pemicu gempa tiba-tiba)." }
+            ]
+        },
+        {
+            no: 29, indikator: "Disajikan tabel tentang kategori gempa beserta efek gempa bumi, peserta didik mampu menganalisis pasangan yang tepat", bentuk: "PGK", nomor: "25",
+            questions: [
+            { type: "PGK", text: "1. Merujuk panduan Skala MMI, deskripsi intensitas kerusakan empiris gempa mana sajakah yang sejalan/tepat? (Pilih jawaban benar)", options: ["MMI I-II: Getaran samar dirasa sedikit orang peka, lampu atap gantung bergoyang perlahan.", "MMI X: Bencana super fatal kiamat kecil, mayoritas struktur beton terkuat kota pun runtuh rubuh miring.", "MMI III: Menciptakan Tsunami tinggi 20 meter sapu bersih pulau jembatan seketika."], answers: [0, 1], exp: "Skala MMI III sangat kecil seperti getaran truk melintas, mustahil meruntuhkan pulau atau memicu Tsunami (itu ranah MMI VIII - XII). MMI 1-2 ringan harian, MMI 10 fatal binasa." },
+            { type: "PGK", text: "2. Terjadi gempa di dasar perairan dangkal lautan, bermagnitudo di atas 7,0 SR. Efek bahaya sekunder susulan berantai paling gawat menyusul penduduk tepi daratan yaitu .... (Pilih jawaban benar)", options: ["Sapuan gelombang pembunuh (Tsunami) tinggi tiba-tiba mendaki daratan pantai pesisir.", "Kehancuran peremukan dermaga pelabuhan transportasi garis pantai.", "Badai muntahan kilat abu vulkanik magma pekat awan."], answers: [0, 1], exp: "Gempa besar sesar lautan berjenis naik/turun akan menyedot mendepak volume air melahirkan gelombang rambat ombak raksasa Tsunami meratakan pantai dermaga pesisir pelabuhan." },
+            { type: "PGK", text: "3. Tindakan penyelamatan standar meminimalisir risiko luka remuk ketika gempa kuat mengguncang saat siswa di lantai 3 gedung tinggi .... (Pilih jawaban benar)", options: ["Menunduk bersembunyi protektif kolong meja tebal berlindung (Drop, Cover).", "Melompat serampangan lempar diri bukaan jendela lari keluar layang.", "Bergerak waspada menghindar lemari buku piala tinggi rapuh/kaca rak tumbang."], answers: [0, 2], exp: "Melompat jendela dari tingkat 3 justru tindakan paling bodoh bunuh diri. Tindakan benar: Jauhi jendela kaca pecah. Drop & Cover melindungi leher tulang punggung dari reruntuhan atap selagi menunggu goyangan henti." }
+            ]
+        },
+        {
+            no: 30, indikator: "Peserta didik mampu menganalisis macam-macam gempa bumi", bentuk: "PG", nomor: "15",
+            questions: [
+            { type: "PG", text: "1. Rangkaian guncangan gempa yang berskala paling dahsyat lebar cakupannya akibat pergerakan sentakan lempeng patahan geser keras penyusun kerak benua disebut ....", options: ["A. Gempa letusan vulkanik", "B. Gempa runtuhan terban", "C. Gempa tektonik", "D. Gempa induksi"], answer: 2, exp: "Gempa bumi alami yang paling sering memicu maut dan tsunami berpusat di pertemuan retakan lempeng-lempeng plat benua, digolongkan murni sebagai Gempa Tektonik." },
+            { type: "PG", text: "2. Seismograf menangkap riak getar tremor harian akibat mendidih naiknya serbuan uap uap magma panas yang nekat merobek bebatuan penyumbat kawah perut gunung. Ini memicu jenis gempa ....", options: ["A. Gempa erupsi vulkanik", "B. Gempa pergeseran laut", "C. Gempa patahan murni sesar", "D. Gempa bom runtuh"], answer: 0, exp: "Getaran gemuruh ritmis frekuensi lokal di sekitar lingkar gunung tanda pra-letusan akibat magma menusuk meretakkan batu dalam kawah adalah jenis Gempa Vulkanik." },
+            { type: "PG", text: "3. Amblesnya pilar-pilar keropos penahan atap gua karst wisata maupun terowongan eks tambang lorong batu bara sering menimbulkan getaran keras lokal di muka atasnya yang dikenal sebagai gempa ....", options: ["A. Gempa megathrust", "B. Gempa kantung magma", "C. Gempa terban (runtuhan gua)", "D. Gempa hantaman meteorit"], answer: 2, exp: "Skala gempa ini sangat kecil (radius desa) dan spesifik dikarenakan amblas ambruknya rongga hampa kosong bebatuan kapur di bawah tanah. Oleh geolog, diklasifikasi sebagai Gempa Runtuhan / Terban." }
+            ]
+        }
+        ];
+
+        // ==========================================
+        // RENDER FUNGSI DAN LOGIKA INTERAKSI
+        // ==========================================
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTable();
+            lucide.createIcons();
+        });
+
+        // Merender tabel utama
+        function renderTable() {
+            const tbody = document.getElementById('kisi-kisi-tbody');
+            let html = '';
+
+            kisiKisiData.forEach((row, index) => {
+                html += `<tr class="hover:bg-gray-50 transition-colors duration-150">`;
+                
+                // Merge kolom NO. berdasarkan Tujuan Pembelajaran
+                if (row.rowspan_tp) {
+                    const sectionNo = Math.floor(index / 10) + 1;
+                    html += `<td rowspan="${row.rowspan_tp}" class="border border-black px-2 py-3 text-center align-top font-bold text-base">${sectionNo}</td>`;
+                }
+                
+                if (row.rowspan_tp) {
+                    html += `<td rowspan="${row.rowspan_tp}" class="border border-black px-3 py-3 align-top whitespace-pre-wrap leading-relaxed">${row.tp}</td>`;
+                }
+                if (row.rowspan_materi) {
+                    html += `<td rowspan="${row.rowspan_materi}" class="border border-black px-3 py-3 align-top font-semibold">${row.materi}</td>`;
+                }
+                
+                html += `
+                    <td class="border border-black px-3 py-3 align-top cursor-pointer group hover:bg-blue-50 transition-colors" onclick="openModal(${index})">
+                        <span class="text-blue-700 font-medium group-hover:text-blue-900 group-hover:underline block leading-relaxed">${row.indikator}</span>
+                        <span class="text-xs text-gray-400 font-sans mt-2 inline-block italic opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                            <i data-lucide="lightbulb" class="w-3 h-3"></i> Klik untuk Simulasi Interaktif
+                        </span>
+                    </td>
+                    <td class="border border-black px-2 py-3 text-center align-top font-semibold">${row.bentuk}</td>
+                    <td class="border border-black px-2 py-3 text-center align-top">${row.nomor}</td>
+                </tr>`;
+            });
+
+            tbody.innerHTML = html;
+        }
+
+        // Membuka Modal
+        function openModal(index) {
+            const item = kisiKisiData[index];
+            document.getElementById('modal-title').innerText = `Simulasi Soal (Indikator ke-${item.no})`;
+            document.getElementById('modal-indicator-text').innerText = `"${item.indikator}"`;
+            document.getElementById('modal-bentuk-soal').innerText = item.bentuk;
+            document.getElementById('modal-nomor-soal').innerText = item.nomor;
+
+            renderQuestions(item.questions);
+
+            document.getElementById('modal-backdrop').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        // Menutup Modal
+        function closeModal() {
+            document.getElementById('modal-backdrop').classList.add('hidden');
+        }
+
+        // Merender soal-soal di dalam modal
+        function renderQuestions(questions) {
+            const container = document.getElementById('modal-questions-container');
+            let html = '';
+
+            questions.forEach((q, qIdx) => {
+                let imageHtml = '';
+                if (q.image) {
+                    imageHtml = `
+                    <div class="mb-5 rounded-lg overflow-hidden bg-white flex justify-center p-4 border border-blue-100 shadow-inner relative max-w-lg mx-auto">
+                        ${q.image}
+                    </div>`;
+                }
+
+                let contentHtml = '';
+
+                if (q.type === 'PG') {
+                    const optionsHtml = q.options.map((opt, optIdx) => `
+                        <button onclick="handlePgClick(this, ${qIdx}, ${optIdx}, ${q.answer})" class="pg-option text-left px-4 py-3 border border-gray-300 rounded-md transition-all duration-200 focus:outline-none hover:bg-blue-50 hover:border-blue-300 cursor-pointer text-gray-700 bg-white flex justify-between items-center w-full" data-text="${opt}">
+                            <span>${opt}</span>
+                            <span class="icon-container"></span>
+                        </button>
+                    `).join('');
+
+                    contentHtml = `
+                        <div class="flex flex-col gap-2" id="q-container-${qIdx}" data-answered="false">
+                            ${optionsHtml}
+                            <div class="explanation hidden mt-4 p-4 bg-blue-50 border-l-4 border-blue-500 rounded text-sm text-blue-900 flex gap-3">
+                                <i data-lucide="info" class="flex-shrink-0 mt-0.5 text-blue-600 w-[18px] h-[18px]"></i>
+                                <div>
+                                    <strong class="block mb-1">Pembahasan:</strong>
+                                    <p class="leading-relaxed whitespace-pre-wrap">${q.exp}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (q.type === 'PGK') {
+                    const correctAnswersStr = JSON.stringify(q.answers);
+                    const optionsHtml = q.options.map((opt, optIdx) => `
+                        <label class="pgk-label text-left px-4 py-3 border border-gray-300 rounded-md transition-all duration-200 flex items-start gap-3 hover:bg-gray-50 cursor-pointer text-gray-700 bg-white">
+                            <input type="checkbox" class="pgk-option mt-1 w-4 h-4 cursor-pointer" onchange="togglePgk(this, ${qIdx})" value="${optIdx}">
+                            <span class="flex-1">${opt}</span>
+                        </label>
+                    `).join('');
+
+                    contentHtml = `
+                        <div class="flex flex-col gap-2" id="q-container-${qIdx}" data-answered="false">
+                            ${optionsHtml}
+                            <button onclick="checkPgk(this, ${qIdx}, '${correctAnswersStr}')" class="cek-jawaban-btn mt-3 py-2 px-4 rounded font-semibold text-white transition-colors w-fit bg-gray-400 cursor-not-allowed" disabled>
+                                Cek Jawaban
+                            </button>
+                            <div class="explanation hidden mt-4 p-4 bg-blue-50 border-l-4 border-blue-500 rounded text-sm text-blue-900 flex gap-3">
+                                <i data-lucide="info" class="flex-shrink-0 mt-0.5 text-blue-600 w-[18px] h-[18px]"></i>
+                                <div>
+                                    <strong class="block mb-1">Pembahasan:</strong>
+                                    <p class="leading-relaxed whitespace-pre-wrap">${q.exp}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (q.type === 'ESSAY') {
+                    contentHtml = `
+                        <div class="mt-4 border-t pt-4 border-gray-100" id="q-container-${qIdx}">
+                            <button onclick="toggleEssay(this, ${qIdx})" class="flex items-center gap-2 py-2 px-4 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-medium rounded transition-colors w-fit">
+                                <i data-lucide="lightbulb" class="w-[18px] h-[18px]"></i>
+                                <span>Tampilkan Pembahasan / Kunci Jawaban</span>
+                            </button>
+                            <div class="explanation hidden p-4 bg-indigo-50 border border-indigo-200 rounded text-sm text-indigo-900">
+                                <strong class="block mb-2 flex items-center gap-2"><i data-lucide="lightbulb" class="w-4 h-4"></i> Referensi Jawaban:</strong>
+                                <p class="leading-relaxed whitespace-pre-wrap">${q.exp}</p>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                html += `
+                <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-sm mb-4 font-sans relative">
+                    ${imageHtml}
+                    <h5 class="font-semibold text-gray-800 text-[15px] leading-relaxed whitespace-pre-wrap mb-4">${q.text}</h5>
+                    ${contentHtml}
+                </div>`;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // ==========================================
+        // LOGIKA INTERAKSI JAWABAN
+        // ==========================================
+
+        // Interaksi untuk Pilihan Ganda (PG)
+        window.handlePgClick = function(btnElement, qIdx, optIdx, correctIdx) {
+            const container = document.getElementById(`q-container-${qIdx}`);
+            if (container.dataset.answered === 'true') return;
+            container.dataset.answered = 'true';
+
+            const buttons = container.querySelectorAll('.pg-option');
+            buttons.forEach((btn, idx) => {
+                btn.disabled = true;
+                btn.className = "pg-option text-left px-4 py-3 border rounded-md transition-all duration-200 focus:outline-none cursor-default flex justify-between items-center w-full ";
+
+                const isSelected = (idx === optIdx);
+                const isCorrect = (idx === correctIdx);
+                const iconContainer = btn.querySelector('.icon-container');
+
+                if (isSelected && isCorrect) {
+                    btn.className += "bg-green-100 border-green-500 text-green-900 shadow-sm font-medium";
+                    iconContainer.innerHTML = '<i data-lucide="check-circle-2" class="text-green-600 w-5 h-5"></i>';
+                } else if (isSelected && !isCorrect) {
+                    btn.className += "bg-red-50 border-red-500 text-red-800 line-through opacity-80";
+                    iconContainer.innerHTML = '<i data-lucide="x-circle" class="text-red-500 w-5 h-5"></i>';
+                } else if (!isSelected && isCorrect) {
+                    btn.className += "bg-green-50 border-green-500 border-dashed text-green-800 font-medium";
+                } else {
+                    btn.className += "border-gray-200 bg-gray-50 text-gray-400 opacity-50";
+                }
+            });
+
+            container.querySelector('.explanation').classList.remove('hidden');
+            lucide.createIcons();
+        };
+
+        // Interaksi toggle Checkbox (PGK)
+        window.togglePgk = function(checkboxElement, qIdx) {
+            const container = document.getElementById(`q-container-${qIdx}`);
+            const checkBtn = container.querySelector('.cek-jawaban-btn');
+            const checkboxes = container.querySelectorAll('.pgk-option');
+            
+            let anyChecked = false;
+            checkboxes.forEach(cb => { if(cb.checked) anyChecked = true; });
+
+            if (anyChecked) {
+                checkBtn.classList.remove('bg-gray-400', 'cursor-not-allowed');
+                checkBtn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                checkBtn.disabled = false;
+            } else {
+                checkBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
+                checkBtn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+                checkBtn.disabled = true;
+            }
+
+            const label = checkboxElement.closest('label');
+            if (checkboxElement.checked) {
+                label.classList.add('bg-blue-50', 'border-blue-400', 'text-blue-900');
+                label.classList.remove('border-gray-300', 'text-gray-700', 'bg-white');
+            } else {
+                label.classList.remove('bg-blue-50', 'border-blue-400', 'text-blue-900');
+                label.classList.add('border-gray-300', 'text-gray-700', 'bg-white');
+            }
+        };
+
+        // Interaksi cek jawaban (PGK)
+        window.checkPgk = function(btnElement, qIdx, correctAnswersStr) {
+            const correctAnswers = JSON.parse(correctAnswersStr);
+            const container = document.getElementById(`q-container-${qIdx}`);
+            container.dataset.answered = 'true';
+
+            btnElement.classList.add('hidden'); // Sembunyikan tombol cek
+
+            const labels = container.querySelectorAll('.pgk-label');
+            labels.forEach((label, idx) => {
+                const checkbox = label.querySelector('.pgk-option');
+                checkbox.disabled = true;
+                
+                const isSelected = checkbox.checked;
+                const isCorrect = correctAnswers.includes(idx);
+
+                label.className = "pgk-label text-left px-4 py-3 border rounded-md transition-all duration-200 flex items-start gap-3 cursor-default ";
+
+                let iconHtml = '';
+
+                if (isSelected && isCorrect) {
+                    label.className += "bg-green-100 border-green-500 text-green-900 shadow-sm font-medium";
+                    iconHtml = '<i data-lucide="check-circle-2" class="text-green-600 w-5 h-5 flex-shrink-0"></i>';
+                } else if (isSelected && !isCorrect) {
+                    label.className += "bg-red-50 border-red-500 text-red-800 opacity-90";
+                    iconHtml = '<i data-lucide="x-circle" class="text-red-500 w-5 h-5 flex-shrink-0"></i>';
+                } else if (!isSelected && isCorrect) {
+                    label.className += "bg-green-50 border-green-500 border-dashed text-green-800 font-medium";
+                } else {
+                    label.className += "border-gray-200 bg-gray-50 text-gray-400 opacity-60";
+                }
+
+                if (iconHtml) {
+                    label.innerHTML += iconHtml;
+                }
+            });
+
+            container.querySelector('.explanation').classList.remove('hidden');
+            lucide.createIcons();
+        };
+
+        // Interaksi tampilkan essay
+        window.toggleEssay = function(btnElement, qIdx) {
+            const container = document.getElementById(`q-container-${qIdx}`);
+            btnElement.classList.add('hidden');
+            container.querySelector('.explanation').classList.remove('hidden');
+        };
+
+    </script>
+</body>
+</html>
