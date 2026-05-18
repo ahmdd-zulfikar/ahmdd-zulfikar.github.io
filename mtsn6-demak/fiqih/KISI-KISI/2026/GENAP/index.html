@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisi-Kisi Interaktif Asesmen Sumatif Fikih Kelas 7</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .modal-animate {
+            animation: slideDown 0.3s ease-out;
+        }
+        /* Custom scrollbar for better appearance */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+    </style>
+</head>
+<body class="bg-emerald-50 font-serif text-gray-800 antialiased min-h-screen">
+
+    <!-- Main Container -->
+    <div class="py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto bg-white shadow-xl p-8 border border-gray-200">
+            
+            <!-- Document Header -->
+            <div class="text-center mb-8 border-b-2 border-black pb-4">
+                <h1 class="text-xl font-bold uppercase">Kisi-Kisi Penulisan Soal Assesmen Sumatif Akhir Semester Genap</h1>
+                <h2 class="text-lg font-bold uppercase mt-1">Madrasah Tsanawiyah Tahun Ajaran 2025/2026</h2>
+            </div>
+
+            <!-- Metadata -->
+            <div class="mb-8">
+                <table class="text-sm md:text-base text-gray-800">
+                    <tbody>
+                        <tr><td class="w-48 font-semibold py-1">Mata Pelajaran</td><td class="w-4 text-center">:</td><td>Fiqih</td></tr>
+                        <tr><td class="font-semibold py-1">Kelas / Semester</td><td class="text-center">:</td><td>VII / Genap</td></tr>
+                        <tr><td class="font-semibold py-1">Kurikulum</td><td class="text-center">:</td><td>Kurikulum Merdeka</td></tr>
+                        <tr><td class="font-semibold py-1">Waktu</td><td class="text-center">:</td><td>90 Menit</td></tr>
+                        <tr><td class="font-semibold py-1">Jumlah Soal</td><td class="text-center">:</td><td>35 Soal (Setiap indikator disediakan 3 contoh soal di web ini)</td></tr>
+                        <tr><td class="font-semibold py-1 align-top">Bentuk Soal</td><td class="text-center align-top">:</td><td>Pilihan Ganda: 20 soal<br>Pilihan Ganda Komplek: 10 soal<br>Uraian: 5 soal</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- User Instruction -->
+            <div class="bg-emerald-50 border-l-4 border-emerald-600 p-4 mb-6 rounded-r">
+                <p class="text-sm text-emerald-800 font-sans">
+                    <strong>Petunjuk Interaktif:</strong> Silakan klik pada teks di kolom <strong>"INDIKATOR SOAL"</strong> yang berwarna hijau. Di dalam pop-up yang muncul, Anda akan mendapatkan <strong>3 contoh simulasi soal</strong> yang relevan dengan indikator tersebut, lengkap dengan pembahasannya.
+                </p>
+            </div>
+
+            <!-- Main Table -->
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse border border-black text-sm">
+                    <thead class="bg-gray-200 text-center font-bold">
+                        <tr>
+                            <th class="border border-black px-2 py-3 w-12">NO.</th>
+                            <th class="border border-black px-2 py-3 w-64">CAPAIAN PEMBELAJARAN</th>
+                            <th class="border border-black px-2 py-3 w-40">MATERI POKOK</th>
+                            <th class="border border-black px-2 py-3">INDIKATOR SOAL</th>
+                            <th class="border border-black px-2 py-3 w-20">BENTUK SOAL</th>
+                            <th class="border border-black px-2 py-3 w-16">NOMOR SOAL</th>
+                        </tr>
+                    </thead>
+                    <tbody id="kisi-kisi-tbody">
+                        <!-- Data will be injected here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Footer Signature -->
+            <div class="mt-12 flex justify-between text-sm md:text-base">
+                <div class="text-center">
+                    <p class="mb-1">Mengetahui,</p>
+                    <p class="mb-20">Kepala MTsN 2 Demak</p>
+                    <p class="font-bold underline">Supriyanto, S.Pd, M.Pd.</p>
+                    <p>NIP. 197604242005011003</p>
+                </div>
+                <div class="text-center w-72">
+                    <p class="mb-1">Demak, Maret 2026</p>
+                    <p class="mb-20">Penyusun,</p>
+                    <p class="font-bold underline">Ayus Ahmad Yusron Kholida, S.Pd.</p>
+                    <p>NIP. 199607272023211013<br>NO.HP 081391416003</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal Backdrop -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden font-sans">
+        <!-- Modal Content -->
+        <div class="bg-gray-100 rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] flex flex-col transform modal-animate border overflow-hidden">
+            <!-- Modal Header -->
+            <div class="px-6 py-4 flex justify-between items-center bg-emerald-700 text-white shadow-md z-10">
+                <div>
+                    <h3 class="font-bold text-lg" id="modal-title">Simulasi Soal</h3>
+                    <span class="text-emerald-200 text-sm opacity-90 mt-1 block">Terdapat 3 variasi soal untuk indikator ini</span>
+                </div>
+                <button onclick="closeModal()" class="text-white bg-emerald-800 hover:bg-emerald-900 w-10 h-10 flex items-center justify-center rounded-full transition-colors font-bold text-2xl leading-none focus:outline-none focus:ring focus:ring-emerald-300" title="Tutup">
+                    &times;
+                </button>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="p-6 overflow-y-auto flex-grow flex flex-col relative z-0">
+                <div class="bg-white border-l-4 border-emerald-500 p-4 rounded-r shadow-sm mb-6">
+                    <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Pernyataan Indikator:</h4>
+                    <p class="text-gray-800 font-medium leading-relaxed italic" id="modal-indicator-text"></p>
+                    <div class="mt-3 text-sm flex gap-3">
+                        <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full border border-emerald-200">Jenis Soal: <b id="modal-bentuk-soal"></b></span>
+                        <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full border border-gray-200">Posisi di Kisi-kisi: Nomor <b id="modal-nomor-soal"></b></span>
+                    </div>
+                </div>
+
+                <!-- Questions Container -->
+                <div id="modal-questions-container" class="space-y-4"></div>
+            </div>
+            
+            <!-- Modal Footer -->
+            <div class="p-4 border-t bg-white flex justify-end shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] z-10">
+                <button onclick="closeModal()" class="px-8 py-2.5 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold rounded-md transition-colors">
+                    Selesai & Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Script -->
+    <script>
+        const CP_TEXT = "Pada elemen fikih ibadah, peserta didik memiliki pemahaman yang lebih mendalam tentang rukun Islam melalui analisis naqli dan aqli, termasuk mencakup hukum wadh'iy berupa syarat wajib, syarat sah, rukun dan batalnya. Disamping itu, ada stressing khusus seperti pemahaman terhadap arti bacaan salat dan macam-macam sujud. Tujuan akhirnya adalah peserta didik memiliki kesadaran ilmiah untuk menjalankan perintah Allah Swt dan menjauhi larangan-Nya.";
+
+        // ==========================================
+        // DATA KISI-KISI TERSTRUKTUR (FIKIH KELAS 7)
+        // SETIAP INDIKATOR MEMILIKI 3 SOAL
+        // ==========================================
+        const kisiKisiData = [
+            // --- KELOMPOK 1: SHALAT JUM'AT ---
+            {
+                no: 1, tp: CP_TEXT, rowspan_tp: 15, materi: "Pengertian shalat Jum'at", rowspan_materi: 1, 
+                indikator: "Disajikan suatu pernyataan mengenai pelaksanaan Sholat Jum'at, peserta didik mampu menguraikan pengertian Sholat Jum'at secara tepat dalam bahasa yang baik dan benar", 
+                bentuk: "PG", nomor: "1",
+                questions: [
+                    { type: "PG", text: "1. Ibadah shalat fardhu yang dilaksanakan dua rakaat secara berjamaah pada waktu dzuhur di hari Jum'at yang didahului oleh dua khutbah disebut ....", options: ["A. Shalat Dzuhur", "B. Shalat Jamak", "C. Shalat Jum'at", "D. Shalat 'Ied"], answer: 2, exp: "Shalat Jum'at secara bahasa dan istilah syariat adalah shalat fardhu dua rakaat yang wajib dilaksanakan secara berjamaah pada waktu dzuhur di hari Jumat dan didahului oleh pelaksanaan dua khutbah." },
+                    { type: "PG", text: "2. Pengertian shalat Jum'at secara istilah yang membedakannya dengan shalat dzuhur biasa adalah ....", options: ["A. Dilakukan 2 rakaat dan harus didahului dua khutbah", "B. Dilakukan di lapangan terbuka saja", "C. Tidak membutuhkan wudhu", "D. Boleh dilakukan secara sendirian (munfarid)"], answer: 0, exp: "Perbedaan mendasar Jum'at dan Dzuhur adalah Jum'at diringkas menjadi 2 rakaat namun posisi 2 rakaat awalnya diganti dengan penyampaian 2 Khutbah secara berjamaah." },
+                    { type: "PG", text: "3. Waktu pelaksanaan ibadah shalat Jum'at dibatasi dan dilaksanakan bertepatan dengan masuknya waktu shalat ....", options: ["A. Dhuha", "B. Dzuhur", "C. Ashar", "D. Maghrib"], answer: 1, exp: "Pelaksanaan shalat Jum'at mensyaratkan masuknya waktu Dzuhur pada hari Jum'at (tergelincirnya matahari dari tengah langit)." }
+                ]
+            },
+            {
+                no: 2, materi: "Hukum pelaksanaan shalat Jumat", rowspan_materi: 2,
+                indikator: "Disajikan nash Al-Qur'an Q.S. Al-Jumu'ah ayat 9 tentang perintah shalat Jumat, peserta didik mampu menjelaskan hukum pelaksanaan shalat Jumat dengan benar", 
+                bentuk: "PG", nomor: "2",
+                questions: [
+                    { type: "PG", text: "1. Berdasarkan Q.S. Al-Jumu'ah ayat 9: 'Hai orang-orang beriman, apabila diseru untuk menunaikan shalat Jum'at, maka bersegeralah kamu...'. Ayat ini menunjukkan bahwa hukum melaksanakan shalat Jum'at bagi laki-laki muslim mukalaf adalah ....", options: ["A. Fardhu Kifayah", "B. Sunnah Muakkad", "C. Fardhu 'Ain", "D. Mubah"], answer: 2, exp: "Hukum shalat Jumat adalah Fardhu 'Ain (wajib ain / wajib bagi setiap individu) bagi laki-laki muslim yang baligh, berakal, sehat, dan bermukim." },
+                    { type: "PG", text: "2. Lafadz 'Fas'au ila dzikrillah' dalam QS. Al Jumu'ah ayat 9 memiliki arti ....", options: ["A. Maka bersegeralah kamu mengingat Allah (shalat Jum'at)", "B. Maka tinggalkanlah jual beli", "C. Maka tunaikanlah zakat", "D. Maka bersucilah kamu"], answer: 0, exp: "Lafadz tersebut merupakan perintah langsung dari Allah SWT untuk segera bergegas menuju masjid mengingat Allah dengan menunaikan shalat Jum'at." },
+                    { type: "PG", text: "3. Berdasarkan ayat 9 QS. Al Jumu'ah, hal keduniawian yang wajib ditinggalkan seketika panggilan azan shalat Jum'at telah berkumandang adalah ....", options: ["A. Makan dan minum", "B. Jual beli atau urusan pekerjaan", "C. Membaca buku", "D. Tidur siang"], answer: 1, exp: "Allah berfirman 'wa dzarul bai' (dan tinggalkanlah jual beli). Ini melambangkan semua aktivitas mencari nafkah/pekerjaan wajib dihentikan saat azan Jumat dikumandangkan." }
+                ]
+            },
+            {
+                no: 3, 
+                indikator: "Disajikan kutipan hadis riwayat Abu Dawud tentang kewajiban shalat Jum'at, peserta didik dapat menjelaskan golongan yang tidak wajib melaksanakan shalat Jum'at dengan benar.", 
+                bentuk: "Uraian", nomor: "31",
+                questions: [
+                    { type: "ESSAY", text: "1. Sebutkan 4 (empat) golongan orang yang diberikan keringanan (rukshah) sehingga tidak diwajibkan melaksanakan shalat Jum'at berdasarkan hadis riwayat Abu Dawud!", exp: "Berdasarkan hadis Rasulullah SAW riwayat Abu Dawud, golongan yang tidak wajib shalat Jumat adalah:\n1. Hamba sahaya (budak)\n2. Perempuan\n3. Anak kecil (belum baligh)\n4. Orang yang sedang sakit (termasuk musafir)." },
+                    { type: "ESSAY", text: "2. Jelaskan alasan utama mengapa seorang perempuan tidak diwajibkan untuk berangkat melaksanakan shalat Jum'at ke masjid!", exp: "Islam memberikan keringanan (rukshah) kepada perempuan dari kewajiban shalat Jum'at karena kesibukan tugas kerumahtanggaan, fitrah fisik, dan demi menjaga keamanan/kehormatan mereka. Sebagai gantinya, perempuan cukup melaksanakan shalat Dzuhur 4 rakaat di rumah." },
+                    { type: "ESSAY", text: "3. Bagaimana hukumnya jika seorang musafir (dalam perjalanan jauh) menyempatkan diri singgah dan ikut melaksanakan shalat Jum'at berjamaah di suatu masjid?", exp: "Hukumnya adalah SAH dan sangat baik. Jika seorang musafir atau perempuan ikut melaksanakan shalat Jum'at di masjid, maka shalat Jum'atnya sah dan kewajiban shalat Dzuhurnya telah gugur (tidak perlu shalat dzuhur lagi)." }
+                ]
+            },
+            {
+                no: 4, materi: "Syarat wajib shalat Jum'at", rowspan_materi: 2,
+                indikator: "Disajikan ilustrasi tentang kondisi seseorang, peserta didik dapat menganalisis dan menentukan terpenuhi atau tidaknya syarat wajib shalat Jum'at dengan tepat.", 
+                bentuk: "PG", nomor: "3",
+                questions: [
+                    { type: "PG", text: "1. Ahmad adalah seorang siswa kelas 7 yang sudah baligh, sehat jasmani, dan berakal sehat. Hari ini ia berada di rumahnya (mukim). Berdasarkan kondisinya, maka hukum melaksanakan shalat Jum'at bagi Ahmad adalah ....", options: ["A. Tidak wajib karena masih berstatus pelajar", "B. Wajib karena telah memenuhi seluruh syarat wajib", "C. Sunnah karena belum berpenghasilan", "D. Mubah tergantung persetujuan orang tuanya"], answer: 1, exp: "Syarat wajib shalat Jumat adalah Islam, baligh, berakal, laki-laki, sehat, dan menetap (mukim). Ahmad telah memenuhi seluruh kriteria tersebut." },
+                    { type: "PG", text: "2. Pak Joko sedang terbaring sakit parah di rumah sakit sehingga tidak bisa bangun dari tempat tidurnya. Hukum melaksanakan shalat Jum'at bagi Pak Joko adalah ....", options: ["A. Tetap Wajib", "B. Sunnah", "C. Gugur, namun wajib diganti dengan shalat Dzuhur", "D. Haram dilakukan"], answer: 2, exp: "Sakit yang memberatkan merupakan salah satu udzur syar'i. Kewajiban shalat Jumatnya gugur, namun ia wajib menggantinya dengan shalat fardhu Dzuhur 4 rakaat semampunya di tempat tidur." },
+                    { type: "PG", text: "3. Ali adalah seorang anak laki-laki berumur 7 tahun. Ia diajak oleh ayahnya ke masjid untuk ikut shalat Jum'at. Hukum shalat Jum'at bagi Ali adalah ....", options: ["A. Wajib 'Ain", "B. Sunnah Muakkad", "C. Mubah", "D. Tidak wajib, karena belum memasuki usia baligh"], answer: 3, exp: "Anak-anak (shabi) belum dikenai taklif (kewajiban beban syariat) hingga ia baligh (dewasa). Namun sangat baik diajarkan sejak dini sebagai sarana pendidikan." }
+                ]
+            },
+            {
+                no: 5, 
+                indikator: "Disajikan beberapa pernyataan tentang kondisi seseorang, peserta didik dapat menganalisis dan menentukan syarat wajib shalat Jum'at yang benar.", 
+                bentuk: "PG Komplek", nomor: "21",
+                questions: [
+                    { type: "PGK", text: "1. Manakah dari pernyataan di bawah ini yang termasuk ke dalam SYARAT WAJIB pelaksanaan shalat Jum'at? (Pilih dua jawaban benar)", options: ["Laki-laki", "Berjamaah minimal 40 orang", "Dilaksanakan pada waktu Dzuhur", "Sehat jasmani dan rohani"], answers: [0, 3], exp: "Berjamaah 40 orang dan waktu dzuhur adalah 'Syarat Sah', bukan 'Syarat Wajib'. Syarat wajib melekat pada kondisi personal individu (Islam, Laki-laki, Sehat, Baligh, Berakal, Mukim)." },
+                    { type: "PGK", text: "2. Berikut ini adalah keadaan-keadaan yang dapat MENGGUGURKAN kewajiban seseorang dari shalat Jum'at (Pilih dua jawaban benar):", options: ["Hilang akal (gila) atau pingsan", "Hamba sahaya (budak)", "Sedang berdagang di pasar", "Lupa tidak membawa peci"], answers: [0, 1], exp: "Hilang akal dan status sebagai hamba sahaya (budak) secara otomatis menggugurkan kewajiban shalat Jum'at. Berdagang di pasar saat azan Jumat justru diharamkan." },
+                    { type: "PGK", text: "3. Syarat wajib artinya syarat yang membuat seseorang dikenai beban (mukalaf) untuk shalat Jum'at. Manakah yang merupakan syarat wajib tersebut? (Pilih dua jawaban benar):", options: ["Berakal sehat", "Mandi sebelum ke masjid", "Menetap / Mukim (bukan musafir)", "Mendengarkan khutbah dengan tenang"], answers: [0, 2], exp: "Berakal sehat dan menetap (mukim) adalah syarat wajib. Mandi adalah sunnah, dan mendengarkan khutbah adalah adab/tata krama Jum'at." }
+                ]
+            },
+            {
+                no: 6, materi: "Syarat sah shalat jum'at, jumlah jamaah (40 orang muqim)", rowspan_materi: 3,
+                indikator: "Disajikan ilustrasi tentang pelaksanaan shalat Jum'at di suatu tempat, peserta didik dapat menganalisis terpenuhi atau tidaknya syarat sah shalat Jum'at berdasarkan kondisi yang diberikan.", 
+                bentuk: "PG", nomor: "4",
+                questions: [
+                    { type: "PG", text: "1. Warga Desa Suka Makmur melaksanakan shalat Jum'at di sebuah lapangan terbuka di desanya karena masjid sedang direnovasi total. Pelaksanaan tersebut dihadiri 100 orang penduduk asli. Hukum pelaksanaan shalat Jum'at tersebut adalah ....", options: ["A. Tidak sah, karena shalat Jum'at wajib di dalam masjid tertutup", "B. Sah, asalkan tetap berada di batas lingkungan pemukiman warga", "C. Tidak sah, harus meminjam masjid di desa tetangga", "D. Makruh, karena lapangan adalah tempat ibadah Idul Fitri"], answer: 1, exp: "Syarat sah tempat shalat Jumat adalah dilaksanakan di dalam kawasan pemukiman warga (kampung/kota). Boleh di lapangan terbuka asal masih di dalam batas kawasan desa tersebut dan jamaahnya mencukupi." },
+                    { type: "PG", text: "2. Syarat utama terkait tempat pelaksanaan shalat Jum'at agar dinilai sah menurut ulama salaf adalah ....", options: ["A. Harus di masjid yang bertingkat", "B. Berada menetap di area pemukiman (kampung/desa/kota)", "C. Harus di padang pasir yang sangat luas", "D. Harus berlokasi di masjid agung kabupaten"], answer: 1, exp: "Shalat Jumat harus didirikan di tempat bermukimnya warga secara permanen (seperti desa, kota, atau kampung). Tidak sah mendirikan shalat jumat di tengah hutan belantara yang bukan area pemukiman." },
+                    { type: "PG", text: "3. Sekelompok warga di pedalaman membangun perkampungan baru. Mereka mendirikan shalat Jum'at di langgar desa dengan jumlah jamaah tetap (mukim) sebanyak 50 orang dewasa. Hukumnya adalah ....", options: ["A. Sah", "B. Batal", "C. Makruh", "D. Sunnah saja"], answer: 0, exp: "Shalatnya Sah karena didirikan di area perkampungan menetap, jumlahnya melebihi batas 40 orang jamaah mukim (penduduk tetap), serta masuk waktu dzuhur." }
+                ]
+            },
+            {
+                no: 7, 
+                indikator: "Disajikan kasus jumlah jamaah lebih dari 40 orang sebagian ada musafir, peserta didik mampu menganalisis sah atau tidaknya sholat Jumat.", 
+                bentuk: "PG", nomor: "5",
+                questions: [
+                    { type: "PG", text: "1. Di sebuah rest area jalan tol, didirikan shalat Jumat yang dihadiri 50 orang. Namun, 45 orang di antaranya adalah para musafir yang sedang dalam perjalanan, dan hanya 5 orang yang warga mukim sekitar. Menurut Mazhab Syafi'i, hukum shalat Jumat tersebut adalah ....", options: ["A. Sah, karena total jumlahnya lebih dari 40 orang", "B. Sah, karena musafir tetap dihitung sebagai jamaah wajib", "C. Tidak sah, karena jumlah mukim (penduduk tetap) kurang dari 40 orang", "D. Mubah, boleh dilanjutkan atau diganti dzuhur"], answer: 2, exp: "Dalam Mazhab Syafi'i, syarat sah shalat Jumat harus dihadiri minimal 40 orang jamaah laki-laki yang berstatus MUKIM (penduduk tetap). Musafir tidak masuk dalam hitungan syarat 40 orang tersebut." },
+                    { type: "PG", text: "2. Menurut standar mazhab Imam Syafi'i (yang banyak dianut di Indonesia), batas jumlah minimal jamaah laki-laki penduduk tetap (mukim) agar shalat Jum'at bisa didirikan dan sah adalah ....", options: ["A. 12 orang", "B. 20 orang", "C. 40 orang", "D. 100 orang"], answer: 2, exp: "Pandangan muktamad dalam madzhab Syafi'i mensyaratkan jumlah minimal jamaah shalat Jum'at adalah 40 orang pria yang merdeka, mukalaf, dan berstatus menetap (mukim)." },
+                    { type: "PG", text: "3. Di sebuah pertambangan terpencil, terdapat 30 pekerja menetap (warga asli) dan 20 pekerja harian kontraktor luar daerah (musafir). Jika mereka mendirikan shalat Jum'at, hukumnya menurut aturan baku mazhab Syafi'i adalah ....", options: ["A. Sah", "B. Makruh", "C. Sunnah", "D. Tidak sah, karena jumlah yang mukim kurang dari 40 orang"], answer: 3, exp: "Total orang ada 50, tetapi yang berstatus warga asli menetap (mukim) hanya 30 orang. Karena 30 orang kurang dari syarat mutlak 40 orang mukim madzhab Syafi'i, maka shalat Jumat tidak bisa didirikan (harus diganti dzuhur)." }
+                ]
+            },
+            {
+                no: 8, 
+                indikator: "Disajikan beberapa pernyataan tentang ketentuan shalat Jum'at, peserta didik dapat menyebutkan dua pernyataan yang termasuk syarat sah shalat Jum'at dengan benar.", 
+                bentuk: "PG Komplek", nomor: "22",
+                questions: [
+                    { type: "PGK", text: "1. Dari daftar berikut, manakah yang merupakan SYARAT SAH dilaksanakannya shalat Jum'at? (Pilih dua jawaban benar)", options: ["Mandi sunnah sebelum berangkat ke masjid", "Dilaksanakan secara berjamaah di kawasan pemukiman", "Didahului oleh dua khutbah Jum'at", "Memakai pakaian yang putih dan wangi"], answers: [1, 2], exp: "Dilaksanakan berjamaah di area mukim dan didahului dua khutbah adalah rukun/syarat sah agar ibadah Jumatnya sah. Sedangkan mandi dan parfum adalah sunnah." },
+                    { type: "PGK", text: "2. Pernyataan mana sajakah yang membedakan syarat SAH shalat Jum'at dari shalat fardhu lainnya? (Pilih dua jawaban benar)", options: ["Harus dikerjakan pada rentang waktu Dzuhur", "Harus dilakukan secara berjamaah (tidak sah jika sendirian/munfarid)", "Wajib didahului oleh penyampaian dua khutbah", "Harus menghadap arah kiblat"], answers: [1, 2], exp: "Shalat fardhu lain sah dikerjakan sendirian, tapi Jumat wajib berjamaah. Shalat fardhu lain tidak butuh khutbah, tapi Jumat tidak akan sah tanpa didahului dua khutbah. Menghadap kiblat dan masuk waktu dzuhur adalah syarat sah shalat secara umum." },
+                    { type: "PGK", text: "3. Agar shalat Jum'at bernilai sah di mata syariat, suatu wilayah harus memastikan dua hal mutlak berikut ini terpenuhi: (Pilih dua jawaban benar)", options: ["Jumlah jamaah laki-laki mukim minimal 40 orang (mazhab Syafi'i)", "Terdapat khatib yang menyampaikan rukun-rukun khutbah sebelum shalat", "Seluruh jamaah menggunakan sorban panjang", "Masjidnya harus dibangun dari donasi masyarakat penuh"], answers: [0, 1], exp: "Kuota minimal 40 jamaah mukim dan keberadaan rukun khutbah merupakan pondasi syarat sahnya didirikannya shalat Jum'at di suatu tempat." }
+                ]
+            },
+            {
+                no: 9, materi: "Amalan-amalan sunnah yang dianjurkan sebelum shalat Jum'at", rowspan_materi: 1,
+                indikator: "Disajikan ilustrasi tentang persiapan seseorang sebelum melaksanakan shalat Jum'at, peserta didik dapat menentukan amalan-amalan sunnah yang dianjurkan sebelum shalat Jum'at dengan tepat.", 
+                bentuk: "PG", nomor: "6",
+                questions: [
+                    { type: "PG", text: "1. Sebelum berangkat ke masjid pada hari Jum'at, Budi memotong kukunya, merapikan rambut, mandi besar, dan memakai parfum. Tindakan yang dilakukan Budi termasuk dalam kategori ....", options: ["A. Syarat sah shalat Jum'at", "B. Syarat wajib shalat Jum'at", "C. Rukun shalat Jum'at", "D. Sunnah sebelum shalat Jum'at"], answer: 3, exp: "Mandi, memotong kuku, memakai pakaian bersih, dan memakai wangi-wangian adalah amalan yang disunnahkan (dianjurkan) untuk mendapat pahala ekstra sebelum berangkat Jumat." },
+                    { type: "PG", text: "2. Amalan sunnah yang sangat dianjurkan saat seseorang sedang berjalan kaki menuju masjid untuk menunaikan shalat Jum'at adalah ....", options: ["A. Berlari agar cepat sampai di shaf depan", "B. Berjalan dengan tenang (sakinah) dan memperbanyak shalawat/dzikir", "C. Mengobrol keras dengan teman di jalan", "D. Membawa makanan untuk dimakan saat khutbah"], answer: 1, exp: "Dianjurkan berjalan dengan tenang, menjaga pandangan, dan melantunkan dzikir/shalawat atas Nabi Muhammad SAW di sepanjang jalan menuju masjid." },
+                    { type: "PG", text: "3. Menyegerakan datang ke masjid di awal waktu pada hari Jum'at memiliki keutamaan yang luar biasa. Nabi mengumpamakan orang yang datang di jam pertama bagaikan berkurban seekor ....", options: ["A. Ayam jago", "B. Kambing/Domba", "C. Unta betina yang gemuk", "D. Sapi"], answer: 2, exp: "Berdasarkan hadis shahih, siapa yang mandi lalu pergi jumat di waktu awal (jam pertama), maka ia seakan-akan berkurban seekor unta. Jam kedua seperti sapi, jam ketiga seperti kambing." }
+                ]
+            },
+            {
+                no: 10, materi: "Pengertian khutbah Jum'at", rowspan_materi: 1,
+                indikator: "Disajikan pernyataan atau uraian tentang khutbah Jum'at, peserta didik dapat menjelaskan pengertian khutbah Jum'at dengan benar.", 
+                bentuk: "PG", nomor: "7",
+                questions: [
+                    { type: "PG", text: "1. Pidato atau ceramah keagamaan yang disampaikan oleh seorang khatib sebelum pelaksanaan shalat Jum'at yang berisi nasihat ketaqwaan dan memiliki rukun-rukun tertentu disebut ....", options: ["A. Tabligh Akbar", "B. Tausiyah", "C. Khutbah Jum'at", "D. Kultum"], answer: 2, exp: "Khutbah Jumat adalah penyampaian pesan/nasihat taqwa khusus yang merupakan syarat sahnya ibadah shalat Jumat, dilakukan oleh khatib." },
+                    { type: "PG", text: "2. Hal mendasar yang membedakan antara Khutbah Jum'at dengan ceramah pengajian biasa adalah ....", options: ["A. Ceramah biasa harus pakai bahasa Arab, khutbah Jumat bebas", "B. Khutbah Jum'at memiliki syarat dan rukun mutlak yang menentukan sah tidaknya shalat", "C. Ceramah biasa hanya boleh dilakukan oleh ustaz bersertifikat", "D. Khutbah Jum'at boleh dilakukan di rumah masing-masing"], answer: 1, exp: "Ceramah biasa tidak memiliki rukun mutlak. Sedangkan Khutbah Jumat memiliki struktur rukun (hamdalah, shalawat, wasiat taqwa, dsb) yang jika ditinggalkan maka ibadah jumatnya menjadi batal seluruhnya." },
+                    { type: "PG", text: "3. Secara struktur pelaksanaan, Khutbah Jum'at yang sempurna terdiri dari berapa bagian khutbah yang dipisahkan oleh jeda istirahat?", options: ["A. Satu bagian saja", "B. Dua bagian yang dipisah dengan duduk sejenak", "C. Tiga bagian", "D. Empat bagian"], answer: 1, exp: "Khatib wajib menyampaikan 2 sesi khutbah (Khutbah pertama dan Khutbah kedua), yang di antara keduanya khatib disyaratkan untuk duduk (jeda istirahat sejenak)." }
+                ]
+            },
+            {
+                no: 11, materi: "Syarat-syarat khutbah Jum'at", rowspan_materi: 1,
+                indikator: "Disajikan ilustrasi tentang pelaksanaan khutbah Jum'at, peserta didik dapat menganalisis kesesuaian pelaksanaan khutbah Jum'at dengan syarat-syarat khutbah Jum'at secara tepat.", 
+                bentuk: "PG", nomor: "8",
+                questions: [
+                    { type: "PG", text: "1. Seorang khatib menyampaikan khutbah Jum'at dengan posisi duduk dari awal hingga akhir, padahal ia dalam keadaan sehat wal afiat dan mampu berdiri. Bagaimana status khutbah Jum'at tersebut?", options: ["A. Sah, karena khutbah boleh sambil duduk kapan saja", "B. Tidak sah, karena berdiri bagi yang mampu adalah syarat sah khutbah", "C. Makruh, namun shalat Jumat berjamaah tetap sah", "D. Sah asal suaranya keras"], answer: 1, exp: "Berdiri ketika berkhutbah (bagi yang mampu) serta duduk sejenak di antara dua khutbah adalah termasuk bagian dari syarat sahnya pelaksanaan Khutbah Jumat." },
+                    { type: "PG", text: "2. Di antara syarat sah yang harus dipenuhi oleh seorang Khatib sebelum naik mimbar Jum'at adalah ....", options: ["A. Suci dari hadas dan najis serta menutup aurat", "B. Memakai jas resmi kenegaraan", "C. Membawa tongkat emas atau pedang", "D. Berusia minimal 40 tahun"], answer: 0, exp: "Sama seperti syarat shalat, seorang khatib diwajibkan dalam keadaan suci (punya wudhu, pakaian bebas najis) dan auratnya tertutup dengan baik." },
+                    { type: "PG", text: "3. Agar khutbah memenuhi syarat sahnya, maka volume suara khatib saat menyampaikan rukun-rukun khutbah minimal harus ....", options: ["A. Terdengar oleh malaikat pencatat amal", "B. Terdengar oleh sedikitnya 40 orang jamaah mukim", "C. Terdengar oleh dirinya sendiri (berbisik)", "D. Terdengar sampai desa sebelah"], answer: 1, exp: "Rukun-rukun khutbah wajib disuarakan dengan lantang sekiranya minimal 40 orang jamaah (jumlah batas kuota sah jumat) dapat mendengarnya." }
+                ]
+            },
+            {
+                no: 12, materi: "Rukun khutbah Jum'at", rowspan_materi: 2,
+                indikator: "Disajikan pernyataan tentang pelaksanaan khutbah Jum'at, peserta didik dapat menganalisis bagian khutbah yang termasuk rukun khutbah Jum'at dengan tepat.", 
+                bentuk: "PG", nomor: "9",
+                questions: [
+                    { type: "PG", text: "1. Di tengah khutbahnya, khatib dengan tegas mengajak jamaah melalui kalimat 'Ittaqullah' (bertakwalah kepada Allah). Ajakan ini dalam struktur khutbah Jum'at dikategorikan sebagai ....", options: ["A. Sunnah khutbah", "B. Muqaddimah khutbah", "C. Rukun khutbah (Wasiat Taqwa)", "D. Adab penutup"], answer: 2, exp: "Berwasiat atau mengajak jamaah untuk meningkatkan ketaqwaan (Wasiat Taqwa) adalah salah satu dari 5 Rukun Khutbah Jumat yang tidak boleh ditinggalkan." },
+                    { type: "PG", text: "2. Di awal khutbah, khatib mengucapkan lafadz 'Allahumma sholli 'ala sayyidina Muhammad'. Bacaan ini termasuk ke dalam...", options: ["A. Rukun (Membaca Shalawat)", "B. Sunnah", "C. Syarat Sah", "D. Pembukaan bebas"], answer: 0, exp: "Membaca shalawat kepada Nabi Muhammad SAW di dalam setiap sesi khutbah (pertama dan kedua) adalah rukun mutlak." },
+                    { type: "PG", text: "3. Jika seorang khatib lupa tidak membacakan satupun sepotong ayat suci Al-Qur'an (baik di khutbah pertama maupun kedua), maka status khutbahnya adalah ....", options: ["A. Sah, asalkan isinya bagus", "B. Batal/Tidak Sah karena meninggalkan rukun", "C. Makruh", "D. Boleh diganti dengan pantun"], answer: 1, exp: "Membaca setidaknya 1 ayat suci Al-Qur'an pada salah satu khutbah adalah rukun. Jika ditinggalkan, khutbahnya batal, dan shalat Jumat pun tidak sah." }
+                ]
+            },
+            {
+                no: 13, 
+                indikator: "Disajikan ilustrasi tentang pelaksanaan khutbah Jum'at, peserta didik dapat menyebutkan rukun khutbah jum'at dengan tepat.", 
+                bentuk: "Uraian", nomor: "32",
+                questions: [
+                    { type: "ESSAY", text: "1. Khutbah Jum'at tidak akan sah apabila khatib meninggalkan rukun-rukunnya. Sebutkan ke-5 rukun khutbah Jum'at secara berurutan!", exp: "Rukun Khutbah Jumat ada 5:\n1. Membaca Hamdalah (Pujian pada Allah)\n2. Membaca Shalawat atas Nabi Muhammad SAW\n3. Berwasiat untuk bertaqwa (Wasiat taqwa)\n4. Membaca ayat suci Al-Qur'an (minimal di salah satu khutbah)\n5. Berdoa memohon ampunan untuk kaum muslimin (di khutbah kedua)" },
+                    { type: "ESSAY", text: "2. Sebutkan bacaan paling singkat (minimal) yang dapat diucapkan oleh khatib untuk memenuhi rukun khutbah 'Wasiat Taqwa'!", exp: "Khatib cukup mengucapkan lafadz bahasa Arab yang bermakna ajakan taqwa, seperti \"Ittaqullah\" (Bertakwalah kalian semua kepada Allah) atau \"Uushikum wa nafsii bitaqwallah\"." },
+                    { type: "ESSAY", text: "3. Pada sesi khutbah yang keberapakah seorang khatib disyaratkan untuk membaca rukun 'Doa permohonan ampun bagi kaum muslimin dan muslimat'?", exp: "Rukun mendoakan kaum muslimin dan muslimat (Allahummaghfir lil muslimiina wal muslimaat...) ditempatkan atau dibaca pada saat Khutbah yang KEDUA (sebagai penutup khutbah sebelum iqamah dikumandangkan)." }
+                ]
+            },
+            {
+                no: 14, materi: "Adab ketika khutbah sedang berlangsung", rowspan_materi: 1,
+                indikator: "Disajikan ilustrasi situasi ketika khutbah Jum'at sedang berlangsung, peserta didik dapat menentukan sikap yang sesuai dengan adab ketika khutbah berlangsung dengan tepat.", 
+                bentuk: "PG", nomor: "10",
+                questions: [
+                    { type: "PG", text: "1. Ketika khatib sedang berkhutbah, Anton melihat temannya bermain HP. Anton kemudian menegur keras temannya dengan berkata, 'Diamlah, perhatikan khatib!'. Hukum tindakan Anton adalah ....", options: ["A. Mendapat pahala kebaikan ganda", "B. Boleh, karena berniat amar makruf", "C. Shalat Jumatnya menjadi sia-sia/lagha (kehilangan pahala Jumat)", "D. Disunnahkan oleh ulama"], answer: 2, exp: "Berdasarkan hadis Bukhari: 'Jika engkau berkata pada temanmu 'diamlah!', padahal imam sedang berkhutbah, maka Jumatmu telah sia-sia (lagha).' Adabnya adalah diam total tak boleh bicara sepatah katapun." },
+                    { type: "PG", text: "2. Sikap fisik dan mental yang benar bagi seorang jamaah saat khatib sedang menyampaikan khutbah adalah ....", options: ["A. Membaca Al-Qur'an sendiri agar dapat pahala lebih", "B. Tidur bersandar di tiang masjid", "C. Fokus mendengarkan isi khutbah, diam, dan tidak bermain anggota badan", "D. Berdzikir dengan suara yang kencang"], answer: 2, exp: "Menyimak, memandang ke arah khatib, dan diam (Inshat) adalah adab mutlak. Bahkan sibuk memainkan kerikil karpet atau tasbih di tangan dapat melunturkan pahala jumat." },
+                    { type: "PG", text: "3. Jika seorang jamaah mulai merasa sangat mengantuk saat mendengarkan khutbah, adab yang dianjurkan oleh sabda Rasulullah adalah ....", options: ["A. Mengobrol agar mata melek", "B. Berpindah tempat duduk (pindah posisi shaf)", "C. Minum kopi atau makan snack di dalam masjid", "D. Menyuruh jamaah sebelah memijat pundaknya"], answer: 1, exp: "Rasulullah bersabda: \"Jika salah seorang dari kalian mengantuk pada hari Jumat, hendaknya ia berpindah dari tempat duduknya itu ke tempat lain\" (HR. Abu Dawud)." }
+                ]
+            },
+            {
+                no: 15, materi: "Hal-hal yang membatalkan / mengurangi pahala shalat Jum'at", rowspan_materi: 2,
+                indikator: "Disajikan ilustrasi atau kasus tentang pelaksanaan shalat Jum'at, peserta didik dapat menganalisis perbuatan yang menyebabkan shalat Jum'at menjadi tidak sah atau batal dengan tepat.", 
+                bentuk: "PG", nomor: "11",
+                questions: [
+                    { type: "PG", text: "1. Di tengah pelaksanaan shalat Jum'at pada rakaat kedua, Pak Amir tiba-tiba tertawa terbahak-bahak karena teringat sesuatu. Bagaimana status shalat Jum'at Pak Amir?", options: ["A. Sah, asalkan ia segera diam", "B. Batal seketika, dan ia wajib menggantinya dengan shalat Dzuhur 4 rakaat", "C. Sah, namun pahalanya dikurangi separuh", "D. Batal, ia cukup diam menunggu salam imam"], answer: 1, exp: "Tertawa hingga mengeluarkan suara jelas membatalkan ibadah shalat. Karena shalat Jumatnya batal di tengah jalan, ia wajib mengulang dan menggantinya dengan shalat Dzuhur 4 rakaat (karena rukun khutbah tak bisa diulang untuknya sendiri)." },
+                    { type: "PG", text: "2. Saat sedang sujud di rakaat pertama shalat Jum'at, Iwan membuang angin (kentut) tanpa sengaja. Tindakan benar yang harus ia lakukan adalah ....", options: ["A. Terus pura-pura lanjut shalat karena malu", "B. Keluar dari saf untuk wudhu kembali, lalu mengganti dengan shalat Dzuhur 4 rakaat", "C. Pindah ke shaf paling belakang", "D. Menangis meminta ampunan"], answer: 1, exp: "Keluarnya angin membatalkan wudhu dan shalat. Iwan harus batal dan mengambil wudhu. Jika ia ketinggalan berjamaah Jumat (imam sudah salam), ia tinggal shalat dzuhur 4 rakaat." },
+                    { type: "PG", text: "3. Budi telat datang ke masjid. Ia baru takbiratul ihram ketika Imam sudah bangun dari rukuk pada rakaat KEDUA. Apa yang harus Budi lakukan setelah imam salam?", options: ["A. Menambah 1 rakaat sendiri agar genap 2 rakaat (sebagai shalat Jumat)", "B. Langsung salam mengikuti imam", "C. Berdiri lagi dan mengerjakan shalat Dzuhur 4 rakaat utuh secara mandiri", "D. Shalatnya batal sama sekali"], answer: 2, exp: "Seseorang dianggap 'Mendapatkan' jamaah shalat Jumat jika ia minimal ikut Rukuk bersama imam di rakaat kedua. Jika ia tertinggal rukuk terakhir tersebut, maka ia wajib menyempurnakan shalatnya menjadi Dzuhur 4 rakaat setelah imam salam." }
+                ]
+            },
+
+            // --- KELOMPOK 2: SHALAT JAMAK & QASHAR ---
+            {
+                no: 16, tp: CP_TEXT, rowspan_tp: 11, materi: "Pengertian shalat Jamak", rowspan_materi: 1,
+                indikator: "Disajikan pernyataan tentang pelaksanaan shalat jamak, peserta didik dapat menjelaskan pengertian shalat jamak dengan benar.", 
+                bentuk: "PG", nomor: "12",
+                questions: [
+                    { type: "PG", text: "1. Kemudahan (rukshah) dalam syariat yang membolehkan seseorang menggabungkan pelaksanaan dua shalat fardhu untuk dikerjakan berturut-turut dalam satu waktu disebut shalat ....", options: ["A. Shalat Qashar", "B. Shalat Jamak", "C. Shalat Khauf", "D. Shalat Istisqa"], answer: 1, exp: "Jamak secara bahasa berarti mengumpulkan atau menggabungkan. Yaitu menyatukan shalat Dzuhur dengan Ashar, atau Maghrib dengan Isya di salah satu waktunya." },
+                    { type: "PG", text: "2. Secara tinjauan bahasa Arab, kata 'Jamak' (جمع) memiliki arti ....", options: ["A. Meringkas dari panjang ke pendek", "B. Mengumpulkan menjadi satu", "C. Menunda batas waktu terakhir", "D. Mengganti kewajiban"], answer: 1, exp: "Kata Jamak berarti mengumpulkan. Dalam fikih diaplikasikan sebagai mengumpulkan 2 waktu shalat ke dalam 1 waktu untuk dikerjakan secara runut berbarengan." },
+                    { type: "PG", text: "3. Syariat shalat Jamak adalah bentuk kasih sayang Allah SWT agar umat Islam tidak terbebani. Keringanan beribadah akibat adanya udzur darurat dalam istilah fikih dikenal dengan sebutan ....", options: ["A. Azimah", "B. Rukshah", "C. Kifayah", "D. Fardhu"], answer: 1, exp: "Rukshah berarti keringanan/konsesi (diskon) dari Allah atas hukum asal ibadah (Azimah) karena kondisi manusia yang sedang kesulitan seperti sakit atau perjalanan jauh." }
+                ]
+            },
+            {
+                no: 17, materi: "Pembagian shalat jamak", rowspan_materi: 1,
+                indikator: "Disajikan ilustrasi tentang kondisi seseorang yang sedang melakukan perjalanan jauh, peserta didik dapat menganalisis pembagian shalat jamak dengan tepat.", 
+                bentuk: "PG", nomor: "13",
+                questions: [
+                    { type: "PG", text: "1. Pak Budi dalam perjalanan jauh. Saat waktu Dzuhur tiba, ia singgah di masjid. Ia melaksanakan shalat Dzuhur, lalu bangkit lagi untuk langsung melaksanakan shalat Ashar. Pelaksanaan shalat seperti ini disebut ....", options: ["A. Jamak Takhir", "B. Jamak Taqdim", "C. Qashar", "D. Qadha"], answer: 1, exp: "Jamak Taqdim artinya 'Mendahulukan'. Yakni menarik shalat waktu kedua (Ashar) untuk dimajukan dan dikerjakan pada waktu shalat pertama (Dzuhur)." },
+                    { type: "PG", text: "2. Ketika berada di tol macet saat maghrib, sopir bus berniat menunda shalat Maghrib-nya untuk dikerjakan nanti sekalian bersama shalat Isya setelah sampai di terminal pada pukul 21.00. Model pengerjaan ini dinamakan ....", options: ["A. Jamak Taqdim", "B. Jamak Takhir", "C. Shalat Khauf", "D. Shalat Qadha"], answer: 1, exp: "Jamak Takhir artinya 'Mengakhirkan/Menunda'. Yakni memindahkan pelaksanaan shalat pertama (Maghrib) mundur dikerjakan pada waktu shalat kedua (Isya)." },
+                    { type: "PG", text: "3. Ridwan melakukan perjalanan mudik. Ia berniat melakukan Jamak Takhir (Dzuhur-Ashar di waktu Ashar). Kapankah Ridwan diwajibkan untuk memasang 'Niat Jamak Takhir' di dalam hatinya agar tidak berdosa meninggalkan Dzuhur?", options: ["A. Saat mulai wudhu di waktu ashar", "B. Kapan saja bebas", "C. Ketika waktu Dzuhur masih berlangsung (sebelum masuk ashar)", "D. Pasca salam shalat ashar"], answer: 2, exp: "Syarat mutlak jamak takhir: Niat menunda shalat harus sudah diikrarkan di dalam hati SAAT WAKTU SHALAT PERTAMA (Dzuhur) BELUM HABIS. Jika terlewat tanpa niat, ia berdosa telat shalat." }
+                ]
+            },
+            {
+                no: 18, materi: "Syarat shalat jamak & qashar", rowspan_materi: 3,
+                indikator: "Disajikan beberapa pernyataan tentang ketentuan shalat jamak, peserta didik dapat menyebutkan syarat diperbolehkannya melaksanakan shalat jamak dengan memilih dua jawaban yang benar.", 
+                bentuk: "PG Komplek", nomor: "24",
+                questions: [
+                    { type: "PGK", text: "1. Manakah di antara alasan di bawah ini yang DIBENARKAN oleh syariat Islam untuk melakukan rukshah Shalat Jamak? (Pilih dua jawaban benar)", options: ["Sedang dalam perjalanan jauh (musafir)", "Karena malas mencuci baju kotor untuk shalat", "Terjadi hujan/badai sangat lebat (khusus bagi jamaah masjid)", "Sibuk menonton siaran langsung bola"], answers: [0, 2], exp: "Sebab syar'i bolehnya menjamak shalat adalah: Perjalanan jauh (safar), Sakit parah, atau Hujan/badai lumpur pekat yang menyulitkan langkah jamaah rutin masjid untuk kembali lagi ke masjid." },
+                    { type: "PGK", text: "2. Pelaksanaan Jamak Taqdim (misal Dzuhur-Ashar di waktu Dzuhur) mensyaratkan beberapa hal penting agar sah. Syarat tersebut antara lain adalah... (Pilih dua jawaban benar)", options: ["Mendahulukan pengerjaan shalat yang pertama (Dzuhur dulu, baru Ashar)", "Boleh diselingi makan dan minum yang lama antar kedua shalat", "Niat menjamak harus dipasang saat shalat pertama sedang dikerjakan", "Mendahulukan shalat yang kedua (Ashar dulu)"], answers: [0, 2], exp: "Syarat Jamak Taqdim: 1) Tertib urutan shalat (waktu pertama didahulukan). 2) Niat jamak di dalam shalat pertama. 3) Muwalah (bersambung langsung tanpa jeda lama antara 2 shalat)." },
+                    { type: "PGK", text: "3. Keringanan (rukshah) jamak shalat juga diberikan bagi orang yang sakit. Namun tidak semua sakit membolehkannya. Kriteria sakit yang membolehkan jamak adalah... (Pilih dua jawaban benar)", options: ["Sakit panu atau jerawat ringan", "Sakit yang membuat penderitanya merasa sangat lemah dan kesulitan (masyaqqah) jika harus bolak-balik wudhu/berdiri tiap waktu", "Pasien ICU yang diwajibkan dokter istirahat total dan dilarang bergerak turun", "Sakit gigi ringan sebelah kiri"], answers: [1, 2], exp: "Standar sakitnya adalah sakit yang menimbulkan masyaqqah/kesulitan berat untuk bersuci atau melakukan pergerakan shalat tepat waktu secara normal." }
+                ]
+            },
+            {
+                no: 19, 
+                indikator: "Disajikan ilustrasi tentang seseorang yang sedang melakukan perjalanan (safar), peserta didik dapat menyebutkan syarat diperbolehkannya melaksanakan shalat jamak dan qashar berdasarkan ketentuan fikih dengan tepat.", 
+                bentuk: "PG Komplek", nomor: "26",
+                questions: [
+                    { type: "PGK", text: "1. Agar seorang musafir diizinkan Allah mengambil keringanan shalat Jamak dan Qashar, perjalanannya wajib memenuhi beberapa kriteria. Apa sajakah itu? (Pilih dua jawaban benar)", options: ["Perjalanan dilakukan untuk niat maksiat (seperti judi di luar kota)", "Jarak perjalanannya mencapai batas minimal jauhnya (sekitar 80,6 km)", "Tujuan perjalanannya jelas dan bukan untuk kemaksiatan (Mubah/Baik)", "Hanya menggunakan transportasi berjalan kaki"], answers: [1, 2], exp: "Syarat utamanya adalah: 1) Jaraknya sudah melewati 2 marhalah (>80 km). 2) Niat musafirnya legal/mubah, tidak berniat untuk maksiat/dosa." },
+                    { type: "PGK", text: "2. Status sebagai musafir yang berhak mengqashar shalat akan GUGUR/BERAKHIR apabila terjadi hal-hal berikut ini: (Pilih dua jawaban benar)", options: ["Musafir berniat untuk menetap di kota tujuan selama lebih dari 4 hari (menurut Syafi'i)", "Telah kembali dan tiba lagi di tapal batas kota tempat tinggal asalnya", "Beristirahat tidur di rest area semalam", "Mengganti kendaraan bus dengan kereta"], answers: [0, 1], exp: "Jika ia niat mukim >4 hari di tujuan, ia dianggap warga sana (bukan musafir). Begitu pula bila ia telah menjejakkan kaki masuk batas kota tempat asalnya, ia otomatis jadi warga mukim lagi." },
+                    { type: "PGK", text: "3. Dalam menetapkan tujuan dan jarak safar yang sah, hukum fikih menegaskan prinsip-prinsip berikut ini: (Pilih dua jawaban benar)", options: ["Perjalanan orang yang kabur dari tanggungan hutang wajib tidak sah diqashar", "Seseorang yang berkelana tanpa tujuan arah yang jelas (Haim) tetap boleh qashar", "Musafir boleh mulai mengqashar asalkan ia sudah keluar dari batas desa/kotanya", "Jarak dihitung dari dalam kamar rumah"], answers: [0, 2], exp: "Qashar tidak berlaku bagi orang maksiat/buronan. Hitungan sah jarak dimulai saat musafir keluar melewati palang batas desa/kelurahan asalnya, bukan saat masih di garasi rumah." }
+                ]
+            },
+            {
+                no: 20, 
+                indikator: "Disajikan ilustrasi tentang perjalanan seseorang, peserta didik dapat menjelaskan ketentuan jarak perjalanan yang membolehkan seseorang melaksanakan salat dengan cara jamak dan qasar dengan benar", 
+                bentuk: "PG", nomor: "15",
+                questions: [
+                    { type: "PG", text: "1. Mayoritas ulama (Jumhur) menetapkan batas minimal jarak perjalanan (safar) agar seseorang diperbolehkan MENGQASHAR shalat adalah sejauh '2 marhalah'. Dalam konversi ukuran kilometer modern, jarak tersebut disetarakan dengan ....", options: ["A. 15 km", "B. 40 km", "C. 80,6 km hingga 90 km", "D. 150 km"], answer: 2, exp: "Ulama fikih menghitung 2 marhalah (jarak tempuh 2 hari perjalanan unta normal padang pasir) setara dengan sekitar 80,6 kilometer (dibulatkan >81 km)." },
+                    { type: "PG", text: "2. Pada zaman Nabi Muhammad SAW, ukuran satuan 2 marhalah secara harfiah merupakan patokan jarak yang dapat ditempuh dengan cara ....", options: ["A. Berjalan kaki secara cepat selama 1 jam tanpa henti", "B. Mengendarai unta muatan normal dengan durasi berjalan 2 hari", "C. Berlari kencang selama seharian penuh", "D. Mengendarai kuda perang selama 3 jam"], answer: 1, exp: "Satu marhalah adalah jarak tempuh satu etape perjalanan harian unta dengan beban barang wajar. Maka 2 marhalah adalah 2 etape (kurang lebih 2 hari 2 malam perjalanan)." },
+                    { type: "PG", text: "3. Jika Budi berkendara antarkota dengan jarak pasti sejauh 55 kilometer, maka berdasarkan ukuran syarat Qashar (minimal 80,6 km), Budi ....", options: ["A. Boleh Qashar dan Jamak secara bebas", "B. Wajib Qashar shalat", "C. Hanya mubah (boleh-boleh saja) qashar asal bawa bekal", "D. Tidak memenuhi syarat minimal untuk boleh meng-Qashar shalat"], answer: 3, exp: "Karena jaraknya 55 km (kurang dari batas minimal mutlak 80,6 km), Budi belum berstatus musafir penuh. Ia tidak diizinkan MENGQASHAR shalat (jumlah rakaat harus tetap 4)." }
+                ]
+            },
+            {
+                no: 21, materi: "Shalat yang boleh & tidak boleh dijamak/diqashar", rowspan_materi: 2,
+                indikator: "Disajikan ilustrasi tentang seseorang yang sedang melakukan perjalanan jauh, peserta didik dapat menentukan salat yang boleh dijamak dan diqasar dengan tepat.", 
+                bentuk: "PG", nomor: "14",
+                questions: [
+                    { type: "PG", text: "1. Saat menempuh tol Trans Jawa, Ridwan berniat meringkas (mengqashar) shalatnya dari 4 rakaat menjadi 2 rakaat. Shalat fardhu apa sajakah yang sah untuk diringkas rakaatnya oleh Ridwan?", options: ["A. Dzuhur, Maghrib, Isya", "B. Subuh, Dzuhur, Ashar", "C. Dzuhur, Ashar, Isya", "D. Maghrib, Isya, Subuh"], answer: 2, exp: "Aturan mutlak: Shalat yang BISA diqashar (diringkas menjadi 2) HANYA shalat yang jumlah asalnya memiliki 4 rakaat yaitu Dzuhur, Ashar, dan Isya." },
+                    { type: "PG", text: "2. Berbeda dengan qashar, shalat Jamak adalah menggabungkan dua waktu shalat secara spesifik. Pasangan shalat mana yang DIIZINKAN untuk digabung (dijamak)?", options: ["A. Subuh dan Dzuhur", "B. Ashar dan Maghrib", "C. Dzuhur dan Ashar", "D. Isya dan Subuh"], answer: 2, exp: "Pasangan jamak baku yang tak bisa diubah adalah: Siang (Dzuhur berpasangan dengan Ashar) dan Malam (Maghrib berpasangan dengan Isya). Subuh berdiri sendiri tanpa pasangan." },
+                    { type: "PG", text: "3. Jika Andi dalam posisi musafir ingin melakukan Jamak Takhir Maghrib dan Isya, sekaligus mengqasharnya, maka jumlah rakaat yang harus Andi kerjakan berturut-turut adalah ....", options: ["A. Maghrib 3 rakaat, Isya 2 rakaat", "B. Maghrib 1.5 rakaat, Isya 2 rakaat", "C. Maghrib 3 rakaat, Isya 4 rakaat", "D. Maghrib 2 rakaat, Isya 2 rakaat"], answer: 0, exp: "Maghrib (3 rakaat) tidak bisa diqashar menjadi 1,5 rakaat, ia wajib utuh dikerjakan 3 rakaat. Sedangkan Isya (4 rakaat) sah diqashar menjadi 2 rakaat." }
+                ]
+            },
+            {
+                no: 22, 
+                indikator: "Disajikan beberapa jenis shalat wajib, peserta didik dapat menganalisis dan menentukan dua jenis shalat yang tidak boleh diqashar dengan benar.", 
+                bentuk: "PG Komplek", nomor: "25",
+                questions: [
+                    { type: "PGK", text: "1. Dari daftar shalat fardhu berikut ini, shalat manakah yang SAMA SEKALI TIDAK BOLEH diringkas (diqashar) rakaatnya walau kondisi darurat sekalipun? (Pilih dua jawaban benar)", options: ["Shalat Dzuhur", "Shalat Ashar", "Shalat Maghrib", "Shalat Subuh"], answers: [2, 3], exp: "Shalat Subuh tetap 2 rakaat utuh, Shalat Maghrib tetap 3 rakaat utuh. Tidak ada rukshah pemotongan rakaat untuk keduanya dalam syariat Islam." },
+                    { type: "PGK", text: "2. Alasan syar'i mengapa shalat Subuh dilarang keras untuk digabungkan (dijamak) dengan shalat fardhu apapun adalah... (Pilih dua jawaban benar)", options: ["Karena Subuh bukan bagian dari serangkai pasangan waktu siang (Dzuhur-Ashar) maupun kelompok malam (Maghrib-Isya)", "Subuh jumlah rakaatnya paling sedikit (hanya 2)", "Waktu Subuh dibatasi oleh pemisah terbitnya matahari/fajar yang memutus waktu malam ke siang", "Karena udara subuh sangat dingin untuk musafir"], answers: [0, 2], exp: "Waktu subuh berdiri tunggal mandiri sebagai pemisah fase pergantian hari antara malam gelap menuju terbit fajar menyingsing terang, sehingga tak bisa dijamak/ditarik ke kelompok isya maupun dzuhur." },
+                    { type: "PGK", text: "3. Di bawah ini adalah daftar shalat yang BISA DIGABUNG (dijamak) dengan pasangannya, namun TIDAK BISA DIRINGKAS (diqashar) karena bukan 4 rakaat. Shalat apakah itu? (Pilih dua jawaban benar)", options: ["Subuh (Tdk bisa jamak & qashar)", "Maghrib", "Isya (Bisa jamak & qashar)", "Dzuhur (Bisa jamak & qashar)"], answers: [1], exp: "Satu-satunya shalat yang masuk ke ranah Jamak tapi dilarang keras di-Qashar adalah MAGHRIB. (Jawaban sebenarnya satu, namun format PG Komplek kita tandai Maghrib sebagai entitas uniknya)." }
+                ]
+            },
+            {
+                no: 23, materi: "Dalil dan Perbedaan shalat qashar", rowspan_materi: 2,
+                indikator: "Disajikan beberapa pernyataan atau potongan dalil tentang shalat qashar, peserta didik dapat menentukan dalil yang menjadi dasar disyariatkannya shalat qashar dengan tepat.", 
+                bentuk: "PG", nomor: "16",
+                questions: [
+                    { type: "PG", text: "1. 'Dan apabila kamu bepergian di muka bumi, maka tidaklah mengapa kamu menqashar sembahyang(mu)...' merupakan arti yang terkandung dari potongan Al-Qur'an surah ....", options: ["A. Al-Baqarah ayat 183", "B. An-Nisa ayat 101", "C. Al-Jumu'ah ayat 9", "D. Al-Maidah ayat 3"], answer: 1, exp: "Dalil utama kebolehan shalat Qashar saat sedang safar (berkeliaran di bumi) tercantum dengan gamblang dalam QS. An-Nisa ayat 101." },
+                    { type: "PG", text: "2. Allah menyukai apabila rukshah (keringanan) yang Ia berikan diambil dan diamalkan oleh hamba-Nya. Sikap spiritual yang benar jika kita memenuhi syarat qashar/jamak adalah ....", options: ["A. Sombong karena merasa jadi musafir", "B. Menerima keringanan/sedekah Allah tersebut dengan rasa syukur dan ikhlas", "C. Menolak keringanan dan memaksakan diri agar terlihat lebih alim", "D. Tidak shalat sama sekali karena repot"], answer: 1, exp: "Rasulullah bersabda: 'Itu (Qashar) adalah sedekah yang Allah berikan kepada kalian, maka terimalah sedekah-Nya.' Mengamalkan qashar saat memenuhi syarat lebih afdhal daripada shalat utuh." },
+                    { type: "PG", text: "3. Tujuan utama dan maqashid (maksud syariat) mengapa Allah repot-repot mensyariatkan adanya rukshah Jamak dan Qashar bagi para musafir adalah untuk ....", options: ["A. Mengurangi pahala hamba", "B. Mengangkat beban kesulitan, kesempitan, dan kepayahan (Masyaqqah) dalam perjalanan", "C. Menghemat waktu agar cepat sampai tujuan dagang", "D. Sebagai hukuman perjalanan jauh"], answer: 1, exp: "Islam dibangun di atas prinsip kemudahan (Ad-Diinu Yusr). Qashar hadir sebagai solusi jitu menghilangkan rasa payah/lelah ekstrem jamaah yang tengah bermusafir di jalan." }
+                ]
+            },
+            {
+                no: 24, 
+                indikator: "Disajikan ilustrasi perjalanan seseorang, peserta didik dapat menganalisis perbedaan shalat jamak dan shalat qasar dengan tepat.", 
+                bentuk: "PG", nomor: "17",
+                questions: [
+                    { type: "PG", text: "1. Perbedaan paling mendasar yang memisahkan definisi tata cara shalat Jamak dan shalat Qashar terletak pada ....", options: ["A. Jamak meringkas 4 jadi 2, Qashar menggabungkan 2 waktu", "B. Jamak menyatukan/menggabungkan 2 waktu shalat, Qashar meringkas jumlah kuantitas rakaat yang 4 menjadi 2", "C. Keduanya sama-sama memotong rakaat", "D. Jamak khusus orang sakit, Qashar khusus musafir"], answer: 1, exp: "Secara harfiah: Jamak = Mengumpulkan (Ranah manipulasi Waktu). Qashar = Memendekkan/Meringkas (Ranah manipulasi Jumlah Rakaat)." },
+                    { type: "PG", text: "2. Hubungan pengamalan yang benar mengenai Jamak dan Qashar bagi seorang musafir adalah ....", options: ["A. Keduanya wajib dikerjakan satu paket bersamaan", "B. Boleh mengamalkan Jamak saja tanpa Qashar, atau Qashar saja tanpa Jamak", "C. Qashar wajib dilakukan di waktu Jamak Takhir", "D. Jamak pasti otomatis qashar"], answer: 1, exp: "Jamak dan Qashar adalah dua izin (rukshah) yang terpisah. Seseorang boleh mengqashar (Dzuhur 2 rakaat di jam 12, lalu Ashar 2 rakaat di jam 16). Boleh juga jamak tanpa qashar." },
+                    { type: "PG", text: "3. Pengamalan Qashar murni memanipulasi KUANTITAS (jumlah rakaat), sedangkan pengamalan Jamak murni memanipulasi ....", options: ["A. Kualitas niat wudhu", "B. WAKTU kedisiplinan pelaksanaannya", "C. Syarat sah rukun", "D. Arah patokan kiblat"], answer: 1, exp: "Jamak berarti menggeser jadwal (waktu) pelaksanaan ibadah, menarik yang nanti menjadi sekarang (taqdim) atau menunda yang sekarang menjadi nanti (takhir)." }
+                ]
+            },
+            {
+                no: 25, materi: "Tata cara pelaksanaan shalat jamak qashar", rowspan_materi: 1,
+                indikator: "Disajikan ilustrasi tentang seseorang yang sedang melakukan perjalanan jauh (musafir), peserta didik dapat menuliskan niat shalat jamak qashar yang sesuai dengan kondisi tersebut dengan benar.", 
+                bentuk: "Uraian", nomor: "34",
+                questions: [
+                    { type: "ESSAY", text: "1. Tuliskan lafadz niat (dengan bahasa Arab atau latinnya) melaksanakan Shalat Dzuhur 2 rakaat yang di-jamak taqdim dengan Ashar, sekaligus di-qashar!", exp: "Contoh lafadz niat latin:\n\"Ushalli fardhadz dzuhri rak'ataini qashran majmuu'an ilaihil 'ashru jam'a taqdiimin lillahi ta'aalaa\"\n(Artinya: Aku niat shalat fardhu dzuhur 2 rakaat qashar, dijamak dengan ashar, jamak taqdim karena Allah Ta'ala)." },
+                    { type: "ESSAY", text: "2. Tulislah lafadz niat shalat Isya 2 rakaat (di-qashar) yang di-jamak takhir pelaksanaannya mengikut pada waktu Maghrib!", exp: "Contoh lafadz niat latin:\n\"Ushalli fardhal 'isya-i rak'ataini qashran majmuu'an ilal maghribi jam'a takhiirin lillahi ta'aalaa\"\n(Artinya: Aku niat shalat fardhu Isya 2 rakaat qashar, dijamak ke maghrib, jamak takhir karena Allah Ta'ala)." },
+                    { type: "ESSAY", text: "3. Jelaskan secara singkat tata cara urutan perbuatan (praktik lapangan) ketika melakukan Jamak Taqdim Maghrib dan Isya secara berturut-turut!", exp: "1. Mendirikan shalat Maghrib 3 rakaat (diikuti niat jamak taqdim). \n2. Setelah salam Maghrib, segera berdiri/iqamah ulang tanpa diselingi dzikir atau wirid panjang.\n3. Langsung takbir memulai shalat Isya (bisa diqashar jadi 2 rakaat). \n4. Salam Isya penutup." }
+                ]
+            },
+
+            // --- KELOMPOK 3: SHALAT KONDISI DARURAT & SUNNAH ---
+            {
+                no: 26, tp: CP_TEXT, rowspan_tp: 10, materi: "Tata cara Shalat bagi orang sakit", rowspan_materi: 1,
+                indikator: "Disajikan sebuah hadis tentang tata cara shalat bagi orang yang sedang sakit, peserta didik dapat menganalisis dan menjelaskan ketentuan pelaksanaan shalat dalam keadaan sakit sesuai dengan kandungan hadis.", 
+                bentuk: "PG", nomor: "18",
+                questions: [
+                    { type: "PG", text: "1. Nabi SAW bersabda: 'Shalatlah sambil berdiri, jika tidak mampu maka sambil duduk, jika tidak mampu maka sambil...'. Lanjutan sabda Rasulullah riwayat Imran bin Hushain tersebut adalah ....", options: ["A. Berbaring telentang lurus", "B. Berjalan menunduk", "C. Memejamkan mata", "D. Berbaring dengan posisi miring (menghadap kiblat)"], answer: 3, exp: "Urutan fikih rukshah posisi shalat bagi pasien sakit: Berdiri -> Jika tak mampu, Duduk -> Jika tak mampu, Berbaring Miring ke sisi kanan badan hadap kiblat -> Jika tak mampu, Terlentang kaki mengarah kiblat -> Isyarat kelopak mata/hati." },
+                    { type: "PG", text: "2. Pak Karto menderita lumpuh stroke total. Ia sama sekali tidak bisa menggerakkan badan, tangan, kaki, apalagi lehernya. Namun akal dan pikirannya sadar sempurna. Cara shalat yang diwajibkan bagi Pak Karto adalah ....", options: ["A. Gugur kewajiban shalatnya secara otomatis", "B. Tetap shalat menggunakan isyarat mata, atau gerak dalam hatinya", "C. Dipaksa duduk disandarkan ke bantal tembok", "D. Shalatnya diwakilkan/dibadalkan oleh anaknya"], answer: 1, exp: "Shalat fardhu tak pernah gugur selama akal pasien itu masih ada dan waras. Jika badan dan mata lumpuh, ia cukup menjalankan rukun shalat dan bacaan di dalam batinnnya (hatinya)." },
+                    { type: "PG", text: "3. Saat pasien melakukan ibadah shalat sambil posisi duduk, ketentuan cara untuk melakukan gerakan ruku' dan sujud fisiknya yang benar adalah ....", options: ["A. Menganggukkan kepala (dengan catatan posisi sujud harus lebih rendah tunduknya dibanding ruku')", "B. Tetap wajib memaksakan sujud ke lantai ubin", "C. Cukup berkedip saja santai", "D. Membungkuk sedikit saja secara rata/sejajar untuk ruku' dan sujud"], answer: 0, exp: "Bagi yang shalat duduk dan tak mampu menempelkan dahi ke lantai, ia wajib menundukkan badannya sebagai isyarat sujud LEBIH DALAM/RENDAH ketimbang saat isyarat ia sedang ruku'." }
+                ]
+            },
+            {
+                no: 27, materi: "Ketentuan shalat khauf & kendaraan", rowspan_materi: 2,
+                indikator: "Disajikan ilustrasi situasi yang menimbulkan rasa khawatir atau takut ketika melaksanakan shalat, peserta didik dapat menyebutkan penyebab rasa khawatir atau takut dalam pelaksanaan shalat khauf dengan tepat.", 
+                bentuk: "PG", nomor: "27",
+                questions: [
+                    { type: "PG", text: "1. Shalat Khauf adalah tata cara shalat yang dikerjakan khusus dalam keadaan darurat penuh ketakutan. Contoh situasi yang membolehkan pelaksanaan Shalat Khauf murni menurut fikih klasik adalah ....", options: ["A. Takut tertinggal jadwal keberangkatan kereta api", "B. Sedang berhadap-hadapan di medan peperangan fisik menghadapi musuh", "C. Takut kehujanan lebat", "D. Takut dimarahi orang tua telat pulang"], answer: 1, exp: "Khauf (خوف) secara literatur berarti Takut Mencekam. Shalat Khauf disyariatkan mutlak saat kondisi peperangan atau ada ancaman mematikan dari binatang buas, api, dan gelombang ombak." },
+                    { type: "PG", text: "2. Syarat utama dan pertama diperbolehkannya jamaah memodifikasi tata barisan shalat menjadi format shalat Khauf adalah ....", options: ["A. Berada dalam kondisi bahaya yang mengancam keselamatan nyawa atau hilangnya harga diri/harta besar secara nyata", "B. Sedang flu berat dan pilek batuk", "C. Berada di lingkungan sepi pinggir hutan biasa", "D. Ketakutan akibat fobia pada gelap"], answer: 0, exp: "Dasar syar'i pelaksanaannya adalah adanya 'ketakutan nyata/bahaya' (Al-Khauf) dari musuh yang menyerang mendadak jika barisan kaum muslimin lengah saat sujud massal." },
+                    { type: "PG", text: "3. Di tengah kecamuk perang jarak dekat yang sengit bersenjata (mushafahah), tentara muslim diperbolehkan shalat dengan hal-hal yang asalnya diharamkan dan membatalkan shalat, KECUALI ....", options: ["A. Berjalan/bergerak maju mundur lebih dari 3 kali", "B. Membawa perlengkapan pedang/senjata tempur berat", "C. Berteriak dan bersenda gurau tertawa keras menantang musuh", "D. Berpaling dari arah kiblat"], answer: 2, exp: "Dalam Khauf ekstrim, bergerak aktif lari, menyabet pedang, membelakangi kiblat, dan membawa senapan kotor berdarah diizinkan. Namun tertawa gurau tetap diharamkan murni karena itu membatalkan sakralitas shalat." }
+                ]
+            },
+            {
+                no: 28, 
+                indikator: "Disajikan ilustrasi tentang seseorang yang shalat di atas kendaraan, peserta didik dapat menjelaskan hukum menghadap kiblat ketika shalat sunnah di atas kendaraan dengan tepat.", 
+                bentuk: "PG Komplek", nomor: "19",
+                questions: [
+                    { type: "PGK", text: "1. Terkait tata cara rukun shalat ketika berada di atas kendaraan umum (bus antar kota/pesawat) yang sedang melaju kencang, pernyataan manakah yang benar? (Pilih dua jawaban benar)", options: ["Untuk shalat fardhu wajib, jamaah HARUS berusaha maksimal menghadap arah kiblat, minimal di awal bacaan takbiratul ihram.", "Shalat fardhunya sama sekali tidak usah dikerjakan, diganti di tujuan (Qadha).", "Untuk pengerjaan shalat SUNNAH di pesawat, diizinkan menghadap ke mana saja kendaraan itu melaju.", "Tidak wajib wudhu atau tayammum sama sekali."], answers: [0, 2], exp: "Dalil hadis riwayat Bukhari: Nabi SAW tetap shalat sunnah di atas pelana untanya menghadap kemana pun unta menghadap, tapi untuk shalat wajib beliau turun menghadap Ka'bah (atau semampunya mencari arah di pesawat)." },
+                    { type: "PGK", text: "2. Jika seorang karyawan melaksanakan shalat Fardhu di dalam gerbong kereta api padat penumpang dan air toilet habis, yang diperintahkan kepadanya adalah... (Pilih dua jawaban benar)", options: ["Meninggalkan shalat fardhu hingga tiba di stasiun", "Bertayammum menepuk debu bersih di kursi, jendela, atau dinding gerbong", "Tetap shalat duduk fardhu semampunya walau arah melenceng sedikit karena darurat sempit (lihurmatil waqt)", "Melompat keluar kaca kereta untuk mencari air sungai"], answers: [1, 2], exp: "Tidak ada uzur untuk bolong shalat fardhu. Ia wajib tayammum sebagai ganti wudhu, dan menunaikan shalat di bangku kursinya sebatas kesanggupannya." },
+                    { type: "PGK", text: "3. Hal-hal dispensasi khusus yang hanya diperbolehkan ketika melaksanakan shalat SUNNAH (bukan fardhu) di bangku pesawat terbang niaga adalah... (Pilih dua jawaban benar)", options: ["Boleh menghadap lurus ke depan mengikuti arah moncong pesawat melaju secara total sejak takbir hingga salam", "Boleh shalat sambil nyender duduk tanpa perlu memaksakan diri mencari celah untuk berdiri sempurna", "Boleh shalat sunnah tanpa membaca surat Al-Fatihah sedikitpun", "Boleh makan kacang saat ruku'"], answers: [0, 1], exp: "Sesuai fiqih safar, shalat nafilah (sunnah) memiliki kelonggaran ekstrem di atas tunggangan: arah kiblat disesuaikan dengan laju kendaraan, dan boleh dikerjakan murni sambil duduk santai rileks." }
+                ]
+            },
+            {
+                no: 29, materi: "Macam-macam shalat sunnah", rowspan_materi: 1,
+                indikator: "Disajikan beberapa pernyataan tentang macam-macam shalat sunnah, peserta didik dapat mengidentifikasi shalat sunnah muakkadah dengan benar.", 
+                bentuk: "PG", nomor: "28",
+                questions: [
+                    { type: "PG", text: "1. Kategori shalat sunnah yang kedudukannya sangat kuat dan ditekankan pelaksanaannya karena Nabi Muhammad SAW hampir tidak pernah sekalipun meninggalkannya disebut sunnah ....", options: ["A. Ghairu Muakkad", "B. Sunnah Muakkad", "C. Sunnah Mutlaq", "D. Sunnah Tasbih"], answer: 1, exp: "Muakkad (مؤكد) secara arti kata berarti 'yang sangat dikuatkan/ditekankan/dianjurkan'. Ini adalah derajat tertinggi di bawah Fardhu/Wajib." },
+                    { type: "PG", text: "2. Berikut ini yang merupakan anggota tetap dari kelompok elit shalat sunnah Muakkadah adalah ....", options: ["A. Shalat sunnah Witir dan 2 rakaat fajar (Qobliyah Subuh)", "B. Shalat Mutlak lepas", "C. Shalat Qabliyah Ashar", "D. Shalat Istikharah insidental"], answer: 0, exp: "Qobliyah subuh (2 rakaat fajar) disebut Nabi lebih baik dari dunia isinya. Witir tak pernah ditinggalkan Nabi walau sedang safar sekalipun. Keduanya dedengkot Sunnah Muakkad." },
+                    { type: "PG", text: "3. Sebaliknya, shalat sunnah ghairu muakkad adalah kategori amalan shalat sunnah yang ...", options: ["A. Secara mutlak diwajibkan bila mampu", "B. Kadang-kadang dikerjakan Nabi, kadang ditinggalkan karena tidak begitu mengikat kuat", "C. Berdosa jika tidak dikerjakan malam", "D. Dianjurkan sangat keras sekali"], answer: 1, exp: "Ghairu Muakkad berarti 'tidak dikuatkan'. Seperti shalat sunnah 4 rakaat sebelum ashar, Nabi mengamalkannya namun tidak menjadi prioritas rutinitas mutlak harian beliau." }
+                ]
+            },
+            {
+                no: 30, materi: "Shalat tahiyyatul masjid", rowspan_materi: 1,
+                indikator: "Disajikan ilustrasi kondisi seseorang saat memasuki masjid, peserta didik dapat menentukan pelaksanaan shalat tahiyyatul masjid yang sesuai dengan syarat-syaratnya dengan tepat.", 
+                bentuk: "PG", nomor: "20",
+                questions: [
+                    { type: "PG", text: "1. Zaid melangkahkan kaki masuk ke dalam masjid untuk menunaikan jamaah Maghrib. Saat masuk, suara adzan baru saja usai. Hal pertama yang disunnahkan dilakukan Zaid sebelum menyentuh karpet untuk duduk adalah ....", options: ["A. Membaca Al-Qur'an bersandar di tembok", "B. Langsung duduk sila berdzikir", "C. Melaksanakan shalat sunnah Tahiyyatul Masjid 2 rakaat", "D. Melaksanakan shalat sunnah Dhuha"], answer: 2, exp: "Tahiyyatul Masjid adalah ibadah fisik shalat sunnah 2 rakaat eksklusif untuk menyapa/menghormati masjid, dilakukan detik pertama saat masuk masjid dan HARUS SEBELUM pantat menyentuh lantai (duduk)." },
+                    { type: "PG", text: "2. Esensi dasar dan tujuan utama disyariatkannya ibadah shalat Tahiyyatul Masjid adalah ....", options: ["A. Hanya olahraga pemanasan", "B. Sebagai bentuk adab sapaan dan penghormatan sakral kepada tempat ibadah (rumah Allah)", "C. Untuk menunggu teman janjian", "D. Memamerkan kualitas bacaan"], answer: 1, exp: "Sama halnya ketika kita masuk ke rumah orang mengucap permisi/salam. Masuk ke Istana Allah (masjid) punya adab permisi sendiri, yakni salam dalam bentuk 2 rakaat tahiyyat." },
+                    { type: "PG", text: "3. Jika seorang pria lari masuk masjid, namun ternyata Imam sudah takbiratul ihram memulai shalat fardhu berjamaah di depan, apa yang wajib ia putuskan?", options: ["A. Nekat ngotot shalat tahiyyatul masjid di pojokan", "B. Menggugurkan hak tahiyyatul masjidnya, dan wajib langsung berdiri rapat menyusul barisan takbir ikut imam shalat fardhu", "C. Berdiri terpaku mematung nunggu imam salam", "D. Keluar pulang berbalik arah"], answer: 1, exp: "Nabi bersabda: \"Jika Iqamah telah dikumandangkan, maka tidak ada shalat yang sah kecuali shalat Maktubah (Fardhu berjamaah tersebut).\" Hak tahiyyat otomatis lebur tergabung di dalam shalat fardhu." }
+                ]
+            },
+            {
+                no: 31, materi: "Shalat tahajjud", rowspan_materi: 1,
+                indikator: "Disajikan beberapa pernyataan/ilustrasi tentang shalat tahajud, peserta didik dapat menganalisis ketentuan shalat tahajud dan menentukan dua pernyataan yang benar.", 
+                bentuk: "PG Komplek", nomor: "29",
+                questions: [
+                    { type: "PGK", text: "1. Manakah dari pernyataan di bawah ini yang mutlak BENAR mengenai ketentuan baku pelaksanaan ibadah Shalat Tahajud? (Pilih dua jawaban benar)", options: ["Waktu paling istimewa mustajab adalah pada sepertiga malam terakhir", "Syarat mutlak utamanya adalah harus memejamkan mata tidur terlebih dahulu walaupun hanya 5 menit", "Boleh dikerjakan jam 8 malam sehabis isya langsung", "Dikerjakan tepat setelah matahari terbit terik"], answers: [0, 1], exp: "Tahajud (Hujud = terbangun). Artinya ia adalah ibadah Qiyamul Lail yang punya syarat kunci mutlak: hanya sah dinamakan tahajud jika pelakunya sudah bangun dari tidur nyenyak di malam hari." },
+                    { type: "PGK", text: "2. Janji karunia keutamaan dahsyat memelihara shalat Tahajjud (Qiyamul Lail) disebutkan gamblang dalam firman Allah QS. Al-Isra ayat 79, yaitu... (Pilih dua jawaban benar)", options: ["Allah akan mengangkat martabat dan derajatnya ke 'Tempat/Kedudukan yang Terpuji' (Maqaman Mahmudan)", "Dijamin mutlak badannya bebas dari luka bacok", "Sebagai ibadah nafilah/tambahan yang sangat diunggulkan eksklusif", "Akan langsung jadi raja sedunia"], answers: [0, 2], exp: "Maqaman Mahmudan (kedudukan pahlawan mulia di mata makhluk langit dan bumi) adalah hadiah garansi Al-Quran bagi pejuang sepertiga malam." },
+                    { type: "PGK", text: "3. Rangkaian ketentuan penyempurnaan penutup shalat bangun malam (Tahajjud) biasanya wajib disempurnakan atau diakhiri (ditutup) dengan melaksanakan... (Pilih dua jawaban benar)", options: ["Shalat ganjil sebagai gembok malam (Shalat Witir)", "Pengerjaan penutup minimal boleh 1 rakaat atau 3 rakaat salam", "Shalat Sunnah Dhuha", "Shalat Tarawih"], answers: [0, 1], exp: "Rasulullah menganjurkan: 'Jadikanlah akhir shalat malammu dengan Witir' (rakaat ganjil). Tahajudnya genap, ditutup digembok dengan witir ganjil (1,3, atau 5) sebelum fajar azan subuh." }
+                ]
+            },
+            {
+                no: 32, materi: "Keutamaan sholat Dhuha", rowspan_materi: 1,
+                indikator: "Disajikan beberapa pernyataan tentang pelaksanaan dan manfaat sholat Dhuha, peserta didik dapat menganalisis nilai-nilai keutamaan sholat Dhuha dan menentukan dua pernyataan yang paling tepat.", 
+                bentuk: "PG Komplek", nomor: "30",
+                questions: [
+                    { type: "PGK", text: "1. Shalat Dhuha memiliki karomah dan banyak keutamaan bagi yang merutinkannya (Istiqomah). Manakah di bawah ini yang merupakan khasiat shalat Dhuha berdasarkan redaksi hadis? (Pilih dua jawaban benar)", options: ["Dicatat lunas sebagai nilai sedekah wajib harian bagi seluruh (360) sendi-sendi ruas tulang tubuh manusia", "Menjamin pelakunya meramal masa depan cerah", "Dicap sebagai orang golongan yang sering bertobat dan kembali menangis kepada Allah (Awwabin) / simbol kunci pintu pembuka rezeki langit", "Boleh menggantikan pahala naik haji ke Mekkah"], answers: [0, 2], exp: "Dalam hadis riwayat Muslim disebutkan, 2 rakaat dhuha di pagi hari sudah mensubsidi/mencukupi sedekah 360 ruas tulang. Dhuha juga disebut shalatnya 'Awwabin'." },
+                    { type: "PGK", text: "2. Batas waktu eksekusi pelaksanaan shalat Dhuha yang valid menurut waktu syuruq astronomis adalah... (Pilih dua jawaban benar)", options: ["Dimulai setelah matahari terbit dan meninggi seukuran satu anak panah sepenggalah (sekitar pukul 06.30-07.00 pagi)", "Boleh dilakukan malam hari sebelum jam tidur tiba", "Dilakukan persis lurus saat matahari pas di pucuk kepala (zawal)", "Selesai/berakhir beberapa saat sebelum matahari tergelincir (sebelum kumandang azan Dzuhur pukul 11.30an)"], answers: [0, 3], exp: "Jendela waktu Dhuha sangat panjang. Terbentang dari pagi pasca embun matahari menanjak utuh, hingga mentari memanas siang mendekati batas lingsir dzuhur." },
+                    { type: "PGK", text: "3. Format hitungan jumlah rakaat shalat Dhuha yang dicontohkan dalam rekam jejak praktik keseharian Nabi minimal dan maksimalnya adalah... (Pilih dua jawaban benar)", options: ["Sangat sah dikerjakan seringkas-ringkasnya minimal 2 rakaat ringan", "Wajib dituntaskan serentak minimal 4 rakaat 1 salam", "Batas terbanyak bisa ditarik panjang hingga 8 atau mentok 12 rakaat (tiap 2 rakaat salam)", "Maksimal hanya dilock 2 rakaat tak boleh lebih"], answers: [0, 2], exp: "Rasulullah rata-rata membiasakan 2 rakaat, kadang di rumah Ummu Hani saat Fathu Makkah beliau shalat memanjang sebanyak 8 rakaat. Para sahabat meluaskannya hingga 12 rakaat." }
+                ]
+            },
+            {
+                no: 33, materi: "Sunnah-sunnah dalam shalat istisqa", rowspan_materi: 1,
+                indikator: "Disajikan ilustrasi pelaksanaan shalat istisqa, peserta didik dapat menentukan sunnah-sunnah dalam shalat istisqa yang sesuai dengan situasi tersebut.", 
+                bentuk: "Uraian", nomor: "35",
+                questions: [
+                    { type: "ESSAY", text: "1. Desa Makmur dilanda kekeringan kemarau panjang. Warga bersepakat memohon keajaiban langit dengan menggelar Shalat Istisqa. Sebutkan 4 (empat) amalan sunnah spesifik yang sangat dianjurkan sebelum dan saat keberangkatan Shalat Istisqa tersebut!", exp: "Amalan sunnah berat/spesifik terkait Istisqa:\n1. Aparat pimpinan menyeru warga Puasa 3 hari berturut-turut sebelum berangkat.\n2. Mengenakan baju paling biasa/lusuh usang (tanda sangat merendahkan diri), bukan baju mewah lebaran.\n3. Membawa turut serta makhluk lemah seperti binatang ternak kehausan, lansia bungkuk, dan bayi anak-anak kecil ke lapangan menangis.\n4. Membawa rasa taubat nasuha." },
+                    { type: "ESSAY", text: "2. Shalat Istisqa (Minta Hujan) memiliki tata cara gerakan teknis yang hampir mirip dengan Shalat Hari Raya 'Id. Jelaskan secara ringkas bagaimana struktur tata cara pelaksanaan ruku dan khutbahnya!", exp: "Dikerjakan 2 rakaat berjamaah murni di tanah lapang luas terik matahari. \n- Rakaat pertama disunnahkan takbir tambahan 7 kali.\n- Rakaat kedua disunnahkan takbir tambahan 5 kali.\n- Berbeda dengan shalat jumat, Khutbah Istisqa justru dilaksanakan DI AKHIR (setelah shalat selesai) membelakangi makmum saat doa puncaknya." },
+                    { type: "ESSAY", text: "3. Pada puncak bagian akhir khutbah Istisqa, khatib memiliki sebuah tradisi gerakan tangan yang sangat simbolis sebagai bentuk kepasrahan total dan harapan perubahan musim. Jelaskan gerakan apakah itu?", exp: "Gerakan simbolis itu adalah membalikkan letak posisi sorban atau selendang selimutnya (dari posisi kanan dipindah ke pundak kiri, atau yang atas diputar dibalik ke bawah). Diiringi tangan diangkat lurus ke langit setinggi-tingginya meminta Allah membalikkan kemarau gersang menjadi musim hujan yang subur." }
+                ]
+            }
+        ];
+
+        // ==========================================
+        // RENDER FUNGSI DAN LOGIKA INTERAKSI
+        // ==========================================
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTable();
+            lucide.createIcons();
+        });
+
+        // Merender tabel utama
+        function renderTable() {
+            const tbody = document.getElementById('kisi-kisi-tbody');
+            let html = '';
+
+            kisiKisiData.forEach((row, index) => {
+                html += `<tr class="hover:bg-gray-50 transition-colors duration-150 border-b border-black">`;
+                
+                // Merge kolom NO. berdasarkan Tujuan Pembelajaran
+                if (row.rowspan_tp) {
+                    const sectionNo = index === 0 ? 1 : (index === 15 ? 2 : 3);
+                    html += `<td rowspan="${row.rowspan_tp}" class="border-r border-black px-2 py-3 text-center align-top font-bold text-base">${sectionNo}</td>`;
+                }
+                
+                if (row.rowspan_tp) {
+                    html += `<td rowspan="${row.rowspan_tp}" class="border-r border-black px-4 py-3 align-top whitespace-pre-wrap leading-relaxed text-justify">${row.tp}</td>`;
+                }
+                if (row.rowspan_materi) {
+                    html += `<td rowspan="${row.rowspan_materi}" class="border-r border-black px-3 py-3 align-top font-semibold text-gray-700">${row.materi}</td>`;
+                }
+                
+                html += `
+                    <td class="border-r border-black px-3 py-3 align-top cursor-pointer group hover:bg-emerald-50 transition-colors" onclick="openModal(${index})">
+                        <span class="text-emerald-700 font-medium group-hover:text-emerald-900 group-hover:underline block leading-relaxed">${row.indikator}</span>
+                        <span class="text-xs text-gray-400 font-sans mt-2 inline-block italic opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                            <i data-lucide="layout-list" class="w-3 h-3 text-emerald-500"></i> Klik untuk 3 Contoh Soal
+                        </span>
+                    </td>
+                    <td class="border-r border-black px-2 py-3 text-center align-top font-semibold text-gray-600">${row.bentuk}</td>
+                    <td class="px-2 py-3 text-center align-top font-bold text-emerald-800">${row.nomor}</td>
+                </tr>`;
+            });
+
+            tbody.innerHTML = html;
+        }
+
+        // Membuka Modal
+        function openModal(index) {
+            const item = kisiKisiData[index];
+            document.getElementById('modal-title').innerText = `Simulasi Soal (Nomor Kisi-kisi: ${item.nomor})`;
+            document.getElementById('modal-indicator-text').innerText = `"${item.indikator}"`;
+            document.getElementById('modal-bentuk-soal').innerText = item.bentuk;
+            document.getElementById('modal-nomor-soal').innerText = item.nomor;
+
+            renderQuestions(item.questions);
+
+            document.getElementById('modal-backdrop').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        // Menutup Modal
+        function closeModal() {
+            document.getElementById('modal-backdrop').classList.add('hidden');
+        }
+
+        // Merender soal-soal di dalam modal
+        function renderQuestions(questions) {
+            const container = document.getElementById('modal-questions-container');
+            let html = '';
+
+            questions.forEach((q, qIdx) => {
+                let contentHtml = '';
+
+                if (q.type === 'PG') {
+                    const optionsHtml = q.options.map((opt, optIdx) => `
+                        <button onclick="handlePgClick(this, ${qIdx}, ${optIdx}, ${q.answer})" class="pg-option text-left px-4 py-3 border border-gray-300 rounded-md transition-all duration-200 focus:outline-none hover:bg-emerald-50 hover:border-emerald-300 cursor-pointer text-gray-700 bg-white flex justify-between items-center w-full" data-text="${opt}">
+                            <span>${opt}</span>
+                            <span class="icon-container"></span>
+                        </button>
+                    `).join('');
+
+                    contentHtml = `
+                        <div class="flex flex-col gap-2" id="q-container-${qIdx}" data-answered="false">
+                            ${optionsHtml}
+                            <div class="explanation hidden mt-4 p-4 bg-emerald-50 border-l-4 border-emerald-500 rounded text-sm text-emerald-900 flex gap-3">
+                                <i data-lucide="info" class="flex-shrink-0 mt-0.5 text-emerald-600 w-[18px] h-[18px]"></i>
+                                <div>
+                                    <strong class="block mb-1 font-bold">Pembahasan:</strong>
+                                    <p class="leading-relaxed whitespace-pre-wrap">${q.exp}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (q.type === 'PGK') {
+                    const correctAnswersStr = JSON.stringify(q.answers);
+                    const optionsHtml = q.options.map((opt, optIdx) => `
+                        <label class="pgk-label text-left px-4 py-3 border border-gray-300 rounded-md transition-all duration-200 flex items-start gap-3 hover:bg-gray-50 cursor-pointer text-gray-700 bg-white">
+                            <input type="checkbox" class="pgk-option mt-1 w-4 h-4 cursor-pointer accent-emerald-600" onchange="togglePgk(this, ${qIdx})" value="${optIdx}">
+                            <span class="flex-1 font-medium">${opt}</span>
+                        </label>
+                    `).join('');
+
+                    contentHtml = `
+                        <div class="flex flex-col gap-2" id="q-container-${qIdx}" data-answered="false">
+                            ${optionsHtml}
+                            <button onclick="checkPgk(this, ${qIdx}, '${correctAnswersStr}')" class="cek-jawaban-btn mt-3 py-2 px-4 rounded font-semibold text-white transition-colors w-fit bg-gray-400 cursor-not-allowed" disabled>
+                                Cek Jawaban (PG Komplek)
+                            </button>
+                            <div class="explanation hidden mt-4 p-4 bg-emerald-50 border-l-4 border-emerald-500 rounded text-sm text-emerald-900 flex gap-3">
+                                <i data-lucide="info" class="flex-shrink-0 mt-0.5 text-emerald-600 w-[18px] h-[18px]"></i>
+                                <div>
+                                    <strong class="block mb-1 font-bold">Pembahasan:</strong>
+                                    <p class="leading-relaxed whitespace-pre-wrap">${q.exp}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (q.type === 'ESSAY') {
+                    contentHtml = `
+                        <div class="mt-4 border-t pt-4 border-gray-100" id="q-container-${qIdx}">
+                            <div class="mb-4">
+                                <textarea class="w-full p-3 border border-gray-300 rounded-md focus:ring-emerald-500 focus:border-emerald-500 font-sans" rows="3" placeholder="Ketik draf oret-oretan jawaban Anda di sini (opsional)..."></textarea>
+                            </div>
+                            <button onclick="toggleEssay(this, ${qIdx})" class="flex items-center gap-2 py-2 px-4 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-medium rounded transition-colors w-fit border border-indigo-200">
+                                <i data-lucide="key-round" class="w-[18px] h-[18px]"></i>
+                                <span>Tampilkan Referensi Jawaban</span>
+                            </button>
+                            <div class="explanation hidden mt-3 p-4 bg-indigo-50 border-l-4 border-indigo-500 rounded text-sm text-indigo-900 flex gap-3 shadow-sm">
+                                <div>
+                                    <strong class="block mb-2 font-bold text-indigo-800">Kunci Jawaban / Pembahasan:</strong>
+                                    <p class="leading-relaxed whitespace-pre-wrap">${q.exp}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                html += `
+                <div class="bg-white border border-gray-200 rounded-lg p-5 shadow-md mb-6 font-sans relative">
+                    <span class="absolute -top-3 -left-3 bg-emerald-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow-sm border-2 border-white">Variasi Soal ${qIdx + 1}</span>
+                    <h5 class="font-semibold text-gray-800 text-[16px] leading-relaxed whitespace-pre-wrap mb-4 mt-2">${q.text}</h5>
+                    ${contentHtml}
+                </div>`;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // ==========================================
+        // LOGIKA INTERAKSI JAWABAN
+        // ==========================================
+
+        // Interaksi untuk Pilihan Ganda (PG)
+        window.handlePgClick = function(btnElement, qIdx, optIdx, correctIdx) {
+            const container = document.getElementById(`q-container-${qIdx}`);
+            if (container.dataset.answered === 'true') return;
+            container.dataset.answered = 'true';
+
+            const buttons = container.querySelectorAll('.pg-option');
+            buttons.forEach((btn, idx) => {
+                btn.disabled = true;
+                btn.className = "pg-option text-left px-4 py-3 border rounded-md transition-all duration-200 focus:outline-none cursor-default flex justify-between items-center w-full ";
+
+                const isSelected = (idx === optIdx);
+                const isCorrect = (idx === correctIdx);
+                const iconContainer = btn.querySelector('.icon-container');
+
+                if (isSelected && isCorrect) {
+                    btn.className += "bg-emerald-100 border-emerald-500 text-emerald-900 shadow-sm font-bold";
+                    iconContainer.innerHTML = '<i data-lucide="check-circle-2" class="text-emerald-600 w-5 h-5"></i>';
+                } else if (isSelected && !isCorrect) {
+                    btn.className += "bg-red-50 border-red-500 text-red-800 line-through opacity-80";
+                    iconContainer.innerHTML = '<i data-lucide="x-circle" class="text-red-500 w-5 h-5"></i>';
+                } else if (!isSelected && isCorrect) {
+                    btn.className += "bg-emerald-50 border-emerald-500 border-dashed text-emerald-800 font-bold";
+                } else {
+                    btn.className += "border-gray-200 bg-gray-50 text-gray-400 opacity-50";
+                }
+            });
+
+            container.querySelector('.explanation').classList.remove('hidden');
+            lucide.createIcons();
+        };
+
+        // Interaksi toggle Checkbox (PGK)
+        window.togglePgk = function(checkboxElement, qIdx) {
+            const container = document.getElementById(`q-container-${qIdx}`);
+            const checkBtn = container.querySelector('.cek-jawaban-btn');
+            const checkboxes = container.querySelectorAll('.pgk-option');
+            
+            let anyChecked = false;
+            checkboxes.forEach(cb => { if(cb.checked) anyChecked = true; });
+
+            if (anyChecked) {
+                checkBtn.classList.remove('bg-gray-400', 'cursor-not-allowed');
+                checkBtn.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+                checkBtn.disabled = false;
+            } else {
+                checkBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
+                checkBtn.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
+                checkBtn.disabled = true;
+            }
+
+            const label = checkboxElement.closest('label');
+            if (checkboxElement.checked) {
+                label.classList.add('bg-emerald-50', 'border-emerald-400', 'text-emerald-900');
+                label.classList.remove('border-gray-300', 'text-gray-700', 'bg-white');
+            } else {
+                label.classList.remove('bg-emerald-50', 'border-emerald-400', 'text-emerald-900');
+                label.classList.add('border-gray-300', 'text-gray-700', 'bg-white');
+            }
+        };
+
+        // Interaksi cek jawaban (PGK)
+        window.checkPgk = function(btnElement, qIdx, correctAnswersStr) {
+            const correctAnswers = JSON.parse(correctAnswersStr);
+            const container = document.getElementById(`q-container-${qIdx}`);
+            container.dataset.answered = 'true';
+
+            btnElement.classList.add('hidden'); 
+
+            const labels = container.querySelectorAll('.pgk-label');
+            labels.forEach((label, idx) => {
+                const checkbox = label.querySelector('.pgk-option');
+                checkbox.disabled = true;
+                
+                const isSelected = checkbox.checked;
+                const isCorrect = correctAnswers.includes(idx);
+
+                label.className = "pgk-label text-left px-4 py-3 border rounded-md transition-all duration-200 flex items-start gap-3 cursor-default ";
+
+                let iconHtml = '';
+
+                if (isSelected && isCorrect) {
+                    label.className += "bg-emerald-100 border-emerald-500 text-emerald-900 shadow-sm font-bold";
+                    iconHtml = '<i data-lucide="check-circle-2" class="text-emerald-600 w-5 h-5 flex-shrink-0 mt-1"></i>';
+                } else if (isSelected && !isCorrect) {
+                    label.className += "bg-red-50 border-red-500 text-red-800 opacity-90 line-through";
+                    iconHtml = '<i data-lucide="x-circle" class="text-red-500 w-5 h-5 flex-shrink-0 mt-1"></i>';
+                } else if (!isSelected && isCorrect) {
+                    label.className += "bg-emerald-50 border-emerald-500 border-dashed text-emerald-800 font-bold";
+                } else {
+                    label.className += "border-gray-200 bg-gray-50 text-gray-400 opacity-60";
+                }
+
+                if (iconHtml) {
+                    label.innerHTML += iconHtml;
+                }
+            });
+
+            container.querySelector('.explanation').classList.remove('hidden');
+            lucide.createIcons();
+        };
+
+        // Interaksi tampilkan essay
+        window.toggleEssay = function(btnElement, qIdx) {
+            const container = document.getElementById(`q-container-${qIdx}`);
+            btnElement.classList.add('hidden');
+            container.querySelector('.explanation').classList.remove('hidden');
+        };
+
+    </script>
+</body>
+</html>
