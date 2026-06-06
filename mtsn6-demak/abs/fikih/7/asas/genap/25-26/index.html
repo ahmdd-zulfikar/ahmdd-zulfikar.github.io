@@ -84,7 +84,7 @@
 <body class="font-sans antialiased selection:bg-teal-200 selection:text-teal-900 overflow-x-hidden">
 
     <!-- ================= NAVBAR ================= -->
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-xs">
+    <nav class="fixed w-full z-45 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo/Brand -->
@@ -93,7 +93,7 @@
                         <i class="fa-solid fa-chart-line text-sm"></i>
                     </div>
                     <span class="font-heading group font-bold text-lg tracking-wide text-slate-800">
-                        ABS Online
+                        ABS Online <span class="text-[10px] text-teal-600 font-normal px-2 py-0.5 rounded-full bg-teal-50 border border-teal-200 ml-1.5"><i class="fa-solid fa-cloud mr-1"></i>Cloud Connected</span>
                     </span>
                 </div>
             </div>
@@ -154,7 +154,7 @@
                     Semua (<span id="countAll">0</span>)
                 </button>
                 <button onclick="setStatusFilter('PASSED')" id="filterPassed" class="filter-tab px-4 py-2.5 rounded-2xl text-xs font-bold transition-all bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100">
-                    Lulus (≥60) (<span id="countPassed">0</span>)
+                    Lulus (≥75) (<span id="countPassed">0</span>)
                 </button>
                 <button onclick="setStatusFilter('REMEDIAL')" id="filterRemedial" class="filter-tab px-4 py-2.5 rounded-2xl text-xs font-bold transition-all bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100">
                     Remedial (<span id="countRemedial">0</span>)
@@ -220,7 +220,7 @@
                     <p class="text-xs text-slate-400 mt-0.5">Menunjukkan rincian rekap jawaban benar/salah pada tiap nomor.</p>
                 </div>
                 <span class="text-[11px] text-teal-600 font-bold bg-teal-50 px-3 py-1.5 rounded-full border border-teal-100 self-start sm:self-auto">
-                    <i class="fa-solid fa-info-circle mr-1"></i> Klik baris murid untuk detail diagnosis
+                    <i class="fa-solid fa-info-circle mr-1"></i> Klik baris murid untuk detail diagnosis & remedial
                 </span>
             </div>
             
@@ -269,8 +269,8 @@
         </div>
     </main>
 
-    <!-- ================= DIAGNOSTIC MODAL ================= -->
-    <div id="diagnosticModal" class="fixed inset-0 bg-teal-950/60 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm transition-opacity duration-300">
+    <!-- ================= DIAGNOSTIC & REMEDIAL MODAL ================= -->
+    <div id="diagnosticModal" class="fixed inset-0 bg-teal-950/60 z-55 hidden flex items-center justify-center p-4 backdrop-blur-sm transition-opacity duration-300">
         <div class="bg-white rounded-[2rem] shadow-2xl w-full max-w-2xl transform scale-95 transition-transform duration-300 overflow-hidden flex flex-col max-h-[90vh]">
             <!-- Header Modal -->
             <div class="bg-gradient-to-r from-teal-800 to-teal-900 text-white px-6 py-5 flex justify-between items-center pattern-bg">
@@ -289,35 +289,35 @@
             </div>
             
             <!-- Isi Modal -->
-            <div class="p-6 overflow-y-auto space-y-6">
+            <div class="p-6 overflow-y-auto space-y-6 bg-slate-50/50">
                 <!-- Rincian Akumulasi Skor per Bagian -->
                 <div class="grid grid-cols-3 gap-4">
-                    <div class="bg-slate-50 border border-slate-100 rounded-2xl p-4 text-center">
+                    <div class="bg-white border border-slate-100 rounded-2xl p-4 text-center shadow-xs">
                         <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block mb-1">Skor PG</span>
                         <span id="modalPgScore" class="text-lg font-bold text-slate-800">0/20</span>
                     </div>
-                    <div class="bg-slate-50 border border-slate-100 rounded-2xl p-4 text-center">
+                    <div class="bg-white border border-slate-100 rounded-2xl p-4 text-center shadow-xs">
                         <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block mb-1">Skor PGK</span>
                         <span id="modalPgkScore" class="text-lg font-bold text-slate-800">0/10</span>
                     </div>
-                    <div class="bg-slate-50 border border-slate-100 rounded-2xl p-4 text-center">
+                    <div class="bg-white border border-slate-100 rounded-2xl p-4 text-center shadow-xs">
                         <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block mb-1">Total Uraian</span>
                         <span id="modalUraianScore" class="text-lg font-bold text-slate-800">0/30</span>
                     </div>
                 </div>
 
                 <!-- Nilai Akhir Badge -->
-                <div class="flex items-center justify-between p-5 rounded-2xl border" id="modalFinalScoreBadge">
+                <div class="flex items-center justify-between p-5 rounded-2xl border bg-white" id="modalFinalScoreBadge">
                     <span class="text-sm font-semibold text-slate-600">Nilai Akhir (Skor Gabungan):</span>
                     <span id="modalFinalScore" class="text-4xl font-extrabold tracking-tight font-heading">0</span>
                 </div>
 
                 <!-- Evaluasi Capaian Esai Utama -->
-                <div class="space-y-4">
+                <div id="diagnosisCompetencySection" class="space-y-4">
                     <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-1">
                         <i class="fa-solid fa-stethoscope text-teal-600"></i> HASIL DIAGNOSIS KOMPETENSI ESAI
                     </h4>
-                    <div class="bg-slate-50 border border-slate-150 rounded-2xl p-4 space-y-3.5">
+                    <div class="bg-white border border-slate-200/60 rounded-2xl p-4 space-y-3.5 shadow-xs">
                         <div class="flex justify-between items-start text-sm pb-3 border-b border-slate-200/50">
                             <span class="text-slate-600 max-w-[70%]">Pemahaman Shalat Jamak & Qashar (No 34):</span>
                             <span id="diagJamak" class="font-bold text-right text-xs">0</span>
@@ -333,749 +333,481 @@
                     </div>
                 </div>
 
-                <!-- Kartu Tindak Lanjut -->
-                <div class="bg-teal-50/50 rounded-2xl p-5 border border-teal-100">
-                    <h4 class="text-[10px] font-bold text-teal-700 uppercase tracking-widest mb-2 flex items-center gap-1">
-                        <i class="fa-solid fa-lightbulb text-amber-500"></i> Rekomendasi Rencana Tindak Lanjut
+                <!-- Kartu Tindak Lanjut / Status KKTP -->
+                <div class="rounded-2xl p-5 border" id="modalRtlCard">
+                    <h4 class="text-[10px] font-bold uppercase tracking-widest mb-2 flex items-center gap-1" id="modalRtlTitle">
+                        <i class="fa-solid fa-lightbulb"></i> STATUS CAPAIAN BELAJAR
                     </h4>
-                    <p id="modalDiagnosticNotes" class="text-sm text-slate-600 leading-relaxed font-light">Catatan rekomendasi belajar mandiri...</p>
+                    <p id="modalDiagnosticNotes" class="text-sm leading-relaxed font-light">Catatan rekomendasi belajar mandiri...</p>
+                    
+                    <!-- Tombol Mulai Remedial (Hanya muncul jika nilai < 75) -->
+                    <div id="remedialButtonContainer" class="mt-4 hidden">
+                        <button onclick="startRemedial()" class="w-full py-3 bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold uppercase tracking-wider rounded-xl shadow-md shadow-rose-900/10 hover:shadow-rose-900/20 transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-pen-to-square"></i> Mulai Sesi Ujian Remedial
+                        </button>
+                    </div>
+                </div>
+
+                <!-- LEMBAR SOAL REMEDIAL INTERAKTIF (Dinamis Muncul) -->
+                <div id="remedialFormSection" class="hidden space-y-6 border-t border-slate-200/80 pt-6">
+                    <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 flex gap-3">
+                        <div class="text-amber-600 text-lg"><i class="fa-solid fa-circle-exclamation"></i></div>
+                        <div>
+                            <h5 class="text-xs font-bold text-amber-800 uppercase tracking-wider">Lembar Remedial Mandiri</h5>
+                            <p class="text-xs text-amber-700 leading-relaxed mt-1">Siswa hanya diberikan soal-soal pilihan ganda yang dijawab salah sebelumnya, serta soal esai yang mendapat poin kurang sempurna (&lt; 6). Perbaiki untuk meningkatkan nilai!</p>
+                        </div>
+                    </div>
+
+                    <div id="remedialQuestionsContainer" class="space-y-6">
+                        <!-- Konten pertanyaan remedial dimuat di sini -->
+                    </div>
                 </div>
             </div>
 
             <!-- Footer Modal -->
-            <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 flex justify-end">
+            <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 flex justify-end gap-2.5">
                 <button onclick="closeModal()" class="px-5 py-2.5 text-xs font-bold text-slate-500 hover:text-slate-800 transition-colors bg-white rounded-xl border border-slate-200 hover:bg-slate-50">Tutup</button>
+                <button id="btnSaveRemedial" onclick="saveRemedial()" class="hidden px-5 py-2.5 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-xl transition-colors shadow-sm shadow-teal-900/10">Simpan & Selesaikan Remedial</button>
             </div>
         </div>
     </div>
 
-    <!-- ================= FOOTER ================= -->
-    <footer class="bg-teal-950 text-teal-200 py-10 mt-12 border-t border-teal-900 pattern-bg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="inline-flex items-center justify-center gap-3 mb-3 text-white">
-                <i class="fa-solid fa-book-open text-xl text-teal-400"></i>
-                <span class="font-heading font-bold text-xl tracking-wide">Belajar<span class="text-teal-400">Online</span></span>
-            </div>
-            <p class="text-xs text-teal-400/80 max-w-md mx-auto mb-6 leading-relaxed font-light">
-                Sistem E-Analisis Nilai Otomatis dikembangkan untuk memetakan capaian pembelajaran mata pelajaran Fikih Kurikulum Merdeka secara transparan.
-            </p>
-            <div class="pt-6 border-t border-teal-900/50 text-[11px] text-teal-500 font-medium">
-                <p>&copy; 2026 Ahmad Zulfikar, S.Pd. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- ================= TOAST FLOATING NOTIFICATION ================= -->
+    <div id="toastNotification" class="fixed bottom-5 right-5 z-60 bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-xl flex items-center space-x-3 transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none">
+        <div class="w-6 h-6 rounded-full bg-teal-500 text-slate-900 flex items-center justify-center text-xs font-bold"><i class="fa-solid fa-check"></i></div>
+        <p id="toastText" class="text-xs font-bold"></p>
+    </div>
 
-    <script>
-        const studentData = [
-            // ================== KELAS 7A ==================
-            {
-                no: 1, nama: "Afika Desyifa Wijayanti", kelas: "7A",
-                pg_salah: [13], pgk_salah: [21, 28, 30],
-                uraian: [6, 5, 4, 6, 3], total: 83,
-                catatan: "Jawaban baik, lafal niat akurat namun ada pesan sisipan. No 35 kurang spesifik."
-            },
-            {
-                no: 2, nama: "Ahmad Fadil Syaputra", kelas: "7A",
-                pg_salah: [5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19], pgk_salah: [22, 23, 25, 26, 27, 28, 29, 30],
-                uraian: [6, 4, 4, 0, 1], total: 33,
-                catatan: "Salah fatal di no 34 karena menuliskan potongan ayat Al-Qur'an secara acak."
-            },
-            {
-                no: 3, nama: "Akila Azzahra", kelas: "7A",
-                pg_salah: [5, 6, 7, 8, 9, 10, 12, 13], pgk_salah: [21, 25, 26, 28, 30],
-                uraian: [5, 3, 4, 6, 6], total: 63,
-                catatan: "No 31 & 32 kurang lengkap, namun tertolong lafal niat (34) yang sangat tepat."
-            },
-            {
-                no: 4, nama: "Alicia Amira Ma'Ruf", kelas: "7A",
-                pg_salah: [4], pgk_salah: [],
-                uraian: [6, 3, 4, 6, 6], total: 93,
-                catatan: "Sangat teliti di PG Kompleks. Uraian sangat baik, no 32 kurang sedikit rukun."
-            },
-            {
-                no: 5, nama: "Anasha Fitriani", kelas: "7A",
-                pg_salah: [5, 7, 8, 9, 10, 16, 17, 19], pgk_salah: [22, 25, 28, 30],
-                uraian: [6, 5, 5, 6, 5], total: 69,
-                catatan: "Kualitas hampir sempurna dan rapi, hanya terlewat poin rukun doa di no 32."
-            },
-            {
-                no: 6, nama: "Arsyl Ibrahim Syahputra", kelas: "7A",
-                pg_salah: [3, 5, 9, 10, 11, 13, 15, 16, 20], pgk_salah: [22, 23, 24, 25, 26, 28, 29, 30],
-                uraian: [6, 2, 1, 0, 1], total: 38,
-                catatan: "Konsep kurang matang. No 33 salah bedakan syarat & hikmah. No 34 keliru niat."
-            },
-            {
-                no: 7, nama: "Chilma Hidayatul Ulya", kelas: "7A",
-                pg_salah: [2, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19], pgk_salah: [21, 24, 28, 29, 30],
-                uraian: [6, 6, 6, 6, 6], total: 61,
-                catatan: "Sempurna di Uraian! Namun siswa tampak kesulitan di bagian PG sehingga banyak keliru."
-            },
-            {
-                no: 8, nama: "Chilmi Hidayatul Ulya", kelas: "7A",
-                pg_salah: [1, 2, 4, 6, 11, 12, 16, 19], pgk_salah: [21, 22, 23, 24, 27, 28],
-                uraian: [6, 5, 3, 6, 5], total: 61,
-                catatan: "Pilihan Ganda lebih teliti, namun jawaban uraian no 33 terlalu umum."
-            },
-            {
-                no: 9, nama: "Deshera Harlistianti", kelas: "7A",
-                pg_salah: [3, 16, 18], pgk_salah: [24, 28],
-                uraian: [6, 6, 4, 6, 3], total: 83,
-                catatan: "Sangat baik. Lafadz Arab (34) sempurna. Pengurangan poin hanya pada no 35 karena kurang spesifik."
-            },
-            {
-                no: 10, nama: "Halimatuz Zahro", kelas: "7A",
-                pg_salah: [5, 11, 16], pgk_salah: [25, 26, 28],
-                uraian: [6, 6, 3, 5, 6], total: 81,
-                catatan: "Tulisan huruf Arab pada no 34 bisa dibaca dan tepat meskipun banyak coretan."
-            },
-            {
-                no: 11, nama: "Hammam Mahardika Akhmad", kelas: "7A",
-                pg_salah: [2, 3, 7, 8, 9, 11, 12, 14, 16, 17, 18, 20], pgk_salah: [21, 22, 25, 26, 28, 29, 30],
-                uraian: [6, 1, 2, 1, 0], total: 35,
-                catatan: "No 32 dijawab syarat khatib. No 34 keliru tulis niat biasa. No 35 tidak relevan."
-            },
-            {
-                no: 12, nama: "Hasan Al Banna", kelas: "7A",
-                pg_salah: [2, 3, 5, 6, 10, 11, 17, 20], pgk_salah: [23, 24, 25, 27, 28, 30],
-                uraian: [5, 5, 3, 5, 0], total: 54,
-                catatan: "Lafal niat latin tepat. Sayangnya no 35 salah konteks (menjawab rukun khutbah)."
-            },
-            {
-                no: 13, nama: "Hasna Najla Ajwa", kelas: "7A",
-                pg_salah: [6, 11, 13], pgk_salah: [23, 25, 27, 28],
-                uraian: [6, 6, 6, 6, 6], total: 82,
-                catatan: "Sempurna di Uraian! Seluruh jawaban sistematis, rapi, dan persis kunci jawaban."
-            },
-            {
-                no: 14, nama: "Irsan Nauval Apriyanto", kelas: "7A",
-                pg_salah: [3, 4, 9, 12, 16, 19, 20], pgk_salah: [24, 25, 27, 28, 30],
-                uraian: [6, 6, 4, 5, 3], total: 65,
-                catatan: "Penulisan latin akurat. No 35, jawaban istisqa tercampur sunnah Jumat."
-            },
-            {
-                no: 15, nama: "Kayla Cheryl Aulia", kelas: "7A",
-                pg_salah: [7, 9, 10, 11, 17], pgk_salah: [24, 27, 30],
-                uraian: [6, 5, 6, 6, 6], total: 80,
-                catatan: "Sangat komprehensif. Lafal bahasa Arab rapi dan tepat."
-            },
-            {
-                no: 16, nama: "Khaira Salsabil Firdausi", kelas: "7A",
-                pg_salah: [10, 11, 19, 20], pgk_salah: [25, 28, 30],
-                uraian: [6, 5, 6, 6, 5], total: 81,
-                catatan: "Esai diselesaikan dengan baik di halaman belakang dengan tulisan presisi."
-            },
-            {
-                no: 17, nama: "Mohamad Aditya Tri Ardana", kelas: "7A",
-                pg_salah: [], pgk_salah: [],
-                uraian: [6, 5, 5, 6, 3], total: 95,
-                catatan: "Nilai PG & PGK Tertinggi (Benar Semua)! Sedikit pengurangan di uraian no 35."
-            },
-            {
-                no: 18, nama: "Muhammad Azel Fabrizio", kelas: "7A",
-                pg_salah: [2, 3, 4, 5, 6, 7, 9, 12, 13, 14, 16, 17, 18, 19, 20], pgk_salah: [21, 22, 23, 24, 27, 28, 29, 30],
-                uraian: [4, 3, 2, 1, 0], total: 26,
-                catatan: "Menjawab pilihan ganda asal-asalan. Uraian melenceng (no 35 bahas sedekah bumi)."
-            },
-            {
-                no: 19, nama: "Muhammad Rafa El Habibi", kelas: "7A",
-                pg_salah: [2, 7, 9, 12, 14, 15, 18, 19, 20], pgk_salah: [21, 22, 24, 25, 26, 28, 29, 30],
-                uraian: [0, 0, 0, 0, 0], total: 28,
-                catatan: "Lembar uraian dibiarkan kosong sama sekali tanpa coretan."
-            },
-            {
-                no: 20, nama: "Muhammad Rizki Saputra", kelas: "7A",
-                pg_salah: [6, 8, 12, 14, 15, 17], pgk_salah: [27, 28, 29, 30],
-                uraian: [4, 3, 2, 2, 1], total: 58,
-                catatan: "Indikasi menyontek. Sama persis kata-per-kata dgn M. Zaqi Al Hafidz.",
-                alert: true
-            },
-            {
-                no: 21, nama: "Muhammad Zaqi Al Hafidz", kelas: "7A",
-                pg_salah: [6, 8, 11, 13, 17], pgk_salah: [25, 28, 30],
-                uraian: [4, 4, 2, 2, 1], total: 64,
-                catatan: "Indikasi menyontek. Sama persis kata-per-kata dgn M. Rizki Saputra.",
-                alert: true
-            },
-            {
-                no: 22, nama: "Muhammat David Prass Hardian", kelas: "7A",
-                pg_salah: [2, 5, 7, 9, 15, 17, 20], pgk_salah: [21, 23, 24, 25, 30],
-                uraian: [6, 4, 2, 1, 0], total: 54,
-                catatan: "No 34 keliru tulis dalil qashar. No 35 malah membahas tata cara Tayamum."
-            },
-            {
-                no: 23, nama: "Nauri Khoirotun Nisa'", kelas: "7A",
-                pg_salah: [], pgk_salah: [],
-                uraian: [6, 6, 5, 6, 6], total: 99,
-                catatan: "Nilai Akhir Tertinggi (99)! Uraian berbobot, komprehensif, dan terstruktur."
-            },
-            {
-                no: 24, nama: "Nur Aida Faila Sufa Sugiyono", kelas: "7A",
-                pg_salah: [12], pgk_salah: [],
-                uraian: [6, 5, 5, 5, 6], total: 95,
-                catatan: "Sangat teliti. Tulisan Arab ada sedikit coretan tip-x namun tetap terbaca akurat."
-            },
-            {
-                no: 25, nama: "Qaysila Bilqis", kelas: "7A",
-                pg_salah: [1, 2, 5, 7, 8, 9, 10, 11, 14, 15, 18, 19], pgk_salah: [21, 25, 26, 28, 29, 30],
-                uraian: [6, 3, 2, 0, 1], total: 40,
-                catatan: "Pemahaman kurang. No 34 keliru mengutip ayat Al-Qur'an secara acak."
-            },
-            {
-                no: 26, nama: "Rifqi Ra'Iful Nabil", kelas: "7A",
-                pg_salah: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], pgk_salah: [21,22,23,24,25,26,27,28,29,30],
-                uraian: [6, 0, 2, 0, 0], total: 8,
-                catatan: "Perlu bimbingan khusus. Merusak LJK PG/PGK dengan coretan zig-zag raksasa.",
-                alert: true
-            },
-            {
-                no: 27, nama: "Sharena Rara Afriani", kelas: "7A",
-                pg_salah: [3, 11, 15], pgk_salah: [21, 25, 29],
-                uraian: [6, 6, 5, 6, 6], total: 84,
-                catatan: "Jawaban terstruktur dengan sangat rapi dan dilanjutkan ke lembar belakang."
-            },
-            {
-                no: 28, nama: "Silvia Wahyu Aftriani", kelas: "7A",
-                pg_salah: [11, 17, 19], pgk_salah: [22, 28, 30],
-                uraian: [6, 6, 5, 6, 6], total: 84,
-                catatan: "Penguasaan materi sangat mantap. Uraian dijelaskan secara sistematis."
-            },
-            {
-                no: 29, nama: "Sumber Denis Saputra", kelas: "7A",
-                pg_salah: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], pgk_salah: [21,22,23,24,25,26,27,28,29,30],
-                uraian: [5, 2, 3, 2, 1], total: 13,
-                catatan: "Perlu Bimbingan. LJK dicoret zig-zag asal. Konsep pada esai terbalik-balik.",
-                alert: true
-            },
-            {
-                no: 30, nama: "Vivi Sri Mulyani", kelas: "7A",
-                pg_salah: [3, 4, 6, 7, 8, 9, 10, 11, 13, 15, 16, 17, 18, 19], pgk_salah: [25, 26, 27, 28, 29, 30],
-                uraian: [6, 6, 5, 6, 5], total: 52,
-                catatan: "Gagal total di PG, namun bagian uraian dikerjakan dengan cemerlang & akurat."
-            },
+    <script type="module">
+        // Import Firebase modules
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc, collection, onSnapshot, updateDoc, writeBatch } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-            // ================== KELAS 7B ==================
-            {
-                no: 1, nama: "Achmad Fajar Tri Wijaya", kelas: "7B",
-                pg_salah: [3, 4, 7, 9, 11, 12, 13, 14, 15, 16, 17, 18], pgk_salah: [24, 27, 28, 29],
-                uraian: [3, 2, 2, 0, 2], total: 43,
-                catatan: "Konsep kurang matang. No 34 keliru menulis dalil waktu shalat fardhu, bukan lafal niat."
-            },
-            {
-                no: 2, nama: "Adiansyah Putra", kelas: "7B",
-                pg_salah: [1, 2, 5, 6, 9, 11, 13, 15, 16, 19], pgk_salah: [22, 24, 25, 28, 29],
-                uraian: [4, 1, 2, 0, 1], total: 43,
-                catatan: "Indikasi menyontek dengan Achmad Fajar di no 34 (menuliskan dalil yang sama persis salahnya).",
-                alert: true
-            },
-            {
-                no: 3, nama: "Aina Aulia Ramadhani", kelas: "7B",
-                pg_salah: [1, 3, 5, 6, 8, 9, 11, 12, 14, 16, 17, 18, 19], pgk_salah: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
-                uraian: [0, 0, 0, 6, 0], total: 20,
-                catatan: "Gagal paham instruksi uraian (kecuali no 34). Uraian 35 mengarang cerita. PGK salah semua."
-            },
-            {
-                no: 4, nama: "Aldiansyah Pratama", kelas: "7B",
-                pg_salah: [2, 4, 6, 10, 11, 12, 14, 15, 18, 19, 20], pgk_salah: [21, 22, 24, 25, 27, 28, 29, 30],
-                uraian: [0, 0, 1, 0, 0], total: 25,
-                catatan: "Uraian no 35 bercanda (membahas es cendol). No 34 menyalin kesalahan yang sama dengan Achmad Fajar & Adiansyah."
-            },
-            {
-                no: 5, nama: "Diandra Rasty Velovy Arika", kelas: "7B",
-                pg_salah: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], pgk_salah: [21,22,23,24,25,26,27,28,29,30],
-                uraian: [6, 6, 6, 6, 6], total: 30,
-                catatan: "Aneh/Kontradiktif. PG dan PGK dicoret asal (garis zig-zag), tapi Uraian dijawab dengan sangat sempurna."
-            },
-            {
-                no: 6, nama: "Eny Wahyu Ningsih", kelas: "7B",
-                pg_salah: [3, 6, 8, 9, 11, 13, 19, 20], pgk_salah: [23, 24, 28, 29, 30],
-                uraian: [6, 6, 6, 6, 6], total: 69,
-                catatan: "Uraian dijawab dengan sangat baik, akurat, dan komprehensif."
-            },
-            {
-                no: 7, nama: "Fadilla Bilkis Premesti", kelas: "7B",
-                pg_salah: [2, 6, 7, 9, 10, 11, 13, 15, 16, 17, 18, 20], pgk_salah: [22, 24, 25, 26, 28],
-                uraian: [4, 4, 3, 0, 0], total: 42,
-                catatan: "Uraian nomor 34 dan 35 sangat melenceng (menulis ayat puasa dan tayamum)."
-            },
-            {
-                no: 8, nama: "Faisal Dwi Santoso", kelas: "7B",
-                pg_salah: [2, 3, 6, 7, 9, 10, 12, 13, 14, 15, 16, 17, 19, 20], pgk_salah: [21, 22, 23, 25, 27, 29, 30],
-                uraian: [0, 0, 1, 1, 1], total: 24,
-                catatan: "Pemahaman materi sangat rendah. Jawaban uraian salah konteks atau melenceng jauh."
-            },
-            {
-                no: 9, nama: "Faldzayrizka Alafiya Salsabila", kelas: "7B",
-                pg_salah: [3, 6, 16, 19], pgk_salah: [24, 27, 28, 30],
-                uraian: [6, 6, 6, 6, 6], total: 80,
-                catatan: "Sangat cerdas dan teliti! Jawaban uraian sempurna dan komprehensif."
-            },
-            {
-                no: 10, nama: "Fia Aulia Amanda", kelas: "7B",
-                pg_salah: [2, 3, 7, 9, 12, 14, 15, 16, 19, 20], pgk_salah: [22, 23, 24, 25, 28, 29, 30],
-                uraian: [4, 0, 0, 1, 0], total: 34,
-                catatan: "Curhat di lembar jawaban (No 32). Pemahaman konsep materi masih sangat kurang."
-            },
-            {
-                no: 11, nama: "Hasna Galuh Hanifah", kelas: "7B",
-                pg_salah: [5, 6, 7, 8, 10, 11, 12, 14, 16, 17, 18, 19, 20], pgk_salah: [22, 23, 25, 26, 27, 28, 30],
-                uraian: [1, 0, 0, 6, 0], total: 30,
-                catatan: "Hanya hafal lafal niat (no 34 sempurna), sisanya menjawab asal atau salah konsep."
-            },
-            {
-                no: 12, nama: "Khirul Muhammad Izza", kelas: "7B",
-                pg_salah: [3, 4, 9, 13, 15, 16, 17, 18, 20], pgk_salah: [22, 24, 28, 30],
-                uraian: [5, 5, 3, 1, 2], total: 56,
-                catatan: "No 34 keliru menuliskan dalil Al-Qur'an alih-alih niat. No 35 tertukar dengan sunnah Jumat."
-            },
-            {
-                no: 13, nama: "Mahirza Mujahidia", kelas: "7B",
-                pg_salah: [2, 3, 4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 17, 18, 19, 20], pgk_salah: [21, 22, 27, 29, 30],
-                uraian: [4, 2, 1, 0, 0], total: 30,
-                catatan: "Indikasi menyontek berjamaah dgn Muhammad Afandi & Miftahul (jawaban uraian persis sama).",
-                alert: true
-            },
-            {
-                no: 14, nama: "Maulida Zahwa Auliya", kelas: "7B",
-                pg_salah: [1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19], pgk_salah: [21, 22, 23, 24, 25, 28, 29, 30],
-                uraian: [2, 0, 2, 0, 1], total: 17,
-                catatan: "Banyak menjawab asal pada PG/PGK. Jawaban uraian sangat tidak relevan dengan soal."
-            },
-            {
-                no: 15, nama: "Miftahul Nugraha Saputra", kelas: "7B",
-                pg_salah: [8, 9, 11, 12, 17, 18, 19, 20], pgk_salah: [21, 22, 24, 26, 27, 28, 29, 30],
-                uraian: [4, 2, 1, 2, 2], total: 41,
-                catatan: "Indikasi menyontek berjamaah dgn Muhammad Afandi & Mahirza (kata per kata sama persis).",
-                alert: true
-            },
-            {
-                no: 16, nama: "Muhammad Afandi Vernanda Nugroho", kelas: "7B",
-                pg_salah: [11, 12, 13, 16, 17, 18, 20], pgk_salah: [22, 24, 27, 28, 29, 30],
-                uraian: [4, 2, 1, 2, 2], total: 49,
-                catatan: "Indikasi menyontek berjamaah dgn Mahirza & Miftahul (No 31 sama-sama jawab waria).",
-                alert: true
-            },
-            {
-                no: 17, nama: "Muhammad Akya Putra", kelas: "7B",
-                pg_salah: [1, 3, 5, 6, 8, 9, 10, 11, 15, 16, 20], pgk_salah: [22, 23, 25, 26, 28],
-                uraian: [4, 4, 4, 5, 1], total: 59,
-                catatan: "Niat shalat jamak cukup lengkap latinnya. No 35 salah konsep (sunnah Jumat)."
-            },
-            {
-                no: 18, nama: "Muhammad Dwi Maulana Ibrahim", kelas: "7B",
-                pg_salah: [4, 5, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20], pgk_salah: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
-                uraian: [5, 1, 4, 1, 2], total: 33,
-                catatan: "Menyelesaikan pilihan ganda pola zig-zag. No 34 menyalin potongan ayat Al-Qur'an."
-            },
-            {
-                no: 19, nama: "Muhammad Latief Yudistyan Adam", kelas: "7B",
-                pg_salah: [1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20], pgk_salah: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
-                uraian: [0, 1, 0, 0, 0], total: 5,
-                catatan: "Lembar uraian hampir kosong. Hanya menjawab satu nomor dengan kualitas sangat minim."
-            },
-            {
-                no: 20, nama: "Muhammad Ravael Ajril", kelas: "7B",
-                pg_salah: [1, 3, 4, 5, 8, 9, 10, 12, 13, 14, 15, 16, 17, 19, 20], pgk_salah: [21, 22, 23, 25, 26, 28, 29, 30],
-                uraian: [4, 3, 2, 2, 3], total: 44,
-                catatan: "Terdapat kemiripan pola esai dengan M. Afandi, perlu bimbingan mandiri luring."
-            },
-            {
-                no: 21, nama: "Nadin Saptia Anjani", kelas: "7B",
-                pg_salah: [1, 2, 3, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20], pgk_salah: [21, 22, 24, 25, 26, 27, 28, 29, 30],
-                uraian: [6, 6, 6, 1, 1], total: 49,
-                catatan: "Uraian halaman depan sangat baik, tapi halaman belakang (34-35) salah konsep."
-            },
-            {
-                no: 22, nama: "Niki Amarta", kelas: "7B",
-                pg_salah: [3, 11, 17, 18, 19, 20], pgk_salah: [21, 22, 23, 24, 25, 27, 28, 29, 30],
-                uraian: [4, 4, 3, 1, 2], total: 56,
-                catatan: "No 34 keliru menuliskan dalil QS An-Nisa: 103, bukan niat jamak taqdim."
-            },
-            {
-                no: 23, nama: "Nur Alenta Putri Widiyanti", kelas: "7B",
-                pg_salah: [1, 4, 6, 7, 12, 13, 15, 19], pgk_salah: [21, 23, 24, 28],
-                uraian: [5, 4, 4, 5, 4], total: 68,
-                catatan: "Performa cukup stabil pada semua bagian. Uraian dijelaskan sistematis."
-            },
-            {
-                no: 24, nama: "Nur Zulva Elisa Putri", kelas: "7B",
-                pg_salah: [3, 4, 5, 6, 11, 12, 13, 15, 16, 17, 18, 19, 20], pgk_salah: [21, 22, 23, 25, 26, 27, 28, 30],
-                uraian: [6, 4, 3, 1, 2], total: 50,
-                catatan: "No 34 salah konsep. No 35 menjawab amalan sunnah shalat Jumat."
-            },
-            {
-                no: 25, nama: "Qurrota Aini Humaira", kelas: "7B",
-                pg_salah: [2, 8, 10, 11, 12, 13, 17], pgk_salah: [21, 23, 24, 25, 30],
-                uraian: [6, 6, 5, 0, 2], total: 59,
-                catatan: "Uraian 31 & 32 sangat akurat. No 34 salah fatal, menulis dalil ayat shalat."
-            },
-            {
-                no: 26, nama: "Sekar Ammelia Putri", kelas: "7B",
-                pg_salah: [1, 3, 5, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19], pgk_salah: [21, 22, 23, 24, 25, 26, 28, 29, 30],
-                uraian: [6, 2, 3, 1, 2], total: 40,
-                catatan: "No 32 menjawab syarat khutbah (bukan rukun). No 34 mengutip dalil rukhshah."
-            },
-            {
-                no: 27, nama: "Tia Amelia Putri", kelas: "7B",
-                pg_salah: [2, 4, 8, 9, 10, 11, 12, 14, 15, 16, 18, 19, 20], pgk_salah: [21, 22, 23, 24, 25, 26, 28, 29, 30],
-                uraian: [6, 2, 3, 2, 1], total: 40,
-                catatan: "Indikasi menyontek dgn Sekar Ammelia di No 32. No 34 menulis niat terpisah.",
-                alert: true
-            },
-
-            // ================== KELAS 7C ==================
-            {
-                no: 1, nama: "Ahmad Andika", kelas: "7C",
-                pg_salah: [1, 2, 3, 7, 8, 9, 11, 12, 13, 14, 15, 17], pgk_salah: [23, 24, 25, 26, 29, 30],
-                uraian: [6, 0, 1, 5, 0], total: 40,
-                catatan: "Uraian sangat melenceng. No 32 & 33 dijawab asal. No 35 menjawab rukun shalat biasa."
-            },
-            {
-                no: 2, nama: "Ahmad Fahrizal Kusuma", kelas: "7C",
-                pg_salah: [2, 6, 7, 10, 11, 12, 13, 14, 15, 17, 18], pgk_salah: [21, 22, 24, 26, 27, 28, 29, 30],
-                uraian: [6, 0, 0, 0, 0], total: 30,
-                catatan: "Banyak bagian dikosongkan. Lembar uraian banyak dicoret tip-x dan hanya diisi No 31."
-            },
-            {
-                no: 3, nama: "Akip Mansur Hanafi", kelas: "7C",
-                pg_salah: [5, 9, 11, 12, 13, 14, 15, 16, 19], pgk_salah: [24, 25, 26, 27, 28, 29, 30],
-                uraian: [4, 0, 0, 0, 0], total: 35,
-                catatan: "Pemahaman sangat minim. Hanya mampu menjawab sebagian poin di No 31, sisanya dikosongkan."
-            },
-            {
-                no: 4, nama: "Alica Marwa Rahmaesta", kelas: "7C",
-                pg_salah: [6, 8, 9, 11, 13, 15, 16], pgk_salah: [22, 24, 26, 28, 29],
-                uraian: [6, 6, 4, 6, 1], total: 64,
-                catatan: "Cukup teliti. Sayangnya No 35 salah konsep, malah menjawab sunnah shalat Jumat."
-            },
-            {
-                no: 5, nama: "Annisa Fitri Kurnia Raya", kelas: "7C",
-                pg_salah: [1, 2, 4, 6, 9, 11, 12, 16, 17, 18, 20], pgk_salah: [21, 22, 25, 26, 27, 28, 29, 30],
-                uraian: [6, 6, 5, 6, 6], total: 53,
-                catatan: "PG dan PGK kurang maksimal, namun nilai sangat tertolong karena uraiannya sangat cemerlang."
-            },
-            {
-                no: 6, nama: "Aryo Bimo Tejo", kelas: "7C",
-                pg_salah: [2, 3, 5, 7, 9, 11, 12, 14, 17, 18, 19, 20], pgk_salah: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
-                uraian: [6, 0, 3, 0, 0], total: 25,
-                catatan: "PGK salah semua. No 34 dan 35 dijawab sangat asal (mengarang bebas tentang pengajaran kalimat)."
-            },
-            {
-                no: 7, nama: "Asifa Putri Klarasati", kelas: "7C",
-                pg_salah: [2, 4, 12, 13, 14, 15, 16], pgk_salah: [22, 24, 29],
-                uraian: [6, 6, 6, 6, 6], total: 77,
-                catatan: "Sangat baik! Siswa menggunakan tanda centang di LJK. Uraian dijawab dengan rapi dan sempurna."
-            },
-            {
-                no: 8, nama: "Bagas Fajar Putra", kelas: "7C",
-                pg_salah: [1, 3, 5, 6, 7, 9, 11, 12, 13, 15, 18, 20], pgk_salah: [22, 23, 25, 26, 27, 28, 29, 30],
-                uraian: [5, 1, 2, 0, 0], total: 30,
-                catatan: "Pemahaman konsep lemah. No 32 menjawab adab jamaah, bukan rukun. No 34 menyalin potongan ayat yang salah."
-            },
-            {
-                no: 9, nama: "Barirotul Ainiyah", kelas: "7C",
-                pg_salah: [2, 3, 5, 6, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18], pgk_salah: [21, 22, 23, 26, 27, 28, 29, 30],
-                uraian: [4, 1, 3, 0, 4], total: 30,
-                catatan: "Pemahaman materi lemah. No 34 keliru menyalin potongan ayat yang tidak relevan."
-            },
-            {
-                no: 10, nama: "Carissya Cahaya Ramadhani", kelas: "7C",
-                pg_salah: [2, 12, 15], pgk_salah: [22, 24, 28],
-                uraian: [6, 6, 6, 6, 5], total: 84,
-                catatan: "Uraian dijawab dengan sangat baik, tulisan rapi, dan poin-poin sangat sesuai dengan kunci jawaban."
-            },
-            {
-                no: 11, nama: "Clarisa Diva Ariyani", kelas: "7C",
-                pg_salah: [2, 12, 15], pgk_salah: [22, 24, 28],
-                uraian: [6, 6, 6, 6, 4], total: 83,
-                catatan: "Indikasi menyontek. Jawaban PGK dan Uraian nyaris sama persis kata-per-kata dengan Carissya.",
-                alert: true
-            },
-            {
-                no: 12, nama: "Eka Nurul Hidayah", kelas: "7C",
-                pg_salah: [1, 5, 9, 12, 18], pgk_salah: [21, 25],
-                uraian: [6, 5, 5, 6, 5], total: 81,
-                catatan: "Performa stabil and memuaskan. Memiliki kualitas esai yang baik."
-            },
-            {
-                no: 13, nama: "Fathra Nilatul Kamala", kelas: "7C",
-                pg_salah: [2, 3, 9, 11, 13, 16, 17, 18], pgk_salah: [21, 22, 23, 27, 28, 29, 30],
-                uraian: [6, 6, 6, 6, 6], total: 63,
-                catatan: "Sempurna di Uraian! Esai dikerjakan dengan sangat cemerlang, rapi, teliti, dan lengkap sampai halaman belakang."
-            },
-            {
-                no: 14, nama: "Hengky Alfiyansyah", kelas: "7C",
-                pg_salah: [9, 11, 12, 13, 15, 16], pgk_salah: [25, 26, 27, 28],
-                uraian: [6, 5, 2, 6, 1], total: 60,
-                catatan: "Cukup teliti di PG. Sayangnya Uraian No 33 terlalu singkat dan No 35 salah konteks (menjawab hikmah)."
-            },
-            {
-                no: 15, nama: "Ilyas Winaryo", kelas: "7C",
-                pg_salah: [2, 9, 12, 13, 14, 16, 17, 18], pgk_salah: [21, 22, 23, 24, 25, 26],
-                uraian: [5, 2, 1, 1, 0], total: 45,
-                catatan: "Pemahaman materi esai lemah. No 32 kurang rukun utama. No 34 keliru menyalin dalil qashar, bukan lafal niat."
-            },
-            {
-                no: 16, nama: "Kevin Adhanun Nizam", kelas: "7C",
-                pg_salah: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], pgk_salah: [21,22,23,24,25,26,27,28,29,30],
-                uraian: [6, 1, 1, 1, 0], total: 9,
-                catatan: "Perlu Tindakan. LJK PG & PGK dirusak dengan coretan zig-zag raksasa. Uraian dijawab asal-asalan.",
-                alert: true
-            },
-            {
-                no: 17, nama: "Lydia Shafa Lutfiani", kelas: "7C",
-                pg_salah: [9, 11, 13, 15, 17], pgk_salah: [25, 28, 29],
-                uraian: [6, 6, 6, 6, 6], total: 81,
-                catatan: "Sempurna di Uraian! Sangat teliti, akurat, komprehensif, dan tulisan tangan bahasa Arab maupun Latin sangat rapi."
-            },
-            {
-                no: 18, nama: "Mahesa Beram Alfaro", kelas: "7C",
-                pg_salah: [5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20], pgk_salah: [21, 22, 24, 25, 26, 27, 28, 29, 30],
-                uraian: [3, 1, 2, 1, 0], total: 20,
-                catatan: "Pemahaman konsep sangat lemah. No 32 menjawab adab jamaah. No 34 & 35 mengutip potongan ayat secara acak."
-            },
-            {
-                no: 19, nama: "Muhamad Faizul Azzam", kelas: "7C",
-                pg_salah: [4, 9, 10, 20], pgk_salah: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
-                uraian: [5, 4, 5, 2, 5], total: 83,
-                catatan: "Uraian dikerjakan dengan sangat baik. PGK salah semua (kemungkinan tidak paham instruksi memilih dua opsi)."
-            },
-            {
-                no: 20, nama: "Muhamad Ikhwan Hakimul Karim", kelas: "7C",
-                pg_salah: [1, 2, 8, 9, 11, 13, 15, 16, 20], pgk_salah: [21, 22, 23, 24, 25, 26, 28],
-                uraian: [3, 0, 2, 0, 1], total: 34,
-                catatan: "Banyak miskonsepsi. No 32 menjawab isi khutbah, bukan rukun. No 34 keliru menulis hadis shalat."
-            },
-            {
-                no: 21, nama: "Muhamad Ravaell Rahmadani", kelas: "7C",
-                pg_salah: [2, 3, 8, 10, 11, 14, 15, 16, 17, 18, 19, 20], pgk_salah: [21, 22, 23, 24, 28, 29, 30],
-                uraian: [0, 0, 0, 1, 1], total: 18,
-                catatan: "Pemahaman konsep sangat lemah, sebagian besar uraian diisi salah atau kosong."
-            },
-            {
-                no: 22, nama: "Muhammad Agung Pratama", kelas: "7C",
-                pg_salah: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], pgk_salah: [21,22,23,24,25,26,27,28,29,30],
-                uraian: [0, 0, 0, 0, 0], total: 0,
-                catatan: "Perlu Tindakan. LJK PG & PGK dirusak dengan coretan zig-zag. Uraian dibiarkan kosong.",
-                alert: true
-            },
-            {
-                no: 23, nama: "Nadhin Aulia Rizkiana", kelas: "7C",
-                pg_salah: [6, 8, 17, 18], pgk_salah: [22, 28, 29, 30],
-                uraian: [6, 6, 6, 6, 6], total: 85,
-                catatan: "Sangat Cemerlang! Uraian dijawab dengan sangat rapi, akurat, dan komprehensif hingga ke halaman belakang."
-            },
-            {
-                no: 24, nama: "Nadin Naela Sari", kelas: "7C",
-                pg_salah: [2, 5, 12, 13, 14, 15], pgk_salah: [21, 23, 24, 28, 30],
-                uraian: [6, 1, 4, 1, 1], total: 61,
-                catatan: "Tertukar konsep. No 32 menjawab adab jamaah, bukan rukun khutbah. No 34 mengutip ayat qashar."
-            },
-            {
-                no: 25, nama: "Shinta Amelia Pramesti", kelas: "7C",
-                pg_salah: [1, 2, 7, 12, 15, 18], pgk_salah: [21, 25, 29, 30],
-                uraian: [5, 4, 3, 4, 3], total: 61,
-                catatan: "Materi dikuasai cukup baik. Uraian dijawab dengan runtut."
-            },
-            {
-                no: 26, nama: "Tabriz Briona Iftinan Najwa", kelas: "7C",
-                pg_salah: [2, 6, 11, 14, 19], pgk_salah: [22, 28, 30],
-                uraian: [6, 5, 5, 6, 5], total: 74,
-                catatan: "Stabilitas nilai baik. Penulisan lafal niat (34) latin sangat lancar dan tepat."
-            },
-            {
-                no: 27, nama: "Tiara Yuningtyas", kelas: "7C",
-                pg_salah: [1, 4, 8, 12, 15, 16], pgk_salah: [24, 27, 28],
-                uraian: [5, 5, 4, 5, 4], total: 69,
-                catatan: "Kemampuan analisis berada di rentang rata-rata baik kelas."
-            },
-            {
-                no: 28, nama: "Yuliana Indah Ayu Dewi Afidta", kelas: "7C",
-                pg_salah: [2, 7, 12, 15, 19], pgk_salah: [21, 25],
-                uraian: [6, 6, 5, 6, 5], total: 82,
-                catatan: "Tingkat pemahaman materi sangat tinggi, pengerjaan LJK tertata sangat rapi."
-            },
-
-            // ================== KELAS 7D ==================
-            {
-                no: 1, nama: "Aditya Rizqi", kelas: "7D",
-                pg_salah: [3, 4, 6, 7, 9, 10, 13, 15, 18, 20], pgk_salah: [22, 23, 24, 25, 28, 29, 30],
-                uraian: [4, 4, 1, 0, 0], total: 38,
-                catatan: "Mengisi esai dengan sangat asal dan singkat. No 33 hanya menulis nama shalat, No 34 & 35 mengarang bebas."
-            },
-            {
-                no: 2, nama: "Ahmad Farhan Lutfiyanto", kelas: "7D",
-                pg_salah: [1, 2, 3, 20], pgk_salah: [21, 28, 30],
-                uraian: [5, 4, 4, 0, 2], total: 68,
-                catatan: "PGK cukup teliti. Bagian esai tidak hafal niat sama sekali, No 34 malah menulis nama-nama shalat sunnah secara acak."
-            },
-            {
-                no: 3, nama: "Ahmad Joko Widodo", kelas: "7D",
-                pg_salah: [2, 4, 9, 12, 15, 18], pgk_salah: [22, 26, 29],
-                uraian: [5, 4, 4, 5, 4], total: 68,
-                catatan: "Pemahaman materi cukup stabil di semua aspek asesmen."
-            },
-            {
-                no: 4, nama: "Ahmad Rizal Saputro", kelas: "7D",
-                pg_salah: [1, 2, 5, 8, 9, 10, 11, 13, 17, 20], pgk_salah: [21, 23, 27, 28, 30],
-                uraian: [0, 1, 1, 0, 1], total: 38,
-                catatan: "Esai dikerjakan asal, No 31-33 hanya menjawab satu kata. No 34 kosong."
-            },
-            {
-                no: 5, nama: "Ahmad Rizki Aditya", kelas: "7D",
-                pg_salah: [8, 20], pgk_salah: [21, 22, 23, 24, 25, 27, 28, 29, 30],
-                uraian: [3, 1, 2, 0, 1], total: 46,
-                catatan: "Mengisi PG & PGK dengan pola zig-zag teratur. Uraian dikerjakan asal-alasan dengan kalimat curhat."
-            },
-            {
-                no: 6, nama: "Akifah Naila", kelas: "7D",
-                pg_salah: [3, 4, 5, 6, 7, 12, 20], pgk_salah: [21, 22, 26, 27, 28],
-                uraian: [6, 6, 4, 6, 6], total: 85,
-                catatan: "Sangat Baik! Penguasaan materi esai luar biasa, seluruh lafal bahasa Arab ditulis dua kali."
-            },
-            {
-                no: 7, nama: "Chantika Dwi Marwah", kelas: "7D",
-                pg_salah: [5, 6, 7, 8, 12, 15, 16, 19, 20], pgk_salah: [21, 23, 29, 30],
-                uraian: [5, 6, 5, 5, 1], total: 62,
-                catatan: "Uraian di lembar depan coretannya dihapus tidak bersih, namun pengerjaan No 34 di lembar belakang sangat baik."
-            },
-            {
-                no: 8, nama: "Deni Paryanto", kelas: "7D",
-                pg_salah: [8, 9, 11, 12, 13, 17, 19, 20], pgk_salah: [22, 23, 30],
-                uraian: [6, 0, 2, 1, 2], total: 56,
-                catatan: "Bagian pilihan ganda diisi dengan pola jaring-jaring/silang bersambung. Esai no 32 salah konteks."
-            },
-            {
-                no: 9, nama: "Dyana Shofia Kusuma", kelas: "7D",
-                pg_salah: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], pgk_salah: [21,22,23,24,25,26,27,28,29,30],
-                uraian: [6, 5, 5, 1, 4], total: 21,
-                catatan: "Perlu Tindakan. LJK PG & PGK dirusak total dengan pola coretan jaring-jaring berurutan. Uraian bagian depan sangat rapi.",
-                alert: true
-            },
-            {
-                no: 10, nama: "Elsa Novi Anggraini", kelas: "7D",
-                pg_salah: [5, 10, 16, 18, 20], pgk_salah: [22, 24, 25, 28, 30],
-                uraian: [6, 6, 4, 6, 5], total: 81,
-                catatan: "Penguasaan materi esai sangat baik. Penulisan lafal Arab rapi. No 35 kurang menjabarkan poin amalan sunnah."
-            },
-            {
-                no: 11, nama: "Emmy Sherene Aquila Afra", kelas: "7D",
-                pg_salah: [10], pgk_salah: [24, 25, 26],
-                uraian: [4, 4, 3, 1, 2], total: 73,
-                catatan: "Banyak salah konsep di esai. No 32 & 34 tertukar dengan niat jamak taqdim shalat fardhu."
-            },
-            {
-                no: 12, nama: "Fadhilah Zafa Dwi Maharani", kelas: "7D",
-                pg_salah: [16, 19, 20], pgk_salah: [22, 24, 27, 30],
-                uraian: [6, 6, 5, 6, 5], total: 81,
-                catatan: "Sangat Baik! Penguasaan materi PG/PGK dan esai sangat matang. Tulisan terstruktur dengan baik."
-            },
-            {
-                no: 13, nama: "Fiqri Tauwil Riadho", kelas: "7D",
-                pg_salah: [2, 6, 11, 14, 18], pgk_salah: [21, 25, 29],
-                uraian: [5, 4, 4, 5, 4], total: 63,
-                catatan: "Analisis stabil di rentang kelulusan standar asesmen Fikih."
-            },
-            {
-                no: 14, nama: "Muhamad Abdullah Fandy S.", kelas: "7D",
-                pg_salah: [1, 8, 9, 10, 11, 13, 15, 16, 19, 20], pgk_salah: [22, 23, 26, 28, 29, 30],
-                uraian: [4, 2, 2, 1, 1], total: 44,
-                catatan: "Banyak miskonsepsi. No 31 salah konsep dasar baligh. No 34 keliru menuliskan potongan lafal."
-            },
-            {
-                no: 15, nama: "Muhammad Agil Ridwan", kelas: "7D",
-                pg_salah: [2, 6, 9, 11, 12, 13, 18, 20], pgk_salah: [21, 23, 28],
-                uraian: [2, 4, 1, 0, 1], total: 51,
-                catatan: "Esai dijawab sangat pendek. No 31 hanya menulis satu poin. No 34 salah karena hanya menulis kata 'sunnan'."
-            },
-            {
-                no: 16, nama: "Muhammad Revan Abdullah", kelas: "7D",
-                pg_salah: [2, 6, 17, 18, 19, 20], pgk_salah: [22, 25, 29],
-                uraian: [1, 2, 1, 1, 1], total: 55,
-                catatan: "Esai dijawab seadanya. No 31 hanya menuliskan kata 'musafir'. No 34 & 35 hanya menulis satu kata."
-            },
-            {
-                no: 17, nama: "Nabila Mirabel Athalia", kelas: "7D",
-                pg_salah: [5, 11, 16, 18, 20], pgk_salah: [21, 24, 26, 27, 29],
-                uraian: [6, 6, 5, 6, 6], total: 84,
-                catatan: "Sangat Cemerlang! Hanya keliru sedikit di bagian PG/PGK. Seluruh soal uraian dijawab dengan sangat lengkap."
-            },
-            {
-                no: 18, nama: "Natalia Mustika Sari", kelas: "7D",
-                pg_salah: [1, 2, 3, 4, 7, 8, 12, 13, 15, 16], pgk_salah: [21, 22, 23, 25, 26, 27],
-                uraian: [5, 5, 4, 6, 5], total: 63,
-                catatan: "Stabilitas nilai baik, penulisan latin niat jamak taqdim cukup lancar."
-            },
-            {
-                no: 19, nama: "Raditya Naufal Dani Abiyyu", kelas: "7D",
-                pg_salah: [9, 20], pgk_salah: [21, 22, 26, 27, 28, 29, 30],
-                uraian: [1, 1, 1, 1, 0], total: 49,
-                catatan: "Hasil esai sangat minim dan salah kaprah. No 34 hanya menulis kata 'sholat subuh'."
-            },
-            {
-                no: 20, nama: "Reisa Aulia Febrianti", kelas: "7D",
-                pg_salah: [5, 12, 19, 20], pgk_salah: [],
-                uraian: [6, 6, 5, 6, 6], total: 91,
-                catatan: "Sangat Baik! Penguasaan materi esai luar biasa, seluruh lafal Arab ditulis dengan sangat presisi di halaman belakang."
-            },
-            {
-                no: 21, nama: "Seftiani Putri Wijaya", kelas: "7D",
-                pg_salah: [8, 9, 10, 12, 15, 17, 19, 20], pgk_salah: [24, 27, 28, 30],
-                uraian: [6, 6, 4, 6, 6], total: 70,
-                catatan: "Indikasi Menyontek. Hasil jawaban PGK dan seluruh pengerjaan esai di halaman belakang sama persis kata-per-kata dengan Selfi.",
-                alert: true
-            },
-            {
-                no: 22, nama: "Saskya Zahra Putri", kelas: "7D",
-                pg_salah: [2, 5, 8, 9, 10, 19, 20], pgk_salah: [21, 25, 29],
-                uraian: [6, 6, 5, 6, 6], total: 76,
-                catatan: "Sangat Baik! Meskipun perolehan nilai PG/PGK kurang maksimal, bagian uraian dijawab dengan sangat lengkap."
-            },
-            {
-                no: 23, nama: "Satria Nafis Ahmad Hanif", kelas: "7D",
-                pg_salah: [2, 8, 10, 11, 12, 13, 17], pgk_salah: [21, 23, 24, 25, 30],
-                uraian: [4, 4, 4, 5, 1], total: 59,
-                catatan: "Latin niat jamak cukup baik walau ada typo. No 35 salah konteks (menjawab persiapan shalat Jumat)."
-            },
-            {
-                no: 24, nama: "Selfi Karnia Sari", kelas: "7D",
-                pg_salah: [6, 8, 9, 10, 12, 15, 17, 19, 20], pgk_salah: [24, 27, 28, 30],
-                uraian: [6, 6, 4, 6, 6], total: 68,
-                catatan: "Sangat Baik! Penguasaan materi esai luar biasa. Seluruh lafal Arab dan rincian sunnah ditulis dengan presisi."
-            },
-            {
-                no: 25, nama: "Sidqia Azzahra", kelas: "7D",
-                pg_salah: [10], pgk_salah: [24, 27, 28, 30],
-                uraian: [6, 6, 4, 6, 6], total: 84,
-                catatan: "Indikasi Menyontek. Jawaban esai sama persis dengan Selfi Karnia dan Septiyani Putri.",
-                alert: true
-            },
-            {
-                no: 26, nama: "Ulil Albab", kelas: "7D",
-                pg_salah: [2, 6, 12, 15, 19], pgk_salah: [22, 28],
-                uraian: [5, 4, 4, 5, 4], total: 68,
-                catatan: "Nilai sangat merata di semua bagian asesmen, penguasaan esai tertata rapi."
-            },
-            {
-                no: 27, nama: "Wahyu Andra Saputra", kelas: "7D",
-                pg_salah: [8, 9, 16, 20], pgk_salah: [21, 22, 23, 24, 27, 28, 30],
-                uraian: [4, 2, 2, 0, 2], total: 61,
-                catatan: "Mengisi PG & PGK dengan pola jaring-jaring/silang bersambung. Esai no 32 salah konteks."
-            },
-            {
-                no: 28, nama: "Yulfa Fifi Ardiana", kelas: "7D",
-                pg_salah: [2, 7, 8, 9, 11, 12, 13, 17, 18, 19, 20], pgk_salah: [21, 22, 23, 24, 25, 26, 29, 30],
-                uraian: [6, 5, 4, 6, 5], total: 50,
-                catatan: "Uraian dijawab dengan sangat baik di halaman depan. Penulisan lafal Arab (34) tepat."
-            }
-        ];
-
-        let currentClass = "7A";
-        let currentStatusFilter = "ALL";
-
-        window.onload = function() {
-            switchClass();
+        // Konfigurasi Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAkX8qAS-O_5m_qaGr8Aa9XME-lVyBMibw",
+            authDomain: "belajaronline-b5512.firebaseapp.com",
+            projectId: "belajaronline-b5512",
+            storageBucket: "belajaronline-b5512.firebasestorage.app",
+            messagingSenderId: "896107581081",
+            appId: "1:896107581081:web:629056c097c90fdf583208"
         };
 
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'belajaronline-b5512';
+
+        // Auth Listener & Seeding check
+        let user = null;
+        let localStudentData = []; // Sinkronisasi dengan database Firestore
+        let initialSetupComplete = false;
+
+        // SOAL EXAM VERBATIM (Sesuai 3.Soal ASAS Genap Fikih Kelas 7.pdf & Kunci Jawaban)
+        const examQuestions = {
+            1: {
+                id: 1, type: "PG", val: 2,
+                text: "Pelaksanaan ibadah shalat yang dilakukan secara berjamaah pada waktu Dzuhur di hari Jumat dan didahului dengan dua khutbah disebut dengan...",
+                opts: { A: "Shalat Dzuhur", B: "Shalat Idul Fitri", C: "Shalat Jum'at", D: "Shalat Jamak" },
+                key: "C"
+            },
+            2: {
+                id: 2, type: "PG", val: 2,
+                text: "Perhatikan, dalil hadis berikut ini!<br><span class='font-arabic text-lg block my-1 text-teal-700 text-right'>الْجُمُعَةُ حَقٌّ وَاجِبٌ عَلَى كُلِّ مُسْلِمٍ إِلَّا أَرْبَعَةً عَبْدٌ مَمْلُوكٌ أَوْ امْرَأَةٌ أَوْ صَبِيٌّ أَوْ مَرِيضٌ</span>Berdasarkan dalil di atas, hukum melaksanakan shalat Jumat bagi seorang muslim laki-laki merdeka yang baligh adalah...",
+                opts: { A: "Sunnah Muakkad", B: "Sunnah Ghairu Muakkad", C: "Wajib (Fardhu 'Ain)", D: "Fardhu Kifayah" },
+                key: "C"
+            },
+            3: {
+                id: 3, type: "PG", val: 2,
+                text: "Tidak semua umat Islam dibebankan kewajiban untuk melaksanakan Shalat Jumat. Di bawah ini, golongan yang tidak wajib melaksanakan shalat jumat tetapi shalat dzuhurnya tetap wajib adalah...",
+                opts: { A: "Orang yang sedang tidur nyenyak", B: "Perempuan, anak-anak, hamba sahaya, dan orang sakit", C: "Orang gila dan hilang ingatan secara permanen", D: "Orang non-muslim sejak lahir" },
+                key: "B"
+            },
+            4: {
+                id: 4, type: "PG", val: 2,
+                text: "Rafki melihat kotoran kucing kering di lantai masjid. Ia membuang fisiknya, namun masih menyisakan sedikit bekas bau yang tidak kunjung hilang setelah dilap kering. Berdasarkan kaidah thaharah, cara menyucikannya adalah...",
+                opts: { A: "Menutupinya dengan sajadah tebal", B: "Mengeringkannya saja tanpa disiram", C: "Menyiram area tersebut dengan air sampai hilang fisik, warna, bau, dan rasanya", D: "Membasuhnya dengan debu suci sebanyak 7 kali" },
+                key: "C"
+            },
+            5: {
+                id: 5, type: "PG", val: 2,
+                text: "Ketika khatib sedang menyampaikan khutbah Jumat, hal yang dilarang bagi para jamaah karena dapat membatalkan atau menghilangkan pahala ibadah shalat Jumat adalah...",
+                opts: { A: "Membaca shalawat di dalam hati", B: "Berbicara, mengobrol, menegur teman, atau bermain HP", C: "Meneteskan air mata karena khutbah", D: "Memakai pakaian putih bersih" },
+                key: "B"
+            },
+            6: {
+                id: 6, type: "PG", val: 2,
+                text: "Sebelum berangkat menuju masjid untuk melaksanakan ibadah Shalat Jumat, kita disunnahkan untuk melakukan beberapa amalan fisik demi menjaga kebersihan diri. Salah satu amalan sunnah tersebut adalah...",
+                opts: { A: "Makan makanan yang menimbulkan bau menyengat", B: "Berlari kencang menuju masjid", C: "Mandi sunnah Jumat, memotong kuku, memakai pakaian terbaik (putih), dan wewangian", D: "Berhias dengan perhiasan emas berlebihan" },
+                key: "C"
+            },
+            7: {
+                id: 7, type: "PG", val: 2,
+                text: "Di antara rukun-rukun khutbah Jumat yang harus disampaikan oleh khatib di atas mimbar adalah membaca shalawat kepada Rasulullah SAW. Rukun membaca shalawat ini wajib dilafalkan pada saat...",
+                opts: { A: "Khutbah pertama saja", B: "Baik pada khutbah pertama maupun khutbah kedua", C: "Sebelum naik ke atas mimbar", D: "Setelah shalat Jumat selesai" },
+                key: "B"
+            },
+            8: {
+                id: 8, type: "PG", val: 2,
+                text: "Sikap yang benar dan wajib ditunjukkan oleh jamaah shalat Jumat saat khutbah berlangsung adalah diam dan mendengarkan dengan saksama. Kewajiban mendengar khutbah ini ditegaskan dalam hadis agar ibadah kita...",
+                opts: { A: "Menjadi tontonan menarik", B: "Sah, bernilai pahala utuh, dan tidak sia-sia", C: "Selesai lebih cepat dari biasanya", D: "Membuat kita tertidur pulas" },
+                key: "B"
+            },
+            9: {
+                id: 9, type: "PG", val: 2,
+                text: "Bagas datang terlambat ke masjid dan mendapati imam sudah ruku pada rakaat kedua shalat Jumat. Berdasarkan ketentuan fikih, langkah yang harus diambil oleh Bagas adalah...",
+                opts: { A: "Langsung shalat dzuhur sendirian", B: "Ikut berniat shalat Jumat, bermakmum pada imam, dan menyempurnakan shalat menjadi 2 rakaat setelah imam salam", C: "Langsung pulang ke rumah", D: "Melakukan shalat Jumat 4 rakaat" },
+                key: "B"
+            },
+            10: {
+                id: 10, type: "PG", val: 2,
+                text: "Shalat Jumat dianggap sah pelaksanaannya secara berjamaah apabila memenuhi beberapa syarat pendirian. Salah satu syarat sah shalat Jumat tersebut adalah...",
+                opts: { A: "Dilaksanakan di lapangan terbuka tanpa atap", B: "Dilaksanakan di pemukiman tetap dan diikuti oleh minimal 40 orang jamaah laki-laki mukim", C: "Dilakukan sebelum masuk waktu Dzuhur", D: "Khatib berkhutbah tanpa memegang tongkat" },
+                key: "B"
+            },
+            11: {
+                id: 11, type: "PG", val: 2,
+                text: "Sifat rahmatan lil 'alamin dalam Islam ditunjukkan dengan adanya rukhshah (keringanan) dalam ibadah. Mengumpulkan dua shalat fardhu dan mengerjakannya dalam satu waktu disebut...",
+                opts: { A: "Shalat Jamak", B: "Shalat Qashar", C: "Shalat Sunnah", D: "Shalat Qadha" },
+                key: "A"
+            },
+            12: {
+                id: 12, type: "PG", val: 2,
+                text: "Tidak semua pasangan shalat fardhu dapat digabungkan atau dijamak secara bersamaan. Pasangan shalat fardhu yang sah untuk dijamak adalah...",
+                opts: { A: "Shubuh dengan Dzuhur", B: "Ashar dengan Maghrib", C: "Dzuhur dengan Ashar, serta Maghrib dengan Isya", D: "Isya dengan Shubuh" },
+                key: "C"
+            },
+            13: {
+                id: 13, type: "PG", val: 2,
+                text: "Hukum dasar melaksanakan shalat secara jamak bagi umat Islam yang sedang melakukan perjalanan jauh (musafir) dengan niat baik adalah...",
+                opts: { A: "Wajib mutlak dilakukan", B: "Rukhshah (keringanan/kemudahan) yang diperbolehkan", C: "Haram dan berdosa besar", D: "Makruh" },
+                key: "B"
+            },
+            14: {
+                id: 14, type: "PG", val: 2,
+                text: "Bagi orang yang tidak sadarkan diri atau pingsan karena efek obat bius operasi medis secara tidak sengaja, hukum shalat yang terlewat adalah...",
+                opts: { A: "Gugur selamanya dan tidak perlu diganti", B: "Boleh diganti dengan membayar fidyah", C: "Wajib di-qadha (diganti) setelah ia kembali sadar sepenuhnya", D: "Dihukum cambuk" },
+                key: "C"
+            },
+            15: {
+                id: 15, type: "PG", val: 2,
+                text: "Waktu pelaksanaan shalat fardhu sangat dipengaruhi oleh posisi dan pergerakan matahari. Akhir batas waktu shalat Dzuhur ditandai dengan...",
+                opts: { A: "Matahari tepat berada di atas kepala", B: "Matahari terbit dari ufuk timur", C: "Panjang bayangan suatu benda sama dengan panjang asli benda tersebut", D: "Hilangnya mega merah di barat" },
+                key: "C"
+            },
+            16: {
+                id: 16, type: "PG", val: 2,
+                text: "Selain menggabungkan dua waktu shalat fardhu, musafir juga diperkenankan untuk meringkas jumlah rakaat shalat. Meringkas shalat fardhu yang tadinya 4 rakaat menjadi 2 rakaat disebut...",
+                opts: { A: "Shalat Qashar", B: "Shalat Jamak", C: "Shalat Khauf", D: "Shalat Istisqa" },
+                key: "A"
+            },
+            17: {
+                id: 17, type: "PG", val: 2,
+                text: "Jarak minimal perjalanan musafir agar diperbolehkan untuk mengqashar shalat menurut ketetapan jumhur ulama (mayoritas ulama) adalah...",
+                opts: { A: "Minimal 10 kilometer", B: "Sekitar 80,64 kilometer (16 farsakh)", C: "Satu hari perjalanan naik unta lambat", D: "Minimal 500 meter" },
+                key: "B"
+            },
+            18: {
+                id: 18, type: "PG", val: 2,
+                text: "Tidak semua shalat fardhu dapat diringkas jumlah rakaatnya. Shalat fardhu yang boleh diqashar menjadi 2 rakaat adalah shalat yang aslinya berjumlah...",
+                opts: { A: "4 Rakaat (Dzuhur, Ashar, dan Isya)", B: "3 Rakaat (Maghrib saja)", C: "2 Rakaat (Shubuh saja)", D: "Seluruh shalat fardhu tanpa terkecuali" },
+                key: "A"
+            },
+            19: {
+                id: 19, type: "PG", val: 2,
+                text: "Apabila kita berniat menggabungkan shalat Maghrib dan Isya, lalu mengerjakannya bersama-sama di waktu Isya, maka jenis jamak ini disebut...",
+                opts: { A: "Jamak Taqdim", B: "Jamak Takhir", C: "Jamak Qashar", D: "Jamak Mutlak" },
+                key: "B"
+            },
+            20: {
+                id: 20, type: "PG", val: 2,
+                text: "Di bawah ini yang merupakan salah satu sebab diperbolehkannya seseorang menjamak atau mengqashar shalat adalah...",
+                opts: { A: "Sedang dalam perjalanan jauh (musafir) bukan untuk tujuan maksiat", B: "Malas atau mengantuk berat", C: "Sibuk bekerja di kantor seharian", D: "Lupa ingatan sementara karena tidur" },
+                key: "A"
+            },
+            21: {
+                id: 21, type: "PGK", val: 3,
+                text: "Pilihlah DUA pernyataan yang benar mengenai tata cara shalat bagi orang yang sedang sakit parah sesuai tuntunan fikih!",
+                opts: { A: "Boleh tidak shalat dan tidak perlu menggantinya jika merasa sakit", B: "Jika tidak mampu berdiri, shalat boleh dikerjakan dengan posisi duduk tegak", C: "Wajib melakukan ruku di lantai secara normal walau punggung sakit parah", D: "Jika tidak mampu duduk, shalat boleh dikerjakan dengan berbaring miring ke kanan menghadap kiblat" },
+                keys: ["B", "D"]
+            },
+            22: {
+                id: 22, type: "PGK", val: 3,
+                text: "Pilihlah DUA syarat perjalanan (safar) yang sah agar seorang musafir berhak mendapatkan rukhshah jamak qashar!",
+                opts: { A: "Perjalanan berjarak tempuh minimal 80,64 km", B: "Perjalanan dilakukan secara tergesa-gesa", C: "Tujuan perjalanan adalah untuk kebaikan atau mubah, bukan untuk maksiat", D: "Harus menggunakan transportasi darat seperti bus atau kereta api saja" },
+                keys: ["A", "C"]
+            },
+            23: {
+                id: 23, type: "PGK", val: 3,
+                text: "Pilihlah DUA amalan sunnah di hari Jumat sebelum shalat jumat dimulai yang dianjurkan untuk dilakukan oleh para jamaah!",
+                opts: { A: "Membeli barang dagangan di area masjid setelah adzan kedua dikumandangkan", B: "Bercanda keras dengan jamaah lain di shaf terdepan", C: "Memotong kuku tangan, mencukur kumis, dan merapikan rambut", D: "Membaca Surah Al-Kahfi di masjid sebelum shalat dimulai" },
+                keys: ["C", "D"]
+            },
+            24: {
+                id: 24, type: "PGK", val: 3,
+                text: "Pilihlah DUA rukun khutbah Jumat yang wajib disampaikan oleh khatib dengan menggunakan Bahasa Arab!",
+                opts: { A: "Mengucapkan puji-pujian kepada Allah SWT (Hamdalah) di kedua khutbah", B: "Membaca shalawat kepada Nabi Muhammad SAW di kedua khutbah", C: "Menerangkan sejarah kerajaan Islam di masa lampau secara detail", D: "Membaca teks terjemahan UUD 1945" },
+                keys: ["A", "B"]
+            },
+            25: {
+                id: 25, type: "PGK", val: 3,
+                text: "Pilihlah DUA jenis shalat sunnah yang sangat dianjurkan (sunnah muakkad) untuk dilaksanakan secara berjamaah!",
+                opts: { A: "Shalat sunnah Rawatib Qabliyah Dzuhur", B: "Shalat sunnah Istisqa (shalat memohon hujan)", C: "Shalat sunnah Gerhana (Kusuf/Khusuf)", D: "Shalat sunnah Tahiyyatul Masjid" },
+                keys: ["B", "C"]
+            },
+            26: {
+                id: 26, type: "PGK", val: 3,
+                text: "Pilihlah DUA kondisi darurat yang diperbolehkan oleh syariat Islam bagi seseorang untuk menjamak shalat fardhunya!",
+                opts: { A: "Musafir dalam safar jarak jauh yang melebihi batas minimal perjalanan", B: "Lupa waktu shalat karena terlalu asyik bermain game di rumah", C: "Terlalu sibuk memasak hidangan makanan untuk pesta keluarga besar", D: "Sakit berat yang menyulitkan siswa untuk berwudhu dan melakukan shalat tepat pada waktunya" },
+                keys: ["A", "D"]
+            },
+            27: {
+                id: 27, type: "PGK", val: 3,
+                text: "Pilihlah DUA pernyataan yang benar mengenai tata cara shalat di atas kendaraan ketika dalam perjalanan jauh!",
+                opts: { A: "Shalat tidak sah sama sekali jika tidak berdiri tegak", B: "Tidak perlu wudhu atau tayamum, langsung shalat saja", C: "Gerakan ruku dan sujud cukup diisyaratkan dengan sedikit menundukkan punggung", D: "Boleh melakukan tayamum menggunakan debu bersih yang melekat pada sandaran kursi atau dinding kendaraan" },
+                keys: ["C", "D"]
+            },
+            28: {
+                id: 28, type: "PGK", val: 3,
+                text: "Pilihlah DUA golongan yang mendapatkan keringanan tidak wajib menghadiri shalat Jumat di masjid, tetapi sebagai gantinya wajib shalat Dzuhur di rumah!",
+                opts: { A: "Laki-laki dewasa sehat jasmani dan sedang berada di rumah", B: "Perempuan jalannya ibadah di rumah masing-masing", C: "Anak balita yang belum mumayyiz", D: "Siswa laki-laki yang sedang menderita demam tinggi atau sakit parah" },
+                keys: ["B", "D"]
+            },
+            29: {
+                id: 29, type: "PGK", val: 3,
+                text: "Pilihlah DUA perkara penting yang dapat membatalkan khutbah seorang khatib saat bertugas menyampaikan khutbah Jumat!",
+                opts: { A: "Khatib berhadats kecil (misal: buang angin/kentut) saat berkhutbah", B: "Khatib memegang tongkat dengan tangan kirinya", C: "Terbukanya aurat khatib di tengah-tengah penyampaian khutbah", D: "Khatib batuk ringan sesekali" },
+                keys: ["A", "C"]
+            },
+            30: {
+                id: 30, type: "PGK", val: 3,
+                text: "Pilihlah DUA amalan sunnah utama yang dianjurkan untuk dibaca secara rutin setelah selesai melaksanakan shalat fardhu berjamaah!",
+                opts: { A: "Langsung melompat berdiri dan berlari keluar masjid", B: "Membaca kalimat Istighfar dan dilanjutkan dzikir wirid tasbih, tahmid, takbir sebanyak 33 kali", C: "Membaca doa memohon ampunan dosa diri sendiri dan kedua orang tua", D: "Mengobrol dengan jamaah lain di shaf sebelah mengenai bisnis komersial" },
+                keys: ["B", "C"]
+            },
+            31: { id: 31, type: "Uraian", val: 6, text: "Terdapat sebuah hadis riwayat Abu Dawud yang menjelaskan bahwa shalat Jumat adalah kewajiban bagi setiap muslim, kecuali empat golongan. Sebutkan dan jelaskan empat golongan yang tidak wajib melaksanakan shalat Jumat tersebut!", model: "1) Hamba sahaya, 2) Perempuan, 3) Anak-anak, 4) Orang sakit." },
+            32: { id: 32, type: "Uraian", val: 6, text: "Khutbah Jumat merupakan syarat sahnya shalat Jumat. Apabila rukun khutbah tidak terpenuhi, maka khutbahnya batal. Sebutkan rukun-rukun khutbah Jumat yang harus disampaikan oleh seorang khatib!", model: "1) Membaca puji-pujian kepada Allah (Hamdalah), 2) Membaca shalawat kepada Nabi SAW, 3) Memberikan wasiat takwa, 4) Membaca ayat Al-Qur'an pada salah satu khutbah, 5) Membaca doa memohon ampunan kaum mukminin di khutbah kedua." },
+            33: { id: 33, type: "Uraian", val: 6, text: "Syariat Islam memerintahkan umatnya untuk berkumpul setiap hari Jumat guna mendengarkan khutbah dan melaksanakan shalat Jumat berjamaah. Jelaskan hikmah yang dapat diambil dari pelaksanaan khutbah dan shalat Jumat dalam kehidupan sehari-hari!", model: "1) Mempererat silaturahmi/ukhuwah, 2) Menambah ilmu agama melalui khutbah, 3) Melatih sikap tertib dan kedisiplinan, 4) Menanamkan sikap saling menghormati." },
+            34: { id: 34, type: "Uraian", val: 6, text: "Pak Ahmad sedang melakukan perjalanan dari Jakarta menuju Surabaya menggunakan kereta api. Saat waktu Dzuhur tiba, ia ingin melaksanakan shalat Dzuhur dan Ashar secara jamak taqdim dan diqashar. Tuliskan lafadz niat untuk shalat Dzuhur yang dijamak taqdim dan diqashar bersama shalat Ashar tersebut!", model: "أُصَلِّي فَرْضَ الظَّهْرِ رَكْعَتَيْنِ قَصْرًا مَجْمُوعًا إِلَيْهِ الْعَصْرُ جَمْعًا تَقْدِيمًا لِلَّهِ تَعَالَى" },
+            35: { id: 35, type: "Uraian", val: 6, text: "Wilayah tempat tinggal Pak Umar mengalami kemarau panjang yang menyebabkan kekeringan. Masyarakat bersepakat untuk mengadakan shalat Istisqa. Sebutkan amalan-amalan sunnah yang dianjurkan untuk dilakukan sebelum dan saat pelaksanaan shalat Istisqa tersebut!", model: "1) Berpuasa 3 hari sebelum shalat, 2) Bertaubat, sedekah, dan meninggalkan kezaliman, 3) Datang ke tempat lapang berpakaian sederhana tanpa hiasan berlebih, 4) Pelaksanaan khutbah setelah shalat." }
+        };
+
+        const initialStudentsSeedList = [
+            // ================== KELAS 7A ==================
+            { no: 1, nama: "Afika Desyifa Wijayanti", kelas: "7A", pg_salah: [13], pgk_salah: [21, 28, 30], uraian: [6, 5, 4, 6, 3], total: 83, catatan: "Jawaban baik, lafal niat akurat namun ada pesan sisipan. No 35 kurang spesifik." },
+            { no: 2, nama: "Ahmad Fadil Syaputra", kelas: "7A", pg_salah: [5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19], pgk_salah: [22, 23, 25, 26, 27, 28, 29, 30], uraian: [6, 4, 4, 0, 1], total: 33, catatan: "Salah fatal di no 34 karena menuliskan potongan ayat Al-Qur'an secara acak." },
+            { no: 3, nama: "Akila Azzahra", kelas: "7A", pg_salah: [5, 6, 7, 8, 9, 10, 12, 13], pgk_salah: [21, 25, 26, 28, 30], uraian: [5, 3, 4, 6, 6], total: 63, catatan: "No 31 & 32 kurang lengkap, namun tertolong lafal niat (34) yang sangat tepat." },
+            { no: 4, nama: "Alicia Amira Ma'Ruf", kelas: "7A", pg_salah: [4], pgk_salah: [], uraian: [6, 3, 4, 6, 6], total: 93, catatan: "Sangat teliti di PG Kompleks. Uraian sangat baik, no 32 kurang sedikit rukun." },
+            { no: 5, nama: "Anasha Fitriani", kelas: "7A", pg_salah: [5, 7, 8, 9, 10, 16, 17, 19], pgk_salah: [22, 25, 28, 30], uraian: [6, 5, 5, 6, 5], total: 69, catatan: "Kualitas hampir sempurna dan rapi, hanya terlewat poin rukun doa di no 32." },
+            { no: 6, nama: "Arsyl Ibrahim Syahputra", kelas: "7A", pg_salah: [3, 5, 9, 10, 11, 13, 15, 16, 20], pgk_salah: [22, 23, 24, 25, 26, 28, 29, 30], uraian: [6, 2, 1, 0, 1], total: 38, catatan: "Konsep kurang matang. No 33 salah bedakan syarat & hikmah. No 34 keliru niat." },
+            { no: 7, nama: "Chilma Hidayatul Ulya", kelas: "7A", pg_salah: [2, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19], pgk_salah: [21, 24, 28, 29, 30], uraian: [6, 6, 6, 6, 6], total: 61, catatan: "Sempurna di Uraian! Namun siswa tampak kesulitan di bagian PG sehingga banyak keliru." },
+            { no: 8, nama: "Chilmi Hidayatul Ulya", kelas: "7A", pg_salah: [1, 2, 4, 6, 11, 12, 16, 19], pgk_salah: [21, 22, 23, 24, 27, 28], uraian: [6, 5, 3, 6, 5], total: 61, catatan: "Pilihan Ganda lebih teliti, namun jawaban uraian no 33 terlalu umum." },
+            { no: 9, nama: "Deshera Harlistianti", kelas: "7A", pg_salah: [3, 16, 18], pgk_salah: [24, 28], uraian: [6, 6, 4, 6, 3], total: 83, catatan: "Sangat baik. Lafadz Arab (34) sempurna. Pengurangan poin hanya pada no 35 karena kurang spesifik." },
+            { no: 10, nama: "Halimatuz Zahro", kelas: "7A", pg_salah: [5, 11, 16], pgk_salah: [25, 26, 28], uraian: [6, 6, 3, 5, 6], total: 81, catatan: "Tulisan huruf Arab pada no 34 bisa dibaca dan tepat meskipun banyak coretan." },
+            { no: 11, nama: "Hammam Mahardika Akhmad", kelas: "7A", pg_salah: [2, 3, 7, 8, 9, 11, 12, 14, 16, 17, 18, 20], pgk_salah: [21, 22, 25, 26, 28, 29, 30], uraian: [6, 1, 2, 1, 0], total: 35, catatan: "No 32 dijawab syarat khatib. No 34 keliru tulis niat biasa. No 35 tidak relevan." },
+            { no: 12, nama: "Hasan Al Banna", kelas: "7A", pg_salah: [2, 3, 5, 6, 10, 11, 17, 20], pgk_salah: [23, 24, 25, 27, 28, 30], uraian: [5, 5, 3, 5, 0], total: 54, catatan: "Lafal niat latin tepat. Sayangnya no 35 salah konteks (menjawab rukun khutbah)." },
+            { no: 13, nama: "Hasna Najla Ajwa", kelas: "7A", pg_salah: [6, 11, 13], pgk_salah: [23, 25, 27, 28], uraian: [6, 6, 6, 6, 6], total: 82, catatan: "Sempurna di Uraian! Seluruh jawaban sistematis, rapi, dan persis kunci jawaban." },
+            { no: 14, nama: "Irsan Nauval Apriyanto", kelas: "7A", pg_salah: [3, 4, 9, 12, 16, 19, 20], pgk_salah: [24, 25, 27, 28, 30], uraian: [6, 6, 4, 5, 3], total: 65, catatan: "Penulisan latin akurat. No 35, jawaban istisqa tercampur sunnah Jumat." },
+            { no: 15, nama: "Kayla Cheryl Aulia", kelas: "7A", pg_salah: [7, 9, 10, 11, 17], pgk_salah: [24, 27, 30], uraian: [6, 5, 6, 6, 6], total: 80, catatan: "Sangat komprehensif. Lafal bahasa Arab rapi dan tepat." },
+            { no: 16, nama: "Khaira Salsabil Firdausi", kelas: "7A", pg_salah: [10, 11, 19, 20], pgk_salah: [25, 28, 30], uraian: [6, 5, 6, 6, 5], total: 81, catatan: "Esai diselesaikan dengan baik di halaman belakang dengan tulisan presisi." },
+            { no: 17, nama: "Mohamad Aditya Tri Ardana", kelas: "7A", pg_salah: [], pgk_salah: [], uraian: [6, 5, 5, 6, 3], total: 95, catatan: "Nilai PG & PGK Tertinggi (Benar Semua)! Sedikit pengurangan di uraian no 35." },
+            { no: 18, nama: "Muhammad Azel Fabrizio", kelas: "7A", pg_salah: [2, 3, 4, 5, 6, 7, 9, 12, 13, 14, 16, 17, 18, 19, 20], pgk_salah: [21, 22, 23, 24, 27, 28, 29, 30], uraian: [4, 3, 2, 1, 0], total: 26, catatan: "Menjawab pilihan ganda asal-asalan. Uraian melenceng (no 35 bahas sedekah bumi)." },
+            { no: 19, nama: "Muhammad Rafa El Habibi", kelas: "7A", pg_salah: [2, 7, 9, 12, 14, 15, 18, 19, 20], pgk_salah: [21, 22, 24, 25, 26, 28, 29, 30], uraian: [0, 0, 0, 0, 0], total: 28, catatan: "Lembar uraian dibiarkan kosong sama sekali tanpa coretan." },
+            { no: 20, nama: "Muhammad Rizki Saputra", kelas: "7A", pg_salah: [6, 8, 12, 14, 15, 17], pgk_salah: [27, 28, 29, 30], uraian: [4, 3, 2, 2, 1], total: 58, catatan: "Indikasi menyontek. Sama persis kata-per-kata dgn M. Zaqi Al Hafidz.", alert: true },
+            { no: 21, nama: "Muhammad Zaqi Al Hafidz", kelas: "7A", pg_salah: [6, 8, 11, 13, 17], pgk_salah: [25, 28, 30], uraian: [4, 4, 2, 2, 1], total: 64, catatan: "Indikasi menyontek. Sama persis kata-per-kata dgn M. Rizki Saputra.", alert: true },
+            { no: 22, nama: "Muhammat David Prass Hardian", kelas: "7A", pg_salah: [2, 5, 7, 9, 15, 17, 20], pgk_salah: [21, 23, 24, 25, 30], uraian: [6, 4, 2, 1, 0], total: 54, catatan: "No 34 keliru tulis dalil qashar. No 35 malah membahas tata cara Tayamum." },
+            { no: 23, nama: "Nauri Khoirotun Nisa'", kelas: "7A", pg_salah: [], pgk_salah: [], uraian: [6, 6, 5, 6, 6], total: 99, catatan: "Nilai Akhir Tertinggi (99)! Uraian berbobot, komprehensif, dan terstruktur." },
+            { no: 24, nama: "Nur Aida Faila Sufa Sugiyono", kelas: "7A", pg_salah: [12], pgk_salah: [], uraian: [6, 5, 5, 5, 6], total: 95, catatan: "Sangat teliti. Tulisan Arab ada sedikit coretan tip-x namun tetap terbaca akurat." },
+            { no: 25, nama: "Qaysila Bilqis", kelas: "7A", pg_salah: [1, 2, 5, 7, 8, 9, 10, 11, 14, 15, 18, 19], pgk_salah: [21, 25, 26, 28, 29, 30], uraian: [6, 3, 2, 0, 1], total: 40, catatan: "Pemahaman kurang. No 34 keliru mengutip ayat Al-Qur'an secara acak." },
+            { no: 26, nama: "Rifqi Ra'Iful Nabil", kelas: "7A", pg_salah: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], pgk_salah: [21,22,23,24,25,26,27,28,29,30], uraian: [6, 0, 2, 0, 0], total: 8, catatan: "Perlu bimbingan khusus. Merusak LJK PG/PGK dengan coretan zig-zag raksasa.", alert: true },
+            { no: 27, nama: "Sharena Rara Afriani", kelas: "7A", pg_salah: [3, 11, 15], pgk_salah: [21, 25, 29], uraian: [6, 6, 5, 6, 6], total: 84, catatan: "Jawaban terstruktur dengan sangat rapi dan dilanjutkan ke lembar belakang." },
+            { no: 28, nama: "Silvia Wahyu Aftriani", kelas: "7A", pg_salah: [11, 17, 19], pgk_salah: [22, 28, 30], uraian: [6, 6, 5, 6, 6], total: 84, catatan: "Penguasaan materi sangat mantap. Uraian dijelaskan secara sistematis." },
+            { no: 29, nama: "Sumber Denis Saputra", kelas: "7A", pg_salah: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], pgk_salah: [21,22,23,24,25,26,27,28,29,30], uraian: [5, 2, 3, 2, 1], total: 13, catatan: "Perlu Bimbingan. LJK dicoret zig-zag asal. Konsep pada esai terbalik-balik.", alert: true },
+            { no: 30, nama: "Vivi Sri Mulyani", kelas: "7A", pg_salah: [3, 4, 6, 7, 8, 9, 10, 11, 13, 15, 16, 17, 18, 19], pgk_salah: [25, 26, 27, 28, 29, 30], uraian: [6, 6, 5, 6, 5], total: 52, catatan: "Gagal total di PG, namun bagian uraian dikerjakan dengan cemerlang & akurat." },
+
+            // ================== KELAS 7B ==================
+            { no: 1, nama: "Achmad Fajar Tri Wijaya", kelas: "7B", pg_salah: [3, 4, 7, 9, 11, 12, 13, 14, 15, 16, 17, 18], pgk_salah: [24, 27, 28, 29], uraian: [3, 2, 2, 0, 2], total: 43, catatan: "Konsep kurang matang. No 34 keliru menulis dalil waktu shalat fardhu, bukan lafal niat." },
+            { no: 2, nama: "Adiansyah Putra", kelas: "7B", pg_salah: [1, 2, 5, 6, 9, 11, 13, 15, 16, 19], pgk_salah: [22, 24, 25, 28, 29], uraian: [4, 1, 2, 0, 1], total: 43, catatan: "Indikasi menyontek dengan Achmad Fajar di no 34 (menuliskan dalil yang sama persis salahnya).", alert: true },
+            { no: 3, nama: "Aina Aulia Ramadhani", kelas: "7B", pg_salah: [1, 3, 5, 6, 8, 9, 11, 12, 14, 16, 17, 18, 19], pgk_salah: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30], uraian: [0, 0, 0, 6, 0], total: 20, catatan: "Gagal paham instruksi uraian (kecuali no 34). Uraian 35 mengarang cerita. PGK salah semua." },
+            { no: 4, nama: "Aldiansyah Pratama", kelas: "7B", pg_salah: [2, 4, 6, 10, 11, 12, 14, 15, 18, 19, 20], pgk_salah: [21, 22, 24, 25, 27, 28, 29, 30], uraian: [0, 0, 1, 0, 0], total: 25, catatan: "Uraian no 35 bercanda (membahas es cendol). No 34 menyalin kesalahan yang sama dengan Achmad Fajar & Adiansyah." },
+            { no: 5, nama: "Diandra Rasty Velovy Arika", kelas: "7B", pg_salah: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], pgk_salah: [21,22,23,24,25,26,27,28,29,30], uraian: [6, 6, 6, 6, 6], total: 30, catatan: "Aneh/Kontradiktif. PG dan PGK dicoret asal (garis zig-zag), tapi Uraian dijawab dengan sangat sempurna." },
+            { no: 6, nama: "Eny Wahyu Ningsih", kelas: "7B", pg_salah: [3, 6, 8, 9, 11, 13, 19, 20], pgk_salah: [23, 24, 28, 29, 30], uraian: [6, 6, 6, 6, 6], total: 69, catatan: "Uraian dijawab dengan sangat baik, akurat, dan komprehensif." },
+            { no: 7, nama: "Fadilla Bilkis Premesti", kelas: "7B", pg_salah: [2, 6, 7, 9, 10, 11, 13, 15, 16, 17, 18, 20], pgk_salah: [22, 24, 25, 26, 28], uraian: [4, 4, 3, 0, 0], total: 42, catatan: "Uraian nomor 34 dan 35 sangat melenceng (menulis ayat puasa dan tayamum)." },
+            { no: 8, nama: "Faisal Dwi Santoso", kelas: "7B", pg_salah: [2, 3, 6, 7, 9, 10, 12, 13, 14, 15, 16, 17, 19, 20], pgk_salah: [21, 22, 23, 25, 27, 29, 30], uraian: [0, 0, 1, 1, 1], total: 24, catatan: "Pemahaman materi sangat rendah. Jawaban uraian salah konteks atau melenceng jauh." },
+            { no: 9, nama: "Faldzayrizka Alafiya Salsabila", kelas: "7B", pg_salah: [3, 6, 16, 19], pgk_salah: [24, 27, 28, 30], uraian: [6, 6, 6, 6, 6], total: 80, catatan: "Sangat cerdas dan teliti! Jawaban uraian sempurna dan komprehensif." },
+            { no: 10, nama: "Fia Aulia Amanda", kelas: "7B", pg_salah: [2, 3, 7, 9, 12, 14, 15, 16, 19, 20], pgk_salah: [22, 23, 24, 25, 28, 29, 30], uraian: [4, 0, 0, 1, 0], total: 34, catatan: "Curhat di lembar jawaban (No 32). Pemahaman konsep materi masih sangat kurang." },
+            { no: 11, nama: "Hasna Galuh Hanifah", kelas: "7B", pg_salah: [5, 6, 7, 8, 10, 11, 12, 14, 16, 17, 18, 19, 20], pgk_salah: [22, 23, 25, 26, 27, 28, 30], uraian: [1, 0, 0, 6, 0], total: 30, catatan: "Hanya hafal lafal niat (no 34 sempurna), sisanya menjawab asal atau salah konsep." },
+            { no: 12, nama: "Khirul Muhammad Izza", kelas: "7B", pg_salah: [3, 4, 9, 13, 15, 16, 17, 18, 20], pgk_salah: [22, 24, 28, 30], uraian: [5, 5, 3, 1, 2], total: 56, catatan: "No 34 keliru menuliskan dalil Al-Qur'an alih-alih niat. No 35 tertukar dengan sunnah Jumat." },
+            { no: 13, nama: "Mahirza Mujahidia", kelas: "7B", pg_salah: [2, 3, 4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 17, 18, 19, 20], pgk_salah: [21, 22, 27, 29, 30], uraian: [4, 2, 1, 0, 0], total: 30, catatan: "Indikasi menyontek berjamaah dgn Muhammad Afandi & Miftahul (jawaban uraian persis sama).", alert: true },
+            { no: 14, nama: "Maulida Zahwa Auliya", kelas: "7B", pg_salah: [1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19], pgk_salah: [21, 22, 23, 24, 25, 28, 29, 30], uraian: [2, 0, 2, 0, 1], total: 17, catatan: "Banyak menjawab asal pada PG/PGK. Jawaban uraian sangat tidak relevan dengan soal." },
+            { no: 15, nama: "Miftahul Nugraha Saputra", kelas: "7B", pg_salah: [8, 9, 11, 12, 17, 18, 19, 20], pgk_salah: [21, 22, 24, 26, 27, 28, 29, 30], uraian: [4, 2, 1, 2, 2], total: 41, catatan: "Indikasi menyontek berjamaah dgn Muhammad Afandi & Mahirza (kata per kata sama persis).", alert: true },
+            { no: 16, nama: "Muhammad Afandi Vernanda Nugroho", kelas: "7B", pg_salah: [11, 12, 13, 16, 17, 18, 20], pgk_salah: [22, 24, 27, 28, 29, 30], uraian: [4, 2, 1, 2, 2], total: 49, catatan: "Indikasi menyontek berjamaah dgn Mahirza & Miftahul (No 31 sama-sama jawab waria).", alert: true },
+            { no: 17, nama: "Muhammad Akya Putra", kelas: "7B", pg_salah: [1, 3, 5, 6, 8, 9, 10, 11, 15, 16, 20], pgk_salah: [22, 23, 25, 26, 28], uraian: [4, 4, 4, 5, 1], total: 59, catatan: "Niat shalat jamak cukup lengkap latinnya. No 35 salah konsep (sunnah Jumat)." },
+            { no: 18, nama: "Muhammad Dwi Maulana Ibrahim", kelas: "7B", pg_salah: [4, 5, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20], pgk_salah: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30], uraian: [5, 1, 4, 1, 2], total: 33, catatan: "Menyelesaikan pilihan ganda pola zig-zag. No 34 menyalin potongan ayat Al-Qur'an." },
+            { no: 19, nama: "Muhammad Latief Yudistyan Adam", kelas: "7B", pg_salah: [1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20], pgk_salah: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30], uraian: [0, 1, 0, 0, 0], total: 5, catatan: "Lembar uraian hampir kosong. Hanya menjawab satu nomor dengan kualitas sangat minim." },
+            { no: 20, nama: "Muhammad Ravael Ajril", kelas: "7B", pg_salah: [1, 3, 4, 5, 8, 9, 10, 12, 13, 14, 15, 16, 17, 19, 20], pgk_salah: [21, 22, 23, 25, 26, 28, 29, 30], uraian: [4, 3, 2, 2, 3], total: 44, catatan: "Terdapat kemiripan pola esai dengan M. Afandi, perlu bimbingan mandiri luring." },
+            { no: 21, nama: "Nadin Saptia Anjani", kelas: "7B", pg_salah: [1, 2, 3, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20], pgk_salah: [21, 22, 24, 25, 26, 27, 28, 29, 30], uraian: [6, 6, 6, 1, 1], total: 49, catatan: "Uraian halaman depan sangat baik, tapi halaman belakang (34-35) salah konsep." },
+            { no: 22, nama: "Niki Amarta", kelas: "7B", pg_salah: [3, 11, 17, 18, 19, 20], pgk_salah: [21, 22, 23, 24, 25, 27, 28, 29, 30], uraian: [4, 4, 3, 1, 2], total: 56, catatan: "No 34 keliru menuliskan dalil QS An-Nisa: 103, bukan niat jamak taqdim." },
+            { no: 23, nama: "Nur Alenta Putri Widiyanti", kelas: "7B", pg_salah: [1, 4, 6, 7, 12, 13, 15, 19], pgk_salah: [21, 23, 24, 28], uraian: [5, 4, 4, 5, 4], total: 68, catatan: "Performa cukup stabil pada semua bagian. Uraian dijelaskan sistematis." },
+            { no: 24, nama: "Nur Zulva Elisa Putri", kelas: "7B", pg_salah: [3, 4, 5, 6, 11, 12, 13, 15, 16, 17, 18, 19, 20], pgk_salah: [21, 22, 23, 25, 26, 27, 28, 30], uraian: [6, 4, 3, 1, 2], total: 50, catatan: "No 34 salah konsep. No 35 menjawab amalan sunnah shalat Jumat." },
+            { no: 25, nama: "Qurrota Aini Humaira", kelas: "7B", pg_salah: [2, 8, 10, 11, 12, 13, 17], pgk_salah: [21, 23, 24, 25, 30], uraian: [6, 6, 5, 0, 2], total: 59, catatan: "Uraian 31 & 32 sangat akurat. No 34 salah fatal, menulis dalil ayat shalat." },
+            { no: 26, nama: "Sekar Ammelia Putri", kelas: "7B", pg_salah: [1, 3, 5, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19], pgk_salah: [21, 22, 23, 24, 25, 26, 28, 29, 30], uraian: [6, 2, 3, 1, 2], total: 40, catatan: "No 32 menjawab syarat khutbah (bukan rukun). No 34 mengutip dalil rukhshah." },
+            { no: 27, nama: "Tia Amelia Putri", kelas: "7B", pg_salah: [2, 4, 8, 9, 10, 11, 12, 14, 15, 16, 18, 19, 20], pgk_salah: [21, 22, 23, 24, 25, 26, 28, 29, 30], uraian: [6, 2, 3, 2, 1], total: 40, catatan: "Indikasi menyontek dgn Sekar Ammelia di No 32. No 34 menulis niat terpisah.", alert: true },
+
+            // ================== KELAS 7C ==================
+            { no: 1, nama: "Ahmad Andika", kelas: "7C", pg_salah: [1, 2, 3, 7, 8, 9, 11, 12, 13, 14, 15, 17], pgk_salah: [23, 24, 25, 26, 29, 30], uraian: [6, 0, 1, 5, 0], total: 40, catatan: "Uraian sangat melenceng. No 32 & 33 dijawab asal. No 35 menjawab rukun shalat biasa." },
+            { no: 2, nama: "Ahmad Fahrizal Kusuma", kelas: "7C", pg_salah: [2, 6, 7, 10, 11, 12, 13, 14, 15, 17, 18], pgk_salah: [21, 22, 24, 26, 27, 28, 29, 30], uraian: [6, 0, 0, 0, 0], total: 30, catatan: "Banyak bagian dikosongkan. Lembar uraian banyak dicoret tip-x dan hanya diisi No 31." },
+            { no: 3, nama: "Akip Mansur Hanafi", kelas: "7C", pg_salah: [5, 9, 11, 12, 13, 14, 15, 16, 19], pgk_salah: [24, 25, 26, 27, 28, 29, 30], uraian: [4, 0, 0, 0, 0], total: 35, catatan: "Pemahaman sangat minim. Hanya mampu menjawab sebagian poin di No 31, sisanya dikosongkan." },
+            { no: 4, nama: "Alica Marwa Rahmaesta", kelas: "7C", pg_salah: [6, 8, 9, 11, 13, 15, 16], pgk_salah: [22, 24, 26, 28, 29], uraian: [6, 6, 4, 6, 1], total: 64, catatan: "Cukup teliti. Sayangnya No 35 salah konsep, malah menjawab sunnah shalat Jumat." },
+            { no: 5, nama: "Annisa Fitri Kurnia Raya", kelas: "7C", pg_salah: [1, 2, 4, 6, 9, 11, 12, 16, 17, 18, 20], pgk_salah: [21, 22, 25, 26, 27, 28, 29, 30], uraian: [6, 6, 5, 6, 6], total: 53, catatan: "PG dan PGK kurang maksimal, namun nilai sangat tertolong karena uraiannya sangat cemerlang." },
+            { no: 6, nama: "Aryo Bimo Tejo", kelas: "7C", pg_salah: [2, 3, 5, 7, 9, 11, 12, 14, 17, 18, 19, 20], pgk_salah: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30], uraian: [6, 0, 3, 0, 0], total: 25, catatan: "PGK salah semua. No 34 dan 35 dijawab sangat asal (mengarang bebas tentang pengajaran kalimat)." },
+            { no: 7, nama: "Asifa Putri Klarasati", kelas: "7C", pg_salah: [2, 4, 12, 13, 14, 15, 16], pgk_salah: [22, 24, 29], uraian: [6, 6, 6, 6, 6], total: 77, catatan: "Sangat baik! Siswa menggunakan tanda centang di LJK. Uraian dijawab dengan rapi dan sempurna." },
+            { no: 8, nama: "Bagas Fajar Putra", kelas: "7C", pg_salah: [1, 3, 5, 6, 7, 9, 11, 12, 13, 15, 18, 20], pgk_salah: [22, 23, 25, 26, 27, 28, 29, 30], uraian: [5, 1, 2, 0, 0], total: 30, catatan: "Pemahaman konsep lemah. No 32 menjawab adab jamaah, bukan rukun. No 34 menyalin potongan ayat yang salah." },
+            { no: 9, nama: "Barirotul Ainiyah", kelas: "7C", pg_salah: [2, 3, 5, 6, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18], pgk_salah: [21, 22, 23, 26, 27, 28, 29, 30], uraian: [4, 1, 3, 0, 4], total: 30, catatan: "Pemahaman materi lemah. No 34 keliru menyalin potongan ayat yang tidak relevan." },
+            { no: 10, nama: "Carissya Cahaya Ramadhani", kelas: "7C", pg_salah: [2, 12, 15], pgk_salah: [22, 24, 28], uraian: [6, 6, 6, 6, 5], total: 84, catatan: "Uraian dijawab dengan sangat baik, tulisan rapi, dan poin-poin sangat sesuai dengan kunci jawaban." },
+            { no: 11, nama: "Clarisa Diva Ariyani", kelas: "7C", pg_salah: [2, 12, 15], pgk_salah: [22, 24, 28], uraian: [6, 6, 6, 6, 4], total: 83, catatan: "Indikasi menyontek. Jawaban PGK dan Uraian nyaris sama persis kata-per-kata dengan Carissya.", alert: true },
+            { no: 12, nama: "Eka Nurul Hidayah", kelas: "7C", pg_salah: [1, 5, 9, 12, 18], pgk_salah: [21, 25], uraian: [6, 5, 5, 6, 5], total: 81, catatan: "Performa stabil and memuaskan. Memiliki kualitas esai yang baik." },
+            { no: 13, nama: "Fathra Nilatul Kamala", kelas: "7C", pg_salah: [2, 3, 9, 11, 13, 16, 17, 18], pgk_salah: [21, 22, 23, 27, 28, 29, 30], uraian: [6, 6, 6, 6, 6], total: 63, catatan: "Sempurna di Uraian! Esai dikerjakan dengan sangat cemerlang, rapi, teliti, dan lengkap sampai halaman belakang." },
+            { no: 14, nama: "Hengky Alfiyansyah", kelas: "7C", pg_salah: [9, 11, 12, 13, 15, 16], pgk_salah: [25, 26, 27, 28], uraian: [6, 5, 2, 6, 1], total: 60, catatan: "Cukup teliti di PG. Sayangnya Uraian No 33 terlalu singkat dan No 35 salah konteks (menjawab hikmah)." },
+            { no: 15, nama: "Ilyas Winaryo", kelas: "7C", pg_salah: [2, 9, 12, 13, 14, 16, 17, 18], pgk_salah: [21, 22, 23, 24, 25, 26], uraian: [5, 2, 1, 1, 0], total: 45, catatan: "Pemahaman materi esai lemah. No 32 kurang rukun utama. No 34 keliru menyalin dalil qashar, bukan lafal niat." },
+            { no: 16, nama: "Kevin Adhanun Nizam", kelas: "7C", pg_salah: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], pgk_salah: [21,22,23,24,25,26,27,28,29,30], uraian: [6, 1, 1, 1, 0], total: 9, catatan: "Perlu Tindakan. LJK PG & PGK dirusak dengan coretan zig-zag raksasa. Uraian dijawab asal-asalan.", alert: true },
+            { no: 17, nama: "Lydia Shafa Lutfiani", kelas: "7C", pg_salah: [9, 11, 13, 15, 17], pgk_salah: [25, 28, 29], uraian: [6, 6, 6, 6, 6], total: 81, catatan: "Sempurna di Uraian! Sangat teliti, akurat, komprehensif, dan tulisan tangan bahasa Arab maupun Latin sangat rapi." },
+            { no: 18, nama: "Mahesa Beram Alfaro", kelas: "7C", pg_salah: [5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20], pgk_salah: [21, 22, 24, 25, 26, 27, 28, 29, 30], uraian: [3, 1, 2, 1, 0], total: 20, catatan: "Pemahaman konsep sangat lemah. No 32 menjawab adab jamaah. No 34 & 35 mengutip potongan ayat secara acak." },
+            { no: 19, nama: "Muhamad Faizul Azzam", kelas: "7C", pg_salah: [4, 9, 10, 20], pgk_salah: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30], uraian: [5, 4, 5, 2, 5], total: 83, catatan: "Uraian dikerjakan dengan sangat baik. PGK salah semua (kemungkinan tidak paham instruksi memilih dua opsi)." },
+            { no: 20, nama: "Muhamad Ikhwan Hakimul Karim", kelas: "7C", pg_salah: [1, 2, 8, 9, 11, 13, 15, 16, 20], pgk_salah: [21, 22, 23, 24, 25, 26, 28], uraian: [3, 0, 2, 0, 1], total: 34, catatan: "Banyak miskonsepsi. No 32 menjawab isi khutbah, bukan rukun. No 34 keliru menulis hadis shalat." },
+            { no: 21, nama: "Muhamad Ravaell Rahmadani", kelas: "7C", pg_salah: [2, 3, 8, 10, 11, 14, 15, 16, 17, 18, 19, 20], pgk_salah: [21, 22, 23, 24, 28, 29, 30], uraian: [0, 0, 0, 1, 1], total: 18, catatan: "Pemahaman konsep sangat lemah, sebagian besar uraian diisi salah atau kosong." },
+            { no: 22, nama: "Muhammad Agung Pratama", kelas: "7C", pg_salah: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], pgk_salah: [21,22,23,24,25,26,27,28,29,30], uraian: [0, 0, 0, 0, 0], total: 0, catatan: "Perlu Tindakan. LJK PG & PGK dirusak dengan coretan zig-zag. Uraian dibiarkan kosong.", alert: true },
+            { no: 23, nama: "Nadhin Aulia Rizkiana", kelas: "7C", pg_salah: [6, 8, 17, 18], pgk_salah: [22, 28, 29, 30], uraian: [6, 6, 6, 6, 6], total: 85, catatan: "Sangat Cemerlang! Uraian dijawab dengan sangat rapi, akurat, dan komprehensif hingga ke halaman belakang." },
+            { no: 24, nama: "Nadin Naela Sari", kelas: "7C", pg_salah: [2, 5, 12, 13, 14, 15], pgk_salah: [21, 23, 24, 28, 30], uraian: [6, 1, 4, 1, 1], total: 61, catatan: "Tertukar konsep. No 32 menjawab adab jamaah, bukan rukun khutbah. No 34 mengutip ayat qashar." },
+            { no: 25, nama: "Shinta Amelia Pramesti", kelas: "7C", pg_salah: [1, 2, 7, 12, 15, 18], pgk_salah: [21, 25, 29, 30], uraian: [5, 4, 3, 4, 3], total: 61, catatan: "Materi dikuasai cukup baik. Uraian dijawab dengan runtut." },
+            { no: 26, nama: "Tabriz Briona Iftinan Najwa", kelas: "7C", pg_salah: [2, 6, 11, 14, 19], pgk_salah: [22, 28, 30], uraian: [6, 5, 5, 6, 5], total: 74, catatan: "Stabilitas nilai baik. Penulisan lafal niat (34) latin sangat lancar dan tepat." },
+            { no: 27, nama: "Tiara Yuningtyas", kelas: "7C", pg_salah: [1, 4, 8, 12, 15, 16], pgk_salah: [24, 27, 28], uraian: [5, 5, 4, 5, 4], total: 69, catatan: "Kemampuan analisis berada di rentang rata-rata baik kelas." },
+            { no: 28, nama: "Yuliana Indah Ayu Dewi Afidta", kelas: "7C", pg_salah: [2, 7, 12, 15, 19], pgk_salah: [21, 25], uraian: [6, 6, 5, 6, 5], total: 82, catatan: "Tingkat pemahaman materi sangat tinggi, pengerjaan LJK tertata sangat rapi." },
+
+            // ================== KELAS 7D ==================
+            { no: 1, nama: "Aditya Rizqi", kelas: "7D", pg_salah: [3, 4, 6, 7, 9, 10, 13, 15, 18, 20], pgk_salah: [22, 23, 24, 25, 28, 29, 30], uraian: [4, 4, 1, 0, 0], total: 38, catatan: "Mengisi esai dengan sangat asal dan singkat. No 33 hanya menulis nama shalat, No 34 & 35 mengarang bebas." },
+            { no: 2, nama: "Ahmad Farhan Lutfiyanto", kelas: "7D", pg_salah: [1, 2, 3, 20], pgk_salah: [21, 28, 30], uraian: [5, 4, 4, 0, 2], total: 68, catatan: "PGK cukup teliti. Bagian esai tidak hafal niat sama sekali, No 34 malah menulis nama-nama shalat sunnah secara acak." },
+            { no: 3, nama: "Ahmad Joko Widodo", kelas: "7D", pg_salah: [2, 4, 9, 12, 15, 18], pgk_salah: [22, 26, 29], uraian: [5, 4, 4, 5, 4], total: 68, catatan: "Pemahaman materi cukup stabil di semua aspek asesmen." },
+            { no: 4, nama: "Ahmad Rizal Saputro", kelas: "7D", pg_salah: [1, 2, 5, 8, 9, 10, 11, 13, 17, 20], pgk_salah: [21, 23, 27, 28, 30], uraian: [0, 1, 1, 0, 1], total: 38, catatan: "Esai dikerjakan asal, No 31-33 hanya menjawab satu kata. No 34 kosong." },
+            { no: 5, nama: "Ahmad Rizki Aditya", kelas: "7D", pg_salah: [8, 20], pgk_salah: [21, 22, 23, 24, 25, 27, 28, 29, 30], uraian: [3, 1, 2, 0, 1], total: 46, catatan: "Mengisi PG & PGK dengan pola zig-zag teratur. Uraian dikerjakan asal-alasan dengan kalimat curhat." },
+            { no: 6, nama: "Akifah Naila", kelas: "7D", pg_salah: [3, 4, 5, 6, 7, 12, 20], pgk_salah: [21, 22, 26, 27, 28], uraian: [6, 6, 4, 6, 6], total: 85, catatan: "Sangat Baik! Penguasaan materi esai luar biasa, seluruh lafal bahasa Arab ditulis dua kali." },
+            { no: 7, nama: "Chantika Dwi Marwah", kelas: "7D", pg_salah: [5, 6, 7, 8, 12, 15, 16, 19, 20], pgk_salah: [21, 23, 29, 30], uraian: [5, 6, 5, 5, 1], total: 62, catatan: "Uraian di lembar depan coretannya dihapus tidak bersih, namun pengerjaan No 34 di lembar belakang sangat baik." },
+            { no: 8, nama: "Deni Paryanto", kelas: "7D", pg_salah: [8, 9, 11, 12, 13, 17, 19, 20], pgk_salah: [22, 23, 30], uraian: [6, 0, 2, 1, 2], total: 56, catatan: "Bagian pilihan ganda diisi dengan pola jaring-jaring/silang bersambung. Esai no 32 salah konteks." },
+            { no: 9, nama: "Dyana Shofia Kusuma", kelas: "7D", pg_salah: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], pgk_salah: [21,22,23,24,25,26,27,28,29,30], uraian: [6, 5, 5, 1, 4], total: 21, catatan: "Perlu Tindakan. LJK PG & PGK dirusak total dengan pola coretan jaring-jaring berurutan. Uraian bagian depan sangat rapi.", alert: true },
+            { no: 10, nama: "Elsa Novi Anggraini", kelas: "7D", pg_salah: [5, 10, 16, 18, 20], pgk_salah: [22, 24, 25, 28, 30], uraian: [6, 6, 4, 6, 5], total: 81, catatan: "Penguasaan materi esai sangat baik. Penulisan lafal Arab rapi. No 35 kurang menjabarkan poin amalan sunnah." },
+            { no: 11, nama: "Emmy Sherene Aquila Afra", kelas: "7D", pg_salah: [10], pgk_salah: [24, 25, 26], uraian: [4, 4, 3, 1, 2], total: 73, catatan: "Banyak salah konsep di esai. No 32 & 34 tertukar dengan niat jamak taqdim shalat fardhu." },
+            { no: 12, nama: "Fadhilah Zafa Dwi Maharani", kelas: "7D", pg_salah: [16, 19, 20], pgk_salah: [22, 24, 27, 30], uraian: [6, 6, 5, 6, 5], total: 81, catatan: "Sangat Baik! Penguasaan materi PG/PGK dan esai sangat matang. Tulisan terstruktur dengan baik." },
+            { no: 13, nama: "Fiqri Tauwil Riadho", kelas: "7D", pg_salah: [2, 6, 11, 14, 18], pgk_salah: [21, 25, 29], uraian: [5, 4, 4, 5, 4], total: 63, catatan: "Analisis stabil di rentang kelulusan standar asesmen Fikih." },
+            { no: 14, nama: "Muhamad Abdullah Fandy S.", kelas: "7D", pg_salah: [1, 8, 9, 10, 11, 13, 15, 16, 19, 20], pgk_salah: [22, 23, 26, 28, 29, 30], uraian: [4, 2, 2, 1, 1], total: 44, catatan: "Banyak miskonsepsi. No 31 salah konsep dasar baligh. No 34 keliru menuliskan potongan lafal." },
+            { no: 15, nama: "Muhammad Agil Ridwan", kelas: "7D", pg_salah: [2, 6, 9, 11, 12, 13, 18, 20], pgk_salah: [21, 23, 28], uraian: [2, 4, 1, 0, 1], total: 51, catatan: "Esai dijawab sangat pendek. No 31 hanya menulis satu poin. No 34 salah karena hanya menulis kata 'sunnan'." },
+            { no: 16, nama: "Muhammad Revan Abdullah", kelas: "7D", pg_salah: [2, 6, 17, 18, 19, 20], pgk_salah: [22, 25, 29], uraian: [1, 2, 1, 1, 1], total: 55, catatan: "Esai dijawab seadanya. No 31 hanya menuliskan kata 'musafir'. No 34 & 35 hanya menulis satu kata." },
+            { no: 17, nama: "Nabila Mirabel Athalia", kelas: "7D", pg_salah: [5, 11, 16, 18, 20], pgk_salah: [21, 24, 26, 27, 29], uraian: [6, 6, 5, 6, 6], total: 84, catatan: "Sangat Cemerlang! Hanya keliru sedikit di bagian PG/PGK. Seluruh soal uraian dijawab dengan sangat lengkap." },
+            { no: 18, nama: "Natalia Mustika Sari", kelas: "7D", pg_salah: [1, 2, 3, 4, 7, 8, 12, 13, 15, 16], pgk_salah: [21, 22, 23, 25, 26, 27], uraian: [5, 5, 4, 6, 5], total: 63, catatan: "Stabilitas nilai baik, penulisan latin niat jamak taqdim cukup lancar." },
+            { no: 19, nama: "Raditya Naufal Dani Abiyyu", kelas: "7D", pg_salah: [9, 20], pgk_salah: [21, 22, 26, 27, 28, 29, 30], uraian: [1, 1, 1, 1, 0], total: 49, catatan: "Hasil esai sangat minim dan salah kaprah. No 34 hanya menulis kata 'sholat subuh'." },
+            { no: 20, nama: "Reisa Aulia Febrianti", kelas: "7D", pg_salah: [5, 12, 19, 20], pgk_salah: [], uraian: [6, 6, 5, 6, 6], total: 91, catatan: "Sangat Baik! Penguasaan materi esai luar biasa, seluruh lafal Arab ditulis dengan sangat presisi di halaman belakang." },
+            { no: 21, nama: "Seftiani Putri Wijaya", kelas: "7D", pg_salah: [8, 9, 10, 12, 15, 17, 19, 20], pgk_salah: [24, 27, 28, 30], uraian: [6, 6, 4, 6, 6], total: 70, catatan: "Indikasi Menyontek. Hasil jawaban PGK dan seluruh pengerjaan esai di halaman belakang sama persis kata-per-kata dengan Selfi.", alert: true },
+            { no: 22, nama: "Saskya Zahra Putri", kelas: "7D", pg_salah: [2, 5, 8, 9, 10, 19, 20], pgk_salah: [21, 25, 29], uraian: [6, 6, 5, 6, 6], total: 76, catatan: "Sangat Baik! Meskipun perolehan nilai PG/PGK kurang maksimal, bagian uraian dijawab dengan sangat lengkap." },
+            { no: 23, nama: "Satria Nafis Ahmad Hanif", kelas: "7D", pg_salah: [2, 8, 10, 11, 12, 13, 17], pgk_salah: [21, 23, 24, 25, 30], uraian: [4, 4, 4, 5, 1], total: 59, catatan: "Latin niat jamak cukup baik walau ada typo. No 35 salah konteks (menjawab persiapan shalat Jumat)." },
+            { no: 24, nama: "Selfi Karnia Sari", kelas: "7D", pg_salah: [6, 8, 9, 10, 12, 15, 17, 19, 20], pgk_salah: [24, 27, 28, 30], uraian: [6, 6, 4, 6, 6], total: 68, catatan: "Sangat Baik! Penguasaan materi esai luar biasa. Seluruh lafal Arab dan rincian sunnah ditulis dengan presisi." },
+            { no: 25, nama: "Sidqia Azzahra", kelas: "7D", pg_salah: [10], pgk_salah: [24, 27, 28, 30], uraian: [6, 6, 4, 6, 6], total: 84, catatan: "Indikasi Menyontek. Jawaban esai sama persis dengan Selfi Karnia dan Septiyani Putri.", alert: true },
+            { no: 26, nama: "Ulil Albab", kelas: "7D", pg_salah: [2, 6, 12, 15, 19], pgk_salah: [22, 28], uraian: [5, 4, 4, 5, 4], total: 68, catatan: "Nilai sangat merata di semua bagian asesmen, penguasaan esai tertata rapi." },
+            { no: 27, nama: "Wahyu Andra Saputra", kelas: "7D", pg_salah: [8, 9, 16, 20], pgk_salah: [21, 22, 23, 24, 27, 28, 30], uraian: [4, 2, 2, 0, 2], total: 61, catatan: "Mengisi PG & PGK dengan pola jaring-jaring/silang bersambung. Esai no 32 salah konteks." },
+            { no: 28, nama: "Yulfa Fifi Ardiana", kelas: "7D", pg_salah: [2, 7, 8, 9, 11, 12, 13, 17, 18, 19, 20], pgk_salah: [21, 22, 23, 24, 25, 26, 29, 30], uraian: [6, 5, 4, 6, 5], total: 50, catatan: "Uraian dijawab dengan sangat baik di halaman depan. Penulisan lafal Arab (34) tepat." }
+        ];
+
+        // Autentikasi terlebih dahulu
+        const initAuth = async () => {
+            try {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            } catch (err) {
+                console.error("Firebase auth error:", err);
+                showToast("Gagal menyambungkan ke sistem keamanan database.");
+            }
+        };
+
+        // Daftarkan session listener
+        onAuthStateChanged(auth, (u) => {
+            user = u;
+            if (u) {
+                console.log("Database authentication active: session UID", u.uid);
+                subscribeToStudents();
+            }
+        });
+
+        // Seed data jika database masih benar-benar kosong
+        async function seedDatabase() {
+            const batch = writeBatch(db);
+            initialStudentsSeedList.forEach(student => {
+                // Gunakan kombinasi ID unik agar tidak ada duplikasi
+                const docId = `${student.kelas}_${student.no}`;
+                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'students', docId);
+                batch.set(docRef, student);
+            });
+            try {
+                await batch.commit();
+                console.log("Database populated successfully!");
+            } catch (error) {
+                console.error("Error seeding database:", error);
+            }
+        }
+
+        // Jalankan listener Firestore real-time
+        let unsubscribeStudents = null;
+        function subscribeToStudents() {
+            if (!user) return;
+            showTableLoading();
+            const studentsCollectionRef = collection(db, 'artifacts', appId, 'public', 'data', 'students');
+            
+            unsubscribeStudents = onSnapshot(studentsCollectionRef, (snapshot) => {
+                if (snapshot.empty) {
+                    console.log("Firestore empty. Seeding defaults...");
+                    seedDatabase();
+                    return;
+                }
+                
+                const students = [];
+                snapshot.forEach(doc => {
+                    students.push({
+                        docId: doc.id,
+                        ...doc.data()
+                    });
+                });
+                
+                // Urutkan siswa berdasarkan nomor absen agar rapi
+                students.sort((a, b) => a.no - b.no);
+                localStudentData = students;
+                
+                // Render ulang statistik & tabel kelas
+                updateStats();
+                renderTable();
+            }, (error) => {
+                console.error("Firestore loading error:", error);
+                showToast("Gagal memuat rekap database.");
+            });
+        }
+
+        // Tampilkan placeholder loading tabel
+        function showTableLoading() {
+            const tableBody = document.getElementById("studentTableBody");
+            tableBody.innerHTML = `
+                <tr>
+                    <td colspan="39" class="py-16 text-center text-slate-500 bg-white">
+                        <div class="flex flex-col items-center justify-center space-y-3">
+                            <div class="w-10 h-10 border-4 border-teal-500 border-t-transparent rounded-full animate-spin"></div>
+                            <p class="text-sm font-bold text-slate-600">Menghubungkan ke Database Real-time...</p>
+                        </div>
+                    </td>
+                </tr>
+            `;
+        }
+
+        // Fungsi kontrol UI
         function switchClass() {
             currentClass = document.getElementById("classSelector").value;
             document.getElementById("tableClassLabel").innerText = currentClass;
@@ -1092,7 +824,10 @@
         function resetActiveTabs() {
             const tabs = ["filterAll", "filterPassed", "filterRemedial", "filterAlert"];
             tabs.forEach(tabId => {
-                document.getElementById(tabId).className = "filter-tab px-4 py-2.5 rounded-2xl text-xs font-bold transition-all bg-white text-slate-600 border border-slate-200/60 hover:bg-slate-50";
+                const element = document.getElementById(tabId);
+                if (element) {
+                    element.className = "filter-tab px-4 py-2.5 rounded-2xl text-xs font-bold transition-all bg-white text-slate-600 border border-slate-200/60 hover:bg-slate-50";
+                }
             });
         }
 
@@ -1106,18 +841,38 @@
                 'REMEDIAL': 'filterRemedial',
                 'ALERT': 'filterAlert'
             };
-            document.getElementById(btnMap[status]).className = "filter-tab px-4 py-2.5 rounded-2xl text-xs font-bold transition-all bg-teal-600 text-white shadow-sm shadow-teal-900/10";
+            const activeBtn = document.getElementById(btnMap[status]);
+            if (activeBtn) {
+                activeBtn.className = "filter-tab px-4 py-2.5 rounded-2xl text-xs font-bold transition-all bg-teal-600 text-white shadow-sm shadow-teal-900/10";
+            }
             renderTable();
         }
 
+        // Hitung skor total dinamis
+        function recalculateStudentTotal(student) {
+            const pgCorrectCount = 20 - student.pg_salah.length;
+            const pgScore = pgCorrectCount * 2;
+
+            const pgkCorrectCount = 10 - student.pgk_salah.length;
+            const pgkScore = pgkCorrectCount * 3;
+
+            const essayScore = student.uraian.reduce((sum, score) => sum + score, 0);
+
+            return pgScore + pgkScore + essayScore;
+        }
+
         function updateStats() {
-            const classStudents = studentData.filter(s => s.kelas === currentClass);
+            const classStudents = localStudentData.filter(s => s.kelas === currentClass);
             
             if (classStudents.length === 0) return;
 
+            classStudents.forEach(s => {
+                s.total = recalculateStudentTotal(s);
+            });
+
             const allCount = classStudents.length;
-            const passedCount = classStudents.filter(s => s.total >= 60).length;
-            const remedialCount = classStudents.filter(s => s.total < 60).length;
+            const passedCount = classStudents.filter(s => s.total >= 75).length;
+            const remedialCount = classStudents.filter(s => s.total < 75).length;
             const alertCount = classStudents.filter(s => s.alert).length;
 
             document.getElementById("countAll").innerText = allCount;
@@ -1141,12 +896,16 @@
             const tableBody = document.getElementById("studentTableBody");
             tableBody.innerHTML = "";
 
-            let filteredStudents = studentData.filter(s => s.kelas === currentClass);
+            let filteredStudents = localStudentData.filter(s => s.kelas === currentClass);
+
+            filteredStudents.forEach(s => {
+                s.total = recalculateStudentTotal(s);
+            });
 
             if (currentStatusFilter === "PASSED") {
-                filteredStudents = filteredStudents.filter(s => s.total >= 60);
+                filteredStudents = filteredStudents.filter(s => s.total >= 75);
             } else if (currentStatusFilter === "REMEDIAL") {
-                filteredStudents = filteredStudents.filter(s => s.total < 60);
+                filteredStudents = filteredStudents.filter(s => s.total < 75);
             } else if (currentStatusFilter === "ALERT") {
                 filteredStudents = filteredStudents.filter(s => s.alert);
             }
@@ -1164,14 +923,15 @@
 
             filteredStudents.forEach((student, index) => {
                 const tr = document.createElement("tr");
-                tr.className = "hover:bg-teal-50/20 transition-colors duration-150 cursor-pointer select-none";
+                tr.className = "hover:bg-teal-50/20 transition-colors duration-150 cursor-pointer select-none border-b border-slate-100";
                 tr.onclick = function() { showStudentDiagnostics(student); };
 
                 let rowHtml = `
-                    <td class="px-4 py-3.5 text-center text-xs font-bold text-slate-400 border-r border-slate-100">${index + 1}</td>
-                    <td class="px-6 py-3.5 font-semibold text-slate-800 flex items-center space-x-2">
+                    <td class="px-4 py-3.5 text-center text-xs font-bold text-slate-400 border-r border-slate-100 bg-white sticky left-0 z-10">${index + 1}</td>
+                    <td class="px-6 py-3.5 font-semibold text-slate-800 flex items-center space-x-2 bg-white sticky left-[52px] z-10 border-r border-slate-100">
                         <span class="font-heading text-sm">${student.nama}</span>
                         ${student.alert ? '<span class="bg-amber-400 text-teal-950 text-[9px] px-2 py-0.5 rounded-full font-bold shadow-xs"><i class="fa-solid fa-triangle-exclamation mr-0.5"></i>INDIKASI</span>' : ''}
+                        ${student.remedial_done ? '<span class="bg-emerald-500 text-white text-[9px] px-2 py-0.5 rounded-full font-bold shadow-xs"><i class="fa-solid fa-square-check mr-0.5"></i>REMEDIAL OK</span>' : ''}
                     </td>
                     <td class="px-4 py-3.5 text-center font-medium text-slate-500 border-r border-slate-100">${student.kelas}</td>
                 `;
@@ -1194,17 +954,14 @@
 
                 // Render Uraian Scores (31-35)
                 student.uraian.forEach((score, uIdx) => {
-                    const qNum = 31 + uIdx;
                     rowHtml += `<td class="px-1 py-3.5 text-center font-bold text-xs bg-amber-50/15 text-amber-800 border-r border-slate-50">
                         ${score}
                     </td>`;
                 });
 
                 let badgeClass = "bg-teal-600 text-white";
-                if (student.total < 60) {
+                if (student.total < 75) {
                     badgeClass = "bg-rose-500 text-white";
-                } else if (student.total < 75) {
-                    badgeClass = "bg-amber-500 text-white";
                 }
 
                 rowHtml += `
@@ -1213,7 +970,7 @@
                             ${student.total}
                         </span>
                     </td>
-                    <td class="px-6 py-3.5 text-xs font-medium text-slate-500 max-w-[320px] overflow-hidden text-ellipsis whitespace-nowrap">
+                    <td class="px-6 py-3.5 text-xs font-medium text-slate-500 max-w-[280px] overflow-hidden text-ellipsis whitespace-nowrap" title="${student.catatan}">
                         ${student.catatan}
                     </td>
                 `;
@@ -1228,6 +985,16 @@
         }
 
         function showStudentDiagnostics(student) {
+            selectedStudentForRemedial = student;
+            temporaryRemedialAnswers = {
+                pg_salah: [...student.pg_salah],
+                pgk_salah: [...student.pgk_salah],
+                uraian: [...student.uraian]
+            };
+
+            document.getElementById("remedialFormSection").classList.add("hidden");
+            document.getElementById("btnSaveRemedial").classList.add("hidden");
+
             document.getElementById("modalStudentName").innerText = student.nama;
             document.getElementById("modalStudentClass").innerText = `Kelas VII - ${student.kelas}`;
             
@@ -1238,34 +1005,41 @@
             document.getElementById("modalPgScore").innerText = `${pgCorrect}/20`;
             document.getElementById("modalPgkScore").innerText = `${pgkCorrect}/10`;
             document.getElementById("modalUraianScore").innerText = `${totalUraian}/30`;
+            
+            student.total = recalculateStudentTotal(student);
             document.getElementById("modalFinalScore").innerText = student.total;
 
             const scoreBox = document.getElementById("modalFinalScoreBadge");
             const finalScoreText = document.getElementById("modalFinalScore");
-            if (student.total < 60) {
+            const rtlCard = document.getElementById("modalRtlCard");
+            const rtlTitle = document.getElementById("modalRtlTitle");
+            const btnRemedialContainer = document.getElementById("remedialButtonContainer");
+
+            if (student.total < 75) {
                 scoreBox.className = "flex items-center justify-between p-4 rounded-xl bg-rose-50 border border-rose-100";
                 finalScoreText.className = "text-3xl font-black text-rose-600";
-            } else if (student.total < 75) {
-                scoreBox.className = "flex items-center justify-between p-4 rounded-xl bg-amber-50 border border-amber-100";
-                finalScoreText.className = "text-3xl font-black text-amber-600";
+                
+                rtlCard.className = "bg-rose-50/50 rounded-2xl p-5 border border-rose-100";
+                rtlTitle.className = "text-[10px] font-bold text-rose-700 uppercase tracking-widest mb-2 flex items-center gap-1";
+                rtlTitle.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> BELUM MEMENUHI KKTP (75)`;
+                
+                document.getElementById("modalDiagnosticNotes").innerText = "Siswa ini berada di bawah batas minimum kelayakan kompetensi (75). Silakan mulailah evaluasi remedial dengan mengklik tombol di bawah.";
+                btnRemedialContainer.classList.remove("hidden");
             } else {
                 scoreBox.className = "flex items-center justify-between p-4 rounded-xl bg-teal-50 border border-teal-100";
                 finalScoreText.className = "text-3xl font-black text-teal-700";
+                
+                rtlCard.className = "bg-teal-50/50 rounded-2xl p-5 border border-teal-100";
+                rtlTitle.className = "text-[10px] font-bold text-teal-700 uppercase tracking-widest mb-2 flex items-center gap-1";
+                rtlTitle.innerHTML = `<i class="fa-solid fa-circle-check"></i> KAMU SUDAH MEMENUHI KKTP`;
+                
+                document.getElementById("modalDiagnosticNotes").innerText = "Selamat! Peserta didik telah berhasil tuntas melampaui batas standar minimum KKTP kelas 7. Berikan pengayaan materi mandiri.";
+                btnRemedialContainer.classList.add("hidden");
             }
 
             setDiagnosticRow("diagJamak", student.uraian[3], 6, "Lafal Niat Jamak & Qashar");
             setDiagnosticRow("diagKhutbah", student.uraian[1], 6, "Penyebutan Rukun Khutbah");
             setDiagnosticRow("diagIstisqa", student.uraian[4], 6, "Persiapan Sunnah Istisqa");
-
-            let planText = student.catatan;
-            if (student.total < 60) {
-                planText += " Peserta didik memerlukan bimbingan khusus (remedial) secara luring. Prioritas bimbingan diarahkan pada rekonstruksi pemahaman syarat-rukun ibadah serta pengulangan pelafalan niat.";
-            } else if (student.total >= 85) {
-                planText += " Rekomendasi program pengayaan (enrichment) berupa peran sebagai tutor sebaya (peer-tutor) bagi rekan sekelas yang memerlukan remedial.";
-            } else {
-                planText += " Penguatan mandiri melalui pengerjaan uji kompetensi tambahan guna memperkokoh pemahaman pada bab yang belum optimal.";
-            }
-            document.getElementById("modalDiagnosticNotes").innerText = planText;
 
             const modal = document.getElementById("diagnosticModal");
             modal.classList.remove("hidden");
@@ -1293,6 +1067,213 @@
             element.innerHTML = `<span class="${colorClass} font-bold">${score}/${maxScore} (${percentage}%)</span> — <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">${remark}</span>`;
         }
 
+        function startRemedial() {
+            const student = selectedStudentForRemedial;
+            if (!student) return;
+
+            document.getElementById("remedialFormSection").classList.remove("hidden");
+            document.getElementById("btnSaveRemedial").classList.remove("hidden");
+
+            const container = document.getElementById("remedialQuestionsContainer");
+            container.innerHTML = "";
+
+            let questionsToSolve = [];
+
+            student.pg_salah.forEach(qId => {
+                if (examQuestions[qId]) questionsToSolve.push(examQuestions[qId]);
+            });
+
+            student.pgk_salah.forEach(qId => {
+                if (examQuestions[qId]) questionsToSolve.push(examQuestions[qId]);
+            });
+
+            student.uraian.forEach((score, index) => {
+                const qId = 31 + index;
+                if (score < 6 && examQuestions[qId]) {
+                    questionsToSolve.push(examQuestions[qId]);
+                }
+            });
+
+            if (questionsToSolve.length === 0) {
+                container.innerHTML = `<p class="text-xs text-slate-500 italic text-center py-4">Semua butir soal telah diperbaiki secara maksimal.</p>`;
+                return;
+            }
+
+            questionsToSolve.forEach(q => {
+                const qCard = document.createElement("div");
+                qCard.className = "bg-white rounded-2xl p-5 border border-slate-200/80 space-y-4 shadow-xs text-left";
+
+                let qHeader = "";
+                if (q.type === "PG") {
+                    qHeader = `<div class="flex justify-between items-center"><span class="text-xs font-extrabold text-slate-400">SOAL NO. ${q.id}</span> <span class="px-2 py-0.5 rounded bg-teal-50 text-teal-700 text-[10px] font-bold uppercase">Pilihan Ganda</span></div>`;
+                } else if (q.type === "PGK") {
+                    qHeader = `<div class="flex justify-between items-center"><span class="text-xs font-extrabold text-slate-400">SOAL NO. ${q.id}</span> <span class="px-2 py-0.5 rounded bg-blue-50 text-blue-700 text-[10px] font-bold uppercase">PG Kompleks (Pilih 2)</span></div>`;
+                } else {
+                    qHeader = `<div class="flex justify-between items-center"><span class="text-xs font-extrabold text-slate-400">SOAL NO. ${q.id}</span> <span class="px-2 py-0.5 rounded bg-amber-50 text-amber-700 text-[10px] font-bold uppercase">Esai Uraian</span></div>`;
+                }
+
+                let qBody = `<p class="text-sm text-slate-800 font-semibold leading-relaxed">${q.text}</p>`;
+
+                if (q.type === "PG") {
+                    qBody += `<div class="grid grid-cols-1 gap-2 mt-3">`;
+                    Object.keys(q.opts).forEach(letter => {
+                        qBody += `
+                            <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50 cursor-pointer text-xs font-semibold text-slate-600 transition-colors">
+                                <input type="radio" name="remedial_q_${q.id}" value="${letter}" onchange="checkRadioRemedial(${q.id}, '${letter}')" class="w-4 h-4 text-teal-600 border-slate-300 focus:ring-teal-500">
+                                <span><strong class="text-slate-800">${letter}.</strong> ${q.opts[letter]}</span>
+                            </label>
+                        `;
+                    });
+                    qBody += `</div>`;
+                } else if (q.type === "PGK") {
+                    qBody += `<div class="grid grid-cols-1 gap-2 mt-3">`;
+                    Object.keys(q.opts).forEach(letter => {
+                        qBody += `
+                            <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-100 hover:bg-slate-50 cursor-pointer text-xs font-semibold text-slate-600 transition-colors">
+                                <input type="checkbox" name="remedial_q_${q.id}" value="${letter}" onchange="checkCheckboxRemedial(${q.id})" class="w-4 h-4 text-teal-600 border-slate-300 rounded focus:ring-teal-500">
+                                <span><strong class="text-slate-800">${letter}.</strong> ${q.opts[letter]}</span>
+                            </label>
+                        `;
+                    });
+                    qBody += `</div>`;
+                } else {
+                    const currentScore = student.uraian[q.id - 31];
+                    qBody += `
+                        <div class="mt-4 space-y-3">
+                            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-150">
+                                <span class="text-[10px] font-bold text-slate-400 block uppercase mb-1">Rujukan Jawaban Benar Ideal:</span>
+                                <p class="text-xs text-slate-600 font-medium leading-relaxed">${q.model}</p>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-1">Tulis Perbaikan Jawaban Murid:</label>
+                                <textarea id="remedial_textarea_${q.id}" rows="3" placeholder="Masukkan tulisan perbaikan murid di sini..." class="w-full p-3 bg-white border border-slate-200 rounded-xl text-xs text-slate-700 focus:ring-2 focus:ring-teal-600 transition-all focus:outline-none shadow-xs"></textarea>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-amber-50/40 rounded-xl border border-amber-100">
+                                <span class="text-xs font-bold text-amber-800"><i class="fa-solid fa-star mr-1"></i>Koreksi Skor Esai Baru (Lama: ${currentScore}):</span>
+                                <select id="remedial_score_${q.id}" class="bg-white border border-slate-200 text-slate-700 text-xs font-bold rounded-lg p-1.5 focus:outline-none">
+                                    <option value="${currentScore}">Pilih Skor Baru</option>
+                                    ${(() => {
+                                        let opts = "";
+                                        for(let s = currentScore; s <= 6; s++) {
+                                            opts += `<option value="${s}">${s} Poin</option>`;
+                                        }
+                                        return opts;
+                                    })()}
+                                </select>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                qCard.innerHTML = qHeader + qBody;
+                container.appendChild(qCard);
+            });
+
+            document.getElementById("remedialFormSection").scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function checkRadioRemedial(qId, letter) {
+            const correctAnswer = examQuestions[qId].key;
+            if (letter === correctAnswer) {
+                temporaryRemedialAnswers.pg_salah = temporaryRemedialAnswers.pg_salah.filter(id => id !== qId);
+            } else {
+                if (!temporaryRemedialAnswers.pg_salah.includes(qId)) {
+                    temporaryRemedialAnswers.pg_salah.push(qId);
+                }
+            }
+        }
+
+        function checkCheckboxRemedial(qId) {
+            const checkboxes = document.getElementsByName(`remedial_q_${qId}`);
+            let selected = [];
+            checkboxes.forEach(cb => {
+                if (cb.checked) selected.push(cb.value);
+            });
+
+            const keys = examQuestions[qId].keys;
+            selected.sort();
+            keys.sort();
+
+            const isCorrect = selected.length === 2 && selected[0] === keys[0] && selected[1] === keys[1];
+            
+            if (isCorrect) {
+                temporaryRemedialAnswers.pgk_salah = temporaryRemedialAnswers.pgk_salah.filter(id => id !== qId);
+            } else {
+                if (!temporaryRemedialAnswers.pgk_salah.includes(qId)) {
+                    temporaryRemedialAnswers.pgk_salah.push(qId);
+                }
+            }
+        }
+
+        // Simpan Permanen Hasil Remedial ke Firestore Cloud
+        async function saveRemedial() {
+            const student = selectedStudentForRemedial;
+            if (!student || !user) return;
+
+            // Kumpulkan perbaikan jawaban temporer
+            const updatedPgSalah = [...temporaryRemedialAnswers.pg_salah];
+            const updatedPgkSalah = [...temporaryRemedialAnswers.pgk_salah];
+            const updatedUraian = [...student.uraian];
+
+            for (let q = 31; q <= 35; q++) {
+                const scoreSelect = document.getElementById(`remedial_score_${q}`);
+                if (scoreSelect) {
+                    const newScore = parseInt(scoreSelect.value);
+                    updatedUraian[q - 31] = newScore;
+                }
+            }
+
+            // Hitung nilai akhir total yang baru
+            const pgCorrectCount = 20 - updatedPgSalah.length;
+            const pgScore = pgCorrectCount * 2;
+            const pgkCorrectCount = 10 - updatedPgkSalah.length;
+            const pgkScore = pgkCorrectCount * 3;
+            const essayScore = updatedUraian.reduce((sum, score) => sum + score, 0);
+            const newTotal = pgScore + pgkScore + essayScore;
+
+            let newCatatan = "";
+            if (newTotal >= 75) {
+                newCatatan = `✅ TUNTAS REMEDIAL. Nilai akhir berhasil ditingkatkan menjadi ${newTotal} setelah perbaikan butir soal.`;
+            } else {
+                newCatatan = `⚠️ Ujian perbaikan dikerjakan, namun skor akhir masih di bawah standar KKTP (${newTotal}/100). Perlu evaluasi tatap muka.`;
+            }
+
+            // Referensi dokumen spesifik di Firestore
+            const docId = `${student.kelas}_${student.no}`;
+            const studentDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'students', docId);
+
+            try {
+                showToast("Menyimpan hasil ke database cloud...");
+                await updateDoc(studentDocRef, {
+                    pg_salah: updatedPgSalah,
+                    pgk_salah: updatedPgkSalah,
+                    uraian: updatedUraian,
+                    total: newTotal,
+                    catatan: newCatatan,
+                    remedial_done: true
+                });
+
+                closeModal();
+                showToast(`Hasil remedial ${student.nama} berhasil disinkronisasi ke Database!`);
+            } catch (error) {
+                console.error("Error updating student document:", error);
+                showToast("Gagal menyimpan ke database cloud.");
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById("toastNotification");
+            document.getElementById("toastText").innerText = message;
+            
+            toast.classList.remove("translate-y-20", "opacity-0", "pointer-events-none");
+            toast.classList.add("translate-y-0", "opacity-100");
+
+            setTimeout(() => {
+                toast.classList.add("translate-y-20", "opacity-0", "pointer-events-none");
+                toast.classList.remove("translate-y-0", "opacity-100");
+            }, 3500);
+        }
+
         function closeModal() {
             const modal = document.getElementById("diagnosticModal");
             modal.classList.add("opacity-0");
@@ -1301,6 +1282,20 @@
                 modal.classList.add("hidden");
             }, 300);
         }
+
+        // Bind global functions agar onclick pada HTML dapat mengakses modul ES6
+        window.switchClass = switchClass;
+        window.setStatusFilter = setStatusFilter;
+        window.filterData = filterData;
+        window.showStudentDiagnostics = showStudentDiagnostics;
+        window.startRemedial = startRemedial;
+        window.checkRadioRemedial = checkRadioRemedial;
+        window.checkCheckboxRemedial = checkCheckboxRemedial;
+        window.saveRemedial = saveRemedial;
+        window.closeModal = closeModal;
+
+        // Jalankan Autentikasi Sejak Awal Muat
+        initAuth();
     </script>
 </body>
 </html>
