@@ -271,7 +271,16 @@
 
     <!-- ================= DIAGNOSTIC & REMEDIAL MODAL ================= -->
     <div id="diagnosticModal" class="fixed inset-0 bg-teal-950/60 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm transition-opacity duration-300">
-        <div class="bg-white rounded-[2rem] shadow-2xl w-full max-w-2xl transform scale-95 transition-transform duration-300 overflow-hidden flex flex-col max-h-[90vh]">
+        <div class="bg-white rounded-[2rem] shadow-2xl w-full max-w-2xl transform scale-95 transition-transform duration-300 overflow-hidden flex flex-col max-h-[90vh] relative">
+            
+            <!-- AI EVALUATION LOADING OVERLAY -->
+            <div id="aiLoadingOverlay" class="absolute inset-0 bg-slate-900/90 z-55 flex flex-col items-center justify-center text-white p-6 hidden">
+                <div class="w-16 h-16 border-4 border-teal-500 border-t-transparent rounded-full animate-spin mb-6"></div>
+                <h4 class="text-lg font-bold font-heading mb-1 text-center text-white">AI Fikih Cerdas sedang Menilai Jawaban Anda...</h4>
+                <p class="text-xs text-teal-300 text-center" id="aiLoadingProgress">Memproses data remedial esai...</p>
+                <p class="text-[10px] text-slate-400 mt-8 text-center">Menggunakan model minimax-m3-free melalui CodeCrafters API</p>
+            </div>
+
             <!-- Header Modal -->
             <div class="bg-gradient-to-r from-teal-800 to-teal-900 text-white px-6 py-5 flex justify-between items-center pattern-bg">
                 <div class="flex items-center space-x-4">
@@ -354,7 +363,7 @@
                         <div class="text-amber-600 text-lg"><i class="fa-solid fa-circle-exclamation"></i></div>
                         <div>
                             <h5 class="text-xs font-bold text-amber-800 uppercase tracking-wider">Lembar Remedial Mandiri</h5>
-                            <p class="text-xs text-amber-700 leading-relaxed mt-1">Siswa hanya diberikan soal-soal pilihan ganda yang dijawab salah sebelumnya, serta soal esai yang mendapat poin kurang sempurna (&lt; 6). Perbaiki untuk meningkatkan nilai!</p>
+                            <p class="text-xs text-amber-700 leading-relaxed mt-1">Siswa hanya diberikan soal-soal pilihan ganda yang dijawab salah sebelumnya, serta soal esai yang mendapat poin kurang sempurna (&lt; 6). Jawablah dengan sungguh-sungguh!</p>
                         </div>
                     </div>
 
@@ -695,7 +704,7 @@
             { no: 2, nama: "Ahmad Farhan Lutfiyanto", kelas: "7D", pg_salah: [1, 2, 3, 20], pgk_salah: [21, 28, 30], uraian: [5, 4, 4, 0, 2], total: 68, catatan: "PGK cukup teliti. Bagian esai tidak hafal niat sama sekali, No 34 malah menulis nama-nama shalat sunnah secara acak." },
             { no: 3, nama: "Ahmad Joko Widodo", kelas: "7D", pg_salah: [2, 4, 9, 12, 15, 18], pgk_salah: [22, 26, 29], uraian: [5, 4, 4, 5, 4], total: 68, catatan: "Pemahaman materi cukup stabil di semua aspek asesmen." },
             { no: 4, nama: "Ahmad Rizal Saputro", kelas: "7D", pg_salah: [1, 2, 5, 8, 9, 10, 11, 13, 17, 20], pgk_salah: [21, 23, 27, 28, 30], uraian: [0, 1, 1, 0, 1], total: 38, catatan: "Esai dikerjakan asal, No 31-33 hanya menjawab satu kata. No 34 kosong." },
-            { no: 5, nama: "Ahmad Rizki Aditya", kelas: "7D", pg_salah: [8, 20], pgk_salah: [21, 22, 23, 24, 25, 27, 28, 29, 30], uraian: [3, 1, 2, 0, 1], total: 46, catatan: "Mengisi PG & PGK dengan pola zig-zag teratur. Uraian dikerjakan asal-alasan dengan kalimat curhat." },
+            { no: 5, nama: "Ahmad Rizal Aditya", kelas: "7D", pg_salah: [8, 20], pgk_salah: [21, 22, 23, 24, 25, 27, 28, 29, 30], uraian: [3, 1, 2, 0, 1], total: 46, catatan: "Mengisi PG & PGK dengan pola zig-zag teratur. Uraian dikerjakan asal-alasan dengan kalimat curhat." },
             { no: 6, nama: "Akifah Naila", kelas: "7D", pg_salah: [3, 4, 5, 6, 7, 12, 20], pgk_salah: [21, 22, 26, 27, 28], uraian: [6, 6, 4, 6, 6], total: 85, catatan: "Sangat Baik! Penguasaan materi esai luar biasa, seluruh lafal bahasa Arab ditulis dua kali." },
             { no: 7, nama: "Chantika Dwi Marwah", kelas: "7D", pg_salah: [5, 6, 7, 8, 12, 15, 16, 19, 20], pgk_salah: [21, 23, 29, 30], uraian: [5, 6, 5, 5, 1], total: 62, catatan: "Uraian di lembar depan coretannya dihapus tidak bersih, namun pengerjaan No 34 di lembar belakang sangat baik." },
             { no: 8, nama: "Deni Paryanto", kelas: "7D", pg_salah: [8, 9, 11, 12, 13, 17, 19, 20], pgk_salah: [22, 23, 30], uraian: [6, 0, 2, 1, 2], total: 56, catatan: "Bagian pilihan ganda diisi dengan pola jaring-jaring/silang bersambung. Esai no 32 salah konteks." },
@@ -1145,29 +1154,11 @@
                     });
                     qBody += `</div>`;
                 } else {
-                    const currentScore = student.uraian[q.id - 31];
                     qBody += `
                         <div class="mt-4 space-y-3">
-                            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-150">
-                                <span class="text-[10px] font-bold text-slate-400 block uppercase mb-1">Rujukan Jawaban Benar Ideal:</span>
-                                <p class="text-xs text-slate-600 font-medium leading-relaxed">${q.model}</p>
-                            </div>
                             <div>
-                                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-1">Tulis Perbaikan Jawaban Murid:</label>
-                                <textarea id="remedial_textarea_${q.id}" rows="3" placeholder="Masukkan tulisan perbaikan murid di sini..." class="w-full p-3 bg-white border border-slate-200 rounded-xl text-xs text-slate-700 focus:ring-2 focus:ring-teal-600 transition-all focus:outline-none shadow-xs"></textarea>
-                            </div>
-                            <div class="flex justify-between items-center p-3 bg-amber-50/40 rounded-xl border border-amber-100">
-                                <span class="text-xs font-bold text-amber-800"><i class="fa-solid fa-star mr-1"></i>Koreksi Skor Esai Baru (Lama: ${currentScore}):</span>
-                                <select id="remedial_score_${q.id}" class="bg-white border border-slate-200 text-slate-700 text-xs font-bold rounded-lg p-1.5 focus:outline-none">
-                                    <option value="${currentScore}">Pilih Skor Baru</option>
-                                    ${(() => {
-                                        let opts = "";
-                                        for(let s = currentScore; s <= 6; s++) {
-                                            opts += `<option value="${s}">${s} Poin</option>`;
-                                        }
-                                        return opts;
-                                    })()}
-                                </select>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase mb-1">Tulis Jawaban Uraian Remedial Siswa:</label>
+                                <textarea id="remedial_textarea_${q.id}" rows="4" placeholder="Masukkan jawaban perbaikan murid yang lengkap di sini..." class="w-full p-3 bg-white border border-slate-200 rounded-xl text-xs text-slate-700 focus:ring-2 focus:ring-teal-600 transition-all focus:outline-none shadow-xs"></textarea>
                             </div>
                         </div>
                     `;
@@ -1213,45 +1204,139 @@
             }
         }
 
+        // Fungsi bantu mengevaluasi jawaban esai remedial menggunakan AI
+        async function evaluateEssayWithAI(questionText, modelAnswer, studentAnswer) {
+            const maxRetries = 5;
+            let delay = 1000;
+
+            for (let attempt = 1; attempt <= maxRetries; attempt++) {
+                try {
+                    const response = await fetch('https://api.codecrafters.id/v1/chat/completions', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': 'Bearer sk-xqJcDLkmLlZvIundT5iDD4ojFeWzqipMqZjyY3NstM09eabJ'
+                        },
+                        body: JSON.stringify({
+                            model: 'minimax-m3-free',
+                            messages: [
+                                {
+                                    role: 'system',
+                                    content: `Anda adalah guru Fikih MTs Kelas VII yang menilai jawaban esai remedial siswa secara objektif dan adil.
+                                    Berikan nilai bulat dari 0 hingga 6 (di mana 6 adalah jawaban sempurna sesuai kunci acuan, dan 0 adalah salah total/tidak menjawab/kosong).
+                                    Respon Anda HARUS dikirim dalam format persis seperti ini:
+                                    SKOR: [angka bulat antara 0 sampai 6] | MASUKAN: [Umpan balik maksimal 15 kata dalam Bahasa Indonesia]
+                                    
+                                    Contoh respon:
+                                    SKOR: 5 | MASUKAN: Jawaban sudah sangat lengkap, namun kurang menyebutkan rukun kelima secara rinci.`
+                                },
+                                {
+                                    role: 'user',
+                                    content: `Pertanyaan: "${questionText}"\nKunci Acuan Guru: "${modelAnswer}"\nJawaban Remedial Siswa: "${studentAnswer}"`
+                                }
+                            ],
+                            temperature: 0.2
+                        })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    const content = data.choices[0].message.content.trim();
+                    
+                    // Parse output SKOR dan MASUKAN
+                    const match = content.match(/SKOR:\s*(\d)\s*\|\s*MASUKAN:\s*(.*)/i);
+                    if (match) {
+                        return {
+                            score: parseInt(match[1]),
+                            feedback: match[2].trim()
+                        };
+                    } else {
+                        const scoreMatch = content.match(/SKOR:\s*(\d)/i);
+                        const feedbackMatch = content.match(/MASUKAN:\s*(.*)/i);
+                        const score = scoreMatch ? parseInt(scoreMatch[1]) : 0;
+                        const feedback = feedbackMatch ? feedbackMatch[1].trim() : "Telah dievaluasi oleh AI Fikih.";
+                        return { score, feedback };
+                    }
+                } catch (error) {
+                    console.error(`Attempt ${attempt} failed:`, error);
+                    if (attempt === maxRetries) {
+                        throw error;
+                    }
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2;
+                }
+            }
+        }
+
         // Simpan Permanen Hasil Remedial ke Firestore Cloud
         async function saveRemedial() {
             const student = selectedStudentForRemedial;
             if (!student || !user) return;
 
-            // Kumpulkan perbaikan jawaban temporer
+            const overlay = document.getElementById("aiLoadingOverlay");
+            const progressText = document.getElementById("aiLoadingProgress");
+            if (overlay) overlay.classList.remove("hidden");
+
             const updatedPgSalah = [...temporaryRemedialAnswers.pg_salah];
             const updatedPgkSalah = [...temporaryRemedialAnswers.pgk_salah];
             const updatedUraian = [...student.uraian];
-
-            for (let q = 31; q <= 35; q++) {
-                const scoreSelect = document.getElementById(`remedial_score_${q}`);
-                if (scoreSelect) {
-                    const newScore = parseInt(scoreSelect.value);
-                    updatedUraian[q - 31] = newScore;
-                }
-            }
-
-            // Hitung nilai akhir total yang baru
-            const pgCorrectCount = 20 - updatedPgSalah.length;
-            const pgScore = pgCorrectCount * 2;
-            const pgkCorrectCount = 10 - updatedPgkSalah.length;
-            const pgkScore = pgkCorrectCount * 3;
-            const essayScore = updatedUraian.reduce((sum, score) => sum + score, 0);
-            const newTotal = pgScore + pgkScore + essayScore;
-
-            let newCatatan = "";
-            if (newTotal >= 75) {
-                newCatatan = `✅ TUNTAS REMEDIAL. Nilai akhir berhasil ditingkatkan menjadi ${newTotal} setelah perbaikan butir soal.`;
-            } else {
-                newCatatan = `⚠️ Ujian perbaikan dikerjakan, namun skor akhir masih di bawah standar KKTP (${newTotal}/100). Perlu evaluasi tatap muka.`;
-            }
-
-            // Referensi dokumen spesifik di Firestore
-            const docId = `${student.kelas}_${student.no}`;
-            const studentDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'students', docId);
+            let aiFeedbacks = [];
 
             try {
-                showToast("Menyimpan hasil ke database cloud...");
+                // Evaluasi esai menggunakan AI secara asinkronus jika ada input baru
+                for (let q = 31; q <= 35; q++) {
+                    const textarea = document.getElementById(`remedial_textarea_${q}`);
+                    if (textarea) {
+                        const studentAnswer = textarea.value.trim();
+                        if (studentAnswer.length === 0) {
+                            continue; // Jika dikosongkan, tetap gunakan nilai lama
+                        }
+
+                        if (progressText) {
+                            progressText.innerText = `AI sedang menilai Uraian Nomor ${q}...`;
+                        }
+
+                        const examQ = examQuestions[q];
+                        const aiResult = await evaluateEssayWithAI(examQ.text, examQ.model, studentAnswer);
+                        
+                        // Gunakan nilai remedial jika lebih tinggi dari nilai asli siswa
+                        const previousScore = student.uraian[q - 31];
+                        updatedUraian[q - 31] = Math.max(previousScore, aiResult.score);
+                        
+                        aiFeedbacks.push(`No.${q}: Nilai ${aiResult.score}/6 - ${aiResult.feedback}`);
+                    }
+                }
+
+                // Hitung nilai akhir total yang baru
+                const pgCorrectCount = 20 - updatedPgSalah.length;
+                const pgScore = pgCorrectCount * 2;
+                const pgkCorrectCount = 10 - updatedPgkSalah.length;
+                const pgkScore = pgkCorrectCount * 3;
+                const essayScore = updatedUraian.reduce((sum, score) => sum + score, 0);
+                const newTotal = pgScore + pgkScore + essayScore;
+
+                let newCatatan = "";
+                if (newTotal >= 75) {
+                    newCatatan = `✅ TUNTAS REMEDIAL. Nilai akhir berhasil ditingkatkan menjadi ${newTotal} setelah perbaikan butir soal.`;
+                } else {
+                    newCatatan = `⚠️ Ujian perbaikan dikerjakan, namun skor akhir masih di bawah standar KKTP (${newTotal}/100). Perlu evaluasi tatap muka.`;
+                }
+
+                if (aiFeedbacks.length > 0) {
+                    newCatatan += ` (AI Feedback: ${aiFeedbacks.join("; ")})`;
+                }
+
+                if (progressText) {
+                    progressText.innerText = `Menyimpan rekap data ke database cloud...`;
+                }
+
+                // Referensi dokumen spesifik di Firestore
+                const docId = `${student.kelas}_${student.no}`;
+                const studentDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'students', docId);
+
                 await updateDoc(studentDocRef, {
                     pg_salah: updatedPgSalah,
                     pgk_salah: updatedPgkSalah,
@@ -1265,7 +1350,9 @@
                 showToast(`Hasil remedial ${student.nama} berhasil disinkronisasi ke Database!`);
             } catch (error) {
                 console.error("Error updating student document:", error);
-                showToast("Gagal menyimpan ke database cloud.");
+                showToast("Gagal menyimpan hasil remedial.");
+            } finally {
+                if (overlay) overlay.classList.add("hidden");
             }
         }
 
