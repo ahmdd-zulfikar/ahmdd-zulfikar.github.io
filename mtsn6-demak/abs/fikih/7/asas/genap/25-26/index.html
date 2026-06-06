@@ -106,7 +106,7 @@
 
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
             <div class="flex flex-col items-center gap-2 max-w-3xl">
-                <p class="font-arabic text-xl text-teal-200/90 mb-8 tracking-wider">Ø¨ÙØ³Ù’Ù…Ù Ø§Ù„Ù„ÙŽÙ‘Ù‡Ù Ø§Ù„Ø±ÙŽÙ‘Ø­Ù’Ù…ÙŽÙ†Ù Ø§Ù„Ø±ÙŽÙ‘Ø­ÙÙŠÙ…Ù</p>
+                <p class="font-arabic text-xl text-teal-200/90 mb-8 tracking-wider">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
                 <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight font-heading mb-1 leading-tight">
                     Analisis Butir Soal ASAS Genap Mapel Fikih Kelas 7
                 </h1>
@@ -154,7 +154,7 @@
                     Semua (<span id="countAll">0</span>)
                 </button>
                 <button onclick="setStatusFilter('PASSED')" id="filterPassed" class="filter-tab px-4 py-2.5 rounded-2xl text-xs font-bold transition-all bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100">
-                    Lulus (â‰¥75) (<span id="countPassed">0</span>)
+                    Lulus (≥75) (<span id="countPassed">0</span>)
                 </button>
                 <button onclick="setStatusFilter('REMEDIAL')" id="filterRemedial" class="filter-tab px-4 py-2.5 rounded-2xl text-xs font-bold transition-all bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100">
                     Remedial (<span id="countRemedial">0</span>)
@@ -849,7 +849,7 @@
                 remark = "Cukup";
             }
 
-            element.innerHTML = `<span class="${colorClass} font-bold">${score}/${maxScore} (${percentage}%)</span> â€” <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">${remark}</span>`;
+            element.innerHTML = `<span class="${colorClass} font-bold">${score}/${maxScore} (${percentage}%)</span> — <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">${remark}</span>`;
         }
 
         function showToast(message) {
