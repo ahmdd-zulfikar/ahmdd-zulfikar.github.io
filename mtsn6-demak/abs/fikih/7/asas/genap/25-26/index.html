@@ -404,6 +404,10 @@
         let user = null;
         let localStudentData = []; // Sinkronisasi dengan database Firestore
         let initialSetupComplete = false;
+        let currentClass = "7A";
+        let currentStatusFilter = "ALL";
+        let selectedStudentForRemedial = null;
+        let temporaryRemedialAnswers = {};
 
         // SOAL EXAM VERBATIM (Sesuai 3.Soal ASAS Genap Fikih Kelas 7.pdf & Kunci Jawaban)
         const examQuestions = {
@@ -560,7 +564,7 @@
             26: {
                 id: 26, type: "PGK", val: 3,
                 text: "Pilihlah DUA kondisi darurat yang diperbolehkan oleh syariat Islam bagi seseorang untuk menjamak shalat fardhunya!",
-                opts: { A: "Musafir dalam safar jarak jauh yang melebihi batas minimal perjalanan", B: "Lupa waktu shalat karena terlalu asyik bermain game di rumah", C: "Terlalu sibuk memasak hidangan makanan untuk pesta keluarga besar", D: "Sakit berat yang menyulitkan siswa untuk berwudhu dan melakukan shalat tepat pada waktunya" },
+                opts: { A: "Musafir dalam safar jarak jauh yang melebihi batas minimal perjalanan", B: "Lupa waktu shalat karena terlalu asyik bermain game di rumah", C: "Terlalu sibuk memasak hidangan makanan untuk pesta keluarga besar", D: "Sakit berat yang menyulitkan siswa untuk berwudhu and melakukan shalat tepat pada waktunya" },
                 keys: ["A", "D"]
             },
             27: {
@@ -600,7 +604,7 @@
             { no: 2, nama: "Ahmad Fadil Syaputra", kelas: "7A", pg_salah: [5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19], pgk_salah: [22, 23, 25, 26, 27, 28, 29, 30], uraian: [6, 4, 4, 0, 1], total: 33, catatan: "Salah fatal di no 34 karena menuliskan potongan ayat Al-Qur'an secara acak." },
             { no: 3, nama: "Akila Azzahra", kelas: "7A", pg_salah: [5, 6, 7, 8, 9, 10, 12, 13], pgk_salah: [21, 25, 26, 28, 30], uraian: [5, 3, 4, 6, 6], total: 63, catatan: "No 31 & 32 kurang lengkap, namun tertolong lafal niat (34) yang sangat tepat." },
             { no: 4, nama: "Alicia Amira Ma'Ruf", kelas: "7A", pg_salah: [4], pgk_salah: [], uraian: [6, 3, 4, 6, 6], total: 93, catatan: "Sangat teliti di PG Kompleks. Uraian sangat baik, no 32 kurang sedikit rukun." },
-            { no: 5, nama: "Anasha Fitriani", kelas: "7A", pg_salah: [5, 7, 8, 9, 10, 16, 17, 19], pgk_salah: [22, 25, 28, 30], uraian: [6, 5, 5, 6, 5], total: 69, catatan: "Kualitas hampir sempurna dan rapi, hanya terlewat poin rukun doa di no 32." },
+            { no: 5, nama: "Anasha Fitriani", kelas: "7A", pg_salah: [5, 7, 8, 9, 10, 16, 17, 19], pgk_salah: [22, 25, 28, 30], uraian: [6, 5, 5, 6, 5], total: 69, catatan: "Kualitas hampir sempurna and rapi, hanya terlewat poin rukun doa di no 32." },
             { no: 6, nama: "Arsyl Ibrahim Syahputra", kelas: "7A", pg_salah: [3, 5, 9, 10, 11, 13, 15, 16, 20], pgk_salah: [22, 23, 24, 25, 26, 28, 29, 30], uraian: [6, 2, 1, 0, 1], total: 38, catatan: "Konsep kurang matang. No 33 salah bedakan syarat & hikmah. No 34 keliru niat." },
             { no: 7, nama: "Chilma Hidayatul Ulya", kelas: "7A", pg_salah: [2, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19], pgk_salah: [21, 24, 28, 29, 30], uraian: [6, 6, 6, 6, 6], total: 61, catatan: "Sempurna di Uraian! Namun siswa tampak kesulitan di bagian PG sehingga banyak keliru." },
             { no: 8, nama: "Chilmi Hidayatul Ulya", kelas: "7A", pg_salah: [1, 2, 4, 6, 11, 12, 16, 19], pgk_salah: [21, 22, 23, 24, 27, 28], uraian: [6, 5, 3, 6, 5], total: 61, catatan: "Pilihan Ganda lebih teliti, namun jawaban uraian no 33 terlalu umum." },
@@ -633,7 +637,7 @@
             { no: 3, nama: "Aina Aulia Ramadhani", kelas: "7B", pg_salah: [1, 3, 5, 6, 8, 9, 11, 12, 14, 16, 17, 18, 19], pgk_salah: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30], uraian: [0, 0, 0, 6, 0], total: 20, catatan: "Gagal paham instruksi uraian (kecuali no 34). Uraian 35 mengarang cerita. PGK salah semua." },
             { no: 4, nama: "Aldiansyah Pratama", kelas: "7B", pg_salah: [2, 4, 6, 10, 11, 12, 14, 15, 18, 19, 20], pgk_salah: [21, 22, 24, 25, 27, 28, 29, 30], uraian: [0, 0, 1, 0, 0], total: 25, catatan: "Uraian no 35 bercanda (membahas es cendol). No 34 menyalin kesalahan yang sama dengan Achmad Fajar & Adiansyah." },
             { no: 5, nama: "Diandra Rasty Velovy Arika", kelas: "7B", pg_salah: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20], pgk_salah: [21,22,23,24,25,26,27,28,29,30], uraian: [6, 6, 6, 6, 6], total: 30, catatan: "Aneh/Kontradiktif. PG dan PGK dicoret asal (garis zig-zag), tapi Uraian dijawab dengan sangat sempurna." },
-            { no: 6, nama: "Eny Wahyu Ningsih", kelas: "7B", pg_salah: [3, 6, 8, 9, 11, 13, 19, 20], pgk_salah: [23, 24, 28, 29, 30], uraian: [6, 6, 6, 6, 6], total: 69, catatan: "Uraian dijawab dengan sangat baik, akurat, dan komprehensif." },
+            { no: 6, nama: "Eny Wahyu Ningsih", kelas: "7B", pg_salah: [3, 6, 8, 9, 11, 13, 19, 20], pgk_salah: [23, 24, 28, 29, 30], uraian: [6, 6, 6, 6, 6], total: 69, catatan: "Uraian dijawab dengan sangat baik, akurat, and komprehensif." },
             { no: 7, nama: "Fadilla Bilkis Premesti", kelas: "7B", pg_salah: [2, 6, 7, 9, 10, 11, 13, 15, 16, 17, 18, 20], pgk_salah: [22, 24, 25, 26, 28], uraian: [4, 4, 3, 0, 0], total: 42, catatan: "Uraian nomor 34 dan 35 sangat melenceng (menulis ayat puasa dan tayamum)." },
             { no: 8, nama: "Faisal Dwi Santoso", kelas: "7B", pg_salah: [2, 3, 6, 7, 9, 10, 12, 13, 14, 15, 16, 17, 19, 20], pgk_salah: [21, 22, 23, 25, 27, 29, 30], uraian: [0, 0, 1, 1, 1], total: 24, catatan: "Pemahaman materi sangat rendah. Jawaban uraian salah konteks atau melenceng jauh." },
             { no: 9, nama: "Faldzayrizka Alafiya Salsabila", kelas: "7B", pg_salah: [3, 6, 16, 19], pgk_salah: [24, 27, 28, 30], uraian: [6, 6, 6, 6, 6], total: 80, catatan: "Sangat cerdas dan teliti! Jawaban uraian sempurna dan komprehensif." },
