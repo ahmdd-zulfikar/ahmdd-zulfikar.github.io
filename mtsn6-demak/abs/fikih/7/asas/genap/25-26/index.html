@@ -154,7 +154,7 @@
                     Semua (<span id="countAll">0</span>)
                 </button>
                 <button onclick="setStatusFilter('PASSED')" id="filterPassed" class="filter-tab px-4 py-2.5 rounded-2xl text-xs font-bold transition-all bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100">
-                    Lulus (≥60) (<span id="countPassed">0</span>)
+                    Lulus (≥75) (<span id="countPassed">0</span>)
                 </button>
                 <button onclick="setStatusFilter('REMEDIAL')" id="filterRemedial" class="filter-tab px-4 py-2.5 rounded-2xl text-xs font-bold transition-all bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100">
                     Remedial (<span id="countRemedial">0</span>)
@@ -1116,8 +1116,8 @@
             if (classStudents.length === 0) return;
 
             const allCount = classStudents.length;
-            const passedCount = classStudents.filter(s => s.total >= 60).length;
-            const remedialCount = classStudents.filter(s => s.total < 60).length;
+            const passedCount = classStudents.filter(s => s.total >= 75).length;
+            const remedialCount = classStudents.filter(s => s.total < 75).length;
             const alertCount = classStudents.filter(s => s.alert).length;
 
             document.getElementById("countAll").innerText = allCount;
@@ -1144,9 +1144,9 @@
             let filteredStudents = studentData.filter(s => s.kelas === currentClass);
 
             if (currentStatusFilter === "PASSED") {
-                filteredStudents = filteredStudents.filter(s => s.total >= 60);
+                filteredStudents = filteredStudents.filter(s => s.total >= 75);
             } else if (currentStatusFilter === "REMEDIAL") {
-                filteredStudents = filteredStudents.filter(s => s.total < 60);
+                filteredStudents = filteredStudents.filter(s => s.total < 75);
             } else if (currentStatusFilter === "ALERT") {
                 filteredStudents = filteredStudents.filter(s => s.alert);
             }
@@ -1201,10 +1201,10 @@
                 });
 
                 let badgeClass = "bg-teal-600 text-white";
-                if (student.total < 60) {
-                    badgeClass = "bg-rose-500 text-white";
-                } else if (student.total < 75) {
-                    badgeClass = "bg-amber-500 text-white";
+                if (student.total < 75) {
+                    badgeClass = "bg-rose-500 text-white"; // Merah jika di bawah KKM baru
+                } else if (student.total < 85) {
+                    badgeClass = "bg-amber-500 text-white"; // Jingga jika mepet KKM baru
                 }
 
                 rowHtml += `
@@ -1242,10 +1242,10 @@
 
             const scoreBox = document.getElementById("modalFinalScoreBadge");
             const finalScoreText = document.getElementById("modalFinalScore");
-            if (student.total < 60) {
+            if (student.total < 75) { // Diubah ke 75
                 scoreBox.className = "flex items-center justify-between p-4 rounded-xl bg-rose-50 border border-rose-100";
                 finalScoreText.className = "text-3xl font-black text-rose-600";
-            } else if (student.total < 75) {
+            } else if (student.total < 85) { // Disesuaikan ke 85
                 scoreBox.className = "flex items-center justify-between p-4 rounded-xl bg-amber-50 border border-amber-100";
                 finalScoreText.className = "text-3xl font-black text-amber-600";
             } else {
@@ -1258,7 +1258,7 @@
             setDiagnosticRow("diagIstisqa", student.uraian[4], 6, "Persiapan Sunnah Istisqa");
 
             let planText = student.catatan;
-            if (student.total < 60) {
+            if (student.total < 75) { // Diubah ke 75
                 planText += " Peserta didik memerlukan bimbingan khusus (remedial) secara luring. Prioritas bimbingan diarahkan pada rekonstruksi pemahaman syarat-rukun ibadah serta pengulangan pelafalan niat.";
             } else if (student.total >= 85) {
                 planText += " Rekomendasi program pengayaan (enrichment) berupa peran sebagai tutor sebaya (peer-tutor) bagi rekan sekelas yang memerlukan remedial.";
