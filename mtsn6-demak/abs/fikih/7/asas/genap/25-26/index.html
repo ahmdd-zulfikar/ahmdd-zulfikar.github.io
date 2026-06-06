@@ -84,7 +84,7 @@
 <body class="font-sans antialiased selection:bg-teal-200 selection:text-teal-900 overflow-x-hidden">
 
     <!-- ================= NAVBAR ================= -->
-    <nav class="fixed w-full z-45 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-xs">
+    <nav class="fixed w-full z-40 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo/Brand -->
@@ -228,8 +228,8 @@
                 <table class="w-full text-left border-collapse whitespace-nowrap">
                     <thead>
                         <tr class="bg-slate-50 border-b border-slate-200/70 text-xs text-slate-500 font-bold select-none">
-                            <th class="px-4 py-4 text-center border-r border-slate-100" rowspan="2">No</th>
-                            <th class="px-6 py-4 min-w-[220px]" rowspan="2">Nama Peserta Didik</th>
+                            <th class="px-4 py-4 text-center border-r border-slate-100 bg-slate-50 sticky left-0 z-30 w-12 min-w-[48px] max-w-[48px]" rowspan="2">No</th>
+                            <th class="px-6 py-4 min-w-[220px] max-w-[220px] sticky left-[48px] bg-slate-50 z-30 border-r border-slate-150" rowspan="2">Nama Peserta Didik</th>
                             <th class="px-4 py-4 text-center border-r border-slate-100" rowspan="2">Kelas</th>
                             <th class="px-4 py-2.5 text-center bg-teal-50/40 text-teal-800 border-b border-slate-100" colspan="20">Pilihan Ganda (1 - 20)</th>
                             <th class="px-4 py-2.5 text-center bg-blue-50/40 text-blue-800 border-x border-slate-100" colspan="10">Pilihan Ganda Kompleks (21 - 30)</th>
@@ -270,7 +270,7 @@
     </main>
 
     <!-- ================= DIAGNOSTIC & REMEDIAL MODAL ================= -->
-    <div id="diagnosticModal" class="fixed inset-0 bg-teal-950/60 z-55 hidden flex items-center justify-center p-4 backdrop-blur-sm transition-opacity duration-300">
+    <div id="diagnosticModal" class="fixed inset-0 bg-teal-950/60 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm transition-opacity duration-300">
         <div class="bg-white rounded-[2rem] shadow-2xl w-full max-w-2xl transform scale-95 transition-transform duration-300 overflow-hidden flex flex-col max-h-[90vh]">
             <!-- Header Modal -->
             <div class="bg-gradient-to-r from-teal-800 to-teal-900 text-white px-6 py-5 flex justify-between items-center pattern-bg">
@@ -437,7 +437,7 @@
             },
             5: {
                 id: 5, type: "PG", val: 2,
-                text: "Ketika khatib sedang menyampaikan khutbah Jumat, hal yang dilarang bagi para jamaah karena dapat membatalkan atau menghilangkan pahala ibadah shalat Jumat adalah...",
+                text: "Ketika khatib sedang menyampaikan khutbah Jumat, hal yang dilarang bagi para jamaah karena dapat membatalkan atau menghilangkan pahala ibalat shalat Jumat adalah...",
                 opts: { A: "Membaca shalawat di dalam hati", B: "Berbicara, mengobrol, menegur teman, atau bermain HP", C: "Meneteskan air mata karena khutbah", D: "Memakai pakaian putih bersih" },
                 key: "B"
             },
@@ -931,13 +931,17 @@
                 tr.onclick = function() { showStudentDiagnostics(student); };
 
                 let rowHtml = `
-                    <td class="px-4 py-3.5 text-center text-xs font-bold text-slate-400 border-r border-slate-100 bg-white sticky left-0 z-10">${index + 1}</td>
-                    <td class="px-6 py-3.5 font-semibold text-slate-800 flex items-center space-x-2 bg-white sticky left-[52px] z-10 border-r border-slate-100">
-                        <span class="font-heading text-sm">${student.nama}</span>
-                        ${student.alert ? '<span class="bg-amber-400 text-teal-950 text-[9px] px-2 py-0.5 rounded-full font-bold shadow-xs"><i class="fa-solid fa-triangle-exclamation mr-0.5"></i>INDIKASI</span>' : ''}
-                        ${student.remedial_done ? '<span class="bg-emerald-500 text-white text-[9px] px-2 py-0.5 rounded-full font-bold shadow-xs"><i class="fa-solid fa-square-check mr-0.5"></i>REMEDIAL OK</span>' : ''}
+                    <td class="px-4 py-3.5 text-center text-xs font-bold text-slate-400 border-r border-slate-100 bg-white sticky left-0 z-10 w-12 min-w-[48px] max-w-[48px]">${index + 1}</td>
+                    <td class="px-6 py-3.5 font-semibold text-slate-800 bg-white sticky left-[48px] z-10 border-r border-slate-150 min-w-[220px] max-w-[220px]">
+                        <div class="flex items-center justify-between gap-1.5 overflow-hidden">
+                            <span class="font-heading text-sm truncate" title="${student.nama}">${student.nama}</span>
+                            <div class="flex gap-1 shrink-0">
+                                ${student.alert ? '<span class="bg-amber-400 text-teal-950 text-[9px] px-1.5 py-0.5 rounded-full font-bold shadow-xs"><i class="fa-solid fa-triangle-exclamation"></i></span>' : ''}
+                                ${student.remedial_done ? '<span class="bg-emerald-500 text-white text-[9px] px-1.5 py-0.5 rounded-full font-bold shadow-xs"><i class="fa-solid fa-square-check"></i></span>' : ''}
+                            </div>
+                        </div>
                     </td>
-                    <td class="px-4 py-3.5 text-center font-medium text-slate-500 border-r border-slate-100">${student.kelas}</td>
+                    <td class="px-4 py-3.5 text-center font-medium text-slate-500 border-r border-slate-100 bg-white">${student.kelas}</td>
                 `;
 
                 // Render PG Icons (1-20)
