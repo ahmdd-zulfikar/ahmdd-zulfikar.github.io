@@ -1211,10 +1211,10 @@
 
             for (let attempt = 1; attempt <= maxRetries; attempt++) {
                 try {
-                    const targetUrl = encodeURIComponent('https://api.codecrafters.id/v1/chat/completions');
-                    const response = await fetch('https://corsproxy.io/?' + targetUrl, {
+                    const response = await fetch('https://proxy.cors.sh/https://api.codecrafters.id/v1/chat/completions', {
                         method: 'POST',
                         headers: {
+                            'x-cors-api-key': 'temp_12345',
                             'Content-Type': 'application/json',
                             'Authorization': 'Bearer sk-xqJcDLkmLlZvIundT5iDD4ojFeWzqipMqZjyY3NstM09eabJ'
                         },
