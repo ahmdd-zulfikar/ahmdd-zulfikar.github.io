@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
@@ -101,7 +102,7 @@
                     </span>
                 </div>
                 <div class="flex items-center gap-3 md:gap-5">
-                    <select id="class-selector" onchange="window.selectClass(this.value)" class="bg-slate-100/50 hover:bg-slate-100 border border-slate-200 text-slate-700 text-xs sm:text-sm font-bold px-2 py-1.5 sm:px-3 sm:py-2 rounded-xl outline-none focus:ring-2 focus:ring-teal-600 transition-all cursor-pointer max-w-[100px] sm:max-w-[200px] truncate shadow-sm">
+                    <select id="class-selector" onchange="window.selectClass(this.value)" class="class-selector-input bg-slate-100/50 hover:bg-slate-100 border border-slate-200 text-slate-700 text-xs sm:text-sm font-bold px-2 py-1.5 sm:px-3 sm:py-2 rounded-xl outline-none focus:ring-2 focus:ring-teal-600 transition-all cursor-pointer max-w-[100px] sm:max-w-[200px] truncate shadow-sm">
                         <option value="">Memuat...</option>
                     </select>
                     <div id="sync-indicator" class="sync-status synced flex items-center gap-2 text-[10px] sm:text-xs font-bold">
@@ -182,7 +183,7 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Jumlah PG Biasa</label>
                     <input type="number" id="num-pg" min="0" value="5" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none transition-all">
@@ -195,6 +196,10 @@
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Jumlah Uraian / Essay</label>
                     <input type="number" id="num-uraian" min="0" value="2" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none transition-all">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Batas Lulus (KKM)</label>
+                    <input type="number" id="meta-kkm" min="0" max="100" value="75" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none transition-all">
                 </div>
             </div>
             <button onclick="window.generateSetup()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-2xl shadow-sm shadow-teal-900/10 transition-all">Konfirmasi Setup <i class="fa-solid fa-arrow-right ml-1"></i></button>
@@ -303,7 +308,9 @@
                         <div class="w-10 h-10 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center text-lg"><i class="fa-solid fa-chalkboard"></i></div>
                         <div>
                             <p class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Nama Kelas</p>
-                            <p class="text-sm font-bold text-slate-700" id="web-meta-class">-</p>
+                            <select id="web-meta-class" onchange="window.selectClass(this.value)" class="class-selector-input text-sm font-bold text-slate-700 bg-transparent outline-none cursor-pointer border-none p-0 hover:text-teal-600 transition-colors">
+                                <option value="">-</option>
+                            </select>
                         </div>
                     </div>
                     <div class="flex items-center gap-3">
@@ -325,6 +332,61 @@
                         <div>
                             <p class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Tahun Ajaran / Smt</p>
                             <p class="text-sm font-bold text-slate-700" id="web-meta-tahun-smt">-</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DASHBOARD STATISTIK -->
+                <div class="mb-8 no-print space-y-6">
+                    <!-- Baris 1: Filter & Search -->
+                    <div class="bg-white rounded-3xl shadow-xs border border-slate-200/60 p-4 sm:p-6 flex flex-col xl:flex-row xl:items-center justify-between gap-4">
+                        <div class="w-full xl:w-1/3">
+                            <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Cari Nama Peserta Didik</label>
+                            <div class="relative">
+                                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                                <input type="text" id="search-student" oninput="window.filterResults()" placeholder="Ketik nama murid..." class="w-full bg-slate-50 border border-slate-200 text-slate-700 pl-11 pr-4 py-3 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all">
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="window.setFilter('semua')" id="btn-filter-semua" class="filter-btn bg-teal-600 text-white font-bold py-2.5 px-5 rounded-2xl text-sm transition-all border border-transparent">Semua (0)</button>
+                            <button onclick="window.setFilter('lulus')" id="btn-filter-lulus" class="filter-btn bg-white hover:bg-slate-50 text-slate-600 font-bold py-2.5 px-5 rounded-2xl text-sm transition-all border border-slate-200">Lulus (0)</button>
+                            <button onclick="window.setFilter('remedial')" id="btn-filter-remedial" class="filter-btn bg-white hover:bg-slate-50 text-slate-600 font-bold py-2.5 px-5 rounded-2xl text-sm transition-all border border-slate-200">Remedial (0)</button>
+                        </div>
+                    </div>
+
+                    <!-- Baris 2: Statistik Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <!-- Card 1 -->
+                        <div class="bg-white rounded-3xl shadow-xs border border-slate-200/60 p-5 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl"><i class="fa-solid fa-chart-simple"></i></div>
+                            <div>
+                                <p class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Rata-Rata Kelas</p>
+                                <p class="text-2xl font-black text-slate-800" id="stat-rata">0</p>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="bg-white rounded-3xl shadow-xs border border-slate-200/60 p-5 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center text-xl"><i class="fa-solid fa-medal"></i></div>
+                            <div>
+                                <p class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Nilai Tertinggi</p>
+                                <p class="text-2xl font-black text-slate-800" id="stat-tertinggi">0</p>
+                            </div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="bg-white rounded-3xl shadow-xs border border-slate-200/60 p-5 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-green-50 text-green-600 flex items-center justify-center text-xl"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div>
+                                <p class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Persentase Lulus</p>
+                                <p class="text-2xl font-black text-slate-800" id="stat-persen">0%</p>
+                            </div>
+                        </div>
+                        <!-- Card 4 -->
+                        <div class="bg-white rounded-3xl shadow-xs border border-slate-200/60 p-5 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-500 flex items-center justify-center text-xl"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                            <div>
+                                <p class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Perlu Pembinaan</p>
+                                <p class="text-2xl font-black text-slate-800" id="stat-remedial">0 Murid</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -598,8 +660,8 @@
 
         // Memuat Daftar Kelas dari Firestore
         async function loadClasses() {
-            const selector = document.getElementById("class-selector");
-            selector.innerHTML = "";
+            const selectors = document.querySelectorAll(".class-selector-input");
+            selectors.forEach(sel => sel.innerHTML = "");
             let classes = [];
 
             if (window.useLocalStorage) {
@@ -624,15 +686,17 @@
             }
 
             classes.forEach(cls => {
-                const opt = document.createElement("option");
-                opt.value = cls.id;
-                opt.textContent = cls.className || "Kelas Tanpa Nama";
-                selector.appendChild(opt);
+                selectors.forEach(sel => {
+                    const opt = document.createElement("option");
+                    opt.value = cls.id;
+                    opt.textContent = cls.className || "Kelas Tanpa Nama";
+                    sel.appendChild(opt);
+                });
             });
 
             // Pilih kelas pertama yang tersedia atau pertahankan yang dipilih jika direload
             const idToSelect = currentClassId && classes.find(c=>c.id === currentClassId) ? currentClassId : classes[0].id;
-            selector.value = idToSelect;
+            selectors.forEach(sel => sel.value = idToSelect);
             window.selectClass(idToSelect);
         }
 
@@ -648,7 +712,7 @@
 
                 const newClass = {
                     className: className,
-                    metaMapel: '', metaJenis: '', metaTahun: '', metaSemester: '',
+                    metaMapel: '', metaJenis: '', metaTahun: '', metaSemester: '', metaKkm: 75,
                     numPG: 5, numPGK: 2, numUraian: 2,
                     keyPG: '', keyPGK: '',
                     weightPG: 1, weightPGK: 2, weightUraian: 5,
@@ -767,13 +831,14 @@
             document.getElementById('meta-jenis').value = window.appState.metaJenis || '';
             document.getElementById('meta-tahun').value = window.appState.metaTahun || '';
             document.getElementById('meta-semester').value = window.appState.metaSemester || '';
+            document.getElementById('meta-kkm').value = window.appState.metaKkm || 75;
 
             document.getElementById('pdf-meta-mapel').innerText = `Mapel: ${window.appState.metaMapel || '-'}`;
             document.getElementById('pdf-meta-jenis').innerText = `Jenis Tes: ${window.appState.metaJenis || '-'}`;
             document.getElementById('pdf-meta-semester').innerText = `Semester: ${window.appState.metaSemester || '-'}`;
             document.getElementById('pdf-meta-tahun').innerText = `TA: ${window.appState.metaTahun || '-'}`;
 
-            document.getElementById('web-meta-class').innerText = window.appState.className || '-';
+            document.querySelectorAll('.class-selector-input').forEach(sel => sel.value = currentClassId);
             document.getElementById('web-meta-mapel').innerText = window.appState.metaMapel || '-';
             document.getElementById('web-meta-jenis').innerText = window.appState.metaJenis || '-';
             
@@ -834,6 +899,7 @@
             window.appState.metaJenis = document.getElementById('meta-jenis').value.trim();
             window.appState.metaTahun = document.getElementById('meta-tahun').value.trim();
             window.appState.metaSemester = document.getElementById('meta-semester').value;
+            window.appState.metaKkm = parseFloat(document.getElementById('meta-kkm').value) || 75;
 
             window.appState.keyPG = document.getElementById('key-pg').value.trim().toUpperCase().replace(/\s/g, '');
             window.appState.keyPGK = document.getElementById('key-pgk').value.trim().toUpperCase().replace(/\s/g, '');
@@ -1031,13 +1097,86 @@
             results.sort((a, b) => a.name.localeCompare(b.name));
             calculatedResults = results;
 
-            window.renderDetailedTable(results);
+            window.updateDashboardStats();
+            window.renderDetailedTable(calculatedResults);
             window.renderAnalysisTable(itemStats, validStudentCount);
 
             window.showStep(4);
         }
 
-        window.renderDetailedTable = function(results) {
+        window.currentFilter = 'semua';
+        window.searchQuery = '';
+
+        window.setFilter = function(filterType) {
+            window.currentFilter = filterType;
+            
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-teal-600', 'text-white', 'border-transparent');
+                btn.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
+            });
+            const activeBtn = document.getElementById(`btn-filter-${filterType}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
+                activeBtn.classList.add('bg-teal-600', 'text-white', 'border-transparent');
+            }
+            
+            window.renderDetailedTable();
+        }
+
+        window.filterResults = function() {
+            window.searchQuery = document.getElementById('search-student').value.toLowerCase();
+            window.renderDetailedTable();
+        }
+
+        window.updateDashboardStats = function() {
+            if (!calculatedResults || calculatedResults.length === 0) {
+                document.getElementById('stat-rata').innerText = '0';
+                document.getElementById('stat-tertinggi').innerText = '0';
+                document.getElementById('stat-persen').innerText = '0%';
+                document.getElementById('stat-remedial').innerText = '0 Murid';
+                document.getElementById('btn-filter-semua').innerText = `Semua (0)`;
+                document.getElementById('btn-filter-lulus').innerText = `Lulus (0)`;
+                document.getElementById('btn-filter-remedial').innerText = `Remedial (0)`;
+                return;
+            }
+
+            const kkm = window.appState.metaKkm || 75;
+            let totalScore = 0;
+            let highest = 0;
+            let lulusCount = 0;
+            let remedialCount = 0;
+
+            calculatedResults.forEach(res => {
+                totalScore += res.total;
+                if (res.total > highest) highest = res.total;
+                if (res.total >= kkm) lulusCount++;
+                else remedialCount++;
+            });
+
+            const rata = (totalScore / calculatedResults.length).toFixed(1);
+            const persen = Math.round((lulusCount / calculatedResults.length) * 100);
+
+            document.getElementById('stat-rata').innerText = rata;
+            document.getElementById('stat-tertinggi').innerText = highest;
+            document.getElementById('stat-persen').innerText = `${persen}%`;
+            document.getElementById('stat-remedial').innerText = `${remedialCount} Murid`;
+
+            document.getElementById('btn-filter-semua').innerText = `Semua (${calculatedResults.length})`;
+            document.getElementById('btn-filter-lulus').innerText = `Lulus (${lulusCount})`;
+            document.getElementById('btn-filter-remedial').innerText = `Remedial (${remedialCount})`;
+        }
+
+        window.renderDetailedTable = function(results = calculatedResults) {
+            const kkm = window.appState.metaKkm || 75;
+            let filteredResults = (results || []).filter(res => {
+                let matchesSearch = res.name.toLowerCase().includes(window.searchQuery || '');
+                let matchesFilter = true;
+                if (window.currentFilter === 'lulus') matchesFilter = (res.total >= kkm);
+                else if (window.currentFilter === 'remedial') matchesFilter = (res.total < kkm);
+                
+                return matchesSearch && matchesFilter;
+            });
+
             const h1 = document.getElementById('result-header-1');
             const h2 = document.getElementById('result-header-2');
             const tbody = document.getElementById('result-student-body');
@@ -1058,7 +1197,7 @@
             for(let i=0; i<window.appState.numPGK; i++) h2.innerHTML += `<th class="px-1.5 py-2 text-center font-normal min-w-[28px] border-r border-slate-100 bg-blue-50/10">${qNum++}</th>`;
             for(let i=0; i<window.appState.numUraian; i++) h2.innerHTML += `<th class="px-2 py-2 text-center font-bold min-w-[32px] border-r border-slate-100 bg-amber-50/10 text-amber-700">${qNum++}</th>`;
 
-            results.forEach((res, index) => {
+            filteredResults.forEach((res, index) => {
                 let rowHtml = `
                     <td class="px-4 py-3.5 text-center text-xs font-bold text-slate-400 border-r border-slate-100">${index + 1}</td>
                     <td class="px-6 py-3.5 font-semibold text-slate-800"><span class="font-heading text-sm">${res.name}</span></td>
@@ -1084,9 +1223,11 @@
                     rowHtml += `<td class="px-1 py-3.5 text-center font-bold text-xs bg-amber-50/15 text-amber-800 border-r border-slate-50">${score}</td>`;
                 });
 
+                let badgeClass = res.total >= kkm ? 'bg-slate-800 text-white' : 'bg-rose-100 text-rose-700';
+
                 rowHtml += `
                     <td class="px-6 py-3.5 text-center border-l border-slate-100">
-                        <span class="bg-slate-800 text-white font-extrabold text-xs px-3 py-1 rounded-full shadow-xs">
+                        <span class="${badgeClass} font-extrabold text-xs px-3 py-1 rounded-full shadow-xs">
                             ${res.total}
                         </span>
                     </td>
@@ -1097,6 +1238,10 @@
                 tr.innerHTML = rowHtml;
                 tbody.appendChild(tr);
             });
+            
+            if (filteredResults.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="100" class="text-center py-8 text-slate-400 font-bold">Tidak ada data murid yang sesuai.</td></tr>`;
+            }
         }
 
         window.renderAnalysisTable = function(itemStats, validStudentCount) {
