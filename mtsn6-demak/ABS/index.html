@@ -91,6 +91,22 @@
             body.sidebar-open #sidebar-drawer { transform: translateX(0); }
             body.sidebar-open #sidebar-overlay { display: block !important; opacity: 1 !important; }
         }
+
+        /* Resizable Table Columns */
+        .col-resizer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 6px;
+            height: 100%;
+            cursor: col-resize;
+            user-select: none;
+            z-index: 10;
+            transition: background-color 0.2s;
+        }
+        .col-resizer:hover, .col-resizing {
+            background-color: #0d9488; /* teal-600 */
+        }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-teal-200 selection:text-teal-900 overflow-x-hidden relative sidebar-closed">
@@ -293,13 +309,14 @@
             </div>
 
             <div class="overflow-x-auto custom-scrollbar pb-4">
-                <table class="w-full text-left border-collapse whitespace-nowrap">
-                    <thead>
+                <table class="w-full text-left border-collapse" id="table-siswa">
+                    <thead class="sticky top-0 bg-slate-50 z-20 shadow-sm">
                         <tr class="bg-slate-50 border-y border-slate-200/70 text-xs text-slate-500 font-bold uppercase tracking-wider">
-                            <th class="p-4 min-w-[220px] sticky left-0 bg-slate-50 z-10 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)] border-r border-slate-200/70">Nama Siswa</th>
-                            <th class="p-4 text-center min-w-[150px] border-r border-slate-200/70">Jawaban PG</th>
-                            <th class="p-4 text-center min-w-[300px] border-r border-slate-200/70">Jawaban PGK</th>
-                            <th class="p-4 text-center min-w-[120px] border-r border-slate-200/70">Skor Uraian</th>
+                            <th class="p-4 text-center border-r border-slate-200/70 w-16">No</th>
+                            <th class="relative p-4 min-w-[220px] sticky left-0 bg-slate-50 z-[25] shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)] border-r border-slate-200/70">Nama Siswa<div class="col-resizer"></div></th>
+                            <th class="relative p-4 text-center min-w-[300px] border-r border-slate-200/70">Jawaban PG<div class="col-resizer"></div></th>
+                            <th class="relative p-4 text-center min-w-[300px] border-r border-slate-200/70">Jawaban PGK<div class="col-resizer"></div></th>
+                            <th class="relative p-4 text-center min-w-[120px] border-r border-slate-200/70">Skor Uraian<div class="col-resizer"></div></th>
                             <th class="p-4 text-center">Aksi</th>
                         </tr>
                     </thead>
@@ -705,6 +722,36 @@
             }
         });
 
+        // Resizable Columns Logic
+        let thElm;
+        let startOffset;
+        document.addEventListener('mousedown', function (e) {
+            if (e.target.classList.contains('col-resizer')) {
+                thElm = e.target.parentElement;
+                startOffset = thElm.offsetWidth - e.pageX;
+                e.target.classList.add('col-resizing');
+                document.body.style.cursor = 'col-resize';
+                document.body.style.userSelect = 'none'; // Cegah teks ter-block saat drag
+            }
+        });
+        document.addEventListener('mousemove', function (e) {
+            if (thElm) {
+                let newWidth = startOffset + e.pageX;
+                if (newWidth > 50) { // Batas minimal lebar 50px
+                    thElm.style.minWidth = newWidth + 'px';
+                    thElm.style.width = newWidth + 'px';
+                }
+            }
+        });
+        document.addEventListener('mouseup', function (e) {
+            if (thElm) {
+                thElm.querySelector('.col-resizer').classList.remove('col-resizing');
+                thElm = undefined;
+                document.body.style.cursor = '';
+                document.body.style.userSelect = '';
+            }
+        });
+
         // Memuat Daftar Kelas dari Firestore
         async function loadClasses() {
             let classes = [];
@@ -883,8 +930,10 @@
                     document.getElementById('loading-overlay').classList.add('hidden');
                     
                     if(docSnap.exists()) {
-                        // Agar saat user ngetik tidak lost focus karena re-render
-                        if (docSnap.metadata.hasPendingWrites) {
+                        // Abaikan snapshot dari cloud jika user masih aktif berinteraksi 
+                        // (Diberi jeda perlindungan 8 detik sejak ketikan/perubahan terakhir)
+                        const timeSinceLastEdit = Date.now() - (window.lastLocalEditTime || 0);
+                        if (docSnap.metadata.hasPendingWrites || timeSinceLastEdit < 8000) {
                             return; 
                         }
                         window.appState = docSnap.data();
@@ -896,12 +945,17 @@
 
         // Simpan Data Ke Firebase (Di-debounce agar tidak limit request saat mengetik cepat)
         window.debounceSaveData = function() {
+            window.lastLocalEditTime = Date.now(); // Catat waktu perubahan lokal terakhir
+
             const syncIcon = document.getElementById('sync-indicator');
             syncIcon.className = "sync-status syncing flex items-center gap-2 text-xs font-bold";
             syncIcon.innerHTML = `<i class="fa-solid fa-rotate fa-spin"></i> <span class="hidden sm:inline">Menyimpan...</span>`;
 
-            clearTimeout(saveTimeout);
+            if(saveTimeout) clearTimeout(saveTimeout);
+            
             saveTimeout = setTimeout(async () => {
+                saveTimeout = null;
+
                 if(currentClassId) {
                     if (window.useLocalStorage) {
                         const localData = JSON.parse(localStorage.getItem('abs_classes') || '{}');
@@ -1063,22 +1117,52 @@
 
         window.renderStudents = function() {
             const tbody = document.getElementById('student-table-body');
+            
+            // Simpan posisi fokus kursor sebelum DOM di-reset
+            let activeClass = '';
+            let activeRowId = '';
+            let cursorStart = 0;
+            let cursorEnd = 0;
+            const activeEl = document.activeElement;
+            if (activeEl && activeEl.tagName === 'INPUT' && tbody.contains(activeEl)) {
+                const tr = activeEl.closest('tr');
+                if (tr) {
+                    activeRowId = tr.dataset.id;
+                    activeClass = activeEl.className.split(' ').find(c => c.startsWith('stu-'));
+                    cursorStart = activeEl.selectionStart;
+                    cursorEnd = activeEl.selectionEnd;
+                }
+            }
+
             tbody.innerHTML = '';
-            (window.appState.students || []).forEach(s => {
+            (window.appState.students || []).forEach((s, index) => {
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-slate-50 transition-colors student-row";
                 tr.dataset.id = s.id;
                 tr.innerHTML = `
-                    <td class="p-3 sticky left-0 bg-white shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)] border-r border-slate-100">
-                        <input type="text" class="stu-name w-full bg-slate-50 border border-slate-200 rounded-lg p-2 focus:border-teal-500 focus:bg-white transition-all outline-none" placeholder="Nama" value="${s.name || ''}">
+                    <td class="p-3 text-center text-slate-500 font-bold border-r border-slate-100">${index + 1}</td>
+                    <td class="p-3 sticky left-0 bg-white z-10 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)] border-r border-slate-100">
+                        <input type="text" class="stu-name w-full bg-slate-50 border border-slate-200 rounded-lg p-2 focus:border-teal-500 focus:bg-white transition-all outline-none" placeholder="Nama" value="${s.name || ''}" oninput="window.saveStudentsToState(); window.debounceSaveData()">
                     </td>
-                    <td class="p-3 border-r border-slate-100"><input type="text" class="stu-pg w-full bg-slate-50 border border-slate-200 rounded-lg p-2 uppercase text-center tracking-widest focus:border-teal-500 focus:bg-white outline-none font-mono" placeholder="ABDBC..." value="${s.pg || ''}" ${window.appState.numPG===0?'disabled':''}></td>
-                    <td class="p-3 border-r border-slate-100"><input type="text" class="stu-pgk w-full bg-slate-50 border border-slate-200 rounded-lg p-2 uppercase text-center focus:border-teal-500 focus:bg-white outline-none font-mono" placeholder="AB,CD..." value="${s.pgk || ''}" ${window.appState.numPGK===0?'disabled':''}></td>
-                    <td class="p-3 border-r border-slate-100"><input type="text" class="stu-uraian w-full bg-amber-50 border border-amber-200 text-amber-900 rounded-lg p-2 text-center tracking-widest focus:border-amber-500 focus:bg-white outline-none font-mono" placeholder="51153..." value="${s.uraian || ''}" ${window.appState.numUraian===0?'disabled':''}></td>
+                    <td class="p-3 border-r border-slate-100"><input type="text" class="stu-pg w-full bg-slate-50 border border-slate-200 rounded-lg p-2 uppercase text-center tracking-widest focus:border-teal-500 focus:bg-white outline-none font-mono" placeholder="ABDBC..." value="${s.pg || ''}" ${window.appState.numPG===0?'disabled':''} oninput="window.saveStudentsToState(); window.debounceSaveData()"></td>
+                    <td class="p-3 border-r border-slate-100"><input type="text" class="stu-pgk w-full bg-slate-50 border border-slate-200 rounded-lg p-2 uppercase text-center focus:border-teal-500 focus:bg-white outline-none font-mono" placeholder="AB,CD..." value="${s.pgk || ''}" ${window.appState.numPGK===0?'disabled':''} oninput="window.saveStudentsToState(); window.debounceSaveData()"></td>
+                    <td class="p-3 border-r border-slate-100"><input type="text" class="stu-uraian w-full bg-amber-50 border border-amber-200 text-amber-900 rounded-lg p-2 text-center tracking-widest focus:border-amber-500 focus:bg-white outline-none font-mono" placeholder="51153..." value="${s.uraian || ''}" ${window.appState.numUraian===0?'disabled':''} oninput="window.saveStudentsToState(); window.debounceSaveData()"></td>
                     <td class="p-3 text-center"><button onclick="window.removeStudent(${s.id})" class="text-slate-400 hover:text-rose-500 transition-colors w-8 h-8 rounded-lg hover:bg-rose-50"><i class="fa-solid fa-xmark"></i></button></td>
                 `;
                 tbody.appendChild(tr);
             });
+
+            // Kembalikan fokus kursor agar user bisa lanjut mengetik
+            if (activeRowId && activeClass) {
+                const targetTr = tbody.querySelector(`tr[data-id="${activeRowId}"]`);
+                if (targetTr) {
+                    const targetInput = targetTr.querySelector(`.${activeClass}`);
+                    if (targetInput) {
+                        targetInput.focus();
+                        targetInput.setSelectionRange(cursorStart, cursorEnd);
+                    }
+                }
+            }
         }
 
         window.addStudentRow = function() {
