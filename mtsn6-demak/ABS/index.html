@@ -565,7 +565,6 @@
 
         let app;
         let db;
-        let APP_PIN = "443588"; // PIN Default
 
         // Helper: Custom Modal
         window.showCustomModal = function(type, title, message, onConfirm = null, requirePin = false) {
@@ -614,16 +613,38 @@
                 `;
 
                 document.getElementById('btn-modal-cancel').onclick = closeModal;
-                document.getElementById('btn-modal-confirm').onclick = () => {
+                document.getElementById('btn-modal-confirm').onclick = async () => {
                     if(requirePin) {
-                        if(pinInput.value === APP_PIN) {
-                            closeModal();
-                            if(onConfirm) onConfirm();
-                        } else {
+                        const pinInputVal = pinInput.value;
+                        if (!pinInputVal) {
                             pinError.classList.remove('hidden');
                             pinInput.focus();
-                            pinInput.classList.add('animate-shake');
-                            setTimeout(()=>pinInput.classList.remove('animate-shake'), 400);
+                            return;
+                        }
+
+                        const btnConfirm = document.getElementById('btn-modal-confirm');
+                        const originalText = btnConfirm.innerHTML;
+                        btnConfirm.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i>Verifikasi...';
+                        btnConfirm.disabled = true;
+
+                        try {
+                            const response = await fetch(`${GAS_WEB_APP_URL}?action=verifyPin&pin=${encodeURIComponent(pinInputVal)}`);
+                            const result = await response.json();
+
+                            if(result.valid) {
+                                closeModal();
+                                if(onConfirm) onConfirm();
+                            } else {
+                                pinError.classList.remove('hidden');
+                                pinInput.focus();
+                                pinInput.classList.add('animate-shake');
+                                setTimeout(()=>pinInput.classList.remove('animate-shake'), 400);
+                            }
+                        } catch(e) {
+                            alert("Koneksi ke server gagal. Coba lagi.");
+                        } finally {
+                            btnConfirm.innerHTML = originalText;
+                            btnConfirm.disabled = false;
                         }
                     } else {
                         closeModal();
@@ -679,10 +700,9 @@
                 try {
                     const gasResponse = await fetch(GAS_WEB_APP_URL);
                     const configData = await gasResponse.json();
-                    if (configData.firebaseConfig && configData.pin) {
+                    if (configData.firebaseConfig) {
                         app = initializeApp(configData.firebaseConfig);
                         db = getFirestore(app);
-                        APP_PIN = configData.pin.toString();
                     } else {
                         throw new Error("Format respon GAS tidak valid");
                     }
