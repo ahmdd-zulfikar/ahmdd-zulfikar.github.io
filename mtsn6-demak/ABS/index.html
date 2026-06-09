@@ -78,9 +78,22 @@
             75% { transform: translateX(5px); }
         }
         .animate-shake { animation: shake 0.2s ease-in-out 0s 2; }
+
+        /* Gmail-like Sidebar Styles */
+        #sidebar-drawer { transform: translateX(-100%); } /* Default Closed */
+        
+        @media (min-width: 1024px) { /* lg breakpoint */
+            body:not(.sidebar-closed) #sidebar-drawer { transform: translateX(0); }
+            body:not(.sidebar-closed) #main-content-wrapper { margin-left: 20rem; /* w-80 = 20rem = 320px */ }
+        }
+        
+        @media (max-width: 1023px) {
+            body.sidebar-open #sidebar-drawer { transform: translateX(0); }
+            body.sidebar-open #sidebar-overlay { display: block !important; opacity: 1 !important; }
+        }
     </style>
 </head>
-<body class="font-sans antialiased selection:bg-teal-200 selection:text-teal-900 overflow-x-hidden relative">
+<body class="font-sans antialiased selection:bg-teal-200 selection:text-teal-900 overflow-x-hidden relative sidebar-closed">
 
     <!-- Loading Overlay Init Firebase -->
     <div id="loading-overlay" class="fixed inset-0 bg-white/80 backdrop-blur-sm z-[100] flex flex-col items-center justify-center transition-opacity duration-300">
@@ -89,12 +102,26 @@
         <p class="text-sm text-slate-500">Menyinkronkan data kelas Anda</p>
     </div>
 
+    <!-- Sidebar Drawer Overlay -->
+    <div id="sidebar-overlay" onclick="window.toggleSidebar()" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[100] hidden opacity-0 transition-opacity duration-300 lg:hidden"></div>
+
+    <!-- Sidebar Drawer -->
+    <aside id="sidebar-drawer" class="fixed top-0 lg:top-16 left-0 w-80 max-w-[85vw] lg:max-w-none h-full lg:h-[calc(100vh-4rem)] bg-white shadow-2xl lg:shadow-none z-[101] lg:z-40 transition-all duration-300 flex flex-col border-r border-slate-200">
+        <div class="flex-1 overflow-y-auto p-4 pt-6 custom-scrollbar" id="sidebar-content">
+            <!-- Isi hierarki menu akan di-render di sini oleh JavaScript -->
+            <div class="text-center py-8 text-slate-400 text-sm font-medium">Memuat direktori...</div>
+        </div>
+    </aside>
+
     <!-- Navbar -->
     <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-xs">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="w-full px-2 sm:px-4 lg:px-6">
             <div class="flex justify-between items-center h-16">
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center text-white">
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <button onclick="window.toggleSidebar()" class="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-slate-100 text-slate-600 transition-colors focus:ring-2 focus:ring-teal-600 outline-none">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                    <div class="hidden sm:flex w-8 h-8 rounded-lg bg-teal-600 items-center justify-center text-white">
                         <i class="fa-solid fa-book-open text-sm"></i>
                     </div>
                     <span class="font-heading group font-bold text-lg tracking-wide text-slate-800 flex items-center">
@@ -102,9 +129,6 @@
                     </span>
                 </div>
                 <div class="flex items-center gap-3 md:gap-5">
-                    <select id="class-selector" onchange="window.selectClass(this.value)" class="class-selector-input bg-slate-100/50 hover:bg-slate-100 border border-slate-200 text-slate-700 text-xs sm:text-sm font-bold px-2 py-1.5 sm:px-3 sm:py-2 rounded-xl outline-none focus:ring-2 focus:ring-teal-600 transition-all cursor-pointer max-w-[100px] sm:max-w-[200px] truncate shadow-sm">
-                        <option value="">Memuat...</option>
-                    </select>
                     <div id="sync-indicator" class="sync-status synced flex items-center gap-2 text-[10px] sm:text-xs font-bold">
                         <i class="fa-solid fa-cloud-check"></i> <span class="hidden sm:inline">Tersinkronisasi</span>
                     </div>
@@ -112,6 +136,9 @@
             </div>
         </div>
     </nav>
+
+    <!-- Main Content Wrapper -->
+    <div id="main-content-wrapper" class="transition-all duration-300 w-full min-h-screen flex flex-col">
 
     <!-- Hero Banner -->
     <section class="relative pt-24 pb-12 bg-teal-900 pattern-bg overflow-hidden border-b border-teal-800">
@@ -183,7 +210,7 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Jumlah PG Biasa</label>
                     <input type="number" id="num-pg" min="0" value="5" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none transition-all">
@@ -191,7 +218,10 @@
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Jumlah PG Kompleks</label>
                     <input type="number" id="num-pgk" min="0" value="2" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none transition-all">
-                    <p class="text-[10px] text-slate-400 mt-1.5"><i class="fa-solid fa-info-circle"></i> Jawaban lebih dari satu</p>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Opsi Benar per PGK</label>
+                    <input type="number" id="opts-pgk" min="1" value="2" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none transition-all">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Jumlah Uraian / Essay</label>
@@ -222,8 +252,8 @@
                 <!-- PGK Keys -->
                 <div class="bg-blue-50/50 p-5 rounded-2xl border border-blue-100">
                     <h3 class="font-bold text-blue-800 mb-4 font-heading">PG Kompleks (PGK)</h3>
-                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Kunci Jawaban (Pisah Koma)</label>
-                    <input type="text" id="key-pgk" class="w-full bg-white border border-slate-200 rounded-xl p-2.5 uppercase focus:ring-2 focus:ring-blue-500 outline-none mb-4" placeholder="Contoh: AB,CD,DA,BA" onchange="window.saveConfig()">
+                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Kunci Jawaban (Rapat Sesuai Opsi Benar)</label>
+                    <input type="text" id="key-pgk" class="w-full bg-white border border-slate-200 rounded-xl p-2.5 uppercase focus:ring-2 focus:ring-blue-500 outline-none mb-4" placeholder="Contoh: ABBCAC" onchange="window.saveConfig()">
                     <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Bobot Per Soal</label>
                     <input type="number" id="weight-pgk" class="w-full bg-white border border-slate-200 rounded-xl p-2.5 outline-none focus:ring-2 focus:ring-blue-500" value="2" min="1" onchange="window.saveConfig()">
                 </div>
@@ -308,9 +338,9 @@
                         <div class="w-10 h-10 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center text-lg"><i class="fa-solid fa-chalkboard"></i></div>
                         <div>
                             <p class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Nama Kelas</p>
-                            <select id="web-meta-class" onchange="window.selectClass(this.value)" class="class-selector-input text-sm font-bold text-slate-700 bg-transparent outline-none cursor-pointer border-none p-0 hover:text-teal-600 transition-colors">
-                                <option value="">-</option>
-                            </select>
+                            <button onclick="window.toggleSidebar()" id="web-meta-class" class="text-sm font-bold text-slate-700 bg-transparent outline-none cursor-pointer border-none p-0 hover:text-teal-600 transition-colors flex items-center gap-1.5">
+                                - <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
+                            </button>
                         </div>
                     </div>
                     <div class="flex items-center gap-3">
@@ -481,6 +511,8 @@
             </div>
         </div>
     </footer>
+
+    </div> <!-- End Main Content Wrapper -->
 
     <!-- Custom Modal -->
     <div id="custom-modal" class="fixed inset-0 z-[110] bg-slate-900/40 backdrop-blur-sm flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
@@ -658,10 +690,23 @@
             }
         };
 
+        window.toggleSidebar = function() {
+            const isDesktop = window.innerWidth >= 1024;
+            if (isDesktop) {
+                document.body.classList.toggle('sidebar-closed');
+            } else {
+                document.body.classList.toggle('sidebar-open');
+            }
+        }
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                document.body.classList.remove('sidebar-open');
+            }
+        });
+
         // Memuat Daftar Kelas dari Firestore
         async function loadClasses() {
-            const selectors = document.querySelectorAll(".class-selector-input");
-            selectors.forEach(sel => sel.innerHTML = "");
             let classes = [];
 
             if (window.useLocalStorage) {
@@ -670,33 +715,89 @@
                     classes.push({ id, ...localData[id] });
                 }
             } else {
-                const querySnapshot = await getDocs(collection(db, "classes"));
-                querySnapshot.forEach((doc) => {
-                    classes.push({ id: doc.id, ...doc.data() });
-                });
+                try {
+                    const querySnapshot = await getDocs(collection(db, "classes"));
+                    querySnapshot.forEach((doc) => {
+                        classes.push({ id: doc.id, ...doc.data() });
+                    });
+                } catch(e) {
+                    console.error("Gagal loadClasses: ", e);
+                }
             }
 
-            // Urutkan berdasarkan waktu buat / nama
             classes.sort((a, b) => (a.createdAt || '').localeCompare(b.createdAt || ''));
 
             if (classes.length === 0) {
-                // Jika belum ada data sama sekali, buat 1 default
                 await window.createNewClass("Kelas 8A (Contoh)");
                 return;
             }
 
-            classes.forEach(cls => {
-                selectors.forEach(sel => {
-                    const opt = document.createElement("option");
-                    opt.value = cls.id;
-                    opt.textContent = cls.className || "Kelas Tanpa Nama";
-                    sel.appendChild(opt);
-                });
+            let tree = {};
+            classes.forEach(c => {
+                let tahun = c.metaTahun || 'Belum Ditentukan';
+                let jenis = c.metaJenis || 'Belum Ditentukan';
+                let mapel = c.metaMapel || 'Belum Ditentukan';
+
+                if (!tree[tahun]) tree[tahun] = {};
+                if (!tree[tahun][jenis]) tree[tahun][jenis] = {};
+                if (!tree[tahun][jenis][mapel]) tree[tahun][jenis][mapel] = [];
+                
+                tree[tahun][jenis][mapel].push(c);
             });
+
+            // --- RENDER SIDEBAR ---
+            const sidebarContent = document.getElementById('sidebar-content');
+            let html = '<div class="space-y-1">';
+
+            for (let tahun in tree) {
+                html += `
+                <details class="group mb-1" open>
+                    <summary class="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-slate-700 hover:bg-slate-50 hover:text-teal-600 rounded-xl cursor-pointer transition-all outline-none list-none">
+                        <i class="fa-solid fa-calendar-day text-slate-400 group-open:text-teal-500 transition-colors w-4 text-center"></i>
+                        ${tahun}
+                        <i class="fa-solid fa-chevron-down ml-auto text-[10px] text-slate-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="mt-1 space-y-1">`;
+                
+                for (let jenis in tree[tahun]) {
+                    html += `
+                    <details class="group" open>
+                        <summary class="flex items-center gap-3 pl-11 pr-4 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-teal-600 rounded-xl cursor-pointer transition-all outline-none list-none">
+                            <span class="w-1.5 h-1.5 rounded-full bg-slate-300 group-open:bg-teal-400 transition-colors"></span>
+                            ${jenis}
+                            <i class="fa-solid fa-chevron-down ml-auto text-[10px] text-slate-400 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="mt-1 space-y-1">`;
+
+                    for (let mapel in tree[tahun][jenis]) {
+                        html += `
+                        <details class="group" open>
+                            <summary class="flex items-center gap-3 pl-14 pr-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-teal-600 rounded-xl cursor-pointer transition-all outline-none list-none">
+                                <span class="w-1.5 h-1.5 rounded-full bg-slate-200 group-open:bg-teal-300 transition-colors"></span>
+                                ${mapel}
+                                <i class="fa-solid fa-chevron-down ml-auto text-[10px] text-slate-400 group-open:rotate-180 transition-transform"></i>
+                            </summary>
+                            <div class="mt-1 space-y-0.5">`;
+
+                        tree[tahun][jenis][mapel].forEach(cls => {
+                            html += `
+                                <button onclick="window.selectClass('${cls.id}'); window.toggleSidebar();" class="w-full text-left flex items-center gap-3 pl-[72px] pr-4 py-2 text-sm font-medium text-slate-500 hover:text-teal-700 hover:bg-teal-50 rounded-xl transition-all class-sidebar-btn" data-class-id="${cls.id}">
+                                    <span class="truncate">${cls.className || "Kelas Tanpa Nama"}</span>
+                                </button>
+                            `;
+                        });
+
+                        html += `</div></details>`;
+                    }
+                    html += `</div></details>`;
+                }
+                html += `</div></details>`;
+            }
+            html += '</div>';
+            sidebarContent.innerHTML = html;
 
             // Pilih kelas pertama yang tersedia atau pertahankan yang dipilih jika direload
             const idToSelect = currentClassId && classes.find(c=>c.id === currentClassId) ? currentClassId : classes[0].id;
-            selectors.forEach(sel => sel.value = idToSelect);
             window.selectClass(idToSelect);
         }
 
@@ -838,7 +939,20 @@
             document.getElementById('pdf-meta-semester').innerText = `Semester: ${window.appState.metaSemester || '-'}`;
             document.getElementById('pdf-meta-tahun').innerText = `TA: ${window.appState.metaTahun || '-'}`;
 
-            document.querySelectorAll('.class-selector-input').forEach(sel => sel.value = currentClassId);
+            const navBtn = document.getElementById('navbar-active-class');
+            if (navBtn) navBtn.innerText = window.appState.className || "Pilih Kelas";
+            document.getElementById('web-meta-class').innerHTML = `${window.appState.className || "-"} <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>`;
+            
+            document.querySelectorAll('.class-sidebar-btn').forEach(btn => {
+                if (btn.getAttribute('data-class-id') === currentClassId) {
+                    btn.classList.add('bg-teal-50', 'text-teal-700', 'font-bold');
+                    btn.classList.remove('text-slate-500', 'font-medium');
+                } else {
+                    btn.classList.remove('bg-teal-50', 'text-teal-700', 'font-bold');
+                    btn.classList.add('text-slate-500', 'font-medium');
+                }
+            });
+
             document.getElementById('web-meta-mapel').innerText = window.appState.metaMapel || '-';
             document.getElementById('web-meta-jenis').innerText = window.appState.metaJenis || '-';
             
@@ -849,6 +963,7 @@
 
             document.getElementById('num-pg').value = window.appState.numPG;
             document.getElementById('num-pgk').value = window.appState.numPGK;
+            document.getElementById('opts-pgk').value = window.appState.optsPGK || 1;
             document.getElementById('num-uraian').value = window.appState.numUraian;
             
             document.getElementById('key-pg').value = window.appState.keyPG;
@@ -884,6 +999,7 @@
         window.generateSetup = function() {
             window.appState.numPG = parseInt(document.getElementById('num-pg').value) || 0;
             window.appState.numPGK = parseInt(document.getElementById('num-pgk').value) || 0;
+            window.appState.optsPGK = parseInt(document.getElementById('opts-pgk').value) || 1;
             window.appState.numUraian = parseInt(document.getElementById('num-uraian').value) || 0;
 
             if(window.appState.numPG + window.appState.numPGK + window.appState.numUraian === 0) {
@@ -901,14 +1017,15 @@
             window.appState.metaSemester = document.getElementById('meta-semester').value;
             window.appState.metaKkm = parseFloat(document.getElementById('meta-kkm').value) || 75;
 
-            window.appState.keyPG = document.getElementById('key-pg').value.trim().toUpperCase().replace(/\s/g, '');
-            window.appState.keyPGK = document.getElementById('key-pgk').value.trim().toUpperCase().replace(/\s/g, '');
+            window.appState.keyPG = document.getElementById('key-pg').value.toUpperCase().replace(/\s/g, '');
+            window.appState.keyPGK = document.getElementById('key-pgk').value.toUpperCase(); // Mempertahankan spasi
             window.appState.weightPG = parseFloat(document.getElementById('weight-pg').value) || 1;
             window.appState.weightPGK = parseFloat(document.getElementById('weight-pgk').value) || 2;
             window.appState.weightUraian = parseFloat(document.getElementById('weight-uraian').value) || 5;
             
             window.appState.numPG = parseInt(document.getElementById('num-pg').value) || 0;
             window.appState.numPGK = parseInt(document.getElementById('num-pgk').value) || 0;
+            window.appState.optsPGK = parseInt(document.getElementById('opts-pgk').value) || 1;
             window.appState.numUraian = parseInt(document.getElementById('num-uraian').value) || 0;
             
             window.debounceSaveData();
@@ -918,8 +1035,9 @@
             window.saveConfig();
             
             const checkPGK = () => {
-                if(window.appState.numPGK > 0 && window.appState.keyPGK.split(',').filter(x=>x).length !== window.appState.numPGK) {
-                    showCustomModal('confirm', 'Peringatan PGK', `Jumlah Kunci PGK tidak sama dengan konfigurasi jumlah soal (${window.appState.numPGK}). Lanjut?`, proceedToStep3);
+                const expectedLengthPGK = window.appState.numPGK * (window.appState.optsPGK || 1);
+                if(window.appState.numPGK > 0 && window.appState.keyPGK.length !== expectedLengthPGK) {
+                    showCustomModal('confirm', 'Peringatan PGK', `Jumlah karakter Kunci PGK (${window.appState.keyPGK.length}) tidak sama dengan pengaturan (Soal: ${window.appState.numPGK} x Opsi Benar: ${window.appState.optsPGK || 1} = ${expectedLengthPGK} huruf). Lanjut?`, proceedToStep3);
                     return false;
                 }
                 return true;
@@ -1005,6 +1123,16 @@
             return (str || '').replace(/\s/g, '').split('').sort().join(''); 
         }
 
+        function chunkString(str, chunkSize, maxChunks) {
+            if(!str) str = "";
+            let padded = str.padEnd(chunkSize * maxChunks, ' ').toUpperCase();
+            let chunks = [];
+            for(let i = 0; i < maxChunks; i++) {
+                chunks.push(padded.slice(i * chunkSize, (i + 1) * chunkSize));
+            }
+            return chunks;
+        }
+
         function parseUraianInput(inputStr, expectedLength) {
             let scores = [];
             if(inputStr.includes(',')) scores = inputStr.split(',').map(s => parseFloat(s) || 0);
@@ -1031,14 +1159,17 @@
             let results = [];
 
             const keyPGArr = window.appState.keyPG.split('');
-            const keyPGKArr = window.appState.keyPGK.split(',').map(normalizeStr);
+            const optsPGK = window.appState.optsPGK || 1;
+            const cleanKeyPGK = (window.appState.keyPGK || '').replace(/,/g, '');
+            const keyPGKArr = chunkString(cleanKeyPGK, optsPGK, window.appState.numPGK).map(normalizeStr);
 
             window.appState.students.forEach(student => {
                 let name = student.name.trim() || "Siswa Anonim";
                 let scorePG = 0, scorePGK = 0, scoreUraian = 0;
                 
                 let stuPGArr = student.pg.split('');
-                let stuPGKArr = student.pgk.split(',').map(normalizeStr);
+                let cleanStuPGK = (student.pgk || '').replace(/,/g, '');
+                let stuPGKArr = chunkString(cleanStuPGK, optsPGK, window.appState.numPGK).map(normalizeStr);
                 let stuUraianArr = parseUraianInput(student.uraian, window.appState.numUraian);
 
                 let pgDetails = [];
