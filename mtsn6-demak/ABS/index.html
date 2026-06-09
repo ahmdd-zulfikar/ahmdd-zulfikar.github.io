@@ -141,7 +141,7 @@
                         <i class="fa-solid fa-book-open text-sm"></i>
                     </div>
                     <span class="font-heading group font-bold text-lg tracking-wide text-slate-800 flex items-center">
-                        ABS Online <span class="inline-flex items-center gap-1.5 ml-2 text-[10px] font-bold uppercase tracking-wider text-green-700 bg-green-50 px-2 py-1 rounded-full border border-green-200"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span>Online</span>
+                        ABS <span class="inline-flex items-center gap-1.5 ml-2 text-[10px] font-bold uppercase tracking-wider text-green-700 bg-green-50 px-2 py-1 rounded-full border border-green-200"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span>Online</span>
                     </span>
                 </div>
                 <div class="flex items-center gap-3 md:gap-5">
@@ -302,9 +302,10 @@
             <div class="bg-amber-50 text-amber-800 text-xs p-4 rounded-2xl border border-amber-200/60 mb-6 leading-relaxed">
                 <strong class="text-sm font-bold block mb-1">Petunjuk Pengisian:</strong>
                 <ul class="list-disc list-inside space-y-1">
-                    <li><b>PG:</b> Ketik rapat. <b>Gunakan Spasi</b> jika siswa tidak menjawab (Kosong). Contoh: <code class="bg-amber-100 px-1 rounded">BCC D</code> (Soal ke-4 kosong).</li>
-                    <li><b>PGK:</b> Pisahkan antar soal dengan koma. Kosongkan di antara koma jika tidak dijawab. Contoh: <code class="bg-amber-100 px-1 rounded">AB,,DA</code> (Soal ke-2 kosong).</li>
-                    <li><b>Uraian:</b> Ketik rapat angka skor <code class="bg-amber-100 px-1 rounded">51053</code>, atau pakai koma <code class="bg-amber-100 px-1 rounded">5,1,0,5,3</code>. Beri angka 0 jika tidak dijawab.</li>
+                    <li><b>Simpan Data:</b> Sistem <b>tidak menyimpan otomatis</b> saat Anda mengetik. Tekan tombol keyboard <b>Ctrl + S</b> (atau Cmd + S) untuk menyimpan.</li>
+                    <li><b>PG:</b> Ketik rapat. <b>Gunakan Spasi</b> jika siswa tidak menjawab. Contoh: <code class="bg-amber-100 px-1 rounded">BCC D</code> (Soal ke-4 kosong).</li>
+                    <li><b>PGK:</b> Ketik rapat <b>tanpa koma</b>. Jumlah huruf menyesuaikan "Opsi Benar". <b>Gunakan Spasi</b> jika kosong. Contoh (Opsi Benar=2): <code class="bg-amber-100 px-1 rounded">AABB  CC</code> (Soal ke-3 kosong).</li>
+                    <li><b>Uraian:</b> Ketik rapat angka skor. Contoh: <code class="bg-amber-100 px-1 rounded">51053</code>. Beri angka 0 jika tidak dijawab.</li>
                 </ul>
             </div>
 
@@ -722,6 +723,17 @@
             }
         });
 
+        // Pintasan Keyboard Ctrl + S untuk Simpan Manual
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
+                e.preventDefault(); // Mencegah munculnya dialog 'Save Page As...' browser
+                if (window.appState && window.appState.currentStep === 3) {
+                    window.saveStudentsToState();
+                }
+                window.debounceSaveData(true); // Memaksa sinkronisasi seketika tanpa penundaan
+            }
+        });
+
         // Resizable Columns Logic
         let thElm;
         let startOffset;
@@ -915,6 +927,7 @@
             if(!classId) return;
             if(unsubscribe) { unsubscribe(); unsubscribe = null; }
             currentClassId = classId;
+            window.lastLocalEditTime = 0; // Reset agar langsung bisa memuat data kelas lain tanpa menunggu 8 detik
 
             document.getElementById('loading-overlay').classList.remove('hidden');
 
@@ -944,7 +957,7 @@
         }
 
         // Simpan Data Ke Firebase (Di-debounce agar tidak limit request saat mengetik cepat)
-        window.debounceSaveData = function() {
+        window.debounceSaveData = function(immediate = false) {
             window.lastLocalEditTime = Date.now(); // Catat waktu perubahan lokal terakhir
 
             const syncIcon = document.getElementById('sync-indicator');
@@ -953,7 +966,7 @@
 
             if(saveTimeout) clearTimeout(saveTimeout);
             
-            saveTimeout = setTimeout(async () => {
+            const executeSave = async () => {
                 saveTimeout = null;
 
                 if(currentClassId) {
@@ -976,7 +989,13 @@
                         }
                     }
                 }
-            }, 1000); // Tunggu 1 detik setelah berhenti mengetik
+            };
+
+            if (immediate) {
+                executeSave();
+            } else {
+                saveTimeout = setTimeout(executeSave, 1000); // Tunggu 1 detik setelah berhenti mengetik
+            }
         }
 
         window.restoreUI = function() {
@@ -1142,11 +1161,11 @@
                 tr.innerHTML = `
                     <td class="p-3 text-center text-slate-500 font-bold border-r border-slate-100">${index + 1}</td>
                     <td class="p-3 sticky left-0 bg-white z-10 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)] border-r border-slate-100">
-                        <input type="text" class="stu-name w-full bg-slate-50 border border-slate-200 rounded-lg p-2 focus:border-teal-500 focus:bg-white transition-all outline-none" placeholder="Nama" value="${s.name || ''}" oninput="window.saveStudentsToState(); window.debounceSaveData()">
+                        <input type="text" class="stu-name w-full bg-slate-50 border border-slate-200 rounded-lg p-2 focus:border-teal-500 focus:bg-white transition-all outline-none" placeholder="Nama" value="${s.name || ''}" oninput="window.saveStudentsToState()">
                     </td>
-                    <td class="p-3 border-r border-slate-100"><input type="text" class="stu-pg w-full bg-slate-50 border border-slate-200 rounded-lg p-2 uppercase text-center tracking-widest focus:border-teal-500 focus:bg-white outline-none font-mono" placeholder="ABDBC..." value="${s.pg || ''}" ${window.appState.numPG===0?'disabled':''} oninput="window.saveStudentsToState(); window.debounceSaveData()"></td>
-                    <td class="p-3 border-r border-slate-100"><input type="text" class="stu-pgk w-full bg-slate-50 border border-slate-200 rounded-lg p-2 uppercase text-center focus:border-teal-500 focus:bg-white outline-none font-mono" placeholder="AB,CD..." value="${s.pgk || ''}" ${window.appState.numPGK===0?'disabled':''} oninput="window.saveStudentsToState(); window.debounceSaveData()"></td>
-                    <td class="p-3 border-r border-slate-100"><input type="text" class="stu-uraian w-full bg-amber-50 border border-amber-200 text-amber-900 rounded-lg p-2 text-center tracking-widest focus:border-amber-500 focus:bg-white outline-none font-mono" placeholder="51153..." value="${s.uraian || ''}" ${window.appState.numUraian===0?'disabled':''} oninput="window.saveStudentsToState(); window.debounceSaveData()"></td>
+                    <td class="p-3 border-r border-slate-100"><input type="text" class="stu-pg w-full bg-slate-50 border border-slate-200 rounded-lg p-2 uppercase text-center tracking-widest focus:border-teal-500 focus:bg-white outline-none font-mono" placeholder="ABDBC..." value="${s.pg || ''}" ${window.appState.numPG===0?'disabled':''} oninput="window.saveStudentsToState()"></td>
+                    <td class="p-3 border-r border-slate-100"><input type="text" class="stu-pgk w-full bg-slate-50 border border-slate-200 rounded-lg p-2 uppercase text-center focus:border-teal-500 focus:bg-white outline-none font-mono" placeholder="AB,CD..." value="${s.pgk || ''}" ${window.appState.numPGK===0?'disabled':''} oninput="window.saveStudentsToState()"></td>
+                    <td class="p-3 border-r border-slate-100"><input type="text" class="stu-uraian w-full bg-amber-50 border border-amber-200 text-amber-900 rounded-lg p-2 text-center tracking-widest focus:border-amber-500 focus:bg-white outline-none font-mono" placeholder="51153..." value="${s.uraian || ''}" ${window.appState.numUraian===0?'disabled':''} oninput="window.saveStudentsToState()"></td>
                     <td class="p-3 text-center"><button onclick="window.removeStudent(${s.id})" class="text-slate-400 hover:text-rose-500 transition-colors w-8 h-8 rounded-lg hover:bg-rose-50"><i class="fa-solid fa-xmark"></i></button></td>
                 `;
                 tbody.appendChild(tr);
