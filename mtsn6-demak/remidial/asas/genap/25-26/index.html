@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pengumpulan Tugas</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    },
+                    colors: {
+                        teal: {
+                            50: '#f0fdfa', 100: '#ccfbf1', 200: '#99f6e4', 300: '#5eead4',
+                            400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e',
+                            800: '#115e59', 850: '#0f5d56', 900: '#134e4a', 950: '#042f2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { background-color: #f8fafc; color: #334155; }
+        
+        .pattern-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .hover-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .hover-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -10px rgba(15, 93, 86, 0.15); }
+    </style>
+</head>
+
+<body class="font-sans antialiased selection:bg-teal-200 selection:text-teal-900 overflow-x-hidden relative min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-xs">
+        <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <div class="hidden sm:flex w-8 h-8 rounded-lg bg-teal-600 items-center justify-center text-white">
+                        <i class="fa-solid fa-book-open text-sm"></i>
+                    </div>
+                    <span class="font-heading group font-bold text-lg tracking-wide text-slate-800 flex items-center">
+                        Tugas <span class="inline-flex items-center gap-1.5 ml-2 text-[10px] font-bold uppercase tracking-wider text-green-700 bg-green-50 px-2 py-1 rounded-full border border-green-200"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span>Online</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Wrapper -->
+    <div id="main-content-wrapper" class="transition-all duration-300 w-full flex-1 flex flex-col">
+
+        <!-- Hero Banner -->
+        <section class="relative pt-24 pb-12 bg-teal-900 pattern-bg overflow-hidden border-b border-teal-800">
+            <div class="absolute inset-0 bg-gradient-to-b from-teal-950/80 to-teal-900/95"></div>
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+                <div class="flex flex-col items-center gap-2 max-w-3xl">
+                    <p class="font-arabic text-xl text-teal-200/90 mb-4 tracking-wider">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight font-heading mb-1 leading-tight">
+                        Pengumpulan Tugas
+                    </h1>
+                    <p class="text-teal-100/80 mt-2">Silakan lengkapi form dan unggah foto tugas Anda.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Layout -->
+        <main class="max-w-2xl w-full mx-auto px-4 sm:px-6 lg:px-8 -mt-6 relative z-20 pb-12">
+            
+            <!-- Form Card -->
+            <div class="bg-white rounded-3xl shadow-xs border border-slate-200/60 p-6 md:p-8 hover-card">
+                <div class="flex justify-between items-center border-b border-slate-100 pb-4 mb-6">
+                    <h2 class="text-xl font-bold text-slate-800 font-heading flex items-center gap-2">
+                        <i class="fa-solid fa-upload text-teal-600"></i> Form Upload
+                    </h2>
+                </div>
+                
+                <form id="uploadForm" class="space-y-6">
+                    <!-- Dropdown Kelas -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Kelas</label>
+                        <select id="inputKelas" required class="w-full bg-slate-50 border border-slate-200 text-slate-800 px-4 py-3 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-teal-600 focus:bg-white transition-all appearance-none cursor-pointer">
+                            <option value="VIIIB" selected>Kelas VIIIB</option>
+                        </select>
+                    </div>
+
+                    <!-- Dropdown Nama -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Nama Peserta Didik</label>
+                        <select id="inputNama" required class="w-full bg-slate-50 border border-slate-200 text-slate-800 px-4 py-3 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-teal-600 focus:bg-white transition-all cursor-pointer">
+                            <option value="" disabled selected>-- Pilih Nama Anda --</option>
+                            <option value="AHMAD ZAINURI">AHMAD ZAINURI</option>
+                            <option value="ARTA CITRA LARAS">ARTA CITRA LARAS</option>
+                            <option value="AZZAHRA SAHAFANNA">AZZAHRA SAHAFANNA</option>
+                            <option value="BELYANA LESATRI">BELYANA LESATRI</option>
+                            <option value="CLARISA CHIELA BERLIANA ASSYIFA">CLARISA CHIELA BERLIANA ASSYIFA</option>
+                            <option value="DETALIANA SOFIA HAPSARI">DETALIANA SOFIA HAPSARI</option>
+                            <option value="FAIREL ATHARIZZ CALIEF">FAIREL ATHARIZZ CALIEF</option>
+                            <option value="FARIS WAHYU NABAWI">FARIS WAHYU NABAWI</option>
+                            <option value="FEBRIYAN ARYA LUKMANA">FEBRIYAN ARYA LUKMANA</option>
+                            <option value="HAFNA MAULIDA NIHLA SYIFA">HAFNA MAULIDA NIHLA SYIFA</option>
+                            <option value="HIKMATUL FAJRIYAH RAMADHANI">HIKMATUL FAJRIYAH RAMADHANI</option>
+                            <option value="LINDA DEVI SEPTIYANI">LINDA DEVI SEPTIYANI</option>
+                            <option value="MEISYA ALUNA BINTANG MAHARANI">MEISYA ALUNA BINTANG MAHARANI</option>
+                            <option value="MUHAMMAD BAGUS SATRIYO">MUHAMMAD BAGUS SATRIYO</option>
+                            <option value="MUHAMMAD IQBAL DWI FIRMANSYAH">MUHAMMAD IQBAL DWI FIRMANSYAH</option>
+                            <option value="MUHAMMAD RIZQI RAMADHANI">MUHAMMAD RIZQI RAMADHANI</option>
+                            <option value="NADIA FANESA SARI">NADIA FANESA SARI</option>
+                            <option value="NAILA FEBRIANA AZZAHRA">NAILA FEBRIANA AZZAHRA</option>
+                            <option value="NATASYA ADELIA PUTRI">NATASYA ADELIA PUTRI</option>
+                            <option value="NAUMY DELVIRA FRADA ANDIKMA">NAUMY DELVIRA FRADA ANDIKMA</option>
+                            <option value="NIJAM ABDUL FAJAR">NIJAM ABDUL FAJAR</option>
+                            <option value="QURROTA A'YUN">QURROTA A'YUN</option>
+                            <option value="RADITYA BAGAS ANATOMI WINATA">RADITYA BAGAS ANATOMI WINATA</option>
+                            <option value="RINA AFRIYANI">RINA AFRIYANI</option>
+                            <option value="RIZQI TABA'UL IMAM">RIZQI TABA'UL IMAM</option>
+                            <option value="SALWA ANASTASYA PUTRI ASYIFA">SALWA ANASTASYA PUTRI ASYIFA</option>
+                            <option value="SYALWA AGUSTIN KHAIRUNIA ASYIFA">SYALWA AGUSTIN KHAIRUNIA ASYIFA</option>
+                            <option value="TASYA AFIFA ATHA SALMA">TASYA AFIFA ATHA SALMA</option>
+                            <option value="ZAHWA MEISYA SETIANINGSIH">ZAHWA MEISYA SETIANINGSIH</option>
+                            <option value="ZILDA AULIA FADHILLAH">ZILDA AULIA FADHILLAH</option>
+                        </select>
+                    </div>
+
+                    <!-- File Upload -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Foto Tugas</label>
+                        <div class="relative group">
+                            <input type="file" id="inputFile" accept="image/*" required class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
+                            <div class="w-full border-2 border-dashed border-slate-300 rounded-2xl p-8 text-center bg-slate-50 group-hover:border-teal-400 group-hover:bg-teal-50 transition-all flex flex-col items-center justify-center">
+                                <i class="fa-solid fa-file-arrow-up text-4xl text-slate-400 group-hover:text-teal-500 mb-3 transition-colors"></i>
+                                <p class="text-sm font-bold text-slate-600" id="fileName">Pilih file foto atau seret ke sini</p>
+                                <p class="text-xs text-slate-400 mt-1">Format: JPG, JPEG, PNG</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="btnSubmit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-6 rounded-2xl transition-all shadow-sm flex items-center justify-center gap-2 mt-4 outline-none focus:ring-4 focus:ring-teal-200">
+                        <i class="fa-solid fa-paper-plane"></i> Kirim Tugas
+                    </button>
+                </form>
+
+                <!-- Success State (Hidden by default) -->
+                <div id="successState" class="hidden p-8 text-center">
+                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-100 text-green-500 mb-4">
+                        <i class="fa-solid fa-check text-4xl"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold font-heading text-slate-800 mb-2">Tugas Terkirim!</h2>
+                    <p class="text-sm text-slate-500 mb-6">Terima kasih, tugas Anda telah berhasil disimpan di sistem.</p>
+                    <button onclick="window.location.reload()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3 px-6 rounded-xl transition-all text-sm">
+                        Kirim Tugas Lain
+                    </button>
+                </div>
+            </div>
+            
+            <p class="text-center text-xs text-slate-400 mt-8 font-medium">Sistem Pengumpulan Tugas &copy; 2026</p>
+        </main>
+    </div>
+
+    <!-- Script Logic -->
+    <script>
+        // MASUKKAN URL GOOGLE APPS SCRIPT ANDA DI SINI
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbxr-uqdpaQsETHx1ZKLt230eTDfvuIC769y3x4eLT55AXkLYoG20gtCnMmPpH3HAzD8/exec";
+
+        const form = document.getElementById('uploadForm');
+        const fileInput = document.getElementById('inputFile');
+        const fileNameDisplay = document.getElementById('fileName');
+        const btnSubmit = document.getElementById('btnSubmit');
+
+        // Update file name display when file is selected
+        fileInput.addEventListener('change', function(e) {
+            if(e.target.files.length > 0) {
+                fileNameDisplay.innerHTML = `<span class="text-teal-600"><i class="fa-solid fa-file-image mr-1"></i> ${e.target.files[0].name}</span>`;
+            } else {
+                fileNameDisplay.innerText = "Pilih file foto atau seret ke sini";
+            }
+        });
+
+        // Convert file to Base64
+        function getBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => resolve(reader.result.split(',')[1]); // Hanya ambil base64 string
+                reader.onerror = error => reject(error);
+            });
+        }
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            if (GAS_URL === "URL_GOOGLE_APPS_SCRIPT_ANDA_DI_SINI") {
+                alert("GAGAL: Anda belum memasukkan URL Google Apps Script di kode HTML. Harap baca panduan integrasi!");
+                return;
+            }
+
+            const nama = document.getElementById('inputNama').value;
+            const kelas = document.getElementById('inputKelas').value;
+            const file = fileInput.files[0];
+
+            if(!nama || !file) {
+                alert("Mohon lengkapi data dan file foto!");
+                return;
+            }
+
+            // UI Loading State
+            const originalBtnHtml = btnSubmit.innerHTML;
+            btnSubmit.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> Mengirim...`;
+            btnSubmit.disabled = true;
+            btnSubmit.classList.add('opacity-70', 'cursor-not-allowed');
+
+            try {
+                // Konversi foto menjadi teks base64
+                const base64Data = await getBase64(file);
+                const mimeType = file.type;
+                const filename = file.name;
+
+                // Siapkan data JSON untuk dikirim ke GAS
+                const payload = {
+                    nama: nama,
+                    kelas: kelas,
+                    filename: filename,
+                    mimeType: mimeType,
+                    fileData: base64Data
+                };
+
+                // Kirim request POST ke Google Apps Script
+                const response = await fetch(GAS_URL, {
+                    method: 'POST',
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                    // Sembunyikan Form, Tampilkan Success State
+                    form.classList.add('hidden');
+                    document.getElementById('successState').classList.remove('hidden');
+                } else {
+                    throw new Error(result.message || "Gagal menyimpan di server");
+                }
+
+            } catch (error) {
+                console.error("Upload Error:", error);
+                alert("Terjadi kesalahan saat mengunggah tugas. Coba lagi.\nDetail: " + error.message);
+                
+                // Kembalikan tombol seperti semula
+                btnSubmit.innerHTML = originalBtnHtml;
+                btnSubmit.disabled = false;
+                btnSubmit.classList.remove('opacity-70', 'cursor-not-allowed');
+            }
+        });
+    </script>
+</body>
+</html>
