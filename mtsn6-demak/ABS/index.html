@@ -52,12 +52,12 @@
         .hover-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .hover-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -10px rgba(15, 93, 86, 0.15); }
 
-        .step-container { transition: all 0.3s ease; }
-        .hidden-step { display: none; opacity: 0; }
-        .active-step { display: block; opacity: 1; animation: fadeIn 0.5s ease-in-out; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .step-container { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .hidden-step { display: none; opacity: 0; filter: blur(10px); }
+        .active-step { display: block; opacity: 1; filter: blur(0); animation: blurFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        @keyframes blurFadeIn {
+            from { opacity: 0; filter: blur(12px); transform: scale(0.98); }
+            to { opacity: 1; filter: blur(0); transform: scale(1); }
         }
         
         .pdf-mode { padding: 20px !important; background: white !important; }
@@ -111,7 +111,7 @@
 <body class="font-sans antialiased selection:bg-teal-200 selection:text-teal-900 overflow-x-hidden relative sidebar-closed">
 
     <!-- Loading Overlay Init Firebase -->
-    <div id="loading-overlay" class="fixed inset-0 bg-white/80 backdrop-blur-sm z-[100] flex flex-col items-center justify-center transition-opacity duration-300">
+    <div id="loading-overlay" class="fixed inset-0 bg-white/60 backdrop-blur-md z-[100] flex flex-col items-center justify-center transition-all duration-500" style="animation: blurFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);">
         <i class="fa-solid fa-circle-notch fa-spin text-4xl text-teal-600 mb-4"></i>
         <h2 class="text-lg font-bold text-slate-800 font-heading">Menghubungkan ke Cloud...</h2>
         <p class="text-sm text-slate-500">Menyinkronkan data kelas Anda</p>
@@ -133,15 +133,17 @@
         <div class="w-full px-2 sm:px-4 lg:px-6">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center gap-2 sm:gap-3">
-                    <button onclick="window.toggleSidebar()" class="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-slate-100 text-slate-600 transition-colors focus:ring-2 focus:ring-teal-600 outline-none">
+                    <button id="sidebar-toggle-btn" onclick="window.toggleSidebar()" class="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-slate-100 text-slate-600 transition-colors focus:ring-2 focus:ring-teal-600 outline-none">
                         <i class="fa-solid fa-bars text-lg"></i>
                     </button>
-                    <div class="hidden sm:flex w-8 h-8 rounded-lg bg-teal-600 items-center justify-center text-white">
-                        <i class="fa-solid fa-book-open text-sm"></i>
+                    <div onclick="window.showStep(0)" class="cursor-pointer group flex items-center gap-2 sm:gap-3 hover:bg-slate-50 px-2 py-1 -ml-2 rounded-xl transition-colors" title="Kembali ke Beranda">
+                        <div class="hidden sm:flex w-8 h-8 rounded-lg bg-teal-600 items-center justify-center text-white group-hover:bg-teal-700 transition-colors shadow-sm">
+                            <i class="fa-solid fa-book-open text-sm"></i>
+                        </div>
+                        <span class="font-heading font-bold text-lg tracking-wide text-slate-800 flex items-center">
+                            ABS <span class="inline-flex items-center gap-1.5 ml-2 text-[10px] font-bold uppercase tracking-wider text-green-700 bg-green-50 px-2 py-1 rounded-full border border-green-200"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span>Online</span>
+                        </span>
                     </div>
-                    <span class="font-heading group font-bold text-lg tracking-wide text-slate-800 flex items-center">
-                        ABS <span class="inline-flex items-center gap-1.5 ml-2 text-[10px] font-bold uppercase tracking-wider text-green-700 bg-green-50 px-2 py-1 rounded-full border border-green-200"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span>Online</span>
-                    </span>
                 </div>
                 <div class="flex items-center gap-3 md:gap-5">
                     <div id="sync-indicator" class="sync-status synced flex items-center gap-2 text-[10px] sm:text-xs font-bold">
@@ -171,8 +173,37 @@
     <!-- Main Layout -->
     <main class="max-w-[95%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
 
+        <!-- Step 0: Beranda / Pemilihan Kelas -->
+        <div id="step-0" class="step-container active-step">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-2xl font-bold font-heading text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-chalkboard-user text-teal-600"></i> Daftar Kelas Anda
+                </h2>
+                <button onclick="window.promptCreateClass()" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2 shadow-sm">
+                    <i class="fa-solid fa-plus"></i> Buat Kelas
+                </button>
+            </div>
+
+            <!-- Class Cards Grid -->
+            <div id="class-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Diisi oleh JS -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="hidden text-center py-20 bg-white rounded-3xl border border-slate-200 border-dashed">
+                <div class="w-20 h-20 bg-slate-50 text-slate-300 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                    <i class="fa-solid fa-folder-open"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-700 font-heading mb-2">Belum Ada Kelas</h3>
+                <p class="text-slate-500 mb-6 text-sm max-w-sm mx-auto">Anda belum mengonfigurasi kelas satupun. Silakan klik tombol di bawah untuk mulai membuat absensi/analisis soal kelas pertama Anda.</p>
+                <button onclick="window.promptCreateClass()" class="inline-block bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-sm">
+                    Mulai Buat Kelas
+                </button>
+            </div>
+        </div>
+
         <!-- Step 1: Konfigurasi Kelas & Soal -->
-        <div id="step-1" class="step-container active-step bg-white rounded-3xl shadow-xs border border-slate-200/60 p-6 md:p-8 hover-card">
+        <div id="step-1" class="step-container hidden-step bg-white rounded-3xl shadow-xs border border-slate-200/60 p-6 md:p-8 hover-card">
             <div class="flex justify-between items-center border-b border-slate-100 pb-4 mb-6">
                 <h2 class="text-xl font-bold text-slate-800 font-heading flex items-center gap-2">
                     <i class="fa-solid fa-gear text-teal-600"></i> Langkah 1: Konfigurasi Kelas & Soal
@@ -593,27 +624,56 @@
                 buttonsEl.innerHTML = `<button id="btn-modal-ok" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2.5 px-6 rounded-xl transition-all shadow-sm w-full">Tutup</button>`;
                 document.getElementById('btn-modal-ok').onclick = closeModal;
             } 
-            else if(type === 'confirm' || type === 'prompt') {
-                icon.innerHTML = type === 'prompt' || requirePin ? '<i class="fa-solid fa-shield-halved"></i>' : '<i class="fa-solid fa-triangle-exclamation"></i>';
-                let color = requirePin ? 'amber' : 'rose';
-                icon.className = `w-16 h-16 rounded-full bg-${color}-50 text-${color}-500 flex items-center justify-center text-2xl mx-auto mb-4`;
+            else if(type === 'confirm' || type === 'prompt' || type === 'inputPrompt') {
+                if (type === 'inputPrompt') {
+                    icon.innerHTML = '<i class="fa-solid fa-pen"></i>';
+                } else {
+                    icon.innerHTML = type === 'prompt' || requirePin ? '<i class="fa-solid fa-shield-halved"></i>' : '<i class="fa-solid fa-triangle-exclamation"></i>';
+                }
+                let color = (requirePin || type === 'inputPrompt') ? 'amber' : 'rose';
+                if (type === 'inputPrompt') color = 'teal'; // Use teal for normal input prompts
+                
+                icon.className = `w-16 h-16 rounded-full bg-${color}-50 text-${color}-600 flex items-center justify-center text-2xl mx-auto mb-4`;
                 accent.className = `absolute top-0 left-0 w-full h-2 bg-${color}-500`;
 
-                if(requirePin) {
+                if(requirePin || type === 'inputPrompt') {
                     pinContainer.classList.remove('hidden');
+                    if (type === 'inputPrompt') {
+                        pinInput.type = 'text';
+                        pinInput.placeholder = 'Ketik di sini...';
+                        pinInput.className = "w-full text-center text-sm font-bold bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-4 focus:ring-2 focus:ring-teal-600 outline-none transition-all";
+                    } else {
+                        pinInput.type = 'password';
+                        pinInput.placeholder = 'Masukkan PIN';
+                        pinInput.className = "w-full text-center tracking-[0.5em] text-lg font-bold bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-4 focus:ring-2 focus:ring-teal-600 outline-none transition-all";
+                    }
                     setTimeout(() => pinInput.focus(), 100);
                 }
 
                 buttonsEl.innerHTML = `
                     <button id="btn-modal-cancel" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 px-6 rounded-xl transition-all w-1/2">Batal</button>
-                    <button id="btn-modal-confirm" class="bg-${color}-500 hover:bg-${color}-600 text-white font-bold py-2.5 px-6 rounded-xl transition-all shadow-sm w-1/2">Lanjut</button>
+                    <button id="btn-modal-confirm" class="bg-${color}-500 hover:bg-${color}-600 text-white font-bold py-2.5 px-6 rounded-xl transition-all shadow-sm w-1/2">${type === 'inputPrompt' ? 'Buat' : 'Lanjut'}</button>
                 `;
 
                 document.getElementById('btn-modal-cancel').onclick = closeModal;
                 document.getElementById('btn-modal-confirm').onclick = async () => {
+                    if (type === 'inputPrompt') {
+                        const val = pinInput.value.trim();
+                        if (!val) {
+                            pinError.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Tidak boleh kosong!';
+                            pinError.classList.remove('hidden');
+                            pinInput.focus();
+                            return;
+                        }
+                        closeModal();
+                        if(onConfirm) onConfirm(val);
+                        return;
+                    }
+                    
                     if(requirePin) {
                         const pinInputVal = pinInput.value;
                         if (!pinInputVal) {
+                            pinError.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> PIN Salah!';
                             pinError.classList.remove('hidden');
                             pinInput.focus();
                             return;
@@ -868,13 +928,68 @@
                 }
                 html += `</div></details>`;
             }
+            // --- RENDER GRID BERANDA ---
             html += '</div>';
             sidebarContent.innerHTML = html;
 
-            // Pilih kelas pertama yang tersedia atau pertahankan yang dipilih jika direload
-            const idToSelect = currentClassId && classes.find(c=>c.id === currentClassId) ? currentClassId : classes[0].id;
-            window.selectClass(idToSelect);
+            const grid = document.getElementById('class-grid');
+            const emptyState = document.getElementById('empty-state');
+            grid.innerHTML = '';
+            
+            if (classes.length === 0) {
+                emptyState.classList.remove('hidden');
+            } else {
+                emptyState.classList.add('hidden');
+            }
+            
+            classes.forEach(c => {
+                let mapel = c.metaMapel || 'Belum Diatur';
+                let nama = c.className || "Kelas Tanpa Nama";
+                let totalMurid = c.students ? c.students.length : 0;
+                
+                const btn = document.createElement('div');
+                btn.onclick = () => { 
+                    window.initialUrlStep = 4; // Pastikan selalu melompat ke Langkah 4
+                    window.selectClass(c.id); 
+                };
+                btn.className = "text-left bg-white rounded-3xl border border-slate-200/60 p-6 flex flex-col h-full hover-card cursor-pointer group w-full";
+                btn.innerHTML = `
+
+                    <h3 class="text-xl font-bold font-heading text-slate-800 mb-1 group-hover:text-teal-700 transition-colors">${nama}</h3>
+                    <p class="text-sm font-medium text-slate-500 mb-4">${mapel}</p>
+                    <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400 w-full">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-users"></i> ${totalMurid} Siswa</span>
+                    </div>
+                `;
+                grid.appendChild(btn);
+            });
+
+            // Ambil parameter dari URL jika ada
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlClassId = urlParams.get('classId');
+            const urlStep = urlParams.get('step');
+            
+            if (urlStep) {
+                window.initialUrlStep = parseInt(urlStep); // Simpan sementara
+            }
+
+            // Jika ada parameter, langsung buka kelas tersebut. Jika tidak, tampilkan Beranda
+            if (urlClassId && classes.find(c => c.id === urlClassId)) {
+                window.selectClass(urlClassId);
+            } else if (currentClassId && classes.find(c => c.id === currentClassId)) {
+                window.selectClass(currentClassId);
+            } else {
+                window.showStep(0);
+            }
         }
+
+        window.promptCreateClass = function() {
+            showCustomModal('inputPrompt', 'Buat Kelas Baru', 'Masukkan nama untuk kelas yang akan Anda buat.', (className) => {
+                if (className) {
+                    window.createNewClass(className);
+                }
+            });
+        };
 
         // Bikin Kelas Baru di Firestore
         window.createNewClass = async function(presetName) {
@@ -938,13 +1053,23 @@
             }, true);
         }
 
-        // Ganti Kelas & Listen Perubahan (Realtime Subscription)
         window.selectClass = function(classId) {
             if(!classId) return;
+            
+            // Simpan step dari kelas sebelumnya jika sedang berpindah kelas, atau null jika baru refresh
+            let previousStep = window.appState ? window.appState.currentStep : null;
+            
+            // Prioritaskan instruksi langkah dari URL Landing Page jika ada
+            if (window.initialUrlStep) {
+                previousStep = window.initialUrlStep;
+                window.initialUrlStep = null; // Reset agar tidak terus-menerus memaksa
+            }
+
             if(unsubscribe) { unsubscribe(); unsubscribe = null; }
             currentClassId = classId;
+            window.appState = null; // Hapus state kelas sebelumnya agar tidak bocor
             window.lastLocalEditTime = 0; // Reset agar langsung bisa memuat data kelas lain tanpa menunggu 8 detik
-
+            
             document.getElementById('loading-overlay').classList.remove('hidden');
 
             if (window.useLocalStorage) {
@@ -952,6 +1077,16 @@
                 const localData = JSON.parse(localStorage.getItem('abs_classes') || '{}');
                 if (localData[classId]) {
                     window.appState = localData[classId];
+                    
+                    // Selalu arahkan ke Hasil Akhir KECUALI mata pelajarannya masih kosong (kelas baru)
+                    if (previousStep) {
+                        window.appState.currentStep = previousStep;
+                    } else if (window.appState.metaMapel && window.appState.metaMapel !== '') {
+                        window.appState.currentStep = 4;
+                    } else {
+                        window.appState.currentStep = 1;
+                    }
+                    
                     window.restoreUI();
                 }
             } else {
@@ -959,19 +1094,29 @@
                     document.getElementById('loading-overlay').classList.add('hidden');
                     
                     if(docSnap.exists()) {
-                        // Abaikan snapshot dari cloud jika user masih aktif berinteraksi 
-                        // (Diberi jeda perlindungan 8 detik sejak ketikan/perubahan terakhir)
                         const timeSinceLastEdit = Date.now() - (window.lastLocalEditTime || 0);
                         if (docSnap.metadata.hasPendingWrites || timeSinceLastEdit < 8000) {
                             return; 
                         }
-                        // Simpan currentStep lokal agar halaman tidak melompat karena perangkat lain
+                        
+                        // Cek currentStep saat ini (jika sudah ada)
                         const localStep = window.appState ? window.appState.currentStep : null;
                         
                         window.appState = docSnap.data();
                         
                         if (localStep) {
+                            // Jika sedang berada di web, jangan lompat-lompat
                             window.appState.currentStep = localStep;
+                        } else if (previousStep) {
+                            // Jika pindah dari kelas lain, pertahankan halamannya
+                            window.appState.currentStep = previousStep;
+                        } else {
+                            // Jika baru refresh web, selalu ke Langkah 4 agar rahasia aman
+                            if (window.appState.metaMapel && window.appState.metaMapel !== '') {
+                                window.appState.currentStep = 4; 
+                            } else {
+                                window.appState.currentStep = 1; // Hanya untuk kelas yang 100% baru dibuat
+                            }
                         }
                         
                         window.restoreUI();
@@ -1077,10 +1222,26 @@
         }
 
         window.showStep = function(stepNum) {
-            window.appState.currentStep = stepNum;
-            window.debounceSaveData(); // Simpan riwayat langkah ke cloud
+            if (window.appState && stepNum > 0) {
+                window.appState.currentStep = stepNum;
+                window.debounceSaveData(); // Simpan riwayat langkah ke cloud
+            }
+            
+            // Atur Sidebar dan Tombol Toggle
+            const sidebarBtn = document.getElementById('sidebar-toggle-btn');
+            if (sidebarBtn) {
+                if (stepNum === 0) {
+                    sidebarBtn.classList.add('hidden');
+                    document.body.classList.add('sidebar-closed');
+                    document.body.classList.remove('sidebar-open');
+                } else {
+                    sidebarBtn.classList.remove('hidden');
+                }
+            }
+
             document.querySelectorAll('.step-container').forEach(el => el.classList.replace('active-step', 'hidden-step'));
-            document.getElementById(`step-${stepNum}`).classList.replace('hidden-step', 'active-step');
+            const targetStep = document.getElementById(`step-${stepNum}`);
+            if (targetStep) targetStep.classList.replace('hidden-step', 'active-step');
         }
 
         window.backTo = function(stepNum) { 
