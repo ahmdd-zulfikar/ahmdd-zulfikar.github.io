@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
@@ -356,9 +355,7 @@
                         <div class="w-10 h-10 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center text-lg"><i class="fa-solid fa-chalkboard"></i></div>
                         <div>
                             <p class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Nama Kelas</p>
-                            <button onclick="window.toggleSidebar()" id="web-meta-class" class="text-sm font-bold text-slate-700 bg-transparent outline-none cursor-pointer border-none p-0 hover:text-teal-600 transition-colors flex items-center gap-1.5">
-                                - <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
-                            </button>
+                            <p id="web-meta-class" class="text-sm font-bold text-slate-700">-</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-3">
@@ -452,13 +449,13 @@
                     </div>
                     <h2 class="text-lg font-bold text-slate-800 mb-2 hidden print-only px-6 pt-4 font-heading">Hasil Akhir Nilai Siswa</h2>
                     
-                    <div class="overflow-x-auto custom-scrollbar">
+                    <div class="overflow-auto max-h-[70vh] custom-scrollbar">
                         <table class="w-full text-left border-collapse whitespace-nowrap" id="table-nilai">
-                            <thead>
+                            <thead class="sticky top-0 z-20 shadow-sm bg-white">
                                 <tr id="result-header-1" class="bg-slate-50 border-b border-slate-200/70 text-xs text-slate-500 font-bold select-none">
                                     <!-- Dynamic content -->
                                 </tr>
-                                <tr id="result-header-2" class="bg-slate-50/30 border-b border-slate-200/50 text-[10px] text-slate-400 select-none">
+                                <tr id="result-header-2" class="bg-slate-50/95 border-b border-slate-200/50 text-[10px] text-slate-400 select-none backdrop-blur-sm">
                                     <!-- Dynamic content -->
                                 </tr>
                             </thead>
@@ -968,7 +965,15 @@
                         if (docSnap.metadata.hasPendingWrites || timeSinceLastEdit < 8000) {
                             return; 
                         }
+                        // Simpan currentStep lokal agar halaman tidak melompat karena perangkat lain
+                        const localStep = window.appState ? window.appState.currentStep : null;
+                        
                         window.appState = docSnap.data();
+                        
+                        if (localStep) {
+                            window.appState.currentStep = localStep;
+                        }
+                        
                         window.restoreUI();
                     }
                 });
@@ -1033,7 +1038,7 @@
 
             const navBtn = document.getElementById('navbar-active-class');
             if (navBtn) navBtn.innerText = window.appState.className || "Pilih Kelas";
-            document.getElementById('web-meta-class').innerHTML = `${window.appState.className || "-"} <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>`;
+            document.getElementById('web-meta-class').innerText = window.appState.className || "-";
             
             document.querySelectorAll('.class-sidebar-btn').forEach(btn => {
                 if (btn.getAttribute('data-class-id') === currentClassId) {
