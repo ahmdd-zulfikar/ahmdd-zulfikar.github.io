@@ -43,11 +43,13 @@
     <!-- Firebase SDK -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+        import { getFirestore, collection, getDocs, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
         window.initializeApp = initializeApp;
         window.getFirestore = getFirestore;
         window.collection = collection;
         window.getDocs = getDocs;
+        window.doc = doc;
+        window.setDoc = setDoc;
     </script>
 </head>
 <body class="text-slate-800 min-h-screen flex flex-col antialiased selection:bg-teal-200 selection:text-teal-900">

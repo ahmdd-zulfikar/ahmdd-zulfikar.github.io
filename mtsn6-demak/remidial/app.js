@@ -530,8 +530,7 @@ function renderQuiz() {
     });
 }
 
-window.submitQuiz = function() {
-    // Basic validation to check if all questions are answered
+window.submitQuiz = async function() {
     let allAnswered = true;
     wrongQuestions.forEach(q => {
         const isPGK = q.type === "PGK";
@@ -546,17 +545,55 @@ window.submitQuiz = function() {
         }
     }
 
-    // Hitung sekadar simulasi (asumsi nilai remidial fixed atau dihitung jika ada kunci)
-    // Karena kita tidak memiliki kunci jawaban absolut dari input, 
-    // sistem remidial bisa di-set ke KKM/Tuntas langsung, atau memunculkan pesan selesai.
-    // Dalam implementasi ini, kita tampilkan skor statis sebagai apresiasi.
-    document.getElementById('final-score').innerText = "TUNTAS";
+    const numPG = classData.numPG || 5;
+    const numPGK = classData.numPGK || 2;
+    const optsPGK = classData.optsPGK || 1;
+    
+    let stuPGArr = (activeStudent.pg || '').padEnd(numPG, ' ').split('');
+    let oldStuPGKArr = chunkString((activeStudent.pgk || '').replace(/,/g, ''), optsPGK, numPGK);
+
+    wrongQuestions.forEach((q) => {
+        const isPGK = q.type === "PGK";
+        const nameAttr = isPGK ? `q_${q.id}[]` : `q_${q.id}`;
+        const inputs = document.querySelectorAll(`input[name="${nameAttr}"]:checked`);
+        
+        let ansChars = [];
+        inputs.forEach(inp => {
+            ansChars.push(String.fromCharCode(65 + parseInt(inp.value)));
+        });
+        const finalAns = ansChars.sort().join(''); // misal "A" atau "AB"
+        
+        const globalIndex = q.id - 1; // 0 sampai 24
+        
+        if (globalIndex < numPG) {
+            stuPGArr[globalIndex] = finalAns.charAt(0) || ' ';
+        } else if (globalIndex < numPG + numPGK) {
+            const pgkIndex = globalIndex - numPG;
+            oldStuPGKArr[pgkIndex] = finalAns.padEnd(optsPGK, ' ').substring(0, optsPGK);
+        }
+    });
+
+    activeStudent.pg = stuPGArr.join('');
+    activeStudent.pgk = oldStuPGKArr.join(',');
 
     document.getElementById('step-2').classList.add('opacity-0', 'scale-95', 'translate-y-4');
-    setTimeout(() => {
+    setTimeout(async () => {
         document.getElementById('step-2').classList.add('hidden');
-        const step3 = document.getElementById('step-3');
-        step3.classList.remove('hidden');
-        setTimeout(() => step3.classList.remove('opacity-0', 'scale-95', 'translate-y-4'), 50);
+        document.getElementById('loading-text').innerText = "Menyimpan Jawaban...";
+        document.getElementById('loading-overlay').classList.remove('hidden');
+        
+        try {
+            await window.setDoc(window.doc(db, "classes", classData.id), classData, {merge: true});
+            document.getElementById('loading-overlay').classList.add('hidden');
+            
+            document.getElementById('final-score').innerText = "Tersimpan";
+            const step3 = document.getElementById('step-3');
+            step3.classList.remove('hidden');
+            setTimeout(() => step3.classList.remove('opacity-0', 'scale-95', 'translate-y-4'), 50);
+        } catch(e) {
+            console.error(e);
+            document.getElementById('loading-overlay').classList.add('hidden');
+            alert("Gagal menyimpan data ke server. Periksa koneksi internet Anda.");
+        }
     }, 300);
 }
