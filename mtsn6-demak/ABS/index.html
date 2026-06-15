@@ -1514,7 +1514,14 @@
                     if(statIndex < itemStats.length) itemStats[statIndex++].earned += earned;
                 }
 
-                results.push({ name, total: scorePG + scorePGK + scoreUraian, pgDetails, pgkDetails, uraianDetails });
+                let maxScore = (window.appState.numPG * window.appState.weightPG) + 
+                               (window.appState.numPGK * window.appState.weightPGK) + 
+                               (window.appState.numUraian * window.appState.weightUraian);
+                
+                let rawTotal = scorePG + scorePGK + scoreUraian;
+                let finalTotal = maxScore > 0 ? Math.round((rawTotal / maxScore) * 100) : 0;
+
+                results.push({ name, total: finalTotal, rawTotal, pgDetails, pgkDetails, uraianDetails });
             });
 
             results.sort((a, b) => a.name.localeCompare(b.name));

@@ -381,7 +381,10 @@ function renderStudents(students) {
             scoreUraian += earned;
         }
 
-        const totalScore = scorePG + scorePGK + scoreUraian;
+        let maxScore = (numPG * weightPG) + (numPGK * weightPGK) + (numUraian * weightUraian);
+        let rawTotal = scorePG + scorePGK + scoreUraian;
+        const totalScore = maxScore > 0 ? Math.round((rawTotal / maxScore) * 100) : 0;
+        
         student.calculatedTotal = totalScore;
         student.pgDetails = pgDetails;
         student.pgkDetails = pgkDetails;
@@ -602,7 +605,9 @@ window.submitQuiz = async function() {
         scoreUraian += earned;
     }
     
-    const newTotalScore = newScorePG + newScorePGK + scoreUraian;
+    let maxScore = (numPG * weightPG) + (numPGK * weightPGK) + (numUraian * weightUraian);
+    let rawTotal = newScorePG + newScorePGK + scoreUraian;
+    const newTotalScore = maxScore > 0 ? Math.round((rawTotal / maxScore) * 100) : 0;
 
     document.getElementById('step-2').classList.add('opacity-0', 'scale-95', 'translate-y-4');
     setTimeout(async () => {
