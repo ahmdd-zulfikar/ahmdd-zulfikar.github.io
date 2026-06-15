@@ -207,7 +207,7 @@ const soalBank = [
         ]
     },
     {
-        id: 21, type: "PG",
+        id: 21, type: "PGK",
         text: `Rina secara tidak sengaja menjatuhkan bongkahan kapur barus ke dalam sebuah wadah berisi pasir kering. Kapur barus pecah dan bercampur homogen dengan butiran-butiran pasir. Untuk memisahkan kembali kedua zat tersebut, Rina dapat melakukan beberapa metode.<br>Manakah usulan metode pemisahan yang tepat untuk memisahkan campuran kapur barus dan pasir tersebut?`,
         options: [
             "A. Campuran dimasukkan ke dalam air dan diaduk, kemudian disaring untuk memisahkan pasir dari larutan kapur barus.",
@@ -217,7 +217,7 @@ const soalBank = [
         ]
     },
     {
-        id: 22, type: "PG",
+        id: 22, type: "PGK",
         text: `Perhatikan nama-nama gunung berikut!<br>1) Gunung Merapi<br>2) Gunung Muria<br>3) Gunung Slamet<br>4) Gunung Prau<br><br>Berdasarkan daftar di atas, yang tergolong dalam gunung berapi aktif di wilayah Jawa Tengah ditunjukkan oleh nomor ...`,
         options: [
             "A. 1",
@@ -227,7 +227,7 @@ const soalBank = [
         ]
     },
     {
-        id: 23, type: "PG",
+        id: 23, type: "PGK",
         text: `Perhatikan tabel protokol tindakan mitigasi untuk setiap status gunung berapi berikut.<br>Normal (Level I) - Pemantauan visual dan instrumental rutin<br>Waspada (Level II) - Kesiapsiagaan masyarakat di sekitar gunung<br>Siaga (Level III) - Larangan aktivitas di zona berbahaya<br>Awas (Level IV) - Evakuasi warga dari zona berbahaya<br><br>Manakah pasangan status dan tindakan yang sesuai dengan tabel di atas?`,
         options: [
             "A. Saat status Waspada, dilakukan evakuasi total warga.",
@@ -237,7 +237,7 @@ const soalBank = [
         ]
     },
     {
-        id: 24, type: "PG",
+        id: 24, type: "PGK",
         text: `Gunung berapi yang sedang meletus mengeluarkan berbagai jenis material, baik dalam bentuk padat, cair, maupun gas. Dari daftar di bawah ini, manakah dua bahan yang termasuk dalam kategori material padat (eflata) yang dikeluarkan langsung dari kawah gunung berapi?`,
         options: [
             "A. Lava",
@@ -247,7 +247,7 @@ const soalBank = [
         ]
     },
     {
-        id: 25, type: "PG",
+        id: 25, type: "PGK",
         text: `Perhatikan tabel kategori gempa bumi berdasarkan magnitudo (Skala Richter/SR) dan efek kerusakan yang ditimbulkan berikut!<br>1 - Kecil - 3.0-3.9 - Jarang menimbulkan kerusakan<br>2 - Sedang - 4.0-4.9 - Jendela bergetar<br>3 - Merusak - 5.0-5.9 - Kerusakan bangunan lemah<br>4 - Besar - 7.0-7.9 - Kerusakan serius pada area luas<br>5 - Sangat Besar - > 8.0 - Kerusakan dahsyat<br><br>Berdasarkan tabel di atas, pasangan kategori gempa dan efeknya yang tepat adalah...`,
         options: [
             "A. 1 dan 2",
