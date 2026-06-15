@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patch Score</title>
+    <style>
+        body { font-family: sans-serif; padding: 2rem; background: #f8fafc; color: #334155; }
+        .box { background: white; padding: 2rem; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); max-width: 600px; margin: 0 auto; }
+        button { background: #0d9488; color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 0.5rem; cursor: pointer; font-weight: bold; }
+        button:hover { background: #0f766e; }
+        #log { margin-top: 1rem; background: #1e293b; color: #10b981; padding: 1rem; border-radius: 0.5rem; font-family: monospace; height: 300px; overflow-y: auto; white-space: pre-wrap; font-size: 13px;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Perbaikan Nilai Siswa (88)</h2>
+        <p>Klik tombol di bawah ini untuk secara otomatis menyesuaikan rincian jawaban milik Clarisa dan Linda sehingga nilai akhirnya pas menjadi 88 (mengubah jawaban salah menjadi benar secara acak di Firebase).</p>
+        <button id="start-btn">Mulai Perbaikan</button>
+        <div id="log">Siap...</div>
+    </div>
+    
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getFirestore, collection, getDocs, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+        const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyGlGepwK3HRIRc4mjPrEKeVcvq7dDHt8IsR2zoSwiqEogw0rFj4-rmugUFMPMK30x3eQ/exec";
+
+        function log(msg) {
+            const l = document.getElementById('log');
+            l.innerHTML += msg + "\n";
+            l.scrollTop = l.scrollHeight;
+        }
+
+        async function run() {
+            document.getElementById('start-btn').disabled = true;
+            document.getElementById('start-btn').innerText = "Memproses...";
+            log("Mengambil konfigurasi Firebase...");
+            try {
+                const res = await fetch(GAS_WEB_APP_URL + "?action=getConfig");
+                const config = await res.json();
+                const app = initializeApp(config.firebaseConfig);
+                const db = getFirestore(app);
+                log("Firebase berhasil diinisialisasi.");
+
+                const querySnapshot = await getDocs(collection(db, "classes"));
+                let class8B = null;
+                querySnapshot.forEach(doc => {
+                    const data = doc.data();
+                    if (data.name && (data.name.toUpperCase().includes("8B") || data.name.toUpperCase().includes("VIII B") || data.name.toUpperCase().includes("VIIIB"))) {
+                        class8B = data;
+                        class8B.id = doc.id;
+                    }
+                });
+
+                if (!class8B) {
+                    log("ERROR: Kelas 8B tidak ditemukan di database!");
+                    return;
+                }
+                log("Kelas 8B ditemukan. Mencari siswa...");
+
+                let modified = false;
+
+                const numPG = class8B.numPG || 5;
+                const numPGK = class8B.numPGK || 2;
+                const numUraian = class8B.numUraian || 2;
+                const weightPG = class8B.weightPG || 1;
+                const weightPGK = class8B.weightPGK || 2;
+                const weightUraian = class8B.weightUraian || 5;
+                
+                let maxScore = (numPG * weightPG) + (numPGK * weightPGK) + (numUraian * weightUraian);
+                let targetRawTotal = Math.round((88 / 100) * maxScore);
+                log("Skor Maksimal Mentah: " + maxScore + ", Target Skor Mentah (88%): " + targetRawTotal);
+
+                const keyPGArr = (class8B.keyPG || '').padEnd(numPG, ' ').split('');
+                const optsPGK = class8B.optsPGK || 1;
+                const cleanKeyPGK = (class8B.keyPGK || '').replace(/,/g, '');
+                
+                function chunkString(str, length, maxChunks) {
+                    let chunks = [];
+                    let s = str || '';
+                    for (let i = 0; i < maxChunks; i++) {
+                        let chunk = s.substr(i * length, length).padEnd(length, ' ');
+                        chunks.push(chunk);
+                    }
+                    return chunks;
+                }
+                const keyPGKArr = chunkString(cleanKeyPGK, optsPGK, numPGK).map(s => s.split('').sort().join('').trim());
+
+                class8B.students.forEach(student => {
+                    let sName = student.name.toUpperCase();
+                    if (sName.includes("CLARISA") || sName.includes("LINDA")) {
+                        log("Memproses: " + student.name);
+                        
+                        let stuPGArr = (student.pg || '').padEnd(numPG, ' ').split('');
+                        let stuPGKArr = chunkString((student.pgk || '').replace(/,/g, ''), optsPGK, numPGK);
+                        
+                        // Buat uraian 0 semua dulu
+                        student.uraian = "0".repeat(numUraian).split('').join(',');
+                        
+                        // Buat jawaban PG dan PGK salah semua (strip -)
+                        stuPGArr = stuPGArr.map(() => '-');
+                        stuPGKArr = stuPGKArr.map(() => '-'.repeat(optsPGK));
+                        
+                        let currentRaw = 0;
+                        
+                        // Acak urutan index PG dan berikan jawaban benar
+                        let indicesPG = Array.from({length: numPG}, (_, i) => i).sort(() => Math.random() - 0.5);
+                        for (let i of indicesPG) {
+                            if (currentRaw + weightPG <= targetRawTotal) {
+                                stuPGArr[i] = keyPGArr[i] || 'A';
+                                currentRaw += weightPG;
+                            }
+                        }
+                        
+                        // Acak urutan index PGK dan berikan jawaban benar
+                        let indicesPGK = Array.from({length: numPGK}, (_, i) => i).sort(() => Math.random() - 0.5);
+                        for (let i of indicesPGK) {
+                            if (currentRaw + weightPGK <= targetRawTotal) {
+                                stuPGKArr[i] = keyPGKArr[i] ? keyPGKArr[i].padEnd(optsPGK, ' ') : ' '.repeat(optsPGK);
+                                currentRaw += weightPGK;
+                            }
+                        }
+                        
+                        // Jika masih ada sisa poin
+                        let gap = targetRawTotal - currentRaw;
+                        if (gap > 0 && numUraian > 0) {
+                            let uraianArr = Array(numUraian).fill(0);
+                            for(let i=0; i<numUraian; i++) {
+                                let add = Math.min(gap, weightUraian);
+                                uraianArr[i] = add;
+                                gap -= add;
+                            }
+                            student.uraian = uraianArr.join(',');
+                            currentRaw += (targetRawTotal - currentRaw);
+                        }
+
+                        student.pg = stuPGArr.join('');
+                        student.pgk = stuPGKArr.join(',');
+                        modified = true;
+                        log("  -> Selesai diproses. Total poin mentah = " + currentRaw);
+                    }
+                });
+
+                if (modified) {
+                    log("Menyimpan ke Firebase...");
+                    await setDoc(doc(db, "classes", class8B.id), class8B, {merge: true});
+                    log("BERHASIL! Data tersimpan.");
+                } else {
+                    log("Siswa tidak ditemukan.");
+                }
+            } catch (e) {
+                log("ERROR: " + e.message);
+            }
+            document.getElementById('start-btn').innerText = "Selesai";
+        }
+        
+        document.getElementById('start-btn').addEventListener('click', run);
+    </script>
+</body>
+</html>
