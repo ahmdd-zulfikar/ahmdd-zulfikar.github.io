@@ -303,21 +303,94 @@ async function fetchClass8B() {
     }
 }
 
+function normalizeStr(str) { 
+    return (str || '').replace(/\s/g, '').split('').sort().join(''); 
+}
+
+function chunkString(str, chunkSize, maxChunks) {
+    if(!str) str = "";
+    let padded = str.padEnd(chunkSize * maxChunks, ' ').toUpperCase();
+    let chunks = [];
+    for(let i = 0; i < maxChunks; i++) {
+        chunks.push(padded.slice(i * chunkSize, (i + 1) * chunkSize));
+    }
+    return chunks;
+}
+
+function parseUraianInput(inputStr, expectedLength) {
+    let scores = [];
+    if((inputStr||'').includes(',')) scores = (inputStr||'').split(',').map(s => parseFloat(s) || 0);
+    else scores = (inputStr||'').split('').map(s => parseFloat(s) || 0);
+    while(scores.length < expectedLength) scores.push(0);
+    return scores;
+}
+
 function renderStudents(students) {
     const tbody = document.getElementById('student-list');
     tbody.innerHTML = '';
 
+    const kkm = classData.metaKkm || 75;
+    const numPG = classData.numPG || 5;
+    const numPGK = classData.numPGK || 2;
+    const numUraian = classData.numUraian || 2;
+    const weightPG = classData.weightPG || 1;
+    const weightPGK = classData.weightPGK || 2;
+    const weightUraian = classData.weightUraian || 5;
+    
+    const keyPGArr = (classData.keyPG || '').split('');
+    const optsPGK = classData.optsPGK || 1;
+    const cleanKeyPGK = (classData.keyPGK || '').replace(/,/g, '');
+    const keyPGKArr = chunkString(cleanKeyPGK, optsPGK, numPGK).map(normalizeStr);
+
     students.forEach((student, index) => {
-        // Flat array status (gabungan pg dan pgk)
-        const combinedStatus = [...(student.pgDetails || []), ...(student.pgkDetails || [])];
+        let scorePG = 0, scorePGK = 0, scoreUraian = 0;
         
-        // Cek jumlah soal salah (0) atau kosong (-1)
+        let stuPGArr = (student.pg || '').split('');
+        let cleanStuPGK = (student.pgk || '').replace(/,/g, '');
+        let stuPGKArr = chunkString(cleanStuPGK, optsPGK, numPGK).map(normalizeStr);
+        let stuUraianArr = parseUraianInput(student.uraian, numUraian);
+
+        let pgDetails = [];
+        let pgkDetails = [];
+
+        for(let i=0; i<numPG; i++) {
+            let status = 0;
+            let ans = stuPGArr[i];
+            if (!ans || ans === ' ' || ans === '-') status = -1;
+            else if(ans === keyPGArr[i]) {
+                scorePG += weightPG;
+                status = 1;
+            }
+            pgDetails.push(status);
+        }
+
+        for(let i=0; i<numPGK; i++) {
+            let status = 0;
+            let ans = stuPGKArr[i];
+            if (!ans || ans === '') status = -1;
+            else if(ans === keyPGKArr[i] && keyPGKArr[i] !== '') {
+                scorePGK += weightPGK;
+                status = 1;
+            }
+            pgkDetails.push(status);
+        }
+
+        for(let i=0; i<numUraian; i++) {
+            let earned = stuUraianArr[i] || 0;
+            if(earned > weightUraian) earned = weightUraian; 
+            scoreUraian += earned;
+        }
+
+        const totalScore = scorePG + scorePGK + scoreUraian;
+        student.calculatedTotal = totalScore;
+        student.pgDetails = pgDetails;
+        student.pgkDetails = pgkDetails;
+
+        const combinedStatus = [...pgDetails, ...pgkDetails];
         let wrongCount = 0;
         combinedStatus.forEach(status => {
             if (status !== 1 && status !== undefined) wrongCount++;
         });
-
-        // Potong ke max 25 soal sesuai bank soal (mengabaikan soal uraian)
         if (wrongCount > 25) wrongCount = 25; 
 
         const tr = document.createElement('tr');
@@ -326,12 +399,18 @@ function renderStudents(students) {
         let statusHtml = '';
         let btnHtml = '';
 
-        if (wrongCount > 0) {
-            statusHtml = `<span class="bg-rose-100 text-rose-700 px-3 py-1 rounded-full text-xs font-bold">Remidial (${wrongCount} soal)</span>`;
-            btnHtml = `<button onclick="startRemidial('${student.name}', ${index})" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-sm transition-all hover:-translate-y-0.5">Kerjakan</button>`;
+        if (totalScore < kkm) {
+            statusHtml = `<div class="flex flex-col items-center justify-center gap-1">
+                <span class="bg-rose-100 text-rose-700 px-3 py-1 rounded-full text-[10px] font-bold">REMIDIAL</span>
+                <span class="text-xs font-bold text-slate-500">Nilai: ${totalScore} (Salah ${wrongCount})</span>
+            </div>`;
+            btnHtml = `<button onclick="window.startRemidial('${student.name}', ${index})" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-sm transition-all hover:-translate-y-0.5 w-full">Kerjakan</button>`;
         } else {
-            statusHtml = `<span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold">Tuntas</span>`;
-            btnHtml = `<button disabled class="bg-slate-200 text-slate-400 px-4 py-2 rounded-xl text-xs font-bold cursor-not-allowed">Selesai</button>`;
+            statusHtml = `<div class="flex flex-col items-center justify-center gap-1">
+                <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-[10px] font-bold">TUNTAS</span>
+                <span class="text-xs font-bold text-slate-500">Nilai: ${totalScore}</span>
+            </div>`;
+            btnHtml = `<button disabled class="bg-slate-200 text-slate-400 px-4 py-2 rounded-xl text-xs font-bold cursor-not-allowed w-full">Selesai</button>`;
         }
 
         tr.innerHTML = `
@@ -343,7 +422,6 @@ function renderStudents(students) {
         tbody.appendChild(tr);
     });
 
-    // Fitur pencarian siswa
     document.getElementById('search-student').addEventListener('input', (e) => {
         const keyword = e.target.value.toLowerCase();
         Array.from(tbody.children).forEach(row => {
@@ -363,19 +441,16 @@ window.startRemidial = function(studentName, studentIndex) {
     const combinedStatus = [...(student.pgDetails || []), ...(student.pgkDetails || [])];
     
     wrongQuestions = [];
-    // Batasi pengecekan maksimal 25 elemen (sesuai soal PG dan PGK)
     const limit = Math.min(25, combinedStatus.length);
 
     for (let i = 0; i < limit; i++) {
-        // Jika tidak benar (1), berarti remidial
-        if (combinedStatus[i] !== 1) {
+        if (combinedStatus[i] !== 1 && i < soalBank.length) {
             wrongQuestions.push(soalBank[i]);
         }
     }
 
-    // Jika entah kenapa tidak ada soal salah yang ditemukan tapi tombol aktif
     if (wrongQuestions.length === 0) {
-        alert("Tidak ada soal yang perlu diperbaiki.");
+        alert("Tidak ada soal PG/PGK yang salah.");
         return;
     }
 
