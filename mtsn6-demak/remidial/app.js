@@ -576,6 +576,34 @@ window.submitQuiz = async function() {
     activeStudent.pg = stuPGArr.join('');
     activeStudent.pgk = oldStuPGKArr.join(',');
 
+    // Calculate new score for display
+    let newScorePG = 0;
+    let newScorePGK = 0;
+    const weightPG = classData.weightPG || 1;
+    const weightPGK = classData.weightPGK || 2;
+    const keyPGArr = (classData.keyPG || '').split('');
+    const cleanKeyPGK = (classData.keyPGK || '').replace(/,/g, '');
+    const keyPGKArr = chunkString(cleanKeyPGK, optsPGK, numPGK).map(normalizeStr);
+    
+    for(let i=0; i<numPG; i++) {
+        if(stuPGArr[i] === keyPGArr[i] && keyPGArr[i]) newScorePG += weightPG;
+    }
+    for(let i=0; i<numPGK; i++) {
+        if(oldStuPGKArr[i] === keyPGKArr[i] && keyPGKArr[i]) newScorePGK += weightPGK;
+    }
+    
+    let scoreUraian = 0;
+    const numUraian = classData.numUraian || 2;
+    const weightUraian = classData.weightUraian || 5;
+    let stuUraianArr = parseUraianInput(activeStudent.uraian, numUraian);
+    for(let i=0; i<numUraian; i++) {
+        let earned = stuUraianArr[i] || 0;
+        if(earned > weightUraian) earned = weightUraian; 
+        scoreUraian += earned;
+    }
+    
+    const newTotalScore = newScorePG + newScorePGK + scoreUraian;
+
     document.getElementById('step-2').classList.add('opacity-0', 'scale-95', 'translate-y-4');
     setTimeout(async () => {
         document.getElementById('step-2').classList.add('hidden');
@@ -586,7 +614,7 @@ window.submitQuiz = async function() {
             await window.setDoc(window.doc(db, "classes", classData.id), classData, {merge: true});
             document.getElementById('loading-overlay').classList.add('hidden');
             
-            document.getElementById('final-score').innerText = "Tersimpan";
+            document.getElementById('final-score').innerText = newTotalScore;
             const step3 = document.getElementById('step-3');
             step3.classList.remove('hidden');
             setTimeout(() => step3.classList.remove('opacity-0', 'scale-95', 'translate-y-4'), 50);
