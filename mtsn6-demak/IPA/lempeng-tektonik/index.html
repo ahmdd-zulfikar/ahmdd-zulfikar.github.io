@@ -1,26 +1,928 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-    <title>IPA-Lempeng Tektonik</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geografi: Lempeng Tektonik</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Konfigurasi Warna Tema (Sesuai MTsN 6 Demak) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    },
+                    colors: {
+                        teal: {
+                            850: '#0f5d56',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
     <style>
-        html, body {
-            margin: 0 !important;
-            padding: 0 !important;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background-color: #e9ecef;
-        }
-        .app-frame {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        
+        /* --- ANTI CHEAT: Disable text selection --- */
+        .no-select { user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; }
+        input, select, textarea { user-select: text; -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        /* Opsi Quiz Theme Teal */
+        .option-label { cursor: pointer; transition: all 0.2s ease-in-out; border: 1px solid #e2e8f0; }
+        .option-label:hover { border-color: #0d9488; background-color: #f0fdfa; }
+        .option-input:checked + .option-content { background-color: #f0fdfa; border-color: #0d9488; box-shadow: 0 0 0 1px #0d9488; }
+        .option-input:checked + .option-content .option-circle { background-color: #0d9488; color: white; border-color: #0d9488; }
+        
+        /* Checkbox Kegiatan Theme Teal */
+        .kegiatan-table th { background-color: #f1f5f9; color: #475569; padding: 14px; border: 1px solid #e2e8f0; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; }
+        .kegiatan-table td { padding: 12px; border: 1px solid #e2e8f0; background-color: white; text-align: center; }
+        .kegiatan-checkbox { width: 1.5rem; height: 1.5rem; border: 2px solid #cbd5e1; border-radius: 0.375rem; cursor: pointer; appearance: none; -webkit-appearance: none; display: inline-block; position: relative; background-color: white; transition: all 0.2s; }
+        .kegiatan-checkbox:checked { background-color: #0d9488; border-color: #0d9488; }
+        .kegiatan-checkbox:checked::after { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 1rem; color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        
+        .pattern-bg { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        
+        .fade-text { transition: opacity 0.3s ease-in-out; }
+        .modal-backdrop { background-color: rgba(15, 23, 42, 0.7); backdrop-filter: blur(4px); animation: fadeIn 0.2s ease-out; }
+        .modal-content { animation: slideUp 0.3s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        
+        #anti-cheat-banner { transition: transform 0.3s ease-in-out; }
+        .student-watermark { position: fixed; top: -50%; left: -50%; width: 200vw; height: 200vh; pointer-events: none; z-index: 9999; opacity: 0.03; display: flex; flex-wrap: wrap; align-content: flex-start; word-break: break-all; font-size: 1.3rem; font-weight: 800; line-height: 1.8; color: #000; transform: rotate(-25deg); text-transform: uppercase; }
+        
+        /* Obfuscation Helper for Anti-Cheat UI */
+        .b64t { opacity: 0; transition: opacity 0.3s; }
+        .b64-ready { opacity: 1; }
     </style>
 </head>
-<body>
-    <iframe class="app-frame" src="https://script.google.com/macros/s/AKfycbxwvkaQWG1TU05ul6m5PN8ceToB61O292lFpdJJIWL5RPxtIB8iAgPODw9Ngj_fMEay/exec"></iframe>
+<body class="no-select">
+
+    <!-- Anti Cheat Warning Banner -->
+    <div id="anti-cheat-banner" class="fixed top-0 left-0 w-full bg-red-600 text-white text-center py-2 z-[10001] transform -translate-y-full flex items-center justify-center gap-2 text-sm font-semibold shadow-md">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span id="anti-cheat-msg" class="b64t" data-b="U2lzdGVtIFBlbmdhd2FzYW4gQWt0aWY6IERpbGFyYW5nIG1lbnlhbGluIHRla3MgYXRhdSBtZW5pbmdnYWxrYW4gaGFsYW1hbiB1amlhbiE="></span>
+    </div>
+
+    <!-- Anti-Snipping / Blur Overlay -->
+    <div id="anti-snip-overlay" class="fixed inset-0 bg-teal-950/95 backdrop-blur-xl z-[10000] hidden flex-col items-center justify-center text-white transition-opacity duration-200">
+        <i class="fa-solid fa-eye-slash text-7xl mb-6 text-red-500 animate-pulse"></i>
+        <h2 class="text-3xl font-bold font-heading mb-2 text-center b64t" data-b="TGF5YXIgVWppYW4gRGlzZW1idW55aWthbg=="></h2>
+        <p class="text-teal-200 text-center max-w-md px-4 mb-4 b64t" data-b="U2lzdGVtIG1lbmRldGVrc2kgQW5kYSBtZW5pbmdnYWxrYW4gaGFsYW1hbiB1amlhbiBhdGF1IG1lbWJ1a2EgYXBsaWthc2kgbGFpbi4="></p>
+        <div id="snip-identity" class="bg-red-900/50 border border-red-500 text-amber-400 font-bold text-xl px-6 py-3 rounded-xl mb-6 hidden uppercase tracking-wider text-center"></div>
+        <button onclick="regainFocus()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105 b64t" data-b="S2VtYmFsaSBrZSBVamlhbg=="></button>
+    </div>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Brand -->
+                <a href="../../" target="_top" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <div class="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-book-open text-sm"></i>
+                    </div>
+                    <span class="font-heading font-bold text-lg tracking-wide text-slate-800">Belajar<span class="text-teal-600">Online</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    
+                    <!-- Dropdown Materi Fiqih -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors flex items-center gap-1 py-4 focus:outline-none">
+                            Materi Fiqih <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute top-full left-0 w-72 bg-white border border-slate-100 rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left scale-95 group-hover:scale-100 overflow-hidden">
+                            <div class="p-2 space-y-1">
+                                <a href="../../fiqih/shalat-jumat" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat Jum'at</a>
+                                <a href="../../fiqih/khutbah" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Khutbah Jum'at</a>
+                                <a href="../../fiqih/jama" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat Jama'</a>
+                                <a href="../../fiqih/qashar" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat Qashar</a>
+                                <a href="../../fiqih/shalat-sedang-sakit" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat Bagi Orang Sakit</a>
+                                <a href="../../fiqih/shalat-dalam-kendaraan" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat dalam Kendaraan</a>
+                                <a href="../../fiqih/sunnah-muakkad" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat Sunnah Muakkad</a>
+                                <a href="../../fiqih/sunnah-ghairu-muakkad" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat Sunnah Ghairu Muakkad</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Materi IPA -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors flex items-center gap-1 py-4 focus:outline-none">
+                            Materi IPA <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute top-full left-0 w-64 bg-white border border-slate-100 rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left scale-95 group-hover:scale-100 overflow-hidden">
+                            <div class="p-2 space-y-1">
+                                <a href="../../IPA/getaran" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Getaran</a>
+                                <a href="../../IPA/gelombang" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Gelombang</a>
+                                <a href="../../IPA/cahaya" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Cahaya</a>
+                                <a href="../../IPA/unsur-senyawa" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Unsur dan Senyawa</a>
+                                <a href="../../IPA/campuran" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Campuran</a>
+                                <a href="../../IPA/struktur-bumi" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Struktur Bumi</a>
+                                <a href="../../IPA/lempeng-tektonik" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Lempeng Tektonik</a>
+                                <a href="../../IPA/gempa-bumi" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Gempa Bumi</a>
+                                <a href="../../IPA/gunung-merapi" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Gunung Merapi</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="../../formatif" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Uji Kompetensi
+                    </a>
+                    <a href="../../nilai-siswa" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Rekap Nilai
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-slate-600 hover:text-teal-600 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full max-h-[85vh] overflow-y-auto">
+            <div class="px-2 pt-4 pb-6 space-y-1">
+                
+                <!-- Dropdown Fiqih Mobile -->
+                <div class="px-2">
+                    <button onclick="document.getElementById('mobile-fiqih-dropdown').classList.toggle('hidden'); this.querySelector('i.fa-chevron-down').classList.toggle('rotate-180');" class="flex justify-between items-center w-full text-left px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors focus:outline-none">
+                        <span>Materi Fiqih</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div id="mobile-fiqih-dropdown" class="hidden space-y-1 pl-4 mt-2 mb-3 border-l-2 border-slate-200 ml-3">
+                        <a href="../../fiqih/shalat-jumat" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Shalat Jum'at</a>
+                        <a href="../../fiqih/khutbah" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Khutbah Jum'at</a>
+                        <a href="../../fiqih/jama" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-teal-50 rounded-r-md transition-colors">Shalat Jama'</a>
+                        <a href="../../fiqih/qashar" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-teal-50 rounded-r-md transition-colors">Shalat Qashar</a>
+                        <a href="../../fiqih/shalat-sedang-sakit" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-teal-50 rounded-r-md transition-colors">Shalat Bagi Orang Sakit</a>
+                        <a href="../../fiqih/shalat-dalam-kendaraan" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-teal-50 rounded-r-md transition-colors">Shalat dalam Kendaraan</a>
+                        <a href="../../fiqih/sunnah-muakkad" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-teal-50 rounded-r-md transition-colors">Shalat Sunnah Muakkad</a>
+                        <a href="../../fiqih/sunnah-ghairu-muakkad" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-teal-50 rounded-r-md transition-colors">Shalat Sunnah Ghairu Muakkad</a>
+                    </div>
+                </div>
+
+                <!-- Dropdown IPA Mobile -->
+                <div class="px-2 mt-1">
+                    <button onclick="document.getElementById('mobile-ipa-dropdown').classList.toggle('hidden'); this.querySelector('i.fa-chevron-down').classList.toggle('rotate-180');" class="flex justify-between items-center w-full text-left px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors focus:outline-none">
+                        <span>Materi IPA</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div id="mobile-ipa-dropdown" class="hidden space-y-1 pl-4 mt-2 mb-3 border-l-2 border-slate-200 ml-3">
+                        <a href="../../IPA/getaran" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Getaran</a>
+                        <a href="../../IPA/gelombang" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Gelombang</a>
+                        <a href="../../IPA/cahaya" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Cahaya</a>
+                        <a href="../../IPA/unsur-senyawa" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Unsur dan Senyawa</a>
+                        <a href="../../IPA/campuran" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Campuran</a>
+                        <a href="../../IPA/struktur-bumi" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Struktur Bumi</a>
+                        <a href="../../IPA/lempeng-tektonik" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Lempeng Tektonik</a>
+                        <a href="../../IPA/gempa-bumi" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Gempa Bumi</a>
+                        <a href="../../IPA/gunung-merapi" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Gunung Merapi</a>
+                    </div>
+                </div>
+
+                <!-- Standalone Links Mobile -->
+                <div class="px-2 mt-1">
+                    <a href="../../formatif" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Uji Kompetensi</a>
+                </div>
+                <div class="px-2 mt-1">
+                    <a href="../../nilai-siswa" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Rekap Nilai</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section Theme Teal -->
+    <header class="bg-teal-900 relative pt-20 pb-32 overflow-hidden pattern-bg">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-teal-900/90"></div>
+        <div class="container mx-auto px-4 relative z-10 max-w-4xl text-center">
+            <span class="inline-flex items-center gap-2 bg-teal-800/80 border border-teal-700 text-teal-100 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-6 shadow-sm">
+                <i class="fa-solid fa-layer-group text-amber-400"></i> Materi Geografi
+            </span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white font-heading leading-tight">
+                Permukaan Bumi: <br/> <span class="text-amber-400">Lempeng Tektonik</span>
+            </h1>
+            <p class="text-lg text-teal-100/90 max-w-2xl mx-auto font-light leading-relaxed mb-10">
+                Kerak bumi bersifat dinamis dan selalu berubah. Lempeng-lempeng litosfer raksasa saling bertumbukan, menjauh, dan bergesekan menciptakan bentang alam yang menakjubkan.
+            </p>
+            <a href="#materi" class="bg-amber-500 hover:bg-amber-400 text-teal-950 px-8 py-3.5 rounded-xl font-semibold transition inline-flex items-center gap-2 shadow-lg transform hover:-translate-y-0.5">
+                Mulai Belajar <i class="fa-solid fa-arrow-down text-sm"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Materi Section -->
+    <section id="materi" class="py-12 container mx-auto px-4 -mt-16 relative z-20">
+        <!-- Alasan Bisa Bergerak -->
+        <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 mb-8 hover:shadow-md transition-shadow">
+            <div class="flex flex-col md:flex-row gap-6 items-start">
+                <div class="bg-teal-50 p-4 rounded-xl shrink-0 text-teal-600">
+                    <i class="fa-solid fa-fire-flame-curved text-3xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-800 font-heading">1. Alasan Lempeng Bisa Bergerak</h3>
+                    <p class="text-slate-600 leading-relaxed mb-5 text-sm md:text-base">
+                        Lapisan kerak bumi tidak diam, melainkan mengapung di atas lapisan mantel yang berwujud kental dan panas. Alasan utama pergerakan ini adalah adanya <strong>Arus Konveksi</strong>.
+                    </p>
+                    <div class="bg-slate-50 p-5 rounded-xl border-l-4 border-teal-500">
+                        <strong class="block text-slate-800 mb-1 text-sm font-semibold">Proses Arus Konveksi</strong>
+                        <p class="italic text-slate-600 text-sm leading-relaxed">
+                            Panas luar biasa dari inti bumi memanaskan material magma di mantel bawah sehingga bergerak naik. Saat mendekati kerak bumi, material tersebut mendingin, menyebar ke samping, lalu turun kembali. Siklus aliran magma yang terus-menerus memutar inilah yang menyeret dan memecah lempeng tektonik di atasnya.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Jenis Pergerakan -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow flex flex-col">
+                <h3 class="text-xl font-bold mb-6 text-slate-800 font-heading flex items-center">
+                    <div class="bg-teal-50 text-teal-600 p-2 rounded-lg mr-3 text-sm"><i class="fa-solid fa-arrows-down-to-line"></i></div>
+                    2. Konvergensi & Divergensi
+                </h3>
+                <div class="space-y-4 flex-grow">
+                    <div class="border border-slate-100 p-5 rounded-xl bg-slate-50/50 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-teal-500"></div>
+                        <strong class="text-slate-800 text-base block mb-1">A. Konvergensi (Saling Mendekat)</strong>
+                        <p class="text-slate-600 text-sm mb-2">Dua lempeng tektonik bergerak saling mendekat dan bertumbukan.</p>
+                        <ul class="list-disc pl-4 text-sm text-slate-600 space-y-1">
+                            <li><strong>Samudra vs Benua:</strong> Lempeng samudra menunjam ke bawah, membentuk Palung laut dan deretan Gunung Api.</li>
+                            <li><strong>Benua vs Benua:</strong> Memicu pengangkatan daratan membentuk Pegunungan Lipatan tinggi.</li>
+                        </ul>
+                    </div>
+                    <div class="border border-slate-100 p-5 rounded-xl bg-slate-50/50 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-amber-500"></div>
+                        <strong class="text-slate-800 text-base block mb-1">B. Divergensi (Saling Menjauh)</strong>
+                        <p class="text-slate-600 text-sm mb-2">Dua lempeng berpisah, memberi jalan bagi magma untuk naik ke permukaan.</p>
+                        <ul class="list-disc pl-4 text-sm text-slate-600 space-y-1">
+                            <li>Di dasar laut memicu terbentuknya pematang bukit bawah laut.</li>
+                            <li>Di daratan memicu terbentuknya lembah retak besar.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                <h3 class="text-xl font-bold mb-6 text-slate-800 font-heading flex items-center">
+                    <div class="bg-teal-50 text-teal-600 p-2 rounded-lg mr-3 text-sm"><i class="fa-solid fa-exchange-alt"></i></div>
+                    3. Sesar Mendatar
+                </h3>
+                <div class="space-y-4">
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Sesar Mendatar terjadi ketika dua lempeng tektonik bergesekan dan bergeser menyamping satu sama lain dengan arah yang berlawanan.
+                    </p>
+                    <div class="flex items-start p-3 bg-slate-50 rounded-lg mt-4">
+                        <i class="fa-solid fa-bolt text-amber-500 mt-0.5 mr-3"></i>
+                        <div>
+                            <strong class="text-slate-800 text-sm block">Tanpa Litosfer Baru atau Hancur</strong>
+                            <span class="text-slate-600 text-sm">Berbeda dengan pergerakan lainnya, batas ini tidak menciptakan kerak baru maupun menghancurkan kerak bumi.</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-slate-50 rounded-lg">
+                        <i class="fa-solid fa-house-crack text-amber-500 mt-0.5 mr-3"></i>
+                        <div>
+                            <strong class="text-slate-800 text-sm block">Pemicu Gempa Dangkal</strong>
+                            <span class="text-slate-600 text-sm">Gesekan energi yang tertahan akhirnya terlepas secara tiba-tiba, menciptakan gempa bumi tektonik yang sangat merusak.</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 bg-slate-50 rounded-lg">
+                        <i class="fa-solid fa-map-location-dot text-amber-500 mt-0.5 mr-3"></i>
+                        <div>
+                            <strong class="text-slate-800 text-sm block">Contoh Nyata</strong>
+                            <span class="text-slate-600 text-sm">Patahan San Andreas di California, Amerika Serikat, yang memisahkan Lempeng Pasifik dan Lempeng Amerika Utara.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simulasi Section Theme Teal -->
+    <section id="simulasi" class="bg-teal-900 py-16 relative pattern-bg">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-12">
+                <span class="text-amber-400 font-semibold tracking-wider text-xs uppercase mb-2 block">Visualisasi Geologi</span>
+                <h2 class="text-3xl font-bold text-white font-heading">Simulasi Pergerakan Lempeng</h2>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-6 max-w-5xl mx-auto">
+                <div class="w-full lg:w-1/3 bg-white p-6 rounded-2xl shadow-lg flex flex-col">
+                    <label class="block text-slate-700 font-semibold mb-2 text-sm">Pilih Jenis Pergerakan</label>
+                    <select id="intent-selector" onchange="updatePosisi()" class="w-full p-3.5 border border-slate-200 rounded-xl outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-slate-50 text-slate-800 text-sm mb-6 cursor-pointer">
+                        <option value="konvergensi">1. Batas Konvergen Mendekat</option>
+                        <option value="divergensi">2. Batas Divergen Menjauh</option>
+                        <option value="transform">3. Sesar Mendatar Menyamping</option>
+                    </select>
+
+                    <div class="bg-teal-50 p-4 rounded-xl border border-teal-100 mt-auto">
+                        <h4 class="font-bold text-teal-800 mb-1 text-xs uppercase tracking-wider flex items-center">
+                            <i class="fa-solid fa-lightbulb mr-2"></i>Fakta Geografi
+                        </h4>
+                        <p id="posisi-note" class="text-sm text-teal-900/80 leading-relaxed">
+                            Indonesia merupakan tempat bertemunya tiga lempeng tektonik utama dunia secara konvergen atau saling bertumbukan.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-2/3 bg-white rounded-2xl shadow-lg p-8 flex flex-col justify-center items-center min-h-[350px]">
+                    <div id="posisi-content" class="fade-text text-center w-full">
+                        <span id="posisi-title" class="inline-block text-xs font-bold text-teal-700 bg-teal-50 px-3 py-1 rounded-md mb-6 uppercase tracking-wider">
+                            Gerakan 1
+                        </span>
+                        <div id="posisi-icon" class="text-7xl text-teal-600 mb-6 py-2">
+                            <i class="fa-solid fa-compress-arrows-alt"></i>
+                        </div>
+                        <h3 id="posisi-heading" class="text-2xl font-bold text-slate-800 mb-4 font-heading">
+                            Konvergensi Lempeng
+                        </h3>
+                        <div class="w-12 h-px bg-slate-200 mx-auto my-5"></div>
+                        <p id="posisi-desc" class="text-slate-600 text-base leading-relaxed max-w-lg mx-auto">
+                            Dua lempeng bumi saling bertumbukan. Hal ini memicu penunjaman ke mantel bumi, menciptakan rantai pegunungan aktif, gunung berapi, dan palung samudera yang sangat dalam.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kegiatan Siswa Section Theme Teal -->
+    <section id="kegiatan" class="py-16 w-full">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-slate-100 text-slate-700 px-5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-slate-200">
+                    <i class="fa-solid fa-list-check mr-2"></i>Kegiatan Siswa
+                </span>
+                <h2 class="text-3xl font-bold text-slate-800 font-heading">Lembar Kerja Pengamatan</h2>
+                <p class="text-slate-500 mt-3 text-sm max-w-xl mx-auto">Uji pemahamanmu mengenai karakteristik pergerakan dan dampak dari aktivitas tektonik bumi.</p>
+            </div>
+
+            <div id="kegiatan-container" class="space-y-8">
+                <!-- Konten Lembar Kerja A -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-slate-800 mb-5 flex items-center font-heading">
+                        <div class="bg-teal-50 text-teal-600 w-10 h-10 rounded-lg flex items-center justify-center mr-3 border border-teal-100 text-sm">
+                            <i class="fa-solid fa-map"></i>
+                        </div>
+                        A. Identifikasi Jenis Pergerakan Lempeng
+                    </h3>
+                    <div class="overflow-x-auto rounded-xl border border-slate-200">
+                        <table class="w-full kegiatan-table border-collapse text-sm min-w-[500px]">
+                            <thead>
+                                <tr>
+                                    <th class="w-10">No</th>
+                                    <th>Pernyataan Fenomena atau Karakteristik</th>
+                                    <th class="w-24">Konvergen</th>
+                                    <th class="w-24">Divergen</th>
+                                    <th class="w-24">Transform</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-slate-600">
+                                <tr><td>1</td><td class="text-left pl-4 font-medium text-slate-700">Dua benua bertumbukan kuat memicu lipatan raksasa seperti Pegunungan Himalaya.</td>
+                                    <td><input type="radio" name="kegA_1" value="konvergen" class="kegiatan-checkbox"></td>
+                                    <td><input type="radio" name="kegA_1" value="divergen" class="kegiatan-checkbox"></td>
+                                    <td><input type="radio" name="kegA_1" value="transform" class="kegiatan-checkbox"></td>
+                                </tr>
+                                <tr><td>2</td><td class="text-left pl-4 font-medium text-slate-700">Lempeng Pasifik dan Amerika Utara saling bergesekan menyamping di Sesar San Andreas.</td>
+                                    <td><input type="radio" name="kegA_2" value="konvergen" class="kegiatan-checkbox"></td>
+                                    <td><input type="radio" name="kegA_2" value="divergen" class="kegiatan-checkbox"></td>
+                                    <td><input type="radio" name="kegA_2" value="transform" class="kegiatan-checkbox"></td>
+                                </tr>
+                                <tr><td>3</td><td class="text-left pl-4 font-medium text-slate-700">Magma menyusup dari celah dua lempeng yang menjauh di dasar Samudra Atlantik.</td>
+                                    <td><input type="radio" name="kegA_3" value="konvergen" class="kegiatan-checkbox"></td>
+                                    <td><input type="radio" name="kegA_3" value="divergen" class="kegiatan-checkbox"></td>
+                                    <td><input type="radio" name="kegA_3" value="transform" class="kegiatan-checkbox"></td>
+                                </tr>
+                                <tr><td>4</td><td class="text-left pl-4 font-medium text-slate-700">Lempeng samudra yang berat menunjam ke bawah mantel lempeng benua yang lebih ringan.</td>
+                                    <td><input type="radio" name="kegA_4" value="konvergen" class="kegiatan-checkbox"></td>
+                                    <td><input type="radio" name="kegA_4" value="divergen" class="kegiatan-checkbox"></td>
+                                    <td><input type="radio" name="kegA_4" value="transform" class="kegiatan-checkbox"></td>
+                                </tr>
+                                <tr><td>5</td><td class="text-left pl-4 font-medium text-slate-700">Benua Afrika perlahan terbelah membentuk patahan retakan lembah besar.</td>
+                                    <td><input type="radio" name="kegA_5" value="konvergen" class="kegiatan-checkbox"></td>
+                                    <td><input type="radio" name="kegA_5" value="divergen" class="kegiatan-checkbox"></td>
+                                    <td><input type="radio" name="kegA_5" value="transform" class="kegiatan-checkbox"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Konten Lembar Kerja B -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-slate-800 mb-5 flex items-center font-heading">
+                        <div class="bg-teal-50 text-teal-600 w-10 h-10 rounded-lg flex items-center justify-center mr-3 border border-teal-100 text-sm">
+                            <i class="fa-solid fa-mountain-sun"></i>
+                        </div>
+                        B. Identifikasi Dampak Bentang Alam
+                    </h3>
+                    <div class="overflow-x-auto rounded-xl border border-slate-200">
+                        <table class="w-full kegiatan-table border-collapse text-sm min-w-[650px]">
+                            <thead>
+                                <tr>
+                                    <th class="w-10">No</th>
+                                    <th>Karakteristik Bentang Alam</th>
+                                    <th class="w-28">Konvergen</th>
+                                    <th class="w-28">Divergen</th>
+                                    <th class="w-28">Transform</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-slate-600">
+                                <tr><td>1</td><td class="text-left pl-4 font-medium text-slate-700">Tidak ada penghancuran kerak bumi, memicu gempa bumi dangkal di jalur patahan mendatar.</td>
+                                    <td><input type="radio" name="kegB_1" value="konvergen" class="kegiatan-checkbox"></td>
+                                    <td><input type="radio" name="kegB_1" value="divergen" class="kegiatan-checkbox"></td>
+                                    <td><input type="radio" name="kegB_1" value="transform" class="kegiatan-checkbox"></td>
+                                </tr>
+                                <tr><td>2</td><td class="text-left pl-4 font-medium text-slate-700">Memunculkan deretan kepulauan vulkanik gunung api sejajar dengan zona palung laut dalam.</td>
+                                    <td><input type="radio" name="kegB_2" value="konvergen" class="kegiatan-checkbox"></td>
+                                    <td><input type="radio" name="kegB_2" value="divergen" class="kegiatan-checkbox"></td>
+                                    <td><input type="radio" name="kegB_2" value="transform" class="kegiatan-checkbox"></td>
+                                </tr>
+                                <tr><td>3</td><td class="text-left pl-4 font-medium text-slate-700">Terbentuknya kerak dasar samudra yang benar-benar baru berupa pematang bukit bawah laut.</td>
+                                    <td><input type="radio" name="kegB_3" value="konvergen" class="kegiatan-checkbox"></td>
+                                    <td><input type="radio" name="kegB_3" value="divergen" class="kegiatan-checkbox"></td>
+                                    <td><input type="radio" name="kegB_3" value="transform" class="kegiatan-checkbox"></td>
+                                </tr>
+                                <tr><td>4</td><td class="text-left pl-4 font-medium text-slate-700">Membentuk deretan pegunungan lipatan darat tertinggi akibat kompresi lempeng yang hebat.</td>
+                                    <td><input type="radio" name="kegB_4" value="konvergen" class="kegiatan-checkbox"></td>
+                                    <td><input type="radio" name="kegB_4" value="divergen" class="kegiatan-checkbox"></td>
+                                    <td><input type="radio" name="kegB_4" value="transform" class="kegiatan-checkbox"></td>
+                                </tr>
+                                <tr><td>5</td><td class="text-left pl-4 font-medium text-slate-700">Memunculkan pergeseran bidang jalan atau sungai secara horizontal menyamping tajam.</td>
+                                    <td><input type="radio" name="kegB_5" value="konvergen" class="kegiatan-checkbox"></td>
+                                    <td><input type="radio" name="kegB_5" value="divergen" class="kegiatan-checkbox"></td>
+                                    <td><input type="radio" name="kegB_5" value="transform" class="kegiatan-checkbox"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="text-center pt-6 pb-4">
+                    <button type="button" id="btn-kirim-kegiatan" onclick="preSubmitKegiatanCheck()" class="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-10 py-3.5 rounded-full shadow-md transition-all duration-200 transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-paper-plane mr-2"></i> Kirim Lembar Kerja
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kalkulator Section Theme Teal -->
+    <section id="kalkulator" class="py-16 container mx-auto px-4 bg-white border-t border-slate-200">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-slate-800 font-heading mb-2">Analisa Dampak Tektonik</h2>
+                <p class="text-slate-500 text-sm">Pilih kondisi interaksi antar lempeng untuk melihat bentang alam yang akan dihasilkan.</p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-2 md:p-6 hover:shadow-md transition">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-4">
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-slate-700 font-semibold mb-2 text-sm">Kasus Pertemuan Lempeng</label>
+                            <select id="input-condition" class="w-full p-3.5 border border-slate-300 rounded-xl outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white text-slate-700">
+                                <option value="tumbukan_laut_darat">Lempeng Samudra bertumbukan menunjam Lempeng Benua</option>
+                                <option value="jauh_samudra">Dua Lempeng Samudra saling bergerak memisah menjauh</option>
+                                <option value="gesek_benua">Dua Lempeng Benua saling bergesekan mendatar</option>
+                                <option value="tumbukan_benua">Dua Lempeng Benua saling bertumbukan merapat</option>
+                                <option value="jauh_benua">Daratan Lempeng Benua terbelah saling menjauh</option>
+                            </select>
+                        </div>
+                        <button onclick="checkKondisi()" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-medium py-3.5 rounded-xl shadow-sm transition flex justify-center items-center gap-2">
+                            <i class="fa-solid fa-magnifying-glass text-sm"></i> Prediksi Geologis
+                        </button>
+                    </div>
+                    
+                    <div class="bg-slate-50 rounded-xl p-8 border border-slate-100 text-center flex flex-col items-center justify-center min-h-[220px]">
+                        <span class="text-slate-400 font-semibold uppercase tracking-widest text-xs mb-3 block">Bentang Alam Muncul</span>
+                        <div id="check-result" class="text-2xl font-bold text-slate-300 mb-4 font-heading transition-colors">---</div>
+                        <div id="check-reason" class="text-slate-600 text-sm leading-relaxed max-w-xs">
+                            Pilih kondisi geologis di samping dan klik prediksi.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section Theme Teal -->
+    <section id="latihan" class="py-16 bg-slate-100 border-t border-slate-200 relative overflow-hidden">
+        
+        <div id="exam-watermark" class="student-watermark hidden"></div>
+
+        <div class="container mx-auto px-4 max-w-3xl relative z-10">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-slate-800 font-heading mb-2">Uji Kompetensi</h2>
+                <div class="mt-4 inline-flex items-center gap-2 bg-red-100 text-red-700 px-4 py-2 rounded-lg text-xs font-bold border border-red-200 shadow-sm">
+                    <i class="fa-solid fa-shield-halved"></i> UJIAN DIAWASI SISTEM KETAT
+                </div>
+            </div>
+
+            <!-- Login Container -->
+            <div id="quiz-login" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 relative">
+                <div id="auth-status" class="absolute top-6 right-6 text-xs font-semibold text-slate-400 flex items-center">
+                    <i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Menghubungkan...
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-slate-800 font-heading">Data Siswa</h3>
+                    <p class="text-sm text-slate-500">Lengkapi data diri sebelum mengunduh bank soal terenkripsi.</p>
+                </div>
+
+                <div id="banned-alert" class="hidden bg-red-50 border border-red-200 text-red-700 p-5 mb-6 rounded-xl text-sm relative">
+                    <div class="font-bold mb-2 flex items-center text-base"><i class="fa-solid fa-ban mr-2"></i> Akses Perangkat Diblokir</div>
+                    <p class="mb-4">Perangkat ini dikunci karena terdeteksi kecurangan. Hubungi guru geografi.</p>
+                    <button onclick="promptUnblock()" class="w-full sm:w-auto bg-red-100 hover:bg-red-200 text-red-800 font-bold py-2 px-4 rounded-lg text-xs transition border border-red-300 flex justify-center items-center">
+                        <i class="fa-solid fa-unlock-keyhole mr-2"></i> Buka Blokir
+                    </button>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-slate-700 text-sm font-semibold mb-1">Nama Lengkap</label>
+                        <!-- PLACEHOLDER NAMA DIENCODE: "Contoh: Ahmad" -->
+                        <input type="text" id="student-name" class="b64p w-full p-3.5 border border-slate-300 rounded-xl outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white relative z-20" data-b="Q29udG9oOiBBaG1hZA==">
+                    </div>
+                    <div>
+                        <label class="block text-slate-700 text-sm font-semibold mb-1">Kelas</label>
+                        <!-- PLACEHOLDER KELAS DIENCODE: "Contoh: 7A" -->
+                        <input type="text" id="student-class" class="b64p w-full p-3.5 border border-slate-300 rounded-xl outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white relative z-20" data-b="Q29udG9oOiA3QQ==">
+                    </div>
+                    <button id="start-btn" onclick="startQuiz()" disabled class="w-full bg-slate-300 text-slate-500 font-medium py-3.5 rounded-xl cursor-not-allowed transition mt-4 relative z-20">
+                        Memuat Soal...
+                    </button>
+                    <p id="auth-error-msg" class="text-red-500 text-xs text-center hidden">Gagal terhubung ke database.</p>
+                </div>
+            </div>
+
+            <!-- Quiz Container -->
+            <div id="quiz-container" class="hidden space-y-6 relative">
+                <div id="quiz-lock-overlay" class="hidden absolute inset-0 bg-white/90 backdrop-blur-sm z-50 flex flex-col items-center justify-center rounded-xl p-4 text-center">
+                    <div class="bg-red-600 text-white px-6 py-4 rounded-xl font-bold shadow-lg flex items-center gap-3 mb-6">
+                        <i class="fa-solid fa-lock text-2xl"></i> UJIAN DIKUNCI
+                    </div>
+                    <p class="text-slate-800 font-medium mb-4">Perangkat ini diblokir karena melakukan pelanggaran berkali-kali.</p>
+                    <button onclick="promptUnblock()" class="bg-white text-red-600 hover:text-red-700 font-bold py-3 px-6 rounded-xl shadow-md border border-red-200 hover:bg-red-50 transition flex items-center gap-2">
+                        <i class="fa-solid fa-unlock-keyhole"></i> Buka Blokir
+                    </button>
+                </div>
+
+                <div class="bg-slate-800 text-white p-4 rounded-xl flex justify-between items-center shadow-sm relative z-20">
+                    <div class="font-medium text-sm flex items-center">
+                        <i class="fa-solid fa-circle-user mr-2 text-teal-400 text-lg"></i>
+                        <span><span id="display-name" class="font-bold">---</span> (<span id="display-class">---</span>)</span>
+                    </div>
+                    <div id="violation-counter" class="bg-red-500/20 px-3 py-1 rounded-md text-xs font-semibold border border-red-500 text-red-100 hidden">
+                        <i class="fa-solid fa-warning mr-1"></i> Pelanggaran: <span id="v-count">0</span>/3
+                    </div>
+                </div>
+
+                <form id="quiz-form" class="space-y-6 relative z-20"></form>
+
+                <div class="pt-6 relative z-20">
+                    <button type="button" id="submit-btn" onclick="preSubmitCheck()" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-4 rounded-xl shadow-sm transition flex justify-center items-center gap-2">
+                        <i class="fa-solid fa-paper-plane text-sm"></i> Kirim Jawaban
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Modal -->
+    <div id="custom-modal" class="hidden fixed inset-0 z-[300] flex items-center justify-center modal-backdrop px-4">
+        <div class="bg-white rounded-2xl shadow-xl p-8 max-w-sm w-full modal-content border border-slate-100 text-center relative flex flex-col items-center">
+            <div id="modal-icon-container" class="w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4 bg-slate-50 text-2xl">
+                <i class="fa-solid fa-bell text-slate-500"></i>
+            </div>
+            <h3 id="modal-title" class="text-xl font-bold text-slate-800 mb-2 font-heading"></h3>
+            <div id="modal-body" class="text-slate-600 w-full text-sm mb-6 leading-relaxed"></div>
+            <div id="modal-actions" class="flex flex-col gap-2 w-full"></div>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-teal-950 text-teal-200 py-10 border-t border-teal-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <a href="../../" target="_top" class="inline-flex items-center justify-center gap-3 mb-4 text-white hover:opacity-80 transition-opacity">
+                <i class="fa-solid fa-book-open text-xl text-teal-500"></i>
+                <span class="font-heading font-bold text-xl tracking-wide">Belajar<span class="text-teal-500">Online</span></span>
+            </a>
+            <p class="text-sm text-teal-400/80 max-w-md mx-auto mb-8">
+                Belajar Online adalah Sistem Pembelajaran Berbasis Digital untuk Memudahkan Guru dan Murid dalam Mencapai Tujuan Pembelajaran.
+            </p>
+            <div class="pt-6 border-t border-teal-900/50 text-xs text-teal-500">
+                <p>&copy; 2026 Ahmad Zulfikar, S.Pd.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- DECODE SCRIPT & LOGIC -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAkX8qAS-O_5m_qaGr8Aa9XME-lVyBMibw",
+            authDomain: "belajaronline-b5512.firebaseapp.com",
+            projectId: "belajaronline-b5512",
+            storageBucket: "belajaronline-b5512.firebasestorage.app",
+            messagingSenderId: "896107581081",
+            appId: "1:896107581081:web:629056c097c90fdf583208"
+        };
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+        const appId = 'belajaronline-b5512';
+        const COLLECTION_NAME = 'scores';
+
+        // --- OBFUSCATION DECODER ---
+        const d64 = (s) => { try { return decodeURIComponent(escape(atob(s))); } catch(e) { return ""; } };
+        
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll('.b64t').forEach(el => { el.innerHTML = d64(el.getAttribute('data-b')); el.classList.add('b64-ready'); });
+            document.querySelectorAll('.b64p').forEach(el => { el.placeholder = d64(el.getAttribute('data-b')); });
+        });
+
+        // --- SYSTEM ANTI CHEAT SETTINGS ---
+        window.isExamActive = false;
+        let cheatWarnings = 0;
+        const MAX_WARNINGS = 3;
+        
+        document.addEventListener('contextmenu', e => { e.preventDefault(); showAntiCheatBanner(d64("S2xpayBLYW5hbiBkaW5vbmFrdGlma2FuIQ==")); });
+        document.addEventListener('copy', e => { e.preventDefault(); showAntiCheatBanner(d64("RGlsYXJhbmcgbWVsYWt1a2FuIENvcHkgZGF0YSE=")); });
+        document.addEventListener('cut', e => { e.preventDefault(); showAntiCheatBanner(d64("RGlsYXJhbmcgbWVsYWt1a2FuIEN1dCBkYXRhIQ==")); });
+        document.addEventListener('paste', e => { e.preventDefault(); showAntiCheatBanner(d64("RGlsYXJhbmcgbWVsYWt1a2FuIFBhc3RlIGRhdGEh")); });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) || (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.key === 'S' || e.key === 's' || e.key === 'C' || e.key === 'c' || e.key === 'V' || e.key === 'v' || e.key === 'X' || e.key === 'x'))) {
+                e.preventDefault(); showAntiCheatBanner(d64("UGludGFzYW4gS2V5Ym9hcmQgZGltYXRpa2FuIHVudHVrIGtlYW1hbmFuIQ=="));
+            }
+            if ((e.metaKey && e.shiftKey && (e.key === 's' || e.key === 'S')) || (e.metaKey && e.shiftKey && (e.key === '3' || e.key === '4' || e.key === '5'))) {
+                e.preventDefault(); if (window.isExamActive) { navigator.clipboard.writeText(''); handleTabViolation(d64("U2lzdGVtIG1lbmRldGVrc2kgdXBheWEgU2NyZWVuc2hvdCBhdGF1IFNuaXBwaW5nIFRvb2wh")); }
+            }
+        });
+
+        document.addEventListener('keyup', (e) => {
+            if (e.key === 'PrintScreen' || e.keyCode === 44) {
+                if (window.isExamActive) { navigator.clipboard.writeText(''); handleTabViolation(d64("U2lzdGVtIG1lbmRldGVrc2kgdXBheWEgU2NyZWVuc2hvdCE=")); }
+            }
+        });
+
+        function showAntiCheatBanner(msg) {
+            const banner = document.getElementById('anti-cheat-banner');
+            document.getElementById('anti-cheat-msg').textContent = msg;
+            banner.classList.remove('-translate-y-full');
+            setTimeout(() => { banner.classList.add('-translate-y-full'); }, 2500);
+        }
+
+        document.addEventListener('visibilitychange', function() { 
+            if (document.hidden && window.isExamActive) { document.getElementById('anti-snip-overlay').classList.remove('hidden'); document.getElementById('anti-snip-overlay').classList.add('flex'); handleTabViolation(d64("QW5kYSBtZW5pbmdnYWxrYW4gaGFsYW1hbiB1amlhbg==")); }
+        });
+
+        window.addEventListener('pagehide', function() {
+            if (window.isExamActive) { document.getElementById('anti-snip-overlay').classList.remove('hidden'); document.getElementById('anti-snip-overlay').classList.add('flex'); handleTabViolation(d64("TGF5YXIgVWppYW4ga2VoaWxhbmdhbiBmb2t1cw==")); }
+        });
+
+        window.addEventListener('blur', function() {
+            if (window.isExamActive && document.activeElement !== document.getElementById('student-name') && document.activeElement !== document.getElementById('student-class')) {
+                document.getElementById('anti-snip-overlay').classList.remove('hidden'); document.getElementById('anti-snip-overlay').classList.add('flex'); handleTabViolation(d64("S2VoaWxhbmdhbiBGb2t1cyBMYXlhciE="));
+            }
+        });
+
+        window.regainFocus = function() { document.getElementById('anti-snip-overlay').classList.add('hidden'); document.getElementById('anti-snip-overlay').classList.remove('flex'); }
+
+        function handleTabViolation(reasonMsg) {
+            if(!window.isExamActive) return;
+            cheatWarnings++;
+            document.getElementById('violation-counter').classList.remove('hidden'); document.getElementById('v-count').textContent = cheatWarnings;
+
+            if (cheatWarnings >= MAX_WARNINGS) {
+                window.isExamActive = false; localStorage.setItem('fikih_banned_device', 'true');
+                document.getElementById('anti-snip-overlay').classList.add('hidden'); document.getElementById('quiz-lock-overlay').classList.remove('hidden');
+                showModal({
+                    title: d64("4p2MIFVqaWFuIERpaGVudGlrYW4gUGFrc2E="), message: `<div class="text-red-600 font-semibold mb-2">${d64("QmF0YXMgUGVsYW5nZ2FyYW4gVGVyY2FwYWkh")}</div><p class="text-xs text-slate-500 mb-2">Alasan: ${reasonMsg}</p>Perangkat diblokir permanen. Jawaban otomatis dikirim.`,
+                    type: 'error', buttons: [{ text: "Mengerti", class: "bg-red-600 text-white hover:bg-red-700", onClick: () => submitQuizLogic(true) }]
+                });
+            } else {
+                showModal({
+                    title: d64("8J+SoCBQZXJpbmdhdGFuIEtlY3VyYW5nYW4h"), message: `<div class="text-amber-600 font-medium mb-1">Pelanggaran: ${cheatWarnings} / ${MAX_WARNINGS}</div><p class="text-xs font-bold text-slate-700">${reasonMsg}</p>`,
+                    type: 'warning', buttons: [{ text: "Saya Paham", class: "bg-teal-600 text-white hover:bg-teal-700", onClick: () => regainFocus() }]
+                });
+            }
+        }
+
+        const startBtn = document.getElementById('start-btn');
+        const authStatus = document.getElementById('auth-status');
+        const isDeviceBanned = localStorage.getItem('fikih_banned_device') === 'true';
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                if (isDeviceBanned) {
+                    startBtn.disabled = true; startBtn.className = "w-full bg-red-100 text-red-500 font-bold py-3.5 rounded-xl cursor-not-allowed mt-4 border border-red-200 relative z-20";
+                    startBtn.innerHTML = '<i class="fa-solid fa-lock mr-2"></i> Perangkat Diblokir';
+                    document.getElementById('banned-alert').classList.remove('hidden'); document.getElementById('student-name').disabled = true; document.getElementById('student-class').disabled = true;
+                } else {
+                    startBtn.disabled = false; startBtn.className = "w-full bg-teal-600 hover:bg-teal-700 text-white font-medium py-3.5 rounded-xl transition mt-4 relative z-20";
+                    startBtn.innerHTML = `Mulai Ujian <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>`;
+                }
+                authStatus.innerHTML = '<i class="fa-solid fa-check text-teal-600 mr-1"></i> Terhubung'; authStatus.classList.replace('text-slate-400', 'text-teal-600'); document.getElementById('auth-error-msg').classList.add('hidden');
+            } else { signInAnonymously(auth).catch(() => { authStatus.innerHTML = '<i class="fa-solid fa-circle-xmark text-red-500 mr-1"></i> Gagal'; document.getElementById('auth-error-msg').classList.remove('hidden'); }); }
+        });
+
+        window.promptUnblock = function() {
+            showModal({
+                title: "Otorisasi Guru", type: 'warning',
+                message: `<p class="mb-3 text-sm text-slate-600 text-left">Masukkan PIN Rahasia untuk membuka blokir.</p><input type="password" id="unblock-pin" class="w-full p-3 border border-slate-300 rounded-lg outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 text-sm text-slate-800" placeholder="Masukkan PIN"><p id="pin-error" class="text-red-500 text-xs font-semibold text-left hidden"><i class="fa-solid fa-circle-xmark mr-1"></i> PIN salah!</p>`,
+                buttons: [{text: "Batal", class: "bg-slate-100 text-slate-700 hover:bg-slate-200"}, {text: "Buka Akses", class: "bg-teal-600 text-white", close: false, onClick: () => window.verifyPIN()}]
+            });
+        };
+
+        window.verifyPIN = function() {
+            if (document.getElementById('unblock-pin').value === "443588") {
+                localStorage.removeItem('fikih_banned_device'); hideModal();
+                showModal({ title: "Blokir Dibuka!", message: "Akses ujian dikembalikan. Halaman akan dimuat ulang.", type: 'success', buttons: [{ text: "Muat Ulang Halaman", class: "bg-teal-600 text-white", onClick: () => window.location.reload() }] });
+            } else { document.getElementById('pin-error').classList.remove('hidden'); }
+        };
+
+        // Geografi Interactive Data
+        window.posisiData = {
+            konvergensi: { title: "Gerakan 1", icon: "fa-compress-arrows-alt", heading: "Konvergensi Lempeng", desc: "Dua lempeng bumi saling bertumbukan. Hal ini memicu penunjaman ke mantel bumi, menciptakan rantai pegunungan aktif, gunung berapi, dan palung samudera yang sangat dalam.", note: "Indonesia merupakan tempat bertemunya tiga lempeng tektonik utama dunia secara konvergen." },
+            divergensi: { title: "Gerakan 2", icon: "fa-arrows-alt-h", heading: "Divergensi Lempeng", desc: "Dua lempeng bumi saling menjauh satu sama lain. Ruang kosong yang terbentuk akan segera diisi oleh magma kental yang naik, membentuk barisan pematang bukit vulkanik bawah laut.", note: "Pematang Tengah Atlantik adalah contoh nyata pergerakan divergen terpanjang di dunia." },
+            transform: { title: "Gerakan 3", icon: "fa-exchange-alt", heading: "Sesar Mendatar Menyamping", desc: "Dua lempeng bergesekan ke arah saling berlawanan. Gesekan hebat ini mengunci batuan, dan ketika energinya terlepas secara tiba-tiba, akan menciptakan gempa bumi dangkal yang merusak.", note: "Patahan San Andreas di California adalah batas sesar mendatar yang sangat rawan memicu gempa kuat." }
+        };
+
+        window.updatePosisi = function() {
+            const data = window.posisiData[document.getElementById('intent-selector').value];
+            const contentDiv = document.getElementById('posisi-content');
+            contentDiv.style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('posisi-title').textContent = data.title;
+                document.getElementById('posisi-icon').innerHTML = `<i class="fa-solid ${data.icon}"></i>`;
+                document.getElementById('posisi-heading').textContent = data.heading;
+                document.getElementById('posisi-desc').textContent = data.desc;
+                document.getElementById('posisi-note').textContent = data.note;
+                contentDiv.style.opacity = '1';
+            }, 200);
+        }
+
+        const modal = document.getElementById('custom-modal');
+        function showModal(config) {
+            document.getElementById('modal-title').textContent = config.title;
+            document.getElementById('modal-body').innerHTML = config.message;
+            let iconClass = 'fa-bell text-slate-500'; let bgClass = 'bg-slate-100';
+            if (config.type === 'warning') { iconClass = 'fa-triangle-exclamation text-amber-500'; bgClass = 'bg-amber-50'; }
+            if (config.type === 'success') { iconClass = 'fa-check text-emerald-500'; bgClass = 'bg-emerald-50'; }
+            if (config.type === 'error') { iconClass = 'fa-xmark text-red-500'; bgClass = 'bg-red-50'; }
+            if (config.type === 'loading') { iconClass = 'fa-spinner fa-spin text-teal-600'; bgClass = 'bg-teal-50'; }
+
+            document.getElementById('modal-icon-container').className = `w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4 text-2xl ${bgClass}`;
+            document.getElementById('modal-icon-container').innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
+            
+            const actions = document.getElementById('modal-actions'); actions.innerHTML = '';
+            if (config.buttons) {
+                config.buttons.forEach(btn => {
+                    const b = document.createElement('button');
+                    b.className = `w-full py-2.5 rounded-xl font-medium transition text-sm ${btn.class || 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`;
+                    b.innerHTML = btn.text; b.onclick = () => { if (btn.close !== false) hideModal(); if (btn.onClick) btn.onClick(); }; actions.appendChild(b);
+                });
+            } else if (config.type !== 'loading') {
+                const b = document.createElement('button'); b.className = "w-full bg-slate-800 text-white py-2.5 rounded-xl font-medium hover:bg-slate-900 transition text-sm";
+                b.textContent = "Tutup"; b.onclick = hideModal; actions.appendChild(b);
+            }
+            modal.classList.remove('hidden');
+        }
+        function hideModal() { modal.classList.add('hidden'); }
+
+        window.preSubmitKegiatanCheck = () => {
+            let answered = 0;
+            for(let i=1; i<=5; i++) if(document.querySelector(`input[name="kegA_${i}"]:checked`)) answered++;
+            for(let i=1; i<=5; i++) if(document.querySelector(`input[name="kegB_${i}"]:checked`)) answered++;
+            if(answered < 10) { showModal({ title: "Belum Selesai", message: `Baru dikerjakan <b class="text-amber-500">${answered}</b> dari <b>10</b> isian.`, type: 'warning', buttons: [{text: "Lanjut", class: "bg-slate-100"}, {text: "Kirim", class: "bg-teal-600 text-white", onClick: () => promptKegiatanIdentity()}] });
+            } else { promptKegiatanIdentity(); }
+        };
+
+        window.promptKegiatanIdentity = () => {
+            showModal({ title: "Data Diri Siswa", type: 'success', message: `<input type="text" id="popup-name" class="w-full p-3 border border-slate-300 rounded-lg mb-3 outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500" placeholder="Nama Lengkap"><input type="text" id="popup-class" class="w-full p-3 border border-slate-300 rounded-lg outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500" placeholder="Kelas"><p id="popup-error" class="text-red-500 text-xs mt-2 hidden">Wajib diisi!</p>`, buttons: [{text: "Batal", class: "bg-slate-100"}, {text: "Simpan Nilai", class: "bg-teal-600 text-white", close: false, onClick: () => validateAndSubmitKegiatan()}] });
+        };
+
+        window.validateAndSubmitKegiatan = () => {
+            const name = document.getElementById('popup-name').value.trim(); const cls = document.getElementById('popup-class').value.trim();
+            if (!name || !cls) { document.getElementById('popup-error').classList.remove('hidden'); return; }
+            hideModal(); submitKegiatan(name, cls); 
+        };
+
+        async function submitKegiatan(name, cls) {
+            showModal({ title: "Mengirim Data", message: "Menyimpan nilai ke server...", type: 'loading', buttons: [] });
+            const ansA = { kegA_1: 'konvergen', kegA_2: 'transform', kegA_3: 'divergen', kegA_4: 'konvergen', kegA_5: 'divergen' }; 
+            const ansB = { kegB_1: 'transform', kegB_2: 'konvergen', kegB_3: 'divergen', kegB_4: 'konvergen', kegB_5: 'transform' };
+            let correct = 0; let studentAnswers = []; 
+            for(let key in ansA) { const s = document.querySelector(`input[name="${key}"]:checked`); const c = s && s.value === ansA[key]; if(c) correct++; studentAnswers.push(!!c); }
+            for(let key in ansB) { const s = document.querySelector(`input[name="${key}"]:checked`); const c = s && s.value === ansB[key]; if(c) correct++; studentAnswers.push(!!c); }
+            try {
+                if(!auth.currentUser) await signInAnonymously(auth);
+                await addDoc(collection(db, 'artifacts', appId, 'public', 'data', COLLECTION_NAME), { name: name, kelas: cls, score: Math.round((correct / 10) * 100), materi: 'Lembar Kerja : Lempeng Tektonik', type: 'Lembar Kerja', details: studentAnswers, date: new Date().toLocaleDateString('id-ID'), timestamp: Date.now() });
+                showModal({ title: "Bagus Sekali!", message: `<div class="text-center"><span class="text-4xl font-bold text-emerald-600 block">${Math.round((correct / 10) * 100)} / 100</span></div>`, type: 'success', buttons: [{text: "Tutup", class: "bg-emerald-600 text-white"}] });
+                document.querySelectorAll('.kegiatan-checkbox').forEach(el => el.disabled = true); document.getElementById('btn-kirim-kegiatan').classList.add('hidden');
+            } catch(e) { showModal({ title: "Gagal", message: "Kesalahan jaringan.", type: 'error' }); }
+        }
+
+        window.checkKondisi = function() {
+            const cond = document.getElementById('input-condition').value; const res = document.getElementById('check-result'); const reason = document.getElementById('check-reason');
+            if (cond === 'tumbukan_laut_darat') { res.textContent = "PALUNG DAN GUNUNG API"; reason.innerHTML = "Zona subduksi tercipta, lempeng samudra menunjam ke bawah mantel. Menghasilkan palung laut dalam dan rantai gunung berapi."; } 
+            else if (cond === 'jauh_samudra') { res.textContent = "PEMATANG TENGAH SAMUDRA"; reason.innerHTML = "Pemekaran dasar samudra terjadi. Magma naik secara konstan mengisi celah kosong lalu membeku membentuk pematang bukit bawah laut."; } 
+            else if (cond === 'gesek_benua') { res.textContent = "PATAHAN DAN GEMPA BUMI"; reason.innerHTML = "Gesekan menyamping dengan intensitas tinggi mengumpulkan energi tekanan yang besar. Saat terlepas secara instan akan memicu gempa tektonik kuat."; } 
+            else if (cond === 'tumbukan_benua') { res.textContent = "PEGUNUNGAN LIPATAN DARAT"; reason.innerHTML = "Dua lempeng tebal saling bertumbukan dan merapat ke atas tanpa adanya proses subduksi dalam, akibatnya menciptakan pegunungan tinggi."; } 
+            else if (cond === 'jauh_benua') { res.textContent = "LEMBAH RETAK RAKSASA"; reason.innerHTML = "Daratan benua perlahan terbelah oleh gaya tarikan divergensi lempeng. Menghasilkan cekungan lembah retakan raksasa yang terus melebar."; }
+            res.className = "text-2xl font-bold text-teal-600 mb-4 font-heading";
+        }
+
+        // --- DATA SOAL UJI KOMPETENSI TERENKRIPSI ---
+        const hexStr = "%5B%7B%22q%22%3A%22Litosfer%20bumi%20yang%20keras%20dan%20padat%20sebenarnya%20terus%20bergerak%20secara%20perlahan%20di%20atas%20lapisan%20astenosfer%20yang%20lebih%20cair.%20Tenaga%20pendorong%20utama%20yang%20menyebabkan%20lapisan%20litosfer%20raksasa%20ini%20bisa%20bergeser%20dan%20saling%20berinteraksi%20satu%20sama%20lain%20berasal%20dari%20arus%20panas%20di%20dalam%20mantel%20bumi%20yang%20dikenal%20dengan%20istilah%20....%22%2C%22options%22%3A%5B%22Gaya%20gravitasi%20bulan%22%2C%22Arus%20konveksi%20pada%20mantel%20bumi%22%2C%22Rotasi%20bumi%20pada%20porosnya%22%2C%22Perubahan%20iklim%20global%22%5D%2C%22a%22%3A1%7D%2C%7B%22q%22%3A%22Ketika%20dua%20lempeng%20kerak%20bumi%20yang%20berdekatan%20bergerak%20saling%20memisah%20dan%20meninggalkan%20celah%20kosong%20di%20antara%20keduanya%2C%20ruang%20kosong%20tersebut%20akan%20diisi%20oleh%20magma%20yang%20naik%20dari%20mantel%20bumi%20ke%20permukaan.%20Tipe%20pergerakan%20lempeng%20yang%20saling%20menjauh%20ini%20dinamakan%20sebagai%20batas%20....%22%2C%22options%22%3A%5B%22Konvergensi%22%2C%22Divergensi%22%2C%22Sesar%20Mendatar%22%2C%22Subduksi%22%5D%2C%22a%22%3A1%7D%2C%7B%22q%22%3A%22Pada%20zona%20batas%20lempeng%20tertentu%2C%20dua%20lempeng%20kerak%20bumi%20tidak%20saling%20mendekat%20maupun%20menjauh%2C%20melainkan%20hanya%20bergesekan%20dan%20bergeser%20menyamping%20satu%20sama%20lain.%20Gesekan%20kuat%20yang%20mengunci%20batuan%20dalam%20waktu%20lama%20ini%20ketika%20terlepas%20secara%20tiba-tiba%20paling%20sering%20memicu%20terjadinya%20fenomena%20alam%20berupa%20....%22%2C%22options%22%3A%5B%22Pembentukan%20gunung%20api%22%2C%22Tsunami%20besar%22%2C%22Gempa%20bumi%20dangkal%22%2C%22Pemekaran%20dasar%20laut%22%5D%2C%22a%22%3A2%7D%2C%7B%22q%22%3A%22Puncak%20daratan%20tertinggi%20di%20dunia%20yaitu%20Pegunungan%20Himalaya%20tidak%20terbentuk%20secara%20tiba-tiba%2C%20melainkan%20melalui%20proses%20panjang%20bertumbukannya%20dua%20massa%20daratan%20benua%20yang%20sangat%20besar%20dan%20tebal.%20Proses%20tumbukan%20lempeng%20yang%20saling%20merapat%20dan%20memicu%20pengangkatan%20kerak%20bumi%20ini%20merupakan%20contoh%20dari%20pergerakan%20lempeng%20secara%20....%22%2C%22options%22%3A%5B%22Divergensi%22%2C%22Sesar%20Mendatar%22%2C%22Konvergensi%20antara%20lempeng%20benua%22%2C%22Konvergensi%20lempeng%20benua%20dan%20samudra%22%5D%2C%22a%22%3A2%7D%2C%7B%22q%22%3A%22Di%20bawah%20lapisan%20litosfer%20yang%20padat%20terdapat%20sebuah%20lapisan%20tebal%20dengan%20suhu%20yang%20sangat%20panas%20sehingga%20batuan%20di%20dalamnya%20bersifat%20kental%2C%20plastis%2C%20dan%20dapat%20mengalir%20secara%20lambat.%20Lapisan%20yang%20menjadi%20tempat%20berlangsungnya%20sirkulasi%20arus%20konveksi%20ini%20disebut%20dengan%20....%22%2C%22options%22%3A%5B%22Litosfer%22%2C%22Astenosfer%22%2C%22Inti%20luar%22%2C%22Kerak%20bumi%22%5D%2C%22a%22%3A1%7D%2C%7B%22q%22%3A%22Fenomena%20pemekaran%20dasar%20samudra%20seringkali%20menghasilkan%20deretan%20pegunungan%20vulkanik%20panjang%20di%20bawah%20laut%20yang%20terbentuk%20dari%20pendinginan%20magma%20saat%20dua%20lempeng%20dasar%20laut%20saling%20memisah.%20Bentukan%20alam%20dasar%20laut%20yang%20khas%20ini%20umumnya%20ditemukan%20memanjang%20pada%20area%20batas%20lempeng%20jenis%20....%22%2C%22options%22%3A%5B%22Konvergen%22%2C%22Divergen%22%2C%22Transform%22%2C%22Subduksi%22%5D%2C%22a%22%3A1%7D%2C%7B%22q%22%3A%22Pertemuan%20antara%20lempeng%20samudra%20yang%20padat%20dan%20berat%20dengan%20lempeng%20benua%20yang%20lebih%20ringan%20akan%20mengakibatkan%20lempeng%20samudra%20menekuk%20dan%20menunjam%20jauh%20ke%20bawah%20masuk%20ke%20dalam%20mantel%20bumi.%20Kawasan%20tempat%20terjadinya%20proses%20penunjaman%20kerak%20samudra%20ini%20secara%20geologis%20dikenal%20dengan%20sebutan%20zona%20....%22%2C%22options%22%3A%5B%22Subduksi%22%2C%22Divergensi%22%2C%22Erupsi%22%2C%22Transform%22%5D%2C%22a%22%3A0%7D%2C%7B%22q%22%3A%22Salah%20satu%20patahan%20kerak%20bumi%20yang%20paling%20terkenal%20di%20dunia%20membentang%20membelah%20daratan%20California%2C%20di%20mana%20Lempeng%20Pasifik%20dan%20Lempeng%20Amerika%20Utara%20terus%20menerus%20bergeser%20menyamping%20satu%20sama%20lain%20secara%20berlawanan%20arah.%20Sistem%20patahan%20rakasasa%20ini%20menjadi%20contoh%20paling%20nyata%20dan%20jelas%20dari%20interaksi%20batas%20lempeng%20....%22%2C%22options%22%3A%5B%22Konvergen%22%2C%22Divergen%22%2C%22Sesar%20Mendatar%22%2C%22Sesar%20Naik%22%5D%2C%22a%22%3A2%7D%2C%7B%22q%22%3A%22Wilayah%20Nusantara%20memiliki%20puluhan%20gunung%20berapi%20aktif%20dan%20tingkat%20kegempaan%20yang%20tinggi%20karena%20posisinya%20yang%20terjepit%20oleh%20pergerakan%20aktif%20dari%20tiga%20lempeng%20utama%20dunia%2C%20yaitu%20lempeng%20Eurasia%2C%20Indo-Australia%2C%20dan%20Pasifik.%20Ketiga%20lempeng%20besar%20yang%20terus%20bergerak%20saling%20mendekat%20dan%20bertumbukan%20ini%20berinteraksi%20secara%20....%22%2C%22options%22%3A%5B%22Divergensi%22%2C%22Konvergensi%22%2C%22Transform%22%2C%22Pemekaran%22%5D%2C%22a%22%3A1%7D%2C%7B%22q%22%3A%22Ratusan%20juta%20tahun%20yang%20lalu%2C%20peta%20dunia%20tidaklah%20seperti%20sekarang%20melainkan%20berupa%20satu%20daratan%20super%20raksasa%20yang%20mencakup%20seluruh%20massa%20benua%20di%20bumi%20sebelum%20akhirnya%20pecah%20dan%20memisah%20karena%20aktivitas%20tektonik.%20Gagasan%20ilmiah%20yang%20menjelaskan%20keberadaan%20benua%20purba%20tunggal%20ini%20dikenal%20luas%20dalam%20ilmu%20geologi%20sebagai%20teori%20....%22%2C%22options%22%3A%5B%22Pergeseran%20Benua%22%2C%22Ledakan%20Besar%22%2C%22Konveksi%20Mantel%22%2C%22Pemekaran%20Samudra%22%5D%2C%22a%22%3A0%7D%5D";
+        const encodedData = btoa(hexStr);
+        let questionData = []; try { questionData = JSON.parse(decodeURIComponent(atob(encodedData))); } catch(e) { console.error("Data error"); }
+        let studentData = { name: "", class: "" };
+
+        window.startQuiz = function() {
+            if (localStorage.getItem('fikih_banned_device') === 'true') { return showModal({ title: "Akses Ditolak", message: "Perangkat ini telah diblokir.", type: 'error' }); }
+            const n = document.getElementById('student-name').value.trim(); const c = document.getElementById('student-class').value.trim();
+            if (!n || !c) return showModal({ title: "Perhatian", message: "Mohon isi Nama dan Kelas.", type: 'warning' });
+            
+            window.isExamActive = true; cheatWarnings = 0; studentData = { name: n, class: c };
+            document.getElementById('display-name').textContent = n; document.getElementById('display-class').textContent = c;
+            
+            const snipIdentity = document.getElementById('snip-identity');
+            snipIdentity.innerHTML = `<i class="fa-solid fa-user-xmark mr-2"></i> PELANGGAR: <br>${n} (${c})`; snipIdentity.classList.remove('hidden');
+            const watermark = document.getElementById('exam-watermark'); watermark.innerText = ` ${n} • KELAS ${c} • `.repeat(1500); watermark.classList.remove('hidden');
+
+            document.getElementById('quiz-login').classList.add('hidden'); document.getElementById('quiz-container').classList.remove('hidden');
+            
+            document.getElementById('quiz-form').innerHTML = questionData.map((item, index) => `
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <p class="font-medium text-slate-800 mb-4 text-sm leading-relaxed"><span class="text-teal-600 font-bold mr-1">${index + 1}.</span> ${item.q}</p>
+                    <div class="space-y-2">
+                        ${item.options.map((opt, oIdx) => `
+                            <label class="option-label flex items-start p-3 rounded-lg bg-white relative">
+                                <input type="radio" name="q${index}" value="${oIdx}" class="option-input hidden peer">
+                                <div class="option-content w-full flex items-start">
+                                    <span class="option-circle w-6 h-6 flex-shrink-0 flex items-center justify-center bg-slate-50 rounded-full mr-3 text-xs font-bold text-slate-500 border border-slate-300 transition-colors mt-0.5">${String.fromCharCode(65+oIdx)}</span>
+                                    <span class="text-slate-600 text-sm peer-checked:text-slate-900 leading-relaxed">${opt}</span>
+                                </div>
+                            </label>`).join('')}
+                    </div>
+                </div>`).join('');
+            document.getElementById('latihan').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        window.preSubmitCheck = function() {
+            const answered = questionData.filter((_, i) => document.querySelector(`input[name="q${i}"]:checked`)).length;
+            if (answered < questionData.length) { showModal({ title: "Pengecekan", message: `Baru menjawab <b class="text-amber-500">${answered}</b> dari <b>${questionData.length}</b> soal.<br>Yakin ingin mengirim?`, type: 'warning', buttons: [{ text: "Cek Kembali", class: "bg-slate-100" }, { text: "Kirim", class: "bg-teal-600 text-white", onClick: () => submitQuizLogic(false) }] });
+            } else submitQuizLogic(false);
+        }
+
+        async function submitQuizLogic(isForcedCheat = false) {
+            window.isExamActive = false; document.getElementById('exam-watermark').classList.add('hidden'); 
+            let correctCount = 0; const details = []; 
+            questionData.forEach((item, i) => { const sel = document.querySelector(`input[name="q${i}"]:checked`); const isCorrect = sel ? parseInt(sel.value) === item.a : false; details.push(isCorrect); if (isCorrect) correctCount++; });
+
+            const score = Math.round((correctCount / questionData.length) * 100);
+            if(!isForcedCheat) showModal({ title: "Memproses...", message: "Menyimpan nilai ke server...", type: 'loading', buttons: [] });
+
+            try {
+                if (!auth.currentUser) await signInAnonymously(auth);
+                await addDoc(collection(db, 'artifacts', appId, 'public', 'data', COLLECTION_NAME), {
+                    name: studentData.name, kelas: studentData.class, score: score, materi: isForcedCheat ? 'Latihan Soal (Dikumpul Paksa)' : 'Latihan Soal : Lempeng Tektonik', type: 'Latihan Soal', date: new Date().toLocaleDateString('id-ID'), timestamp: Date.now(), details: details, uid: auth.currentUser.uid, isBanned: isForcedCheat
+                });
+                if(!isForcedCheat) showModal({ title: "Selesai!", type: 'success', message: `<div class="text-center"><span class="text-4xl font-bold text-emerald-600 block mb-1">${score}</span><span class="text-sm text-slate-500">Nilai berhasil disimpan</span></div>`, buttons: [{ text: "Tutup & Selesai", class: "bg-slate-800 text-white" }] });
+                document.getElementById('quiz-form').classList.add('pointer-events-none', 'opacity-50');
+                const btn = document.getElementById('submit-btn'); btn.disabled = true; btn.className = "w-full bg-slate-300 text-slate-500 font-semibold py-4 rounded-xl cursor-not-allowed flex justify-center items-center gap-2 relative z-20";
+            } catch (e) { showModal({ title: "Gagal Mengirim", message: "Error: " + e.message, type: 'error' }); }
+        }
+    </script>
 </body>
 </html>

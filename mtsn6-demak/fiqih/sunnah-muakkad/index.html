@@ -1,26 +1,1206 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Belajar Online - Shalat Sunnah Muakkad</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    },
+                    colors: {
+                        teal: {
+                            850: '#0f5d56',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
     <style>
-        html, body {
-            margin: 0 !important;
-            padding: 0 !important;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background-color: #e9ecef;
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        .no-select { user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; }
+        input, select, textarea { user-select: text; -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; }
+        h1, h2, h3, h4, h5, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Pengaturan Teks Arab agar harakat terlihat sangat jelas */
+        .arabic-text { 
+            font-family: 'Amiri', serif; 
+            direction: rtl; 
+            line-height: 2.2 !important; 
+            word-spacing: 0.25em; 
         }
-        .app-frame {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-        }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        .option-label { cursor: pointer; transition: all 0.2s ease-in-out; border: 1px solid #e2e8f0; }
+        .option-label:hover { border-color: #0f766e; background-color: #f0fdfa; }
+        .option-input:checked + .option-content { background-color: #f0fdfa; border-color: #0f766e; box-shadow: 0 0 0 1px #0f766e; }
+        .option-input:checked + .option-content .option-circle { background-color: #0f766e; color: white; border-color: #0f766e; }
+        .pattern-bg { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        
+        .fade-text { transition: opacity 0.3s ease-in-out; }
+        .modal-backdrop { background-color: rgba(15, 23, 42, 0.7); backdrop-filter: blur(4px); animation: fadeIn 0.2s ease-out; }
+        .modal-content { animation: slideUp 0.3s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        
+        #anti-cheat-banner { transition: transform 0.3s ease-in-out; }
+        .student-watermark { position: fixed; top: -50%; left: -50%; width: 200vw; height: 200vh; pointer-events: none; z-index: 9999; opacity: 0.03; display: flex; flex-wrap: wrap; align-content: flex-start; word-break: break-all; font-size: 1.3rem; font-weight: 800; line-height: 1.8; color: #000; transform: rotate(-25deg); text-transform: uppercase; }
+        
+        .b64t { opacity: 0; transition: opacity 0.3s; }
+        .b64-ready { opacity: 1; }
     </style>
 </head>
-<body>
-    <iframe class="app-frame" src="https://script.google.com/macros/s/AKfycbx7EXDl1zeyR_T7hz6o_z8-xw2StfdDJN_2MLj9p7lAC38lg1TXrV1-1lxFij1jRUEV9g/exec"></iframe>
+<body class="no-select selection:bg-teal-200 selection:text-teal-900 flex flex-col min-h-screen overflow-x-hidden">
+
+    <!-- Anti Cheat Overlay -->
+    <div id="anti-cheat-banner" class="fixed top-0 left-0 w-full bg-red-600 text-white text-center py-2 z-[10001] transform -translate-y-full flex items-center justify-center gap-2 text-sm font-semibold shadow-md">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span id="anti-cheat-msg" class="b64t" data-b="U2lzdGVtIFBlbmdhd2FzYW4gQWt0aWY6IERpbGFyYW5nIG1lbnlhbGluIHRla3MgYXRhdSBtZW5pbmdnYWxrYW4gaGFsYW1hbiB1amlhbiE="></span>
+    </div>
+
+    <div id="anti-snip-overlay" class="fixed inset-0 bg-slate-900/95 backdrop-blur-xl z-[10000] hidden flex-col items-center justify-center text-white transition-opacity duration-200">
+        <i class="fa-solid fa-eye-slash text-7xl mb-6 text-red-500 animate-pulse"></i>
+        <h2 class="text-3xl font-bold font-heading mb-2 text-center b64t" data-b="TGF5YXIgVWppYW4gRGlzZW1idW55aWthbg=="></h2>
+        <p class="text-slate-300 text-center max-w-md px-4 mb-4 b64t" data-b="U2lzdGVtIG1lbmRldGVrc2kgQW5kYSBtZW5pbmdnYWxrYW4gaGFsYW1hbiB1amlhbiBhdGF1IG1lbWJ1a2EgYXBsaWthc2kgbGFpbi4="></p>
+        <div id="snip-identity" class="bg-red-900/50 border border-red-500 text-amber-400 font-bold text-xl px-6 py-3 rounded-xl mb-6 hidden uppercase tracking-wider text-center"></div>
+        <button onclick="regainFocus()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105 b64t" data-b="S2VtYmFsaSBrZSBVamlhbg=="></button>
+    </div>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Brand -->
+                <a href="../../" target="_top" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <div class="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-book-open text-sm"></i>
+                    </div>
+                    <span class="font-heading font-bold text-lg tracking-wide text-slate-800">Belajar<span class="text-teal-600">Online</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    
+                    <!-- Dropdown Materi Fiqih -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors flex items-center gap-1 py-4 focus:outline-none">
+                            Materi Fiqih <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute top-full left-0 w-72 bg-white border border-slate-100 rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left scale-95 group-hover:scale-100 overflow-hidden">
+                            <div class="p-2 space-y-1">
+                                <a href="../../fiqih/shalat-jumat" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat Jum'at</a>
+                                <a href="../../fiqih/khutbah" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Khutbah Jum'at</a>
+                                <a href="../../fiqih/jama" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat Jama'</a>
+                                <a href="../../fiqih/qashar" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat Qashar</a>
+                                <a href="../../fiqih/shalat-sedang-sakit" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat Bagi Orang Sakit</a>
+                                <a href="../../fiqih/shalat-dalam-kendaraan" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat dalam Kendaraan</a>
+                                <a href="../../fiqih/sunnah-muakkad" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat Sunnah Muakkad</a>
+                                <a href="../../fiqih/sunnah-ghairu-muakkad" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat Sunnah Ghairu Muakkad</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Materi IPA -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors flex items-center gap-1 py-4 focus:outline-none">
+                            Materi IPA <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute top-full left-0 w-64 bg-white border border-slate-100 rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left scale-95 group-hover:scale-100 overflow-hidden">
+                            <div class="p-2 space-y-1">
+                                <a href="../../IPA/getaran" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Getaran</a>
+                                <a href="../../IPA/gelombang" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Gelombang</a>
+                                <a href="../../IPA/cahaya" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Cahaya</a>
+                                <a href="../../IPA/unsur-senyawa" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Unsur dan Senyawa</a>
+                                <a href="../../IPA/campuran" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Campuran</a>
+                                <a href="../../IPA/struktur-bumi" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Struktur Bumi</a>
+                                <a href="../../IPA/lempeng-tektonik" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Lempeng Tektonik</a>
+                                <a href="../../IPA/gempa-bumi" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Gempa Bumi</a>
+                                <a href="../../IPA/gunung-merapi" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Gunung Merapi</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="../../formatif" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Uji Kompetensi
+                    </a>
+                    <a href="../../nilai-siswa" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Rekap Nilai
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-slate-600 hover:text-teal-600 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full max-h-[85vh] overflow-y-auto">
+            <div class="px-2 pt-4 pb-6 space-y-1">
+                
+                <!-- Dropdown Fiqih Mobile -->
+                <div class="px-2">
+                    <button onclick="document.getElementById('mobile-fiqih-dropdown').classList.toggle('hidden'); this.querySelector('i.fa-chevron-down').classList.toggle('rotate-180');" class="flex justify-between items-center w-full text-left px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors focus:outline-none">
+                        <span>Materi Fiqih</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div id="mobile-fiqih-dropdown" class="hidden space-y-1 pl-4 mt-2 mb-3 border-l-2 border-slate-200 ml-3">
+                        <a href="../../fiqih/shalat-jumat" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Shalat Jum'at</a>
+                        <a href="../../fiqih/khutbah" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Khutbah Jum'at</a>
+                        <a href="../../fiqih/jama" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Shalat Jama'</a>
+                        <a href="../../fiqih/qashar" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Shalat Qashar</a>
+                        <a href="../../fiqih/shalat-sedang-sakit" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Shalat Bagi Orang Sakit</a>
+                        <a href="../../fiqih/shalat-dalam-kendaraan" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Shalat dalam Kendaraan</a>
+                        <a href="../../fiqih/sunnah-muakkad" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Shalat Sunnah Muakkad</a>
+                        <a href="../../fiqih/sunnah-ghairu-muakkad" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Shalat Sunnah Ghairu Muakkad</a>
+                    </div>
+                </div>
+
+                <!-- Dropdown IPA Mobile -->
+                <div class="px-2 mt-1">
+                    <button onclick="document.getElementById('mobile-ipa-dropdown').classList.toggle('hidden'); this.querySelector('i.fa-chevron-down').classList.toggle('rotate-180');" class="flex justify-between items-center w-full text-left px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors focus:outline-none">
+                        <span>Materi IPA</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div id="mobile-ipa-dropdown" class="hidden space-y-1 pl-4 mt-2 mb-3 border-l-2 border-slate-200 ml-3">
+                        <a href="../../IPA/getaran" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Getaran</a>
+                        <a href="../../IPA/gelombang" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Gelombang</a>
+                        <a href="../../IPA/cahaya" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Cahaya</a>
+                        <a href="../../IPA/unsur-senyawa" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Unsur dan Senyawa</a>
+                        <a href="../../IPA/campuran" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Campuran</a>
+                        <a href="../../IPA/struktur-bumi" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Struktur Bumi</a>
+                        <a href="../../IPA/lempeng-tektonik" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Lempeng Tektonik</a>
+                        <a href="../../IPA/gempa-bumi" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Gempa Bumi</a>
+                        <a href="../../IPA/gunung-merapi" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Gunung Merapi</a>
+                    </div>
+                </div>
+
+                <!-- Standalone Links Mobile -->
+                <div class="px-2 mt-1">
+                    <a href="../../formatif" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Uji Kompetensi</a>
+                </div>
+                <div class="px-2 mt-1">
+                    <a href="../../nilai-siswa" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Rekap Nilai</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-teal-900 w-full relative pt-32 pb-32 overflow-hidden pattern-bg">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-teal-900/90"></div>
+        <div class="container mx-auto px-4 relative z-10 max-w-4xl text-center">
+            <span class="inline-flex items-center gap-2 bg-teal-800/80 border border-teal-700 text-teal-100 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-6 shadow-sm">
+                <i class="fa-solid fa-book-bookmark text-amber-400"></i> Fikih Ibadah
+            </span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white font-heading leading-tight">
+                Memahami Ketentuan <br/> <span class="text-amber-400">Shalat Sunnah Muakkad</span>
+            </h1>
+            <p class="text-lg text-teal-100/90 max-w-2xl mx-auto font-light leading-relaxed mb-10 italic">
+                "Barangsiapa shalat sunnah dua belas rakaat dalam sehari semalam, niscaya Allah akan bangunkan baginya sebuah rumah di surga." <br>
+                <span class="text-sm opacity-75 font-semibold not-italic">Pemaknaan Hadis Riwayat Muslim</span>
+            </p>
+            <a href="#materi" class="bg-amber-500 hover:bg-amber-400 text-teal-950 px-8 py-3.5 rounded-xl font-semibold transition inline-flex items-center gap-2 shadow-lg transform hover:-translate-y-0.5">
+                Mulai Belajar <i class="fa-solid fa-arrow-down text-sm"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Body Content Container -->
+    <main class="flex-grow w-full">
+        <!-- Materi Section -->
+        <section id="materi" class="py-12 container mx-auto px-4 -mt-16 relative z-20 max-w-5xl">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 mb-6 hover:shadow-md transition-shadow">
+                <div class="flex flex-col md:flex-row gap-6 items-start">
+                    <div class="bg-teal-50 p-4 rounded-xl shrink-0 text-teal-700">
+                        <i class="fa-solid fa-star-and-crescent text-3xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3 text-slate-800 font-heading">Pengertian & Keutamaan</h3>
+                        <p class="text-slate-600 leading-relaxed mb-4 text-sm md:text-base text-justify">
+                            Shalat Sunnah Muakkad adalah shalat sunnah yang keberadaannya sangat dianjurkan dan kedudukannya sangat ditekankan di dalam agama. Shalat jenis ini adalah serangkaian shalat sunnah yang hampir tidak pernah ditinggalkan oleh Nabi Muhammad dalam kehidupan kesehariannya. Meskipun hukumnya bukan sebuah kewajiban fardhu kedudukannya sangat kuat dalam melengkapi ibadah harian seorang muslim.
+                        </p>
+                        <div class="bg-teal-50 py-3 px-5 rounded-xl border-l-4 border-teal-600 inline-block text-sm text-teal-700">
+                            <strong class="text-teal-800">Keutamaan Utamanya:</strong> Berfungsi sebagai penambal atau menyempurnakan segala kekurangan yang mungkin tanpa sengaja terjadi saat seseorang melaksanakan ibadah shalat fardhu.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <!-- Macam-Macam 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow flex flex-col">
+                    <h3 class="text-xl font-bold mb-6 text-slate-800 font-heading flex items-center">
+                        <div class="bg-indigo-50 text-indigo-600 p-2 rounded-lg mr-3 text-sm"><i class="fa-solid fa-list-check"></i></div>
+                        <span>Macam Macam Shalat Muakkad</span>
+                    </h3>
+                    <div class="space-y-4 flex-grow">
+                        <div class="border border-slate-100 p-5 rounded-xl bg-slate-50/50 relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-indigo-500"></div>
+                            <strong class="text-slate-800 text-base block mb-2">1. Shalat Rawatib Muakkad</strong>
+                            <p class="text-xs text-slate-500 mb-2">Shalat sunnah yang pelaksanaannya senantiasa mengiringi shalat fardhu sebanyak sepuluh hingga dua belas rakaat meliputi</p>
+                            <ul class="list-disc pl-4 text-sm text-slate-600 space-y-1">
+                                <li>Dua rakaat mengawali sebelum Subuh yang disebut Qabliyah Subuh.</li>
+                                <li>Dua atau empat rakaat mengawali sebelum Dzuhur yang disebut Qabliyah Dzuhur.</li>
+                                <li>Dua rakaat menyudahi sesudah Dzuhur yang disebut Badiyah Dzuhur.</li>
+                                <li>Dua rakaat menyudahi sesudah Maghrib yang disebut Badiyah Maghrib.</li>
+                                <li>Dua rakaat menyudahi sesudah Isya yang disebut Badiyah Isya.</li>
+                            </ul>
+                        </div>
+                        <div class="border border-slate-100 p-5 rounded-xl bg-slate-50/50 relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
+                            <strong class="text-slate-800 text-base block mb-2">2. Shalat Malam dan Hari Raya</strong>
+                            <ul class="list-disc pl-4 text-sm text-slate-600 space-y-1">
+                                <li><strong>Shalat Witir</strong> Shalat yang jumlah rakaatnya selalu ganjil sebagai penutup segala ibadah di malam hari.</li>
+                                <li><strong>Shalat Tahajjud</strong> Shalat sunnah di sepertiga malam yang wajib diawali dengan tidur terlebih dahulu.</li>
+                                <li><strong>Shalat Tarawih</strong> Shalat malam khusus yang hanya dijumpai pada saat bulan Ramadhan.</li>
+                                <li><strong>Shalat Idain</strong> Shalat khusus pada saat perayaan Idul Fitri dan Idul Adha.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ketentuan Pelaksanaan -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow flex flex-col">
+                    <h3 class="text-xl font-bold mb-6 text-slate-800 font-heading flex items-center">
+                        <div class="bg-amber-50 text-amber-600 p-2 rounded-lg mr-3 text-sm"><i class="fa-solid fa-hands-praying"></i></div>
+                        <span>Ketentuan Pelaksanaan</span>
+                    </h3>
+                    <div class="space-y-3 flex-grow">
+                        <div class="flex items-start p-3 bg-slate-50 rounded-lg">
+                            <i class="fa-solid fa-house-chimney text-teal-600 mt-0.5 mr-3"></i>
+                            <div>
+                                <span class="text-slate-700 text-sm font-bold block mb-1">Tempat Terbaik</span>
+                                <span class="text-slate-600 text-xs">Bagi pelaksanaan shalat sunnah Rawatib, Tahajjud, maupun Witir jauh lebih utama dikerjakan di rumah masing masing daripada di dalam masjid dengan tujuan agar rumah dipenuhi oleh keberkahan.</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-3 bg-slate-50 rounded-lg">
+                            <i class="fa-solid fa-users text-teal-600 mt-0.5 mr-3"></i>
+                            <div>
+                                <span class="text-slate-700 text-sm font-bold block mb-1">Berjamaah atau Sendiri</span>
+                                <span class="text-slate-600 text-xs">Seluruh jajaran shalat Rawatib Witir dan Tahajjud secara hukum asalnya dikerjakan sendiri sendiri secara terpisah sedangkan shalat Tarawih dan shalat hari raya sangat disunnahkan untuk dipimpin satu orang imam.</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-3 bg-slate-50 rounded-lg">
+                            <i class="fa-solid fa-moon text-teal-600 mt-0.5 mr-3"></i>
+                            <div>
+                                <span class="text-slate-700 text-sm font-bold block mb-1">Qabliyah Subuh</span>
+                                <span class="text-slate-600 text-xs">Ibadah dua rakaat fajar atau Qabliyah Subuh menempati kasta tertinggi dalam shalat sunnah karena besaran pahalanya sering diibaratkan jauh lebih baik nilainya dibandingkan bumi dan alam semesta beserta seluruh isinya.</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-3 bg-slate-50 rounded-lg">
+                            <i class="fa-solid fa-suitcase-rolling text-teal-600 mt-0.5 mr-3"></i>
+                            <div>
+                                <span class="text-slate-700 text-sm font-bold block mb-1">Keringanan Saat Perjalanan</span>
+                                <span class="text-slate-600 text-xs">Tatkala sedang dalam fase musafir seluruh sunnah rawatib boleh dilepaskan untuk memperingan ibadah kecuali pelaksanan Qabliyah Subuh dan Shalat Witir yang tetap dijaga ketat oleh kebiasaan Nabi.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!-- ================= BAGIAN VIDEO PEMBELAJARAN ================= -->
+<section id="video-pembelajaran" class="mb-6">
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+
+        <!-- Header -->
+        <div class="px-4 sm:px-6 md:px-8 pt-5 md:pt-7">
+            <h3 class="text-lg md:text-xl font-bold text-slate-800 font-heading flex items-center">
+                <div class="bg-teal-50 text-teal-600 p-2 rounded-lg mr-3 text-sm shrink-0">
+                    <i class="fa-solid fa-play-circle"></i>
+                </div>
+                <span>Video Pembelajaran</span>
+            </h3>
+        </div>
+
+          <!-- Video Wrapper -->
+          <div class="px-0 sm:px-4 md:px-8 py-4 md:pb-6">
+              
+              <!-- Menggunakan aspect-video dengan iframe inset-0 agar responsif sempurna di semua layar -->
+              <div class="relative w-full overflow-hidden bg-black shadow-inner aspect-video sm:rounded-xl">
+
+                  <!-- Iframe -->
+                    <iframe 
+                        src="https://www.youtube.com/embed/CNDoLv_3w2A"
+                        title="YouTube video player"
+                        class="absolute inset-0 w-full h-full border-0 z-0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+
+              </div>
+
+          </div>
+
+        <!-- Info -->
+        <div class="px-4 sm:px-6 md:px-8 pb-5 md:pb-6">
+            <div class="flex items-start gap-3 bg-slate-50 border border-slate-100 rounded-xl p-3">
+                <i class="fa-solid fa-mobile-screen text-teal-600 text-base mt-0.5"></i>
+                <p class="text-[11px] sm:text-xs text-slate-600 leading-relaxed">
+                    Agar tampilan lebih jelas di HP, gunakan mode fullscreen atau putar perangkat ke posisi landscape.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- ========================================================= -->
+
+        <!-- Simulasi (Niat) Section -->
+        <section id="simulasi" class="bg-teal-900 py-16 relative pattern-bg w-full border-y border-teal-800">
+            <div class="container mx-auto px-4 relative z-10 max-w-5xl">
+                <div class="text-center mb-12">
+                    <span class="text-amber-400 font-semibold tracking-wider text-xs uppercase mb-2 block">Kumpulan Lafal Ibadah</span>
+                    <h2 class="text-3xl font-bold text-white font-heading">Praktik Niat Berbagai Shalat Sunnah</h2>
+                </div>
+                
+                <div class="flex flex-col lg:flex-row gap-6 mx-auto">
+                    <!-- Navigasi Pemilihan Shalat -->
+                    <div class="w-full lg:w-1/3 bg-white p-6 rounded-2xl shadow-lg flex flex-col gap-4">
+                        <label class="block text-slate-700 font-bold mb-1 text-sm uppercase tracking-wide">Pilih Jenis Shalat</label>
+                        <select id="niat-selector" onchange="updateNiat()" class="w-full p-4 border-2 border-slate-200 rounded-xl outline-none focus:border-teal-500 bg-slate-50 text-slate-800 text-sm font-semibold cursor-pointer mb-4 transition-colors">
+                            <option value="qabliyah_subuh">1. Niat Qabliyah Subuh</option>
+                            <option value="badiyah_dzuhur">2. Niat Ba'diyah Dzuhur</option>
+                            <option value="tahajjud">3. Niat Shalat Tahajjud</option>
+                            <option value="witir">4. Niat Shalat Witir</option>
+                            <option value="dhuha">5. Niat Shalat Dhuha</option>
+                        </select>
+
+                        <div class="bg-teal-50 border border-teal-100 p-5 rounded-xl mt-auto">
+                            <h4 id="niat-info-title" class="font-bold text-teal-800 text-xs mb-2 uppercase tracking-wider flex items-center">
+                                <i class="fa-solid fa-sun mr-2 text-lg"></i> Info Shalat
+                            </h4>
+                            <p id="niat-info-desc" class="text-sm text-teal-700 leading-relaxed font-medium">
+                                Memuat deskripsi kelengkapan shalat sunnah.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Tampilan Lafal Arab -->
+                    <div class="w-full lg:w-2/3 bg-white rounded-2xl shadow-lg p-8 md:p-12 flex flex-col justify-center items-center text-center">
+                        <div id="niat-content" class="fade-text w-full">
+                            <span id="niat-badge" class="inline-block text-xs font-bold text-teal-700 bg-teal-50 px-4 py-1.5 rounded-md mb-8 uppercase tracking-wider border border-teal-200">
+                                Memuat Data...
+                            </span>
+                            
+                            <h2 id="niat-arab" class="arabic-text text-3xl md:text-4xl font-bold text-slate-800 mb-8 w-full transition-all">
+                                ...
+                            </h2>
+                            
+                            <p id="niat-latin" class="text-teal-700 italic font-semibold mb-5 text-sm md:text-base leading-relaxed max-w-lg mx-auto">
+                                "..."
+                            </p>
+                            
+                            <div class="w-16 h-px bg-slate-200 mx-auto my-5"></div>
+                            
+                            <p id="niat-arti" class="text-slate-600 text-sm md:text-base leading-relaxed max-w-lg mx-auto font-medium">
+                                "..."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section (Anti Cheat System Active) -->
+        <section id="latihan" class="py-16 bg-slate-100 border-t border-slate-200 relative overflow-hidden w-full">
+            <div id="exam-watermark" class="student-watermark hidden"></div>
+            <div class="container mx-auto px-4 max-w-4xl relative z-10">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-slate-800 font-heading mb-2">Uji Kompetensi Evaluasi</h2>
+                    <div class="mt-4 inline-flex items-center gap-2 bg-red-100 text-red-700 px-5 py-2 rounded-lg text-xs font-bold border border-red-200 shadow-sm">
+                        <i class="fa-solid fa-shield-halved"></i> <span class="b64t" data-b="VUpJQU4gRElBV0FTSSBTSVNURU0gS0VUQVQ="></span>
+                    </div>
+                </div>
+
+                <div id="quiz-login" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 relative max-w-2xl mx-auto">
+                    <div id="auth-status" class="absolute top-6 right-6 text-xs font-semibold text-slate-400 flex items-center">
+                        <i class="fa-solid fa-circle-notch fa-spin mr-2"></i> <span class="b64t" data-b="TWVuZ2h1YnVuZ2thbi4uLg=="></span>
+                    </div>
+                    
+                    <div class="mb-8 text-center">
+                        <div class="w-16 h-16 bg-teal-50 rounded-full flex items-center justify-center mx-auto text-teal-600 text-3xl mb-4 shadow-inner">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-800 font-heading mb-2 b64t" data-b="RGF0YSBSZXNtaSBTaXN3YQ=="></h3>
+                        <p class="text-sm text-slate-500 b64t" data-b="TGVuZ2thcGkgZGF0YSBkaXJpIHNlYmVsdW0gbWVtdWxhaSBwZW5nZXJqYWFuLg=="></p>
+                    </div>
+
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-slate-700 text-sm font-bold mb-2 uppercase tracking-wide b64t" data-b="TmFtYSBMZW5na2Fw"></label>
+                            <input type="text" id="student-name" class="b64p w-full p-4 border-2 border-slate-200 rounded-xl outline-none focus:border-teal-500 bg-slate-50 relative z-20 font-medium transition-colors" data-b="Q29udG9oOiBBaG1hZCBTYW50b3Nv">
+                        </div>
+                        <div>
+                            <label class="block text-slate-700 text-sm font-bold mb-2 uppercase tracking-wide b64t" data-b="S2VsYXM="></label>
+                            <input type="text" id="student-class" class="b64p w-full p-4 border-2 border-slate-200 rounded-xl outline-none focus:border-teal-500 bg-slate-50 relative z-20 font-medium transition-colors" data-b="Q29udG9oOiA3QQ==">
+                        </div>
+                        <button id="start-btn" onclick="startQuiz()" disabled class="w-full bg-slate-300 text-slate-500 font-bold py-4 rounded-xl cursor-not-allowed transition mt-6 relative z-20">
+                            <span class="b64t" data-b="TWVtdWF0IEJhbmsgU29hbCBBY2FrLi4u"></span>
+                        </button>
+                        <p id="auth-error-msg" class="text-red-500 text-xs font-bold text-center hidden b64t" data-b="R2FnYWwgdGVyaHVidW5nIGtlIGRhdGFiYXNlIHNlcnZlci4="></p>
+                    </div>
+                </div>
+
+                <!-- Quiz Display -->
+                <div id="quiz-container" class="hidden space-y-6 relative">
+                    <div id="quiz-lock-overlay" class="hidden absolute inset-0 bg-white/95 backdrop-blur-md z-50 flex flex-col items-center justify-center rounded-2xl p-6 text-center">
+                        <div class="bg-red-600 text-white px-8 py-5 rounded-2xl font-bold shadow-xl flex items-center gap-4 mb-6">
+                            <i class="fa-solid fa-lock text-3xl"></i> <span class="b64t text-2xl" data-b="VUpJQU4gRElLVU5DSQ=="></span>
+                        </div>
+                        <p class="text-slate-800 font-bold text-lg mb-6 b64t" data-b="UGVyYW5na2F0IGluaSBkaWJsb2tpciBwZXJtYW5lbiBrYXJlbmEgbWVsYWt1a2FuIHBlbGFuZ2dhcmFuIGJlcmthbGkga2FsaS4="></p>
+                        
+                        <div class="flex items-center gap-3 text-teal-700 font-bold bg-teal-50 px-6 py-3 rounded-xl border border-teal-200 mt-4">
+                            <i class="fa-solid fa-circle-notch fa-spin text-xl"></i>
+                            <span>Menunggu Pengawas Membuka Akses...</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-teal-900 text-white p-5 rounded-2xl flex justify-between items-center shadow-md relative z-20 border border-teal-800">
+                        <div class="font-bold text-base flex items-center tracking-wide">
+                            <i class="fa-solid fa-circle-user mr-3 text-teal-400 text-2xl"></i>
+                            <span><span id="display-name" class="text-amber-400">---</span> Kelas <span id="display-class">---</span></span>
+                        </div>
+                        <div id="violation-counter" class="bg-red-500/20 px-4 py-1.5 rounded-lg text-xs font-bold border border-red-500 text-red-100 hidden">
+                            <i class="fa-solid fa-warning mr-1"></i> <span class="b64t" data-b="UGVsYW5nZ2FyYW46"></span> <span id="v-count">0</span>/3
+                        </div>
+                    </div>
+
+                    <form id="quiz-form" class="space-y-6 relative z-20"></form>
+
+                    <div class="pt-8 relative z-20 max-w-2xl mx-auto">
+                        <button type="button" id="submit-btn" onclick="preSubmitCheck()" class="w-full bg-amber-500 hover:bg-amber-400 text-teal-950 font-bold py-4 rounded-xl shadow-lg transition transform hover:-translate-y-1 flex justify-center items-center gap-3 text-lg">
+                            <i class="fa-solid fa-paper-plane"></i> <span class="b64t" data-b="S2Kirw=="></span>
+                            <span class="b64t" data-b="S2lyaW0gSmF3YWJhbg=="></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Modal -->
+    <div id="custom-modal" class="hidden fixed inset-0 z-[300] flex items-center justify-center modal-backdrop px-4">
+        <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full modal-content border border-slate-100 text-center relative flex flex-col items-center">
+            <div id="modal-icon-container" class="w-20 h-20 rounded-full mx-auto flex items-center justify-center mb-5 bg-slate-50 text-3xl">
+                <i class="fa-solid fa-bell text-slate-500"></i>
+            </div>
+            <h3 id="modal-title" class="text-2xl font-bold text-slate-800 mb-3 font-heading"></h3>
+            <div id="modal-body" class="text-slate-600 w-full text-base mb-8 leading-relaxed font-medium"></div>
+            <div id="modal-actions" class="flex flex-col gap-3 w-full"></div>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="w-full bg-teal-950 text-teal-200 py-10 border-t border-teal-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <a href="../../" target="_top" class="inline-flex items-center justify-center gap-3 mb-4 text-white hover:opacity-80 transition-opacity">
+                <i class="fa-solid fa-book-open text-xl text-teal-500"></i>
+                <span class="font-heading font-bold text-xl tracking-wide">Belajar<span class="text-teal-500">Online</span></span>
+            </a>
+            <p class="text-sm text-teal-400/80 max-w-md mx-auto mb-8">
+                Belajar Online adalah Sistem Pembelajaran Berbasis Digital untuk Memudahkan Guru dan Murid dalam Mencapai Tujuan Pembelajaran.
+            </p>
+            <div class="pt-6 border-t border-teal-900/50 text-xs text-teal-500">
+                <p>&copy; 2026 Ahmad Zulfikar, S.Pd.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase & Logic Terhubung Real-Time -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getFirestore, collection, addDoc, updateDoc, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAkX8qAS-O_5m_qaGr8Aa9XME-lVyBMibw",
+            authDomain: "belajaronline-b5512.firebaseapp.com",
+            projectId: "belajaronline-b5512",
+            storageBucket: "belajaronline-b5512.firebasestorage.app",
+            messagingSenderId: "896107581081",
+            appId: "1:896107581081:web:629056c097c90fdf583208"
+        };
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+        const appId = 'belajaronline-b5512';
+        const COLLECTION_NAME = 'scores';
+
+        const d64 = (s) => { try { return decodeURIComponent(escape(atob(s))); } catch(e) { return ""; } };
+        
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll('.b64t').forEach(el => { el.innerHTML = d64(el.getAttribute('data-b')); el.classList.add('b64-ready'); });
+            document.querySelectorAll('.b64p').forEach(el => { el.placeholder = d64(el.getAttribute('data-b')); });
+            window.updateNiat(); 
+        });
+
+        // --- SYSTEM ANTI CHEAT ---
+        window.isExamActive = false;
+        let cheatWarnings = 0;
+        const MAX_WARNINGS = 3;
+        
+        // Variabel global untuk state ujian
+        let studentData = { name: "", class: "" };
+        let activeQuizData = []; 
+        window.currentSessionId = null;
+        
+        document.addEventListener('contextmenu', e => { e.preventDefault(); showAntiCheatBanner(d64("S2xpayBLYW5hbiBkaW5vbmFrdGlma2FuIQ==")); });
+        document.addEventListener('copy', e => { e.preventDefault(); showAntiCheatBanner(d64("RGlsYXJhbmcgbWVsYWt1a2FuIENvcHkgZGF0YSE=")); });
+        document.addEventListener('cut', e => { e.preventDefault(); showAntiCheatBanner(d64("RGlsYXJhbmcgbWVsYWt1a2FuIEN1dCBkYXRhIQ==")); });
+        document.addEventListener('paste', e => { e.preventDefault(); showAntiCheatBanner(d64("RGlsYXJhbmcgbWVsYWt1a2FuIFBhc3RlIGRhdGEh")); });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) || (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.key === 'S' || e.key === 's' || e.key === 'C' || e.key === 'c' || e.key === 'V' || e.key === 'v' || e.key === 'X' || e.key === 'x'))) {
+                e.preventDefault(); showAntiCheatBanner(d64("UGludGFzYW4gS2V5Ym9hcmQgZGltYXRpa2FuIHVudHVrIGtlYW1hbmFuIQ=="));
+            }
+            if ((e.metaKey && e.shiftKey && (e.key === 's' || e.key === 'S')) || (e.metaKey && e.shiftKey && (e.key === '3' || e.key === '4' || e.key === '5'))) {
+                e.preventDefault(); if (window.isExamActive) { navigator.clipboard.writeText(''); handleTabViolation(d64("U2lzdGVtIG1lbmRldGVrc2kgdXBheWEgU2NyZWVuc2hvdCAvIFNuaXBwaW5nIFRvb2wh")); }
+            }
+        });
+
+        document.addEventListener('keyup', (e) => {
+            if (e.key === 'PrintScreen' || e.keyCode === 44) {
+                if (window.isExamActive) { navigator.clipboard.writeText(''); handleTabViolation(d64("U2lzdGVtIG1lbmRldGVrc2kgdXBheWEgU2NyZWVuc2hvdCAoUHJpbnRTY3JlZW4pIQ==")); }
+            }
+        });
+
+        function showAntiCheatBanner(msg) {
+            const banner = document.getElementById('anti-cheat-banner');
+            if (banner) {
+                const msgEl = document.getElementById('anti-cheat-msg');
+                if (msgEl) msgEl.textContent = msg;
+                banner.classList.remove('-translate-y-full');
+                setTimeout(() => { banner.classList.add('-translate-y-full'); }, 2500);
+            }
+        }
+
+        document.addEventListener('visibilitychange', function() { 
+            if (document.hidden && window.isExamActive) { 
+                document.getElementById('anti-snip-overlay')?.classList.remove('hidden'); 
+                document.getElementById('anti-snip-overlay')?.classList.add('flex'); 
+                handleTabViolation(d64("QW5kYSBtZW5pbmdnYWxrYW4gaGFsYW1hbiB1amlhbiAoQmVyYWxpaCBBcGxpa2FzaS9UYWIpIQ==")); 
+            }
+        });
+
+        window.addEventListener('pagehide', function() {
+            if (window.isExamActive) { 
+                document.getElementById('anti-snip-overlay')?.classList.remove('hidden'); 
+                document.getElementById('anti-snip-overlay')?.classList.add('flex'); 
+                handleTabViolation(d64("TGF5YXIgVWppYW4ga2VoaWxhbmdhbiBmb2t1cyAoRGltaW5pbWFsa2FuL1NjcmVlbnNob3QgYWt0aWYpIQ==")); 
+            }
+        });
+
+        window.addEventListener('blur', function() {
+            if (window.isExamActive && document.activeElement !== document.getElementById('student-name') && document.activeElement !== document.getElementById('student-class')) {
+                document.getElementById('anti-snip-overlay')?.classList.remove('hidden'); 
+                document.getElementById('anti-snip-overlay')?.classList.add('flex'); 
+                handleTabViolation(d64("S2VoaWxhbmdhbiBGb2t1cyBMYXlhciE="));
+            }
+        });
+
+        window.regainFocus = function() { 
+            document.getElementById('anti-snip-overlay')?.classList.add('hidden'); 
+            document.getElementById('anti-snip-overlay')?.classList.remove('flex'); 
+        }
+
+        function handleTabViolation(reasonMsg) {
+            if(!window.isExamActive) return;
+            cheatWarnings++;
+            
+            const violationCounter = document.getElementById('violation-counter');
+            if (violationCounter) violationCounter.classList.remove('hidden'); 
+            
+            const vCount = document.getElementById('v-count');
+            if (vCount) vCount.textContent = cheatWarnings;
+
+            const isNowBanned = cheatWarnings >= MAX_WARNINGS;
+
+            // Simpan peringatan ke memori lokal
+            updateLocalSessionWarnings(cheatWarnings);
+
+            // Update warning ke firebase (Live Ke Admin)
+            if (window.currentSessionId) {
+                updateDoc(doc(db, 'artifacts', appId, 'public', 'data', COLLECTION_NAME, window.currentSessionId), {
+                    cheatWarnings: cheatWarnings,
+                    isBanned: isNowBanned,
+                    status: isNowBanned ? 'Diblokir' : 'Mengerjakan'
+                }).catch(e => console.log(e));
+            }
+
+            if (isNowBanned) {
+                window.isExamActive = false; 
+                document.getElementById('anti-snip-overlay')?.classList.add('hidden'); 
+                document.getElementById('quiz-lock-overlay')?.classList.remove('hidden');
+            } else {
+                showModal({
+                    title: d64("8J+SoCBQZXJpbmdhdGFuIEtlY3VyYW5nYW4h"), 
+                    message: `<div class="text-amber-600 font-bold mb-2 text-lg">Teguran Sistem ke-${cheatWarnings} dari Maksimal ${MAX_WARNINGS}</div><p class="text-sm font-semibold text-slate-700">${reasonMsg}</p>`,
+                    type: 'warning', 
+                    buttons: [{ text: "Saya Paham", class: "bg-amber-500 text-white hover:bg-amber-600 py-3", onClick: () => regainFocus() }]
+                });
+            }
+        }
+
+        // --- SISTEM RESUME & PENYIMPANAN JAWABAN SEMENTARA ---
+        function updateLocalSessionWarnings(warnings) {
+            const savedSession = localStorage.getItem('fikih_active_session');
+            if (savedSession) {
+                const sessionData = JSON.parse(savedSession);
+                sessionData.cheatWarnings = warnings;
+                localStorage.setItem('fikih_active_session', JSON.stringify(sessionData));
+            }
+        }
+
+        window.saveAnswer = function(qIndex, val) {
+            let answers = JSON.parse(localStorage.getItem('fikih_answers') || '{}');
+            answers[qIndex] = val;
+            localStorage.setItem('fikih_answers', JSON.stringify(answers));
+        }
+
+        async function checkExistingSession() {
+            const savedSession = localStorage.getItem('fikih_active_session');
+            if (savedSession) {
+                const sessionData = JSON.parse(savedSession);
+                window.currentSessionId = sessionData.sessionId;
+                studentData = { name: sessionData.name, class: sessionData.class };
+                activeQuizData = sessionData.quizData;
+                cheatWarnings = sessionData.cheatWarnings || 0;
+                
+                // Pulihkan tampilan UI
+                document.getElementById('display-name').textContent = studentData.name;
+                document.getElementById('display-class').textContent = studentData.class;
+                
+                const snipIdentity = document.getElementById('snip-identity');
+                if (snipIdentity) {
+                    snipIdentity.innerHTML = `<i class="fa-solid fa-user-xmark mr-3 text-3xl"></i> IDENTITAS PELANGGAR: <br>${studentData.name} (Kelas ${studentData.class})`; 
+                    snipIdentity.classList.remove('hidden');
+                }
+                const watermark = document.getElementById('exam-watermark'); 
+                if (watermark) {
+                    watermark.innerText = ` ${studentData.name} • KELAS ${studentData.class} • `.repeat(1500); 
+                    watermark.classList.remove('hidden');
+                }
+
+                // Langsung tampilkan ujian
+                document.getElementById('quiz-login')?.classList.add('hidden'); 
+                document.getElementById('quiz-container')?.classList.remove('hidden');
+                
+                buildQuizUI();
+                setupSessionListener();
+            }
+        }
+
+        function setupSessionListener() {
+            if (window.unsubscribeSession) window.unsubscribeSession();
+            
+            window.unsubscribeSession = onSnapshot(doc(db, 'artifacts', appId, 'public', 'data', COLLECTION_NAME, window.currentSessionId), (docSnap) => {
+                if (docSnap.exists()) {
+                    const data = docSnap.data();
+                    
+                    // Update peringatan sesuai database
+                    cheatWarnings = data.cheatWarnings || 0;
+                    if (cheatWarnings > 0) {
+                        document.getElementById('violation-counter')?.classList.remove('hidden'); 
+                        const vCount = document.getElementById('v-count');
+                        if (vCount) vCount.textContent = cheatWarnings;
+                    }
+
+                    // Jika ternyata di db sudah selesai (mencegah error)
+                    if (data.status === 'Selesai') {
+                        window.isExamActive = false;
+                        localStorage.removeItem('fikih_active_session');
+                        localStorage.removeItem('fikih_answers');
+                        document.getElementById('quiz-form')?.classList.add('pointer-events-none', 'opacity-50', 'grayscale-[0.5]');
+                        const btn = document.getElementById('submit-btn'); 
+                        if (btn) {
+                            btn.disabled = true; 
+                            btn.className = "w-full bg-slate-300 text-slate-500 font-bold py-4 rounded-xl cursor-not-allowed flex justify-center items-center gap-2 relative z-20 transition-all";
+                            btn.innerHTML = '<i class="fa-solid fa-lock text-sm"></i> Ujian Telah Selesai';
+                        }
+                    }
+                    // Bila admin klik Kunci Akses ATAU sistem lock otomatis
+                    else if (data.isBanned === true) {
+                        window.isExamActive = false;
+                        document.getElementById('anti-snip-overlay')?.classList.add('hidden'); 
+                        document.getElementById('quiz-lock-overlay')?.classList.remove('hidden');
+                    } 
+                    // Bila admin klik Buka Blokir
+                    else if (data.isBanned === false) {
+                        if (document.getElementById('quiz-lock-overlay')?.classList.contains('hidden') === false) {
+                            window.isExamActive = true;
+                            cheatWarnings = 0;
+                            const vCount = document.getElementById('v-count');
+                            if(vCount) vCount.textContent = 0;
+                            document.getElementById('quiz-lock-overlay')?.classList.add('hidden');
+                            
+                            showModal({ title: "Akses Dibuka Admin!", message: "<p class='font-medium text-slate-600'>Pengawas telah melepaskan blokir dari jarak jauh. Silakan lanjutkan ujian Anda.</p>", type: 'success', buttons: [{ text: "Lanjutkan", class: "bg-teal-600 text-white font-bold" }] });
+                            updateLocalSessionWarnings(0);
+                        } else if (!window.isExamActive) {
+                            window.isExamActive = true; 
+                        }
+                    }
+                } else {
+                    // Sesi dihapus admin
+                    localStorage.removeItem('fikih_active_session');
+                    localStorage.removeItem('fikih_answers');
+                    window.location.reload();
+                }
+            });
+        }
+
+        function buildQuizUI() {
+            const quizForm = document.getElementById('quiz-form');
+            const savedAnswers = JSON.parse(localStorage.getItem('fikih_answers') || '{}');
+            
+            if (quizForm) {
+                quizForm.innerHTML = activeQuizData.map((item, index) => {
+                    let optionsWithIndex = item.options.map((opt, oIdx) => ({ text: opt, originalIndex: oIdx }));
+                    
+                    // Acak Opsi Pilihan Ganda
+                    for (let k = optionsWithIndex.length - 1; k > 0; k--) {
+                        const l = Math.floor(Math.random() * (k + 1));
+                        [optionsWithIndex[k], optionsWithIndex[l]] = [optionsWithIndex[l], optionsWithIndex[k]];
+                    }
+
+                    return `
+                    <div class="bg-white p-7 md:p-9 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow duration-300">
+                        <p class="font-medium text-slate-800 mb-6 text-base md:text-lg leading-loose text-justify">
+                            <span class="text-teal-600 font-bold mr-2 text-xl">${index + 1}.</span> 
+                            ${item.q}
+                        </p>
+                        <div class="space-y-4">
+                            ${optionsWithIndex.map((optObj, displayIdx) => {
+                                const isChecked = savedAnswers[index] === optObj.originalIndex ? 'checked' : '';
+                                return `
+                                <label class="option-label flex items-start p-4 md:p-5 rounded-xl bg-slate-50/50 relative cursor-pointer hover:bg-teal-50/70 border border-slate-200 transition-all duration-200 group">
+                                    <input type="radio" name="q${index}" value="${optObj.originalIndex}" onchange="saveAnswer(${index}, ${optObj.originalIndex})" class="option-input hidden peer" ${isChecked}>
+                                    <div class="option-content w-full flex items-start peer-checked:bg-teal-50 peer-checked:border-teal-600 border border-transparent rounded-xl p-1 -m-1 transition-all">
+                                        <span class="option-circle w-8 h-8 flex-shrink-0 flex items-center justify-center bg-white rounded-full mr-4 md:mr-5 text-sm font-bold text-slate-400 border border-slate-300 transition-colors mt-0.5 peer-checked:bg-teal-600 peer-checked:text-white peer-checked:border-teal-600 shadow-sm group-hover:border-teal-400">${String.fromCharCode(65+displayIdx)}</span>
+                                        <span class="text-slate-700 text-sm md:text-base peer-checked:text-teal-900 leading-relaxed font-medium mt-1 w-full text-justify pr-2">${optObj.text}</span>
+                                    </div>
+                                </label>`
+                            }).join('')}
+                        </div>
+                    </div>`;
+                }).join('');
+            }
+            document.getElementById('latihan')?.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // --- INTERACTIVE NIAT DATA ---
+        window.niatData = {
+            qabliyah_subuh: { badge: "Niat Shalat Rawatib (Sebelum Subuh)", icon: "fa-sun", title: "Qabliyah Subuh (2 Rakaat)", desc: "Sangat dianjurkan pelaksanaannya karena nilai pahalanya diibaratkan lebih baik dari pada keseluruhan isi dunia.", arab: "أُصَلِّي سُنَّةَ الصُّبْحِ رَكْعَتَيْنِ قَبْلِيَّةً لِلّٰهِ تَعَالَى", latin: "Ushallii sunnatash shubhi rak'ataini qabliyyatan lillaahi ta'aalaa.", arti: "Aku sengaja shalat sunnah Subuh dua rakaat sebelum fardhu karena Allah Ta'aala." },
+            badiyah_dzuhur: { badge: "Niat Shalat Rawatib (Sesudah Dzuhur)", icon: "fa-sun", title: "Ba'diyah Dzuhur (2 Rakaat)", desc: "Dikerjakan tepat setelah mengakhiri ibadah shalat Dzuhur guna menyempurnakan kekurangan ibadah wajib tersebut.", arab: "أُصَلِّي سُنَّةَ الظُّهْرِ رَكْعَتَيْنِ بَعْدِيَّةً لِلّٰهِ تَعَالَى", latin: "Ushallii sunnataz dhuhri rak'ataini ba'diyyatan lillaahi ta'aalaa.", arti: "Aku sengaja shalat sunnah Dzuhur dua rakaat sesudah fardhu karena Allah Ta'aala." },
+            tahajjud: { badge: "Niat Shalat Qiyamul Lail (Malam)", icon: "fa-moon", title: "Shalat Tahajjud (2 Rakaat)", desc: "Hanya diperuntukkan dan diwajibkan untuk diawali dengan kondisi terbangun dari tidur pada rentang sepertiga malam.", arab: "أُصَلِّي سُنَّةَ التَّهَجُّدِ رَكْعَتَيْنِ لِلّٰهِ تَعَالَى", latin: "Ushallii sunnatat tahajjudi rak'ataini lillaahi ta'aalaa.", arti: "Aku sengaja shalat sunnah Tahajjud dua rakaat karena Allah Ta'aala." },
+            witir: { badge: "Niat Penutup Shalat Malam", icon: "fa-moon", title: "Shalat Witir (1 Rakaat)", desc: "Dilaksanakan selalu dalam jumlah rakaat yang ganjil dan difungsikan sebagai penutup seluruh ibadah pada fase malam.", arab: "أُصَلِّي سُنَّةَ الْوِتْرِ رَكْعَةً لِلّٰهِ تَعَالَى", latin: "Ushallii sunnatal witri rak'atan lillaahi ta'aalaa.", arti: "Aku sengaja shalat sunnah Witir satu rakaat karena Allah Ta'aala." },
+            dhuha: { badge: "Niat Shalat Dhuha (Pagi Hari)", icon: "fa-cloud-sun", title: "Shalat Dhuha (2 Rakaat)", desc: "Waktu terbentang sejak matahari mulai beranjak tinggi hingga sesaat sebelum mendekati datangnya batas ibadah dzuhur.", arab: "أُصَلِّي سُنَّةَ الضُّحَى رَكْعَتَيْنِ لِلّٰهِ تَعَالَى", latin: "Ushallii sunnatad dhuhaa rak'ataini lillaahi ta'aalaa.", arti: "Aku sengaja shalat sunnah Dhuha dua rakaat karena Allah Ta'aala." }
+        };
+
+        window.updateNiat = function() {
+            const selector = document.getElementById('niat-selector');
+            if (!selector) return;
+            
+            const data = window.niatData[selector.value];
+            const contentDiv = document.getElementById('niat-content');
+            if (contentDiv) contentDiv.style.opacity = '0';
+            
+            setTimeout(() => {
+                const badge = document.getElementById('niat-badge'); if (badge) badge.textContent = data.badge;
+                const arab = document.getElementById('niat-arab'); if (arab) arab.textContent = data.arab;
+                const latin = document.getElementById('niat-latin'); if (latin) latin.textContent = '"' + data.latin + '"';
+                const arti = document.getElementById('niat-arti'); if (arti) arti.textContent = '"' + data.arti + '"';
+                
+                const infoTitle = document.getElementById('niat-info-title'); 
+                if (infoTitle) infoTitle.innerHTML = `<i class="fa-solid ${data.icon} mr-2 text-lg"></i> ${data.title}`;
+                
+                const infoDesc = document.getElementById('niat-info-desc'); 
+                if (infoDesc) infoDesc.textContent = data.desc;
+                
+                if (contentDiv) contentDiv.style.opacity = '1';
+            }, 250);
+        }
+
+        // --- AUTH & LOGIN SYSTEM ---
+        const startBtn = document.getElementById('start-btn');
+        const authStatus = document.getElementById('auth-status');
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                if (startBtn) {
+                    startBtn.disabled = false; 
+                    startBtn.className = "w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 rounded-xl transition mt-4 relative z-20 shadow-md";
+                    startBtn.innerHTML = `${d64("TXVsYWkgTWVuZ2VyamFrYW4=")} <i class="fa-solid fa-arrow-right ml-2"></i>`;
+                }
+                if (authStatus) {
+                    authStatus.innerHTML = '<i class="fa-solid fa-check text-teal-500 mr-1 text-sm"></i> Server Siap'; 
+                    authStatus.classList.replace('text-slate-400', 'text-teal-600'); 
+                }
+                document.getElementById('auth-error-msg')?.classList.add('hidden');
+
+                // PEMBARUAN: Cek apakah ada ujian yang belum selesai & pulihkan
+                checkExistingSession();
+
+            } else { 
+                signInAnonymously(auth).catch(() => { 
+                    if (authStatus) authStatus.innerHTML = '<i class="fa-solid fa-circle-xmark text-red-500 mr-1 text-sm"></i> Terputus'; 
+                    document.getElementById('auth-error-msg')?.classList.remove('hidden'); 
+                }); 
+            }
+        });
+
+        // --- MODAL HELPER ---
+        const modal = document.getElementById('custom-modal');
+        function showModal(config) {
+            const modalTitle = document.getElementById('modal-title');
+            if (modalTitle) modalTitle.textContent = config.title;
+            
+            const modalBody = document.getElementById('modal-body');
+            if (modalBody) modalBody.innerHTML = config.message;
+            
+            let iconClass = 'fa-bell text-slate-500'; let bgClass = 'bg-slate-100';
+            if (config.type === 'warning') { iconClass = 'fa-triangle-exclamation text-amber-500'; bgClass = 'bg-amber-50'; }
+            if (config.type === 'success') { iconClass = 'fa-check text-teal-500'; bgClass = 'bg-teal-50'; }
+            if (config.type === 'error') { iconClass = 'fa-xmark text-red-500'; bgClass = 'bg-red-50'; }
+            if (config.type === 'loading') { iconClass = 'fa-spinner fa-spin text-teal-500'; bgClass = 'bg-teal-50'; }
+
+            const modalIconContainer = document.getElementById('modal-icon-container');
+            if (modalIconContainer) {
+                modalIconContainer.className = `w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-5 text-3xl shadow-inner ${bgClass}`;
+                modalIconContainer.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
+            }
+            
+            const actions = document.getElementById('modal-actions'); 
+            if (actions) {
+                actions.innerHTML = '';
+                if (config.buttons) {
+                    config.buttons.forEach(btn => {
+                        const b = document.createElement('button');
+                        b.className = `w-full py-3 rounded-xl font-bold transition text-sm ${btn.class || 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`;
+                        b.innerHTML = btn.text; 
+                        b.onclick = () => { if (btn.close !== false) hideModal(); if (btn.onClick) btn.onClick(); }; 
+                        actions.appendChild(b);
+                    });
+                } else if (config.type !== 'loading') {
+                    const b = document.createElement('button'); 
+                    b.className = "w-full bg-teal-600 text-white py-3 rounded-xl font-bold hover:bg-teal-700 transition text-sm shadow-md";
+                    b.textContent = "Tutup Peringatan"; 
+                    b.onclick = hideModal; 
+                    actions.appendChild(b);
+                }
+            }
+            if (modal) modal.classList.remove('hidden');
+        }
+        function hideModal() { if (modal) modal.classList.add('hidden'); }
+
+        const questionData = [
+            {
+                q: "Dalam kajian ilmu fikih klasik mengenai ibadah harian seorang muslim senantiasa dianjurkan untuk tidak hanya mencukupkan diri pada kewajiban lima waktu melainkan juga menambah dengan ibadah penyempurna yang ditekankan keberadaannya karena Nabi Muhammad sangat jarang meninggalkannya yang secara terminologi syariat dikenal dengan istilah ibadah ...",
+                options: [
+                    "shalat sunnah muakkad yang berfungsi sebagai penambal segala bentuk kekurangan dalam pelaksanaan ibadah wajib",
+                    "shalat sunnah ghairu muakkad yang pelaksanaannya dibebaskan sesuai dengan kelonggaran waktu dan kesempatan",
+                    "shalat sunnah mutlak yang tidak terikat oleh batasan ketentuan waktu maupun ketentuan sebab tertentu",
+                    "shalat fardhu kifayah yang kewajibannya akan gugur apabila telah diselesaikan oleh sebagian perwakilan umat Islam"
+                ],
+                a: 0
+            },
+            {
+                q: "Keutamaan menjaga rutinitas ibadah di luar batasan shalat fardhu sangatlah luar biasa besarnya hingga Rasulullah memberikan sebuah janji agung bagi umatnya yang senantiasa istiqamah mendirikan ibadah tambahan sebanyak dua belas rakaat setiap harinya yakni berupa balasan pasti dari Allah pencipta semesta berupa ...",
+                options: [
+                    "penghapusan seluruh noda dosa besar maupun kecil yang telah telanjur dilakukan sejak masa akil baligh",
+                    "kelapangan jalur rezeki duniawi secara terus menerus serta perlindungan mutlak dari segala bentuk musibah",
+                    "pembangunan sebuah bangunan istana peristirahatan yang sungguh megah di dalam taman surga yang abadi",
+                    "jaminan kemudahan melesat layaknya kilat tanpa tersendat saat melintasi bentangan jembatan pada hari pembalasan"
+                ],
+                a: 2
+            },
+            {
+                q: "Di antara seluruh rentetan ibadah pengiring yang senantiasa menemani pelaksanaan shalat wajib rupanya terdapat satu macam ibadah pengiring yang memegang keutamaan paling istimewa bahkan nilainya secara tegas dinyatakan jauh melampaui keindahan hamparan dunia beserta seluruh isinya yaitu ...",
+                options: [
+                    "pelaksanaan ibadah dua rakaat fajar yang ditunaikan sesaat sebelum menunaikan shalat fardhu subuh di pagi hari",
+                    "pelaksanaan ibadah empat rakaat awalan yang dilakukan demi menyambut datangnya kewajiban shalat fardhu dzuhur",
+                    "pelaksanaan ibadah dua rakaat setelah berakhirnya rangkaian salam dari pelaksanaan rutinitas kewajiban shalat isya",
+                    "pelaksanaan ibadah dhuha yang rutin dikerjakan manakala terik matahari sudah mulai menghangat mendekati pertengahan siang"
+                ],
+                a: 0
+            },
+            {
+                q: "Berkaitan erat dengan pedoman tata cara maupun etika tempat beribadah di luar kewajiban fardhu Nabi Muhammad menggarisbawahi pentingnya sebuah adab agar umat Islam tidak menjadikan tempat tinggal keluarga mereka tampak mati sepi seperti areal pemakaman dengan memberikan anjuran untuk ...",
+                options: [
+                    "mengerjakan seluruh rentetan ibadah wajib fardhu sendirian di dalam bilik tidur yang gelap dan tertutup amat rapat",
+                    "memprioritaskan rutinitas penyelesaian ibadah berstatus sunnah agar didirikan di dalam bilik area rumah masing masing",
+                    "melantunkan gema kumandang azan dan iqamah menembus dinding ruang tamu setiap kali waktu shalat tiba secara disiplin",
+                    "mengundang segenap kerabat dari tetangga sekitar guna menyelenggarakan seremonial tahajjud bersama di halaman teras"
+                ],
+                a: 1
+            },
+            {
+                q: "Kegiatan ibadah penutup yang amat ditekankan bagi setiap kaum muslim sebelum menutup matanya di waktu malam hari ialah mendirikan sebuah ibadah sunnah berkarakter rakaat ganjil yang mana pelaksanaannya bisa dikerjakan segera usai menyelesaikan kewajiban shalat isya di mana ibadah tersebut biasa disebut ...",
+                options: [
+                    "kewajiban ibadah tahajjud yang syarat sah utamanya mewajibkan pelaku untuk terlebih dahulu merasakan terlelap tidur malam",
+                    "kebiasaan ibadah witir yang selalu diidentikkan dengan hitungan rakaat yang bersisa ganjil pada akhir batas jeda waktu malam",
+                    "rutinitas ibadah dhuha yang sebenarnya dilarang untuk dikerjakan manakala rembulan masih menggantung di hamparan langit",
+                    "keinginan ibadah hajat yang sengaja dirancang agar seorang penempuh malam dapat meminta seluruh permohonan duniawi"
+                ],
+                a: 1
+            },
+            {
+                q: "Tatkala sedang menempuh rute perjalanan musafir yang terlampau amat jauh Nabi Muhammad senantiasa mengambil kemudahan keringanan syariat dari Allah dengan meringkas jumlah rakaat shalat fardhu dan meninggalkan anjuran ibadah rawatib namun beliau tidak pernah sekali pun melepaskan dua hal yaitu ...",
+                options: [
+                    "ibadah rawatib setelah pelaksanaan waktu isya beserta ibadah syukur atas terbitnya cahaya fajar di pelataran timur",
+                    "ibadah sunnah menjelang azan berkumandang pada waktu maghrib serta ibadah penyempurna setelah shalat ashar",
+                    "ibadah pengiring dua rakaat menjelang fajar subuh serta ibadah ganjil pemungkas segala doa pada ambang pertengahan malam",
+                    "ibadah penutup usai melakukan salam pada siang hari bolong beserta ibadah tarawih pada setiap bulan ramadhan tiba"
+                ],
+                a: 2
+            },
+            {
+                q: "Berbeda halnya dengan mayoritas pedoman pengerjaan ibadah tambahan harian yang sungguh lebih ditekankan agar dirampungkan secara sendirian tanpa berkerumun maka ibadah sunnah yang dirayakan secara kolosal saban dua kali putaran kalender hijriah amat ditekankan pelaksanaannya agar ...",
+                options: [
+                    "dipimpin langsung secara serentak oleh pimpinan imam berjamaah dengan memanggil lautan warga dari segenap pelosok",
+                    "disembunyikan di dalam ruangan bilik privat masing masing penduduk sehingga tiada satu warga pun yang mampu memandang",
+                    "dipecah ke dalam berbagai regu regu kecil berskala lima hingga sepuluh orang demi menghindari penumpukan lautan jamaah",
+                    "ditunda jadwal persiapannya sampai matahari benar benar terbenam tepat di titik pergantian terangnya waktu sore"
+                ],
+                a: 0
+            },
+            {
+                q: "Setiap kedatangan waktu masuknya hitungan hari bulan suci ramadhan seluruh komponen umat muslimin di bumi senantiasa mengarahkan segenap jiwanya guna menghidupkan malam di rumah Tuhan dengan melaksanakan sebuah ibadah rutin yang hanya dijumpai eksklusif pada bulan ini yang mana disebut dengan ibadah ...",
+                options: [
+                    "sunnah tarawih yang diwarnai oleh keramaian nuansa membaca deretan ayat ayat suci al quran sepanjang malam",
+                    "sunnah mutlaq yang pelaksanaannya bebas dirangkai sebanyak ribuan putaran rakaat selama bulan agung itu",
+                    "sunnah awwabin yang secara tradisi digeser ke pertengahan rembulan malam demi menanti tibanya waktu perjamuan",
+                    "sunnah istisqa yang lazimnya diselenggarakan pada area gersang guna memanggil curahan rahmat jatuhnya sang hujan"
+                ],
+                a: 0
+            },
+            {
+                q: "Manakala seorang pemeluk keyakinan memiliki niat murni hendak memupuk limpahan rasa syukur teramat dalam terhadap berfungsinya kembali persendian anggota tubuhnya usai rebah semalaman maka ia hendaknya lekas merampungkan ibadah tambahan yang mulai dirutinkan ketika mentari perlahan menanjak panas berupa shalat ...",
+                options: [
+                    "sunnah tahiyatul masjid sebagai adab penghormatan saat kaki berpijak memasuki lingkungan keramik dalam ruang musala",
+                    "sunnah isyraq yang mengharuskan syarat wajib berdiam diri terpekur usai menunaikan subuh berjamaah tepat di tempatnya semula",
+                    "sunnah dhuha yang diyakini membawa faedah rezeki tak terduga serta menjadi amalan pelipur kekurangan diri dari sedekah harian",
+                    "sunnah rawatib sebelum mendirikan ibadah siang manakala seluruh bayangan benda masih tegak lurus seimbang tanpa kemiringan"
+                ],
+                a: 2
+            },
+            {
+                q: "Dalam merumuskan sekat batasan derajat hukum atas tindakan tambahan para ahli yurisprudensi fikih sengaja menggolongkannya menjadi dua arus utama di mana sebuah ibadah sunnah yang terkadang rutin dilakukan namun tak jarang pula ditinggalkan belaka oleh baginda Nabi tanpa penegasan paksaan dinamai sebagai ...",
+                options: [
+                    "rutinitas amalan sunnah ghairu muakkad yang sengaja diberi ruang napas bagi siapapun untuk beristirahat jeda mengerjakannya",
+                    "rutinitas amalan sunnah muakkad yang bila seorang umat Islam enggan menunaikannya ia langsung tertimpa sanksi berkalang dosa",
+                    "rutinitas amalan bidah berwujud kemaslahatan mubah yang peraturannya sepenuhnya diserahkan bulat kepada otoritas akal",
+                    "rutinitas amalan ibadah mubah yang tidak akan mencatat poin emas pahala bila usai dikerjakan dan tidak bernoda cacat bila diabaikan"
+                ],
+                a: 0
+            },
+            {
+                q: "Tepat sepersekian jenak sesudah menyelesaikan kalimat salam dari rentetan shalat fardhu ketika senja melunturkan terang di ufuk sang barat seorang penganut yang teguh pendirian seyogianya sedikit menggeser tumpuan duduk sembari bangkit menyambungnya dengan rutinitas sunnah muakkad penambal bernama ibadah ...",
+                options: [
+                    "pendamping awalan menjelang pelaksanaan fardhu pada ambang masuknya jadwal menatap gelapnya hamparan awal waktu malam",
+                    "pendamping akhiran purnawaktu fardhu maghrib yang memang ditekankan sebagai penambal ragam luput kelalaian gerakan",
+                    "pendamping pertengahan waktu dzuhur bilamana pelaksana maghrib ini terlewat secara fatal merampungkannya pada siang",
+                    "pendamping permulaan qiyamul lail yang menandai masuknya kewajiban tahajjud meski belum tertidur memejam lelap"
+                ],
+                a: 1
+            },
+            {
+                q: "Aturan asasi kemutlakan mendirikan ibadah penyembahan tambahan pada dasarnya memberikan kelonggaran di sembarang tempat namun syariat agama telah merumuskan sebuah peringatan merah berupa pencegahan melangsungkan shalat mutlak yang sepenuhnya tidak diiringi faktor darurat pada dua rentang persimpangan yaitu ...",
+                options: [
+                    "batas tepat selesainya jamaah ibadah fajar terbit dan seketika sesudah melaksanakan tuntas rutinitas amalan ashar",
+                    "batas saat memuncaknya mentari di atas pusaran kepala persis berdampingan jelang waktu berbuka meruntuhkan lapar",
+                    "batas sesudah mengucapkan perpisahan salam maghrib dan menanti sekujur senja masuk terperosok ke ufuk gelap",
+                    "batas sepertiga lautan malam pekat menuju rentang gema ketukan pilar beduk mengalun memanggil subuh jemaah"
+                ],
+                a: 0
+            },
+            {
+                q: "Bagi kalangan umat yang secara tekun membiasakan diri bangun merobek selimut sunyi menuju pancuran suci tatkala sepertiga sisa kepekatan menutupi alam wajib menanamkan pemahaman kuat bahwa pelaksanaan ibadah hening itu baru berstatus legal sebagai tahajjud jikalau ia sebelumnya telah menuntaskan syarat berupa ...",
+                options: [
+                    "mengerjakan pembacaan ayat ayat kursi dengan menengadahkan menatap lautan gemintang tanpa pelindung atap sekadar sedikit",
+                    "mengistirahatkan punggung memejam alam tidur yang nyenyak pada petang sebelumnya kendati hanya berdurasi terpejam sesaat",
+                    "mendengarkan seluruh khutbah muhasabah di pelataran beranda serambi dengan jemaah penuh meski tidak tertidur sepicing pun",
+                    "mendirikan rentetan seratus rakaat tanpa menunda rehat kaki hingga tapak tumit berbekas gurat kerutan amat mengeras"
+                ],
+                a: 1
+            },
+            {
+                q: "Rangkaian penyembahan di alam gelap yang menjuntai nyaris purna ke tepi timur tidaklah dipandang lengkap tanpa dipalang menggunakan tata cara penguncian shalat bersuasana hitungan ganjil yang kebetulan memiliki dispensasi kuota batas keping rakaat paling minimal dari semua amalan ibadah penyembah di muka bumi sejumlah ...",
+                options: [
+                    "empat butir rakaat genap disela duduk rehat dengan tambahan porsi melantun salam akhir pada titik puncak bacaan penghujung",
+                    "dua butir rakaat sambung menyambung yang mewajibkan jeda waktu sekadar tarikan uap nafas sebelum berlanjut ruku",
+                    "satu butir rakaat tunggal berdiri utuh sebagai palang pamungkas pintu gerbang sebelum menyentuh batas gema seruan masuk hari baru",
+                    "tiga butir rakaat yang wajib dirangkai persis serempak laksana bentuk gerak ibadah fardhu maghrib tanpa satupun penambahan"
+                ],
+                a: 2
+            },
+            {
+                q: "Sewaktu menjernihkan lautan batin lewat pemusatan tekad mengucapkan lintasan bait bait pernyataan tujuan mengabdi pada awalan prosesi menyembah maka sang pelaku mutlak menselaraskan kata kunci keterikatan kedudukannya yang mana bilamana ia bersujud sendiri dalam kamar senyap tanpa pengikut di belakang ia tak boleh memaksakan lafal pelengkap ...",
+                options: [
+                    "berdiri mantap menghadap dinding bayang membelakangi poros garis bentang arah pusat jantung kota kiblat bumi menyembah",
+                    "sengaja memandu bertindak selayaknya imam percontohan atau mematuh mengekor ruku selaku makmum yang menurut arah aba aba",
+                    "karena segala peruntukan ibadah di ujung kesadaran ruh seutuhnya ditujukan ke hadapan khalik penguasa sekujur titah perputaran",
+                    "meringkas memampat bentang porsi tumpuan reka bacaan atau menarik batas hitung melipat gandakan rotate gerak tanpa panduan jelas"
+                ],
+                a: 1
+            }
+        ];
+
+        window.startQuiz = async function() {
+            const nEl = document.getElementById('student-name');
+            const cEl = document.getElementById('student-class');
+            const n = nEl ? nEl.value.trim() : ""; 
+            const c = cEl ? cEl.value.trim() : "";
+            
+            if (!n || !c) return showModal({ title: "Perhatian Identitas", message: "<p class='font-medium text-slate-600'>Identitas registrasi harus sepenuhnya dilampirkan guna menautkan arsip evaluasi ke direktori absensi resmi.</p>", type: 'warning' });
+            
+            window.isExamActive = true; cheatWarnings = 0; studentData = { name: n, class: c };
+            
+            const displayName = document.getElementById('display-name');
+            const displayClass = document.getElementById('display-class');
+            if(displayName) displayName.textContent = n; 
+            if(displayClass) displayClass.textContent = c;
+            
+            const snipIdentity = document.getElementById('snip-identity');
+            if (snipIdentity) {
+                snipIdentity.innerHTML = `<i class="fa-solid fa-user-xmark mr-3 text-3xl"></i> IDENTITAS PELANGGAR: <br>${n} (Kelas ${c})`; 
+                snipIdentity.classList.remove('hidden');
+            }
+            
+            const watermark = document.getElementById('exam-watermark'); 
+            if (watermark) {
+                watermark.innerText = ` ${n} • KELAS ${c} • `.repeat(1500); 
+                watermark.classList.remove('hidden');
+            }
+
+            document.getElementById('start-btn').innerHTML = '<i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Mengakses Server...';
+            try {
+                if (!auth.currentUser) await signInAnonymously(auth);
+                const docRef = await addDoc(collection(db, 'artifacts', appId, 'public', 'data', COLLECTION_NAME), {
+                    name: studentData.name, kelas: studentData.class, score: 0, 
+                    materi: 'Latihan Soal : Shalat Sunnah Muakkad', 
+                    type: 'Latihan Soal', date: new Date().toLocaleDateString('id-ID'), 
+                    timestamp: Date.now(), details: [], uid: auth.currentUser.uid, 
+                    isBanned: false, status: 'Mengerjakan', cheatWarnings: 0
+                });
+                
+                window.currentSessionId = docRef.id;
+
+                // Salin dan Acak Soal
+                activeQuizData = JSON.parse(JSON.stringify(questionData));
+                for (let i = activeQuizData.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [activeQuizData[i], activeQuizData[j]] = [activeQuizData[j], activeQuizData[i]];
+                }
+
+                // Simpan Sesi & Soal Acak ke Lokal
+                localStorage.setItem('fikih_active_session', JSON.stringify({
+                    sessionId: window.currentSessionId,
+                    name: n,
+                    class: c,
+                    quizData: activeQuizData,
+                    cheatWarnings: 0
+                }));
+                localStorage.removeItem('fikih_answers');
+
+                document.getElementById('quiz-login')?.classList.add('hidden'); 
+                document.getElementById('quiz-container')?.classList.remove('hidden');
+                
+                buildQuizUI();
+                setupSessionListener();
+
+            } catch(e) { console.error(e); }
+        }
+
+        window.preSubmitCheck = function() {
+            const answered = activeQuizData.filter((_, i) => document.querySelector(`input[name="q${i}"]:checked`)).length;
+            if (answered < activeQuizData.length) { 
+                showModal({ title: "Lembar Jawaban Rumpang", message: `<p class="font-medium text-slate-600">Sistem mendeteksi bahwa baru sekitar <b class="text-amber-600 text-lg">${answered}</b> dari kepingan total <b>${activeQuizData.length}</b> pertanyaan yang tuntas Anda berikan jawabannya. Demi keamanan akumulasi nilai disarankan meninjau ulang lembaran ini.</p>`, type: 'warning', buttons: [{ text: "Tinjau Kembali", class: "bg-slate-100 text-slate-700 font-bold" }, { text: "Paksa Penyetoran", class: "bg-teal-600 text-white font-bold", onClick: () => submitQuizLogic(false) }] });
+            } else {
+                submitQuizLogic(false);
+            }
+        }
+
+        async function submitQuizLogic(isForcedCheat = false) {
+            window.isExamActive = false; document.getElementById('exam-watermark')?.classList.add('hidden'); 
+            let correctCount = 0; const details = []; 
+            
+            activeQuizData.forEach((item, i) => { 
+                const sel = document.querySelector(`input[name="q${i}"]:checked`); 
+                const isCorrect = sel ? parseInt(sel.value) === item.a : false; 
+                details.push(isCorrect); 
+                if (isCorrect) correctCount++; 
+            });
+
+            const score = Math.round((correctCount / activeQuizData.length) * 100);
+            if(!isForcedCheat) showModal({ title: "Memproses Lembar Evaluasi...", message: "<p class='font-medium text-slate-600'>Menyandikan dan menautkan rincian hasil pengerjaanmu ke tumpukan basis data peladen pusat...</p>", type: 'loading', buttons: [] });
+
+            try {
+                if (!auth.currentUser) await signInAnonymously(auth);
+
+                if (window.currentSessionId) {
+                    await updateDoc(doc(db, 'artifacts', appId, 'public', 'data', COLLECTION_NAME, window.currentSessionId), {
+                        score: score, 
+                        materi: isForcedCheat ? 'Latihan Soal (Dikumpul Paksa) - Shalat Sunnah Muakkad' : 'Latihan Soal : Shalat Sunnah Muakkad', 
+                        timestamp: Date.now(), 
+                        details: details, 
+                        isBanned: isForcedCheat,
+                        status: isForcedCheat ? 'Diblokir' : 'Selesai'
+                    });
+                } else {
+                    await addDoc(collection(db, 'artifacts', appId, 'public', 'data', COLLECTION_NAME), {
+                        name: studentData.name, kelas: studentData.class, score: score, 
+                        materi: isForcedCheat ? 'Latihan Soal (Dikumpul Paksa) - Shalat Sunnah Muakkad' : 'Latihan Soal : Shalat Sunnah Muakkad', 
+                        type: 'Latihan Soal', date: new Date().toLocaleDateString('id-ID'), 
+                        timestamp: Date.now(), details: details, uid: auth.currentUser.uid, isBanned: isForcedCheat,
+                        status: isForcedCheat ? 'Diblokir' : 'Selesai', cheatWarnings: cheatWarnings
+                    });
+                }
+
+                // Hapus memori sesi lokal agar tidak masuk ujian ini lagi setelah Refresh
+                localStorage.removeItem('fikih_active_session');
+                localStorage.removeItem('fikih_answers');
+
+                // Matikan Pendengar
+                if(window.unsubscribeSession) window.unsubscribeSession();
+            
+                if(!isForcedCheat) {
+                    showModal({ title: "Dokumen Terekam!", type: 'success', message: `<div class="text-center"><span class="text-6xl font-black text-teal-600 block mb-3 drop-shadow-sm">${score}</span><span class="text-sm font-semibold text-slate-500 leading-relaxed">Nilai ujian ini berhasil dirangkai rapi oleh mesin absensi evaluasi harian guru.</span></div>`, buttons: [{ text: "Tutup Arsip Ujian", class: "bg-teal-600 text-white font-bold shadow-md hover:bg-teal-700 transition" }] });
+                }
+                
+                document.getElementById('quiz-form')?.classList.add('pointer-events-none', 'opacity-50', 'grayscale-[0.5]');
+                const btn = document.getElementById('submit-btn'); 
+                if (btn) {
+                    btn.disabled = true; 
+                    btn.className = "w-full bg-slate-300 text-slate-500 font-bold py-4 rounded-xl cursor-not-allowed flex justify-center items-center gap-2 relative z-20 transition-all";
+                    btn.innerHTML = '<i class="fa-solid fa-lock text-sm"></i> Berkas Telah Dikunci & Terdorong';
+                }
+            } catch (e) { 
+                showModal({ title: "Gagal Menautkan Ke Peladen", message: "<p class='font-medium text-slate-600'>Kerusakan jalur pemancar komunikasi: " + e.message + "</p>", type: 'error' }); 
+            }
+        }
+    </script>
 </body>
 </html>

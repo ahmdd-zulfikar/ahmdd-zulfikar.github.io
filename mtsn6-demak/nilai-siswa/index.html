@@ -1,26 +1,1228 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-    <title>Belajar Online - Rekap Nilai</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Rekap Nilai Akademik</title>
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- Font Awesome untuk Ikon Navigasi & Footer -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Excel & PDF Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    },
+                    colors: {
+                        teal: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488', /* Teal Primary */
+                            700: '#0f766e',
+                            800: '#115e59',
+                            850: '#0f5d56',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'float': '0 10px 30px -5px rgba(13, 148, 136, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        html, body {
-            margin: 0 !important;
-            padding: 0 !important;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background-color: #e9ecef;
+        body {
+            background-color: #f8fafc; /* Slate 50 */
+            color: #334155; /* Slate 700 */
         }
-        .app-frame {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
+
+        .fade-in { animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Custom Scrollbar - Minimalist */
+        .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .custom-scroll::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        th.sortable {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
         }
+        th.sortable:hover {
+            background-color: #f1f5f9;
+            color: #0d9488;
+        }
+        
+        /* Modal Animation */
+        .modal-enter { animation: modalEnter 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        @keyframes modalEnter { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
     </style>
 </head>
-<body>
-    <iframe class="app-frame" src="https://script.google.com/macros/s/AKfycbyWCJRkuI62-nUXt8g98x-IJuOUqCSCsbHifGVdqoovKGKHkW0_7tRhClHyRMFHqB509g/exec"></iframe>
+<body class="font-sans antialiased selection:bg-teal-200 selection:text-teal-900 flex flex-col min-h-screen overflow-x-hidden">
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Brand -->
+                <a href="../" target="_top" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <div class="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-book-open text-sm"></i>
+                    </div>
+                    <span class="font-heading font-bold text-lg tracking-wide text-slate-800">Belajar<span class="text-teal-600">Online</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    
+                    <!-- Dropdown Materi Fiqih -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors flex items-center gap-1 py-4 focus:outline-none">
+                            Materi Fiqih <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute top-full left-0 w-72 bg-white border border-slate-100 rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left scale-95 group-hover:scale-100 overflow-hidden">
+                            <div class="p-2 space-y-1">
+                                <a href="../fiqih/shalat-jumat" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat Jum'at</a>
+                                <a href="../fiqih/khutbah" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Khutbah Jum'at</a>
+                                <a href="../fiqih/jama" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat Jama'</a>
+                                <a href="../fiqih/qashar" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat Qashar</a>
+                                <a href="../fiqih/shalat-sedang-sakit" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat Bagi Orang Sakit</a>
+                                <a href="../fiqih/shalat-dalam-kendaraan" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat dalam Kendaraan</a>
+                                <a href="../fiqih/sunnah-muakkad" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat Sunnah Muakkad</a>
+                                <a href="../fiqih/sunnah-ghairu-muakkad" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Shalat Sunnah Ghairu Muakkad</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Materi IPA -->
+                    <div class="relative group">
+                        <button class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors flex items-center gap-1 py-4 focus:outline-none">
+                            Materi IPA <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute top-full left-0 w-64 bg-white border border-slate-100 rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left scale-95 group-hover:scale-100 overflow-hidden">
+                            <div class="p-2 space-y-1">
+                                <a href="../IPA/getaran" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Getaran</a>
+                                <a href="../IPA/gelombang" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Gelombang</a>
+                                <a href="../IPA/cahaya" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Cahaya</a>
+                                <a href="../IPA/unsur-senyawa" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Unsur dan Senyawa</a>
+                                <a href="../IPA/campuran" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Campuran</a>
+                                <a href="../IPA/struktur-bumi" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Struktur Bumi</a>
+                                <a href="../IPA/lempeng-tektonik" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Lempeng Tektonik</a>
+                                <a href="../IPA/gempa-bumi" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Gempa Bumi</a>
+                                <a href="../IPA/gunung-merapi" target="_top" class="block px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 rounded-xl transition-colors">Gunung Merapi</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="../formatif" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Uji Kompetensi
+                    </a>
+                    
+                    <!-- Menu Terpilih (Active) -->
+                    <a href="../nilai-siswa" target="_top" class="text-sm font-bold text-teal-600 relative after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-0.5 after:bg-teal-600 transition-colors">
+                        Rekap Nilai
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-slate-600 hover:text-teal-600 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full max-h-[85vh] overflow-y-auto">
+            <div class="px-2 pt-4 pb-6 space-y-1">
+                
+                <!-- Dropdown Fiqih Mobile -->
+                <div class="px-2">
+                    <button onclick="document.getElementById('mobile-fiqih-dropdown').classList.toggle('hidden'); this.querySelector('i.fa-chevron-down').classList.toggle('rotate-180');" class="flex justify-between items-center w-full text-left px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors focus:outline-none">
+                        <span>Materi Fiqih</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div id="mobile-fiqih-dropdown" class="hidden space-y-1 pl-4 mt-2 mb-3 border-l-2 border-slate-200 ml-3">
+                        <a href="../fiqih/shalat-jumat" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Shalat Jum'at</a>
+                        <a href="../fiqih/khutbah" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Khutbah Jum'at</a>
+                        <a href="../fiqih/jama" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-teal-50 rounded-r-md transition-colors">Shalat Jama'</a>
+                        <a href="../fiqih/qashar" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-teal-50 rounded-r-md transition-colors">Shalat Qashar</a>
+                        <a href="../fiqih/shalat-sedang-sakit" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-teal-50 rounded-r-md transition-colors">Shalat Bagi Orang Sakit</a>
+                        <a href="../fiqih/shalat-dalam-kendaraan" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-teal-50 rounded-r-md transition-colors">Shalat dalam Kendaraan</a>
+                        <a href="../fiqih/sunnah-muakkad" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-teal-50 rounded-r-md transition-colors">Shalat Sunnah Muakkad</a>
+                        <a href="../fiqih/sunnah-ghairu-muakkad" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-teal-50 rounded-r-md transition-colors">Shalat Sunnah Ghairu Muakkad</a>
+                    </div>
+                </div>
+
+                <!-- Dropdown IPA Mobile -->
+                <div class="px-2 mt-1">
+                    <button onclick="document.getElementById('mobile-ipa-dropdown').classList.toggle('hidden'); this.querySelector('i.fa-chevron-down').classList.toggle('rotate-180');" class="flex justify-between items-center w-full text-left px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors focus:outline-none">
+                        <span>Materi IPA</span>
+                        <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+                    </button>
+                    <div id="mobile-ipa-dropdown" class="hidden space-y-1 pl-4 mt-2 mb-3 border-l-2 border-slate-200 ml-3">
+                        <a href="../IPA/getaran" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Getaran</a>
+                        <a href="../IPA/gelombang" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Gelombang</a>
+                        <a href="../IPA/cahaya" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Cahaya</a>
+                        <a href="../IPA/unsur-senyawa" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Unsur dan Senyawa</a>
+                        <a href="../IPA/campuran" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Campuran</a>
+                        <a href="../IPA/struktur-bumi" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Struktur Bumi</a>
+                        <a href="../IPA/lempeng-tektonik" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Lempeng Tektonik</a>
+                        <a href="../IPA/gempa-bumi" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Gempa Bumi</a>
+                        <a href="../IPA/gunung-merapi" target="_top" class="block px-3 py-2.5 text-sm text-slate-600 hover:text-teal-600 hover:bg-slate-50 rounded-r-md transition-colors">Gunung Merapi</a>
+                    </div>
+                </div>
+
+                <!-- Standalone Links Mobile -->
+                <div class="px-2 mt-1">
+                    <a href="../formatif" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Uji Kompetensi</a>
+                </div>
+                
+                <!-- Menu Terpilih Mobile (Active) -->
+                <div class="px-2 mt-1">
+                    <a href="../nilai-siswa" target="_top" class="block px-3 py-3 rounded-md text-base font-bold text-teal-700 bg-teal-50 border-l-4 border-teal-600 transition-colors">Rekap Nilai</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 pt-28 pb-12 fade-in relative z-10 w-full">
+        
+        <!-- Connection Status -->
+        <div id="connection-status" class="mb-8 text-sm font-semibold text-center text-slate-500 flex justify-center items-center gap-2 bg-white/60 backdrop-blur-sm py-2.5 rounded-full w-fit mx-auto px-6 border border-slate-200/60 shadow-sm">
+            <div class="animate-spin w-4 h-4 border-2 border-slate-300 border-t-teal-600 rounded-full"></div> 
+            Menghubungkan ke Server...
+        </div>
+
+        <!-- Dashboard Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-3xl shadow-soft border border-slate-100 flex items-center gap-5 hover:-translate-y-1 hover:shadow-float transition-all duration-300 group">
+                <div class="bg-teal-50 border border-teal-100 p-4 rounded-2xl text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                    <i data-lucide="users" class="w-7 h-7"></i>
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wider font-heading">Total Peserta Mengerjakan</p>
+                    <h3 class="text-3xl font-extrabold text-slate-800 font-heading tracking-tight" id="total-students">0</h3>
+                </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-3xl shadow-soft border border-slate-100 flex items-center gap-5 hover:-translate-y-1 hover:shadow-float transition-all duration-300 group">
+                <div class="bg-amber-50 border border-amber-100 p-4 rounded-2xl text-amber-600 group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                    <i data-lucide="award" class="w-7 h-7"></i>
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wider font-heading">Rata-rata Kelas</p>
+                    <h3 class="text-3xl font-extrabold text-slate-800 font-heading tracking-tight" id="avg-score">0</h3>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-3xl shadow-soft border border-slate-100 flex items-center gap-5 hover:-translate-y-1 hover:shadow-float transition-all duration-300 group">
+                <div class="bg-emerald-50 border border-emerald-100 p-4 rounded-2xl text-emerald-600 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                    <i data-lucide="activity" class="w-7 h-7"></i>
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wider font-heading">Status Sistem</p>
+                    <h3 class="text-lg font-bold text-emerald-600 flex items-center gap-2 font-heading" id="sync-status">
+                        Offline
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Table -->
+        <div class="bg-white rounded-3xl shadow-soft border border-slate-100 overflow-hidden">
+            <div class="p-6 border-b border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
+                <h2 class="text-xl font-bold text-slate-800 flex items-center gap-3 font-heading">
+                    <span class="bg-slate-100 border border-slate-200 text-slate-600 p-2 rounded-lg">
+                        <i data-lucide="clipboard-list" class="w-5 h-5"></i>
+                    </span>
+                    Tabel Evaluasi Masuk
+                </h2>
+                <div class="flex items-center gap-3 w-full md:w-auto">
+                    <div class="relative w-full md:w-80">
+                        <input type="text" id="searchInput" onkeyup="window.filterTable()" placeholder="Cari Nama, Kelas, atau Tugas/Materi..." class="w-full pl-11 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:bg-white focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all text-sm font-medium text-slate-700">
+                        <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-4 top-3.5"></i>
+                    </div>
+                    <!-- Tombol Titik Tiga (More Options) -->
+                    <div class="relative flex-shrink-0">
+                        <button id="btn-more-options" onclick="document.getElementById('action-dropdown').classList.toggle('hidden'); event.stopPropagation();" class="p-2.5 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 hover:text-teal-600 text-slate-500 transition shadow-sm focus:outline-none flex items-center justify-center">
+                            <i data-lucide="more-vertical" class="w-5 h-5"></i>
+                        </button>
+                        <div id="action-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white border border-slate-100 rounded-xl shadow-xl z-50 overflow-hidden">
+                            <div class="py-1">
+                                <button onclick="openExportModal('excel'); this.closest('#action-dropdown').classList.add('hidden')" class="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 transition">
+                                    <i data-lucide="file-spreadsheet" class="w-4 h-4 text-emerald-600"></i> Unduh Excel
+                                </button>
+                                <button onclick="openExportModal('pdf'); this.closest('#action-dropdown').classList.add('hidden')" class="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-teal-50 hover:text-teal-700 transition">
+                                    <i data-lucide="file-text" class="w-4 h-4 text-rose-600"></i> Unduh PDF
+                                </button>
+                                <div class="border-t border-slate-100 my-1"></div>
+                                <button onclick="clearData(); this.closest('#action-dropdown').classList.add('hidden')" class="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-rose-600 hover:bg-rose-50 transition">
+                                    <i data-lucide="trash-2" class="w-4 h-4"></i> Hapus Data
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="overflow-x-auto custom-scroll">
+                <table class="w-full text-left border-collapse min-w-[850px]">
+                    <thead>
+                        <tr class="bg-slate-50/50 text-slate-500 text-xs font-bold uppercase tracking-wider border-b border-slate-100 font-heading">
+                            <th class="p-5 text-center w-16">No</th>
+                            <th class="p-5 sortable group" onclick="window.sortTable('timestamp')">
+                                <div class="flex items-center gap-1.5">
+                                    Waktu Submit
+                                    <i id="icon-timestamp" data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-slate-300 group-hover:text-teal-600"></i>
+                                </div>
+                            </th>
+                            <th class="p-5 sortable group" onclick="window.sortTable('name')">
+                                <div class="flex items-center gap-1.5">
+                                    Nama Peserta
+                                    <i id="icon-name" data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-slate-300 group-hover:text-teal-600"></i>
+                                </div>
+                            </th>
+                            <th class="p-5 sortable group" onclick="window.sortTable('kelas')">
+                                <div class="flex items-center gap-1.5">
+                                    Kelas 
+                                    <i id="icon-kelas" data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-slate-300 group-hover:text-teal-600"></i>
+                                </div>
+                            </th>
+                            <th class="p-5">Tugas/Materi</th>
+                            <th class="p-5 text-center sortable group" onclick="window.sortTable('score')">
+                                <div class="flex items-center justify-center gap-1.5">
+                                    Skor
+                                    <i id="icon-score" data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-slate-300 group-hover:text-teal-600"></i>
+                                </div>
+                            </th>
+                            <th class="p-5 text-center">Status</th>
+                            <th class="p-5 text-center">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="score-table-body" class="text-sm font-medium text-slate-600 divide-y divide-slate-50">
+                        <tr>
+                            <td colspan="8" class="p-16 text-center text-slate-400">
+                                <div class="flex flex-col items-center justify-center gap-4">
+                                    <i data-lucide="database" class="w-10 h-10 animate-pulse text-slate-200"></i>
+                                    <span class="font-medium text-slate-500">Memuat data dari server...</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="p-4 bg-slate-50/50 text-[11px] font-semibold text-slate-400 text-center border-t border-slate-100 uppercase tracking-widest">
+                Rekap Nilai Terhubung Secara Real-time
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Filter Unduhan -->
+    <div id="export-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-slate-900/40 backdrop-blur-sm px-4">
+        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden flex flex-col modal-enter border border-slate-100">
+            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-white">
+                <h3 class="text-xl font-bold text-slate-800 flex items-center gap-3 font-heading" id="export-modal-title">
+                    <div class="bg-teal-50 text-teal-600 p-2 rounded-xl border border-teal-100">
+                        <i data-lucide="filter" class="w-5 h-5"></i>
+                    </div>
+                    Filter Unduhan
+                </h3>
+                <button onclick="closeExportModal()" class="p-2.5 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-xl transition">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <div class="p-6 bg-slate-50/50 flex flex-col gap-5">
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2 font-heading">Pilih Kelas</label>
+                    <div class="relative">
+                        <select id="export-kelas" class="w-full pl-4 pr-10 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all text-sm font-medium text-slate-700 appearance-none">
+                            <option value="ALL">Semua Kelas</option>
+                        </select>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 absolute right-4 top-3.5 pointer-events-none"></i>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-2 font-heading">Pilih Tugas / Materi</label>
+                    <div class="relative">
+                        <select id="export-materi" class="w-full pl-4 pr-10 py-3 bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all text-sm font-medium text-slate-700 appearance-none">
+                            <option value="ALL">Semua Tugas/Materi</option>
+                        </select>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 absolute right-4 top-3.5 pointer-events-none"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="p-5 border-t border-slate-100 bg-white flex justify-end gap-3">
+                <button onclick="closeExportModal()" class="px-5 py-2.5 bg-slate-100 text-slate-700 rounded-xl text-sm font-bold hover:bg-slate-200 transition shadow-sm">Batal</button>
+                <button onclick="processExport()" class="px-6 py-2.5 bg-teal-600 text-white rounded-xl text-sm font-bold hover:bg-teal-700 transition shadow-sm flex items-center gap-2">
+                    <i data-lucide="download" class="w-4 h-4"></i> Lanjutkan Unduh
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Analisis Butir Soal -->
+    <div id="analysis-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-slate-900/40 backdrop-blur-sm px-4">
+        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-2xl overflow-hidden flex flex-col max-h-[90vh] modal-enter border border-slate-100">
+            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-white">
+                <h3 class="text-xl font-bold text-slate-800 flex items-center gap-3 font-heading">
+                    <div class="bg-teal-50 text-teal-600 p-2 rounded-xl border border-teal-100">
+                        <i data-lucide="file-search" class="w-5 h-5"></i>
+                    </div>
+                    Analisis Butir Soal
+                </h3>
+                <button onclick="closeAnalysisModal()" class="p-2.5 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-xl transition">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <div class="p-6 overflow-y-auto custom-scroll bg-slate-50/50" id="analysis-content">
+                <!-- Data analisis akan dirender di sini oleh JavaScript -->
+            </div>
+            
+            <div class="p-5 border-t border-slate-100 bg-white flex justify-end">
+                <button onclick="closeAnalysisModal()" class="px-8 py-2.5 bg-slate-800 text-white rounded-xl text-sm font-semibold hover:bg-slate-700 transition shadow-sm">Tutup Rincian</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="w-full bg-teal-950 text-teal-200 py-10 border-t border-teal-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <a href="../" target="_top" class="inline-flex items-center justify-center gap-3 mb-4 text-white hover:opacity-80 transition-opacity">
+                <i class="fa-solid fa-book-open text-xl text-teal-500"></i>
+                <span class="font-heading font-bold text-xl tracking-wide">Belajar<span class="text-teal-500">Online</span></span>
+            </a>
+            <p class="text-sm text-teal-400/80 max-w-md mx-auto mb-8">
+                Belajar Online adalah Sistem Pembelajaran Berbasis Digital untuk Memudahkan Guru dan Murid dalam Mencapai Tujuan Pembelajaran.
+            </p>
+            
+            <div class="pt-6 border-t border-teal-900/50 text-xs text-teal-500">
+                <p>&copy; 2026 Ahmad Zulfikar, S.Pd.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js';
+        import { getAuth, signInAnonymously, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js';
+        import { getFirestore, collection, addDoc, getDocs, doc, deleteDoc, onSnapshot } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js';
+
+        // --- FIREBASE CONFIG ---
+        const firebaseConfig = {
+            apiKey: "AIzaSyAkX8qAS-O_5m_qaGr8Aa9XME-lVyBMibw",
+            authDomain: "belajaronline-b5512.firebaseapp.com",
+            projectId: "belajaronline-b5512",
+            storageBucket: "belajaronline-b5512.firebasestorage.app",
+            messagingSenderId: "896107581081",
+            appId: "1:896107581081:web:629056c097c90fdf583208",
+            measurementId: "G-7MKNGF9PCX"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const appId = 'belajaronline-b5512';
+        const COLLECTION_NAME = 'scores';
+        
+        let globalData = [];
+        let currentSort = { column: 'timestamp', direction: 'desc' };
+        let currentExportType = ''; 
+
+        // ========================================================
+        // MASTER STUDENTS LIST (Integrasi Absensi/Nilai Kosong)
+        // ========================================================
+        const MASTER_STUDENTS = {
+            "7A": [
+                "Afika Desyifa Wijayanti", "Ahmad Fadil Syaputra", "Akila Azzahra", "Alicia Amira Ma'Ruf", "Anasha Fitriani",
+                "Arsyl Ibrahim Syahputra", "Chilma Hidayatul Ulya", "Chilmi Hidayatul Ulya", "Deshera Harlistianti", "Halimatuz Zahro",
+                "Hammam Mahardika Akhmad", "Hasan Al Banna", "Hasna Najla Ajwa", "Irsan Nauval Apriyanto", "Kayla Cheryl Aulia",
+                "Khaira Salsabil Firdausi", "Mohamad Aditya Tri Ardana", "Muhammad Azel Fabrizio", "Muhammad Rafa El Habibi", "Muhammad Rizki Saputra",
+                "Muhammad Zaqi Al Hafidz", "Muhammat David Prass Hardian", "Nauri Khoirotun Nisa'", "Nur Aida Faila Sufa Sugiyono", "Qaysila Bilqis",
+                "Rifqi Ra'Iful Nabil", "Sharena Rara Afriani", "Silvia Wahyu Aftriani", "Sumber Denis Saputra", "Vivi Sri Mulyani"
+            ],
+            "7B": [
+                "Achmad Fajar Tri Wijaya", "Adiansyah Putra", "Aina Aulia Ramadhani", "Aldiansyah Pratama", "Diandra Rasty Velovy Arika",
+                "Eny Wahyu Ningsih", "Fadilla Bilkis Premesti", "Faisal Dwi Santoso", "Faldzayrizka Alafiya Salsabila", "Fia Aulia Amanda",
+                "Hasna Galuh Hanifah", "Khirul Muhammad Izza", "Mahirza Mujahidia", "Maulida Zahwa Auliya", "Miftahul Nugraha Saputra",
+                "Muhammad Afandi Vernanda Nugraha", "Muhammad Akya Putra", "Muhammad Dwi Maulana Ibrahim", "Muhammad Latief Yudistyan Adam", "Muhammad Ravael Ajril",
+                "Nadin Saptia Anjani", "Niki Amarta", "Nur Alenta Putri Widiyanti", "Nur Zulva Elisa Putri", "Qurrota Aini Humaira",
+                "Sekar Ammelia Putri", "Tia Amelia Putri"
+            ],
+            "7C": [
+                "Ahmad Andika", "Ahmad Fahrizal Kusuma", "Akip Mansur Hanafi", "Alica Marwa Rahmaesta", "Annisa Fitri Kurnia Raya",
+                "Aryo Bimo Tejo", "Asifa Putri Klarasati", "Bagas Fajar Putra", "Barirotul Ainiyah", "Carissya Cahaya Ramadhani",
+                "Clarisa Diva Ariyani", "Eka Nurul Hidayah", "Fathra Nilatul Kamala", "Hengky Alfiyansyah", "Ilyas Winaryo",
+                "Kevin Adhanun Nizam", "Lydia Shafa Lutfiani", "Mahesa Beram Alfaro", "Muhamad Faizul Azzam", "Muhamad Ikhwan Hakimul Karim",
+                "Muhamad Ravaell Rahmadani", "Muhammad Agung Pratama", "Nadhin Aulia Rizkiana", "Nadin Naela Sari", "Shinta Amelia Pramesti",
+                "Tabriz Briona Iftinan Najwa", "Tiara Yuningtyas", "Yuliana Indah Ayu Dewi Afidta"
+            ],
+            "7D": [
+                "Aditya Rizqi", "Ahmad Farhan Lutfiyanto", "Ahmad Joko Widodo", "Ahmad Rizal Saputro", "Ahmad Rizki Aditya",
+                "Akifah Naila", "Chantika Dwi Marwah", "Deni Paryanto", "Dyana Shofia Kusuma", "Elsa Novi Anggraini",
+                "Emmy Sherene Aquila Afra", "Fadhilah Zafa Dwi Maharani", "Fiqri Tauwil Riadho", "Muhamad Abdullah Fandy S.", "Muhammad Agil Ridwan",
+                "Muhammad Revan Abdullah", "Nabila Mirabel Athalia", "Natalia Mustika Sari", "Raditya Naufal Dani Abiyyu", "Reisa Aulia Febrianti",
+                "Seftiani Putri Wijaya", "Saskya Zahra Putri", "Satria Nafis Ahmad Hanif", "Selfi Karnia Sari", "Sidqia Azzahra",
+                "Ulil Albab", "Wahyu Andra Saputra", "Yulfa Fifi Ardiana"
+            ],
+            "8B": [
+                "Ahmad Zainuri", "Arta Citra Laras", "Azzahra Sahafanna", "Belyana Lestari", "Clarisa Chiela Berliana Assyifa",
+                "Detaliana Sofia Hapsari", "Fairel Atharizz Calief", "Faris Wahyu Nabawi", "Febriyan Arya Lukmana", "Hafna Maulida Nihla Syifa",
+                "Hikmatul Fajriyah Ramadhani", "Linda Devi Septiyani", "Meisya Aluna Bintang Maharani", "Muhammad Bagus Satriyo", "Muhammad Iqbal Dwi Firmansyah",
+                "Muhammad Rizqi Ramadhani", "Nadia Fanesa Sari", "Naila Febriana Azzahra", "Natasya Adelia Putri", "Naumy Delvira Frada Andikma",
+                "Nijam Abdul Fajar", "Qurrota A'yun", "Raditya Bagas Anatomi Winata", "Rina Afriyani", "Rizqi Taba'ul Imam",
+                "Salwa Anastasya Putri Asyifa", "Syalwa Agustin Khairunia Asyifa", "Tasya Afifa Atha Salma", "Zahwa Meisya Setianingsih", "Zilda Aulia Fadhillah"
+            ]
+        };
+
+        // --- HELPERS ---
+        function normalizeClass(kelasInput) {
+            if (!kelasInput) return '-';
+            let str = kelasInput.toString().toUpperCase();
+            let grade = '';
+            if (str.includes('8') || str.includes('VIII')) grade = '8';
+            else if (str.includes('9') || str.includes('IX')) grade = '9';
+            else if (str.includes('7') || str.includes('VII')) grade = '7';
+            
+            if (!grade) return str.replace(/\s+/g, '');
+
+            let cleanStr = str
+                .replace(/KELAS|KLS|MTS|SMP/g, '')
+                .replace(/VIII|VII|IX|IV|V|VI/g, '')
+                .replace(/[0-9]/g, '')
+                .replace(/[^A-Z]/g, '');
+             
+            let suffix = cleanStr.charAt(0);
+            return grade + (suffix || '');
+        }
+
+        function normalizeMateri(materiInput) {
+            if (!materiInput) return '-';
+            const text = materiInput.toString().trim();
+            if (text === "" || text === "null" || text === "undefined") return '-';
+            return text;
+        }
+
+        // --- AUTH ---
+        const initAuth = async () => {
+            try {
+                await signInAnonymously(auth);
+            } catch (error) {
+                console.error("Auth Error:", error);
+            }
+        };
+
+        initAuth();
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const statusEl = document.getElementById('connection-status');
+                statusEl.innerHTML = '<span class="text-teal-600 font-bold flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4"></i> Terhubung ke Server</span>';
+                statusEl.classList.replace('bg-white/60', 'bg-teal-50');
+                statusEl.classList.replace('border-slate-200/60', 'border-teal-100');
+                
+                document.getElementById('sync-status').innerHTML = '<span class="flex items-center gap-2"><span class="relative flex h-3 w-3"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span></span> Live Sync</span>';
+
+                subscribeToData();
+                lucide.createIcons();
+            }
+        });
+
+        // --- TYPO CORRECTOR (Levenshtein Distance) ---
+        function getLevenshteinDistance(a, b) {
+            const matrix = [];
+            if (a.length === 0) return b.length;
+            if (b.length === 0) return a.length;
+            for (let i = 0; i <= b.length; i++) { matrix[i] = [i]; }
+            for (let j = 0; j <= a.length; j++) { matrix[0][j] = j; }
+            for (let i = 1; i <= b.length; i++) {
+                for (let j = 1; j <= a.length; j++) {
+                    if (b.charAt(i - 1) == a.charAt(j - 1)) {
+                        matrix[i][j] = matrix[i - 1][j - 1];
+                    } else {
+                        matrix[i][j] = Math.min(matrix[i - 1][j - 1] + 1, Math.min(matrix[i][j - 1] + 1, matrix[i - 1][j] + 1));
+                    }
+                }
+            }
+            return matrix[b.length][a.length];
+        }
+
+        function matchToMasterName(rawName, predictedClass) {
+            if (!rawName) return 'TANPA NAMA';
+            let upperName = rawName.toUpperCase().trim();
+
+            let candidates = [];
+            if (predictedClass && MASTER_STUDENTS[predictedClass]) {
+                candidates = MASTER_STUDENTS[predictedClass];
+            } else {
+                Object.values(MASTER_STUDENTS).forEach(arr => candidates.push(...arr));
+            }
+
+            let bestMatch = upperName;
+            let minDistance = Infinity;
+
+            for (let mName of candidates) {
+                let mNameUpper = mName.toUpperCase();
+                if (upperName === mNameUpper) return mNameUpper; 
+
+                let dist = getLevenshteinDistance(upperName, mNameUpper);
+                let threshold = Math.max(2, Math.floor(mNameUpper.length * 0.15));
+
+                if (dist < minDistance && dist <= threshold) {
+                    minDistance = dist;
+                    bestMatch = mNameUpper;
+                }
+            }
+            return bestMatch;
+        }
+
+        // --- AGGREGATION LOGIC ---
+        function processAndAggregateData(rawData) {
+            const studentMap = {};
+
+            rawData.forEach(item => {
+                const rawNameStr = item.name ? item.name.toUpperCase().trim() : 'TANPA NAMA';
+                const cleanClass = normalizeClass(item.kelas);
+                
+                const nameStr = matchToMasterName(rawNameStr, cleanClass);
+                
+                const rawMateri = item.materi || item.mapel || item.type || '-';
+                const cleanMateri = normalizeMateri(rawMateri);
+                
+                const uniqueKey = `${nameStr}|${cleanClass}|${cleanMateri}`;
+
+                if (!studentMap[uniqueKey]) {
+                    studentMap[uniqueKey] = {
+                        ...item,
+                        name: nameStr,
+                        kelas: cleanClass,
+                        materi: cleanMateri,
+                        totalScore: parseInt(item.score) || 0,
+                        count: 1,
+                        originalId: item.id,
+                        latestTimestamp: item.timestamp || 0,
+                        details: item.details || null
+                    };
+                } else {
+                    const entry = studentMap[uniqueKey];
+                    entry.totalScore += (parseInt(item.score) || 0);
+                    entry.count += 1;
+
+                    if ((item.timestamp || 0) >= entry.latestTimestamp) {
+                        entry.latestTimestamp = item.timestamp;
+                        entry.originalId = item.id;
+                        entry.date = item.date;
+                        entry.timestamp = item.timestamp;
+                        entry.details = item.details || entry.details; 
+                    }
+                }
+            });
+
+            return Object.values(studentMap).map(s => {
+                s.score = Math.round(s.totalScore / s.count);
+                s.id = s.originalId; 
+                return s;
+            });
+        }
+
+        // --- DATA SUBSCRIBER ---
+        function subscribeToData() {
+            const q = collection(db, 'artifacts', appId, 'public', 'data', COLLECTION_NAME);
+            
+            onSnapshot(q, (snapshot) => {
+                const rawData = [];
+                snapshot.forEach((doc) => {
+                    rawData.push({ id: doc.id, ...doc.data() });
+                });
+
+                const processed = processAndAggregateData(rawData);
+                globalData = processed;
+                window.filterTable(); 
+                updateStats(processed);
+            }, (err) => {
+                console.error("Firebase Snapshot Error:", err);
+            });
+        }
+
+        // --- UI RENDERING ---
+        function renderTable(data) {
+            const tbody = document.getElementById('score-table-body');
+            
+            if (!data || data.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="8" class="p-16 text-center text-slate-400 italic">Belum ada data nilai masuk. Data akan muncul secara otomatis.</td></tr>`;
+                return;
+            }
+
+            let html = '';
+            data.forEach((item, index) => {
+                const isPass = item.score >= 75;
+                const badgeColor = isPass ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-rose-50 text-rose-700 border-rose-200';
+                const dateDisplay = item.timestamp ? new Date(item.timestamp).toLocaleString('id-ID', { hour:'2-digit', minute:'2-digit', day:'numeric', month:'short' }) : item.date;
+                
+                const scoreDisplay = item.count > 1 
+                    ? `<div class="flex flex-col items-center">
+                        <span class="text-base font-bold font-heading ${item.score >= 80 ? 'text-teal-600' : 'text-slate-700'}">${item.score}</span>
+                        <span class="text-[9px] text-slate-400 bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded mt-0.5 font-bold uppercase tracking-wider">Rata (${item.count}x)</span>
+                      </div>`
+                    : `<span class="text-base font-bold font-heading ${item.score >= 80 ? 'text-teal-600' : 'text-slate-700'}">${item.score}</span>`;
+
+                html += `
+                    <tr class="hover:bg-teal-50/40 transition duration-200 group">
+                        <td class="p-5 text-center font-bold text-slate-400 text-xs">${index + 1}</td>
+                        <td class="p-5 text-xs text-slate-500 font-mono">${dateDisplay}</td>
+                        <td class="p-5 font-bold text-slate-800 text-sm font-heading">${item.name}</td>
+                        <td class="p-5"><span class="bg-slate-100 text-slate-700 px-2.5 py-1 rounded-md text-xs font-bold border border-slate-200">${item.kelas}</span></td>
+                        <td class="p-5 text-sm text-slate-600 font-medium">${item.materi}</td>
+                        <td class="p-5 text-center">${scoreDisplay}</td>
+                        <td class="p-5 text-center">
+                            <span class="${badgeColor} px-3 py-1 rounded-full text-xs font-bold border flex items-center justify-center w-fit mx-auto shadow-sm">
+                                ${isPass ? 'Tuntas' : 'Remidi'}
+                            </span>
+                        </td>
+                        <td class="p-5">
+                            <div class="flex items-center justify-center gap-2">
+                                <button onclick="window.showAnalysis('${item.id}')" class="p-2 bg-white border border-slate-200 rounded-lg text-slate-400 hover:text-teal-600 hover:border-teal-300 hover:bg-teal-50 transition shadow-sm" title="Lihat Analisis Butir Soal">
+                                    <i data-lucide="pie-chart" class="w-4 h-4"></i>
+                                </button>
+                                <button onclick="window.deleteItem('${item.id}', '${item.name}')" class="p-2 bg-white border border-slate-200 rounded-lg text-slate-400 hover:text-rose-600 hover:border-rose-300 hover:bg-rose-50 transition shadow-sm" title="Hapus Data">
+                                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            });
+            tbody.innerHTML = html;
+            lucide.createIcons();
+            updateSortIcons();
+        }
+
+        // --- SORT & FILTER ---
+        window.sortTable = (column) => {
+            if (currentSort.column === column) {
+                currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSort.column = column;
+                currentSort.direction = (column === 'score' || column === 'timestamp') ? 'desc' : 'asc';
+            }
+            window.filterTable();
+        };
+
+        window.filterTable = () => {
+            const filter = document.getElementById('searchInput').value.toUpperCase();
+            let filtered = globalData.filter(item => 
+                item.name.includes(filter) || 
+                (item.kelas && item.kelas.includes(filter)) ||
+                (item.materi && item.materi.toUpperCase().includes(filter))
+            );
+
+            filtered.sort((a, b) => {
+                let vA = a[currentSort.column];
+                let vB = b[currentSort.column];
+                if (typeof vA === 'string') { vA = vA.toLowerCase(); vB = vB.toLowerCase(); }
+                if (vA < vB) return currentSort.direction === 'asc' ? -1 : 1;
+                if (vA > vB) return currentSort.direction === 'asc' ? 1 : -1;
+                return 0;
+            });
+
+            renderTable(filtered);
+        };
+
+        function updateSortIcons() {
+            ['timestamp', 'name', 'kelas', 'score'].forEach(col => {
+                const icon = document.getElementById(`icon-${col}`);
+                if(icon) {
+                    icon.setAttribute('data-lucide', 'arrow-up-down');
+                    icon.classList.replace('text-teal-600', 'text-slate-300');
+                }
+            });
+            const active = document.getElementById(`icon-${currentSort.column}`);
+            if (active) {
+                active.classList.replace('text-slate-300', 'text-teal-600');
+                active.setAttribute('data-lucide', currentSort.direction === 'asc' ? 'arrow-up' : 'arrow-down');
+            }
+            lucide.createIcons();
+        }
+
+        function updateStats(data) {
+            document.getElementById('total-students').textContent = data.length;
+            if (data.length > 0) {
+                const avg = (data.reduce((a, b) => a + b.score, 0) / data.length).toFixed(1);
+                document.getElementById('avg-score').textContent = avg;
+            } else {
+                document.getElementById('avg-score').textContent = "0";
+            }
+        }
+
+        // --- FILTER EXPORT ACTIONS ---
+        window.openExportModal = async (type) => {
+            const { value: pin } = await Swal.fire({
+                title: 'Otorisasi Akses',
+                text: 'Masukkan PIN Admin untuk mengakses fitur unduhan',
+                input: 'password',
+                inputPlaceholder: 'Masukkan PIN',
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#0d9488',
+                cancelButtonText: 'Batal',
+                confirmButtonText: 'Lanjut'
+            });
+
+            if (!pin || btoa(pin) !== "NDQzNTg4") {
+                if (pin) Swal.fire('Ditolak', 'PIN yang Anda masukkan salah.', 'error');
+                return;
+            }
+
+            currentExportType = type;
+            const modalTitle = document.getElementById('export-modal-title');
+            
+            modalTitle.innerHTML = `
+                <div class="bg-teal-50 text-teal-600 p-2 rounded-xl border border-teal-100">
+                    <i data-lucide="${type === 'excel' ? 'file-spreadsheet' : 'file-text'}" class="w-5 h-5"></i>
+                </div>
+                Filter Unduhan ${type === 'excel' ? 'Excel' : 'PDF'}
+            `;
+            
+            const kelasSet = new Set(Object.keys(MASTER_STUDENTS));
+            const materiSet = new Set();
+            
+            globalData.forEach(item => {
+                if(item.kelas && item.kelas !== '-') kelasSet.add(item.kelas);
+                if(item.materi && item.materi !== '-') materiSet.add(item.materi);
+            });
+
+            const selKelas = document.getElementById('export-kelas');
+            const selMateri = document.getElementById('export-materi');
+
+            selKelas.innerHTML = '<option value="ALL">Semua Kelas</option>';
+            Array.from(kelasSet).sort().forEach(k => {
+                selKelas.innerHTML += `<option value="${k}">Kelas ${k}</option>`;
+            });
+
+            selMateri.innerHTML = '<option value="ALL">Semua Tugas/Materi</option>';
+            Array.from(materiSet).sort().forEach(m => {
+                selMateri.innerHTML += `<option value="${m}">${m}</option>`;
+            });
+
+            lucide.createIcons();
+            document.getElementById('export-modal').classList.remove('hidden');
+        };
+
+        window.closeExportModal = () => {
+            document.getElementById('export-modal').classList.add('hidden');
+        };
+
+        window.processExport = () => {
+            const selectedKelas = document.getElementById('export-kelas').value;
+            const selectedMateri = document.getElementById('export-materi').value;
+            
+            let dataToExport = globalData;
+
+            closeExportModal();
+
+            let targetClasses = [];
+            if (selectedKelas === 'ALL') {
+                targetClasses = Object.keys(MASTER_STUDENTS);
+                globalData.forEach(d => {
+                    if (d.kelas && d.kelas !== '-' && !targetClasses.includes(d.kelas)) targetClasses.push(d.kelas);
+                });
+            } else {
+                targetClasses = [selectedKelas];
+            }
+
+            let targetModules = [];
+            if (selectedMateri === 'ALL') {
+                const modSet = new Set();
+                globalData.forEach(d => {
+                    if (d.materi && d.materi !== '-') modSet.add(d.materi);
+                });
+                targetModules = Array.from(modSet);
+                if (targetModules.length === 0) targetModules = ['Ujian']; 
+            } else {
+                targetModules = [selectedMateri];
+            }
+
+            let exportTasks = [];
+            targetClasses.forEach(c => {
+                targetModules.forEach(m => {
+                    const hasData = globalData.some(d => d.kelas === c && d.materi === m);
+                    if (hasData) {
+                        exportTasks.push({ kelas: c, materi: m });
+                    }
+                });
+            });
+
+            if (currentExportType === 'excel') {
+                generateExcel(dataToExport, exportTasks);
+            } else {
+                generatePDF(dataToExport, exportTasks);
+            }
+        };
+
+        // --- PREPARATION ENGINE EXPORT ---
+        function prepareExportData(data, kelasFilter, materiFilter) {
+            const classData = data.filter(d => 
+                d.kelas === kelasFilter && 
+                (materiFilter === 'ALL' || d.materi === materiFilter || d.materi === '-')
+            );
+
+            let maxQuestions = 0;
+            classData.forEach(item => {
+                if (item.details && item.details.length > maxQuestions) {
+                    maxQuestions = item.details.length;
+                }
+            });
+
+            let mergedDataRows = [];
+            let indexCounter = 1;
+
+            const masterNames = MASTER_STUDENTS[kelasFilter] || [];
+            const submittedNames = new Set();
+
+            masterNames.forEach(masterName => {
+                const submission = classData.find(d => d.name.toUpperCase() === masterName.toUpperCase());
+                if (submission) {
+                    mergedDataRows.push(formatExportRow(indexCounter++, submission, maxQuestions));
+                    submittedNames.add(submission.name.toUpperCase());
+                } else {
+                    mergedDataRows.push(formatEmptyExportRow(indexCounter++, masterName, kelasFilter, materiFilter, maxQuestions));
+                }
+            });
+
+            classData.forEach(submission => {
+                if (!submittedNames.has(submission.name.toUpperCase())) {
+                    mergedDataRows.push(formatExportRow(indexCounter++, submission, maxQuestions));
+                }
+            });
+
+            return { mergedDataRows, maxQuestions };
+        }
+
+        function formatExportRow(index, item, maxQuestions) {
+            const dateDisplay = item.timestamp ? new Date(item.timestamp).toLocaleString('id-ID') : (item.date || '-');
+            const isPass = item.score >= 75 ? 'Tuntas' : 'Remidi';
+            
+            const row = [ index, dateDisplay, item.name.toUpperCase(), item.kelas, item.materi, item.score, isPass ];
+
+            for (let i = 0; i < maxQuestions; i++) {
+                if (item.details && i < item.details.length) {
+                    row.push(item.details[i] ? 1 : 0);
+                } else {
+                    row.push('-'); 
+                }
+            }
+            return row;
+        }
+
+        function formatEmptyExportRow(index, name, kelas, materi, maxQuestions) {
+            const row = [ index, '-', name.toUpperCase(), kelas, materi === 'ALL' ? '-' : materi, 0, '-' ];
+            for (let i = 0; i < maxQuestions; i++) { row.push('-'); }
+            return row;
+        }
+
+        // --- EXPORT FUNCTIONS ---
+        function generateExcel(data, tasks) {
+            const wb = XLSX.utils.book_new();
+
+            tasks.forEach(task => {
+                const { mergedDataRows, maxQuestions } = prepareExportData(data, task.kelas, task.materi);
+
+                if (mergedDataRows.length === 0) return;
+
+                const headers = ['No', 'Waktu Submit', 'Nama Peserta', 'Kelas', 'Tugas/Materi', 'Skor Akhir', 'Status'];
+                for (let i = 1; i <= maxQuestions; i++) {
+                    headers.push(`Soal ${i}`);
+                }
+
+                const wsData = [headers, ...mergedDataRows];
+                const ws = XLSX.utils.aoa_to_sheet(wsData);
+                
+                const colWidths = wsData[0].map((_, colIndex) => {
+                    const maxLen = wsData.reduce((max, row) => {
+                        const cellValue = row[colIndex] ? row[colIndex].toString() : '';
+                        return Math.max(max, cellValue.length);
+                    }, 0);
+                    return { wch: Math.min(Math.max(maxLen + 2, 5), 45) }; 
+                });
+                ws['!cols'] = colWidths;
+
+                let sheetName = `${task.kelas}_${task.materi}`.replace(/[^a-zA-Z0-9 -]/g, '').substring(0, 31);
+                if (wb.SheetNames.includes(sheetName)) {
+                    sheetName = sheetName.substring(0, 27) + '_' + Math.floor(Math.random()*100);
+                }
+
+                XLSX.utils.book_append_sheet(wb, ws, sheetName);
+            });
+            
+            if (wb.SheetNames.length === 0) {
+                const ws = XLSX.utils.aoa_to_sheet([["Tidak ada data yang tersedia"]]);
+                XLSX.utils.book_append_sheet(wb, ws, "Data Kosong");
+            }
+
+            const filename = `Rekap_Nilai_Lengkap.xlsx`;
+            XLSX.writeFile(wb, filename);
+        }
+
+        function generatePDF(data, tasks) {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('l', 'pt', 'a4'); 
+            let pagesAdded = 0;
+
+            tasks.forEach((task) => {
+                const { mergedDataRows, maxQuestions } = prepareExportData(data, task.kelas, task.materi);
+                
+                if (mergedDataRows.length === 0) return;
+
+                if (pagesAdded > 0) doc.addPage();
+                pagesAdded++;
+
+                const headers = ['No', 'Waktu', 'Nama', 'Kelas', 'Tugas/Materi', 'Skor', 'Status'];
+                for (let i = 1; i <= maxQuestions; i++) {
+                    headers.push(`${i}`);
+                }
+
+                doc.setFontSize(16);
+                doc.text("Rekap Nilai dan Analisis Butir Soal", 40, 40);
+                
+                doc.setFontSize(10);
+                doc.setTextColor(100);
+                doc.text(`Kelas: ${task.kelas} | Tugas/Materi: ${task.materi}`, 40, 55);
+
+                doc.autoTable({
+                    head: [headers],
+                    body: mergedDataRows,
+                    startY: 65,
+                    styles: { fontSize: 7, cellPadding: 3, halign: 'center', valign: 'middle' },
+                    headStyles: { fillColor: [13, 148, 136], textColor: 255 }, // Menggunakan warna teal
+                    columnStyles: {
+                        0: { cellWidth: 25, halign: 'center' }, // No
+                        1: { halign: 'left', cellWidth: 'wrap' }, // Waktu
+                        2: { halign: 'left', cellWidth: 'auto' }, // Nama
+                        3: { cellWidth: 40 }, // Kelas
+                        4: { halign: 'left', cellWidth: 'wrap' }, // Tugas/Materi
+                        5: { cellWidth: 35 }, // Skor
+                        6: { cellWidth: 45 }  // Status
+                    },
+                    margin: { top: 65, left: 20, right: 20 }
+                });
+            });
+            
+            if (pagesAdded === 0) {
+                doc.text("Tidak ada data untuk diekspor.", 40, 40);
+            }
+
+            const filename = `Rekap_Nilai_Lengkap.pdf`;
+            doc.save(filename);
+        }
+
+        // --- ANALYSIS MODAL ACTIONS ---
+        window.showAnalysis = async (id) => {
+            const studentData = globalData.find(item => item.id === id);
+            if (!studentData) return;
+            
+            const { value: pin } = await Swal.fire({
+                title: 'Otorisasi Akses',
+                text: `Masukkan PIN untuk melihat analisis butir soal ${studentData.name}`,
+                input: 'password',
+                inputPlaceholder: 'Masukkan PIN',
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#0d9488',
+                cancelButtonText: 'Batal',
+                confirmButtonText: 'Lihat Analisis'
+            });
+
+            if (!pin || btoa(pin) !== "NDQzNTg4") {
+                if (pin) Swal.fire('Ditolak', 'PIN yang Anda masukkan salah.', 'error');
+                return;
+            }
+
+            const modal = document.getElementById('analysis-modal');
+            const content = document.getElementById('analysis-content');
+            
+            let html = `
+                <div class="mb-6 flex flex-col md:flex-row justify-between md:items-end gap-4 bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                    <div>
+                        <h4 class="text-xl font-bold font-heading text-slate-800 mb-2">${studentData.name}</h4>
+                        <div class="flex flex-wrap gap-2 text-xs font-semibold">
+                            <span class="bg-slate-100 border border-slate-200 text-slate-700 px-3 py-1 rounded-md">Kelas ${studentData.kelas}</span>
+                            <span class="bg-slate-100 border border-slate-200 text-slate-600 px-3 py-1 rounded-md">${studentData.materi}</span>
+                        </div>
+                    </div>
+                    <div class="text-left md:text-right border-t md:border-t-0 md:border-l border-slate-100 pt-4 md:pt-0 md:pl-6">
+                        <span class="text-4xl font-black font-heading tracking-tighter ${studentData.score >= 75 ? 'text-emerald-500' : 'text-rose-500'}">${studentData.score}</span>
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Skor Akhir</p>
+                    </div>
+                </div>
+            `;
+
+            if (studentData.details && Array.isArray(studentData.details)) {
+                let benar = 0;
+                let salah = 0;
+                
+                studentData.details.forEach(isCorrect => {
+                    if(isCorrect) benar++; else salah++;
+                });
+
+                html += `
+                    <div class="flex gap-4 mb-6 text-sm">
+                        <div class="flex items-center gap-2 bg-emerald-50 text-emerald-700 px-4 py-2 rounded-xl border border-emerald-200 font-semibold shadow-sm">
+                            <i data-lucide="check-circle-2" class="w-4 h-4"></i> Benar: ${benar}
+                        </div>
+                        <div class="flex items-center gap-2 bg-rose-50 text-rose-700 px-4 py-2 rounded-xl border border-rose-200 font-semibold shadow-sm">
+                            <i data-lucide="x-circle" class="w-4 h-4"></i> Salah: ${salah}
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                `;
+                
+                studentData.details.forEach((isCorrect, idx) => {
+                    const colorClass = isCorrect ? 'bg-white border-emerald-200 text-emerald-600' : 'bg-white border-rose-200 text-rose-500';
+                    const icon = isCorrect ? 'check' : 'x';
+                    const textLabel = isCorrect ? 'Benar' : 'Salah';
+                    html += `
+                        <div class="border rounded-xl p-4 flex flex-col items-center justify-center text-center ${colorClass} transition transform hover:-translate-y-1 hover:shadow-md cursor-default shadow-sm">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Soal ${idx + 1}</span>
+                            <div class="flex items-center justify-center gap-1.5 font-bold font-heading text-sm">
+                                <i data-lucide="${icon}" class="w-4 h-4 stroke-[3]"></i> ${textLabel}
+                            </div>
+                        </div>
+                    `;
+                });
+                html += `</div>`;
+                
+            } else {
+                html += `
+                    <div class="bg-white border border-slate-200 rounded-3xl p-10 text-center flex flex-col items-center justify-center shadow-sm">
+                        <div class="bg-slate-50 p-4 rounded-full border border-slate-100 mb-4 text-slate-300">
+                            <i data-lucide="file-question" class="w-10 h-10"></i>
+                        </div>
+                        <h5 class="text-slate-800 font-bold font-heading text-lg mb-2">Rincian Tidak Tersedia</h5>
+                        <p class="text-sm text-slate-500 max-w-sm leading-relaxed">
+                            Peserta ini mengerjakan modul versi lama yang hanya mengirimkan nilai akhir tanpa analisis tiap butir soal.
+                        </p>
+                    </div>
+                `;
+            }
+
+            content.innerHTML = html;
+            lucide.createIcons();
+            modal.classList.remove('hidden');
+        };
+
+        window.closeAnalysisModal = () => {
+            document.getElementById('analysis-modal').classList.add('hidden');
+        };
+
+        // --- ACTIONS ---
+        window.deleteItem = async (docId, name) => {
+            const { value: pin } = await Swal.fire({
+                title: 'Otorisasi Admin',
+                text: `Hapus data milik peserta ${name}?`,
+                input: 'password',
+                inputPlaceholder: 'Masukkan PIN',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#ef4444',
+                cancelButtonText: 'Batal',
+                confirmButtonText: 'Hapus Data'
+            });
+
+            if (pin && btoa(pin) === "NDQzNTg4") {
+                try {
+                    await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', COLLECTION_NAME, docId));
+                    Swal.fire('Terhapus', 'Data berhasil dihapus.', 'success');
+                } catch(e) {
+                    Swal.fire('Gagal', e.message, 'error');
+                }
+            } else if (pin) {
+                Swal.fire('Ditolak', 'PIN yang Anda masukkan salah.', 'error');
+            }
+        };
+
+        window.clearData = async () => {
+            const { value: pin } = await Swal.fire({
+                title: 'Kosongkan Seluruh Data?',
+                text: 'Tindakan ini akan menghapus semua nilai dari database. Tidak dapat dibatalkan.',
+                input: 'password',
+                inputPlaceholder: 'Masukkan PIN Super Admin',
+                icon: 'error',
+                showCancelButton: true,
+                confirmButtonColor: '#ef4444',
+                cancelButtonText: 'Batal',
+                confirmButtonText: 'Ya, Kosongkan'
+            });
+
+            if (pin && btoa(pin) === "NDQzNTg4") {
+                try {
+                    const q = collection(db, 'artifacts', appId, 'public', 'data', COLLECTION_NAME);
+                    const snapshot = await getDocs(q);
+                    
+                    if (snapshot.empty) {
+                        Swal.fire('Info', 'Tidak ada data untuk dihapus.', 'info');
+                        return;
+                    }
+
+                    Swal.fire({
+                        title: 'Menghapus Data...',
+                        allowOutsideClick: false,
+                        didOpen: () => { Swal.showLoading(); }
+                    });
+
+                    const deletePromises = [];
+                    snapshot.forEach(document => {
+                        deletePromises.push(deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', COLLECTION_NAME, document.id)));
+                    });
+
+                    await Promise.all(deletePromises);
+                    Swal.fire('Sukses', 'Semua data nilai telah dihapus dari sistem.', 'success');
+                } catch(e) {
+                    Swal.fire('Gagal', e.message, 'error');
+                }
+            } else if (pin) {
+                Swal.fire('Ditolak', 'PIN tidak valid.', 'error');
+            }
+        };
+
+        // Click outside listener for dropdown
+        document.addEventListener('click', (e) => {
+            const dropdown = document.getElementById('action-dropdown');
+            if (dropdown && !dropdown.classList.contains('hidden') && !e.target.closest('#btn-more-options') && !e.target.closest('#action-dropdown')) {
+                dropdown.classList.add('hidden');
+            }
+        });
+    </script>
 </body>
 </html>
