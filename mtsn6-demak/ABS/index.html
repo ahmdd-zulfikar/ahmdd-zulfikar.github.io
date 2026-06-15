@@ -65,6 +65,10 @@
         .pdf-mode table { width: 100% !important; border-collapse: collapse !important; margin-bottom: 20px !important;}
         .pdf-mode th, .pdf-mode td { border: 1px solid #e2e8f0 !important; padding: 6px !important; font-size: 10px !important; }
         .pdf-mode h2 { font-size: 16px !important; margin-bottom: 10px !important; margin-top: 20px !important; border-bottom: none !important;}
+        .pdf-mode .overflow-auto { overflow: visible !important; max-height: none !important; }
+        .pdf-mode .custom-scrollbar { overflow: visible !important; }
+        
+        #anti-cheat-banner { transition: transform 0.3s ease-in-out; }
         
         /* Indikator Saving Realtime */
         .sync-status { transition: all 0.3s; }
@@ -482,11 +486,11 @@
                     
                     <div class="overflow-auto max-h-[70vh] custom-scrollbar">
                         <table class="w-full text-left border-collapse whitespace-nowrap" id="table-nilai">
-                            <thead class="sticky top-0 z-20 shadow-sm bg-white">
-                                <tr id="result-header-1" class="bg-slate-50 border-b border-slate-200/70 text-xs text-slate-500 font-bold select-none">
+                            <thead class="sticky top-0 z-20 shadow-sm bg-slate-50">
+                                <tr id="result-header-1" class="border-b border-slate-200/70 text-xs text-slate-500 font-bold select-none">
                                     <!-- Dynamic content -->
                                 </tr>
-                                <tr id="result-header-2" class="bg-slate-50/95 border-b border-slate-200/50 text-[10px] text-slate-400 select-none backdrop-blur-sm">
+                                <tr id="result-header-2" class="border-b border-slate-200/50 text-[10px] text-slate-400 select-none">
                                     <!-- Dynamic content -->
                                 </tr>
                             </thead>
@@ -1703,6 +1707,17 @@
                 el.classList.remove('overflow-x-auto');
                 el.classList.add('overflow-visible');
             });
+            
+            // Fix cutoff vertical by dynamically removing max height classes
+            const verticalScrolls = element.querySelectorAll('.overflow-auto, .overflow-y-auto');
+            verticalScrolls.forEach(el => {
+                el.dataset.originalMaxH = el.style.maxHeight || '';
+                el.style.maxHeight = 'none';
+                el.style.overflow = 'visible';
+            });
+
+            // Add pdf-mode explicitly to export-area to ensure our CSS override applies
+            element.classList.add('pdf-mode');
 
             // Expand container to prevent cropping
             element.style.width = 'max-content';
@@ -1729,6 +1744,13 @@
                     el.classList.remove('overflow-visible');
                 });
                 
+                verticalScrolls.forEach(el => {
+                    el.style.maxHeight = el.dataset.originalMaxH;
+                    el.style.overflow = '';
+                });
+
+                element.classList.remove('pdf-mode');
+                
                 element.style.width = originalWidth;
             });
         }
@@ -1736,10 +1758,26 @@
         window.exportExcel = function() {
             const wb = XLSX.utils.book_new();
 
-            const wsNilaiData = [["Peringkat", "Nama Siswa", "Nilai Total"]];
-            calculatedResults.forEach((res, index) => wsNilaiData.push([index + 1, res.name, res.total]));
+            const wsNilaiData = [];
+            let headerRow = ["Peringkat", "Nama Siswa"];
+            let qNum = 1;
+            for(let i=0; i<window.appState.numPG; i++) headerRow.push(`PG ${qNum++}`);
+            for(let i=0; i<window.appState.numPGK; i++) headerRow.push(`PGK ${qNum++}`);
+            for(let i=0; i<window.appState.numUraian; i++) headerRow.push(`Uraian ${qNum++}`);
+            headerRow.push("Nilai Total");
+            wsNilaiData.push(headerRow);
+
+            calculatedResults.forEach((res, index) => {
+                let row = [index + 1, res.name];
+                res.pgDetails.forEach(status => row.push(status === 1 ? 'Benar' : (status === -1 ? 'Kosong' : 'Salah')));
+                res.pgkDetails.forEach(status => row.push(status === 1 ? 'Benar' : (status === -1 ? 'Kosong' : 'Salah')));
+                res.uraianDetails.forEach(score => row.push(score));
+                row.push(res.total);
+                wsNilaiData.push(row);
+            });
+
             const wsNilai = XLSX.utils.aoa_to_sheet(wsNilaiData);
-            XLSX.utils.book_append_sheet(wb, wsNilai, "Nilai Siswa");
+            XLSX.utils.book_append_sheet(wb, wsNilai, "Rincian Siswa");
 
             const wsAnalisisData = [["No Soal", "Jenis", "Rata-rata Skor", "Indeks Kesukaran", "Kategori"]];
             calculatedItemStats.forEach(stat => wsAnalisisData.push([stat.No, stat.Jenis, stat.Rata_rata, stat.Indeks_Kesukaran, stat.Kategori]));
