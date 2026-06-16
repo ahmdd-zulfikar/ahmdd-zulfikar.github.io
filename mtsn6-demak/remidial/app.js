@@ -491,7 +491,7 @@ function renderStudents(students) {
         if (wrongCount > 25) wrongCount = 25; 
 
         const tr = document.createElement('tr');
-        tr.className = "hover:bg-teal-50/30 transition-colors";
+        tr.className = "hover:bg-teal-50/30 ";
 
         let statusHtml = '';
         let btnHtml = '';
@@ -501,7 +501,7 @@ function renderStudents(students) {
                 <span class="bg-rose-100 text-rose-700 px-3 py-1 rounded-full text-[10px] font-bold">REMIDIAL</span>
                 <span class="text-xs font-bold text-slate-500">Nilai: ${totalScore} (Salah ${wrongCount})</span>
             </div>`;
-            btnHtml = `<button onclick="window.startRemidial('${student.name}', ${index})" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-sm transition-all hover:-translate-y-0.5 w-full">Kerjakan</button>`;
+            btnHtml = `<button onclick="window.startRemidial('${student.name}', ${index})" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-sm  hover:-.5 w-full">Kerjakan</button>`;
         } else {
             statusHtml = `<div class="flex flex-col items-center justify-center gap-1">
                 <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-[10px] font-bold">TUNTAS</span>
@@ -556,22 +556,13 @@ window.startRemidial = function(studentName, studentIndex) {
 
     renderQuiz();
 
-    document.getElementById('step-1').classList.add('hidden', 'opacity-0');
-    setTimeout(() => {
-        const step2 = document.getElementById('step-2');
-        step2.classList.remove('hidden');
-        setTimeout(() => step2.classList.remove('opacity-0', 'scale-95', 'translate-y-4'), 50);
-    }, 300);
+    document.getElementById('step-1').classList.add('hidden');
+    document.getElementById('step-2').classList.remove('hidden');
 };
 
 window.backToStep1 = function() {
-    document.getElementById('step-2').classList.add('opacity-0', 'scale-95', 'translate-y-4');
-    setTimeout(() => {
-        document.getElementById('step-2').classList.add('hidden');
-        const step1 = document.getElementById('step-1');
-        step1.classList.remove('hidden');
-        setTimeout(() => step1.classList.remove('opacity-0'), 50);
-    }, 300);
+    document.getElementById('step-2').classList.add('hidden');
+    document.getElementById('step-1').classList.remove('hidden');
 }
 
 function renderQuiz() {
@@ -590,17 +581,17 @@ function renderQuiz() {
             let controlIndicator = '';
             if(isPGK) {
                 controlIndicator = `
-                    <div class="checkbox-square w-5 h-5 rounded border-2 border-slate-300 flex items-center justify-center transition-colors">
+                    <div class="checkbox-square w-5 h-5 rounded border-2 border-slate-300 flex items-center justify-center ">
                         <i class="fa-solid fa-check text-white text-xs hidden"></i>
                     </div>`;
             } else {
-                controlIndicator = `<div class="radio-circle w-5 h-5 rounded-full border-2 border-slate-300 transition-colors"></div>`;
+                controlIndicator = `<div class="radio-circle w-5 h-5 rounded-full border-2 border-slate-300 "></div>`;
             }
 
             optionsHtml += `
                 <div class="relative">
-                    <input type="${inputType}" name="${nameAttr}" id="${inputId}" value="${optIndex}" class="${inputType}-custom opacity-0 absolute inset-0 z-[-1]">
-                    <label for="${inputId}" class="flex items-start gap-4 p-4 rounded-xl border-2 border-slate-100 cursor-pointer hover:bg-slate-50 transition-all font-medium text-slate-700">
+                    <input type="${inputType}" name="${nameAttr}" id="${inputId}" value="${optIndex}" class="${inputType}-custom  absolute inset-0 z-[-1]">
+                    <label for="${inputId}" class="flex items-start gap-4 p-4 rounded-xl border-2 border-slate-100 cursor-pointer hover:bg-slate-50  font-medium text-slate-700">
                         ${controlIndicator}
                         <div class="flex-1 leading-relaxed">${opt}</div>
                     </label>
@@ -703,24 +694,19 @@ window.submitQuiz = async function() {
     let rawTotal = newScorePG + newScorePGK + scoreUraian;
     let newTotalScore = maxScore > 0 ? Math.round((rawTotal / maxScore) * 100) : 0;
 
-    document.getElementById('step-2').classList.add('opacity-0', 'scale-95', 'translate-y-4');
-    setTimeout(async () => {
-        document.getElementById('step-2').classList.add('hidden');
-        document.getElementById('loading-text').innerText = "Menyimpan Jawaban...";
-        document.getElementById('loading-overlay').classList.remove('hidden');
+    document.getElementById('step-2').classList.add('hidden');
+    document.getElementById('loading-text').innerText = "Menyimpan Jawaban...";
+    document.getElementById('loading-overlay').classList.remove('hidden');
+    
+    try {
+        await window.setDoc(window.doc(db, "classes", classData.id), classData, {merge: true});
+        document.getElementById('loading-overlay').classList.add('hidden');
         
-        try {
-            await window.setDoc(window.doc(db, "classes", classData.id), classData, {merge: true});
-            document.getElementById('loading-overlay').classList.add('hidden');
-            
-            document.getElementById('final-score').innerText = newTotalScore;
-            const step3 = document.getElementById('step-3');
-            step3.classList.remove('hidden');
-            setTimeout(() => step3.classList.remove('opacity-0', 'scale-95', 'translate-y-4'), 50);
-        } catch(e) {
-            console.error(e);
-            document.getElementById('loading-overlay').classList.add('hidden');
-            alert("Gagal menyimpan data ke server. Periksa koneksi internet Anda.");
-        }
-    }, 300);
+        document.getElementById('final-score').innerText = newTotalScore;
+        document.getElementById('step-3').classList.remove('hidden');
+    } catch(e) {
+        console.error(e);
+        document.getElementById('loading-overlay').classList.add('hidden');
+        alert("Gagal menyimpan data ke server. Periksa koneksi internet Anda.");
+    }
 }
