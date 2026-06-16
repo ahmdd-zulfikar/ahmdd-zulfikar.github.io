@@ -173,7 +173,7 @@
             <!-- Connection Status (formerly Loading Overlay) -->
             <div id="loading-overlay" class="mb-8 text-sm font-semibold text-center text-slate-500 flex justify-center items-center gap-2 bg-white/60 backdrop-blur-sm py-2.5 rounded-full w-fit mx-auto px-6 border border-slate-200/60 shadow-sm transition-all duration-300">
                 <div class="animate-spin w-4 h-4 border-2 border-slate-300 border-t-teal-600 rounded-full"></div> 
-                <h2 class="inline-block m-0 p-0 text-sm font-semibold">Menghubungkan ke Server...</h2>
+                <h2 class="inline-block m-0 p-0 text-sm font-semibold">Menghubungkan ke Database...</h2>
             </div>
 
             <!-- Class Cards Grid -->
@@ -742,7 +742,7 @@
 
             try {
                 // Fetch config & PIN dari Google Apps Script
-                document.getElementById('loading-overlay').querySelector('h2').innerText = "Menghubungkan ke Server...";
+                document.getElementById('loading-overlay').querySelector('h2').innerText = "Menghubungkan ke Database...";
                 
                 app = initializeApp({});
                 db = getFirestore(app);
@@ -754,7 +754,7 @@
                 await loadClasses();
             } finally {
                 document.getElementById('loading-overlay').classList.add('hidden');
-                document.getElementById('loading-overlay').querySelector('h2').innerText = "Menghubungkan ke Cloud...";
+                document.getElementById('loading-overlay').querySelector('h2').innerText = "Menghubungkan ke Database...";
                 const btnCreate = document.getElementById('btn-create-class');
                 if (btnCreate) btnCreate.classList.remove('hidden');
             }
@@ -1223,7 +1223,24 @@
 
             document.querySelectorAll('.step-container').forEach(el => el.classList.replace('active-step', 'hidden-step'));
             const targetStep = document.getElementById(`step-${stepNum}`);
-            if (targetStep) targetStep.classList.replace('hidden-step', 'active-step');
+            if (targetStep) {
+                targetStep.classList.replace('hidden-step', 'active-step');
+                
+                // Pindahkan loading-overlay ke langkah aktif agar konsisten
+                const overlay = document.getElementById('loading-overlay');
+                if (overlay) {
+                    if (stepNum === 4) {
+                        targetStep.prepend(overlay);
+                    } else {
+                        const headerArea = targetStep.firstElementChild;
+                        if (headerArea && headerArea.id !== 'loading-overlay') {
+                            headerArea.insertAdjacentElement('afterend', overlay);
+                        } else if (!headerArea) {
+                            targetStep.prepend(overlay);
+                        }
+                    }
+                }
+            }
         }
 
         window.backTo = function(stepNum) { 
