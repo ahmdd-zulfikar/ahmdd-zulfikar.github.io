@@ -15,11 +15,40 @@ export function query(col, ...args) {
 export function orderBy(field, dir) { return { type: 'orderBy', field, dir }; }
 export function limit(n) { return { type: 'limit', n }; }
 
+function serializeData(data) {
+    let result = {};
+    for (let key in data) {
+        if (data[key] === null || data[key] === undefined) continue;
+        if (typeof data[key] === 'object') {
+            result[key] = JSON.stringify(data[key]);
+        } else {
+            result[key] = data[key];
+        }
+    }
+    return result;
+}
+
+function deserializeData(data) {
+    let result = {};
+    for (let key in data) {
+        if (typeof data[key] === 'string' && (data[key].startsWith('[') || data[key].startsWith('{'))) {
+            try {
+                result[key] = JSON.parse(data[key]);
+            } catch(e) {
+                result[key] = data[key];
+            }
+        } else {
+            result[key] = data[key];
+        }
+    }
+    return result;
+}
+
 export async function addDoc(colPath, data) {
     const res = await fetch(GAS_URL, {
         method: "POST",
         headers: {"Content-Type": "text/plain"},
-        body: JSON.stringify({ action: "addDoc", path: colPath, data: data })
+        body: JSON.stringify({ action: "addDoc", path: colPath, data: serializeData(data) })
     });
     const result = await res.json();
     if(result.status !== "success") throw new Error(result.message);
@@ -30,7 +59,7 @@ export async function setDoc(docPath, data) {
     const res = await fetch(GAS_URL, {
         method: "POST",
         headers: {"Content-Type": "text/plain"},
-        body: JSON.stringify({ action: "setDoc", path: docPath, data: data })
+        body: JSON.stringify({ action: "setDoc", path: docPath, data: serializeData(data) })
     });
     const result = await res.json();
     if(result.status !== "success") throw new Error(result.message);
@@ -40,7 +69,7 @@ export async function updateDoc(docPath, data) {
     const res = await fetch(GAS_URL, {
         method: "POST",
         headers: {"Content-Type": "text/plain"},
-        body: JSON.stringify({ action: "updateDoc", path: docPath, data: data })
+        body: JSON.stringify({ action: "updateDoc", path: docPath, data: serializeData(data) })
     });
     const result = await res.json();
     if(result.status !== "success") throw new Error(result.message);
@@ -75,7 +104,7 @@ export async function getDocs(queryObj) {
 
     const docs = rawDocs.map(d => ({
         id: d.id,
-        data: () => d.fields
+        data: () => deserializeData(d.fields)
     }));
     return { empty: docs.length === 0, docs: docs, forEach: (cb) => docs.forEach(cb) };
 }
@@ -89,7 +118,7 @@ export async function getDoc(queryObj) {
     return {
         id: result.data.id,
         exists: () => !!result.data.fields,
-        data: () => result.data.fields,
+        data: () => deserializeData(result.data.fields),
         metadata: { hasPendingWrites: false }
     };
 }

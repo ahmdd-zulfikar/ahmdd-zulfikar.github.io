@@ -827,8 +827,17 @@
             } else {
                 try {
                     const querySnapshot = await getDocs(collection(db, "classes"));
+                    const localData = JSON.parse(localStorage.getItem('abs_classes') || '{}');
+                    
                     querySnapshot.forEach((doc) => {
-                        classes.push({ id: doc.id, ...doc.data() });
+                        let data = doc.data();
+                        // MIGRATION: Restore lost students from local storage
+                        if ((!data.students || data.students.length === 0) && localData[doc.id] && localData[doc.id].students && localData[doc.id].students.length > 0) {
+                            data.students = localData[doc.id].students;
+                            // Push update to Firestore in background
+                            setDoc(doc(db, "classes", doc.id), data, {merge: true});
+                        }
+                        classes.push({ id: doc.id, ...data });
                     });
                 } catch(e) {
                     console.error("Gagal loadClasses: ", e);
