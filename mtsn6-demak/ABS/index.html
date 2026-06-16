@@ -49,17 +49,10 @@
         .pattern-bg {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
-        .hover-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .hover-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -10px rgba(15, 93, 86, 0.15); }
 
-        .step-container { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .hidden-step { display: none; opacity: 0; filter: blur(10px); }
-        .active-step { display: block; opacity: 1; filter: blur(0); animation: blurFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-        @keyframes blurFadeIn {
-            from { opacity: 0; filter: blur(12px); transform: scale(0.98); }
-            to { opacity: 1; filter: blur(0); transform: scale(1); }
-        }
-        
+        .active-step { display: block; opacity: 1; filter: blur(0); }
         .pdf-mode { padding: 20px !important; background: white !important; }
         .pdf-mode .no-print { display: none !important; }
         .pdf-mode table { width: 100% !important; border-collapse: collapse !important; margin-bottom: 20px !important;}
@@ -68,10 +61,7 @@
         .pdf-mode .overflow-auto { overflow: visible !important; max-height: none !important; }
         .pdf-mode .custom-scrollbar { overflow: visible !important; }
         
-        #anti-cheat-banner { transition: transform 0.3s ease-in-out; }
-        
         /* Indikator Saving Realtime */
-        .sync-status { transition: all 0.3s; }
         .syncing { opacity: 1; color: #0d9488; }
         .synced { opacity: 0.5; color: #94a3b8; }
 
@@ -105,7 +95,6 @@
             cursor: col-resize;
             user-select: none;
             z-index: 10;
-            transition: background-color 0.2s;
         }
         .col-resizer:hover, .col-resizing {
             background-color: #0d9488; /* teal-600 */
@@ -115,17 +104,17 @@
 <body class="font-sans antialiased selection:bg-teal-200 selection:text-teal-900 overflow-x-hidden relative sidebar-closed">
 
     <!-- Loading Overlay Init Firebase -->
-    <div id="loading-overlay" class="fixed inset-0 bg-white/60 backdrop-blur-md z-[100] flex flex-col items-center justify-center transition-all duration-500" style="animation: blurFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);">
+    <div id="loading-overlay" class="fixed inset-0 bg-white/60 backdrop-blur-md z-[100] flex flex-col items-center justify-center">
         <i class="fa-solid fa-circle-notch fa-spin text-4xl text-teal-600 mb-4"></i>
         <h2 class="text-lg font-bold text-slate-800 font-heading">Menghubungkan ke Cloud...</h2>
         <p class="text-sm text-slate-500">Menyinkronkan data kelas Anda</p>
     </div>
 
     <!-- Sidebar Drawer Overlay -->
-    <div id="sidebar-overlay" onclick="window.toggleSidebar()" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[100] hidden opacity-0 transition-opacity duration-300 lg:hidden"></div>
+    <div id="sidebar-overlay" onclick="window.toggleSidebar()" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[100] hidden opacity-0   lg:hidden"></div>
 
     <!-- Sidebar Drawer -->
-    <aside id="sidebar-drawer" class="fixed top-0 lg:top-16 left-0 w-80 max-w-[85vw] lg:max-w-none h-full lg:h-[calc(100vh-4rem)] bg-white shadow-2xl lg:shadow-none z-[101] lg:z-40 transition-all duration-300 flex flex-col border-r border-slate-200">
+    <aside id="sidebar-drawer" class="fixed top-0 lg:top-16 left-0 w-80 max-w-[85vw] lg:max-w-none h-full lg:h-[calc(100vh-4rem)] bg-white shadow-2xl lg:shadow-none z-[101] lg:z-40   flex flex-col border-r border-slate-200">
         <div class="flex-1 overflow-y-auto p-4 pt-6 custom-scrollbar" id="sidebar-content">
             <!-- Isi hierarki menu akan di-render di sini oleh JavaScript -->
             <div class="text-center py-8 text-slate-400 text-sm font-medium">Memuat direktori...</div>
@@ -133,15 +122,15 @@
     </aside>
 
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-xs">
+    <nav class="fixed w-full z-50   bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-xs">
         <div class="w-full px-2 sm:px-4 lg:px-6">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center gap-2 sm:gap-3">
-                    <button id="sidebar-toggle-btn" onclick="window.toggleSidebar()" class="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-slate-100 text-slate-600 transition-colors focus:ring-2 focus:ring-teal-600 outline-none">
+                    <button id="sidebar-toggle-btn" onclick="window.toggleSidebar()" class="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-slate-100 text-slate-600  focus:ring-2 focus:ring-teal-600 outline-none">
                         <i class="fa-solid fa-bars text-lg"></i>
                     </button>
-                    <div onclick="window.showStep(0)" class="cursor-pointer group flex items-center gap-2 sm:gap-3 hover:bg-slate-50 px-2 py-1 -ml-2 rounded-xl transition-colors" title="Kembali ke Beranda">
-                        <div class="hidden sm:flex w-8 h-8 rounded-lg bg-teal-600 items-center justify-center text-white group-hover:bg-teal-700 transition-colors shadow-sm">
+                    <div onclick="window.showStep(0)" class="cursor-pointer group flex items-center gap-2 sm:gap-3 hover:bg-slate-50 px-2 py-1 -ml-2 rounded-xl " title="Kembali ke Beranda">
+                        <div class="hidden sm:flex w-8 h-8 rounded-lg bg-teal-600 items-center justify-center text-white group-hover:bg-teal-700  shadow-sm">
                             <i class="fa-solid fa-book-open text-sm"></i>
                         </div>
                         <span class="font-heading font-bold text-lg tracking-wide text-slate-800 flex items-center">
@@ -159,7 +148,7 @@
     </nav>
 
     <!-- Main Content Wrapper -->
-    <div id="main-content-wrapper" class="transition-all duration-300 w-full min-h-screen flex flex-col">
+    <div id="main-content-wrapper" class="  w-full min-h-screen flex flex-col">
 
     <!-- Hero Banner -->
     <section class="relative pt-24 pb-12 bg-teal-900 pattern-bg overflow-hidden border-b border-teal-800">
@@ -183,7 +172,7 @@
                 <h2 class="text-2xl font-bold font-heading text-slate-800 flex items-center gap-2">
                     <i class="fa-solid fa-chalkboard-user text-teal-600"></i> Daftar Kelas Anda
                 </h2>
-                <button onclick="window.promptCreateClass()" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2 shadow-sm">
+                <button onclick="window.promptCreateClass()" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-xl text-sm font-bold  flex items-center gap-2 shadow-sm">
                     <i class="fa-solid fa-plus"></i> Buat Kelas
                 </button>
             </div>
@@ -200,7 +189,7 @@
                 </div>
                 <h3 class="text-xl font-bold text-slate-700 font-heading mb-2">Belum Ada Kelas</h3>
                 <p class="text-slate-500 mb-6 text-sm max-w-sm mx-auto">Anda belum mengonfigurasi kelas satupun. Silakan klik tombol di bawah untuk mulai membuat absensi/analisis soal kelas pertama Anda.</p>
-                <button onclick="window.promptCreateClass()" class="inline-block bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-sm">
+                <button onclick="window.promptCreateClass()" class="inline-block bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-xl  shadow-sm">
                     Mulai Buat Kelas
                 </button>
             </div>
@@ -220,7 +209,7 @@
                 <div class="w-full lg:w-1/2">
                     <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Hapus Kelas Saat Ini</label>
                     <div class="flex gap-2">
-                        <button onclick="window.deleteCurrentClass()" class="bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 px-6 py-3 rounded-2xl transition-all shadow-sm font-bold w-full sm:w-auto text-sm" title="Hapus Kelas Ini">
+                        <button onclick="window.deleteCurrentClass()" class="bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 px-6 py-3 rounded-2xl  shadow-sm font-bold w-full sm:w-auto text-sm" title="Hapus Kelas Ini">
                             <i class="fa-solid fa-trash-can mr-2"></i> Hapus Kelas Aktif
                         </button>
                     </div>
@@ -229,8 +218,8 @@
                 <div class="w-full lg:w-1/2">
                     <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Buat Kelas Baru</label>
                     <div class="flex gap-2">
-                        <input type="text" id="new-class-name" placeholder="Contoh: Kelas VIII B" class="w-full bg-white border border-slate-200 text-slate-800 px-4 py-3 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all">
-                        <button onclick="window.createNewClass()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-2xl shadow-sm shadow-teal-900/10 transition-all whitespace-nowrap">
+                        <input type="text" id="new-class-name" placeholder="Contoh: Kelas VIII B" class="w-full bg-white border border-slate-200 text-slate-800 px-4 py-3 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-teal-600 ">
+                        <button onclick="window.createNewClass()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-2xl shadow-sm shadow-teal-900/10  whitespace-nowrap">
                             <i class="fa-solid fa-plus mr-1"></i> Tambah
                         </button>
                     </div>
@@ -240,19 +229,19 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 border-b border-slate-100 pb-8">
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Mata Pelajaran</label>
-                    <input type="text" id="meta-mapel" placeholder="Contoh: Matematika" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 outline-none transition-all">
+                    <input type="text" id="meta-mapel" placeholder="Contoh: Matematika" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 outline-none ">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Jenis Tes</label>
-                    <input type="text" id="meta-jenis" placeholder="Contoh: Sumatif Akhir Semester" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 outline-none transition-all">
+                    <input type="text" id="meta-jenis" placeholder="Contoh: Sumatif Akhir Semester" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 outline-none ">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Tahun Ajaran</label>
-                    <input type="text" id="meta-tahun" placeholder="Contoh: 2025/2026" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 outline-none transition-all">
+                    <input type="text" id="meta-tahun" placeholder="Contoh: 2025/2026" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 outline-none ">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Semester</label>
-                    <select id="meta-semester" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 outline-none transition-all">
+                    <select id="meta-semester" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 outline-none ">
                         <option value="">Pilih Semester...</option>
                         <option value="Ganjil">Ganjil</option>
                         <option value="Genap">Genap</option>
@@ -263,26 +252,26 @@
             <div class="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Jumlah PG Biasa</label>
-                    <input type="number" id="num-pg" min="0" value="5" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none transition-all">
+                    <input type="number" id="num-pg" min="0" value="5" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none ">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Jumlah PG Kompleks</label>
-                    <input type="number" id="num-pgk" min="0" value="2" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none transition-all">
+                    <input type="number" id="num-pgk" min="0" value="2" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none ">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Opsi Benar per PGK</label>
-                    <input type="number" id="opts-pgk" min="1" value="2" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none transition-all">
+                    <input type="number" id="opts-pgk" min="1" value="2" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none ">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Jumlah Uraian / Essay</label>
-                    <input type="number" id="num-uraian" min="0" value="2" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none transition-all">
+                    <input type="number" id="num-uraian" min="0" value="2" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none ">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Batas Lulus (KKM)</label>
-                    <input type="number" id="meta-kkm" min="0" max="100" value="75" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none transition-all">
+                    <input type="number" id="meta-kkm" min="0" max="100" value="75" onchange="window.saveConfig()" class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-3 focus:ring-2 focus:ring-teal-600 focus:border-teal-600 outline-none ">
                 </div>
             </div>
-            <button onclick="window.generateSetup()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-2xl shadow-sm shadow-teal-900/10 transition-all">Konfirmasi Setup <i class="fa-solid fa-arrow-right ml-1"></i></button>
+            <button onclick="window.generateSetup()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-2xl shadow-sm shadow-teal-900/10 ">Konfirmasi Setup <i class="fa-solid fa-arrow-right ml-1"></i></button>
         </div>
 
         <!-- Step 2: Kunci Jawaban & Bobot -->
@@ -316,8 +305,8 @@
                 </div>
             </div>
             <div class="mt-8 flex flex-wrap gap-3">
-                <button onclick="window.backTo(1)" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3 px-6 rounded-2xl transition-all border border-slate-200">Kembali</button>
-                <button onclick="window.saveKeysAndProceed()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-2xl shadow-sm transition-all">Simpan & Lanjut <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                <button onclick="window.backTo(1)" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3 px-6 rounded-2xl  border border-slate-200">Kembali</button>
+                <button onclick="window.saveKeysAndProceed()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-2xl shadow-sm ">Simpan & Lanjut <i class="fa-solid fa-arrow-right ml-1"></i></button>
             </div>
         </div>
 
@@ -328,8 +317,8 @@
                     <i class="fa-solid fa-users text-teal-600"></i> Langkah 3: Input Jawaban Siswa
                 </h2>
                 <div class="flex gap-2">
-                    <button onclick="window.clearStudents()" class="bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 text-xs font-bold py-2 px-4 rounded-xl transition-all"><i class="fa-solid fa-trash mr-1"></i> Hapus Semua</button>
-                    <button onclick="window.addStudentRow()" class="bg-teal-50 hover:bg-teal-100 text-teal-700 border border-teal-200 text-xs font-bold py-2 px-4 rounded-xl transition-all"><i class="fa-solid fa-plus mr-1"></i> Tambah Siswa</button>
+                    <button onclick="window.clearStudents()" class="bg-rose-50 hover:bg-rose-100 text-rose-600 border border-rose-200 text-xs font-bold py-2 px-4 rounded-xl "><i class="fa-solid fa-trash mr-1"></i> Hapus Semua</button>
+                    <button onclick="window.addStudentRow()" class="bg-teal-50 hover:bg-teal-100 text-teal-700 border border-teal-200 text-xs font-bold py-2 px-4 rounded-xl "><i class="fa-solid fa-plus mr-1"></i> Tambah Siswa</button>
                 </div>
             </div>
             
@@ -362,8 +351,8 @@
             </div>
             
             <div class="mt-8 flex flex-col sm:flex-row justify-between gap-4">
-                <button onclick="window.backTo(2)" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3 px-6 rounded-2xl transition-all border border-slate-200 self-start">Kembali</button>
-                <button onclick="window.calculateResults()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-2xl shadow-md transition-all text-base hover-card self-start sm:self-auto"><i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Hitung Nilai & Analisis</button>
+                <button onclick="window.backTo(2)" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3 px-6 rounded-2xl  border border-slate-200 self-start">Kembali</button>
+                <button onclick="window.calculateResults()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-2xl shadow-md  text-base hover-card self-start sm:self-auto"><i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Hitung Nilai & Analisis</button>
             </div>
         </div>
 
@@ -424,13 +413,13 @@
                             <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Cari Nama Peserta Didik</label>
                             <div class="relative">
                                 <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                                <input type="text" id="search-student" oninput="window.filterResults()" placeholder="Ketik nama murid..." class="w-full bg-slate-50 border border-slate-200 text-slate-700 pl-11 pr-4 py-3 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-teal-600 transition-all">
+                                <input type="text" id="search-student" oninput="window.filterResults()" placeholder="Ketik nama murid..." class="w-full bg-slate-50 border border-slate-200 text-slate-700 pl-11 pr-4 py-3 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-teal-600 ">
                             </div>
                         </div>
                         <div class="flex flex-wrap gap-2">
-                            <button onclick="window.setFilter('semua')" id="btn-filter-semua" class="filter-btn bg-teal-600 text-white font-bold py-2.5 px-5 rounded-2xl text-sm transition-all border border-transparent">Semua (0)</button>
-                            <button onclick="window.setFilter('lulus')" id="btn-filter-lulus" class="filter-btn bg-white hover:bg-slate-50 text-slate-600 font-bold py-2.5 px-5 rounded-2xl text-sm transition-all border border-slate-200">Lulus (0)</button>
-                            <button onclick="window.setFilter('remedial')" id="btn-filter-remedial" class="filter-btn bg-white hover:bg-slate-50 text-slate-600 font-bold py-2.5 px-5 rounded-2xl text-sm transition-all border border-slate-200">Remedial (0)</button>
+                            <button onclick="window.setFilter('semua')" id="btn-filter-semua" class="filter-btn bg-teal-600 text-white font-bold py-2.5 px-5 rounded-2xl text-sm  border border-transparent">Semua (0)</button>
+                            <button onclick="window.setFilter('lulus')" id="btn-filter-lulus" class="filter-btn bg-white hover:bg-slate-50 text-slate-600 font-bold py-2.5 px-5 rounded-2xl text-sm  border border-slate-200">Lulus (0)</button>
+                            <button onclick="window.setFilter('remedial')" id="btn-filter-remedial" class="filter-btn bg-white hover:bg-slate-50 text-slate-600 font-bold py-2.5 px-5 rounded-2xl text-sm  border border-slate-200">Remedial (0)</button>
                         </div>
                     </div>
 
@@ -478,7 +467,7 @@
                             <h2 class="text-lg font-bold text-slate-800 font-heading"><i class="fa-solid fa-graduation-cap text-teal-600 mr-2"></i> Hasil Akhir Nilai Siswa</h2>
                             <p class="text-xs text-slate-400 mt-0.5">Menunjukkan rincian rekap jawaban benar, salah, dan kosong ( <i class="fa-solid fa-minus mx-0.5 text-slate-400"></i> ) pada tiap nomor.</p>
                         </div>
-                        <button onclick="window.backTo(3)" class="text-teal-600 hover:text-teal-700 text-sm font-bold bg-teal-50 px-4 py-2 rounded-xl border border-teal-100 transition-colors self-start sm:self-auto">
+                        <button onclick="window.backTo(3)" class="text-teal-600 hover:text-teal-700 text-sm font-bold bg-teal-50 px-4 py-2 rounded-xl border border-teal-100  self-start sm:self-auto">
                             <i class="fa-solid fa-pen mr-1"></i> Edit Data
                         </button>
                     </div>
@@ -532,13 +521,13 @@
 
             <!-- Action Buttons -->
             <div class="flex flex-wrap justify-center gap-3 pb-8 pt-4">
-                <button onclick="window.exportPDF()" class="bg-rose-600 hover:bg-rose-700 text-white font-bold py-3 px-6 rounded-2xl transition-all flex items-center gap-2 shadow-sm">
+                <button onclick="window.exportPDF()" class="bg-rose-600 hover:bg-rose-700 text-white font-bold py-3 px-6 rounded-2xl  flex items-center gap-2 shadow-sm">
                     <i class="fa-regular fa-file-pdf"></i> Download PDF
                 </button>
-                <button onclick="window.exportExcel()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-2xl transition-all flex items-center gap-2 shadow-sm">
+                <button onclick="window.exportExcel()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-2xl  flex items-center gap-2 shadow-sm">
                     <i class="fa-regular fa-file-excel"></i> Download Excel
                 </button>
-                <button onclick="window.print()" class="bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-6 rounded-2xl transition-all shadow-sm">
+                <button onclick="window.print()" class="bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-6 rounded-2xl  shadow-sm">
                     <i class="fa-solid fa-print mr-2"></i> Cetak
                 </button>
             </div>
@@ -565,8 +554,8 @@
     </div> <!-- End Main Content Wrapper -->
 
     <!-- Custom Modal -->
-    <div id="custom-modal" class="fixed inset-0 z-[110] bg-slate-900/40 backdrop-blur-sm flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="bg-white rounded-3xl shadow-2xl border border-slate-100 p-8 max-w-sm w-full mx-4 transform scale-95 transition-transform duration-300 relative overflow-hidden" id="custom-modal-content">
+    <div id="custom-modal" class="fixed inset-0 z-[110] bg-slate-900/40 backdrop-blur-sm flex items-center justify-center opacity-0 pointer-events-none  ">
+        <div class="bg-white rounded-3xl shadow-2xl border border-slate-100 p-8 max-w-sm w-full mx-4 transform scale-95   relative overflow-hidden" id="custom-modal-content">
             <div class="absolute top-0 left-0 w-full h-2 bg-teal-500" id="custom-modal-accent"></div>
             <div class="text-center mb-6">
                 <div id="custom-modal-icon" class="w-16 h-16 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center text-2xl mx-auto mb-4">
@@ -577,7 +566,7 @@
             </div>
             
             <div id="custom-modal-pin-container" class="mb-6 hidden">
-                <input type="password" id="custom-modal-pin" placeholder="Masukkan PIN" class="w-full text-center tracking-[0.5em] text-lg font-bold bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-4 focus:ring-2 focus:ring-teal-600 outline-none transition-all">
+                <input type="password" id="custom-modal-pin" placeholder="Masukkan PIN" class="w-full text-center tracking-[0.5em] text-lg font-bold bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-4 focus:ring-2 focus:ring-teal-600 outline-none ">
                 <p id="custom-modal-pin-error" class="text-xs text-rose-500 mt-2 font-bold hidden"><i class="fa-solid fa-circle-exclamation"></i> PIN Salah!</p>
             </div>
 
@@ -625,7 +614,7 @@
                 icon.className = "w-16 h-16 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center text-2xl mx-auto mb-4";
                 accent.className = "absolute top-0 left-0 w-full h-2 bg-blue-500";
                 
-                buttonsEl.innerHTML = `<button id="btn-modal-ok" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2.5 px-6 rounded-xl transition-all shadow-sm w-full">Tutup</button>`;
+                buttonsEl.innerHTML = `<button id="btn-modal-ok" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2.5 px-6 rounded-xl  shadow-sm w-full">Tutup</button>`;
                 document.getElementById('btn-modal-ok').onclick = closeModal;
             } 
             else if(type === 'confirm' || type === 'prompt' || type === 'inputPrompt') {
@@ -645,18 +634,18 @@
                     if (type === 'inputPrompt') {
                         pinInput.type = 'text';
                         pinInput.placeholder = 'Ketik di sini...';
-                        pinInput.className = "w-full text-center text-sm font-bold bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-4 focus:ring-2 focus:ring-teal-600 outline-none transition-all";
+                        pinInput.className = "w-full text-center text-sm font-bold bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-4 focus:ring-2 focus:ring-teal-600 outline-none ";
                     } else {
                         pinInput.type = 'password';
                         pinInput.placeholder = 'Masukkan PIN';
-                        pinInput.className = "w-full text-center tracking-[0.5em] text-lg font-bold bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-4 focus:ring-2 focus:ring-teal-600 outline-none transition-all";
+                        pinInput.className = "w-full text-center tracking-[0.5em] text-lg font-bold bg-slate-50 border border-slate-200 text-slate-800 rounded-2xl p-4 focus:ring-2 focus:ring-teal-600 outline-none ";
                     }
                     setTimeout(() => pinInput.focus(), 100);
                 }
 
                 buttonsEl.innerHTML = `
-                    <button id="btn-modal-cancel" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 px-6 rounded-xl transition-all w-1/2">Batal</button>
-                    <button id="btn-modal-confirm" class="bg-${color}-500 hover:bg-${color}-600 text-white font-bold py-2.5 px-6 rounded-xl transition-all shadow-sm w-1/2">${type === 'inputPrompt' ? 'Buat' : 'Lanjut'}</button>
+                    <button id="btn-modal-cancel" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 px-6 rounded-xl  w-1/2">Batal</button>
+                    <button id="btn-modal-confirm" class="bg-${color}-500 hover:bg-${color}-600 text-white font-bold py-2.5 px-6 rounded-xl  shadow-sm w-1/2">${type === 'inputPrompt' ? 'Buat' : 'Lanjut'}</button>
                 `;
 
                 document.getElementById('btn-modal-cancel').onclick = closeModal;
@@ -891,36 +880,36 @@
             for (let tahun in tree) {
                 html += `
                 <details class="group mb-1" open>
-                    <summary class="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-slate-700 hover:bg-slate-50 hover:text-teal-600 rounded-xl cursor-pointer transition-all outline-none list-none">
-                        <i class="fa-solid fa-calendar-day text-slate-400 group-open:text-teal-500 transition-colors w-4 text-center"></i>
+                    <summary class="flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-slate-700 hover:bg-slate-50 hover:text-teal-600 rounded-xl cursor-pointer  outline-none list-none">
+                        <i class="fa-solid fa-calendar-day text-slate-400 group-open:text-teal-500  w-4 text-center"></i>
                         ${tahun}
-                        <i class="fa-solid fa-chevron-down ml-auto text-[10px] text-slate-400 group-open:rotate-180 transition-transform"></i>
+                        <i class="fa-solid fa-chevron-down ml-auto text-[10px] text-slate-400 group-open:rotate-180 "></i>
                     </summary>
                     <div class="mt-1 space-y-1">`;
                 
                 for (let jenis in tree[tahun]) {
                     html += `
                     <details class="group" open>
-                        <summary class="flex items-center gap-3 pl-11 pr-4 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-teal-600 rounded-xl cursor-pointer transition-all outline-none list-none">
-                            <span class="w-1.5 h-1.5 rounded-full bg-slate-300 group-open:bg-teal-400 transition-colors"></span>
+                        <summary class="flex items-center gap-3 pl-11 pr-4 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-teal-600 rounded-xl cursor-pointer  outline-none list-none">
+                            <span class="w-1.5 h-1.5 rounded-full bg-slate-300 group-open:bg-teal-400 "></span>
                             ${jenis}
-                            <i class="fa-solid fa-chevron-down ml-auto text-[10px] text-slate-400 group-open:rotate-180 transition-transform"></i>
+                            <i class="fa-solid fa-chevron-down ml-auto text-[10px] text-slate-400 group-open:rotate-180 "></i>
                         </summary>
                         <div class="mt-1 space-y-1">`;
 
                     for (let mapel in tree[tahun][jenis]) {
                         html += `
                         <details class="group" open>
-                            <summary class="flex items-center gap-3 pl-14 pr-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-teal-600 rounded-xl cursor-pointer transition-all outline-none list-none">
-                                <span class="w-1.5 h-1.5 rounded-full bg-slate-200 group-open:bg-teal-300 transition-colors"></span>
+                            <summary class="flex items-center gap-3 pl-14 pr-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-teal-600 rounded-xl cursor-pointer  outline-none list-none">
+                                <span class="w-1.5 h-1.5 rounded-full bg-slate-200 group-open:bg-teal-300 "></span>
                                 ${mapel}
-                                <i class="fa-solid fa-chevron-down ml-auto text-[10px] text-slate-400 group-open:rotate-180 transition-transform"></i>
+                                <i class="fa-solid fa-chevron-down ml-auto text-[10px] text-slate-400 group-open:rotate-180 "></i>
                             </summary>
                             <div class="mt-1 space-y-0.5">`;
 
                         tree[tahun][jenis][mapel].forEach(cls => {
                             html += `
-                                <button onclick="window.selectClass('${cls.id}'); window.toggleSidebar();" class="w-full text-left flex items-center gap-3 pl-[72px] pr-4 py-2 text-sm font-medium text-slate-500 hover:text-teal-700 hover:bg-teal-50 rounded-xl transition-all class-sidebar-btn" data-class-id="${cls.id}">
+                                <button onclick="window.selectClass('${cls.id}'); window.toggleSidebar();" class="w-full text-left flex items-center gap-3 pl-[72px] pr-4 py-2 text-sm font-medium text-slate-500 hover:text-teal-700 hover:bg-teal-50 rounded-xl  class-sidebar-btn" data-class-id="${cls.id}">
                                     <span class="truncate">${cls.className || "Kelas Tanpa Nama"}</span>
                                 </button>
                             `;
@@ -959,7 +948,7 @@
                 btn.className = "text-left bg-white rounded-3xl border border-slate-200/60 p-6 flex flex-col h-full hover-card cursor-pointer group w-full";
                 btn.innerHTML = `
 
-                    <h3 class="text-xl font-bold font-heading text-slate-800 mb-1 group-hover:text-teal-700 transition-colors">${nama}</h3>
+                    <h3 class="text-xl font-bold font-heading text-slate-800 mb-1 group-hover:text-teal-700 ">${nama}</h3>
                     <p class="text-sm font-medium text-slate-500 mb-4">${mapel}</p>
                     <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400 w-full">
                         <span class="flex items-center gap-1.5"><i class="fa-solid fa-users"></i> ${totalMurid} Siswa</span>
@@ -1345,17 +1334,17 @@
             tbody.innerHTML = '';
             (window.appState.students || []).forEach((s, index) => {
                 const tr = document.createElement('tr');
-                tr.className = "hover:bg-slate-50 transition-colors student-row";
+                tr.className = "hover:bg-slate-50  student-row";
                 tr.dataset.id = s.id;
                 tr.innerHTML = `
                     <td class="p-3 text-center text-slate-500 font-bold border-r border-slate-100">${index + 1}</td>
                     <td class="p-3 sticky left-0 bg-white z-10 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)] border-r border-slate-100">
-                        <input type="text" class="stu-name w-full bg-slate-50 border border-slate-200 rounded-lg p-2 focus:border-teal-500 focus:bg-white transition-all outline-none" placeholder="Nama" value="${s.name || ''}" oninput="window.saveStudentsToState()">
+                        <input type="text" class="stu-name w-full bg-slate-50 border border-slate-200 rounded-lg p-2 focus:border-teal-500 focus:bg-white  outline-none" placeholder="Nama" value="${s.name || ''}" oninput="window.saveStudentsToState()">
                     </td>
                     <td class="p-3 border-r border-slate-100"><input type="text" class="stu-pg w-full bg-slate-50 border border-slate-200 rounded-lg p-2 uppercase text-center tracking-widest focus:border-teal-500 focus:bg-white outline-none font-mono" placeholder="ABDBC..." value="${s.pg || ''}" ${window.appState.numPG===0?'disabled':''} oninput="window.saveStudentsToState()"></td>
                     <td class="p-3 border-r border-slate-100"><input type="text" class="stu-pgk w-full bg-slate-50 border border-slate-200 rounded-lg p-2 uppercase text-center focus:border-teal-500 focus:bg-white outline-none font-mono" placeholder="AB,CD..." value="${s.pgk || ''}" ${window.appState.numPGK===0?'disabled':''} oninput="window.saveStudentsToState()"></td>
                     <td class="p-3 border-r border-slate-100"><input type="text" class="stu-uraian w-full bg-amber-50 border border-amber-200 text-amber-900 rounded-lg p-2 text-center tracking-widest focus:border-amber-500 focus:bg-white outline-none font-mono" placeholder="51153..." value="${s.uraian || ''}" ${window.appState.numUraian===0?'disabled':''} oninput="window.saveStudentsToState()"></td>
-                    <td class="p-3 text-center"><button onclick="window.removeStudent(${s.id})" class="text-slate-400 hover:text-rose-500 transition-colors w-8 h-8 rounded-lg hover:bg-rose-50"><i class="fa-solid fa-xmark"></i></button></td>
+                    <td class="p-3 text-center"><button onclick="window.removeStudent(${s.id})" class="text-slate-400 hover:text-rose-500  w-8 h-8 rounded-lg hover:bg-rose-50"><i class="fa-solid fa-xmark"></i></button></td>
                 `;
                 tbody.appendChild(tr);
             });
@@ -1664,7 +1653,7 @@
                 `;
 
                 const tr = document.createElement('tr');
-                tr.className = "hover:bg-teal-50/20 transition-colors duration-150 select-none";
+                tr.className = "hover:bg-teal-50/20   select-none";
                 tr.innerHTML = rowHtml;
                 tbody.appendChild(tr);
             });
@@ -1692,7 +1681,7 @@
                 calculatedItemStats.push({ No: q.id, Jenis: q.type, Rata_rata: averageScore.toFixed(2), Indeks_Kesukaran: difficultyIndex.toFixed(2), Kategori: category });
 
                 itemTbody.innerHTML += `
-                    <tr class="hover:bg-slate-50 transition-colors">
+                    <tr class="hover:bg-slate-50 ">
                         <td class="p-4 text-sm font-bold text-slate-600 text-center border-r border-slate-100">${q.id}</td>
                         <td class="p-4 text-sm text-slate-600 font-medium border-r border-slate-100">${q.type}</td>
                         <td class="p-4 text-sm text-slate-600 text-center border-r border-slate-100">${averageScore.toFixed(2)} <span class="text-[10px] text-slate-400">/ ${q.weight}</span></td>
