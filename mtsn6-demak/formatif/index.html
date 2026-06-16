@@ -54,15 +54,6 @@
             box-shadow: 0 10px 40px -10px rgba(15, 118, 110, 0.1);
         }
         
-        /* Animation for loading */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-            animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
@@ -214,8 +205,7 @@
             </div>
         </div>
 
-        <!-- Token Section (Common in Exam Apps) -->
-        <div class="glass-card w-full rounded-3xl p-8 md:p-10 mb-6 text-center border-t-4 border-teal-600 animate-fade-in relative overflow-hidden bg-white/90">
+        <div class="glass-card w-full rounded-3xl p-8 md:p-10 mb-6 text-center border-t-4 border-teal-600 relative overflow-hidden bg-white/90">
             <!-- Background Icon -->
             <div class="absolute -top-6 -right-6 p-4 opacity-5 transform rotate-12 pointer-events-none">
                 <i class="fa-solid fa-book-open text-9xl text-teal-600"></i>

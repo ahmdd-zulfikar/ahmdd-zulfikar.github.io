@@ -59,10 +59,6 @@
             background-color: #f8fafc; /* Slate 50 */
             color: #334155; /* Slate 700 */
         }
-
-        .fade-in { animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-        
         /* Custom Scrollbar - Minimalist */
         .custom-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
         .custom-scroll::-webkit-scrollbar-track { background: transparent; }
@@ -78,10 +74,6 @@
             background-color: #f1f5f9;
             color: #0d9488;
         }
-        
-        /* Modal Animation */
-        .modal-enter { animation: modalEnter 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-        @keyframes modalEnter { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-teal-200 selection:text-teal-900 flex flex-col min-h-screen overflow-x-hidden">
@@ -214,7 +206,7 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="flex-grow max-w-7xl mx-auto px-4 pt-28 pb-12 fade-in relative z-10 w-full">
+    <main class="flex-grow max-w-7xl mx-auto px-4 pt-28 pb-12 relative z-10 w-full">
         
         <!-- Connection Status -->
         <div id="connection-status" class="mb-8 text-sm font-semibold text-center text-slate-500 flex justify-center items-center gap-2 bg-white/60 backdrop-blur-sm py-2.5 rounded-full w-fit mx-auto px-6 border border-slate-200/60 shadow-sm">
@@ -348,7 +340,7 @@
 
     <!-- Modal Filter Unduhan -->
     <div id="export-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-slate-900/40 backdrop-blur-sm px-4">
-        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden flex flex-col modal-enter border border-slate-100">
+        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden flex flex-col border border-slate-100">
             <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-white">
                 <h3 class="text-xl font-bold text-slate-800 flex items-center gap-3 font-heading" id="export-modal-title">
                     <div class="bg-teal-50 text-teal-600 p-2 rounded-xl border border-teal-100">
@@ -393,7 +385,7 @@
 
     <!-- Modal Analisis Butir Soal -->
     <div id="analysis-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-slate-900/40 backdrop-blur-sm px-4">
-        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-2xl overflow-hidden flex flex-col max-h-[90vh] modal-enter border border-slate-100">
+        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-2xl overflow-hidden flex flex-col max-h-[90vh] border border-slate-100">
             <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-white">
                 <h3 class="text-xl font-bold text-slate-800 flex items-center gap-3 font-heading">
                     <div class="bg-teal-50 text-teal-600 p-2 rounded-xl border border-teal-100">
