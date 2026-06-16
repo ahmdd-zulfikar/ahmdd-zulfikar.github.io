@@ -28,7 +28,7 @@
         .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
     </style>
 </head>
-<body class="font-sans antialiased selection:bg-teal-200 selection:text-teal-900 flex min-h-screen">
+<body class="font-sans antialiased selection:bg-teal-200 selection:text-teal-900 flex flex-col min-h-screen">
 
     <!-- ================= NAVBAR ================= -->
     <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-sm">
@@ -44,11 +44,6 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-6">
-                    <a href="../" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">Beranda</a>
-                    <a href="../formatif" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">Uji Kompetensi</a>
-                    <a href="../nilai-siswa" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">Rekap Nilai</a>
-                    <a href="../ABS" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">Analisis Soal</a>
-                    
                     <button onclick="handleLogout()" class="bg-rose-500 hover:bg-rose-600 text-white text-xs font-bold px-4 py-2 rounded-lg shadow-sm transition-all flex items-center gap-2">
                         <i class="fa-solid fa-power-off"></i> Keluar
                     </button>
@@ -91,7 +86,7 @@
                 </div>
                 
                 <div class="relative w-full md:w-72">
-                    <input type="text" id="searchInput" onkeyup="renderTable()" placeholder="Cari nama atau kelas..." class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all shadow-sm text-sm">
+                    <input type="text" id="searchInput" onkeyup="window.currentPage=1; renderTable()" placeholder="Cari nama atau kelas..." class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all shadow-sm text-sm">
                     <i class="fa-solid fa-search text-slate-400 absolute left-4 top-3.5"></i>
                 </div>
             </div>
@@ -139,6 +134,26 @@
                     </tbody>
                 </table>
             </div>
+            
+            <!-- Pagination Controls -->
+            <div class="flex items-center justify-between border-t border-slate-100 bg-white px-4 py-3 sm:px-6">
+                <div class="flex flex-1 items-center justify-between">
+                    <div>
+                        <p class="text-xs md:text-sm text-slate-700">
+                            Menampilkan <span class="font-bold" id="page-start">0</span> - <span class="font-bold" id="page-end">0</span> dari <span class="font-bold" id="page-total">0</span> data
+                        </p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="prevPage()" id="btn-prev" class="relative inline-flex items-center rounded-lg px-3 py-1.5 text-slate-500 bg-white border border-slate-200 hover:bg-slate-50 hover:text-teal-600 focus:z-20 disabled:opacity-50 transition-colors shadow-sm text-sm font-medium">
+                            <i class="fa-solid fa-chevron-left mr-1.5"></i> Sebelumnya
+                        </button>
+                        <button onclick="nextPage()" id="btn-next" class="relative inline-flex items-center rounded-lg px-3 py-1.5 text-slate-500 bg-white border border-slate-200 hover:bg-slate-50 hover:text-teal-600 focus:z-20 disabled:opacity-50 transition-colors shadow-sm text-sm font-medium">
+                            Selanjutnya <i class="fa-solid fa-chevron-right ml-1.5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
         </div>
         </div>
     </main>
@@ -228,16 +243,33 @@
 
         initApp();
 
+        window.currentPage = 1;
+        const rowsPerPage = 30;
+
+        window.nextPage = () => {
+            window.currentPage++;
+            window.renderTable();
+        };
+
+        window.prevPage = () => {
+            if (window.currentPage > 1) {
+                window.currentPage--;
+                window.renderTable();
+            }
+        };
+
         // --- RENDER UI ---
         window.switchTab = (tab) => {
             currentTab = tab;
+            window.currentPage = 1;
+            
             document.getElementById('tab-pengawasan').className = tab === 'pengawasan' 
-                ? 'w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all bg-teal-800 text-white shadow-md' 
-                : 'w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all text-teal-200 hover:bg-teal-900';
+                ? 'flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 rounded-xl text-xs md:text-sm font-medium transition-all bg-teal-600 text-white shadow-md' 
+                : 'flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 rounded-xl text-xs md:text-sm font-medium transition-all text-slate-600 hover:bg-slate-50';
             
             document.getElementById('tab-keamanan').className = tab === 'keamanan' 
-                ? 'w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all bg-red-900/50 text-red-400 shadow-md border border-red-900/50' 
-                : 'w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all text-teal-200 hover:bg-teal-900';
+                ? 'flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 rounded-xl text-xs md:text-sm font-medium transition-all bg-red-600 text-white shadow-md' 
+                : 'flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 rounded-xl text-xs md:text-sm font-medium transition-all text-slate-600 hover:bg-slate-50';
 
             document.getElementById('page-title').textContent = tab === 'pengawasan' ? 'Live Monitor Siswa' : 'Manajemen Keamanan';
             document.getElementById('page-desc').textContent = tab === 'pengawasan' 
@@ -275,13 +307,30 @@
                 filtered = filtered.filter(item => item.isBanned || item.pelanggaran > 0);
             }
 
-            if (filtered.length === 0) {
+            const totalRows = filtered.length;
+            const totalPages = Math.ceil(totalRows / rowsPerPage) || 1;
+            
+            if (window.currentPage > totalPages) window.currentPage = totalPages;
+            if (window.currentPage < 1) window.currentPage = 1;
+            
+            const startIdx = (window.currentPage - 1) * rowsPerPage;
+            const endIdx = Math.min(startIdx + rowsPerPage, totalRows);
+            const pagedData = filtered.slice(startIdx, endIdx);
+
+            document.getElementById('page-total').textContent = totalRows;
+            document.getElementById('page-start').textContent = totalRows === 0 ? 0 : startIdx + 1;
+            document.getElementById('page-end').textContent = endIdx;
+            
+            document.getElementById('btn-prev').disabled = window.currentPage === 1;
+            document.getElementById('btn-next').disabled = window.currentPage === totalPages || totalRows === 0;
+
+            if (totalRows === 0) {
                 tbody.innerHTML = `<tr><td colspan="5" class="px-6 py-16 text-center text-slate-400"><i class="fa-solid fa-folder-open text-4xl mb-3 text-slate-200"></i><br>Tidak ada data yang sesuai.</td></tr>`;
                 return;
             }
 
             let html = '';
-            filtered.forEach(item => {
+            pagedData.forEach(item => {
                 // Status HTML
                 let statusHtml = '';
                 if (item.status === 'Selesai') statusHtml = `<span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide inline-flex items-center gap-1.5"><i class="fa-solid fa-check-double"></i> Selesai (Nilai: ${item.score})</span>`;
