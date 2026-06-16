@@ -80,12 +80,29 @@ export async function getDocs(queryObj) {
     return { empty: docs.length === 0, docs: docs, forEach: (cb) => docs.forEach(cb) };
 }
 
+export async function getDoc(queryObj) {
+    const docPath = typeof queryObj === 'string' ? queryObj : queryObj.path || queryObj; 
+    const res = await fetch(`${GAS_URL}?action=getDoc&path=${encodeURIComponent(docPath)}`);
+    const result = await res.json();
+    if(result.status !== "success") throw new Error(result.message);
+    
+    return {
+        id: result.data.id,
+        exists: () => !!result.data.fields,
+        data: () => result.data.fields,
+        metadata: { hasPendingWrites: false }
+    };
+}
+
 export function onSnapshot(queryObj, callback, errorCallback) {
     let isCancelled = false;
+    const pathStr = typeof queryObj === 'string' ? queryObj : queryObj.path || queryObj; 
+    const isDoc = pathStr.split('/').length % 2 === 0;
+
     async function fetchUpdate() {
         if(isCancelled) return;
         try {
-            const snapshot = await getDocs(queryObj);
+            const snapshot = isDoc ? await getDoc(queryObj) : await getDocs(queryObj);
             if(!isCancelled) callback(snapshot);
         } catch(err) {
             if(errorCallback && !isCancelled) errorCallback(err);
