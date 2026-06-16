@@ -58,11 +58,7 @@ export async function deleteDoc(docPath) {
 
 export async function getDocs(queryObj) {
     const colPath = typeof queryObj === 'string' ? queryObj : queryObj.path || queryObj; 
-    const res = await fetch(GAS_URL, {
-        method: "POST",
-        headers: {"Content-Type": "text/plain"},
-        body: JSON.stringify({ action: "getDocs", path: colPath })
-    });
+    const res = await fetch(`${GAS_URL}?action=getDocs&path=${encodeURIComponent(colPath)}`);
     const result = await res.json();
     if(result.status !== "success") throw new Error(result.message);
     
