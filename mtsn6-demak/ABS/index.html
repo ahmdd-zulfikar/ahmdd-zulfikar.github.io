@@ -103,21 +103,6 @@
 </head>
 <body class="font-sans antialiased selection:bg-teal-200 selection:text-teal-900 overflow-x-hidden relative sidebar-closed">
 
-    <!-- Loading Overlay Init Firebase -->
-    <div id="loading-overlay" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xl z-[100] flex flex-col items-center justify-center transition-all duration-500">
-        <div class="bg-white/90 p-8 rounded-3xl shadow-2xl flex flex-col items-center text-center max-w-sm w-full mx-4 border border-white/50 relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-tr from-teal-500/10 to-transparent"></div>
-            <div class="relative z-10">
-                <div class="relative w-16 h-16 mb-6 mx-auto">
-                    <div class="absolute inset-0 border-4 border-slate-100 rounded-full"></div>
-                    <div class="absolute inset-0 border-4 border-teal-500 rounded-full border-t-transparent animate-spin"></div>
-                </div>
-                <h2 class="text-xl font-bold text-slate-800 font-heading mb-2">Menghubungkan ke Server...</h2>
-                <p class="text-sm text-slate-500 animate-pulse">Mohon tunggu sebentar</p>
-            </div>
-        </div>
-    </div>
-
     <!-- Sidebar Drawer Overlay -->
     <div id="sidebar-overlay" onclick="window.toggleSidebar()" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[100] hidden opacity-0   lg:hidden"></div>
 
@@ -174,6 +159,11 @@
     <!-- Main Layout -->
     <main class="max-w-[95%] xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
 
+        <!-- Connection Status (formerly Loading Overlay) -->
+        <div id="loading-overlay" class="mb-8 text-sm font-semibold text-center text-slate-500 flex justify-center items-center gap-2 bg-white/60 backdrop-blur-sm py-2.5 rounded-full w-fit mx-auto px-6 border border-slate-200/60 shadow-sm transition-all duration-300">
+            <div class="animate-spin w-4 h-4 border-2 border-slate-300 border-t-teal-600 rounded-full"></div> 
+            <h2 class="inline-block m-0 p-0 text-sm font-semibold">Menghubungkan ke Server...</h2>
+        </div>
         <!-- Step 0: Beranda / Pemilihan Kelas -->
         <div id="step-0" class="step-container active-step">
             <div class="flex items-center justify-between mb-8">
