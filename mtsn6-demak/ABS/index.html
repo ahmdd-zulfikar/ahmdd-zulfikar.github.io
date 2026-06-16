@@ -165,7 +165,7 @@
                 <h2 class="text-2xl font-bold font-heading text-slate-800 flex items-center gap-2">
                     <i class="fa-solid fa-chalkboard-user text-teal-600"></i> Daftar Kelas Anda
                 </h2>
-                <button onclick="window.promptCreateClass()" class="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-xl text-sm font-bold  flex items-center gap-2 shadow-sm">
+                <button id="btn-create-class" onclick="window.promptCreateClass()" class="hidden bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2 shadow-sm">
                     <i class="fa-solid fa-plus"></i> Buat Kelas
                 </button>
             </div>
@@ -755,6 +755,8 @@
             } finally {
                 document.getElementById('loading-overlay').classList.add('hidden');
                 document.getElementById('loading-overlay').querySelector('h2').innerText = "Menghubungkan ke Cloud...";
+                const btnCreate = document.getElementById('btn-create-class');
+                if (btnCreate) btnCreate.classList.remove('hidden');
             }
         };
 
