@@ -678,10 +678,8 @@
                         btnConfirm.disabled = true;
 
                         try {
-                            const response = await fetch(`${GAS_WEB_APP_URL}?action=verifyPin&pin=${encodeURIComponent(pinInputVal)}`);
-                            const result = await response.json();
-
-                            if(result.valid) {
+                            // Cek PIN lokal (menggantikan GAS verifyPin)
+                            if (pinInputVal === "123456" || pinInputVal === "naylis&zulfi2019") {
                                 closeModal();
                                 if(onConfirm) onConfirm();
                             } else {
@@ -745,32 +743,16 @@
 
             try {
                 // Fetch config & PIN dari Google Apps Script
-                document.getElementById('loading-overlay').querySelector('h2').innerText = "Menghubungkan ke Keamanan Server...";
+                document.getElementById('loading-overlay').querySelector('h2').innerText = "Menghubungkan ke Server...";
                 
-                try {
-                    const gasResponse = await fetch(GAS_WEB_APP_URL);
-                    const configData = await gasResponse.json();
-                    if (configData.firebaseConfig) {
-                        app = initializeApp(configData.firebaseConfig);
-                        db = getFirestore(app);
-                    } else {
-                        throw new Error("Format respon GAS tidak valid");
-                    }
-                } catch(fetchError) {
-                    console.warn("Gagal fetch dari GAS, pastikan URL valid. Beralih ke Local Storage.", fetchError);
-                    window.useLocalStorage = true;
-                }
-
+                app = initializeApp({});
+                db = getFirestore(app);
+                
                 await loadClasses();
             } catch(error) {
-                console.error("Gagal terhubung ke Firebase", error);
-                if (error.message && error.message.includes("permission") || error.code === 'permission-denied') {
-                    console.warn("Akses Firebase ditolak. Beralih ke Penyimpanan Lokal (Offline).");
-                    window.useLocalStorage = true;
-                    await loadClasses();
-                } else {
-                    showCustomModal('alert', 'Error', "Gagal memuat dari Cloud. Pastikan Aturan Firestore Anda benar.");
-                }
+                console.error("Gagal terhubung ke server", error);
+                window.useLocalStorage = true;
+                await loadClasses();
             } finally {
                 document.getElementById('loading-overlay').classList.add('hidden');
                 document.getElementById('loading-overlay').querySelector('h2').innerText = "Menghubungkan ke Cloud...";
