@@ -58,7 +58,18 @@ const soalBank = [
     },
     {
         id: 6, type: "PG",
-        text: `Perhatikan tabel data sifat fisik beberapa unsur berikut!<br>1 - Fe - Padat - Konduktor: Ya<br>2 - O - Gas - Konduktor: Tidak<br>3 - Cu - Padat - Konduktor: Ya<br>4 - S - Padat - Konduktor: Tidak<br><br>Berdasarkan data yang disajikan dalam tabel, manakah yang merupakan pasangan unsur yang pasti termasuk golongan non-logam?`,
+        text: `Perhatikan tabel data sifat fisik beberapa unsur berikut!<br>
+        <div class="overflow-x-auto my-3"><table class="w-full text-sm text-left text-slate-500 border border-slate-200">
+            <thead class="text-xs text-slate-700 uppercase bg-slate-50 border-b border-slate-200">
+                <tr><th class="px-4 py-2">No</th><th class="px-4 py-2">Unsur</th><th class="px-4 py-2">Wujud</th><th class="px-4 py-2">Konduktor</th></tr>
+            </thead>
+            <tbody>
+                <tr class="bg-white border-b"><td class="px-4 py-2">1</td><td class="px-4 py-2">Fe</td><td class="px-4 py-2">Padat</td><td class="px-4 py-2">Ya</td></tr>
+                <tr class="bg-slate-50 border-b"><td class="px-4 py-2">2</td><td class="px-4 py-2">O</td><td class="px-4 py-2">Gas</td><td class="px-4 py-2">Tidak</td></tr>
+                <tr class="bg-white border-b"><td class="px-4 py-2">3</td><td class="px-4 py-2">Cu</td><td class="px-4 py-2">Padat</td><td class="px-4 py-2">Ya</td></tr>
+                <tr class="bg-slate-50"><td class="px-4 py-2">4</td><td class="px-4 py-2">S</td><td class="px-4 py-2">Padat</td><td class="px-4 py-2">Tidak</td></tr>
+            </tbody>
+        </table></div>Berdasarkan data yang disajikan dalam tabel, manakah yang merupakan pasangan unsur yang pasti termasuk golongan non-logam?`,
         options: [
             "A. Unsur 1 dan 3",
             "B. Unsur 2 dan 4",
@@ -88,7 +99,14 @@ const soalBank = [
     },
     {
         id: 9, type: "PG",
-        text: `Perhatikan gambar metode pemisahan campuran berikut!<br>Sebuah corong berisi kertas saring. Campuran air+pasir dituang. Padatan tertahan di atas kertas saring, cairan bening menetes ke erlenmeyer di bawahnya. Terdapat label A pada padatan di atas kertas saring dan label B pada cairan di dalam erlenmeyer. Berdasarkan gambar, bagian yang ditunjukkan oleh huruf A dan B secara berurutan adalah....`,
+        text: `Perhatikan gambar metode pemisahan campuran berikut!<br>
+        <div class="flex flex-col items-center justify-center p-4 my-4 bg-slate-50 border border-slate-200 rounded-lg w-full max-w-sm mx-auto">
+            <div class="text-center mb-2"><i class="fas fa-filter text-3xl text-slate-400"></i></div>
+            <div class="bg-amber-100 border border-amber-300 text-amber-800 text-xs px-2 py-1 rounded mb-2">A (Padatan tertahan di atas saringan)</div>
+            <div class="h-8 w-1 border-l-2 border-dashed border-slate-400"></div>
+            <div class="text-center my-2"><i class="fas fa-flask text-3xl text-blue-400"></i></div>
+            <div class="bg-blue-100 border border-blue-300 text-blue-800 text-xs px-2 py-1 rounded">B (Cairan bening di bawah)</div>
+        </div>Berdasarkan gambar, bagian yang ditunjukkan oleh huruf A dan B secara berurutan adalah....`,
         options: [
             "A. Filtrat dan Residu",
             "B. Residu dan Filtrat",
@@ -98,7 +116,18 @@ const soalBank = [
     },
     {
         id: 10, type: "PG",
-        text: `Perhatikan tabel jenis zat dan contohnya berikut ini!<br>1 - Unsur - Besi (Fe), Oksigen (O2)<br>2 - Senyawa - Air (H2O), Garam Dapur (NaCl)<br>3 - Campuran Homogen - Air Sirup, Udara<br>4 - Campuran Heterogen - Air dengan Pasir, Air dengan Minyak<br><br>Berdasarkan tabel di atas, pasangan data yang berhubungan dengan tepat antara jenis zat dan contohnya adalah ...`,
+        text: `Perhatikan tabel jenis zat dan contohnya berikut ini!<br>
+        <div class="overflow-x-auto my-3"><table class="w-full text-sm text-left text-slate-500 border border-slate-200">
+            <thead class="text-xs text-slate-700 uppercase bg-slate-50 border-b border-slate-200">
+                <tr><th class="px-4 py-2">No</th><th class="px-4 py-2">Jenis Zat</th><th class="px-4 py-2">Contoh</th></tr>
+            </thead>
+            <tbody>
+                <tr class="bg-white border-b"><td class="px-4 py-2">1</td><td class="px-4 py-2">Unsur</td><td class="px-4 py-2">Besi (Fe), Oksigen (O2)</td></tr>
+                <tr class="bg-slate-50 border-b"><td class="px-4 py-2">2</td><td class="px-4 py-2">Senyawa</td><td class="px-4 py-2">Air (H2O), Garam Dapur (NaCl)</td></tr>
+                <tr class="bg-white border-b"><td class="px-4 py-2">3</td><td class="px-4 py-2">Campuran Homogen</td><td class="px-4 py-2">Air Sirup, Udara</td></tr>
+                <tr class="bg-slate-50"><td class="px-4 py-2">4</td><td class="px-4 py-2">Campuran Heterogen</td><td class="px-4 py-2">Air dengan Pasir, Air dengan Minyak</td></tr>
+            </tbody>
+        </table></div>Berdasarkan tabel di atas, pasangan data yang berhubungan dengan tepat antara jenis zat dan contohnya adalah ...`,
         options: [
             "A. 1, 2, dan 3",
             "B. 1, 3, dan 4",
@@ -108,7 +137,15 @@ const soalBank = [
     },
     {
         id: 11, type: "PG",
-        text: `Perhatikan gambar struktur Bumi berikut.<br>1 - Kerak bumi - A. Cairan Besi dan nikel<br>2 - Mantel bumi - B. Padatan besi dan nikel<br>3 - Inti Luar - C. Batuan silikat padat dan kental<br>4 - Inti dalam - D. Silika dan Alumunium/Magnesium<br><br>Pasangan antara lapisan bumi dan kandungan materinya yang benar adalah ...`,
+        text: `Perhatikan gambar struktur Bumi berikut.<br>
+        <div class="overflow-x-auto my-3"><table class="w-full text-sm text-left text-slate-500 border border-slate-200">
+            <tbody>
+                <tr class="bg-white border-b"><td class="px-4 py-2 font-medium">1. Kerak bumi</td><td class="px-4 py-2">A. Cairan Besi dan nikel</td></tr>
+                <tr class="bg-slate-50 border-b"><td class="px-4 py-2 font-medium">2. Mantel bumi</td><td class="px-4 py-2">B. Padatan besi dan nikel</td></tr>
+                <tr class="bg-white border-b"><td class="px-4 py-2 font-medium">3. Inti Luar</td><td class="px-4 py-2">C. Batuan silikat padat dan kental</td></tr>
+                <tr class="bg-slate-50"><td class="px-4 py-2 font-medium">4. Inti dalam</td><td class="px-4 py-2">D. Silika dan Alumunium/Magnesium</td></tr>
+            </tbody>
+        </table></div>Pasangan antara lapisan bumi dan kandungan materinya yang benar adalah ...`,
         options: [
             "A. 1-D, 2-C, 3-A, 4-B",
             "B. 1-D, 2-A, 3-C, 4-B",
@@ -138,7 +175,30 @@ const soalBank = [
     },
     {
         id: 14, type: "PG",
-        text: `Perhatikan gambar berikut yang menunjukkan tiga tipe gerakan lempeng bumi.<br>Gambar 1: Dua lempeng saling menjauh dan magma naik ke permukaan.<br>Gambar 2: Dua lempeng saling bertumbukan sehingga salah satu lempeng menunjam ke bawah.<br>Gambar 3: Dua lempeng saling bergeser sejajar dengan arah berlawanan.<br><br>Berdasarkan ilustrasi tersebut, pasangan tipe gerakan lempeng yang tepat secara berurutan adalah....`,
+        text: `Perhatikan gambar berikut yang menunjukkan tiga tipe gerakan lempeng bumi.<br>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-4 w-full max-w-2xl mx-auto">
+            <div class="flex flex-col items-center p-4 bg-slate-50 border border-slate-200 rounded-lg shadow-sm text-center">
+                <div class="font-semibold text-sm mb-3">Gambar 1</div>
+                <div class="flex gap-4 text-rose-500 text-2xl font-bold">
+                    <i class="fas fa-arrow-left"></i> <i class="fas fa-arrow-right"></i>
+                </div>
+                <div class="text-xs mt-3 text-slate-500">Lempeng saling menjauh & magma naik</div>
+            </div>
+            <div class="flex flex-col items-center p-4 bg-slate-50 border border-slate-200 rounded-lg shadow-sm text-center">
+                <div class="font-semibold text-sm mb-3">Gambar 2</div>
+                <div class="flex gap-2 text-blue-500 text-2xl font-bold">
+                    <i class="fas fa-arrow-right"></i> <div class="w-1 h-6 bg-slate-400 skew-x-[20deg]"></div> <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="text-xs mt-3 text-slate-500">Lempeng bertumbukan & menunjam</div>
+            </div>
+            <div class="flex flex-col items-center p-4 bg-slate-50 border border-slate-200 rounded-lg shadow-sm text-center">
+                <div class="font-semibold text-sm mb-3">Gambar 3</div>
+                <div class="flex gap-2 text-emerald-500 text-2xl font-bold">
+                    <i class="fas fa-arrow-up"></i> <i class="fas fa-arrow-down"></i>
+                </div>
+                <div class="text-xs mt-3 text-slate-500">Lempeng saling bergeser sejajar</div>
+            </div>
+        </div>Berdasarkan ilustrasi tersebut, pasangan tipe gerakan lempeng yang tepat secara berurutan adalah....`,
         options: [
             "A. Divergen - Konvergen - Transform",
             "B. Transform - Divergen - Konvergen",
@@ -188,7 +248,18 @@ const soalBank = [
     },
     {
         id: 19, type: "PGK",
-        text: `Perhatikan tabel data zat-zat kimia berikut.<br>1 - Gula - Pemanis<br>2 - Oksigen - Pernapasan<br>3 - Air - Pelarut<br>4 - Helium - Pengisi balon<br><br>Berdasarkan data dalam tabel, manakah yang merupakan senyawa?`,
+        text: `Perhatikan tabel data zat-zat kimia berikut.<br>
+        <div class="overflow-x-auto my-3"><table class="w-full text-sm text-left text-slate-500 border border-slate-200">
+            <thead class="text-xs text-slate-700 uppercase bg-slate-50 border-b border-slate-200">
+                <tr><th class="px-4 py-2">No</th><th class="px-4 py-2">Nama Zat</th><th class="px-4 py-2">Fungsi / Sifat</th></tr>
+            </thead>
+            <tbody>
+                <tr class="bg-white border-b"><td class="px-4 py-2">1</td><td class="px-4 py-2">Gula</td><td class="px-4 py-2">Pemanis</td></tr>
+                <tr class="bg-slate-50 border-b"><td class="px-4 py-2">2</td><td class="px-4 py-2">Oksigen</td><td class="px-4 py-2">Pernapasan</td></tr>
+                <tr class="bg-white border-b"><td class="px-4 py-2">3</td><td class="px-4 py-2">Air</td><td class="px-4 py-2">Pelarut</td></tr>
+                <tr class="bg-slate-50"><td class="px-4 py-2">4</td><td class="px-4 py-2">Helium</td><td class="px-4 py-2">Pengisi balon</td></tr>
+            </tbody>
+        </table></div>Berdasarkan data dalam tabel, manakah yang merupakan senyawa?`,
         options: [
             "A. 1 dan 3",
             "B. 2 dan 4",
@@ -228,7 +299,18 @@ const soalBank = [
     },
     {
         id: 23, type: "PGK",
-        text: `Perhatikan tabel protokol tindakan mitigasi untuk setiap status gunung berapi berikut.<br>Normal (Level I) - Pemantauan visual dan instrumental rutin<br>Waspada (Level II) - Kesiapsiagaan masyarakat di sekitar gunung<br>Siaga (Level III) - Larangan aktivitas di zona berbahaya<br>Awas (Level IV) - Evakuasi warga dari zona berbahaya<br><br>Manakah pasangan status dan tindakan yang sesuai dengan tabel di atas?`,
+        text: `Perhatikan tabel protokol tindakan mitigasi untuk setiap status gunung berapi berikut.<br>
+        <div class="overflow-x-auto my-3"><table class="w-full text-sm text-left text-slate-500 border border-slate-200">
+            <thead class="text-xs text-slate-700 uppercase bg-slate-50 border-b border-slate-200">
+                <tr><th class="px-4 py-2">Status</th><th class="px-4 py-2">Tindakan Mitigasi</th></tr>
+            </thead>
+            <tbody>
+                <tr class="bg-white border-b"><td class="px-4 py-2 font-medium text-green-600">Normal (Level I)</td><td class="px-4 py-2">Pemantauan visual dan instrumental rutin</td></tr>
+                <tr class="bg-slate-50 border-b"><td class="px-4 py-2 font-medium text-yellow-600">Waspada (Level II)</td><td class="px-4 py-2">Kesiapsiagaan masyarakat di sekitar gunung</td></tr>
+                <tr class="bg-white border-b"><td class="px-4 py-2 font-medium text-orange-500">Siaga (Level III)</td><td class="px-4 py-2">Larangan aktivitas di zona berbahaya</td></tr>
+                <tr class="bg-slate-50"><td class="px-4 py-2 font-medium text-red-600">Awas (Level IV)</td><td class="px-4 py-2">Evakuasi warga dari zona berbahaya</td></tr>
+            </tbody>
+        </table></div>Manakah pasangan status dan tindakan yang sesuai dengan tabel di atas?`,
         options: [
             "A. Saat status Waspada, dilakukan evakuasi total warga.",
             "B. Saat status Siaga, dilakukan sosialisasi rencana evakuasi.",
@@ -248,7 +330,19 @@ const soalBank = [
     },
     {
         id: 25, type: "PGK",
-        text: `Perhatikan tabel kategori gempa bumi berdasarkan magnitudo (Skala Richter/SR) dan efek kerusakan yang ditimbulkan berikut!<br>1 - Kecil - 3.0-3.9 - Jarang menimbulkan kerusakan<br>2 - Sedang - 4.0-4.9 - Jendela bergetar<br>3 - Merusak - 5.0-5.9 - Kerusakan bangunan lemah<br>4 - Besar - 7.0-7.9 - Kerusakan serius pada area luas<br>5 - Sangat Besar - > 8.0 - Kerusakan dahsyat<br><br>Berdasarkan tabel di atas, pasangan kategori gempa dan efeknya yang tepat adalah...`,
+        text: `Perhatikan tabel kategori gempa bumi berdasarkan magnitudo (Skala Richter/SR) dan efek kerusakan yang ditimbulkan berikut!<br>
+        <div class="overflow-x-auto my-3"><table class="w-full text-sm text-left text-slate-500 border border-slate-200">
+            <thead class="text-xs text-slate-700 uppercase bg-slate-50 border-b border-slate-200">
+                <tr><th class="px-4 py-2">Kategori</th><th class="px-4 py-2">Skala Richter (SR)</th><th class="px-4 py-2">Efek Kerusakan</th></tr>
+            </thead>
+            <tbody>
+                <tr class="bg-white border-b"><td class="px-4 py-2">1 - Kecil</td><td class="px-4 py-2">3.0 - 3.9</td><td class="px-4 py-2">Jarang menimbulkan kerusakan</td></tr>
+                <tr class="bg-slate-50 border-b"><td class="px-4 py-2">2 - Sedang</td><td class="px-4 py-2">4.0 - 4.9</td><td class="px-4 py-2">Jendela bergetar</td></tr>
+                <tr class="bg-white border-b"><td class="px-4 py-2">3 - Merusak</td><td class="px-4 py-2">5.0 - 5.9</td><td class="px-4 py-2">Kerusakan bangunan lemah</td></tr>
+                <tr class="bg-slate-50 border-b"><td class="px-4 py-2">4 - Besar</td><td class="px-4 py-2">7.0 - 7.9</td><td class="px-4 py-2">Kerusakan serius pada area luas</td></tr>
+                <tr class="bg-white"><td class="px-4 py-2 font-bold text-red-600">5 - Sangat Besar</td><td class="px-4 py-2 font-bold text-red-600">> 8.0</td><td class="px-4 py-2 font-bold text-red-600">Kerusakan dahsyat</td></tr>
+            </tbody>
+        </table></div>Berdasarkan tabel di atas, pasangan kategori gempa dan efeknya yang tepat adalah...`,
         options: [
             "A. 1 dan 2",
             "B. 2 dan 3",
