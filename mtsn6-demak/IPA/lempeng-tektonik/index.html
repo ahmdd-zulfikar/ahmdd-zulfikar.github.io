@@ -643,12 +643,11 @@
 
     <!-- DECODE SCRIPT & LOGIC -->
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { initializeApp } from "../../firebase-mock.js";
+        import { getFirestore, collection, addDoc } from "../../firebase-mock.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged } from "../../firebase-mock.js";
 
         const firebaseConfig = {
-            apiKey: "AIzaSyAkX8qAS-O_5m_qaGr8Aa9XME-lVyBMibw",
             authDomain: "belajaronline-b5512.firebaseapp.com",
             projectId: "belajaronline-b5512",
             storageBucket: "belajaronline-b5512.firebasestorage.app",

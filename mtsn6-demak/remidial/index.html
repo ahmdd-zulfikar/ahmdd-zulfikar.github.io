@@ -42,8 +42,8 @@
     </style>
     <!-- Firebase SDK -->
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-        import { getFirestore, collection, getDocs, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+        import { initializeApp } from "../firebase-mock.js";
+        import { getFirestore, collection, getDocs, doc, setDoc } from "../firebase-mock.js";
         window.initializeApp = initializeApp;
         window.getFirestore = getFirestore;
         window.collection = collection;
