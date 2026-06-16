@@ -205,20 +205,42 @@
             </div>
         </div>
 
-        <div class="glass-card w-full rounded-3xl p-8 md:p-10 mb-6 text-center border-t-4 border-teal-600 relative overflow-hidden bg-white/90">
-            <!-- Background Icon -->
-            <div class="absolute -top-6 -right-6 p-4 opacity-5 transform rotate-12 pointer-events-none">
-                <i class="fa-solid fa-book-open text-9xl text-teal-600"></i>
-            </div>
-            
-            <!-- Logo Belajar Online Center -->
-            <p class="text-slate-500 text-sm mb-6 leading-relaxed relative z-10">Masukkan Token Ujian yang diberikan oleh Guru Mapel Anda untuk memulai asesmen formatif.</p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-stretch w-full max-w-md mx-auto relative z-10">
-                <input type="text" id="tokenInput" placeholder="KODE TOKEN" class="w-full px-5 py-4 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 text-center uppercase tracking-[0.2em] font-bold text-slate-800 shadow-inner bg-slate-50 placeholder:text-slate-400 placeholder:tracking-normal placeholder:font-medium">
-                <button onclick="validateToken()" class="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-bold shadow-md shadow-teal-600/20 flex items-center justify-center gap-2 whitespace-nowrap">
-                    Masuk <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                </button>
+        <div class="w-full mb-6">
+            <h2 class="text-xl font-bold text-slate-800 mb-4 px-2">Daftar Uji Kompetensi Formatif</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                
+                <!-- Fikih -->
+                <a href="./shalat-jumat" class="glass-card rounded-2xl p-6 border-l-4 border-teal-600 hover:bg-teal-50 transition group flex flex-col justify-between h-full bg-white/90">
+                    <div>
+                        <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 mb-3">
+                            <i class="fa-solid fa-mosque"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-slate-800 group-hover:text-teal-700">Fikih: Shalat Jum'at</h3>
+                        <p class="text-sm text-slate-500 mt-2">Bab Shalat Jum'at Kelas 7</p>
+                    </div>
+                    <div class="mt-4 flex justify-end">
+                        <span class="text-teal-600 text-sm font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            Mulai <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- IPA -->
+                <a href="./getaran-gelombang-cahaya" class="glass-card rounded-2xl p-6 border-l-4 border-teal-600 hover:bg-teal-50 transition group flex flex-col justify-between h-full bg-white/90">
+                    <div>
+                        <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 mb-3">
+                            <i class="fa-solid fa-flask"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-slate-800 group-hover:text-teal-700">IPA: Getaran, Gelombang & Cahaya</h3>
+                        <p class="text-sm text-slate-500 mt-2">Fisika Kelas 8</p>
+                    </div>
+                    <div class="mt-4 flex justify-end">
+                        <span class="text-teal-600 text-sm font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            Mulai <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </a>
+
             </div>
         </div>
 
@@ -242,27 +264,6 @@
 
     <!-- JavaScript Logic -->
     <script>
-        // ==========================================
-        // KONFIGURASI TOKEN & LINK UJIAN (EDIT DI SINI)
-        // ==========================================
-        // Format: 'TOKEN': { url: 'LINK_TUJUAN', mapel: 'NAMA_MAPEL' }
-        const databaseUjian = {
-            'AFFQHSJ': { 
-                url: './shalat-jumat', 
-                mapel: 'Fikih : Shalat Jumat' 
-            },
-            'AFIPAGGC': { 
-                url: './getaran-gelombang-cahaya', 
-                mapel: 'IPA: Getaran, Gelombang, dan Cahaya' 
-            },
-            'PTSIPA8': { 
-                url: 'https://google.com', // Contoh link lain
-                mapel: 'PTS IPA Kelas 8' 
-            }
-            // Tambahkan baris baru di bawah ini untuk token lainnya...
-        };
-        // ==========================================
-
         // Clock functionality
         function updateClock() {
             const now = new Date();
@@ -272,43 +273,6 @@
         }
         setInterval(updateClock, 1000);
         updateClock();
-
-        // Token Validation Logic
-        function validateToken() {
-            const inputToken = document.getElementById('tokenInput').value.trim().toUpperCase();
-            
-            if(!inputToken) {
-                Swal.fire({
-                    icon: 'warning',
-                    title: 'Token Kosong',
-                    text: 'Silakan masukkan Token Ujian terlebih dahulu!',
-                    confirmButtonColor: '#0d9488'
-                });
-                return;
-            }
-
-            if (databaseUjian.hasOwnProperty(inputToken)) {
-                const dataUjian = databaseUjian[inputToken];
-                
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Akses Diterima',
-                    html: `Membuka Evaluasi:<br><b class="text-teal-700 mt-2 block">${dataUjian.mapel}</b>`,
-                    timer: 2000,
-                    showConfirmButton: false,
-                    willClose: () => {
-                        window.location.href = dataUjian.url;
-                    }
-                });
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Token Tidak Valid',
-                    text: 'Pastikan kode token yang Anda masukkan benar dan sesuai dari guru pengampu.',
-                    confirmButtonColor: '#ef4444'
-                });
-            }
-        }
     </script>
 </body>
 </html>
