@@ -1210,14 +1210,14 @@
             if(!window.appState.students) window.appState.students = [];
             
             window.renderStudents();
-            window.showStep(window.appState.currentStep || 1);
-            if(window.appState.currentStep === 4) window.calculateResults();
+            window.showStep(window.appState.currentStep || 1, true);
+            if(window.appState.currentStep === 4) window.calculateResults(true);
         }
 
-        window.showStep = function(stepNum) {
+        window.showStep = function(stepNum, preventSave = false) {
             if (window.appState && stepNum > 0) {
                 window.appState.currentStep = stepNum;
-                window.debounceSaveData(); // Simpan riwayat langkah ke cloud
+                if (!preventSave) window.debounceSaveData(); // Simpan riwayat langkah ke cloud
             }
             
             // Atur Sidebar dan Tombol Toggle
@@ -1422,9 +1422,9 @@
             return scores;
         }
 
-        window.calculateResults = function() {
+        window.calculateResults = function(preventSave = false) {
             window.saveStudentsToState();
-            window.debounceSaveData();
+            if (!preventSave) window.debounceSaveData();
             
             if(!window.appState.students || window.appState.students.length === 0) {
                 showCustomModal('alert', 'Peringatan', "Harap tambahkan minimal 1 siswa!");
