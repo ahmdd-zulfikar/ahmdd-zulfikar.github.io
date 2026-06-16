@@ -1,4 +1,4 @@
-const GAS_URL = "https://script.google.com/macros/s/AKfycbwJ5xTkkYn8CuWU2cax8NdlkKXCMn5uCOy_68FaVJxXvFhFw9qu6ihCl4hvan7FpZ5niA/exec";
+export const GAS_URL = "https://script.google.com/macros/s/AKfycbwJ5xTkkYn8CuWU2cax8NdlkKXCMn5uCOy_68FaVJxXvFhFw9qu6ihCl4hvan7FpZ5niA/exec";
 
 export function initializeApp(config) { return {}; }
 export function getAuth() { return { currentUser: { uid: "anonymous-user" } }; }
