@@ -855,10 +855,7 @@
 
             classes.sort((a, b) => (a.createdAt || '').localeCompare(b.createdAt || ''));
 
-            if (classes.length === 0) {
-                await window.createNewClass("Kelas 8A (Contoh)");
-                return;
-            }
+        // removed fallback class creation
 
             let tree = {};
             classes.forEach(c => {
