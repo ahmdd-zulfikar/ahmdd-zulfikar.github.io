@@ -1244,8 +1244,8 @@
         }
 
         window.backTo = function(stepNum) { 
-            if (window.appState.currentStep === 3 && stepNum === 2) {
-                showCustomModal('prompt', 'Akses Terkunci', "Masukkan PIN untuk kembali ke pengaturan kunci jawaban.", () => {
+            if (window.appState.currentStep === 4 && stepNum === 3) {
+                showCustomModal('prompt', 'Akses Terkunci', "Masukkan PIN untuk mengubah data nilai siswa.", () => {
                     window.showStep(stepNum);
                 }, true);
             } else {
@@ -1771,8 +1771,8 @@
 
             calculatedResults.forEach((res, index) => {
                 let row = [index + 1, res.name];
-                res.pgDetails.forEach(status => row.push(status === 1 ? 'Benar' : (status === -1 ? 'Kosong' : 'Salah')));
-                res.pgkDetails.forEach(status => row.push(status === 1 ? 'Benar' : (status === -1 ? 'Kosong' : 'Salah')));
+                res.pgDetails.forEach(status => row.push(status === 1 ? '✔' : (status === -1 ? 'Kosong' : '✘')));
+                res.pgkDetails.forEach(status => row.push(status === 1 ? '✔' : (status === -1 ? 'Kosong' : '✘')));
                 res.uraianDetails.forEach(score => row.push(score));
                 row.push(res.total);
                 wsNilaiData.push(row);
