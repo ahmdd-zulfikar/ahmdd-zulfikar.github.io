@@ -115,3 +115,13 @@ export function onSnapshot(queryObj, callback, errorCallback) {
         clearInterval(interval);
     };
 }
+
+export async function verifyPinBackend(pin) {
+    const res = await fetch(GAS_URL, {
+        method: "POST",
+        headers: {"Content-Type": "text/plain"},
+        body: JSON.stringify({ action: "verifyPin", pin: pin })
+    });
+    const result = await res.json();
+    return result.status === "success";
+}

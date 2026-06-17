@@ -578,7 +578,7 @@
     <!-- LOGIKA FIREBASE & APLIKASI -->
     <script type="module">
         import { initializeApp } from "../firebase-mock.js";
-        import { getFirestore, collection, doc, setDoc, onSnapshot, getDocs, deleteDoc, addDoc } from "../firebase-mock.js";
+        import { getFirestore, collection, doc, setDoc, onSnapshot, getDocs, deleteDoc, addDoc, verifyPinBackend } from "../firebase-mock.js";
 
         // URL Google Apps Script Web App Anda (Ganti dengan URL dari langkah deployment GAS)
         const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwJ5xTkkYn8CuWU2cax8NdlkKXCMn5uCOy_68FaVJxXvFhFw9qu6ihCl4hvan7FpZ5niA/exec";
@@ -677,8 +677,9 @@
                         btnConfirm.disabled = true;
 
                         try {
-                            // Cek PIN lokal (menggantikan GAS verifyPin)
-                            if (pinInputVal === "123456" || pinInputVal === "naylis&zulfi2019") {
+                            // Cek PIN via Backend GAS
+                            const isValid = await verifyPinBackend(pinInputVal);
+                            if (isValid) {
                                 closeModal();
                                 if(onConfirm) onConfirm();
                             } else {

@@ -429,7 +429,7 @@
     <script type="module">
         import { initializeApp } from "../firebase-mock.js";
         import { getAuth, signInAnonymously, onAuthStateChanged } from "../firebase-mock.js";
-        import { getFirestore, collection, addDoc, getDocs, doc, deleteDoc, onSnapshot } from "../firebase-mock.js";
+        import { getFirestore, collection, addDoc, getDocs, doc, deleteDoc, onSnapshot, verifyPinBackend } from "../firebase-mock.js";
 
         // --- FIREBASE CONFIG ---
         const firebaseConfig = {
@@ -790,7 +790,7 @@
                 confirmButtonText: 'Lanjut'
             });
 
-            if (!pin || btoa(pin) !== "NDQzNTg4") {
+            if (!pin || !(await verifyPinBackend(pin))) {
                 if (pin) Swal.fire('Ditolak', 'PIN yang Anda masukkan salah.', 'error');
                 return;
             }
@@ -1054,7 +1054,7 @@
                 confirmButtonText: 'Lihat Analisis'
             });
 
-            if (!pin || btoa(pin) !== "NDQzNTg4") {
+            if (!pin || !(await verifyPinBackend(pin))) {
                 if (pin) Swal.fire('Ditolak', 'PIN yang Anda masukkan salah.', 'error');
                 return;
             }
@@ -1151,7 +1151,7 @@
                 confirmButtonText: 'Hapus Data'
             });
 
-            if (pin && btoa(pin) === "NDQzNTg4") {
+            if (pin && (await verifyPinBackend(pin))) {
                 try {
                     await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', COLLECTION_NAME, docId));
                     Swal.fire('Terhapus', 'Data berhasil dihapus.', 'success');
@@ -1176,7 +1176,7 @@
                 confirmButtonText: 'Ya, Kosongkan'
             });
 
-            if (pin && btoa(pin) === "NDQzNTg4") {
+            if (pin && (await verifyPinBackend(pin))) {
                 try {
                     const q = collection(db, 'artifacts', appId, 'public', 'data', COLLECTION_NAME);
                     const snapshot = await getDocs(q);
