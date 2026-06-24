@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const contentArea = document.getElementById('content-area');
-    const a4Page = document.getElementById('a4-page');
+    const f4Page = document.getElementById('f4-page');
     const pageWrapper = document.getElementById('page-wrapper');
     const viewport = document.getElementById('viewport');
     const pageIndicator = document.getElementById('page-indicator');
@@ -52,9 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function fitToScreen() {
         const vpHeight = viewport.clientHeight - 60;
         const vpWidth = viewport.clientWidth - 40;
-        // A4 in px at 96dpi: 210mm ≈ 793.7px, 297mm ≈ 1122.5px
-        const pageW = 793.7;
-        const pageH = 1122.5;
+        // F4 in px at 96dpi: 215mm ≈ 812.6px, 330mm ≈ 1247.2px
+        const pageW = 812.6;
+        const pageH = 1247.2;
         zoom = Math.min(vpWidth / pageW, vpHeight / pageH);
         zoom = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, zoom));
         applyZoom();
@@ -106,23 +106,19 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Page flip animation
-        if (direction) {
-            a4Page.classList.add('flip-out');
-            setTimeout(() => {
-                buildContent(pageData);
-                a4Page.classList.remove('flip-out');
-                a4Page.classList.add('flip-in');
-                setTimeout(() => a4Page.classList.remove('flip-in'), 250);
-                viewport.scrollTop = 0;
-            }, 250);
-        } else {
-            buildContent(pageData);
-        }
+        buildContent(pageData, pageNum);
+        viewport.scrollTop = 0;
     }
 
-    function buildContent(pageData) {
+    function buildContent(pageData, pageNum) {
         contentArea.innerHTML = '';
+        
+        // Push content down specifically for page 144
+        if (pageNum === 144) {
+            contentArea.style.paddingTop = '65mm';
+        } else {
+            contentArea.style.paddingTop = '0';
+        }
 
         pageData.forEach(block => {
             const blockEl = document.createElement('div');
