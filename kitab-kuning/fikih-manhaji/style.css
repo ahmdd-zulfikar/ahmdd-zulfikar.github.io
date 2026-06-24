@@ -125,9 +125,6 @@ html, body {
 .viewport {
     height: calc(100vh - 44px);
     overflow: auto;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
     padding: 30px 20px 60px;
 }
 
@@ -136,6 +133,8 @@ html, body {
     transform-origin: top center;
     transition: transform 0.2s ease;
     perspective: 1200px;
+    margin: 0 auto;
+    width: max-content;
 }
 
 .f4-page {
@@ -411,4 +410,32 @@ html, body {
     }
     .page-wrapper { transform: none !important; }
     .a4-page { box-shadow: none; }
+}
+
+/* ===== Responsive Mobile ===== */
+@media (max-width: 900px) {
+    .app-title {
+        display: none !important; /* Force hide title */
+    }
+    .toolbar-left {
+        display: none !important;
+    }
+    .toolbar {
+        padding: 0 4px;
+        justify-content: space-between;
+    }
+    .toolbar-center, .toolbar-right {
+        flex: unset;
+        gap: 2px;
+    }
+    .page-info {
+        font-size: 13px;
+        min-width: 50px;
+    }
+    .zoom-info {
+        min-width: 38px;
+    }
+    .viewport {
+        padding: 15px 10px 40px;
+    }
 }
