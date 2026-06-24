@@ -123,12 +123,13 @@ html, body {
 /* ===== A4 Page ===== */
 .a4-page {
     width: 210mm;
-    min-height: 297mm;
+    height: 297mm;
     background: var(--page-bg);
     box-shadow: 0 2px 16px var(--page-shadow);
     padding: 20mm 18mm 25mm 18mm;
     position: relative;
     transition: background 0.3s;
+    overflow: hidden;
 }
 
 .page-number-top {
