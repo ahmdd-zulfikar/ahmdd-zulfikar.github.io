@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // State
-    let currentPage = 144;
+    let currentPage = localStorage.getItem('currentPage') ? parseInt(localStorage.getItem('currentPage'), 10) : 144;
     let zoom = 1;
     const ZOOM_STEP = 0.1;
     const ZOOM_MIN = 0.4;
@@ -172,6 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const idx = keys.indexOf(currentPage);
         if (idx > 0) {
             currentPage = keys[idx - 1];
+            localStorage.setItem('currentPage', currentPage);
             updateNav();
             renderPage(currentPage, 'prev');
         }
@@ -182,6 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const idx = keys.indexOf(currentPage);
         if (idx < keys.length - 1) {
             currentPage = keys[idx + 1];
+            localStorage.setItem('currentPage', currentPage);
             updateNav();
             renderPage(currentPage, 'next');
         }
