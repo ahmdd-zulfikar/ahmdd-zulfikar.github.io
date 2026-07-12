@@ -334,6 +334,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnWhite = document.getElementById('theme-white');
     const btnTranslate = document.getElementById('toggle-translation');
     const btnHarakat = document.getElementById('toggle-harakat');
+    const btnFullscreen = document.getElementById('toggle-fullscreen');
+
+    btnFullscreen.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen().catch(err => {
+                console.log(`Error attempting to enable fullscreen: ${err.message}`);
+            });
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+        }
+    });
 
     btnHarakat.addEventListener('click', () => {
         isHarakatVisible = !isHarakatVisible;
@@ -364,6 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
         contentArea.classList.remove('theme-white');
         btnYellow.classList.add('active');
         btnWhite.classList.remove('active');
+        document.getElementById('page-wrapper').style.backgroundColor = 'var(--paper-yellow-bg)';
     });
 
     btnWhite.addEventListener('click', () => {
@@ -371,6 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
         contentArea.classList.remove('theme-yellow');
         btnWhite.classList.add('active');
         btnYellow.classList.remove('active');
+        document.getElementById('page-wrapper').style.backgroundColor = 'var(--paper-white-bg)';
     });
 
     // Initial render

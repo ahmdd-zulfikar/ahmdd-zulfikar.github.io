@@ -153,17 +153,19 @@ button {
 .viewer-wrapper {
     flex: 1;
     overflow: auto; /* allow both vertical and horizontal scroll */
-    padding: 40px 20px;
-    background-color: #e2e8f0;
+    padding: 0;
+    background-color: var(--paper-yellow-bg);
+    transition: background-color 0.3s;
 }
 
 /* A4 Page Styling */
 .a4-page {
-    width: 190mm;
-    min-width: 750px; /* Force desktop view width to prevent wrapping */
-    min-height: 297mm;
+    width: 100%;
+    max-width: 768px;
+    min-width: 728px; /* Fit iPad 6th Gen */
+    min-height: 100%;
     margin: 0 auto; /* Center the page horizontally */
-    padding: 25mm 20mm;
+    padding: 40px 20px;
     position: relative;
     transition: transform 0.3s ease, background-color 0.3s, color 0.3s;
     transform-origin: top center;
@@ -175,13 +177,13 @@ button {
 .a4-page.theme-yellow {
     background-color: var(--paper-yellow-bg);
     color: var(--paper-yellow-text);
-    box-shadow: 0 4px 20px var(--paper-yellow-shadow);
+    box-shadow: none;
 }
 
 .a4-page.theme-white {
     background-color: var(--paper-white-bg);
     color: var(--paper-white-text);
-    box-shadow: 0 4px 20px var(--paper-white-shadow);
+    box-shadow: none;
 }
 
 /* Content Styling inside A4 */
