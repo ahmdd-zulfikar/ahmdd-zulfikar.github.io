@@ -1,207 +1,323 @@
 document.addEventListener('DOMContentLoaded', () => {
     const contentArea = document.getElementById('content-area');
-    const f4Page = document.getElementById('f4-page');
-    const pageWrapper = document.getElementById('page-wrapper');
-    const viewport = document.getElementById('viewport');
     const pageIndicator = document.getElementById('page-indicator');
-    const pageNumDisplay = document.getElementById('page-num-display');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
-    const zoomInBtn = document.getElementById('zoom-in');
-    const zoomOutBtn = document.getElementById('zoom-out');
-    const zoomFitBtn = document.getElementById('zoom-fit');
-    const zoomLevel = document.getElementById('zoom-level');
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIconLight = document.getElementById('theme-icon-light');
-    const themeIconDark = document.getElementById('theme-icon-dark');
+    const prevBtn = document.getElementById('prev-page');
+    const nextBtn = document.getElementById('next-page');
+    
+    // Popup Elements
+    const popup = document.getElementById('word-popup');
+    const overlay = document.getElementById('overlay');
+    const popupWord = document.getElementById('popup-word');
+    const popupTranslation = document.getElementById('popup-translation');
+    const popupRoot = document.getElementById('popup-root');
+    const popupExplanation = document.getElementById('popup-explanation');
+    const popupIrab = document.getElementById('popup-irab');
+    const popupJoined = document.getElementById('popup-joined');
+    const popupPronoun = document.getElementById('popup-pronoun');
+    const popupVerb = document.getElementById('popup-verb');
+    const popupFail = document.getElementById('popup-fail');
+    
+    const rootSection = document.getElementById('root-section');
+    const explanationSection = document.getElementById('explanation-section');
+    const irabSection = document.getElementById('irab-section');
+    const joinedSection = document.getElementById('joined-section');
+    const pronounSection = document.getElementById('pronoun-section');
+    const verbSection = document.getElementById('verb-section');
+    const failSection = document.getElementById('fail-section');
+    
+    const closePopupBtn = document.getElementById('close-popup');
 
-    // Convert number to Arabic-Indic numerals
-    function toArabicNum(n) {
-        const digits = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
-        return String(n).split('').map(d => digits[+d] || d).join('');
+    let currentPageIndex = 0;
+    let isTranslationMode = false;
+
+    // Convert numbers to Arabic numerals
+    function toArabicNum(num) {
+        return num.toString().replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
     }
 
-    // State
-    let currentPage = localStorage.getItem('currentPage') ? parseInt(localStorage.getItem('currentPage'), 10) : 144;
-    let zoom = 1;
-    const ZOOM_STEP = 0.1;
-    const ZOOM_MIN = 0.4;
-    const ZOOM_MAX = 2.5;
-
-    // Get sorted page keys
-    function getPageKeys() {
-        return Object.keys(pagesData).map(Number).sort((a, b) => a - b);
-    }
-
-    // Update navigation buttons
-    function updateNav() {
-        const keys = getPageKeys();
-        const idx = keys.indexOf(currentPage);
-        prevBtn.disabled = (idx <= 0);
-        nextBtn.disabled = (idx >= keys.length - 1);
-        pageIndicator.textContent = 'صفحة ' + toArabicNum(currentPage);
-        pageNumDisplay.textContent = toArabicNum(currentPage);
-    }
-
-    // Zoom functions
-    function applyZoom() {
-        pageWrapper.style.transform = `scale(${zoom})`;
-        zoomLevel.textContent = Math.round(zoom * 100) + '%';
-    }
-
-    function fitToScreen() {
-        const vpHeight = viewport.clientHeight - 60;
-        const vpWidth = viewport.clientWidth - 40;
-        // F4 in px at 96dpi: 215mm ≈ 812.6px, 330mm ≈ 1247.2px
-        const pageW = 812.6;
-        const pageH = 1247.2;
-        zoom = Math.min(vpWidth / pageW, vpHeight / pageH);
-        zoom = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, zoom));
-        applyZoom();
-    }
-
-    zoomInBtn.addEventListener('click', () => {
-        zoom = Math.min(ZOOM_MAX, zoom + ZOOM_STEP);
-        applyZoom();
-    });
-    zoomOutBtn.addEventListener('click', () => {
-        zoom = Math.max(ZOOM_MIN, zoom - ZOOM_STEP);
-        applyZoom();
-    });
-    zoomFitBtn.addEventListener('click', fitToScreen);
-
-    // Ctrl+scroll zoom
-    viewport.addEventListener('wheel', (e) => {
-        if (e.ctrlKey) {
-            e.preventDefault();
-            if (e.deltaY < 0) {
-                zoom = Math.min(ZOOM_MAX, zoom + ZOOM_STEP);
-            } else {
-                zoom = Math.max(ZOOM_MIN, zoom - ZOOM_STEP);
-            }
-            applyZoom();
-        }
-    }, { passive: false });
-
-    // Theme toggle
-    themeToggle.addEventListener('click', () => {
-        const isDark = document.body.getAttribute('data-theme') === 'dark';
-        if (isDark) {
-            document.body.removeAttribute('data-theme');
-            themeIconLight.style.display = '';
-            themeIconDark.style.display = 'none';
-        } else {
-            document.body.setAttribute('data-theme', 'dark');
-            themeIconLight.style.display = 'none';
-            themeIconDark.style.display = '';
-        }
-    });
-
-    // Render page content
-    function renderPage(pageNum, direction) {
-        const pageData = pagesData[pageNum];
-
-        if (!pageData) {
-            contentArea.innerHTML = '<p style="text-align:center; font-family: Inter, sans-serif; color: #888; padding-top: 40mm;">بيانات هذه الصفحة غير متوفرة</p>';
-            return;
-        }
-
-        buildContent(pageData, pageNum);
-        viewport.scrollTop = 0;
-    }
-
-    function buildContent(pageData, pageNum) {
+    function renderPage(index) {
         contentArea.innerHTML = '';
-        
-        // Push content down specifically for page 144
-        if (pageNum === 144) {
-            contentArea.style.paddingTop = '65mm';
-        } else {
-            contentArea.style.paddingTop = '0';
-        }
+        if (!fikihData || fikihData.length === 0) return;
 
-        pageData.forEach(block => {
-            const blockEl = document.createElement('div');
+        const pageData = fikihData[index];
+        pageIndicator.textContent = 'hal. ' + pageData.pageNumber;
 
-            if (block.type === 'heading') {
-                blockEl.className = 'heading-group';
-            } else if (block.type === 'subheading') {
-                blockEl.className = 'subheading-group';
+        pageData.blocks.forEach(block => {
+            if (isTranslationMode) {
+                if (block.type === 'title') {
+                    const titleEl = document.createElement('div');
+                    titleEl.className = 'title-id';
+                    titleEl.textContent = block.id;
+                    contentArea.appendChild(titleEl);
+                } else if (block.type === 'heading') {
+                    const headingEl = document.createElement('div');
+                    headingEl.className = 'subtitle-id';
+                    headingEl.textContent = block.id;
+                    contentArea.appendChild(headingEl);
+                } else {
+                    const paragraphEl = document.createElement('div');
+                    paragraphEl.className = 'paragraph-id';
+                    paragraphEl.textContent = block.id;
+                    contentArea.appendChild(paragraphEl);
+                }
             } else {
-                blockEl.className = 'paragraph-container';
-            }
-
-            if (block.lines) {
-                block.lines.forEach((lineWords, lineIndex) => {
-                    const lineEl = document.createElement('div');
-                    lineEl.className = 'line';
-
-                    if (block.type === 'paragraph' && lineIndex === block.lines.length - 1) {
-                        lineEl.classList.add('last-line');
-                    }
-
-                    lineWords.forEach(word => {
-                        const wordGroup = document.createElement('div');
-                        wordGroup.className = 'word-group';
-
-                        const arabicEl = document.createElement('span');
-                        arabicEl.className = 'arabic-word';
-                        arabicEl.textContent = word.ar;
-
-                        const maknaEl = document.createElement('span');
-                        maknaEl.className = 'makna';
-                        maknaEl.textContent = word.id;
-
-                        wordGroup.appendChild(arabicEl);
-                        wordGroup.appendChild(maknaEl);
-
-                        lineEl.appendChild(wordGroup);
-                    });
-
-                    blockEl.appendChild(lineEl);
+                if (block.type === 'title') {
+                    const header = document.createElement('div');
+                header.className = 'book-header';
+                
+                const frame = document.createElement('div');
+                frame.className = 'title-frame';
+                
+                const inner = document.createElement('div');
+                inner.className = 'title-inner';
+                
+                // Render words for title
+                block.words.forEach(wordData => {
+                    inner.appendChild(createWordElement(wordData));
+                    inner.appendChild(document.createTextNode(' '));
                 });
+                
+                frame.appendChild(inner);
+                header.appendChild(frame);
+                contentArea.appendChild(header);
+            } else if (block.type === 'heading') {
+                const heading = document.createElement('div');
+                heading.className = 'subtitle';
+                block.words.forEach(wordData => {
+                    heading.appendChild(createWordElement(wordData));
+                    heading.appendChild(document.createTextNode(' '));
+                });
+                contentArea.appendChild(heading);
+            } else {
+                const paragraph = document.createElement('div');
+                paragraph.className = 'paragraph';
+                block.words.forEach(wordData => {
+                    paragraph.appendChild(createWordElement(wordData));
+                    paragraph.appendChild(document.createTextNode(' '));
+                });
+                contentArea.appendChild(paragraph);
             }
-
-            contentArea.appendChild(blockEl);
+            }
         });
+
+        // Add page number at bottom
+        const pageNumEl = document.createElement('div');
+        pageNumEl.className = 'page-number';
+        pageNumEl.textContent = toArabicNum(pageData.pageNumber);
+        contentArea.appendChild(pageNumEl);
+
+        // Update Nav Buttons
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index === fikihData.length - 1;
     }
 
-    // Page navigation
+    let activeWordEl = null;
+
+    function createWordElement(wordData) {
+        const span = document.createElement('span');
+        span.className = 'word-interactive';
+        span.textContent = wordData.text;
+        
+        span.addEventListener('click', (e) => {
+            e.stopPropagation();
+            
+            // Remove active class from previous word
+            if (activeWordEl) activeWordEl.classList.remove('active');
+            
+            // Set active class
+            span.classList.add('active');
+            activeWordEl = span;
+            
+            // Populate Popup Data
+            popupWord.textContent = wordData.text.replace(/[﴾﴿.,:;]/g, '');
+            popupTranslation.textContent = wordData.translation || 'Belum ada terjemahan khusus.';
+            
+            if (wordData.root && wordData.root !== '-') {
+                rootSection.classList.remove('hidden');
+                popupRoot.textContent = wordData.root;
+            } else {
+                rootSection.classList.add('hidden');
+            }
+
+            if (wordData.verb_type && wordData.verb_type !== '-') {
+                verbSection.classList.remove('hidden');
+                popupVerb.textContent = wordData.verb_type;
+            } else {
+                verbSection.classList.add('hidden');
+            }
+
+            if (wordData.fail_ref && wordData.fail_ref !== '-') {
+                failSection.classList.remove('hidden');
+                popupFail.textContent = wordData.fail_ref;
+            } else {
+                failSection.classList.add('hidden');
+            }
+
+            if (wordData.irab && wordData.irab !== '-') {
+                irabSection.classList.remove('hidden');
+                popupIrab.textContent = wordData.irab;
+            } else {
+                irabSection.classList.add('hidden');
+            }
+
+            if (wordData.joined_explanation && wordData.joined_explanation !== '-') {
+                joinedSection.classList.remove('hidden');
+                popupJoined.textContent = wordData.joined_explanation;
+            } else {
+                joinedSection.classList.add('hidden');
+            }
+
+            if (wordData.pronoun_ref && wordData.pronoun_ref !== '-') {
+                pronounSection.classList.remove('hidden');
+                popupPronoun.textContent = wordData.pronoun_ref;
+            } else {
+                pronounSection.classList.add('hidden');
+            }
+
+            if (wordData.explanation && wordData.explanation !== '-') {
+                explanationSection.classList.remove('hidden');
+                popupExplanation.textContent = wordData.explanation;
+            } else {
+                explanationSection.classList.add('hidden');
+            }
+            
+            // Show Popup
+            overlay.classList.remove('hidden');
+            popup.classList.remove('hidden');
+            // Small timeout to allow display:block to apply before adding class for opacity transition
+            setTimeout(() => {
+                popup.classList.add('show');
+                positionPopup(span);
+            }, 10);
+        });
+        
+        return span;
+    }
+
+    function positionPopup(targetEl) {
+        const rect = targetEl.getBoundingClientRect();
+        const popupRect = popup.getBoundingClientRect();
+        
+        // Try placing below first
+        let top = rect.bottom + 10;
+        let left = rect.left + (rect.width / 2) - (popupRect.width / 2);
+        let isTop = false;
+        
+        // If it goes below screen, place above
+        if (top + popupRect.height > window.innerHeight) {
+            top = rect.top - popupRect.height - 10;
+            isTop = true;
+        }
+        
+        // Prevent top cutoff if placed above but doesn't fit
+        if (top < 10) {
+            top = 10;
+            // If it doesn't fit above, try forcing it below and let container scroll or overlap
+            if (isTop) {
+                top = rect.bottom + 10;
+                isTop = false;
+            }
+        }
+        
+        // Adjust horizontal bounds
+        if (left < 10) left = 10;
+        if (left + popupRect.width > window.innerWidth - 10) {
+            left = window.innerWidth - popupRect.width - 10;
+        }
+        
+        popup.style.top = top + 'px';
+        popup.style.left = left + 'px';
+        
+        if (isTop) {
+            popup.classList.remove('arrow-top');
+        } else {
+            popup.classList.add('arrow-top');
+        }
+        
+        // Adjust arrow position horizontally to point to word
+        const arrow = popup.querySelector('.popup-arrow');
+        let arrowLeft = rect.left + (rect.width / 2) - left - 7;
+        // Keep arrow within popup bounds
+        arrowLeft = Math.max(10, Math.min(arrowLeft, popupRect.width - 24));
+        arrow.style.left = arrowLeft + 'px';
+    }
+
+    function hidePopup() {
+        if (activeWordEl) {
+            activeWordEl.classList.remove('active');
+            activeWordEl = null;
+        }
+        popup.classList.remove('show');
+        setTimeout(() => {
+            if (!popup.classList.contains('show')) {
+                popup.classList.add('hidden');
+                overlay.classList.add('hidden');
+            }
+        }, 200);
+    }
+
+    closePopupBtn.addEventListener('click', hidePopup);
+    overlay.addEventListener('click', hidePopup);
+    window.addEventListener('resize', () => {
+        if (popup.classList.contains('show') && activeWordEl) {
+            positionPopup(activeWordEl);
+        }
+    });
+    // Also reposition on scroll inside viewer
+    document.getElementById('page-wrapper').addEventListener('scroll', () => {
+        if (popup.classList.contains('show') && activeWordEl) {
+            positionPopup(activeWordEl);
+        }
+    });
+
+    // Navigation
     prevBtn.addEventListener('click', () => {
-        const keys = getPageKeys();
-        const idx = keys.indexOf(currentPage);
-        if (idx > 0) {
-            currentPage = keys[idx - 1];
-            localStorage.setItem('currentPage', currentPage);
-            updateNav();
-            renderPage(currentPage, 'prev');
+        if (currentPageIndex > 0) {
+            currentPageIndex--;
+            renderPage(currentPageIndex);
+            hidePopup();
         }
     });
 
     nextBtn.addEventListener('click', () => {
-        const keys = getPageKeys();
-        const idx = keys.indexOf(currentPage);
-        if (idx < keys.length - 1) {
-            currentPage = keys[idx + 1];
-            localStorage.setItem('currentPage', currentPage);
-            updateNav();
-            renderPage(currentPage, 'next');
+        if (currentPageIndex < fikihData.length - 1) {
+            currentPageIndex++;
+            renderPage(currentPageIndex);
+            hidePopup();
         }
     });
 
-    // Keyboard shortcuts
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') nextBtn.click();   // Next page (RTL)
-        if (e.key === 'ArrowRight') prevBtn.click();  // Prev page (RTL)
-        if (e.key === '+' || e.key === '=') { e.preventDefault(); zoomInBtn.click(); }
-        if (e.key === '-') { e.preventDefault(); zoomOutBtn.click(); }
+    // Theme Switcher
+    const btnYellow = document.getElementById('theme-yellow');
+    const btnWhite = document.getElementById('theme-white');
+    const btnTranslate = document.getElementById('toggle-translation');
+
+    btnTranslate.addEventListener('click', () => {
+        isTranslationMode = !isTranslationMode;
+        if (isTranslationMode) {
+            btnTranslate.classList.add('active');
+            btnTranslate.style.color = '#3b82f6';
+        } else {
+            btnTranslate.classList.remove('active');
+            btnTranslate.style.color = '';
+        }
+        renderPage(currentPageIndex);
+    });
+
+    btnYellow.addEventListener('click', () => {
+        contentArea.classList.add('theme-yellow');
+        contentArea.classList.remove('theme-white');
+        btnYellow.classList.add('active');
+        btnWhite.classList.remove('active');
+    });
+
+    btnWhite.addEventListener('click', () => {
+        contentArea.classList.add('theme-white');
+        contentArea.classList.remove('theme-yellow');
+        btnWhite.classList.add('active');
+        btnYellow.classList.remove('active');
     });
 
     // Initial render
-    if (typeof pagesData !== 'undefined') {
-        updateNav();
-        zoom = 1;
-        applyZoom();
-        renderPage(currentPage);
-    }
+    renderPage(currentPageIndex);
 });

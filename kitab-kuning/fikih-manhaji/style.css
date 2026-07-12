@@ -1,441 +1,422 @@
-/* ===== CSS Variables ===== */
 :root {
-    --bg-color: #525659;
-    --toolbar-bg: #323639;
-    --toolbar-text: #ccc;
-    --page-bg: #e5c786; /* Kertas kuning khas pesantren (dari foto) */
-    --page-shadow: rgba(0,0,0,0.35);
-    --arabic-text: #1a1a1a;
-    --makna-text: #1a1a1a; /* Teks terjemah hitam */
-    --primary-color: #1a1a1a; /* Judul utama juga hitam */
-    --btn-hover: #484b4f;
+    /* UI Colors */
+    --ui-bg: #1e293b;
+    --ui-text: #f8fafc;
+    --ui-border: #334155;
+    --ui-hover: #334155;
+    --ui-accent: #3b82f6;
+
+    /* Theme: Yellow (Pesantren) */
+    --paper-yellow-bg: #ecdcb3;
+    --paper-yellow-text: #1a1a1a;
+    --paper-yellow-border: #d1b986;
+    --paper-yellow-shadow: rgba(189, 163, 110, 0.4);
+
+    /* Theme: White */
+    --paper-white-bg: #ffffff;
+    --paper-white-text: #1a1a1a;
+    --paper-white-border: #e2e8f0;
+    --paper-white-shadow: rgba(0, 0, 0, 0.1);
+
+    /* Popup Colors */
+    --popup-bg: rgba(255, 255, 255, 0.95);
+    --popup-border: rgba(226, 232, 240, 0.8);
+    --popup-text: #334155;
+    --popup-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 }
 
-[data-theme="dark"] {
-    --page-bg: #2a2a28;
-    --arabic-text: #e8e4d8;
-    --makna-text: #8db87a;
-    --primary-color: #8db87a;
-}
-
-/* ===== Reset ===== */
-*, *::before, *::after {
-    box-sizing: border-box;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-    overflow: hidden;
+body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--bg-color);
-    transition: background-color 0.3s;
+    background-color: #f1f5f9;
+    color: #334155;
+    overflow: hidden; /* We manage scrolling in the wrapper */
 }
 
-/* ===== Toolbar (PDF-reader style) ===== */
+/* Application Container */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Toolbar */
 .toolbar {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    height: 44px;
-    padding: 0 16px;
-    background: var(--toolbar-bg);
-    color: var(--toolbar-text);
-    user-select: none;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: var(--ui-bg);
+    color: var(--ui-text);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     z-index: 100;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 .toolbar-left, .toolbar-right {
     display: flex;
     align-items: center;
-    gap: 8px;
-    flex: 1;
-}
-
-.toolbar-left {
-    justify-content: flex-start;
-}
-
-.toolbar-right {
-    justify-content: flex-end;
-}
-
-.toolbar-center {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    justify-content: center;
+    gap: 16px;
 }
 
 .app-title {
     font-family: 'Amiri', serif;
-    font-size: 18px;
-    color: #e0ddd0;
-    letter-spacing: 1px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--ui-text);
+    background: var(--ui-border);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.nav-btn:hover {
+    background: var(--ui-hover);
+}
+
+.nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#page-indicator {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0 8px;
+}
+
+/* Theme Switcher */
+.theme-switcher {
+    display: flex;
+    gap: 8px;
+    padding: 4px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 20px;
+}
+
+.theme-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition: transform 0.2s;
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+}
+
+.theme-btn.active {
+    border-color: var(--ui-accent);
+}
+
+#theme-yellow {
+    background-color: var(--paper-yellow-bg);
+}
+
+#theme-white {
+    background-color: var(--paper-white-bg);
 }
 
 .tool-btn {
+    color: var(--ui-text);
+    padding: 6px;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
-    border: none;
-    border-radius: 4px;
-    background: transparent;
-    color: var(--toolbar-text);
-    cursor: pointer;
-    transition: background 0.15s;
 }
+
 .tool-btn:hover {
-    background: var(--btn-hover);
+    background: var(--ui-hover);
 }
-.tool-btn:disabled {
-    opacity: 0.35;
-    cursor: not-allowed;
+
+/* Document Viewer */
+.viewer-wrapper {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    background-color: #e2e8f0;
 }
-.tool-btn:disabled:hover {
+
+/* A4 Page Styling */
+.a4-page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 25mm 20mm;
+    position: relative;
+    transition: transform 0.3s ease, background-color 0.3s, color 0.3s;
+    transform-origin: top center;
+    font-family: 'Amiri', serif;
+    direction: rtl;
+    line-height: 2.2;
+}
+
+.a4-page.theme-yellow {
+    background-color: var(--paper-yellow-bg);
+    color: var(--paper-yellow-text);
+    box-shadow: 0 4px 20px var(--paper-yellow-shadow);
+}
+
+.a4-page.theme-white {
+    background-color: var(--paper-white-bg);
+    color: var(--paper-white-text);
+    box-shadow: 0 4px 20px var(--paper-white-shadow);
+}
+
+/* Content Styling inside A4 */
+.book-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title-frame {
+    display: inline-block;
+    padding: 10px 40px;
+    border: 3px double #1a1a1a;
+    outline: 1px solid #1a1a1a;
+    outline-offset: -5px;
+    font-size: 38px;
+    font-weight: normal; /* Classic Arabic calligraphy style is usually not bolded digitally */
+    margin: 0 auto;
     background: transparent;
 }
 
-.page-info {
-    font-family: 'Amiri', serif;
-    font-size: 15px;
-    min-width: 80px;
-    text-align: center;
+.title-inner {
+    display: inline-block;
 }
 
-.zoom-info {
-    font-size: 13px;
-    min-width: 42px;
-    text-align: center;
-    font-variant-numeric: tabular-nums;
+.a4-page.theme-yellow .title-inner { background: var(--paper-yellow-bg); }
+.a4-page.theme-white .title-inner { background: var(--paper-white-bg); }
+
+.paragraph {
+    text-indent: 0;
+    margin-bottom: 20px;
+    text-align: justify;
+    font-size: 22px;
 }
 
-.separator {
-    width: 1px;
-    height: 22px;
-    background: rgba(255,255,255,0.15);
-    margin: 0 4px;
+.subtitle {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    display: block;
 }
 
-/* ===== Viewport (scrollable area) ===== */
-.viewport {
-    height: calc(100vh - 44px);
-    overflow: auto;
-    padding: 30px 20px 60px;
+.word-interactive {
+    display: inline-block;
+    cursor: pointer;
+    padding: 0 2px;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
 }
 
-/* ===== Transition for page flip ===== */
-.page-wrapper {
-    transform-origin: top center;
-    transition: transform 0.2s ease;
-    perspective: 1200px;
-    margin: 0 auto;
-    width: max-content;
+.word-interactive:hover, .word-interactive.active {
+    background-color: rgba(59, 130, 246, 0.15);
+    color: #1d4ed8;
 }
 
-.f4-page {
-    transform-style: preserve-3d;
-}
-
-/* ===== NEXT PAGE (maju) — lipat ke kiri ===== */
-.f4-page.flip-out-next {
-    animation: turnOutNext 0.6s ease-in forwards;
-    transform-origin: left center;
-}
-.f4-page.flip-in-next {
-    animation: turnInNext 0.55s ease-out forwards;
-    transform-origin: left center;
-}
-
-/* ===== PREV PAGE (mundur) — lipat ke kanan ===== */
-.f4-page.flip-out-prev {
-    animation: turnOutPrev 0.6s ease-in forwards;
-    transform-origin: right center;
-}
-.f4-page.flip-in-prev {
-    animation: turnInPrev 0.55s ease-out forwards;
-    transform-origin: right center;
-}
-
-/* --- Next: halaman terlipat keluar ke kiri --- */
-@keyframes turnOutNext {
-    0% {
-        transform: rotateY(0deg) skewY(0deg);
-        opacity: 1;
-        box-shadow: 0 2px 16px var(--page-shadow);
-    }
-    20% {
-        transform: rotateY(-15deg) skewY(1.5deg);
-        opacity: 1;
-        box-shadow: -4px 6px 18px rgba(0,0,0,0.35);
-    }
-    50% {
-        transform: rotateY(-55deg) skewY(3deg);
-        opacity: 0.85;
-        box-shadow: -10px 8px 25px rgba(0,0,0,0.45);
-    }
-    80% {
-        transform: rotateY(-85deg) skewY(1deg);
-        opacity: 0.4;
-        box-shadow: -4px 4px 15px rgba(0,0,0,0.3);
-    }
-    100% {
-        transform: rotateY(-110deg) skewY(0deg);
-        opacity: 0;
-        box-shadow: 0 0 0 transparent;
-    }
-}
-
-/* --- Next: halaman baru masuk dari kanan --- */
-@keyframes turnInNext {
-    0% {
-        transform: rotateY(110deg) skewY(0deg);
-        opacity: 0;
-        box-shadow: 0 0 0 transparent;
-    }
-    30% {
-        transform: rotateY(70deg) skewY(-2deg);
-        opacity: 0.5;
-        box-shadow: 8px 6px 20px rgba(0,0,0,0.35);
-    }
-    60% {
-        transform: rotateY(25deg) skewY(-2.5deg);
-        opacity: 0.9;
-        box-shadow: 6px 8px 22px rgba(0,0,0,0.4);
-    }
-    85% {
-        transform: rotateY(5deg) skewY(-0.5deg);
-        opacity: 1;
-        box-shadow: 2px 4px 16px rgba(0,0,0,0.3);
-    }
-    100% {
-        transform: rotateY(0deg) skewY(0deg);
-        opacity: 1;
-        box-shadow: 0 2px 16px var(--page-shadow);
-    }
-}
-
-/* --- Prev: halaman terlipat keluar ke kanan --- */
-@keyframes turnOutPrev {
-    0% {
-        transform: rotateY(0deg) skewY(0deg);
-        opacity: 1;
-        box-shadow: 0 2px 16px var(--page-shadow);
-    }
-    20% {
-        transform: rotateY(15deg) skewY(-1.5deg);
-        opacity: 1;
-        box-shadow: 4px 6px 18px rgba(0,0,0,0.35);
-    }
-    50% {
-        transform: rotateY(55deg) skewY(-3deg);
-        opacity: 0.85;
-        box-shadow: 10px 8px 25px rgba(0,0,0,0.45);
-    }
-    80% {
-        transform: rotateY(85deg) skewY(-1deg);
-        opacity: 0.4;
-        box-shadow: 4px 4px 15px rgba(0,0,0,0.3);
-    }
-    100% {
-        transform: rotateY(110deg) skewY(0deg);
-        opacity: 0;
-        box-shadow: 0 0 0 transparent;
-    }
-}
-
-/* --- Prev: halaman lama masuk dari kiri --- */
-@keyframes turnInPrev {
-    0% {
-        transform: rotateY(-110deg) skewY(0deg);
-        opacity: 0;
-        box-shadow: 0 0 0 transparent;
-    }
-    30% {
-        transform: rotateY(-70deg) skewY(2deg);
-        opacity: 0.5;
-        box-shadow: -8px 6px 20px rgba(0,0,0,0.35);
-    }
-    60% {
-        transform: rotateY(-25deg) skewY(2.5deg);
-        opacity: 0.9;
-        box-shadow: -6px 8px 22px rgba(0,0,0,0.4);
-    }
-    85% {
-        transform: rotateY(-5deg) skewY(0.5deg);
-        opacity: 1;
-        box-shadow: -2px 4px 16px rgba(0,0,0,0.3);
-    }
-    100% {
-        transform: rotateY(0deg) skewY(0deg);
-        opacity: 1;
-        box-shadow: 0 2px 16px var(--page-shadow);
-    }
-}
-.f4-page {
-    width: 215mm;
-    height: 330mm;
-    background: var(--page-bg);
-    box-shadow: 0 2px 16px var(--page-shadow);
-    padding: 12mm 28mm 12mm 28mm; /* Reduced padding top/bottom to maximize height, 28mm horizontal */
-    position: relative;
-    transition: background 0.3s;
-}
-
-.page-number-bottom {
+.page-number {
     position: absolute;
-    bottom: 8mm;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Amiri', serif;
-    font-size: 14px;
-    color: #666;
+    bottom: 15mm;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
 }
 
-/* ===== Makna Pesantren Layout ===== */
-.content-area {
-    direction: rtl;
-    text-align: right;
+/* Overlay */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 998;
+    background: transparent;
 }
 
-.line {
+.hidden {
+    display: none !important;
+}
+
+/* Popup Modal */
+.popup {
+    position: absolute; /* Will be positioned by JS */
+    z-index: 999;
+    width: 300px;
+    background: var(--popup-bg);
+    border: 1px solid var(--popup-border);
+    border-radius: 12px;
+    box-shadow: var(--popup-shadow);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 16px;
+    direction: ltr; /* Content is mostly Indonesian */
+    font-family: 'Inter', sans-serif;
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    pointer-events: none;
+}
+
+.popup.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.popup-arrow {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: var(--popup-bg);
+    border-right: 1px solid var(--popup-border);
+    border-bottom: 1px solid var(--popup-border);
+    transform: rotate(45deg);
+    bottom: -7px;
+    left: calc(50% - 7px);
+}
+
+.popup.arrow-top .popup-arrow {
+    bottom: auto;
+    top: -7px;
+    border-right: none;
+    border-bottom: none;
+    border-left: 1px solid var(--popup-border);
+    border-top: 1px solid var(--popup-border);
+}
+
+.popup-header {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 20px; /* Reduced vertical gap to fit more lines */
-    flex-wrap: nowrap;
-}
-
-.line.last-line {
-    justify-content: flex-start;
-    gap: 12px;
-}
-
-.word-group {
-    position: relative;
-    display: inline-flex;
-    flex-direction: column;
     align-items: center;
-    padding-left: 6px; /* give some room for slanted pegon */
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .arabic-word {
     font-family: 'Amiri', serif;
-    font-size: 18px; /* Reduced size to prevent vertical overflow */
-    color: var(--arabic-text);
-    white-space: nowrap;
-    line-height: 1.35;
-}
-
-.makna {
-    position: absolute;
-    bottom: -6px; /* Anchor to bottom */
-    right: 5px;
-    font-size: 9px; /* Reduced size */
-    font-family: 'Amiri', serif;
-    color: var(--makna-text);
-    white-space: normal;
-    max-width: 55px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e293b;
+    direction: rtl;
+    width: 100%;
     text-align: right;
-    transform: rotate(-45deg);
-    transform-origin: bottom right; /* Stack upwards and to the right */
-    pointer-events: none;
-    line-height: 1.15;
 }
 
-/* Block types */
-.heading-group {
-    margin-bottom: 6px;
+.close-btn {
+    font-size: 24px;
+    color: #94a3b8;
+    line-height: 1;
+    padding: 0 4px;
 }
-.heading-group .line {
-    justify-content: center;
-    margin-bottom: 30px; /* Reduced */
+
+.close-btn:hover {
+    color: #ef4444;
 }
-.heading-group .arabic-word {
-    font-size: 26px; /* Adjusted */
+
+.popup-section {
+    margin-bottom: 12px;
+}
+
+.popup-section:last-child {
+    margin-bottom: 0;
+}
+
+.section-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #64748b;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.translation-text {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #0f172a;
+}
+
+.root-text {
+    font-family: 'Amiri', serif;
+    font-size: 1.2rem;
+    color: #3b82f6;
+    direction: rtl;
+    text-align: right;
+}
+
+.explanation-text {
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.irab-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #8b5cf6;
+}
+
+/* Translation Mode Styling */
+.title-id {
+    display: block;
+    font-size: 24px;
     font-weight: bold;
-    color: var(--primary-color);
-}
-.heading-group .makna {
-    font-size: 13px;
-}
-
-.subheading-group {
-    margin-top: 4px;
-}
-.subheading-group .line {
-    justify-content: flex-start;
-    margin-bottom: 26px; /* Reduced */
-    gap: 6px;
-}
-.subheading-group .arabic-word {
-    font-size: 20px; /* Adjusted */
-    font-weight: bold;
+    text-align: center;
+    direction: ltr;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 20px;
 }
 
-.paragraph-container .line:first-child {
-    padding-right: 24px;
+.subtitle-id {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    direction: ltr;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 10px;
+    color: #0f172a;
 }
 
-
-
-
-/* ===== Scrollbar Styling ===== */
-.viewport::-webkit-scrollbar {
-    width: 10px;
-}
-.viewport::-webkit-scrollbar-track {
-    background: rgba(0,0,0,0.15);
-}
-.viewport::-webkit-scrollbar-thumb {
-    background: rgba(255,255,255,0.2);
-    border-radius: 5px;
-}
-.viewport::-webkit-scrollbar-thumb:hover {
-    background: rgba(255,255,255,0.35);
+.paragraph-id {
+    direction: ltr;
+    text-align: justify;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #1e293b;
 }
 
-/* ===== Print ===== */
-@media print {
-    .toolbar { display: none; }
-    .viewport {
-        height: auto;
-        overflow: visible;
-        padding: 0;
-    }
-    .page-wrapper { transform: none !important; }
-    .a4-page { box-shadow: none; }
+.a4-page.theme-yellow .subtitle-id,
+.a4-page.theme-yellow .paragraph-id {
+    color: #1a1a1a;
 }
 
-/* ===== Responsive Mobile ===== */
-@media (max-width: 900px) {
-    .app-title {
-        display: none !important; /* Force hide title */
-    }
-    .toolbar-left {
-        display: none !important;
-    }
-    .toolbar {
-        padding: 0 4px;
-        justify-content: space-between;
-    }
-    .toolbar-center, .toolbar-right {
-        flex: unset;
-        gap: 2px;
-    }
-    .page-info {
-        font-size: 13px;
-        min-width: 50px;
-    }
-    .zoom-info {
-        min-width: 38px;
-    }
-    .viewport {
-        padding: 15px 10px 40px;
-    }
-}
