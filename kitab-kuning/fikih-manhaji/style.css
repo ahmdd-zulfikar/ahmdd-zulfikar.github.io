@@ -159,8 +159,8 @@ button {
 
 /* A4 Page Styling */
 .a4-page {
-    width: 210mm;
-    min-width: 800px; /* Force desktop view width to prevent wrapping */
+    width: 190mm;
+    min-width: 750px; /* Force desktop view width to prevent wrapping */
     min-height: 297mm;
     margin: 0 auto; /* Center the page horizontally */
     padding: 25mm 20mm;
