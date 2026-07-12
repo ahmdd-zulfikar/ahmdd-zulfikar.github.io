@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!fikihData || fikihData.length === 0) return;
 
         const pageData = fikihData[index];
-        pageIndicator.textContent = pageData.pageNumber;
 
         pageData.blocks.forEach(block => {
             if (isTranslationMode) {
@@ -69,75 +68,44 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 if (block.type === 'title') {
                     const header = document.createElement('div');
-                header.className = 'book-header';
-                
-                const frame = document.createElement('div');
-                frame.className = 'title-frame';
-                
-                const inner = document.createElement('div');
-                inner.className = 'title-inner';
-                
-                // Render words for title
-                let currentTitleLine = document.createElement('div');
-                currentTitleLine.className = 'line-justified';
-                block.words.forEach(wordData => {
-                    currentTitleLine.appendChild(createWordElement(wordData));
-                    currentTitleLine.appendChild(document.createTextNode(' '));
-                    if (wordData.br) {
-                        inner.appendChild(currentTitleLine);
-                        currentTitleLine = document.createElement('div');
-                        currentTitleLine.className = 'line-justified';
-                    }
-                });
-                if (currentTitleLine.childNodes.length > 0) {
-                    currentTitleLine.className = 'line-last-center';
-                    inner.appendChild(currentTitleLine);
+                    header.className = 'book-header';
+                    
+                    const frame = document.createElement('div');
+                    frame.className = 'title-frame';
+                    
+                    const inner = document.createElement('div');
+                    inner.className = 'title-inner';
+                    
+                    // Render words for title naturally
+                    block.words.forEach(wordData => {
+                        inner.appendChild(createWordElement(wordData));
+                        inner.appendChild(document.createTextNode(' '));
+                    });
+                    
+                    frame.appendChild(inner);
+                    header.appendChild(frame);
+                    contentArea.appendChild(header);
+                } else if (block.type === 'heading') {
+                    const heading = document.createElement('div');
+                    heading.className = 'subtitle';
+                    
+                    block.words.forEach(wordData => {
+                        heading.appendChild(createWordElement(wordData));
+                        heading.appendChild(document.createTextNode(' '));
+                    });
+                    
+                    contentArea.appendChild(heading);
+                } else {
+                    const paragraph = document.createElement('div');
+                    paragraph.className = 'paragraph';
+                    
+                    block.words.forEach(wordData => {
+                        paragraph.appendChild(createWordElement(wordData));
+                        paragraph.appendChild(document.createTextNode(' '));
+                    });
+                    
+                    contentArea.appendChild(paragraph);
                 }
-                
-                frame.appendChild(inner);
-                header.appendChild(frame);
-                contentArea.appendChild(header);
-            } else if (block.type === 'heading') {
-                const heading = document.createElement('div');
-                heading.className = 'subtitle';
-                
-                let currentHeadingLine = document.createElement('div');
-                currentHeadingLine.className = 'line-justified';
-                block.words.forEach(wordData => {
-                    currentHeadingLine.appendChild(createWordElement(wordData));
-                    currentHeadingLine.appendChild(document.createTextNode(' '));
-                    if (wordData.br) {
-                        heading.appendChild(currentHeadingLine);
-                        currentHeadingLine = document.createElement('div');
-                        currentHeadingLine.className = 'line-justified';
-                    }
-                });
-                if (currentHeadingLine.childNodes.length > 0) {
-                    currentHeadingLine.className = 'line-last';
-                    heading.appendChild(currentHeadingLine);
-                }
-                contentArea.appendChild(heading);
-            } else {
-                const paragraph = document.createElement('div');
-                paragraph.className = 'paragraph';
-                
-                let currentLine = document.createElement('div');
-                currentLine.className = 'line-justified';
-                block.words.forEach(wordData => {
-                    currentLine.appendChild(createWordElement(wordData));
-                    currentLine.appendChild(document.createTextNode(' '));
-                    if (wordData.br) {
-                        paragraph.appendChild(currentLine);
-                        currentLine = document.createElement('div');
-                        currentLine.className = 'line-justified';
-                    }
-                });
-                if (currentLine.childNodes.length > 0) {
-                    currentLine.className = 'line-last';
-                    paragraph.appendChild(currentLine);
-                }
-                contentArea.appendChild(paragraph);
-            }
             }
         });
 
@@ -147,10 +115,14 @@ document.addEventListener('DOMContentLoaded', () => {
         pageNumEl.textContent = toArabicNum(pageData.pageNumber);
         contentArea.appendChild(pageNumEl);
 
+        pageIndicator.textContent = pageData.pageNumber;
+
         // Update Nav Buttons
         prevBtn.disabled = index === 0;
         nextBtn.disabled = index === fikihData.length - 1;
     }
+
+
 
     let activeWordEl = null;
 

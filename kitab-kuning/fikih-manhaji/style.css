@@ -165,7 +165,7 @@ button {
     min-width: 728px; /* Fit iPad 6th Gen */
     min-height: 100%;
     margin: 0 auto; /* Center the page horizontally */
-    padding: 40px 20px;
+    padding: 40px 20px 100px 20px; /* Large bottom padding to protect page number */
     position: relative;
     transition: transform 0.3s ease, background-color 0.3s, color 0.3s;
     transform-origin: top center;
