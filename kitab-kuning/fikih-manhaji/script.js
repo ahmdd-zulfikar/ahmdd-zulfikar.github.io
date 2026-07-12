@@ -29,10 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentPageIndex = 0;
     let isTranslationMode = false;
+    let isHarakatVisible = true;
 
     // Convert numbers to Arabic numerals
     function toArabicNum(num) {
         return num.toString().replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+    }
+
+    // Remove harakat from Arabic text
+    function removeHarakat(text) {
+        return text.replace(/[\u064B-\u065F\u0670]/g, '');
     }
 
     function renderPage(index) {
@@ -40,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!fikihData || fikihData.length === 0) return;
 
         const pageData = fikihData[index];
-        pageIndicator.textContent = 'hal. ' + pageData.pageNumber;
+        pageIndicator.textContent = pageData.pageNumber;
 
         pageData.blocks.forEach(block => {
             if (isTranslationMode) {
@@ -72,10 +78,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 inner.className = 'title-inner';
                 
                 // Render words for title
+                let currentTitleLine = document.createElement('div');
+                currentTitleLine.className = 'line-justified';
                 block.words.forEach(wordData => {
-                    inner.appendChild(createWordElement(wordData));
-                    inner.appendChild(document.createTextNode(' '));
+                    currentTitleLine.appendChild(createWordElement(wordData));
+                    currentTitleLine.appendChild(document.createTextNode(' '));
+                    if (wordData.br) {
+                        inner.appendChild(currentTitleLine);
+                        currentTitleLine = document.createElement('div');
+                        currentTitleLine.className = 'line-justified';
+                    }
                 });
+                if (currentTitleLine.childNodes.length > 0) {
+                    currentTitleLine.className = 'line-last-center';
+                    inner.appendChild(currentTitleLine);
+                }
                 
                 frame.appendChild(inner);
                 header.appendChild(frame);
@@ -83,18 +100,42 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (block.type === 'heading') {
                 const heading = document.createElement('div');
                 heading.className = 'subtitle';
+                
+                let currentHeadingLine = document.createElement('div');
+                currentHeadingLine.className = 'line-justified';
                 block.words.forEach(wordData => {
-                    heading.appendChild(createWordElement(wordData));
-                    heading.appendChild(document.createTextNode(' '));
+                    currentHeadingLine.appendChild(createWordElement(wordData));
+                    currentHeadingLine.appendChild(document.createTextNode(' '));
+                    if (wordData.br) {
+                        heading.appendChild(currentHeadingLine);
+                        currentHeadingLine = document.createElement('div');
+                        currentHeadingLine.className = 'line-justified';
+                    }
                 });
+                if (currentHeadingLine.childNodes.length > 0) {
+                    currentHeadingLine.className = 'line-last';
+                    heading.appendChild(currentHeadingLine);
+                }
                 contentArea.appendChild(heading);
             } else {
                 const paragraph = document.createElement('div');
                 paragraph.className = 'paragraph';
+                
+                let currentLine = document.createElement('div');
+                currentLine.className = 'line-justified';
                 block.words.forEach(wordData => {
-                    paragraph.appendChild(createWordElement(wordData));
-                    paragraph.appendChild(document.createTextNode(' '));
+                    currentLine.appendChild(createWordElement(wordData));
+                    currentLine.appendChild(document.createTextNode(' '));
+                    if (wordData.br) {
+                        paragraph.appendChild(currentLine);
+                        currentLine = document.createElement('div');
+                        currentLine.className = 'line-justified';
+                    }
                 });
+                if (currentLine.childNodes.length > 0) {
+                    currentLine.className = 'line-last';
+                    paragraph.appendChild(currentLine);
+                }
                 contentArea.appendChild(paragraph);
             }
             }
@@ -116,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function createWordElement(wordData) {
         const span = document.createElement('span');
         span.className = 'word-interactive';
-        span.textContent = wordData.text;
+        span.textContent = isHarakatVisible ? wordData.text : removeHarakat(wordData.text);
         
         span.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -129,7 +170,8 @@ document.addEventListener('DOMContentLoaded', () => {
             activeWordEl = span;
             
             // Populate Popup Data
-            popupWord.textContent = wordData.text.replace(/[﴾﴿.,:;]/g, '');
+            const displayText = isHarakatVisible ? wordData.text : removeHarakat(wordData.text);
+            popupWord.textContent = displayText.replace(/[﴾﴿.,:;]/g, '');
             popupTranslation.textContent = wordData.translation || 'Belum ada terjemahan khusus.';
             
             if (wordData.root && wordData.root !== '-') {
@@ -291,6 +333,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnYellow = document.getElementById('theme-yellow');
     const btnWhite = document.getElementById('theme-white');
     const btnTranslate = document.getElementById('toggle-translation');
+    const btnHarakat = document.getElementById('toggle-harakat');
+
+    btnHarakat.addEventListener('click', () => {
+        isHarakatVisible = !isHarakatVisible;
+        if (isHarakatVisible) {
+            btnHarakat.classList.add('active');
+            btnHarakat.style.color = '#3b82f6';
+        } else {
+            btnHarakat.classList.remove('active');
+            btnHarakat.style.color = '';
+        }
+        renderPage(currentPageIndex);
+    });
 
     btnTranslate.addEventListener('click', () => {
         isTranslationMode = !isTranslationMode;

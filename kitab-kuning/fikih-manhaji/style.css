@@ -152,18 +152,17 @@ button {
 /* Document Viewer */
 .viewer-wrapper {
     flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: auto; /* allow both vertical and horizontal scroll */
     padding: 40px 20px;
-    display: flex;
-    justify-content: center;
     background-color: #e2e8f0;
 }
 
 /* A4 Page Styling */
 .a4-page {
     width: 210mm;
+    min-width: 800px; /* Force desktop view width to prevent wrapping */
     min-height: 297mm;
+    margin: 0 auto; /* Center the page horizontally */
     padding: 25mm 20mm;
     position: relative;
     transition: transform 0.3s ease, background-color 0.3s, color 0.3s;
@@ -215,6 +214,23 @@ button {
     margin-bottom: 20px;
     text-align: justify;
     font-size: 22px;
+}
+
+.line-justified {
+    text-align: justify;
+    text-align-last: justify;
+    -moz-text-align-last: justify;
+    width: 100%;
+}
+
+.line-last {
+    text-align: right;
+    width: 100%;
+}
+
+.line-last-center {
+    text-align: center;
+    width: 100%;
 }
 
 .subtitle {

@@ -12,12 +12,14 @@
         <!-- Top Toolbar -->
         <div class="toolbar">
             <div class="toolbar-left" style="display:flex; align-items:center;">
-                <button id="prev-page" class="nav-btn" title="Halaman Sebelumnya">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-                </button>
-                <span id="page-indicator" style="margin: 0 10px; font-weight:bold;">hal. 99</span>
+                <!-- Karena RTL, elemen pertama di HTML akan muncul paling KANAN -->
                 <button id="next-page" class="nav-btn" title="Halaman Berikutnya">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+                <span id="page-indicator" style="margin: 0 10px; font-weight:bold;">99</span>
+                <!-- Elemen terakhir di HTML akan muncul paling KIRI -->
+                <button id="prev-page" class="nav-btn" title="Halaman Sebelumnya">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
                 </button>
             </div>
 
@@ -26,6 +28,9 @@
             </div>
             
             <div class="toolbar-right">
+                <button id="toggle-harakat" class="tool-btn active" title="Sembunyikan/Tampilkan Harakat" style="color: #3b82f6;">
+                    <span style="font-family:'Amiri',serif; font-size: 22px; font-weight:bold; line-height:1;">عَ</span>
+                </button>
                 <button id="toggle-translation" class="tool-btn" title="Terjemahan Lengkap">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8l6 6"/><path d="M4 14l6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="M22 22l-5-10-5 10"/><path d="M14 18h6"/></svg>
                 </button>
