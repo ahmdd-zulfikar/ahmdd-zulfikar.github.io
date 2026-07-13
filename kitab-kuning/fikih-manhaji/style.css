@@ -217,6 +217,25 @@ button { background: none; border: none; cursor: pointer; color: var(--ui-text);
     line-height: 1.8;
 }
 
+.translation-mode .line {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    white-space: normal; /* Allow text to wrap so it doesn't get cut off */
+    line-height: 1.6;
+}
+
+.translation-mode .line-heading,
+.translation-mode .line-huge-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.translation-mode .title-inner {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+}
+
 /* Responsive scaling for mobile devices */
 @media (max-width: 768px) {
     .a4-page {

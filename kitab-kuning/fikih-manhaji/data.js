@@ -2710,6 +2710,17 @@ const fikihData = [
                     }
                 ]
             }
+        ],
+        "lineTranslations": [
+            "Dengan menyebut nama Allah Yang Maha Pengasih lagi Maha Penyayang",
+            "Pendahuluan",
+            "Segala puji bagi Allah, Tuhan semesta alam, yang berfirman dalam kitab-Nya yang sempurna:",
+            "\"Maka mengapa tidak pergi dari tiap-tiap golongan di antara mereka beberapa orang untuk memperdalam agama\" [At-Taubah: 122].",
+            "Dan selawat serta salam atas nabi kita Muhammad, utusan yang terpercaya, pemimpin yang bersinar wajahnya,",
+            "yang bersabda: \"Barangsiapa yang Allah kehendaki kebaikan baginya, niscaya Allah memahamkannya dalam urusan agama,\" serta atas keluarganya",
+            "yang baik lagi suci,",
+            "dan para sahabatnya yang berjuang keras menyebarkan agama ini dengan dalil dan bukti yang nyata,",
+            "Amma ba'du (adapun sesudah itu):"
         ]
     },
     {
@@ -5080,6 +5091,26 @@ const fikihData = [
                     }
                 ]
             }
+        ],
+        "lineTranslations": [
+            "...dan amalnya tercatat dalam hitungan sedekah jariah dan ilmu yang bermanfaat yang tidak terputus",
+            "pahalanya hingga hari kiamat.",
+            "Dan sungguh kami telah memperhatikan bahwa ada kebutuhan terhadap sebuah kitab yang menyebutkan pokok-pokok",
+            "permasalahan (hukum) yang disertai dalil-dalilnya dari Al-Qur'an yang mulia dan Sunnah yang suci, dibarengi dengan penjelasan",
+            "hikmah pensyariatan sejauh kemampuan akal kami mencapainya. Dengan gaya bahasa yang",
+            "mudah, serta memperbanyak sub-judul yang mengingatkan pada rincian masalah di bawahnya. Dan dengan keyakinan kami",
+            "bahwa kami belum mencapai derajat para pendahulu kami dari kalangan ahli fikih yang agung, kami merasa bahwa",
+            "menjadi kewajiban kami untuk mengemban urusan ini, lalu kami memohon pertolongan Allah dan melakukannya sekadar kemampuan kami,",
+            "meninggalkan bagi para ahli yang benar-benar berkompeten untuk menyempurnakan apa yang kurang, memperbaiki apa yang bengkok,",
+            "dan meluruskan apa yang di dalamnya terdapat kesalahan, karena kami tidak mengklaim --dan tidak akan pernah mengklaim-- bahwa kami telah mencapai",
+            "puncak kesempurnaan meskipun kami telah mengerahkan segenap kemampuan yang kami miliki.",
+            "Dan inilah kami, mempersembahkan kitab ini, dan kami memberinya nama (Al-Fiqhu Al-Manhaji) berdasarkan",
+            "mazhab Imam Asy-Syafi'i, dan tidak ada kewajiban bagi saudara-saudara kami yang ingin mencapai",
+            "hasil yang lebih baik --bukan dengan niat menjatuhkan dan mencari-cari aib-- melainkan agar membimbing kami kepada apa yang luput dari kami dari apa yang",
+            "menjadi tujuan kami.",
+            "Ya Allah, ikhlaskanlah niat dan amal perbuatan kami, berilah kami taufik kepada apa yang Engkau cintai dan Engkau ridai, dan berikanlah manfaat",
+            "kepada kaum muslimin dengan apa yang kami kerjakan, serta tunjukilah kami jalan yang lurus.",
+            "Para Penulis"
         ]
     },
     {
@@ -5938,6 +5969,25 @@ const fikihData = [
                     }
                 ]
             }
+        ],
+        "lineTranslations": [
+            "PENGANTAR",
+            "Tentang Definisi Ilmu Fikih, Sumber-sumbernya, dan Beberapa Istilahnya",
+            "Makna Fikih:",
+            "Kata Fikih memiliki dua makna: pertama secara bahasa, dan kedua secara istilah.",
+            "Adapun makna secara bahasa: Fikih berarti pemahaman. Dikatakan 'fahiqa yafhaqu': yakni",
+            "ia benar-benar memahami.",
+            "Allah Ta'ala berfirman: \"Maka mengapa orang-orang itu hampir-hampir tidak memahami pembicaraan\" (Surat",
+            "An-Nisa: Ayat 78). Yakni mereka tidak mengerti. Allah Ta'ala juga berfirman: \"Akan tetapi kalian tidak memahami",
+            "tasbih mereka\" (Surat Al-Isra: Ayat 44). Yakni kalian tidak mengerti tasbih mereka.",
+            "Dan Rasulullah ﷺ bersabda: \"Sesungguhnya panjangnya salat seseorang dan pendeknya khutbahnya adalah tanda",
+            "dari kefakihannya.\" (Riwayat Muslim: 869). Yakni tanda dari kepahamannya.",
+            "Adapun makna secara istilah; maka Fikih mutlak digunakan untuk merujuk pada dua hal:",
+            "Pertama: Mengetahui hukum-hukum syariat yang berkaitan dengan amal perbuatan para mukalaf",
+            "serta perkataan mereka, yang digali dari dalil-dalilnya yang terperinci: Dalil-dalil tersebut adalah nash-nash dari Al-Qur'an",
+            "dan Sunnah, serta apa saja yang bercabang dari keduanya seperti ijmak dan ijtihad.",
+            "Hal itu seperti pengetahuan kita bahwa niat di dalam wudu itu wajib, yang diambil dari sabda beliau ﷺ:",
+            "\"Sesungguhnya amal perbuatan itu bergantung pada niatnya.\" (Riwayat Bukhari: 1; dan Muslim: 1907)."
         ]
     },
     {
@@ -7093,6 +7143,28 @@ const fikihData = [
                     }
                 ]
             }
+        ],
+        "lineTranslations": [
+            "Dan bahwasanya niat di malam hari adalah syarat sahnya puasa, diambil dari sabda beliau ﷺ: \"Barangsiapa",
+            "yang tidak menetapkan niat puasa sebelum fajar, maka tidak sah puasanya.\" (Riwayat Al-Baihaqi: 4/202;",
+            "dan Ad-Daruquthni: 2/172, dan ia berkata: para perawinya terpercaya).",
+            "Serta pengetahuan kita bahwa salat witir itu sunnah (mandub), diambil dari hadis orang Badui yang",
+            "bertanya kepada Nabi ﷺ tentang kewajiban fardu, kemudian ia bertanya lagi setelah itu: \"Apakah ada kewajiban atasku selainnya?\" Beliau menjawab:",
+            "\"Tidak ada, kecuali jika engkau melakukan amalan sunnah.\" (Riwayat Bukhari: 1792; dan Muslim: 11).",
+            "Dan bahwasanya salat setelah Asar itu makruh, diambil dari larangan Nabi alaihissholatu wassalam",
+            "mengenai salat setelah Asar sampai terbenamnya matahari. (Riwayat Bukhari: 561;",
+            "dan Muslim: 827).",
+            "Dan bahwasanya mengusap sebagian kepala adalah wajib, diambil dari firman Allah Ta'ala: \"Dan usaplah",
+            "sebagian kepala kalian\". Maka pengetahuan kita terhadap hukum-hukum syariat ini secara istilah dinamakan fikih.",
+            "Kedua: Hukum-hukum syariat itu sendiri, dan atas dasar ini kita berkata: Engkau telah mengkaji fikih,",
+            "dan mempelajarinya: Artinya sesungguhnya engkau telah mempelajari hukum-hukum fikih syariat yang terdapat di dalam kitab-kitab",
+            "fikih, yang digali dari Kitab Allah Ta'ala dan Sunnah nabi-Nya alaihissholatu wassalam,",
+            "serta ijmak para ulama kaum muslimin, dan ijtihad-ijtihad mereka.",
+            "Hal itu seperti hukum-hukum wudu, hukum-hukum salat, dan hukum-hukum jual beli",
+            "dan pembelian, hukum pernikahan dan susuan, perang dan jihad, dan selainnya.",
+            "Maka, hukum-hukum syariat itu sendirilah yang dinamakan fikih secara istilah.",
+            "Adapun perbedaan di antara kedua makna tersebut: Bahwa makna yang pertama digunakan untuk menyebut pengetahuan akan hukum, dan makna yang kedua",
+            "digunakan untuk menyebut hukum-hukum syariat itu sendiri."
         ]
     }
 ];

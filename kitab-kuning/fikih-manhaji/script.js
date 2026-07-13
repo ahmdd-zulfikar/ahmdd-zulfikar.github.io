@@ -29,18 +29,40 @@ document.addEventListener('DOMContentLoaded', () => {
         const pageData = fikihData[index];
         
         if (isTranslationMode) {
-            const transContainer = document.createElement('div');
-            transContainer.className = 'translation-container';
-            // Simple translation view combining all words
-            let fullText = '';
-            pageData.lines.forEach(line => {
-                let lineText = line.words.map(w => w.translation).filter(t => t && t !== 'Belum ada terjemahan khusus.').join(' ');
-                if (lineText) {
-                    fullText += '<p>' + lineText + '</p>';
+            const linesContainer = document.createElement('div');
+            linesContainer.className = 'page-lines-container translation-mode';
+            linesContainer.style.direction = 'ltr';
+            
+            pageData.lines.forEach((line, i) => {
+                const lineEl = document.createElement('div');
+                lineEl.className = 'line line-' + line.align;
+                
+                let text = '';
+                if (pageData.lineTranslations && pageData.lineTranslations[i]) {
+                    text = pageData.lineTranslations[i];
+                } else {
+                    text = line.words.map(w => w.translation).filter(t => t && t !== '-' && t !== 'Belum ada terjemahan khusus.').join(' ');
                 }
+                
+                if (line.align === 'title-box') {
+                    const box = document.createElement('div');
+                    box.className = 'title-inner';
+                    box.textContent = text;
+                    lineEl.appendChild(box);
+                } else {
+                    lineEl.textContent = text;
+                }
+                linesContainer.appendChild(lineEl);
             });
-            transContainer.innerHTML = fullText || '<p>Terjemahan belum tersedia.</p>';
-            contentArea.appendChild(transContainer);
+            
+            contentArea.appendChild(linesContainer);
+            
+            // Add page number at bottom
+            const pageNumEl = document.createElement('div');
+            pageNumEl.className = 'page-number';
+            pageNumEl.textContent = pageData.pageNumber; // standard number for translation
+            contentArea.appendChild(pageNumEl);
+            
         } else {
             const linesContainer = document.createElement('div');
             linesContainer.className = 'page-lines-container';
