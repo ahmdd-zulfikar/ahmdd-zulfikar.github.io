@@ -152,23 +152,24 @@ button {
 /* Document Viewer */
 .viewer-wrapper {
     flex: 1;
-    overflow: auto; /* allow both vertical and horizontal scroll */
-    padding: 0;
-    background-color: var(--paper-yellow-bg);
-    transition: background-color 0.3s;
+    overflow: hidden; /* Prevent scrolling, content will be paginated to fit */
+    padding: 20px;
+    background-color: #cbd5e1; /* Darker backdrop so paper stands out */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* A4 Page Styling */
+/* A4 Page Styling (Adapted for iPad Fullscreen, no borders) */
 .a4-page {
-    width: 100%;
-    max-width: 768px;
-    min-width: 728px; /* Fit iPad 6th Gen */
-    min-height: 100%;
-    margin: 0 auto; /* Center the page horizontally */
-    padding: 40px 20px 100px 20px; /* Large bottom padding to protect page number */
+    width: 768px;
+    height: 1024px;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 40px 40px 70px 40px; /* Padding for content, bottom padding for page number */
     position: relative;
-    transition: transform 0.3s ease, background-color 0.3s, color 0.3s;
-    transform-origin: top center;
+    transform-origin: center center;
+    transition: background-color 0.3s, color 0.3s;
     font-family: 'Amiri', serif;
     direction: rtl;
     line-height: 2.2;
@@ -216,6 +217,7 @@ button {
     margin-bottom: 20px;
     text-align: justify;
     font-size: 22px;
+    line-height: 2.4; /* Improve line height for readability */
 }
 
 .line-justified {
@@ -247,6 +249,7 @@ button {
     display: inline-block;
     cursor: pointer;
     padding: 0 2px;
+    margin-left: 0.3em; /* Use margin for spacing instead of trailing text node */
     border-radius: 4px;
     transition: background-color 0.2s, color 0.2s;
 }

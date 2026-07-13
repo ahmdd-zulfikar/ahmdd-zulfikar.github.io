@@ -30,6 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPageIndex = 0;
     let isTranslationMode = false;
     let isHarakatVisible = true;
+    
+    // Store paginated data
+    let paginatedPages = [];
 
     // Convert numbers to Arabic numerals
     function toArabicNum(num) {
@@ -41,13 +44,135 @@ document.addEventListener('DOMContentLoaded', () => {
         return text.replace(/[\u064B-\u065F\u0670]/g, '');
     }
 
+    // Dynamic Pagination Logic
+    function calculatePagination() {
+        if (!fikihData || fikihData.length === 0) return;
+        
+        paginatedPages = [];
+        contentArea.innerHTML = '';
+        
+        // Ensure content area has a fixed height for calculation
+        const originalHeight = contentArea.style.height;
+        contentArea.style.height = contentArea.parentElement.clientHeight + 'px';
+        
+        let currentPageData = [];
+        
+        // Container to test rendering
+        let testContainer = document.createElement('div');
+        contentArea.appendChild(testContainer);
+        
+        let currentBlockEl = null;
+
+        fikihData.forEach(page => {
+            page.blocks.forEach(block => {
+                
+                // Setup the block element for testing
+                let blockEl;
+                if (block.type === 'title') {
+                    blockEl = document.createElement('div');
+                    blockEl.className = 'book-header';
+                    let frame = document.createElement('div');
+                    frame.className = 'title-frame';
+                    let inner = document.createElement('div');
+                    inner.className = 'title-inner';
+                    frame.appendChild(inner);
+                    blockEl.appendChild(frame);
+                    testContainer.appendChild(blockEl);
+                    currentBlockEl = inner;
+                } else if (block.type === 'heading') {
+                    blockEl = document.createElement('div');
+                    blockEl.className = 'subtitle';
+                    testContainer.appendChild(blockEl);
+                    currentBlockEl = blockEl;
+                } else {
+                    blockEl = document.createElement('div');
+                    blockEl.className = 'paragraph';
+                    testContainer.appendChild(blockEl);
+                    currentBlockEl = blockEl;
+                }
+                
+                let blockDataForPage = { type: block.type, id: block.id, words: [] };
+                currentPageData.push(blockDataForPage);
+                
+                block.words.forEach(wordData => {
+                    let wordEl = document.createElement('span');
+                    wordEl.className = 'word-interactive';
+                    wordEl.textContent = wordData.text; // Text content for height testing
+                    
+                    currentBlockEl.appendChild(wordEl);
+                    
+                    // Check height
+                    if (contentArea.scrollHeight > contentArea.clientHeight) {
+                        // Overflow!
+                        currentBlockEl.removeChild(wordEl);
+                        
+                        // If the block is now empty on the old page, remove it
+                        if (currentBlockEl.childNodes.length === 0) {
+                            let blockParent = currentBlockEl.closest('.book-header, .subtitle, .paragraph');
+                            if (blockParent && blockParent.parentNode) {
+                                blockParent.parentNode.removeChild(blockParent);
+                            }
+                        }
+                        
+                        // Save current page
+                        paginatedPages.push(currentPageData);
+                        
+                        // Reset for new page
+                        currentPageData = [];
+                        testContainer.innerHTML = '';
+                        
+                        // Recreate block for new page
+                        if (block.type === 'title') {
+                            blockEl = document.createElement('div');
+                            blockEl.className = 'book-header';
+                            let frame = document.createElement('div');
+                            frame.className = 'title-frame';
+                            let inner = document.createElement('div');
+                            inner.className = 'title-inner';
+                            frame.appendChild(inner);
+                            blockEl.appendChild(frame);
+                            testContainer.appendChild(blockEl);
+                            currentBlockEl = inner;
+                        } else if (block.type === 'heading') {
+                            blockEl = document.createElement('div');
+                            blockEl.className = 'subtitle';
+                            testContainer.appendChild(blockEl);
+                            currentBlockEl = blockEl;
+                        } else {
+                            blockEl = document.createElement('div');
+                            blockEl.className = 'paragraph';
+                            testContainer.appendChild(blockEl);
+                            currentBlockEl = blockEl;
+                        }
+                        
+                        blockDataForPage = { type: block.type, id: block.id, words: [] };
+                        currentPageData.push(blockDataForPage);
+                        
+                        // Append the word that overflowed to the new page
+                        currentBlockEl.appendChild(wordEl);
+                    }
+                    
+                    blockDataForPage.words.push(wordData);
+                });
+            });
+        });
+        
+        if (currentPageData.length > 0) {
+            paginatedPages.push(currentPageData);
+        }
+        
+        // Clean up
+        contentArea.innerHTML = '';
+        contentArea.style.height = originalHeight;
+    }
+
     function renderPage(index) {
         contentArea.innerHTML = '';
-        if (!fikihData || fikihData.length === 0) return;
+        if (paginatedPages.length === 0) return;
 
-        const pageData = fikihData[index];
+        const pageData = paginatedPages[index];
 
-        pageData.blocks.forEach(block => {
+        pageData.forEach(block => {
             if (isTranslationMode) {
                 if (block.type === 'title') {
                     const titleEl = document.createElement('div');
@@ -76,10 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     const inner = document.createElement('div');
                     inner.className = 'title-inner';
                     
-                    // Render words for title naturally
                     block.words.forEach(wordData => {
                         inner.appendChild(createWordElement(wordData));
-                        inner.appendChild(document.createTextNode(' '));
                     });
                     
                     frame.appendChild(inner);
@@ -91,7 +214,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     block.words.forEach(wordData => {
                         heading.appendChild(createWordElement(wordData));
-                        heading.appendChild(document.createTextNode(' '));
                     });
                     
                     contentArea.appendChild(heading);
@@ -101,7 +223,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     block.words.forEach(wordData => {
                         paragraph.appendChild(createWordElement(wordData));
-                        paragraph.appendChild(document.createTextNode(' '));
                     });
                     
                     contentArea.appendChild(paragraph);
@@ -112,17 +233,16 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add page number at bottom
         const pageNumEl = document.createElement('div');
         pageNumEl.className = 'page-number';
-        pageNumEl.textContent = toArabicNum(pageData.pageNumber);
+        // Base the physical page number starting from 1
+        pageNumEl.textContent = toArabicNum(index + 1);
         contentArea.appendChild(pageNumEl);
 
-        pageIndicator.textContent = pageData.pageNumber;
+        pageIndicator.textContent = index + 1;
 
         // Update Nav Buttons
         prevBtn.disabled = index === 0;
-        nextBtn.disabled = index === fikihData.length - 1;
+        nextBtn.disabled = index === paginatedPages.length - 1;
     }
-
-
 
     let activeWordEl = null;
 
@@ -134,14 +254,11 @@ document.addEventListener('DOMContentLoaded', () => {
         span.addEventListener('click', (e) => {
             e.stopPropagation();
             
-            // Remove active class from previous word
             if (activeWordEl) activeWordEl.classList.remove('active');
             
-            // Set active class
             span.classList.add('active');
             activeWordEl = span;
             
-            // Populate Popup Data
             const displayText = isHarakatVisible ? wordData.text : removeHarakat(wordData.text);
             popupWord.textContent = displayText.replace(/[﴾﴿.,:;]/g, '');
             popupTranslation.textContent = wordData.translation || 'Belum ada terjemahan khusus.';
@@ -195,10 +312,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 explanationSection.classList.add('hidden');
             }
             
-            // Show Popup
             overlay.classList.remove('hidden');
             popup.classList.remove('hidden');
-            // Small timeout to allow display:block to apply before adding class for opacity transition
             setTimeout(() => {
                 popup.classList.add('show');
                 positionPopup(span);
@@ -212,28 +327,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const rect = targetEl.getBoundingClientRect();
         const popupRect = popup.getBoundingClientRect();
         
-        // Try placing below first
         let top = rect.bottom + 10;
         let left = rect.left + (rect.width / 2) - (popupRect.width / 2);
         let isTop = false;
         
-        // If it goes below screen, place above
         if (top + popupRect.height > window.innerHeight) {
             top = rect.top - popupRect.height - 10;
             isTop = true;
         }
         
-        // Prevent top cutoff if placed above but doesn't fit
         if (top < 10) {
             top = 10;
-            // If it doesn't fit above, try forcing it below and let container scroll or overlap
             if (isTop) {
                 top = rect.bottom + 10;
                 isTop = false;
             }
         }
         
-        // Adjust horizontal bounds
         if (left < 10) left = 10;
         if (left + popupRect.width > window.innerWidth - 10) {
             left = window.innerWidth - popupRect.width - 10;
@@ -248,10 +358,8 @@ document.addEventListener('DOMContentLoaded', () => {
             popup.classList.add('arrow-top');
         }
         
-        // Adjust arrow position horizontally to point to word
         const arrow = popup.querySelector('.popup-arrow');
         let arrowLeft = rect.left + (rect.width / 2) - left - 7;
-        // Keep arrow within popup bounds
         arrowLeft = Math.max(10, Math.min(arrowLeft, popupRect.width - 24));
         arrow.style.left = arrowLeft + 'px';
     }
@@ -270,14 +378,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 200);
     }
 
+    function scalePage() {
+        const wrapper = document.getElementById('page-wrapper');
+        const page = document.getElementById('content-area');
+        if (!wrapper || !page) return;
+        
+        const targetWidth = 768;
+        const targetHeight = 1024;
+        
+        const wrapperWidth = wrapper.clientWidth - 40; 
+        const wrapperHeight = wrapper.clientHeight - 40; 
+        
+        const scaleX = wrapperWidth / targetWidth;
+        const scaleY = wrapperHeight / targetHeight;
+        const scale = Math.min(scaleX, scaleY);
+        
+        page.style.transform = `scale(${scale})`;
+    }
+
     closePopupBtn.addEventListener('click', hidePopup);
     overlay.addEventListener('click', hidePopup);
     window.addEventListener('resize', () => {
+        scalePage();
         if (popup.classList.contains('show') && activeWordEl) {
             positionPopup(activeWordEl);
         }
     });
-    // Also reposition on scroll inside viewer
+    
     document.getElementById('page-wrapper').addEventListener('scroll', () => {
         if (popup.classList.contains('show') && activeWordEl) {
             positionPopup(activeWordEl);
@@ -294,7 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     nextBtn.addEventListener('click', () => {
-        if (currentPageIndex < fikihData.length - 1) {
+        if (currentPageIndex < paginatedPages.length - 1) {
             currentPageIndex++;
             renderPage(currentPageIndex);
             hidePopup();
@@ -329,6 +456,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btnHarakat.classList.remove('active');
             btnHarakat.style.color = '';
         }
+        calculatePagination();
         renderPage(currentPageIndex);
     });
 
@@ -341,6 +469,8 @@ document.addEventListener('DOMContentLoaded', () => {
             btnTranslate.classList.remove('active');
             btnTranslate.style.color = '';
         }
+        calculatePagination();
+        if (currentPageIndex >= paginatedPages.length) currentPageIndex = Math.max(0, paginatedPages.length - 1);
         renderPage(currentPageIndex);
     });
 
@@ -361,5 +491,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Initial render
-    renderPage(currentPageIndex);
+    setTimeout(() => {
+        scalePage();
+        calculatePagination();
+        renderPage(currentPageIndex);
+    }, 100);
 });
