@@ -1,2184 +1,2712 @@
 const fikihData = [
     {
         "pageNumber": 5,
-        "blocks": [
+        "lines": [
             {
-                "type": "title",
-                "ar": "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
-                "id": "Dengan menyebut nama Allah Yang Maha Pengasih lagi Maha Penyayang",
+                "align": "title-box",
                 "words": [
                     {
                         "text": "بِسْمِ",
-                        "translation": "Dengan nama",
-                        "root": "س م و",
-                        "explanation": "-",
-                        "joined_explanation": "Ba (jar) + Isim",
+                        "translation": "Dengan menyebut nama",
+                        "root": "سُمُوٌّ",
+                        "explanation": "Dari kata ism yang berarti nama",
+                        "joined_explanation": "-",
                         "pronoun_ref": "-",
                         "irab": "Jar Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "الباء حرف جر مبني على الكسر لا محل له من الإعراب. واسم: اسم مجرور بالباء وعلامة جره الكسرة الظاهرة تحت آخره، وهو مضاف.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "اللَّهِ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
+                        "translation": "Allah",
+                        "root": "أُلُوهَةٌ",
+                        "explanation": "Lafdzul Jalalah",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Mudhaf Ilaih (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "لفظ الجلالة مضاف إليه مجرور وعلامة جره الكسرة الظاهرة تحت آخره.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الرَّحْمَنِ",
-                        "translation": "Yang Maha Pengasih",
-                        "root": "ر ح م",
-                        "explanation": "-",
+                        "translation": "Maha Pengasih",
+                        "root": "رَحْمَةٌ",
+                        "explanation": "Kasih sayang luas",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Na'at",
+                        "irab": "Na'at 1 (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "نعت أول لـ (الله) مجرور وعلامة جره الكسرة الظاهرة تحت آخره.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الرَّحِيمِ",
-                        "translation": "Yang Maha Penyayang",
-                        "root": "ر ح م",
-                        "explanation": "-",
+                        "translation": "Maha Penyayang",
+                        "root": "رَحْمَةٌ",
+                        "explanation": "Kasih sayang khusus",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Na'at Kedua",
+                        "irab": "Na'at 2 (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "نعت ثان لـ (الله) مجرور وعلامة جره الكسرة الظاهرة تحت آخره.",
+                        "ilal_ar": "-"
                     }
                 ]
             },
             {
-                "type": "heading",
-                "ar": "الْمُقَدِّمَةُ",
-                "id": "Mukadimah (Pendahuluan)",
+                "align": "heading",
                 "words": [
                     {
                         "text": "الْمُقَدِّمَةُ",
-                        "translation": "Mukadimah",
-                        "root": "ق د م",
-                        "explanation": "Pendahuluan buku",
+                        "translation": "Pendahuluan",
+                        "root": "تَقْدِيمٌ",
+                        "explanation": "Kata pembuka buku",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Mubtada",
+                        "irab": "Mubtada' (Marfu')",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مبتدأ مرفوع وعلامة رفعه الضمة الظاهرة على آخره.",
+                        "ilal_ar": "-"
                     }
                 ]
             },
             {
-                "type": "paragraph",
-                "ar": "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ الْقَائِلِ فِي مُحْكَمِ كِتَابِهِ الْمُبِينِ: ﴿فَلَوْلَا نَفَرَ مِن كُلِّ فِرْقَةٍ مِّنْهُمْ طَائِفَةٌ لِّيَتَفَقَّهُوا فِي الدِّينِ﴾.",
-                "id": "Segala puji bagi Allah Tuhan semesta alam yang berfirman dalam kitab-Nya yang nyata: \"Mengapa tidak pergi dari tiap-tiap golongan di antara mereka beberapa orang untuk memperdalam pengetahuan mereka tentang agama.\" (QS. At-Taubah: 122).",
+                "align": "justify-indent",
                 "words": [
                     {
                         "text": "الْحَمْدُ",
                         "translation": "Segala puji",
-                        "root": "ح م د",
-                        "explanation": "-",
+                        "root": "حَمْدٌ",
+                        "explanation": "Pujian kepada Allah",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Mubtada",
+                        "irab": "Mubtada' (Marfu')",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مبتدأ مرفوع وعلامة رفعه الضمة الظاهرة على آخره.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "لِلَّهِ",
-                        "translation": "Bagi Allah",
-                        "root": "-",
+                        "translation": "Milik Allah",
+                        "root": "أُلُوهَةٌ",
                         "explanation": "-",
-                        "joined_explanation": "Lam (jar) + Allah",
+                        "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Jar Majrur",
+                        "irab": "Jar Majrur (Khabar)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اللام حرف جر. لفظ الجلالة اسم مجرور باللام. والجار والمجرور شبه جملة في محل رفع خبر المبتدأ (الحمد).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "رَبِّ",
                         "translation": "Tuhan",
-                        "root": "ر ب ب",
+                        "root": "رُبُوبِيَّةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Badal / Na'at",
+                        "irab": "Badal / Sifat (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "نعت أو بدل من لفظ الجلالة مجرور وعلامة جره الكسرة الظاهرة، وهو مضاف.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْعَالَمِينَ",
-                        "translation": "Semesta alam",
-                        "root": "ع ل م",
-                        "explanation": "-",
+                        "translation": "Alam semesta",
+                        "root": "عَالَمٌ",
+                        "explanation": "Bentuk jamak dari 'alam",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Mudhaf Ilaih",
+                        "irab": "Mudhaf Ilaih (Majrur dengan Ya')",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الياء لأنه ملحق بجمع المذكر السالم.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْقَائِلِ",
                         "translation": "Yang berfirman",
-                        "root": "ق و ل",
-                        "explanation": "-",
+                        "root": "قَوْلٌ",
+                        "explanation": "Isim Fa'il",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Na'at",
+                        "irab": "Na'at (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "نعت ثان مجرور وعلامة جره الكسرة الظاهرة على آخره.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "فِي",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
+                        "translation": "Di dalam",
+                        "root": "فِي",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "مُحْكَمِ",
-                        "translation": "Yang kokoh/jelas",
-                        "root": "ح ك م",
+                        "translation": "Yang kokoh/sempurna",
+                        "root": "إِحْكَامٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Majrur",
+                        "irab": "Isim Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور بـ (في) وعلامة جره الكسرة الظاهرة، وهو مضاف.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "كِتَابِهِ",
                         "translation": "Kitab-Nya",
-                        "root": "ك ت ب",
-                        "explanation": "-",
-                        "joined_explanation": "Mudhaf + Dhamir (Hi)",
-                        "pronoun_ref": "Merujuk ke Allah",
+                        "root": "كِتَابَةٌ",
+                        "explanation": "Al-Qur'an",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Allah",
                         "irab": "Mudhaf Ilaih",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة الظاهرة، والهاء ضمير متصل في محل جر مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "الْمُبِينِ:",
-                        "translation": "Yang nyata:",
-                        "root": "ب ي ن",
+                        "text": "الْمُبِينِ",
+                        "translation": "Yang menjelaskan",
+                        "root": "إِبَانَةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Na'at",
+                        "irab": "Na'at (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "نعت لـ (كتاب) مجرور وعلامة جره الكسرة الظاهرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": ":",
+                        "translation": "-",
+                        "root": "-",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "-",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "﴿فَلَوْلَا",
-                        "translation": "Mengapa tidak",
-                        "root": "-",
+                        "translation": "Maka mengapa tidak",
+                        "root": "لَوْلَا",
                         "explanation": "-",
-                        "joined_explanation": "Fa + Laula",
+                        "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Huruf Tahdhidh",
+                        "irab": "Huruf Tahdid",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "الفاء استئنافية. لولا: حرف تحضيض مبني على السكون.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "نَفَرَ",
-                        "translation": "Pergi",
-                        "root": "ن ف ر",
+                        "translation": "Pergi/berangkat",
+                        "root": "نَفَرَ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
                         "irab": "Fi'il Madhi",
-                        "verb_type": "Tsulasi Mujarrad",
-                        "fail_ref": "Tha'ifah"
+                        "verb_type": "Fi'il Madhi (Tsulatsi Mujarrad)",
+                        "fail_ref": "طَائِفَةٌ",
+                        "irab_ar": "فعل ماض مبني على الفتح الظاهر.",
+                        "ilal_ar": "فعل صحيح سالم، لا إعلال فيه."
                     },
                     {
                         "text": "مِن",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
+                        "translation": "Dari",
+                        "root": "مِنْ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "كُلِّ",
-                        "translation": "Setiap",
-                        "root": "ك ل ل",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Majrur",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "فِرْقَةٍ",
-                        "translation": "Golongan",
-                        "root": "ف ر ق",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Mudhaf Ilaih",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مِّنْهُمْ",
-                        "translation": "Di antara mereka",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "Min (jar) + Hum",
-                        "pronoun_ref": "Merujuk ke kaum muslimin",
-                        "irab": "Jar Majrur",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "طَائِفَةٌ",
-                        "translation": "Beberapa orang",
-                        "root": "ط و ف",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Fa'il",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "لِّيَتَفَقَّهُوا",
-                        "translation": "Untuk memperdalam (ilmu)",
-                        "root": "ف ق ه",
-                        "explanation": "-",
-                        "joined_explanation": "Lam Ta'lil + Fi'il Mudhari'",
-                        "pronoun_ref": "Wawu merujuk ke Tha'ifah",
-                        "irab": "Fi'il Mudhari' Manshub",
-                        "verb_type": "Tsulasi Mazid",
-                        "fail_ref": "Dhamir Wawu"
-                    },
-                    {
-                        "text": "فِي",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الدِّينِ﴾.",
-                        "translation": "Agama.﴾",
-                        "root": "د ي ن",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Majrur",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
                     }
                 ]
             },
             {
-                "type": "paragraph",
-                "ar": "وَالصَّلَاةُ وَالسَّلَامُ عَلَى سَيِّدِنَا مُحَمَّدٍ الرَّسُولِ الْأَمِينِ قَائِدِ الْغُرِّ الْمَيَامِينِ الْقَائِلِ: «مَنْ يُرِدِ اللَّهُ بِهِ خَيْراً يُفَقِّهْهُ فِي الدِّينِ» وَعَلَى آلِهِ الطَّاهِرِينَ وَأَصْحَابِهِ الَّذِينَ عَمِلُوا عَلَى نَشْرِ هَذَا الدِّينِ بِالْحُجَّةِ وَالدَّلِيلِ الْوَاضِحِ الْمُبِينِ.",
-                "id": "Shalawat dan salam semoga tercurah kepada junjungan kita Nabi Muhammad, rasul yang terpercaya, pemimpin umat yang bercahaya wajahnya, yang bersabda: \"Barangsiapa yang Allah kehendaki kebaikan baginya, niscaya Allah akan memahamkannya dalam (ilmu) agama.\" Dan juga kepada keluarga beliau yang suci dan para sahabat beliau yang telah berjuang menyebarkan agama ini dengan argumen dan dalil yang jelas dan nyata.",
+                "align": "right",
+                "words": [
+                    {
+                        "text": "كُلِّ",
+                        "translation": "Setiap",
+                        "root": "كُلٌّ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور بـ (من) وعلامة جره الكسرة، وهو مضاف.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "فِرْقَةٍ",
+                        "translation": "Kelompok",
+                        "root": "فِرْقَةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Mudhaf Ilaih (Majrur)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة الظاهرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مِّنْهُمْ",
+                        "translation": "Dari mereka",
+                        "root": "مِنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Umat Islam",
+                        "irab": "Jar Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "من: حرف جر. هم: ضمير متصل مبني في محل جر بحرف الجر.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "طَائِفَةٌ",
+                        "translation": "Segolongan",
+                        "root": "طَائِفَةٌ",
+                        "explanation": "Subjek dari nafara",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fa'il (Marfu')",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "فاعل لـ (نفر) مرفوع وعلامة رفعه الضمة الظاهرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "لِّيَتَفَقَّهُوا",
+                        "translation": "Agar mereka mendalami",
+                        "root": "تَفَقَّهَ",
+                        "explanation": "Masuk Lam Ta'lil",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Umat Islam",
+                        "irab": "Fi'il Mudhari' Manshub",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mazid)",
+                        "fail_ref": "Wawu Jama'ah",
+                        "irab_ar": "اللام لام التعليل. يتفقهوا: فعل مضارع منصوب بأن المضمرة بعد اللام وعلامة نصبه حذف النون، والواو ضمير متصل في محل رفع فاعل.",
+                        "ilal_ar": "صحيح سالم مزيد بالتضعيف والتاء، لا إعلال فيه."
+                    },
+                    {
+                        "text": "فِي",
+                        "translation": "Di dalam",
+                        "root": "فِي",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الدِّينِ﴾",
+                        "translation": "Agama",
+                        "root": "دِينٌ",
+                        "explanation": "Agama Islam",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "في الدين: جار ومجرور. أو منصوب بنزع الخافض. (مجرور بالإضافة غالبا أو مفعول به).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": ".",
+                        "translation": "-",
+                        "root": "-",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "-",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify-indent",
                 "words": [
                     {
                         "text": "وَالصَّلَاةُ",
-                        "translation": "Dan shalawat",
-                        "root": "ص ل ي",
+                        "translation": "Dan selawat",
+                        "root": "صَلَاةٌ",
                         "explanation": "-",
-                        "joined_explanation": "Wawu + As-Shalah",
+                        "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Mubtada",
+                        "irab": "Mubtada' (Marfu')",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "الواو استئنافية. الصلاة: مبتدأ مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "وَالسَّلَامُ",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
+                        "translation": "Dan keselamatan",
+                        "root": "سَلَامٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Ma'thuf (Marfu')",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "الواو حرف عطف. السلام: معطوف على (الصلاة) مرفوع.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "عَلَى",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
+                        "translation": "Atas",
+                        "root": "عَلَى",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "سَيِّدِنَا",
-                        "translation": "Junjungan kita",
-                        "root": "س و د",
+                        "translation": "Nabi kita",
+                        "root": "سِيَادَةٌ",
                         "explanation": "-",
-                        "joined_explanation": "Sayyid + Na",
+                        "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Majrur",
+                        "irab": "Isim Majrur & Mudhaf",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور بـ (على) وعلامة جره الكسرة، و (نا) ضمير متصل مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "مُحَمَّدٍ",
                         "translation": "Muhammad",
-                        "root": "ح م د",
+                        "root": "تَحْمِيدٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Badal",
+                        "irab": "Badal (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "بدل من (سيدنا) مجرور وعلامة جره الكسرة الظاهرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الرَّسُولِ",
                         "translation": "Utusan",
-                        "root": "ر س ل",
+                        "root": "رِسَالَةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Na'at",
+                        "irab": "Na'at (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "نعت أول لـ (محمد) مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْأَمِينِ",
                         "translation": "Yang terpercaya",
-                        "root": "أ م ن",
+                        "root": "أَمَانَةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Na'at",
+                        "irab": "Na'at 2 (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "نعت ثان مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "قَائِدِ",
                         "translation": "Pemimpin",
-                        "root": "ق و د",
+                        "root": "قِيَادَةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Na'at",
+                        "irab": "Na'at 3 / Badal",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "نعت ثالث أو بدل مجرور وعلامة جره الكسرة، وهو مضاف.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْغُرِّ",
-                        "translation": "Yang bercahaya",
-                        "root": "غ ر ر",
-                        "explanation": "Orang yang memiliki cahaya di wajah (wudhu)",
+                        "translation": "Yang bersinar wajahnya",
+                        "root": "غُرَّةٌ",
+                        "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
                         "irab": "Mudhaf Ilaih",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة الظاهرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْمَيَامِينِ",
                         "translation": "Yang diberkahi",
-                        "root": "ي م ن",
+                        "root": "يُمْنٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Na'at",
+                        "irab": "Na'at (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
-                    },
+                        "fail_ref": "-",
+                        "irab_ar": "نعت لـ (الغر) مجرور وعلامة جره الياء لأنه جمع مذكر سالم (أو مجرور بالكسرة).",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
                     {
-                        "text": "الْقَائِلِ:",
-                        "translation": "Yang bersabda:",
-                        "root": "ق و ل",
-                        "explanation": "-",
+                        "text": "الْقَائِلِ",
+                        "translation": "Yang berfirman",
+                        "root": "قَوْلٌ",
+                        "explanation": "Isim Fa'il",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Na'at",
+                        "irab": "Na'at (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "نعت ثان مجرور وعلامة جره الكسرة الظاهرة على آخره.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "«مَنْ",
-                        "translation": "Contoh Kedua",
+                        "text": ":",
+                        "translation": "-",
                         "root": "-",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
                         "irab": "-",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "«مَنْ",
+                        "translation": "Barangsiapa",
+                        "root": "مَنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Syarat (Mubtada')",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم شرط جازم مبني على السكون في محل رفع مبتدأ.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "يُرِدِ",
                         "translation": "Menginginkan",
-                        "root": "ر و د",
-                        "explanation": "-",
+                        "root": "أَرَادَ",
+                        "explanation": "Fi'il Syarat",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Fi'il Syarat (Mudhari' Majzum)",
-                        "verb_type": "Tsulasi Mazid",
-                        "fail_ref": "Allah"
+                        "irab": "Fi'il Mudhari' Majzum",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mazid)",
+                        "fail_ref": "اللَّهُ",
+                        "irab_ar": "فعل مضارع مجزوم لأنه فعل الشرط وعلامة جزمه السكون، وحرك بالكسر لالتقاء الساكنين.",
+                        "ilal_ar": "أصله (يُرِيدُ)، سُكِّن آخره للجزم فالتقى ساكنان (الياء والدال) فحذفت الياء للتخلص من التقاء الساكنين."
                     },
                     {
                         "text": "اللَّهُ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
+                        "translation": "Allah",
+                        "root": "أُلُوهَةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Fa'il (Marfu')",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "لفظ الجلالة فاعل مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "بِهِ",
                         "translation": "Dengannya",
-                        "root": "-",
+                        "root": "بِ",
                         "explanation": "-",
-                        "joined_explanation": "Bi + Hi",
-                        "pronoun_ref": "Hi merujuk ke Ma (perkara)",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Orang (Man)",
                         "irab": "Jar Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "الباء حرف جر، والهاء ضمير مبني في محل جر، متعلقان بالفعل.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "خَيْراً",
                         "translation": "Kebaikan",
-                        "root": "خ ي ر",
+                        "root": "خَيْرٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Maf'ul Bih",
+                        "irab": "Maf'ul Bih (Manshub)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مفعول به منصوب وعلامة نصبه الفتحة الظاهرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "يُفَقِّهْهُ",
-                        "translation": "Dia akan memahamkannya",
-                        "root": "ف ق ه",
-                        "explanation": "-",
-                        "joined_explanation": "Fi'il + Hu (Objek)",
-                        "pronoun_ref": "Hu merujuk ke Man",
-                        "irab": "Jawab Syarat (Mudhari' Majzum)",
-                        "verb_type": "Tsulasi Mazid",
-                        "fail_ref": "Allah"
+                        "translation": "Maka Dia akan memahamkannya",
+                        "root": "فَقَّهَ",
+                        "explanation": "Jawab Syarat",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Allah (Fa'il), Orang (Maf'ul)",
+                        "irab": "Fi'il Mudhari' Majzum",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mazid)",
+                        "fail_ref": "Dhomir Mustatir (Allah)",
+                        "irab_ar": "فعل مضارع مجزوم لأنه جواب الشرط وعلامة جزمه السكون، والهاء ضمير في محل نصب مفعول به. والفاعل ضمير مستتر (الله).",
+                        "ilal_ar": "فعل مضعف، لا إعلال فيه."
                     },
                     {
                         "text": "فِي",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
+                        "translation": "Di dalam",
+                        "root": "فِي",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الدِّينِ»",
-                        "translation": "Agama»",
-                        "root": "د ي ن",
-                        "explanation": "-",
+                        "translation": "Agama",
+                        "root": "دِينٌ",
+                        "explanation": "Agama Islam",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Majrur",
+                        "irab": "Isim Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "وَعَلَى",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
+                        "translation": "Dan atas",
+                        "root": "عَلَى",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "الواو عاطفة، على حرف جر.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "آلِهِ",
                         "translation": "Keluarganya",
-                        "root": "أ و ل",
+                        "root": "آلٌ",
                         "explanation": "-",
-                        "joined_explanation": "Aal + Hi",
-                        "pronoun_ref": "Merujuk ke Rasul",
-                        "irab": "Majrur",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Nabi Muhammad",
+                        "irab": "Isim Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور وعلامة جره الكسرة، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الطَّاهِرِينَ",
                         "translation": "Yang suci",
-                        "root": "ط ه ر",
+                        "root": "طَهَارَةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Na'at",
+                        "irab": "Na'at (Majrur dengan Ya')",
                         "verb_type": "-",
-                        "fail_ref": "-"
-                    },
+                        "fail_ref": "-",
+                        "irab_ar": "نعت مجرور وعلامة جره الياء لأنه جمع مذكر سالم.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
                     {
                         "text": "وَأَصْحَابِهِ",
-                        "translation": "Dan para sahabatnya",
-                        "root": "ص ح ب",
+                        "translation": "Dan sahabatnya",
+                        "root": "صُحْبَةٌ",
                         "explanation": "-",
-                        "joined_explanation": "Wawu + Ashab + Hi",
-                        "pronoun_ref": "Merujuk ke Rasul",
-                        "irab": "Ma'thuf",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Nabi Muhammad",
+                        "irab": "Ma'thuf (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "معطوف مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الَّذِينَ",
                         "translation": "Orang-orang yang",
-                        "root": "-",
+                        "root": "الَّذِي",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
                         "irab": "Isim Maushul (Na'at)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم موصول مبني في محل جر نعت لـ (أصحابه).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "عَمِلُوا",
-                        "translation": "Mereka beramal/berjuang",
-                        "root": "ع م ل",
-                        "explanation": "-",
+                        "translation": "Mereka beramal",
+                        "root": "عَمِلَ",
+                        "explanation": "Silah Maushul",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
+                        "pronoun_ref": "Para Sahabat",
                         "irab": "Fi'il Madhi",
-                        "verb_type": "Tsulasi Mujarrad",
-                        "fail_ref": "Wawu (Ashab)"
+                        "verb_type": "Fi'il Madhi (Tsulatsi Mujarrad)",
+                        "fail_ref": "Wawu Jama'ah",
+                        "irab_ar": "فعل ماض مبني على الضم لاتصاله بواو الجماعة، والواو فاعل. والجملة صلة الموصول.",
+                        "ilal_ar": "فعل صحيح سالم لا إعلال فيه."
                     },
                     {
                         "text": "عَلَى",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
+                        "translation": "Atas",
+                        "root": "عَلَى",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "نَشْرِ",
                         "translation": "Menyebarkan",
-                        "root": "ن ش ر",
+                        "root": "نَشْرٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Majrur",
+                        "irab": "Isim Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور بحرف جر محذوف أو مفعول لأجله (في نشر).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "هَذَا",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
+                        "translation": "Ini",
+                        "root": "هَذَا",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Isim Isyarah (Mudhaf Ilaih)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم إشارة مبني في محل جر مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الدِّينِ",
                         "translation": "Agama",
-                        "root": "د ي ن",
-                        "explanation": "-",
+                        "root": "دِينٌ",
+                        "explanation": "Agama Islam",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Badal",
+                        "irab": "Isim Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "بِالْحُجَّةِ",
-                        "translation": "Dengan hujah/argumen",
-                        "root": "ح ج ج",
+                        "translation": "Dengan argumen",
+                        "root": "حُجَّةٌ",
                         "explanation": "-",
-                        "joined_explanation": "Bi + Hujjah",
+                        "joined_explanation": "-",
                         "pronoun_ref": "-",
                         "irab": "Jar Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "وَالدَّلِيلِ",
-                        "translation": "Dan dalil",
-                        "root": "د ل ل",
+                        "translation": "Dan bukti",
+                        "root": "دَلَالَةٌ",
                         "explanation": "-",
-                        "joined_explanation": "Wawu + Dalil",
+                        "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Ma'thuf",
+                        "irab": "Ma'thuf (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "معطوف مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْوَاضِحِ",
                         "translation": "Yang jelas",
-                        "root": "و ض ح",
+                        "root": "وُضُوحٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Na'at",
+                        "irab": "Na'at (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْمُبِينِ.",
-                        "translation": "Yang nyata.",
-                        "root": "ب ي ن",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Na'at",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "نعت مجرور.",
+                        "ilal_ar": "-"
                     }
                 ]
             },
             {
-                "type": "paragraph",
-                "ar": "وَبَعْدُ: فَإِنَّ خَيْرَ مَا يَشْتَغِلُ بِهِ الْإِنْسَانُ مَعْرِفَةُ الْحَلَالِ وَالْحَرَامِ مِنَ الْأَحْكَامِ، وَعِلْمُ الصَّحِيحِ مِنَ الْفَاسِدِ مِنَ الْأَعْمَالِ؛ وَعِلْمُ الْفِقْهِ هُوَ الَّذِي أَخَذَ عَلَى عَاتِقِهِ بَيَانَ ذَلِكَ. وَلَقَدْ أَلَّفَ كَثِيرٌ مِنْ عُلَمَائِنَا الْأَقْدَمِينَ كُتُباً فِي هَذَا الْفَنِّ يَكَادُ لَا يُحْصِيهَا الْعَدُّ، وَلَا شَكَّ أَنَّ كُلَّ وَاحِدٍ مِنْ هَؤُلَاءِ الْمُؤَلِّفِينَ الْأَفَاضِلِ قَدْ لَاحَظَ أَنَّ هُنَاكَ ثُغْرَةً يُوجِبُ عَلَيْهِ دِينُهُ أَنْ يَقُومَ بِسَدِّهَا وَحَاجَةً يَجِبُ عَلَيْهِ أَنْ يَبْذُلَ كُلَّ مَا فِي وُسْعِهِ لِقَضَائِهَا؛ فَمِنْ مُطَوِّلٍ يَجِدُ أَنَّ هُنَاكَ حَاجَةً مَاسَّةً لِلتَّطْوِيلِ، وَمِنْ مُخْتَصِرٍ يَجِدُ أَنَّ هُنَاكَ طَلَباً مُلِحّاً لِلِاخْتِصَارِ، وَمِنْ نَاظِمٍ وَمِنْ نَاثِرٍ، وَمِنْ بَاحِثٍ فِي أُمَّهَاتِ الْمَسَائِلِ وَمَا يَنْبَثِقُ مِنْهَا مِنْ فُرُوعٍ، وَمِنْ مُقْتَصِرٍ عَلَى بَيَانِ أُمَّهَاتِ الْمَسَائِلِ مِنْ غَيْرِ تَعَرُّضٍ لِكَثِيرٍ مِنَ الْفُرُوعِ، وَكُلُّهُمْ يَقْصِدُ بِمَا أَلَّفَهُ مِلْءَ فَرَاغٍ يَجِبُ أَنْ يُمْلَأَ، وَفُرْجَةٍ فِي الْمَكْتَبَةِ الْإِسْلَامِيَّةِ يَجِبُ أَنْ تُسَدَّ، لَعَلَّ اللَّهَ سُبْحَانَهُ أَنْ يَكُونَ رَاضِياً عَنْهُ بِمَا عَمِلَ،",
-                "id": "Amma ba'du: Sesungguhnya sebaik-baik kesibukan manusia adalah mengetahui halal dan haram dari hukum-hukum, serta mengetahui amalan yang sah dan yang rusak. Dan ilmu fikih adalah ilmu yang mengambil tanggung jawab untuk menjelaskan hal tersebut. Dan sungguh banyak dari ulama kita terdahulu yang telah menulis kitab-kitab dalam bidang seni (ilmu) ini yang hampir-hampir bilangannya tidak terhitung. Dan tidak diragukan lagi bahwa setiap satu dari para penulis yang mulia ini telah memperhatikan bahwa ada celah yang agamanya mewajibkan kepadanya untuk menutupi celah tersebut, dan suatu kebutuhan yang mewajibkannya untuk mengerahkan segala kemampuannya demi memenuhinya; maka ada yang memanjangkan (tulisannya) karena mendapati ada kebutuhan mendesak untuk diperpanjang, dan ada yang meringkas karena mendapati adanya tuntutan mendesak untuk diringkas, dan ada yang menggubah dalam bentuk nazham (syair) dan ada yang prosa, dan ada yang membahas masalah-masalah pokok serta cabang-cabang yang muncul darinya, dan ada yang mencukupkan diri dengan menjelaskan masalah-masalah pokok tanpa menyinggung banyak cabang, dan semuanya bermaksud dengan apa yang ia tulis untuk mengisi kekosongan yang wajib diisi, dan celah di perpustakaan keislaman yang wajib ditutup, agar kiranya Allah Subhanahu wa Ta'ala ridha kepadanya atas apa yang telah ia kerjakan,",
+                "align": "right",
                 "words": [
                     {
-                        "text": "وَبَعْدُ:",
-                        "translation": "Adapun setelah itu:",
-                        "root": "ب ع د",
-                        "explanation": "Kata peralihan (Amma ba'du)",
+                        "text": "الْمُبِينِ",
+                        "translation": "Yang menjelaskan",
+                        "root": "إِبَانَةٌ",
+                        "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Zharaf Zaman",
+                        "irab": "Na'at (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "نعت لـ (كتاب) مجرور وعلامة جره الكسرة الظاهرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": ".",
+                        "translation": "-",
+                        "root": "-",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "-",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify-indent",
+                "words": [
+                    {
+                        "text": "وَبَعْدُ",
+                        "translation": "Adapun setelah itu",
+                        "root": "بَعْدُ",
+                        "explanation": "Peralihan ke inti pembahasan",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Zharf Mabni Dhammah",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "الواو استئنافية، بعد: ظرف زمان مبني على الضم في محل نصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": ":",
+                        "translation": "-",
+                        "root": "-",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "-",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "فَإِنَّ",
                         "translation": "Maka sesungguhnya",
-                        "root": "-",
+                        "root": "إِنَّ",
                         "explanation": "-",
-                        "joined_explanation": "Fa + Inna",
+                        "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Amil Nawasikh",
+                        "irab": "Huruf Taukid",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "الفاء واقعة في جواب شرط مقدر، إن: حرف توكيد ونصب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "خَيْرَ",
                         "translation": "Sebaik-baik",
-                        "root": "خ ي ر",
+                        "root": "خَيْرٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Isim Inna",
+                        "irab": "Isim Inna (Manshub)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم إن منصوب وعلامة نصبه الفتحة الظاهرة، وهو مضاف.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "مَا",
                         "translation": "Apa yang",
-                        "root": "-",
+                        "root": "مَا",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Mudhaf Ilaih (Isim Maushul)",
+                        "irab": "Isim Maushul (Mudhaf Ilaih)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم موصول مبني في محل جر مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "يَشْتَغِلُ",
-                        "translation": "Disibukkan",
-                        "root": "ش غ ل",
+                        "translation": "Menyibukkan diri",
+                        "root": "اِشْتَغَلَ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Fi'il Mudhari'",
-                        "verb_type": "Tsulasi Mazid",
-                        "fail_ref": "Al-Insan"
+                        "irab": "Fi'il Mudhari' (Marfu')",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mazid)",
+                        "fail_ref": "الْإِنْسَانُ",
+                        "irab_ar": "فعل مضارع مرفوع وعلامة رفعه الضمة الظاهرة.",
+                        "ilal_ar": "صحيح سالم مزيد، لا إعلال فيه."
                     },
                     {
                         "text": "بِهِ",
                         "translation": "Dengannya",
-                        "root": "-",
+                        "root": "بِ",
                         "explanation": "-",
-                        "joined_explanation": "Bi + Hi",
-                        "pronoun_ref": "Hi merujuk ke Ma (perkara)",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Orang (Man)",
                         "irab": "Jar Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "الباء حرف جر، والهاء ضمير مبني في محل جر، متعلقان بالفعل.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْإِنْسَانُ",
                         "translation": "Manusia",
-                        "root": "أ ن س",
+                        "root": "إِنْسَانٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Fa'il",
+                        "irab": "Fa'il (Marfu')",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "فاعل مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "مَعْرِفَةُ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
+                        "translation": "Mengetahui",
+                        "root": "مَعْرِفَةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Khabar Inna (Marfu')",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "خبر إن مرفوع وعلامة رفعه الضمة الظاهرة، وهو مضاف.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْحَلَالِ",
-                        "translation": "Tentang yang halal",
-                        "root": "ح ل ل",
+                        "translation": "Yang halal",
+                        "root": "حِلٌّ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Mudhaf Ilaih",
+                        "irab": "Mudhaf Ilaih (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "وَالْحَرَامِ",
-                        "translation": "Dan haram",
-                        "root": "ح ر م",
+                        "translation": "Dan yang haram",
+                        "root": "تَحْرِيمٌ",
                         "explanation": "-",
-                        "joined_explanation": "Wawu + Haram",
+                        "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Ma'thuf",
+                        "irab": "Ma'thuf (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "معطوف مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "مِنَ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
+                        "translation": "Dari",
+                        "root": "مِنْ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
-                    },
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون وحرك بالفتح.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
                     {
                         "text": "الْأَحْكَامِ،",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
+                        "translation": "Hukum-hukum",
+                        "root": "حُكْمٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Isim Majrur (Jamak Taktsir)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور بـ (من).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "وَعِلْمُ",
                         "translation": "Dan ilmu",
-                        "root": "ع ل م",
+                        "root": "عِلْمٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Mubtada",
+                        "irab": "Ma'thuf (Marfu')",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "معطوف على (معرفة) مرفوع.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الصَّحِيحِ",
-                        "translation": "Tentang yang sah",
-                        "root": "ص ح ح",
+                        "translation": "Yang benar",
+                        "root": "صِحَّةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Mudhaf Ilaih",
+                        "irab": "Mudhaf Ilaih (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "مِنَ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
+                        "translation": "Dari",
+                        "root": "مِنْ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون وحرك بالفتح.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْفَاسِدِ",
-                        "translation": "Yang batal/rusak",
-                        "root": "ف س د",
+                        "translation": "Yang rusak",
+                        "root": "فَسَادٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Majrur",
+                        "irab": "Isim Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "معطوف مجرور (أو مضاف إليه).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "مِنَ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
+                        "translation": "Dari",
+                        "root": "مِنْ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون وحرك بالفتح.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْأَعْمَالِ؛",
-                        "translation": "Perbuatan;",
-                        "root": "ع م ل",
+                        "translation": "Amal",
+                        "root": "عَمَلٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Majrur",
+                        "irab": "Isim Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "وَعِلْمُ",
                         "translation": "Dan ilmu",
-                        "root": "ع ل م",
+                        "root": "عِلْمٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Mubtada",
+                        "irab": "Ma'thuf (Marfu')",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "معطوف على (معرفة) مرفوع.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْفِقْهِ",
                         "translation": "Fikih",
-                        "root": "ف ق ه",
+                        "root": "فِقْهٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Mudhaf Ilaih (Majrur)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور أو بدل.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "هُوَ",
+                        "translation": "Dia",
+                        "root": "هُوَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Ilmu Fikih",
+                        "irab": "Dhomir Fashl / Mubtada'",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "ضمير فصل لا محل له من الإعراب، أو مبتدأ.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الَّذِي",
+                        "translation": "Yang",
+                        "root": "الَّذِي",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Khabar (Isim Maushul)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم موصول مبني في محل رفع خبر.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "أَخَذَ",
+                        "translation": "Mengambil",
+                        "root": "أَخَذَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Madhi",
+                        "verb_type": "Fi'il Madhi (Tsulatsi Mujarrad)",
+                        "fail_ref": "Dhomir Mustatir (Ilmu Fikih)",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "فعل مهموز لا إعلال فيه."
+                    },
+                    {
+                        "text": "عَلَى",
+                        "translation": "Atas",
+                        "root": "عَلَى",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "عَاتِقِهِ",
+                        "translation": "Pundaknya",
+                        "root": "عِتْقٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Ilmu Fikih",
+                        "irab": "Isim Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بَيَانَ",
+                        "translation": "Penjelasan",
+                        "root": "بَيَانٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Maf'ul Bih (Manshub)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مفعول به منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "ذَلِكَ",
+                        "translation": "Itu",
+                        "root": "ذَلِكَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Isyarah",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم إشارة مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": ".",
+                        "translation": "-",
+                        "root": "-",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "-",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَلَقَدْ",
+                        "translation": "Dan sungguh",
+                        "root": "لَقَدْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Tahqiq",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "الواو استئنافية، اللام واقعة في جواب القسم، قد: حرف تحقيق.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَلَّفَ",
+                        "translation": "Telah mengarang",
+                        "root": "أَلَّفَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Madhi",
+                        "verb_type": "Fi'il Madhi (Tsulatsi Mazid)",
+                        "fail_ref": "كَثِيرٌ",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "مهموز مزيد بالتضعيف، لا إعلال فيه."
+                    },
+                    {
+                        "text": "كَثِيرٌ",
+                        "translation": "Banyak",
+                        "root": "كَثْرَةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fa'il (Marfu')",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "فاعل مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مِنْ",
+                        "translation": "Dari",
+                        "root": "مِنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "عُلَمَائِنَا",
+                        "translation": "Ulama-ulama kita",
+                        "root": "عِلْمٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Majrur & Mudhaf",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور، و (نا) مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْأَقْدَمِينَ",
+                        "translation": "Yang terdahulu",
+                        "root": "قِدَمٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Na'at (Majrur dengan Ya')",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "نعت مجرور بالياء لأنه جمع مذكر سالم.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "كُتُباً",
+                        "translation": "Buku-buku",
+                        "root": "كِتَابَةٌ",
+                        "explanation": "Jamak taktsir",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Maf'ul Bih (Manshub)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مفعول به منصوب وعلامة نصبه الفتحة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "فِي",
+                        "translation": "Di dalam",
+                        "root": "فِي",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "هَذَا",
+                        "translation": "Ini",
+                        "root": "هَذَا",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Isyarah (Mudhaf Ilaih)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم إشارة مبني في محل جر مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْفَنِّ",
+                        "translation": "Seni (Ilmu)",
+                        "root": "فَنٌّ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Badal (Majrur)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "بدل مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "يَكَادُ",
+                        "translation": "Hampir",
+                        "root": "كَادَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Mudhari' Naqish",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mujarrad)",
+                        "fail_ref": "الْعَدُّ",
+                        "irab_ar": "فعل مضارع ناقص مرفوع.",
+                        "ilal_ar": "أصله يَكْوَدُ، تحركت الواو وانفتح ما قبلها فقلبت ألفاً (يَكَادُ)."
+                    },
+                    {
+                        "text": "لَا",
+                        "translation": "Tidak",
+                        "root": "لَا",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Nafi",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف نفي.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "يُحْصِيهَا",
+                        "translation": "Dapat menghitungnya",
+                        "root": "أَحْصَى",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Kutub (Buku)",
+                        "irab": "Fi'il Mudhari'",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mazid)",
+                        "fail_ref": "الْعَدُّ",
+                        "irab_ar": "فعل مضارع مرفوع بالضمة المقدرة للثقل، والهاء مفعول به.",
+                        "ilal_ar": "أصله يُحْصِيُ، استثقلت الضمة على الياء فسكنت (إعلال بالتسكين)."
+                    },
+                    {
+                        "text": "الْعَدُّ،",
+                        "translation": "Hitungan",
+                        "root": "عَدٌّ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fa'il (Marfu')",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "فاعل مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَلَا",
+                        "translation": "Dan tidak",
+                        "root": "لَا",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Laa Nafiyah lil Jins",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "الواو حرف عطف، ولا النافية للجنس.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "شَكَّ",
+                        "translation": "Keraguan",
+                        "root": "شَكٌّ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Laa (Mabni Fathah)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم لا النافية للجنس مبني على الفتح في محل نصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَنَّ",
+                        "translation": "Bahwa",
+                        "root": "أَنَّ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Taukid",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف توكيد ونصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "كُلَّ",
+                        "translation": "Setiap",
+                        "root": "كُلٌّ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Anna (Manshub)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم إن منصوب وعلامة نصبه الفتحة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَاحِدٍ",
+                        "translation": "Satu",
+                        "root": "وَحْدَةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Mudhaf Ilaih (Majrur)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مِنْ",
+                        "translation": "Dari",
+                        "root": "مِنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "هَؤُلَاءِ",
+                        "translation": "Mereka ini",
+                        "root": "هَؤُلَاءِ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Isyarah (Majrur)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم إشارة مبني في محل جر مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْمُؤَلِّفِينَ",
+                        "translation": "Para pengarang",
+                        "root": "تَأْلِيفٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Badal (Majrur dengan Ya')",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "بدل مجرور وعلامة جره الياء لأنه جمع مذكر سالم.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "الْأَفَاضِلِ",
+                        "translation": "Yang mulia",
+                        "root": "فَضْلٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Na'at (Majrur)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "نعت مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "قَدْ",
+                        "translation": "Sungguh",
+                        "root": "قَدْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Tahqiq",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف تحقيق.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "لَاحَظَ",
+                        "translation": "Telah memperhatikan",
+                        "root": "لَاحَظَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Madhi",
+                        "verb_type": "Fi'il Madhi (Tsulatsi Mazid)",
+                        "fail_ref": "Dhomir Mustatir",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "صحيح مزيد لا إعلال فيه."
+                    },
+                    {
+                        "text": "أَنَّ",
+                        "translation": "Bahwa",
+                        "root": "أَنَّ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Taukid",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف توكيد ونصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "هُنَاكَ",
+                        "translation": "Di sana",
+                        "root": "هُنَاكَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Zharf Makan / Khabar Anna",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "ظرف مكان مبني في محل رفع خبر مقدم.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "ثُغْرَةً",
+                        "translation": "Celah",
+                        "root": "ثُغْرَةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Anna (Manshub)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم إن منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "يُوجِبُ",
+                        "translation": "Mewajibkan",
+                        "root": "أَوْجَبَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Mudhari' (Marfu')",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mazid)",
+                        "fail_ref": "دِينُهُ",
+                        "irab_ar": "فعل مضارع مرفوع.",
+                        "ilal_ar": "أصله يُؤْجِبُ (من أَوْجَبَ)، قلبت الواو ياءً أو بقيت واواً حسب القاعدة، ولا إعلال واضح هنا سوى الإبدال في المضارع."
+                    },
+                    {
+                        "text": "عَلَيْهِ",
+                        "translation": "Atasnya",
+                        "root": "عَلَى",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Setiap Pengarang",
+                        "irab": "Jar Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "دِينُهُ",
+                        "translation": "Agamanya",
+                        "root": "دِينٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Setiap Pengarang",
+                        "irab": "Fa'il (Marfu')",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "فاعل مرفوع وعلامة رفعه الضمة، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَنْ",
+                        "translation": "Bahwa",
+                        "root": "أَنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Mashdariyah",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف مصدري ونصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "يَقُومَ",
+                        "translation": "Ia berdiri",
+                        "root": "قَامَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Mudhari' Manshub",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mujarrad)",
+                        "fail_ref": "Dhomir Mustatir",
+                        "irab_ar": "فعل مضارع منصوب بأن وعلامة نصبه الفتحة.",
+                        "ilal_ar": "أصله يَقْوُمَ، نُقلت حركة الواو (الفتحة) إلى الساكن قبلها (القاف) فصار يَقُومَ (إعلال بالنقل)."
+                    },
+                    {
+                        "text": "بِسَدِّهَا",
+                        "translation": "Dengan menutupnya",
+                        "root": "سَدٌّ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Celah (Tsugroh)",
+                        "irab": "Jar Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَحَاجَةً",
+                        "translation": "Dan kebutuhan",
+                        "root": "حَاجَةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Ma'thuf (Manshub)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "معطوف منصوب.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "يَجِبُ",
+                        "translation": "Wajib",
+                        "root": "وَجَبَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Mudhari' (Marfu')",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mujarrad)",
+                        "fail_ref": "أَنْ يَبْذُلَ",
+                        "irab_ar": "فعل مضارع مرفوع بالضمة.",
+                        "ilal_ar": "أصله يَوْجِبُ، حذفت الواو لوقوعها بين ياء مفتوحة وكسرة (إعلال بالحذف)."
+                    },
+                    {
+                        "text": "عَلَيْهِ",
+                        "translation": "Atasnya",
+                        "root": "عَلَى",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Setiap Pengarang",
+                        "irab": "Jar Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَنْ",
+                        "translation": "Bahwa",
+                        "root": "أَنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Mashdariyah",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف مصدري ونصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "يَبْذُلَ",
+                        "translation": "Ia mengerahkan",
+                        "root": "بَذَلَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Mudhari' Manshub",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mujarrad)",
+                        "fail_ref": "Dhomir Mustatir",
+                        "irab_ar": "فعل مضارع منصوب وعلامة نصبه الفتحة.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "كُلَّ",
+                        "translation": "Setiap",
+                        "root": "كُلٌّ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Anna (Manshub)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم إن منصوب وعلامة نصبه الفتحة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مَا",
+                        "translation": "Apa yang",
+                        "root": "مَا",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Maushul (Mudhaf Ilaih)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم موصول مبني في محل جر مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "فِي",
+                        "translation": "Di dalam",
+                        "root": "فِي",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وُسْعِهِ",
+                        "translation": "Kemampuannya",
+                        "root": "وُسْعٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Pengarang",
+                        "irab": "Isim Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "لِقَضَائِهَا؛",
+                        "translation": "Untuk memenuhinya",
+                        "root": "قَضَاءٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Kebutuhan (Hajah)",
+                        "irab": "Jar Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اللام حرف جر، قضاء: اسم مجرور، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "فَمِنْ",
+                        "translation": "Maka dari",
+                        "root": "مِنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "الفاء عاطفة، من: حرف جر.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مُطَوِّلٍ",
+                        "translation": "Orang yang memanjangkan",
+                        "root": "تَطْوِيلٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "يَجِدُ",
+                        "translation": "Ia mendapati",
+                        "root": "وَجَدَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Mudhari' (Marfu')",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mujarrad)",
+                        "fail_ref": "Dhomir Mustatir",
+                        "irab_ar": "فعل مضارع مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "أصله يَوْجِدُ، حذفت الواو (إعلال بالحذف)."
+                    },
+                    {
+                        "text": "أَنَّ",
+                        "translation": "Bahwa",
+                        "root": "أَنَّ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Taukid",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف توكيد ونصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "هُنَاكَ",
+                        "translation": "Di sana",
+                        "root": "هُنَاكَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Zharf Makan / Khabar Anna",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "ظرف مكان مبني في محل رفع خبر مقدم.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "حَاجَةً",
+                        "translation": "Kebutuhan",
+                        "root": "حَاجَةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Anna (Manshub)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم إن منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مَاسَّةً",
+                        "translation": "Mendesak",
+                        "root": "مَسَاسٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Na'at (Manshub)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "نعت منصوب وعلامة نصبه الفتحة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "لِلتَّطْوِيلِ،",
+                        "translation": "Untuk penjelasan panjang",
+                        "root": "تَطْوِيلٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Jar Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَمِنْ",
+                        "translation": "Dan dari",
+                        "root": "مِنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "الواو عاطفة، من: حرف جر.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مُخْتَصِرٍ",
+                        "translation": "Orang yang meringkas",
+                        "root": "اِخْتِصَارٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور وعلامة جره الكسرة الظاهرة على آخره.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "يَجِدُ",
+                        "translation": "Ia mendapati",
+                        "root": "وَجَدَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Mudhari' (Marfu')",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mujarrad)",
+                        "fail_ref": "Dhomir Mustatir",
+                        "irab_ar": "فعل مضارع مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "أصله يَوْجِدُ، حذفت الواو (إعلال بالحذف)."
+                    },
+                    {
+                        "text": "أَنَّ",
+                        "translation": "Bahwa",
+                        "root": "أَنَّ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Taukid",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف توكيد ونصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "هُنَاكَ",
+                        "translation": "Di sana",
+                        "root": "هُنَاكَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Zharf Makan / Khabar Anna",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "ظرف مكان مبني في محل رفع خبر مقدم.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "طَلَباً",
+                        "translation": "Permintaan",
+                        "root": "طَلَبٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Anna (Manshub)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم إن منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مُلِحّاً",
+                        "translation": "Yang mendesak",
+                        "root": "إِلْحَاحٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Na'at (Manshub)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "نعت منصوب وعلامة نصبه الفتحة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "لِلِاخْتِصَارِ،",
+                        "translation": "Untuk ringkasan",
+                        "root": "اِخْتِصَارٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Jar Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "وَمِنْ",
+                        "translation": "Dan dari",
+                        "root": "مِنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "الواو عاطفة، من: حرف جر.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "نَاظِمٍ",
+                        "translation": "Penggubah syair",
+                        "root": "نَظْمٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَمِنْ",
+                        "translation": "Dan dari",
+                        "root": "مِنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "الواو عاطفة، من: حرف جر.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "نَاثِرٍ،",
+                        "translation": "Penulis prosa",
+                        "root": "نَثْرٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم معطوف مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَمِنْ",
+                        "translation": "Dan dari",
+                        "root": "مِنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "الواو عاطفة، من: حرف جر.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بَاحِثٍ",
+                        "translation": "Peneliti",
+                        "root": "بَحْثٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم معطوف مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "فِي",
+                        "translation": "Di dalam",
+                        "root": "فِي",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أُمَّهَاتِ",
+                        "translation": "Induk-induk",
+                        "root": "أُمُومَةٌ",
+                        "explanation": "Jamak Muannats Salim",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْمَسَائِلِ",
+                        "translation": "Masalah",
+                        "root": "مَسْأَلَةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
                         "irab": "Mudhaf Ilaih",
                         "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "هُوَ",
-                        "translation": "Dialah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Dhamir Fashl",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الَّذِي",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "أَخَذَ",
-                        "translation": "Mengambil",
-                        "root": "أ خ ذ",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Fi'il Madhi",
-                        "verb_type": "Tsulasi Mujarrad",
-                        "fail_ref": "Ilmu Fikih"
-                    },
-                    {
-                        "text": "عَلَى",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "عَاتِقِهِ",
-                        "translation": "Pundaknya (Tanggung jawabnya)",
-                        "root": "ع ت ق",
-                        "explanation": "-",
-                        "joined_explanation": "Atiq + Hi",
-                        "pronoun_ref": "Merujuk ke Fikih",
-                        "irab": "Jar Majrur",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "بَيَانَ",
-                        "translation": "Penjelasan",
-                        "root": "ب ي ن",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Maf'ul Bih",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "ذَلِكَ.",
-                        "translation": "Hal tersebut.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Mudhaf Ilaih (Isim Isyarah)",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَلَقَدْ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "أَلَّفَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "كَثِيرٌ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مِنْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "عُلَمَائِنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْأَقْدَمِينَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "كُتُباً",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "فِي",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "هَذَا",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْفَنِّ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "يَكَادُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "لَا",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "يُحْصِيهَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْعَدُّ،",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَلَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "شَكَّ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "أَنَّ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "كُلَّ",
-                        "translation": "Setiap",
-                        "root": "ك ل ل",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Majrur",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَاحِدٍ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مِنْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "هَؤُلَاءِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْمُؤَلِّفِينَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْأَفَاضِلِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "قَدْ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "لَاحَظَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "أَنَّ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "هُنَاكَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "ثُغْرَةً",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "يُوجِبُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "عَلَيْهِ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "دِينُهُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "أَنْ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "يَقُومَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "بِسَدِّهَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَحَاجَةً",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "يَجِبُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "عَلَيْهِ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "أَنْ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "يَبْذُلَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "كُلَّ",
-                        "translation": "Setiap",
-                        "root": "ك ل ل",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Majrur",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مَا",
-                        "translation": "Apa yang",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Mudhaf Ilaih (Isim Maushul)",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "فِي",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وُسْعِهِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "لِقَضَائِهَا؛",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "فَمِنْ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مُطَوِّلٍ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "يَجِدُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "أَنَّ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "هُنَاكَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "حَاجَةً",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مَاسَّةً",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "لِلتَّطْوِيلِ،",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَمِنْ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مُخْتَصِرٍ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "يَجِدُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "أَنَّ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "هُنَاكَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "طَلَباً",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مُلِحّاً",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "لِلِاخْتِصَارِ،",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَمِنْ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "نَاظِمٍ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَمِنْ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "نَاثِرٍ،",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَمِنْ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "بَاحِثٍ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "فِي",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "أُمَّهَاتِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْمَسَائِلِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "وَمَا",
-                        "translation": "Definisi Pertama Fikih",
-                        "root": "-",
+                        "translation": "Dan apa yang",
+                        "root": "مَا",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Ma'thuf",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "الواو عاطفة، ما: موصولية.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "يَنْبَثِقُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Terpancar",
+                        "root": "اِنْبَثَقَ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab": "Fi'il Mudhari' (Marfu')",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mazid)",
+                        "fail_ref": "Dhomir Mustatir",
+                        "irab_ar": "فعل مضارع مرفوع.",
+                        "ilal_ar": "صحيح سالم."
                     },
                     {
                         "text": "مِنْهَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Darinya",
+                        "root": "مِنْ",
                         "explanation": "-",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
+                        "pronoun_ref": "Ummahatul Masail",
+                        "irab": "Jar Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "مِنْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
+                        "translation": "Dari",
+                        "root": "مِنْ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
-                    },
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
                     {
                         "text": "فُرُوعٍ،",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Cabang-cabang",
+                        "root": "تَفَرُّعٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Isim Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "وَمِنْ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Dan dari",
+                        "root": "مِنْ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "الواو عاطفة، من: حرف جر.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "مُقْتَصِرٍ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Orang yang membatasi",
+                        "root": "اِقْتِصَارٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Isim Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "عَلَى",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
+                        "translation": "Atas",
+                        "root": "عَلَى",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "بَيَانِ",
                         "translation": "Penjelasan",
-                        "root": "ب ي ن",
+                        "root": "-",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Maf'ul Bih",
+                        "irab": "-",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "أُمَّهَاتِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
+                        "translation": "Induk-induk",
+                        "root": "أُمُومَةٌ",
+                        "explanation": "Jamak Muannats Salim",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Isim Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْمَسَائِلِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Masalah",
+                        "root": "مَسْأَلَةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Mudhaf Ilaih",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "مِنْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
+                        "translation": "Dari",
+                        "root": "مِنْ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "غَيْرِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Tanpa",
+                        "root": "غَيْرٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Isim Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "تَعَرُّضٍ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Pemaparan",
+                        "root": "تَعَرُّضٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Mudhaf Ilaih (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "لِكَثِيرٍ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Bagi banyak",
+                        "root": "كَثْرَةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Jar Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "مِنَ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
+                        "translation": "Dari",
+                        "root": "مِنْ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
-                    },
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون وحرك بالفتح.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
                     {
                         "text": "الْفُرُوعِ،",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Cabang-cabang",
+                        "root": "تَفَرُّعٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Isim Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "وَكُلُّهُمْ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Dan semuanya",
+                        "root": "كُلٌّ",
                         "explanation": "-",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
+                        "pronoun_ref": "Seluruh penulis tersebut",
+                        "irab": "Mubtada' (Marfu')",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مبتدأ مرفوع، و(هم) مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "يَقْصِدُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Bermaksud",
+                        "root": "قَصَدَ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab": "Fi'il Mudhari' (Marfu')",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mujarrad)",
+                        "fail_ref": "Dhomir Mustatir",
+                        "irab_ar": "فعل مضارع مرفوع.",
+                        "ilal_ar": "صحيح سالم."
                     },
                     {
                         "text": "بِمَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Dengan apa yang",
+                        "root": "مَا",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Jar Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "الباء حرف جر، وما موصولية في محل جر.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "أَلَّفَهُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Telah ia karang",
+                        "root": "أَلَّفَ",
                         "explanation": "-",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "pronoun_ref": "Buku",
+                        "irab": "Fi'il Madhi",
+                        "verb_type": "Fi'il Madhi (Tsulatsi Mazid)",
+                        "fail_ref": "Dhomir Mustatir",
+                        "irab_ar": "فعل ماض مبني على الفتح، والهاء مفعول به.",
+                        "ilal_ar": "صحيح مزيد، لا إعلال فيه."
                     },
                     {
                         "text": "مِلْءَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Memenuhi",
+                        "root": "مِلْءٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Maf'ul Bih (Manshub)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مفعول مطلق أو مفعول به منصوب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "فَرَاغٍ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Kekosongan",
+                        "root": "فَرَاغٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Mudhaf Ilaih (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "يَجِبُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Wajib",
+                        "root": "وَجَبَ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab": "Fi'il Mudhari' (Marfu')",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mujarrad)",
+                        "fail_ref": "أَنْ يَبْذُلَ",
+                        "irab_ar": "فعل مضارع مرفوع بالضمة.",
+                        "ilal_ar": "أصله يَوْجِبُ، حذفت الواو لوقوعها بين ياء مفتوحة وكسرة (إعلال بالحذف)."
                     },
                     {
                         "text": "أَنْ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
+                        "translation": "Bahwa",
+                        "root": "أَنْ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Mashdariyah",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف مصدري ونصب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "يُمْلَأَ،",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
+                        "translation": "Diisi",
+                        "root": "مَلَأَ",
+                        "explanation": "Bentuk pasif",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab": "Fi'il Mudhari' Majhul",
+                        "verb_type": "Fi'il Mudhari' Majhul (Tsulatsi Mujarrad)",
+                        "fail_ref": "Naibul Fa'il",
+                        "irab_ar": "فعل مضارع مبني للمجهول منصوب بأن المضمرة وعلامة نصبه الفتحة.",
+                        "ilal_ar": "مهموز لا إعلال فيه."
                     },
                     {
                         "text": "وَفُرْجَةٍ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Dan celah",
+                        "root": "فُرْجَةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Ma'thuf",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "معطوف مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "فِي",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
+                        "translation": "Di dalam",
+                        "root": "فِي",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْمَكْتَبَةِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Perpustakaan",
+                        "root": "كِتَابَةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Isim Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
-                    },
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
                     {
                         "text": "الْإِسْلَامِيَّةِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Keislaman",
+                        "root": "إِسْلَامٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Na'at (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "نعت مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "يَجِبُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Wajib",
+                        "root": "وَجَبَ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab": "Fi'il Mudhari' (Marfu')",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mujarrad)",
+                        "fail_ref": "أَنْ يَبْذُلَ",
+                        "irab_ar": "فعل مضارع مرفوع بالضمة.",
+                        "ilal_ar": "أصله يَوْجِبُ، حذفت الواو لوقوعها بين ياء مفتوحة وكسرة (إعلال بالحذف)."
                     },
                     {
                         "text": "أَنْ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
+                        "translation": "Bahwa",
+                        "root": "أَنْ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Mashdariyah",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف مصدري ونصب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "تُسَدَّ،",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
+                        "translation": "Ditutup",
+                        "root": "سَدَّ",
+                        "explanation": "Bentuk pasif",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab": "Fi'il Mudhari' Majhul",
+                        "verb_type": "Fi'il Mudhari' Majhul (Tsulatsi Mujarrad)",
+                        "fail_ref": "Naibul Fa'il",
+                        "irab_ar": "فعل مضارع مبني للمجهول.",
+                        "ilal_ar": "مضعف لا إعلال فيه."
                     },
                     {
                         "text": "لَعَلَّ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Semoga",
+                        "root": "لَعَلَّ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Tarajji (Seperti Inna)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف ترج ونصب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "اللَّهَ",
-                        "translation": "Definisi Kedua Fikih",
+                        "translation": "Allah",
                         "root": "-",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
                         "irab": "-",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "لفظ الجلالة مفعول به منصوب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "سُبْحَانَهُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Maha Suci Dia",
+                        "root": "تَسْبِيحٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
+                        "pronoun_ref": "Allah",
+                        "irab": "Maf'ul Muthlaq",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مفعول مطلق لفعل محذوف منصوب وعلامة نصبه الفتحة، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "أَنْ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
+                        "translation": "Bahwa",
+                        "root": "أَنْ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Mashdariyah",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف مصدري ونصب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "يَكُونَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Menjadi",
+                        "root": "كَانَ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab": "Fi'il Mudhari' Naqish",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mujarrad)",
+                        "fail_ref": "Isim Yakun (Allah)",
+                        "irab_ar": "فعل مضارع ناقص منصوب بأن أو مرفوع حسب السياق.",
+                        "ilal_ar": "أصله يَكْوُنَ، نقلت حركة الواو إلى الكاف (إعلال بالنقل)."
                     },
                     {
                         "text": "رَاضِياً",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Ridho",
+                        "root": "رِضَا",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Khabar Yakun (Manshub)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "خبر كان منصوب وعلامة نصبه الفتحة الظاهرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "عَنْهُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Darinya",
+                        "root": "عَنْ",
                         "explanation": "-",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
+                        "pronoun_ref": "Penulis",
+                        "irab": "Jar Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "عن حرف جر، والهاء في محل جر.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "بِمَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Dengan apa yang",
+                        "root": "مَا",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Jar Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "الباء حرف جر، وما موصولية في محل جر.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "عَمِلَ،",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Ia kerjakan",
+                        "root": "عَمِلَ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab": "Fi'il Madhi",
+                        "verb_type": "Fi'il Madhi (Tsulatsi Mujarrad)",
+                        "fail_ref": "Dhomir Mustatir (Penulis)",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "صحيح سالم."
                     }
                 ]
             }
@@ -2186,1942 +2714,2369 @@ const fikihData = [
     },
     {
         "pageNumber": 6,
-        "blocks": [
+        "lines": [
             {
-                "type": "paragraph",
-                "ar": "وَمُسَجَّلاً عَمَلُهُ فِي عِدَادِ الصَّدَقَاتِ الْجَارِيَةِ وَالْعِلْمِ النَّافِعِ الَّذِي لَا يَنْقَطِعُ ثَوَابُهَا إِلَى يَوْمِ الْقِيَامَةِ .",
-                "id": "Dan tercatat amalnya dalam bilangan sedekah jariyah dan ilmu yang bermanfaat yang tidak terputus pahalanya hingga hari kiamat.",
+                "align": "justify",
                 "words": [
                     {
                         "text": "وَمُسَجَّلاً",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
+                        "translation": "Dan dicatatkan",
+                        "root": "تَسْجِيلٌ",
+                        "explanation": "Sifat dari amal",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Ma'thuf (Manshub)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "معطوف منصوب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "عَمَلُهُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Amalnya",
+                        "root": "عَمَلٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
+                        "pronoun_ref": "Penulis",
+                        "irab": "Naibul Fa'il / Mubtada'",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "نائب فاعل مرفوع، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "فِي",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
+                        "translation": "Di dalam",
+                        "root": "فِي",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "عِدَادِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Hitungan",
+                        "root": "عَدٌّ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Isim Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الصَّدَقَاتِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Sedekah",
+                        "root": "صَدَقَةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Mudhaf Ilaih (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْجَارِيَةِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Yang mengalir",
+                        "root": "جَرَيَانٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Na'at (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "نعت مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "وَالْعِلْمِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Dan ilmu",
+                        "root": "عِلْمٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Ma'thuf (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "الواو عاطفة، العلم: اسم معطوف مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "النَّافِعِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Yang bermanfaat",
+                        "root": "نَفْعٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Na'at (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "نعت مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الَّذِي",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
+                        "translation": "Yang",
+                        "root": "الَّذِي",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Khabar (Isim Maushul)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم موصول مبني في محل رفع خبر.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "لَا",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
+                        "translation": "Tidak",
+                        "root": "لَا",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Nafi",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف نفي.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "يَنْقَطِعُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Terputus",
+                        "root": "اِنْقَطَعَ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
+                        "irab": "Fi'il Mudhari' (Marfu')",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mazid)",
+                        "fail_ref": "ثَوَابُهَا",
+                        "irab_ar": "فعل مضارع مرفوع.",
+                        "ilal_ar": "صحيح سالم."
+                    }
+                ]
+            },
+            {
+                "align": "right",
+                "words": [
                     {
                         "text": "ثَوَابُهَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Pahalanya",
+                        "root": "ثَوَابٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
+                        "pronoun_ref": "Sedekah / Ilmu",
+                        "irab": "Fa'il (Marfu')",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "فاعل مرفوع وعلامة رفعه الضمة، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "إِلَى",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Ke / Sampai",
+                        "root": "إِلَى",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "يَوْمِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Hari",
+                        "root": "يَوْمٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Isim Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْقِيَامَةِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Kiamat",
+                        "root": "قِيَامَةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Mudhaf Ilaih (Majrur)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": ".",
-                        "translation": ".",
+                        "translation": "-",
                         "root": "-",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
                         "irab": "-",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "ilal_ar": "-"
                     }
                 ]
             },
             {
-                "type": "paragraph",
-                "ar": "وَلَقَدْ لَاحَظْنَا أَنَّ هُنَاكَ حَاجَةً إِلَى كِتَابٍ تُذْكَرُ فِيهِ أُمَّهَاتُ الْمَسَائِلِ مَقْرُونَةً بِأَدِلَّتِهَا مِنَ الْكِتَابِ الْكَرِيمِ وَالسُّنَّةِ الْمُطَهَّرَةِ، مَشْفُوعَةً بِبَيَانِ مَا نَسْتَطِيعُ أَنْ نَصِلَ إِلَيْهِ بِعُقُولِنَا مِنْ حِكْمَةِ التَّشْرِيعِ. مَعَ سُهُولَةٍ فِي التَّعْبِيرِ، وَإِكْثَارٍ مِنَ الْعَنَاوِينِ الْمُنَبِّهَةِ إِلَى مَا تَحْتَهَا مِنْ مَسَائِلَ. وَمَعَ اعْتِقَادِنَا بِأَنَّنَا لَمْ نَبْلُغْ بَعْدُ دَرَجَةَ أَسْلَافِنَا مِنَ الْفُقَهَاءِ الْعِظَامِ فَإِنَّنَا شَعَرْنَا أَنَّ مِنَ الْوَاجِبِ عَلَيْنَا أَنْ نَقُومَ بِالْأَمْرِ، فَاسْتَعَنَّا بِاللَّهِ وَقُمْنَا بِذَلِكَ عَلَى قَدْرِ اسْتِطَاعَتِنَا تَارِكِينَ لِأَرْبَابِ الْكَفَاءَةِ الصَّحِيحَةِ تَتْمِيمَ مَا نَقَصَ، وَإِصْلَاحَ مَا اعْوَجَّ، وَتَصْوِيبَ مَا وَقَعَ فِيهِ الْخَطَأُ، إِذْ لَا نَدَّعِي ــ وَلَنْ نَدَّعِيَ ــ أَنَّنَا قَدْ بَلَغْنَا الْغَايَةَ مَعَ إِفْرَاغِنَا جَمِيعَ مَا لَدَيْنَا مِنْ وُسْعٍ .",
-                "id": "Dan sungguh kami memperhatikan bahwa ada kebutuhan terhadap sebuah kitab yang disebutkan di dalamnya masalah-masalah pokok beserta dalil-dalilnya dari Al-Quran yang mulia dan As-Sunnah yang suci, disertai penjelasan yang mampu dicapai oleh akal-akal kami dari hikmah tasyri' (pensyariatan). Dengan kemudahan dalam ungkapan, dan memperbanyak judul-judul yang mengingatkan pada masalah-masalah di bawahnya. Dan dengan keyakinan kami bahwa kami belum mencapai derajat para pendahulu kami dari kalangan fuqaha (ahli fikih) yang agung, namun kami merasa bahwa wajib bagi kami untuk melaksanakan urusan ini. Maka kami memohon pertolongan kepada Allah dan kami melaksanakannya sesuai dengan kemampuan kami, sambil menyerahkan kepada orang-orang yang memiliki kafa'ah (kompetensi) yang benar untuk menyempurnakan apa yang kurang, dan memperbaiki apa yang bengkok, serta meluruskan kesalahan yang terjadi di dalamnya. Karena kami tidak mengklaim—dan tidak akan pernah mengklaim—bahwa kami telah mencapai puncak (kesempurnaan) bersamaan dengan pengerahan segala kemampuan yang kami miliki.",
+                "align": "justify-indent",
                 "words": [
                     {
                         "text": "وَلَقَدْ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Dan sungguh",
+                        "root": "لَقَدْ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Tahqiq",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "الواو استئنافية، اللام واقعة في جواب القسم، قد: حرف تحقيق.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "لَاحَظْنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Kami memperhatikan",
+                        "root": "لَاحَظَ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab": "Fi'il Madhi",
+                        "verb_type": "Fi'il Madhi (Tsulatsi Mazid)",
+                        "fail_ref": "Dhomir Na (Kami)",
+                        "irab_ar": "فعل ماض مبني على السكون لاتصاله بـ (نا) الفاعلين.",
+                        "ilal_ar": "صحيح سالم."
                     },
                     {
                         "text": "أَنَّ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
+                        "translation": "Bahwa",
+                        "root": "أَنَّ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Taukid",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف توكيد ونصب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "هُنَاكَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Di sana",
+                        "root": "هُنَاكَ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Zharf Makan / Khabar Anna",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "ظرف مكان مبني في محل رفع خبر مقدم.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "حَاجَةً",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Kebutuhan",
+                        "root": "حَاجَةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Isim Anna (Manshub)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم إن منصوب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "إِلَى",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Ke / Sampai",
+                        "root": "إِلَى",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "كِتَابٍ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
+                        "translation": "Sebuah kitab",
+                        "root": "كِتَابَةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Isim Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "تُذْكَرُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Disebutkan",
+                        "root": "ذَكَرَ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab": "Fi'il Mudhari' Majhul",
+                        "verb_type": "Fi'il Mudhari' Majhul (Tsulatsi Mujarrad)",
+                        "fail_ref": "أُمَّهَاتُ",
+                        "irab_ar": "فعل مضارع مبني للمجهول مرفوع.",
+                        "ilal_ar": "صحيح سالم."
                     },
                     {
                         "text": "فِيهِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Di dalamnya",
+                        "root": "فِي",
                         "explanation": "-",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
+                        "pronoun_ref": "Buku",
+                        "irab": "Jar Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "في حرف جر، والهاء ضمير في محل جر.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "أُمَّهَاتُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Induk",
+                        "root": "أُمُومَةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Naibul Fa'il (Marfu')",
                         "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْمَسَائِلِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مَقْرُونَةً",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "بِأَدِلَّتِهَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مِنَ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْكِتَابِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْكَرِيمِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَالسُّنَّةِ",
-                        "translation": "Definisi Pertama Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْمُطَهَّرَةِ،",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مَشْفُوعَةً",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "بِبَيَانِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مَا",
-                        "translation": "Apa yang",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Mudhaf Ilaih (Isim Maushul)",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "نَسْتَطِيعُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "أَنْ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "نَصِلَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "إِلَيْهِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "بِعُقُولِنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مِنْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "حِكْمَةِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "التَّشْرِيعِ.",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مَعَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "سُهُولَةٍ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "فِي",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "التَّعْبِيرِ،",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَإِكْثَارٍ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مِنَ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْعَنَاوِينِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْمُنَبِّهَةِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "إِلَى",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مَا",
-                        "translation": "Apa yang",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Mudhaf Ilaih (Isim Maushul)",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "تَحْتَهَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مِنْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مَسَائِلَ.",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَمَعَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "اعْتِقَادِنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "بِأَنَّنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "لَمْ",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "نَبْلُغْ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "بَعْدُ",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "دَرَجَةَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "أَسْلَافِنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مِنَ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْفُقَهَاءِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْعِظَامِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "فَإِنَّنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "شَعَرْنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "أَنَّ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مِنَ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْوَاجِبِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "عَلَيْنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "أَنْ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "نَقُومَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "بِالْأَمْرِ،",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "فَاسْتَعَنَّا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "بِاللَّهِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَقُمْنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "بِذَلِكَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "عَلَى",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "قَدْرِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "اسْتِطَاعَتِنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "تَارِكِينَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "لِأَرْبَابِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْكَفَاءَةِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الصَّحِيحَةِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "تَتْمِيمَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مَا",
-                        "translation": "Apa yang",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Mudhaf Ilaih (Isim Maushul)",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "نَقَصَ،",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَإِصْلَاحَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مَا",
-                        "translation": "Apa yang",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Mudhaf Ilaih (Isim Maushul)",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "اعْوَجَّ،",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَتَصْوِيبَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مَا",
-                        "translation": "Apa yang",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Mudhaf Ilaih (Isim Maushul)",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَقَعَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "فِيهِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْخَطَأُ،",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "إِذْ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "لَا",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "نَدَّعِي",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "ــ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَلَنْ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "نَدَّعِيَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "ــ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "أَنَّنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "قَدْ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "بَلَغْنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْغَايَةَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مَعَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "إِفْرَاغِنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "جَمِيعَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مَا",
-                        "translation": "Apa yang",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Mudhaf Ilaih (Isim Maushul)",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "لَدَيْنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مِنْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وُسْعٍ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": ".",
-                        "translation": ".",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "نائب فاعل مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "-"
                     }
                 ]
             },
             {
-                "type": "paragraph",
-                "ar": "وَهَا نَحْنُ أُولَاءِ نُقَدِّمُ هَذَا الْكِتَابَ، وَأَسْمَيْنَاهُ (الْفِقْهُ الْمَنْهَجِيُّ) عَلَى مَذْهَبِ الْإِمَامِ الشَّافِعِيِّ، وَمَا عَلَى إِخْوَانِنَا الَّذِينَ يُرِيدُونَ الْوُصُولَ إِلَى الْأَفْضَلِ ــ لَا تَسَقُّطَ وَالْتِقَاطَ الْعُيُوبِ ــ إِلَّا أَنْ يُرْشِدُونَا إِلَى مَا فَاتَنَا مِمَّا هَدَفْنَا إِلَيْهِ .",
-                "id": "Dan inilah kami mempersembahkan kitab ini, dan kami menamainya (Al-Fiqhu Al-Manhaji) di atas madzhab Imam As-Syafi'i. Dan tidak ada (kewajiban) atas saudara-saudara kami yang ingin mencapai yang lebih baik—bukan sekedar mencari-cari dan memungut aib—kecuali memberi petunjuk kepada kami tentang apa yang terlewat dari apa yang telah kami targetkan.",
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "الْمَسَائِلِ",
+                        "translation": "Masalah",
+                        "root": "مَسْأَلَةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Mudhaf Ilaih",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مَقْرُونَةً",
+                        "translation": "Disertai",
+                        "root": "قَرْنٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Hal (Manshub)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حال منصوبة وعلامة نصبها الفتحة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بِأَدِلَّتِهَا",
+                        "translation": "Dengan dalil-dalilnya",
+                        "root": "دَلَالَةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Masalah",
+                        "irab": "Jar Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "الباء حرف جر، أدلة: اسم مجرور وعلامة جره الكسرة، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مِنَ",
+                        "translation": "Dari",
+                        "root": "مِنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون وحرك بالفتح.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْكِتَابِ",
+                        "translation": "Buku",
+                        "root": "-",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "-",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْكَرِيمِ",
+                        "translation": "Yang mulia",
+                        "root": "كَرَمٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Na'at (Majrur)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "نعت مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَالسُّنَّةِ",
+                        "translation": "Dan Sunnah",
+                        "root": "سُنَّةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Ma'thuf (Majrur)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "الواو حرف عطف، السنة: معطوف مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْمُطَهَّرَةِ،",
+                        "translation": "Yang disucikan",
+                        "root": "طَهَارَةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Na'at (Majrur)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "نعت مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مَشْفُوعَةً",
+                        "translation": "Didampingi",
+                        "root": "شَفَاعَةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Hal 2 (Manshub)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حال ثانية منصوبة وعلامة نصبها الفتحة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بِبَيَانِ",
+                        "translation": "Dengan penjelasan",
+                        "root": "بَيَانٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Jar Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "مَا",
+                        "translation": "Apa yang",
+                        "root": "مَا",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Maushul (Mudhaf Ilaih)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم موصول مبني في محل جر مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "نَسْتَطِيعُ",
+                        "translation": "Kami mampu",
+                        "root": "اِسْتَطَاعَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Mudhari' (Marfu')",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mazid)",
+                        "fail_ref": "Dhomir Mustatir",
+                        "irab_ar": "فعل مضارع مرفوع بالضمة الظاهرة.",
+                        "ilal_ar": "أصله نَسْتَطْوِعُ، نقلت الكسرة إلى الطاء وانقلبت الواو ياءً (إعلال بالنقل والقلب)."
+                    },
+                    {
+                        "text": "أَنْ",
+                        "translation": "Bahwa",
+                        "root": "أَنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Mashdariyah",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف مصدري ونصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "نَصِلَ",
+                        "translation": "Kami sampai",
+                        "root": "وَصَلَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Mudhari' Manshub",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mujarrad)",
+                        "fail_ref": "Dhomir Mustatir",
+                        "irab_ar": "فعل مضارع منصوب وعلامة نصبه الفتحة.",
+                        "ilal_ar": "أصله نَوْصِلُ، حذفت الواو (إعلال بالحذف)."
+                    },
+                    {
+                        "text": "إِلَيْهِ",
+                        "translation": "Kepadanya",
+                        "root": "إِلَى",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Sesuatu",
+                        "irab": "Jar Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بِعُقُولِنَا",
+                        "translation": "Dengan akal kami",
+                        "root": "عَقْلٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Penulis",
+                        "irab": "Jar Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "الباء حرف جر، وعقول: اسم مجرور وعلامة جره الكسرة، و(نا) مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مِنْ",
+                        "translation": "Dari",
+                        "root": "مِنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "حِكْمَةِ",
+                        "translation": "Hikmah",
+                        "root": "حِكْمَةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "التَّشْرِيعِ",
+                        "translation": "Syariat",
+                        "root": "تَشْرِيعٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Mudhaf Ilaih",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": ".",
+                        "translation": "-",
+                        "root": "-",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "-",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مَعَ",
+                        "translation": "Bersama",
+                        "root": "مَعَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Zharf",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "ظرف مكان منصوب وعلامة نصبه الفتحة، وهو مضاف.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "سُهُولَةٍ",
+                        "translation": "Kemudahan",
+                        "root": "سُهُولَةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Mudhaf Ilaih",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "فِي",
+                        "translation": "Di dalam",
+                        "root": "فِي",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "التَّعْبِيرِ،",
+                        "translation": "Pengungkapan",
+                        "root": "تَعْبِيرٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Mudhaf Ilaih",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَإِكْثَارٍ",
+                        "translation": "Dan memperbanyak",
+                        "root": "إِكْثَارٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Ma'thuf",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "الواو عاطفة، إكثار: اسم معطوف مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مِنَ",
+                        "translation": "Dari",
+                        "root": "مِنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون وحرك بالفتح.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْعَنَاوِينِ",
+                        "translation": "Judul-judul",
+                        "root": "عُنْوَانٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْمُنَبِّهَةِ",
+                        "translation": "Yang mengingatkan",
+                        "root": "تَنْبِيهٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Na'at (Majrur)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "نعت مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "إِلَى",
+                        "translation": "Ke / Sampai",
+                        "root": "إِلَى",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مَا",
+                        "translation": "Apa yang",
+                        "root": "مَا",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Maushul (Mudhaf Ilaih)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم موصول مبني في محل جر مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "تَحْتَهَا",
+                        "translation": "Di bawahnya",
+                        "root": "تَحْتَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Judul",
+                        "irab": "Zharf Makan",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "ظرف مكان منصوب، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مِنْ",
+                        "translation": "Dari",
+                        "root": "مِنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مَسَائِلَ",
+                        "translation": "Masalah-masalah",
+                        "root": "مَسْأَلَةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Majrur (Ghairu Munsharif)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الفتحة لأنه ممنوع من الصرف.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": ".",
+                        "translation": "-",
+                        "root": "-",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "-",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَمَعَ",
+                        "translation": "Dan bersama",
+                        "root": "-",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "-",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "الواو حرف عطف، ومع: ظرف منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "اعْتِقَادِنَا",
+                        "translation": "Keyakinan kami",
+                        "root": "اِعْتِقَادٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Penulis",
+                        "irab": "Mudhaf Ilaih",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "بِأَنَّنَا",
+                        "translation": "Bahwa sesungguhnya kami",
+                        "root": "أَنَّ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Penulis",
+                        "irab": "Huruf Taukid",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "الباء حرف جر، أن: حرف توكيد ونصب، و(نا) اسمها في محل نصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "لَمْ",
+                        "translation": "Belum",
+                        "root": "لَمْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jazm",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف نفي وجزم وقلب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "نَبْلُغْ",
+                        "translation": "Kami mencapai",
+                        "root": "بَلَغَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Mudhari' Majzum",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mujarrad)",
+                        "fail_ref": "Dhomir Mustatir",
+                        "irab_ar": "فعل مضارع مجزوم بلم وعلامة جزمه السكون.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "بَعْدُ",
+                        "translation": "Setelah",
+                        "root": "بَعْدُ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Zharf Zaman Mabni",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "ظرف زمان مبني على الضم في محل نصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "دَرَجَةَ",
+                        "translation": "Derajat",
+                        "root": "دَرَجَةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Maf'ul Bih",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مفعول به منصوب وعلامة نصبه الفتحة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَسْلَافِنَا",
+                        "translation": "Pendahulu kami",
+                        "root": "سَلَفٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Mudhaf Ilaih",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مِنَ",
+                        "translation": "Dari",
+                        "root": "مِنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون وحرك بالفتح.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْفُقَهَاءِ",
+                        "translation": "Para ahli fikih",
+                        "root": "فِقْهٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Majrur (Bayan)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "بدل أو عطف بيان مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْعِظَامِ",
+                        "translation": "Yang agung",
+                        "root": "عَظَمَةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Na'at (Majrur)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "نعت مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "فَإِنَّنَا",
+                        "translation": "Maka sesungguhnya kami",
+                        "root": "إِنَّ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Penulis",
+                        "irab": "Huruf Taukid",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "الفاء استئنافية، إننا: حرف توكيد ونصب واسمها.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "شَعَرْنَا",
+                        "translation": "Kami merasa",
+                        "root": "شَعَرَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Madhi",
+                        "verb_type": "Fi'il Madhi (Tsulatsi Mujarrad)",
+                        "fail_ref": "Dhomir Na",
+                        "irab_ar": "فعل ماض مبني على السكون.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "أَنَّ",
+                        "translation": "Bahwa",
+                        "root": "أَنَّ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Taukid",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف توكيد ونصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مِنَ",
+                        "translation": "Dari",
+                        "root": "مِنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون وحرك بالفتح.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "الْوَاجِبِ",
+                        "translation": "Yang wajib",
+                        "root": "وُجُوبٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "عَلَيْنَا",
+                        "translation": "Atas kami",
+                        "root": "عَلَى",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Penulis",
+                        "irab": "Jar Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "على حرف جر، و(نا) في محل جر.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَنْ",
+                        "translation": "Bahwa",
+                        "root": "أَنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Mashdariyah",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف مصدري ونصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "نَقُومَ",
+                        "translation": "Kami melaksanakan",
+                        "root": "-",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "-",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "فعل مضارع منصوب.",
+                        "ilal_ar": "أصله نَقْوُمَ، نُقلت الفتحة إلى القاف وصار نَقُومَ."
+                    },
+                    {
+                        "text": "بِالْأَمْرِ،",
+                        "translation": "Dengan urusan",
+                        "root": "أَمْرٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Jar Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "الباء حرف جر، الأمر: اسم مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "فَاسْتَعَنَّا",
+                        "translation": "Kami mohون pertolongan",
+                        "root": "اِسْتَعَانَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Madhi",
+                        "verb_type": "Fi'il Madhi (Tsulatsi Mazid)",
+                        "fail_ref": "Dhomir Na",
+                        "irab_ar": "فعل ماض مبني على السكون.",
+                        "ilal_ar": "أصله اسْتَعْوَنَّا، نقلت الفتحة إلى العين وقلبت الواو ألفاً ثم حذفت الألف لالتقاء الساكنين (إعلال بالنقل والقلب والحذف)."
+                    },
+                    {
+                        "text": "بِاللَّهِ",
+                        "translation": "Kepada Allah",
+                        "root": "أُلُوهَةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Jar Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَقُمْنَا",
+                        "translation": "Kami melaksanakan",
+                        "root": "قَامَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Madhi",
+                        "verb_type": "Fi'il Madhi (Tsulatsi Mujarrad)",
+                        "fail_ref": "Dhomir Na",
+                        "irab_ar": "فعل ماض مبني على السكون.",
+                        "ilal_ar": "أصله قَوَمْنَا، نقلت حركة الواو، وحذفت الألف لالتقاء الساكنين (إعلال بالحذف)."
+                    },
+                    {
+                        "text": "بِذَلِكَ",
+                        "translation": "Dengan hal itu",
+                        "root": "ذَلِكَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Jar Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "جار ومجرور (اسم إشارة).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "عَلَى",
+                        "translation": "Atas",
+                        "root": "عَلَى",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "قَدْرِ",
+                        "translation": "Kadar",
+                        "root": "قَدْرٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "اسْتِطَاعَتِنَا",
+                        "translation": "Kemampuan kami",
+                        "root": "اِسْتِطَاعَةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Penulis",
+                        "irab": "Mudhaf Ilaih",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "تَارِكِينَ",
+                        "translation": "Meninggalkan",
+                        "root": "تَرْكٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Hal (Manshub)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حال منصوبة وعلامة نصبها الياء.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "لِأَرْبَابِ",
+                        "translation": "Bagi para ahli",
+                        "root": "رُبُوبِيَّةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Jar Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْكَفَاءَةِ",
+                        "translation": "Kompetensi",
+                        "root": "كَفَاءَةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Mudhaf Ilaih",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الصَّحِيحَةِ",
+                        "translation": "Yang benar",
+                        "root": "صِحَّةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Na'at",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "نعت مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "تَتْمِيمَ",
+                        "translation": "Menyempurnakan",
+                        "root": "تَتْمِيمٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Maf'ul Bih",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مفعول به منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مَا",
+                        "translation": "Apa yang",
+                        "root": "مَا",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Maushul (Mudhaf Ilaih)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم موصول مبني في محل جر مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "نَقَصَ،",
+                        "translation": "Berkurang",
+                        "root": "نَقَصَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Madhi",
+                        "verb_type": "Fi'il Madhi (Tsulatsi Mujarrad)",
+                        "fail_ref": "Maa (Sesuatu)",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "وَإِصْلَاحَ",
+                        "translation": "Dan memperbaiki",
+                        "root": "إِصْلَاحٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Ma'thuf",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "معطوف منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مَا",
+                        "translation": "Apa yang",
+                        "root": "مَا",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Maushul (Mudhaf Ilaih)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم موصول مبني في محل جر مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "اعْوَجَّ،",
+                        "translation": "Bengkok",
+                        "root": "اِعْوَجَّ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Madhi",
+                        "verb_type": "Fi'il Madhi (Tsulatsi Mazid)",
+                        "fail_ref": "Maa",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "معتل، لم تعل الواو لأنها مضعفة."
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "وَتَصْوِيبَ",
+                        "translation": "Dan meluruskan",
+                        "root": "تَصْوِيبٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Ma'thuf",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "الواو حرف عطف، معطوف منصوب وعلامة نصبه الفتحة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مَا",
+                        "translation": "Apa yang",
+                        "root": "مَا",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Maushul (Mudhaf Ilaih)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم موصول مبني في محل جر مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَقَعَ",
+                        "translation": "Terjadi",
+                        "root": "وَقَعَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Madhi",
+                        "verb_type": "Fi'il Madhi (Tsulatsi Mujarrad)",
+                        "fail_ref": "Maa",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "مثال واوي، لا إعلال في الماضي."
+                    },
+                    {
+                        "text": "فِيهِ",
+                        "translation": "Di dalamnya",
+                        "root": "فِي",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Buku",
+                        "irab": "Jar Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "في حرف جر، والهاء ضمير في محل جر.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْخَطَأُ،",
+                        "translation": "Kesalahan",
+                        "root": "خَطَأٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fa'il (Marfu')",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "فاعل مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "إِذْ",
+                        "translation": "Karena",
+                        "root": "إِذْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Zharf Zaman",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "ظرف لما مضى من الزمان مبني على السكون.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "لَا",
+                        "translation": "Tidak",
+                        "root": "لَا",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Nafi",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف نفي.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "نَدَّعِي",
+                        "translation": "Kami mengklaim",
+                        "root": "اِدَّعَى",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Mudhari'",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mazid)",
+                        "fail_ref": "Dhomir Mustatir",
+                        "irab_ar": "فعل مضارع مرفوع بالضمة المقدرة للثقل.",
+                        "ilal_ar": "أصله نَدْتَعِي ثم نَدْدَعِي ثم أُدغم. والإعلال: تسكين الياء للثقل."
+                    },
+                    {
+                        "text": "ــ",
+                        "translation": "-",
+                        "root": "-",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "-",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَلَنْ",
+                        "translation": "Dan tidak akan",
+                        "root": "لَنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Nashab",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "الواو عاطفة، لن: حرف نفي ونصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "نَدَّعِيَ",
+                        "translation": "Kami mengklaim",
+                        "root": "اِدَّعَى",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Mudhari' Manshub",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mazid)",
+                        "fail_ref": "Dhomir Mustatir",
+                        "irab_ar": "فعل مضارع منصوب بالفتحة الظاهرة.",
+                        "ilal_ar": "صحيح معتل اللام بالياء، تظهر الفتحة للخفة."
+                    },
+                    {
+                        "text": "ــ",
+                        "translation": "-",
+                        "root": "-",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "-",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَنَّنَا",
+                        "translation": "Bahwa kami",
+                        "root": "-",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "-",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "أن: حرف توكيد ونصب، و(نا) ضمير متصل في محل نصب اسم أن.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "قَدْ",
+                        "translation": "Sungguh",
+                        "root": "قَدْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Tahqiq",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف تحقيق.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بَلَغْنَا",
+                        "translation": "Kami mencapai",
+                        "root": "بَلَغَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Madhi",
+                        "verb_type": "Fi'il Madhi (Tsulatsi Mujarrad)",
+                        "fail_ref": "Dhomir Na",
+                        "irab_ar": "فعل ماض مبني على السكون.",
+                        "ilal_ar": "صحيح سالم."
+                    }
+                ]
+            },
+            {
+                "align": "right",
+                "words": [
+                    {
+                        "text": "الْغَايَةَ",
+                        "translation": "Puncak",
+                        "root": "غَايَةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Maf'ul Bih",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مفعول به منصوب وعلامة نصبه الفتحة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مَعَ",
+                        "translation": "Bersama",
+                        "root": "مَعَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Zharf",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "ظرف مكان منصوب وعلامة نصبه الفتحة، وهو مضاف.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "إِفْرَاغِنَا",
+                        "translation": "Pengerahan kami",
+                        "root": "إِفْرَاغٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Penulis",
+                        "irab": "Mudhaf Ilaih",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "جَمِيعَ",
+                        "translation": "Seluruh",
+                        "root": "جَمْعٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Maf'ul Bih",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مفعول به منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مَا",
+                        "translation": "Apa yang",
+                        "root": "مَا",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Maushul (Mudhaf Ilaih)",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم موصول مبني في محل جر مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "لَدَيْنَا",
+                        "translation": "Milik kami",
+                        "root": "لَدَى",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Zharf",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "لدى: ظرف مكان مبني على السكون في محل نصب، و(نا) ضمير متصل مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مِنْ",
+                        "translation": "Dari",
+                        "root": "مِنْ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Huruf Jar",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وُسْعٍ",
+                        "translation": "Kemampuan",
+                        "root": "وُسْعٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Isim Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": ".",
+                        "translation": "-",
+                        "root": "-",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "-",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify-indent",
                 "words": [
                     {
                         "text": "وَهَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Dan ini lah",
+                        "root": "هَا",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Tanbih",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "الواو استئنافية، ها: حرف تنبيه مبني على السكون.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "نَحْنُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Kami",
+                        "root": "نَحْنُ",
                         "explanation": "-",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
+                        "pronoun_ref": "Penulis",
+                        "irab": "Mubtada'",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "ضمير منفصل مبني في محل رفع مبتدأ.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "أُولَاءِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Mereka ini",
+                        "root": "أُولَاءِ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Khabar",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم إشارة مبني في محل رفع خبر.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "نُقَدِّمُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Kami mempersembahkan",
+                        "root": "قَدَّمَ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab": "Fi'il Mudhari'",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mazid)",
+                        "fail_ref": "Dhomir Mustatir",
+                        "irab_ar": "فعل مضارع مرفوع.",
+                        "ilal_ar": "صحيح سالم."
                     },
                     {
                         "text": "هَذَا",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
+                        "translation": "Ini",
+                        "root": "هَذَا",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Isim Isyarah (Mudhaf Ilaih)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم إشارة مبني في محل جر مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْكِتَابَ،",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Buku",
+                        "root": "كِتَابَةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Badal / Sifat",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "بدل منصوب وعلامة نصبه الفتحة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "وَأَسْمَيْنَاهُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Kami menamainya",
+                        "root": "أَسْمَى",
                         "explanation": "-",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "pronoun_ref": "Buku",
+                        "irab": "Fi'il Madhi",
+                        "verb_type": "Fi'il Madhi (Tsulatsi Mazid)",
+                        "fail_ref": "Dhomir Na",
+                        "irab_ar": "فعل ماض مبني على السكون، و (نا) فاعل، والهاء مفعول به.",
+                        "ilal_ar": "أصله أسْمَيْنَا من السمو، قلبت الواو ياءً لتطرفها."
                     },
                     {
                         "text": "(الْفِقْهُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Fikih",
+                        "root": "فِقْهٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Maf'ul Bih 2",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مفعول به ثان منصوب (أو محكي بالقول).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْمَنْهَجِيُّ)",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Yang sistematis",
+                        "root": "مَنْهَجٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Na'at",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "نعت منصوب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "عَلَى",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
+                        "translation": "Atas",
+                        "root": "عَلَى",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
-                    },
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
                     {
                         "text": "مَذْهَبِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Mazhab",
+                        "root": "ذَهَابٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Isim Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْإِمَامِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Imam",
+                        "root": "إِمَامَةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Mudhaf Ilaih",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الشَّافِعِيِّ،",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
+                        "translation": "Syafi'i",
+                        "root": "شَفْعٌ",
+                        "explanation": "Pendiri mazhab",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Badal",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "بدل مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "وَمَا",
-                        "translation": "Definisi Pertama Fikih",
-                        "root": "-",
+                        "translation": "Dan apa yang",
+                        "root": "مَا",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Ma'thuf",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "الواو عاطفة، ما: موصولية.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "عَلَى",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
+                        "translation": "Atas",
+                        "root": "عَلَى",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "إِخْوَانِنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Saudara-saudara kami",
+                        "root": "أُخُوَّةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Isim Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور، و(نا) مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الَّذِينَ",
                         "translation": "Orang-orang yang",
-                        "root": "-",
+                        "root": "الَّذِي",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
                         "irab": "Isim Maushul (Na'at)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم موصول مبني في محل جر نعت لـ (أصحابه).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "يُرِيدُونَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Mereka menginginkan",
+                        "root": "أَرَادَ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab": "Fi'il Mudhari'",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mazid)",
+                        "fail_ref": "Wawu Jama'ah",
+                        "irab_ar": "فعل مضارع مرفوع بثبوت النون.",
+                        "ilal_ar": "أصله يُرْوِدُونَ، نقلت الكسرة إلى الراء وقلبت الواو ياءً (إعلال بالنقل والقلب)."
                     },
                     {
                         "text": "الْوُصُولَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Sampai/pencapaian",
+                        "root": "وُصُولٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Maf'ul Bih",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مفعول به منصوب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "إِلَى",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Ke / Sampai",
+                        "root": "إِلَى",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
-                    },
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
                     {
                         "text": "الْأَفْضَلِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Yang utama",
+                        "root": "فَضْلٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Isim Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "ــ",
-                        "translation": "Belum ada terjemahan khusus.",
+                        "translation": "-",
                         "root": "-",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
                         "irab": "-",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "لَا",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
+                        "translation": "Tidak",
+                        "root": "لَا",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Nafi",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف نفي.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "تَسَقُّطَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Mencari kesalahan",
+                        "root": "تَسَقُّطٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Isim Laa (Mabni Fathah)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم لا مبني على الفتح في محل نصب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "وَالْتِقَاطَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Dan memungut",
+                        "root": "اِلْتِقَاطٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Ma'thuf",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "معطوف منصوب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْعُيُوبِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Aib",
+                        "root": "عَيْبٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Mudhaf Ilaih",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "ــ",
-                        "translation": "Belum ada terjemahan khusus.",
+                        "translation": "-",
                         "root": "-",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
                         "irab": "-",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "إِلَّا",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
+                        "translation": "Melainkan",
+                        "root": "إِلَّا",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Istitsna'",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "أداة حصر مبنية على السكون لا محل لها من الإعراب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "أَنْ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
+                        "translation": "Bahwa",
+                        "root": "أَنْ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Mashdariyah",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف مصدري ونصب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "يُرْشِدُونَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Mereka menunjuki kami",
+                        "root": "أَرْشَدَ",
                         "explanation": "-",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "pronoun_ref": "Penulis",
+                        "irab": "Fi'il Mudhari' Manshub",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mazid)",
+                        "fail_ref": "Wawu Jama'ah",
+                        "irab_ar": "فعل مضارع منصوب أو مجزوم بحذف النون، والنا مفعول به.",
+                        "ilal_ar": "صحيح سالم."
                     },
                     {
                         "text": "إِلَى",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Ke / Sampai",
+                        "root": "إِلَى",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Huruf Jar",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "مَا",
                         "translation": "Apa yang",
-                        "root": "-",
+                        "root": "مَا",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "Mudhaf Ilaih (Isim Maushul)",
+                        "irab": "Isim Maushul (Mudhaf Ilaih)",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم موصول مبني في محل جر مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "فَاتَنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Luput dari kami",
+                        "root": "فَاتَ",
                         "explanation": "-",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "pronoun_ref": "Penulis",
+                        "irab": "Fi'il Madhi",
+                        "verb_type": "Fi'il Madhi (Tsulatsi Mujarrad)",
+                        "fail_ref": "Maa (Sesuatu)",
+                        "irab_ar": "فعل ماض مبني على الفتح المقدر على الألف.",
+                        "ilal_ar": "أصله فَوَتَ، تحركت الواو وانفتح ما قبلها فقلبت ألفاً (إعلال بالقلب)."
                     },
                     {
                         "text": "مِمَّا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Dari apa yang",
+                        "root": "مِنْ + مَا",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Jar Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
-                    },
+                        "fail_ref": "-",
+                        "irab_ar": "من حرف جر، ما موصولية.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "right",
+                "words": [
                     {
                         "text": "هَدَفْنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Kami tuju",
+                        "root": "هَدَفَ",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab": "Fi'il Madhi",
+                        "verb_type": "Fi'il Madhi (Tsulatsi Mujarrad)",
+                        "fail_ref": "Dhomir Na",
+                        "irab_ar": "فعل ماض مبني على السكون.",
+                        "ilal_ar": "صحيح سالم."
                     },
                     {
                         "text": "إِلَيْهِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Kepadanya",
+                        "root": "إِلَى",
                         "explanation": "-",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
+                        "pronoun_ref": "Sesuatu",
+                        "irab": "Jar Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": ".",
-                        "translation": ".",
+                        "translation": "-",
                         "root": "-",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
                         "irab": "-",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "ilal_ar": "-"
                     }
                 ]
             },
             {
-                "type": "paragraph",
-                "ar": "اللَّهُمَّ أَخْلِصْ نِيَّاتِنَا وَأَعْمَالَنَا، وَوَفِّقْنَا لِمَا تُحِبُّهُ وَتَرْضَاهُ، وَانْفَعِ الْمُسْلِمِينَ بِمَا عَمِلْنَا، وَاهْدِنَا سَوَاءَ السَّبِيلِ .",
-                "id": "Ya Allah, ikhlaskanlah niat-niat kami dan amal-amal kami, berilah taufik kepada kami menuju apa yang Engkau cintai dan ridhai, berikanlah manfaat kepada kaum muslimin dengan apa yang telah kami kerjakan, dan tunjukilah kami jalan yang lurus.",
+                "align": "justify-indent",
                 "words": [
                     {
                         "text": "اللَّهُمَّ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
+                        "translation": "Ya Allah",
+                        "root": "أُلُوهَةٌ",
+                        "explanation": "Seruan/Doa",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Munada",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "منادى مبني على الضم في محل نصب، والميم المشددة عوض عن حرف النداء المحذوف.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "أَخْلِصْ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
+                        "translation": "Murnikanlah",
+                        "root": "أَخْلَصَ",
+                        "explanation": "Doa",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "pronoun_ref": "Allah",
+                        "irab": "Fi'il Amr",
+                        "verb_type": "Fi'il Amr (Tsulatsi Mazid)",
+                        "fail_ref": "Dhomir Mustatir",
+                        "irab_ar": "فعل أمر مبني على السكون.",
+                        "ilal_ar": "صحيح سالم."
                     },
                     {
                         "text": "نِيَّاتِنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Niat kami",
+                        "root": "نِيَّةٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
+                        "pronoun_ref": "Penulis",
+                        "irab": "Maf'ul Bih",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "مفعول به منصوب بالكسرة لأنه جمع مؤنث سالم، و(نا) مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "وَأَعْمَالَنَا،",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Dan amal kami",
+                        "root": "عَمَلٌ",
                         "explanation": "-",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
+                        "pronoun_ref": "Penulis",
+                        "irab": "Ma'thuf",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "معطوف منصوب، و(نا) مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "وَوَفِّقْنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Berilah taufik",
+                        "root": "وَفَّقَ",
                         "explanation": "-",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "pronoun_ref": "Allah",
+                        "irab": "Fi'il Amr",
+                        "verb_type": "Fi'il Amr (Tsulatsi Mazid)",
+                        "fail_ref": "Dhomir Mustatir",
+                        "irab_ar": "فعل أمر مبني على السكون.",
+                        "ilal_ar": "صحيح سالم."
                     },
                     {
                         "text": "لِمَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Untuk apa yang",
+                        "root": "لِ + مَا",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
-                        "irab": "-",
+                        "irab": "Jar Majrur",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اللام حرف جر، ما: اسم موصول في محل جر.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "تُحِبُّهُ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Engkau mencintainya",
+                        "root": "أَحَبَّ",
                         "explanation": "-",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "pronoun_ref": "Maa",
+                        "irab": "Fi'il Mudhari'",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mazid)",
+                        "fail_ref": "Dhomir Mustatir",
+                        "irab_ar": "فعل مضارع مرفوع.",
+                        "ilal_ar": "مضعف."
                     },
                     {
                         "text": "وَتَرْضَاهُ،",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Engkau meridhainya",
+                        "root": "رَضِيَ",
                         "explanation": "-",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "pronoun_ref": "Maa",
+                        "irab": "Fi'il Mudhari'",
+                        "verb_type": "Fi'il Mudhari' (Tsulatsi Mujarrad)",
+                        "fail_ref": "Dhomir Mustatir",
+                        "irab_ar": "فعل مضارع مرفوع بالضمة المقدرة للتعذر.",
+                        "ilal_ar": "أصله تَرْضَيُهُ، تحركت الياء وانفتح ما قبلها فقلبت ألفاً (إعلال بالقلب)."
                     },
                     {
                         "text": "وَانْفَعِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
+                        "translation": "Berilah manfaat",
+                        "root": "نَفَعَ",
                         "explanation": "-",
                         "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْمُسْلِمِينَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "بِمَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "عَمِلْنَا،",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَاهْدِنَا",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "سَوَاءَ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "السَّبِيلِ",
-                        "translation": "Belum ada terjemahan khusus.",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": ".",
-                        "translation": ".",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "pronoun_ref": "Allah",
+                        "irab": "Fi'il Amr",
+                        "verb_type": "Fi'il Amr (Tsulatsi Mujarrad)",
+                        "fail_ref": "Dhomir Mustatir",
+                        "irab_ar": "فعل أمر مبني على السكون، وحرك بالكسر لالتقاء الساكنين.",
+                        "ilal_ar": "صحيح سالم."
                     }
                 ]
             },
             {
-                "type": "paragraph",
-                "ar": "الْمُؤَلِّفُونَ",
-                "id": "Para Penulis",
+                "align": "right",
                 "words": [
                     {
-                        "text": "الْمُؤَلِّفُونَ",
-                        "translation": "Belum ada terjemahan khusus.",
+                        "text": "الْمُسْلِمِينَ",
+                        "translation": "Orang muslim",
+                        "root": "إِسْلَامٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Maf'ul Bih",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مفعول به منصوب وعلامة نصبه الياء لأنه جمع مذكر سالم.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بِمَا",
+                        "translation": "Dengan apa yang",
+                        "root": "مَا",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Jar Majrur",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "الباء حرف جر، وما موصولية في محل جر.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "عَمِلْنَا،",
+                        "translation": "Kami kerjakan",
+                        "root": "عَمِلَ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Fi'il Madhi",
+                        "verb_type": "Fi'il Madhi (Tsulatsi Mujarrad)",
+                        "fail_ref": "Dhomir Na",
+                        "irab_ar": "فعل ماض مبني على السكون.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "وَاهْدِنَا",
+                        "translation": "Berilah kami hidayah",
+                        "root": "هَدَى",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "Penulis",
+                        "irab": "Fi'il Amr",
+                        "verb_type": "Fi'il Amr (Tsulatsi Mujarrad)",
+                        "fail_ref": "Dhomir Mustatir",
+                        "irab_ar": "فعل أمر مبني على حذف حرف العلة (الياء).",
+                        "ilal_ar": "أصله اِهْدِينَا، حذفت الياء للبناء (إعلال بالحذف)."
+                    },
+                    {
+                        "text": "سَوَاءَ",
+                        "translation": "Jalan tengah",
+                        "root": "تَسْوِيَةٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Maf'ul Bih 2",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مفعول به ثان منصوب وعلامة نصبه الفتحة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "السَّبِيلِ",
+                        "translation": "Jalan",
+                        "root": "سَبِيلٌ",
+                        "explanation": "-",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Mudhaf Ilaih",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": ".",
+                        "translation": "-",
                         "root": "-",
                         "explanation": "-",
                         "joined_explanation": "-",
                         "pronoun_ref": "-",
                         "irab": "-",
                         "verb_type": "-",
-                        "fail_ref": "-"
+                        "fail_ref": "-",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "left",
+                "words": [
+                    {
+                        "text": "الْمُؤَلِّفُونَ",
+                        "translation": "Para Pengarang",
+                        "root": "تَأْلِيفٌ",
+                        "explanation": "Menunjukkan karya bersama",
+                        "joined_explanation": "-",
+                        "pronoun_ref": "-",
+                        "irab": "Khabar / Tanda tangan",
+                        "verb_type": "-",
+                        "fail_ref": "-",
+                        "irab_ar": "خبر مرفوع وعلامة رفعه الواو لأنه جمع مذكر سالم.",
+                        "ilal_ar": "-"
                     }
                 ]
             }
@@ -4129,1647 +5084,857 @@ const fikihData = [
     },
     {
         "pageNumber": 7,
-        "blocks": [
+        "lines": [
             {
-                "type": "title",
-                "ar": "مَدْخَلٌ",
-                "id": "Pendahuluan",
+                "align": "huge-title",
                 "words": [
                     {
                         "text": "مَدْخَلٌ",
-                        "translation": "Pendahuluan/Pintu masuk",
-                        "root": "د خ ل",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Khabar",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Pengantar",
+                        "irab_ar": "خبر لمبتدأ محذوف تقديره (هذا)، مرفوع وعلامة رفعه الضمة الظاهرة.",
+                        "ilal_ar": "-"
                     }
                 ]
             },
             {
-                "type": "heading",
-                "ar": "فِي التَّعْرِيفِ بِعِلْمِ الْفِقْهِ ، وَمَصَادِرِهِ ، وَبَعْضِ مُصْطَلَحَاتِهِ",
-                "id": "Dalam Pengenalan Ilmu Fikih, Sumber-sumbernya, dan Sebagian Istilah-istilahnya",
+                "align": "center",
                 "words": [
                     {
                         "text": "فِي",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Tentang / Di dalam",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "التَّعْرِيفِ",
-                        "translation": "Pengenalan",
-                        "root": "ع ر ف",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Majrur",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Definisi / Pengenalan",
+                        "irab_ar": "اسم مجرور بـ (في) وعلامة جره الكسرة الظاهرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "بِعِلْمِ",
-                        "translation": "Ilmu",
-                        "root": "ع ل م",
-                        "explanation": "-",
-                        "joined_explanation": "Bi + Ilmi",
-                        "pronoun_ref": "-",
-                        "irab": "Jar Majrur",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Dengan ilmu",
+                        "irab_ar": "الباء حرف جر، وعلم اسم مجرور وعلامة جره الكسرة، وهو مضاف.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "الْفِقْهِ",
+                        "text": "الْفِقْهِ،",
                         "translation": "Fikih",
-                        "root": "ف ق ه",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Mudhaf Ilaih",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة الظاهرة.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "،",
-                        "translation": ",",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَمَصَادِرِهِ",
+                        "text": "وَمَصَادِرِهِ،",
                         "translation": "Dan sumber-sumbernya",
-                        "root": "ص د ر",
-                        "explanation": "-",
-                        "joined_explanation": "Wawu + Mashadir + Hi",
-                        "pronoun_ref": "Ilmu Fikih",
-                        "irab": "Ma'thuf",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "،",
-                        "translation": ",",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab_ar": "الواو عاطفة، مصادر: معطوف مجرور بالكسرة، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "وَبَعْضِ",
                         "translation": "Dan sebagian",
-                        "root": "ب ع ض",
-                        "explanation": "-",
-                        "joined_explanation": "Wawu + Ba'dhi",
-                        "pronoun_ref": "-",
-                        "irab": "Ma'thuf",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab_ar": "الواو عاطفة، بعض: معطوف مجرور بالكسرة، وهو مضاف.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "مُصْطَلَحَاتِهِ",
                         "translation": "Istilah-istilahnya",
-                        "root": "ص ل ح",
-                        "explanation": "-",
-                        "joined_explanation": "Mushthalahat + Hi",
-                        "pronoun_ref": "Ilmu Fikih",
-                        "irab": "Mudhaf Ilaih",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab_ar": "مضاف إليه مجرور بالكسرة، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
                     }
                 ]
             },
             {
-                "type": "heading",
-                "ar": "مَعْنَى الْفِقْهِ :",
-                "id": "Makna Fikih:",
+                "align": "right",
                 "words": [
                     {
                         "text": "مَعْنَى",
-                        "translation": "Makna",
-                        "root": "ع ن ي",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Mubtada",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Makna / Arti",
+                        "irab_ar": "مبتدأ مرفوع بالضمة المقدرة للتعذر، وهو مضاف.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "الْفِقْهِ",
+                        "text": "الْفِقْهِ:",
                         "translation": "Fikih",
-                        "root": "ف ق ه",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Mudhaf Ilaih",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": ":",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     }
                 ]
             },
             {
-                "type": "paragraph",
-                "ar": "إِنَّ لِلْفِقْهِ مَعْنَيَيْنِ : أَحَدُهُمَا لُغَوِيٌّ ، وَالثَّانِي اِصْطِلَاحِيٌّ .",
-                "id": "Sesungguhnya fikih memiliki dua makna: yang pertama secara bahasa, dan yang kedua secara istilah.",
+                "align": "justify-indent",
                 "words": [
                     {
                         "text": "إِنَّ",
                         "translation": "Sesungguhnya",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Amil Nawasikh",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab_ar": "حرف توكيد ونصب مبني على الفتح.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "لِلْفِقْهِ",
                         "translation": "Bagi fikih",
-                        "root": "ف ق ه",
-                        "explanation": "-",
-                        "joined_explanation": "Lam + Fikih",
-                        "pronoun_ref": "-",
-                        "irab": "Jar Majrur (Khabar Inna)",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab_ar": "اللام حرف جر، الفقه: اسم مجرور. والجار والمجرور في محل رفع خبر إن مقدم.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "مَعْنَيَيْنِ",
+                        "text": "مَعْنَيَيْنِ:",
                         "translation": "Dua makna",
-                        "root": "ع ن ي",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Isim Inna (Manshub dengan Ya)",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": ":",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab_ar": "اسم إن مؤخر منصوب وعلامة نصبه الياء لأنه مثنى.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "أَحَدُهُمَا",
-                        "translation": "Salah satu dari keduanya",
-                        "root": "أ ح د",
-                        "explanation": "-",
-                        "joined_explanation": "Ahad + Huma",
-                        "pronoun_ref": "Huma = dua makna",
-                        "irab": "Mubtada",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Salah satunya",
+                        "irab_ar": "مبتدأ مرفوع بالضمة، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "لُغَوِيٌّ",
+                        "text": "لُغَوِيٌّ،",
                         "translation": "Secara bahasa",
-                        "root": "ل غ و",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Khabar",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "،",
-                        "translation": ",",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab_ar": "خبر المبتدأ مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "وَالثَّانِي",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Dan yang kedua",
+                        "irab_ar": "الواو عاطفة، الثاني: مبتدأ مرفوع بالضمة المقدرة للثقل.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "اِصْطِلَاحِيٌّ",
+                        "text": "اِصْطِلَاحِيٌّ.",
                         "translation": "Secara istilah",
-                        "root": "ص ل ح",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Khabar",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": ".",
-                        "translation": ".",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab_ar": "خبر المبتدأ مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "-"
                     }
                 ]
             },
             {
-                "type": "paragraph",
-                "ar": "أَمَّا الْمَعْنَى اللُّغَوِيُّ : فَالْفِقْهُ مَعْنَاهُ: الْفَهْمُ . يُقَالُ: فَقِهَ يَفْقَهُ : أَيْ فَهِمَ يَفْهَمُ .",
-                "id": "Adapun makna secara bahasa: maka fikih maknanya adalah pemahaman. Dikatakan: faqiha yafqahu: artinya paham/memahami.",
+                "align": "justify-indent",
                 "words": [
                     {
                         "text": "أَمَّا",
                         "translation": "Adapun",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Huruf Tafshil",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab_ar": "حرف شرط وتفصيل مبني على السكون.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْمَعْنَى",
-                        "translation": "Makna Fikih secara Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Makna",
+                        "irab_ar": "مبتدأ مرفوع بالضمة المقدرة للتعذر.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "اللُّغَوِيُّ",
+                        "text": "اللُّغَوِيُّ:",
                         "translation": "Secara bahasa",
-                        "root": "ل غ و",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Na'at",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": ":",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab_ar": "نعت مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "فَالْفِقْهُ",
-                        "translation": "Makna Fikih secara Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Maka fikih",
+                        "irab_ar": "الفاء رابطة لجواب أما، الفقه: مبتدأ مرفوع بالضمة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "مَعْنَاهُ:",
-                        "translation": "Maknanya:",
-                        "root": "ع ن ي",
-                        "explanation": "-",
-                        "joined_explanation": "Ma'na + Hu",
-                        "pronoun_ref": "Fikih",
-                        "irab": "Mubtada Kedua",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Maknanya",
+                        "irab_ar": "مبتدأ ثان مرفوع بالضمة المقدرة، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "الْفَهْمُ",
+                        "text": "الْفَهْمُ.",
                         "translation": "Pemahaman",
-                        "root": "ف ه م",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Khabar Kedua",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": ".",
-                        "translation": ".",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "irab_ar": "خبر المبتدأ الثاني مرفوع، والجملة الاسمية خبر المبتدأ الأول.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "يُقَالُ:",
-                        "translation": "Dikatakan:",
-                        "root": "ق و ل",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Fi'il Mudhari' Majhul",
-                        "verb_type": "Tsulasi Mujarrad",
-                        "fail_ref": "-"
+                        "translation": "Dikatakan",
+                        "irab_ar": "فعل مضارع مبني للمجهول مرفوع.",
+                        "ilal_ar": "أصله يُقْوَلُ، نقلت حركة الواو للساكن قبلها فانقلبت الواو ألفاً (إعلال بالنقل والقلب)."
                     },
                     {
                         "text": "فَقِهَ",
-                        "translation": "Paham (lampau)",
-                        "root": "ف ق ه",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Fi'il Madhi",
-                        "verb_type": "Tsulasi Mujarrad",
-                        "fail_ref": "-"
+                        "translation": "Ia memahami",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "صحيح سالم."
                     },
                     {
-                        "text": "يَفْقَهُ",
-                        "translation": "Paham (sekarang)",
-                        "root": "ف ق ه",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Fi'il Mudhari'",
-                        "verb_type": "Tsulasi Mujarrad",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": ":",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "يَفْقَهُ:",
+                        "translation": "Ia sedang memahami",
+                        "irab_ar": "فعل مضارع مرفوع بالضمة.",
+                        "ilal_ar": "صحيح سالم."
                     },
                     {
                         "text": "أَيْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "فَهِمَ",
-                        "translation": "Paham (lampau)",
-                        "root": "ف ه م",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Fi'il Madhi",
-                        "verb_type": "Tsulasi Mujarrad",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "يَفْهَمُ",
-                        "translation": "Paham (sekarang)",
-                        "root": "ف ه م",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "Fi'il Mudhari'",
-                        "verb_type": "Tsulasi Mujarrad",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": ".",
-                        "translation": ".",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Yaitu / Artinya",
+                        "irab_ar": "حرف تفسير مبني على السكون.",
+                        "ilal_ar": "-"
                     }
                 ]
             },
             {
-                "type": "paragraph",
-                "ar": "قَالَ تَعَالَى : ﴿فَمَا لِهَٰؤُلَاءِ الْقَوْمِ لَا يَكَادُونَ يَفْقَهُونَ حَدِيثًا﴾ (سورة النساء: الآية 78). أَيْ لَا يَفْهَمُونَ. وَقَالَ تَعَالَى : ﴿وَلَٰكِن لَّا تَفْقَهُونَ تَسْبِيحَهُمْ﴾ (سورة الإسراء: الآية 44). أَيْ لَا تَفْهَمُونَ تَسْبِيحَهُمْ.",
-                "id": "Allah SWT berfirman: \"Maka mengapa orang-orang itu (orang munafik) hampir-hampir tidak memahami pembicaraan sedikitpun?\" (QS. An-Nisa: 78). Yakni tidak paham. Dan Allah SWT berfirman: \"Akan tetapi kamu tidak mengerti tasbih mereka.\" (QS. Al-Isra: 44). Yakni kamu tidak mengerti tasbih mereka.",
+                "align": "right",
+                "words": [
+                    {
+                        "text": "فَهِمَ",
+                        "translation": "Ia memahami",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "يَفْهَمُ.",
+                        "translation": "Ia sedang memahami",
+                        "irab_ar": "فعل مضارع مرفوع بالضمة.",
+                        "ilal_ar": "صحيح سالم."
+                    }
+                ]
+            },
+            {
+                "align": "justify-indent",
                 "words": [
                     {
                         "text": "قَالَ",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Telah berfirman",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "أصله قَوَلَ، تحركت الواو وانفتح ما قبلها فقلبت ألفاً (إعلال بالقلب)."
                     },
                     {
-                        "text": "تَعَالَى",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": ":",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "تَعَالَى:",
+                        "translation": "Maha Tinggi",
+                        "irab_ar": "فعل ماض مبني على الفتح المقدر، والفاعل ضمير مستتر (الله).",
+                        "ilal_ar": "أصله تَعَالَيَ، تحركت الياء وانفتح ما قبلها فقلبت ألفاً (إعلال بالقلب)."
                     },
                     {
                         "text": "﴿فَمَا",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Maka mengapa",
+                        "irab_ar": "الفاء استئنافية، ما: اسم استفهام مبني في محل رفع مبتدأ.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "لِهَٰؤُلَاءِ",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "لِهَؤُلَاءِ",
+                        "translation": "Bagi mereka ini",
+                        "irab_ar": "اللام حرف جر، هؤلاء اسم إشارة مبني في محل جر، والجار والمجرور خبر.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْقَوْمِ",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Kaum / Orang-orang",
+                        "irab_ar": "بدل مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "لَا",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Tidak",
+                        "irab_ar": "حرف نفي.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "يَكَادُونَ",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Mereka hampir",
+                        "irab_ar": "فعل مضارع ناقص مرفوع بثبوت النون، والواو اسمه.",
+                        "ilal_ar": "أصله يَكْوَدُونَ، قلبت الواو ألفاً."
                     },
                     {
                         "text": "يَفْقَهُونَ",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Mereka memahami",
+                        "irab_ar": "فعل مضارع مرفوع بثبوت النون، والواو فاعل. والجملة خبر يكاد.",
+                        "ilal_ar": "صحيح سالم."
                     },
                     {
-                        "text": "حَدِيثًا﴾",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "حَدِيثاً﴾",
+                        "translation": "Perkataan / Kejadian",
+                        "irab_ar": "مفعول به منصوب وعلامة نصبه الفتحة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "(سورة",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
+                        "translation": "Surat",
+                        "irab_ar": "خبر لمبتدأ محذوف تقديره (هذا) أو مضاف إليه.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
                     {
-                        "text": "النساء:",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "النِّسَاءِ:",
+                        "translation": "An-Nisa",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الآية",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Ayat",
+                        "irab_ar": "بدل أو خبر مرفوع / مجرور حسب السياق.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "78).",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "٧٨).",
+                        "translation": "78",
+                        "irab_ar": "رقم الآية.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "أَيْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Yaitu / Artinya",
+                        "irab_ar": "حرف تفسير مبني على السكون.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "لَا",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Tidak",
+                        "irab_ar": "حرف نفي.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "يَفْهَمُونَ.",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Mereka memahami",
+                        "irab_ar": "فعل مضارع مرفوع بثبوت النون، والواو فاعل.",
+                        "ilal_ar": "صحيح سالم."
                     },
                     {
                         "text": "وَقَالَ",
-                        "translation": "Hadits Nabi SAW",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Dan telah berfirman",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "إعلال بالقلب."
                     },
                     {
-                        "text": "تَعَالَى",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "تَعَالَى:",
+                        "translation": "Maha Tinggi",
+                        "irab_ar": "فعل ماض مبني على الفتح المقدر، والفاعل ضمير مستتر (الله).",
+                        "ilal_ar": "أصله تَعَالَيَ، تحركت الياء وانفتح ما قبلها فقلبت ألفاً (إعلال بالقلب)."
                     },
                     {
-                        "text": ":",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "﴿وَلَٰكِن",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "لَّا",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "تَفْقَهُونَ",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "تَسْبِيحَهُمْ﴾",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "(سورة",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الإسراء:",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الآية",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "44).",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "أَيْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "﴿وَلَكِنْ",
+                        "translation": "Dan akan tetapi",
+                        "irab_ar": "الواو عاطفة، لكن حرف استدراك مبني على السكون.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "لَا",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Tidak",
+                        "irab_ar": "حرف نفي.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "تَفْهَمُونَ",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "تَسْبِيحَهُمْ.",
-                        "translation": "Teks dari Al-Quran",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "تَفْقَهُونَ",
+                        "translation": "Kalian memahami",
+                        "irab_ar": "فعل مضارع مرفوع بثبوت النون، والواو فاعل.",
+                        "ilal_ar": "صحيح سالم."
                     }
                 ]
             },
             {
-                "type": "paragraph",
-                "ar": "وَقَالَ رَسُولُ اللَّهِ ﷺ : «إِنَّ طُولَ صَلَاةِ الرَّجُلِ وَقِصَرَ خُطْبَتِهِ مَئِنَّةٌ مِنْ فِقْهِهِ». (رواه مسلم: 869). أَيْ عَلَامَةُ فَهْمِهِ.",
-                "id": "Dan Rasulullah SAW bersabda: \"Sesungguhnya panjangnya shalat seseorang dan pendeknya khutbahnya adalah tanda dari pemahamannya (kepahaman agamanya).\" (HR. Muslim: 869). Yakni tanda pemahamannya.",
+                "align": "right",
                 "words": [
                     {
-                        "text": "وَقَالَ",
-                        "translation": "Hadits Nabi SAW",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "تَسْبِيحَهُمْ﴾",
+                        "translation": "Tasbih mereka",
+                        "irab_ar": "مفعول به منصوب وعلامة نصبه الفتحة، وهم مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "رَسُولُ",
-                        "translation": "Hadits Nabi SAW",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "(سورة",
+                        "translation": "Surat",
+                        "irab_ar": "خبر لمبتدأ محذوف تقديره (هذا) أو مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "اللَّهِ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "الإسراء:",
+                        "translation": "Al-Isra",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "ﷺ",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "الآية",
+                        "translation": "Ayat",
+                        "irab_ar": "بدل أو خبر مرفوع / مجرور حسب السياق.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": ":",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "«إِنَّ",
-                        "translation": "Hadits Nabi SAW",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "طُولَ",
-                        "translation": "Hadits Nabi SAW",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "صَلَاةِ",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الرَّجُلِ",
-                        "translation": "Hadits Nabi SAW",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَقِصَرَ",
-                        "translation": "Hadits Nabi SAW",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "خُطْبَتِهِ",
-                        "translation": "Hadits Nabi SAW",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مَئِنَّةٌ",
-                        "translation": "Hadits Nabi SAW",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مِنْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "فِقْهِهِ».",
-                        "translation": "Hadits Nabi SAW",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "(رواه",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مسلم:",
-                        "translation": "Hadits Nabi SAW",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "869).",
-                        "translation": "Hadits Nabi SAW",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "٤٤).",
+                        "translation": "44",
+                        "irab_ar": "رقم الآية.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "أَيْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Yaitu / Artinya",
+                        "irab_ar": "حرف تفسير مبني على السكون.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "عَلَامَةُ",
-                        "translation": "Hadits Nabi SAW",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "لَا",
+                        "translation": "Tidak",
+                        "irab_ar": "حرف نفي.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "فَهْمِهِ.",
-                        "translation": "Hadits Nabi SAW",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "تَفْهَمُونَ",
+                        "translation": "Kalian memahami",
+                        "irab_ar": "فعل مضارع مرفوع بثبوت النون، والواو فاعل.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "تَسْبِيحَهُمْ.",
+                        "translation": "Tasbih mereka",
+                        "irab_ar": "مفعول به منصوب بالفتحة، وهم مضاف إليه.",
+                        "ilal_ar": "-"
                     }
                 ]
             },
             {
-                "type": "paragraph",
-                "ar": "وَأَمَّا الْمَعْنَى الِاصْطِلَاحِيُّ ؛ فَالْفِقْهُ يُطْلَقُ عَلَى أَمْرَيْنِ:",
-                "id": "Adapun makna secara istilah; maka fikih dimutlakkan atas dua perkara:",
+                "align": "justify-indent",
                 "words": [
                     {
-                        "text": "وَأَمَّا",
-                        "translation": "Makna Fikih secara Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "وَقَالَ",
+                        "translation": "Dan telah berfirman",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "إعلال بالقلب."
                     },
                     {
-                        "text": "الْمَعْنَى",
-                        "translation": "Makna Fikih secara Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "رَسُولُ",
+                        "translation": "Utusan",
+                        "irab_ar": "فاعل مرفوع وعلامة رفعه الضمة، وهو مضاف.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "الِاصْطِلَاحِيُّ",
-                        "translation": "Makna Fikih secara Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "اللَّهِ",
+                        "translation": "Allah",
+                        "irab_ar": "لفظ الجلالة مضاف إليه مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "؛",
-                        "translation": "Makna Fikih secara Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "ﷺ:",
+                        "translation": "Shallallahu 'Alaihi Wasallam",
+                        "irab_ar": "جملة دعائية (صلى الله عليه وسلم).",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "فَالْفِقْهُ",
-                        "translation": "Makna Fikih secara Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "«إِنَّ",
+                        "translation": "Sesungguhnya",
+                        "irab_ar": "حرف توكيد ونصب.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "يُطْلَقُ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "طُولَ",
+                        "translation": "Panjangnya",
+                        "irab_ar": "اسم إن منصوب وعلامة نصبه الفتحة، وهو مضاف.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "عَلَى",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "صَلَاةِ",
+                        "translation": "Salat",
+                        "irab_ar": "مضاف إليه مجرور، وهو مضاف.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "أَمْرَيْنِ:",
-                        "translation": "Makna Fikih secara Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "الرَّجُلِ",
+                        "translation": "Seseorang",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَقِصَرَ",
+                        "translation": "Dan pendeknya",
+                        "irab_ar": "الواو عاطفة، قصر: اسم معطوف منصوب، وهو مضاف.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "خُطْبَتِهِ",
+                        "translation": "Khutbahnya",
+                        "irab_ar": "مضاف إليه مجرور، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مَئِنَّةٌ",
+                        "translation": "Tanda / Bukti",
+                        "irab_ar": "خبر إن مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "-"
                     }
                 ]
             },
             {
-                "type": "paragraph",
-                "ar": "الْأَوَّلُ: مَعْرِفَةُ الْأَحْكَامِ الشَّرْعِيَّةِ الْمُتَعَلِّقَةِ بِأَعْمَالِ الْمُكَلَّفِينَ وَأَقْوَالِهِمْ، وَالْمُكْتَسَبَةُ مِنْ أَدِلَّتِهَا التَّفْصِيلِيَّةِ: وَهِيَ نُصُوصٌ مِنَ الْقُرْآنِ وَالسُّنَّةِ وَمَا يَتَفَرَّعُ عَنْهُمَا مِنْ إِجْمَاعٍ وَاجْتِهَادٍ.",
-                "id": "Pertama: Mengetahui hukum-hukum syariat yang berkaitan dengan perbuatan para mukallaf dan perkataan mereka, yang digali dari dalil-dalilnya yang terperinci: yakni nash-nash dari Al-Quran dan As-Sunnah serta apa yang bercabang dari keduanya berupa ijma' dan ijtihad.",
+                "align": "right",
                 "words": [
                     {
-                        "text": "الْأَوَّلُ:",
-                        "translation": "Definisi Pertama Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مَعْرِفَةُ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْأَحْكَامِ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الشَّرْعِيَّةِ",
-                        "translation": "Penegasan",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْمُتَعَلِّقَةِ",
-                        "translation": "Definisi Pertama Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "بِأَعْمَالِ",
-                        "translation": "Definisi Pertama Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْمُكَلَّفِينَ",
-                        "translation": "Definisi Pertama Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَأَقْوَالِهِمْ،",
-                        "translation": "Definisi Pertama Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَالْمُكْتَسَبَةُ",
-                        "translation": "Definisi Pertama Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
                         "text": "مِنْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Dari",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "أَدِلَّتِهَا",
-                        "translation": "Definisi Pertama Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "التَّفْصِيلِيَّةِ:",
-                        "translation": "Definisi Pertama Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَهِيَ",
-                        "translation": "Definisi Pertama Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "نُصُوصٌ",
-                        "translation": "Definisi Pertama Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مِنَ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْقُرْآنِ",
-                        "translation": "Definisi Pertama Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَالسُّنَّةِ",
-                        "translation": "Definisi Pertama Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَمَا",
-                        "translation": "Definisi Pertama Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "يَتَفَرَّعُ",
-                        "translation": "Definisi Pertama Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "عَنْهُمَا",
-                        "translation": "Definisi Pertama Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مِنْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "إِجْمَاعٍ",
-                        "translation": "Definisi Pertama Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَاجْتِهَادٍ.",
-                        "translation": "Definisi Pertama Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    }
-                ]
-            },
-            {
-                "type": "paragraph",
-                "ar": "وَذَلِكَ مِثْلُ مَعْرِفَتِنَا أَنَّ النِّيَّةَ فِي الْوُضُوءِ وَاجِبَةٌ أَخْذاً مِنْ قَوْلِهِ ﷺ : «إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ». (رواه البخاري: 1؛ ومسلم: 1907).",
-                "id": "Hal itu seperti pengetahuan kita bahwa niat dalam wudhu adalah wajib, diambil dari sabda beliau SAW: \"Sesungguhnya amal itu tergantung pada niat.\" (HR. Bukhari: 1; dan Muslim: 1907).",
-                "words": [
-                    {
-                        "text": "وَذَلِكَ",
-                        "translation": "Contoh untuk Definisi Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مِثْلُ",
-                        "translation": "Contoh untuk Definisi Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مَعْرِفَتِنَا",
-                        "translation": "Contoh pengamalan definisi",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "أَنَّ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "النِّيَّةَ",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "فِي",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْوُضُوءِ",
-                        "translation": "Contoh pengamalan definisi",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَاجِبَةٌ",
-                        "translation": "Contoh pengamalan definisi",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "أَخْذاً",
-                        "translation": "Contoh Kelima dan Penutup",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مِنْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "قَوْلِهِ",
-                        "translation": "Contoh Kelima dan Penutup",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "ﷺ",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": ":",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "«إِنَّمَا",
-                        "translation": "Contoh pengamalan definisi",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْأَعْمَالُ",
-                        "translation": "Contoh pengamalan definisi",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "بِالنِّيَّاتِ».",
-                        "translation": "Contoh pengamalan definisi",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "فِقْهِهِ».",
+                        "translation": "Fikihnya",
+                        "irab_ar": "اسم مجرور بالكسرة، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "(رواه",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Meriwayatkannya",
+                        "irab_ar": "فعل ماض، والهاء مفعول به.",
+                        "ilal_ar": "مهموز وناقص (إعلال بالقلب)."
+                    },
+                    {
+                        "text": "مسلم:",
+                        "translation": "Muslim",
+                        "irab_ar": "فاعل مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "٨٦٩).",
+                        "translation": "869",
+                        "irab_ar": "رقم الحديث.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَيْ",
+                        "translation": "Yaitu / Artinya",
+                        "irab_ar": "حرف تفسير مبني على السكون.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "عَلَامَةُ",
+                        "translation": "Tanda",
+                        "irab_ar": "خبر لمبتدأ محذوف تقديره (هو)، مرفوع بالضمة، وهو مضاف.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "فَهْمِهِ.",
+                        "translation": "Pemahamannya",
+                        "irab_ar": "مضاف إليه مجرور بالكسرة، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify-indent",
+                "words": [
+                    {
+                        "text": "وَأَمَّا",
+                        "translation": "Dan adapun",
+                        "irab_ar": "الواو عاطفة، أما حرف تفصيل.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْمَعْنَى",
+                        "translation": "Makna",
+                        "irab_ar": "مبتدأ مرفوع بالضمة المقدرة للتعذر.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الِاصْطِلَاحِيُّ؛",
+                        "translation": "Secara istilah",
+                        "irab_ar": "نعت مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "فَالْفِقْهُ",
+                        "translation": "Maka fikih",
+                        "irab_ar": "الفاء رابطة لجواب أما، الفقه: مبتدأ مرفوع بالضمة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "يُطْلَقُ",
+                        "translation": "Digunakan",
+                        "irab_ar": "فعل مضارع مبني للمجهول مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "صحيح مزيد، لا إعلال فيه."
+                    },
+                    {
+                        "text": "عَلَى",
+                        "translation": "Atas / Kepada",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَمْرَيْنِ:",
+                        "translation": "Dua hal",
+                        "irab_ar": "اسم مجرور وعلامة جره الياء لأنه مثنى.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify-indent",
+                "words": [
+                    {
+                        "text": "الْأَوَّلُ:",
+                        "translation": "Yang pertama",
+                        "irab_ar": "بدل من (أمرين) مرفوع أو خبر لمبتدأ محذوف (هو الأول).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مَعْرِفَةُ",
+                        "translation": "Mengetahui",
+                        "irab_ar": "خبر لمبتدأ محذوف مرفوع بالضمة، وهو مضاف.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْأَحْكَامِ",
+                        "translation": "Hukum-hukum",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الشَّرْعِيَّةِ",
+                        "translation": "Syariat",
+                        "irab_ar": "نعت لـ (الأحكام) مجرور بالكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْمُتَعَلِّقَةِ",
+                        "translation": "Yang berkaitan",
+                        "irab_ar": "نعت ثانٍ مجرور بالكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بِأَعْمَالِ",
+                        "translation": "Dengan amal/perbuatan",
+                        "irab_ar": "الباء حرف جر، أعمال اسم مجرور، وهو مضاف.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْمُكَلَّفِينَ",
+                        "translation": "Orang-orang mukalaf",
+                        "irab_ar": "مضاف إليه مجرور بالياء لأنه جمع مذكر سالم.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "وَأَقْوَالِهِمْ،",
+                        "translation": "Dan perkataan mereka",
+                        "irab_ar": "معطوف مجرور، وهم مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَالْمُكْتَسَبَةِ",
+                        "translation": "Dan yang digali",
+                        "irab_ar": "معطوف على (المتعلقة) مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مِنْ",
+                        "translation": "Dari",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَدِلَّتِهَا",
+                        "translation": "Dalil-dalilnya",
+                        "irab_ar": "اسم مجرور بالكسرة، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "التَّفْصِيلِيَّةِ:",
+                        "translation": "Yang terperinci",
+                        "irab_ar": "نعت لـ (أدلة) مجرور بالكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَهِيَ",
+                        "translation": "Dan dia (dalil itu)",
+                        "irab_ar": "الواو للاستئناف، هي: ضمير منفصل مبتدأ.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "نُصُوصٌ",
+                        "translation": "Teks-teks (nash)",
+                        "irab_ar": "خبر المبتدأ مرفوع بالضمة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مِنَ",
+                        "translation": "Dari",
+                        "irab_ar": "حرف جر مبني على السكون وحرك بالفتح.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْقُرْآنِ",
+                        "translation": "Al-Qur'an",
+                        "irab_ar": "اسم مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "right",
+                "words": [
+                    {
+                        "text": "وَالسُّنَّةِ",
+                        "translation": "Dan Sunnah",
+                        "irab_ar": "معطوف مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَمَا",
+                        "translation": "Dan apa yang",
+                        "irab_ar": "الواو عاطفة، ما اسم موصول.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "يَتَفَرَّعُ",
+                        "translation": "Bercabang",
+                        "irab_ar": "فعل مضارع مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "صحيح مزيد، لا إعلال فيه."
+                    },
+                    {
+                        "text": "عَنْهُمَا",
+                        "translation": "Dari keduanya",
+                        "irab_ar": "عن حرف جر، هما ضمير في محل جر.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مِنْ",
+                        "translation": "Dari",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "إِجْمَاعٍ",
+                        "translation": "Ijmak",
+                        "irab_ar": "اسم مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَاجْتِهَادٍ.",
+                        "translation": "Dan ijtihad",
+                        "irab_ar": "معطوف مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify-indent",
+                "words": [
+                    {
+                        "text": "وَذَلِكَ",
+                        "translation": "Dan hal itu",
+                        "irab_ar": "الواو استئنافية، ذلك اسم إشارة مبتدأ.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مِثْلُ",
+                        "translation": "Seperti",
+                        "irab_ar": "خبر المبتدأ مرفوع، وهو مضاف.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مَعْرِفَتِنَا",
+                        "translation": "Pengetahuan kita",
+                        "irab_ar": "مضاف إليه مجرور، و(نا) مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَنَّ",
+                        "translation": "Bahwa",
+                        "irab_ar": "حرف توكيد ونصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "النِّيَّةَ",
+                        "translation": "Niat",
+                        "irab_ar": "اسم أن منصوب وعلامة نصبه الفتحة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "فِي",
+                        "translation": "Tentang / Di dalam",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْوُضُوءِ",
+                        "translation": "Wudu",
+                        "irab_ar": "اسم مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَاجِبَةٌ",
+                        "translation": "Wajib",
+                        "irab_ar": "خبر أن مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَخْذاً",
+                        "translation": "Karena mengambil",
+                        "irab_ar": "مفعول مطلق أو مفعول لأجله منصوب بالفتحة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مِنْ",
+                        "translation": "Dari",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "قَوْلِهِ",
+                        "translation": "Sabdanya",
+                        "irab_ar": "اسم مجرور بالكسرة، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "ﷺ:",
+                        "translation": "Shallallahu 'Alaihi Wasallam",
+                        "irab_ar": "جملة دعائية (صلى الله عليه وسلم).",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "right",
+                "words": [
+                    {
+                        "text": "«إِنَّمَا",
+                        "translation": "Sesungguhnya",
+                        "irab_ar": "كافة ومكفوفة (إن وما).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْأَعْمَالُ",
+                        "translation": "Amal perbuatan",
+                        "irab_ar": "مبتدأ مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بِالنِّيَّاتِ».",
+                        "translation": "Dengan niat",
+                        "irab_ar": "جار ومجرور في محل رفع خبر المبتدأ.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "(رواه",
+                        "translation": "Meriwayatkannya",
+                        "irab_ar": "فعل ماض، والهاء مفعول به.",
+                        "ilal_ar": "مهموز وناقص (إعلال بالقلب)."
                     },
                     {
                         "text": "البخاري:",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Al-Bukhari",
+                        "irab_ar": "فاعل مرفوع وعلامة رفعه الضمة المقدرة.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "1؛",
-                        "translation": "Contoh pengamalan definisi",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "١؛",
+                        "translation": "1",
+                        "irab_ar": "رقم الحديث.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "ومسلم:",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Dan Muslim",
+                        "irab_ar": "الواو حرف عطف، مسلم معطوف.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "1907).",
-                        "translation": "Contoh pengamalan definisi",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "١٩٠٧).",
+                        "translation": "1907",
+                        "irab_ar": "رقم الحديث.",
+                        "ilal_ar": "-"
                     }
                 ]
             }
@@ -5777,1996 +5942,1154 @@ const fikihData = [
     },
     {
         "pageNumber": 8,
-        "blocks": [
+        "lines": [
             {
-                "type": "paragraph",
-                "ar": "وَأَنَّ النِّيَّةَ مِنَ اللَّيْلِ شَرْطٌ فِي صِحَّةِ الصَّوْمِ أَخْذاً مِنْ قَوْلِهِ ﷺ : «مَنْ لَمْ يُبَيِّتِ الصِّيَامَ قَبْلَ الْفَجْرِ فَلَا صِيَامَ لَهُ». (رواه البيهقي: 4/ 202؛ والدارقطني: 2/ 172، وقال: رواته ثقات).",
-                "id": "Dan (seperti pengetahuan kita) bahwa niat sejak malam hari adalah syarat sahnya puasa, diambil dari sabda Nabi ﷺ: \"Barangsiapa yang tidak berniat puasa di malam hari sebelum fajar, maka tidak ada puasa baginya.\" (HR. Al-Baihaqi: 4/202; dan Ad-Daraquthni: 2/172, ia berkata: para perawinya terpercaya).",
+                "align": "justify-indent",
                 "words": [
                     {
                         "text": "وَأَنَّ",
-                        "translation": "Contoh Kelima dan Penutup",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Dan bahwasanya",
+                        "irab_ar": "الواو عاطفة، أن حرف توكيد ونصب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "النِّيَّةَ",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Niat",
+                        "irab_ar": "اسم أن منصوب وعلامة نصبه الفتحة الظاهرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "مِنَ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "اللَّيْلِ",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Malam",
+                        "irab_ar": "اسم مجرور بـ (من) وعلامة جره الكسرة الظاهرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "شَرْطٌ",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Syarat",
+                        "irab_ar": "خبر أن مرفوع وعلامة رفعه الضمة الظاهرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "فِي",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "صِحَّةِ",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Sahnya",
+                        "irab_ar": "اسم مجرور بالكسرة، وهو مضاف.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الصَّوْمِ",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Puasa",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "أَخْذاً",
-                        "translation": "Contoh Kelima dan Penutup",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "مِنْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "قَوْلِهِ",
-                        "translation": "Contoh Kelima dan Penutup",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "ﷺ",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": ":",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "ﷺ:",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "«مَنْ",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
                     {
                         "text": "لَمْ",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Tidak / Belum",
+                        "irab_ar": "حرف نفي وجزم وقلب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "يُبَيِّتِ",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Menetapkan (niat) malam",
+                        "irab_ar": "فعل مضارع مجزوم بـ (لم) وعلامة جزمه السكون، وحرك بالكسر لالتقاء الساكنين.",
+                        "ilal_ar": "صحيح مزيد، لا إعلال فيه."
                     },
                     {
                         "text": "الصِّيَامَ",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Puasa",
+                        "irab_ar": "مفعول به منصوب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "قَبْلَ",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Sebelum",
+                        "irab_ar": "ظرف زمان منصوب، وهو مضاف.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْفَجْرِ",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Fajar",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "فَلَا",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Maka tidak ada",
+                        "irab_ar": "الفاء لجواب الشرط، لا نافية للجنس.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "صِيَامَ",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Puasa",
+                        "irab_ar": "اسم لا مبني على الفتح في محل نصب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "لَهُ».",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Baginya",
+                        "irab_ar": "اللام حرف جر، الهاء في محل جر، والجار والمجرور خبر لا.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "(رواه",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "البيهقي:",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Al-Baihaqi",
+                        "irab_ar": "فاعل مرفوع.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "4/",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "٤",
+                        "translation": "4",
+                        "irab_ar": "رقم.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "202؛",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
+                        "text": "/٢٠٢؛",
+                        "translation": "202",
+                        "irab_ar": "رقم.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "right",
+                "words": [
                     {
                         "text": "والدارقطني:",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Dan Ad-Daruquthni",
+                        "irab_ar": "معطوف.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "2/",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "٢",
+                        "translation": "2",
+                        "irab_ar": "رقم.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "172،",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "/١٧٢،",
+                        "translation": "172",
+                        "irab_ar": "رقم.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "وقال:",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Dan ia berkata",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "إعلال بالقلب."
                     },
                     {
                         "text": "رواته",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Para perawinya",
+                        "irab_ar": "مبتدأ مرفوع، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "ثقات).",
-                        "translation": "Contoh Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Tsiqah (Terpercaya)",
+                        "irab_ar": "خبر المبتدأ مرفوع.",
+                        "ilal_ar": "-"
                     }
                 ]
             },
             {
-                "type": "paragraph",
-                "ar": "وَمَعْرِفَتِنَا أَنَّ صَلَاةَ الْوِتْرِ مَنْدُوبَةٌ، أَخْذاً مِنْ حَدِيثِ الْأَعْرَابِيِّ الَّذِي سَأَلَ النَّبِيَّ ﷺ عَنِ الْفَرَائِضِ، ثُمَّ قَالَ بَعْدَ ذَلِكَ: هَلْ عَلَيَّ غَيْرُهَا؟ قَالَ: «لَا إِلَّا أَنْ تَطَوَّعَ». (رواه البخاري: 1792؛ ومسلم: 11).",
-                "id": "Dan pengetahuan kita bahwa shalat Witir adalah sunnah (mandub), diambil dari hadits orang Badui yang bertanya kepada Nabi ﷺ tentang kewajiban-kewajiban, kemudian ia bertanya setelah itu: \"Apakah ada kewajiban lain atasku selain itu?\" Nabi bersabda: \"Tidak, kecuali engkau melakukan shalat sunnah.\" (HR. Bukhari: 1792; dan Muslim: 11).",
+                "align": "justify-indent",
                 "words": [
                     {
-                        "text": "وَمَعْرِفَتِنَا",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "وَمَعْرِفَتُنَا",
+                        "translation": "Dan pengetahuan kita",
+                        "irab_ar": "مبتدأ مرفوع، ونا مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "أَنَّ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "صَلَاةَ",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Salat",
+                        "irab_ar": "اسم أن منصوب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْوِتْرِ",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Witir",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "مَنْدُوبَةٌ،",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Sunnah / Dianjurkan",
+                        "irab_ar": "خبر أن مرفوع.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "أَخْذاً",
-                        "translation": "Contoh Kelima dan Penutup",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "مِنْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "حَدِيثِ",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Hadis",
+                        "irab_ar": "اسم مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْأَعْرَابِيِّ",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Orang Badui",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الَّذِي",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
+                        "translation": "Yang",
+                        "irab_ar": "اسم موصول مبني في محل جر نعت.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
                     {
                         "text": "سَأَلَ",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Bertanya",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "مهموز لا إعلال فيه."
                     },
                     {
                         "text": "النَّبِيَّ",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Nabi",
+                        "irab_ar": "مفعول به منصوب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "ﷺ",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "عَنِ",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْفَرَائِضِ،",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Kewajiban-kewajiban",
+                        "irab_ar": "اسم مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "ثُمَّ",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Kemudian",
+                        "irab_ar": "حرف عطف.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "قَالَ",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "بَعْدَ",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Setelah",
+                        "irab_ar": "ظرف زمان.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "ذَلِكَ:",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "هَلْ",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Apakah",
+                        "irab_ar": "حرف استفهام.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "عَلَيَّ",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Atasku (wajib)",
+                        "irab_ar": "جار ومجرور خبر مقدم.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "غَيْرُهَا؟",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Selainnya?",
+                        "irab_ar": "مبتدأ مؤخر مرفوع، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "قَالَ:",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "right",
+                "words": [
                     {
                         "text": "«لَا",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "إِلَّا",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "أَنْ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "تَطَوَّعَ».",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Melakukan sunnah",
+                        "irab_ar": "فعل مضارع منصوب.",
+                        "ilal_ar": "صحيح مزيد."
                     },
                     {
                         "text": "(رواه",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "البخاري:",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "1792؛",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "١٧٩٢؛",
+                        "translation": "1792",
+                        "irab_ar": "رقم.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "ومسلم:",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "11).",
-                        "translation": "Contoh Ketiga",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "١١).",
+                        "translation": "11",
+                        "irab_ar": "رقم.",
+                        "ilal_ar": "-"
                     }
                 ]
             },
             {
-                "type": "paragraph",
-                "ar": "وَأَنَّ الصَّلَاةَ بَعْدَ الْعَصْرِ مَكْرُوهَةٌ أَخْذَاً مِنْ نَهْيِهِ عَلَيْهِ الصَّلَاةُ وَالسَّلَامُ عَنِ الصَّلَاةِ بَعْدَ الْعَصْرِ حَتَّى تَغْرُبَ الشَّمْسُ. (رواه البخاري: 561؛ ومسلم: 827).",
-                "id": "Dan bahwa shalat setelah Ashar adalah makruh, diambil dari larangan beliau 'alaihis sholatu wassalam dari shalat setelah Ashar hingga terbenam matahari. (HR. Bukhari: 561; dan Muslim: 827).",
+                "align": "justify-indent",
                 "words": [
                     {
                         "text": "وَأَنَّ",
-                        "translation": "Contoh Kelima dan Penutup",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Dan bahwasanya",
+                        "irab_ar": "الواو عاطفة، أن حرف توكيد ونصب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الصَّلَاةَ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Salat",
+                        "irab_ar": "اسم أن منصوب.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "بَعْدَ",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Setelah",
+                        "irab_ar": "ظرف زمان.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْعَصْرِ",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Asar",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "مَكْرُوهَةٌ",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "أَخْذَاً",
-                        "translation": "Contoh Kelima dan Penutup",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مِنْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "نَهْيِهِ",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "عَلَيْهِ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الصَّلَاةُ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَالسَّلَامُ",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "عَنِ",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الصَّلَاةِ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "بَعْدَ",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْعَصْرِ",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "حَتَّى",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "تَغْرُبَ",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الشَّمْسُ.",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "(رواه",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "البخاري:",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "561؛",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "ومسلم:",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "827).",
-                        "translation": "Contoh Keempat",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    }
-                ]
-            },
-            {
-                "type": "paragraph",
-                "ar": "وَأَنَّ مَسْحَ بَعْضِ الرَّأْسِ وَاجِبٌ أَخْذاً مِنْ قَوْلِهِ تَعَالَى: ﴿وَامْسَحُوا بِرُءُوسِكُمْ﴾. فَمَعْرِفَتُنَا بِهَذِهِ الْأَحْكَامِ الشَّرْعِيَّةِ تُسَمَّى فِقْهاً اصْطِلَاحاً.",
-                "id": "Dan bahwa mengusap sebagian kepala (saat wudhu) adalah wajib, diambil dari firman Allah Ta'ala: \"Dan usaplah kepalamu.\" Maka pengetahuan kita terhadap hukum-hukum syariat ini dinamakan fikih secara istilah.",
-                "words": [
-                    {
-                        "text": "وَأَنَّ",
-                        "translation": "Contoh Kelima dan Penutup",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مَسْحَ",
-                        "translation": "Contoh Kelima dan Penutup",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "بَعْضِ",
-                        "translation": "Contoh Kelima dan Penutup",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الرَّأْسِ",
-                        "translation": "Contoh Kelima dan Penutup",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَاجِبٌ",
-                        "translation": "Contoh Kelima dan Penutup",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Makruh",
+                        "irab_ar": "خبر أن مرفوع.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "أَخْذاً",
-                        "translation": "Contoh Kelima dan Penutup",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "مِنْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "قَوْلِهِ",
-                        "translation": "Contoh Kelima dan Penutup",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "تَعَالَى:",
-                        "translation": "Contoh Kelima dan Penutup",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "﴿وَامْسَحُوا",
-                        "translation": "Contoh Kelima dan Penutup",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "بِرُءُوسِكُمْ﴾.",
-                        "translation": "Contoh Kelima dan Penutup",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "فَمَعْرِفَتُنَا",
-                        "translation": "Contoh Kelima dan Penutup",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "بِهَذِهِ",
-                        "translation": "Contoh Kelima dan Penutup",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْأَحْكَامِ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الشَّرْعِيَّةِ",
-                        "translation": "Penegasan",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "تُسَمَّى",
-                        "translation": "Penegasan",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "فِقْهاً",
-                        "translation": "Penegasan",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "اصْطِلَاحاً.",
-                        "translation": "Penegasan",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    }
-                ]
-            },
-            {
-                "type": "paragraph",
-                "ar": "وَالثَّانِي: الْأَحْكَامُ الشَّرْعِيَّةُ نَفْسُهَا، وَعَلَى هَذَا نَقُولُ: دَرَسْتُ الْفِقْهَ، وَتَعَلَّمْتُهُ: أَيْ إِنَّكَ دَرَسْتَ الْأَحْكَامَ الْفِقْهِيَّةَ الشَّرْعِيَّةَ الْمَوْجُودَةَ فِي كُتُبِ الْفِقْهِ، وَالْمُسْتَمَدَّةَ مِنْ كِتَابِ اللَّهِ تَعَالَى وَسُنَّةِ نَبِيِّهِ عَلَيْهِ الصَّلَاةُ وَالسَّلَامُ، وَإِجْمَاعِ عُلَمَاءِ الْمُسْلِمِينَ، وَاجْتِهَادَاتِهِمْ.",
-                "id": "Kedua: Hukum-hukum syariat itu sendiri, dan atas dasar ini kita mengatakan: \"Aku telah mempelajari fikih, dan mempelajarinya\": yakni engkau telah mempelajari hukum-hukum fikih syariat yang terdapat dalam kitab-kitab fikih, dan yang bersumber dari Kitab Allah Ta'ala dan Sunnah Nabi-Nya 'alaihis sholatu wassalam, serta ijma' ulama kaum muslimin, dan ijtihad-ijtihad mereka.",
-                "words": [
-                    {
-                        "text": "وَالثَّانِي:",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْأَحْكَامُ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الشَّرْعِيَّةُ",
-                        "translation": "Penegasan",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "نَفْسُهَا،",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَعَلَى",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "هَذَا",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "نَقُولُ:",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "دَرَسْتُ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْفِقْهَ،",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَتَعَلَّمْتُهُ:",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "أَيْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "إِنَّكَ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "دَرَسْتَ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْأَحْكَامَ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْفِقْهِيَّةَ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الشَّرْعِيَّةَ",
-                        "translation": "Penegasan",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْمَوْجُودَةَ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "فِي",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "كُتُبِ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْفِقْهِ،",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَالْمُسْتَمَدَّةَ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "مِنْ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "كِتَابِ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "اللَّهِ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "تَعَالَى",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَسُنَّةِ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "نَبِيِّهِ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "نَهْيِهِ",
+                        "translation": "Larangannya",
+                        "irab_ar": "اسم مجرور، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "عَلَيْهِ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الصَّلَاةُ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "وَالسَّلَامُ،",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَإِجْمَاعِ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "عُلَمَاءِ",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الْمُسْلِمِينَ،",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَاجْتِهَادَاتِهِمْ.",
-                        "translation": "Definisi Kedua Fikih",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "وَالسَّلَامُ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     }
                 ]
             },
             {
-                "type": "paragraph",
-                "ar": "وَذَلِكَ مِثْلُ أَحْكَامِ الْوُضُوءِ، وَأَحْكَامِ الصَّلَاةِ، وَأَحْكَامِ الْبَيْعِ وَالشِّرَاءِ، وَأَحْكَامِ الزَّوَاجِ وَالرَّضَاعِ، وَالْحَرْبِ وَالْجِهَادِ، وَغَيْرِهَا.",
-                "id": "Hal itu seperti hukum-hukum wudhu, hukum-hukum shalat, hukum-hukum jual beli, hukum-hukum pernikahan dan susuan, perang dan jihad, serta selainnya.",
+                "align": "justify",
                 "words": [
                     {
-                        "text": "وَذَلِكَ",
-                        "translation": "Contoh untuk Definisi Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "عَنِ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "مِثْلُ",
-                        "translation": "Contoh untuk Definisi Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "الصَّلَاةِ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "أَحْكَامِ",
-                        "translation": "Contoh untuk Definisi Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "بَعْدَ",
+                        "translation": "Setelah",
+                        "irab_ar": "ظرف زمان.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "الْوُضُوءِ،",
-                        "translation": "Contoh untuk Definisi Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "الْعَصْرِ",
+                        "translation": "Asar",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "وَأَحْكَامِ",
-                        "translation": "Contoh untuk Definisi Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "حَتَّى",
+                        "translation": "Hingga",
+                        "irab_ar": "حرف غاية وجر.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "الصَّلَاةِ،",
-                        "translation": "Contoh untuk Definisi Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "تَغْرُبَ",
+                        "translation": "Terbenam",
+                        "irab_ar": "فعل مضارع منصوب.",
+                        "ilal_ar": "صحيح سالم."
                     },
                     {
-                        "text": "وَأَحْكَامِ",
-                        "translation": "Contoh untuk Definisi Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "الشَّمْسُ.",
+                        "translation": "Matahari",
+                        "irab_ar": "فاعل مرفوع بالضمة.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "الْبَيْعِ",
-                        "translation": "Contoh untuk Definisi Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "(رواه",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "وَالشِّرَاءِ،",
-                        "translation": "Contoh untuk Definisi Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "البخاري:",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "وَأَحْكَامِ",
-                        "translation": "Contoh untuk Definisi Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الزَّوَاجِ",
-                        "translation": "Contoh untuk Definisi Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَالرَّضَاعِ،",
-                        "translation": "Contoh untuk Definisi Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَالْحَرْبِ",
-                        "translation": "Contoh untuk Definisi Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَالْجِهَادِ،",
-                        "translation": "Contoh untuk Definisi Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "وَغَيْرِهَا.",
-                        "translation": "Contoh untuk Definisi Kedua",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "٥٦١؛",
+                        "translation": "561",
+                        "irab_ar": "رقم.",
+                        "ilal_ar": "-"
                     }
                 ]
             },
             {
-                "type": "paragraph",
-                "ar": "فَهَذِهِ الْأَحْكَامُ الشَّرْعِيَّةُ نَفْسُهَا تُسَمَّى فِقْهاً اصْطِلَاحاً.",
-                "id": "Maka hukum-hukum syariat itu sendiri dinamakan fikih secara istilah.",
+                "align": "right",
                 "words": [
                     {
-                        "text": "فَهَذِهِ",
-                        "translation": "Penegasan",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "ومسلم:",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "الْأَحْكَامُ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "الشَّرْعِيَّةُ",
-                        "translation": "Penegasan",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "نَفْسُهَا",
-                        "translation": "Penegasan",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "تُسَمَّى",
-                        "translation": "Penegasan",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "فِقْهاً",
-                        "translation": "Penegasan",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "اصْطِلَاحاً.",
-                        "translation": "Penegasan",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "٨٢٧).",
+                        "translation": "827",
+                        "irab_ar": "رقم.",
+                        "ilal_ar": "-"
                     }
                 ]
             },
             {
-                "type": "paragraph",
-                "ar": "وَالْفَرْقُ بَيْنَ الْمَعْنَيَيْنِ: أَنَّ الْأَوَّلَ يُطْلَقُ عَلَى مَعْرِفَةِ الْأَحْكَامِ، وَالثَّانِي يُطْلَقُ عَلَى نَفْسِ الْأَحْكَامِ الشَّرْعِيَّةِ.",
-                "id": "Dan perbedaan di antara kedua makna tersebut: bahwa yang pertama dimutlakkan atas pengetahuan terhadap hukum-hukum, sedangkan yang kedua dimutlakkan atas hukum-hukum syariat itu sendiri.",
+                "align": "justify-indent",
                 "words": [
                     {
-                        "text": "وَالْفَرْقُ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "وَأَنَّ",
+                        "translation": "Dan bahwasanya",
+                        "irab_ar": "الواو عاطفة، أن حرف توكيد ونصب.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "بَيْنَ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "مَسْحَ",
+                        "translation": "Mengusap",
+                        "irab_ar": "اسم أن منصوب.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "الْمَعْنَيَيْنِ:",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "بَعْضِ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "أَنَّ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "الرَّأْسِ",
+                        "translation": "Kepala",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "الْأَوَّلَ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "وَاجِبٌ",
+                        "translation": "Wajib",
+                        "irab_ar": "خبر أن مرفوع.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "يُطْلَقُ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "أَخْذاً",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "عَلَى",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "مِنْ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "مَعْرِفَةِ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "قَوْلِهِ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "الْأَحْكَامِ،",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "تَعَالَى:",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "وَالثَّانِي",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "﴿وَامْسَحُوا",
+                        "translation": "Dan usaplah",
+                        "irab_ar": "فعل أمر مبني على حذف النون، والواو فاعل.",
+                        "ilal_ar": "صحيح سالم."
+                    }
+                ]
+            },
+            {
+                "align": "right",
+                "words": [
+                    {
+                        "text": "بِرُؤُوسِكُمْ﴾.",
+                        "translation": "Dengan kepala kalian",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "يُطْلَقُ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "فَمَعْرِفَتُنَا",
+                        "translation": "Maka pengetahuan kita",
+                        "irab_ar": "مبتدأ مرفوع.",
+                        "ilal_ar": "-"
                     },
                     {
-                        "text": "عَلَى",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
-                    },
-                    {
-                        "text": "نَفْسِ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "text": "بِهَذِهِ",
+                        "translation": "Dengan ini",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الْأَحْكَامِ",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Hukum-hukum",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الشَّرْعِيَّةِ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "تُسَمَّى",
+                        "translation": "Dinamakan",
+                        "irab_ar": "فعل مضارع مبني للمجهول.",
+                        "ilal_ar": "معتل ناقص (إعلال بالقلب)."
+                    },
+                    {
+                        "text": "فِقْهاً",
+                        "translation": "Fikih",
+                        "irab_ar": "مفعول به ثانٍ منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "اصْطِلَاحاً.",
+                        "translation": "Secara istilah",
+                        "irab_ar": "حال أو مفعول لأجله أو تمييز منصوب.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify-indent",
+                "words": [
+                    {
+                        "text": "وَالثَّانِي:",
+                        "translation": "Dan yang kedua",
+                        "irab_ar": "مبتدأ مرفوع.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْأَحْكَامُ",
+                        "translation": "Hukum-hukum",
+                        "irab_ar": "مبتدأ مرفوع.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الشَّرْعِيَّةُ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "نَفْسُهَا،",
+                        "translation": "Itu sendiri (zatnya)",
+                        "irab_ar": "توكيد معنوي مرفوع، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَعَلَى",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "هَذَا",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "نَقُولُ:",
+                        "translation": "Kami berkata",
+                        "irab_ar": "فعل مضارع مرفوع، والفاعل نحن.",
+                        "ilal_ar": "أصله نَقْوُلُ، إعلال بالنقل."
+                    },
+                    {
+                        "text": "دَرَسْتَ",
+                        "translation": "Engkau telah belajar",
+                        "irab_ar": "فعل ماض مبني على السكون، والتاء فاعل.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "الْفِقْهَ،",
+                        "translation": "Fikih",
+                        "irab_ar": "مفعول به منصوب.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "وَتَعَلَّمْتَهُ:",
+                        "translation": "Dan engkau mempelajarinya",
+                        "irab_ar": "فعل ماض والتاء فاعل، والهاء مفعول به.",
+                        "ilal_ar": "صحيح مزيد."
+                    },
+                    {
+                        "text": "أَيْ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "إِنَّكَ",
+                        "translation": "Sesungguhnya engkau",
+                        "irab_ar": "إن واسمها.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "دَرَسْتَ",
+                        "translation": "Engkau telah belajar",
+                        "irab_ar": "فعل ماض مبني على السكون، والتاء فاعل.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "الْأَحْكَامَ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْفِقْهِيَّةَ",
+                        "translation": "Fikih",
+                        "irab_ar": "نعت منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الشَّرْعِيَّةَ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْمَوْجُودَةَ",
+                        "translation": "Yang ada",
+                        "irab_ar": "نعت منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "فِي",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "كُتُبِ",
+                        "translation": "Buku-buku",
+                        "irab_ar": "اسم مجرور بالكسرة.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "الْفِقْهِ،",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَالْمُسْتَمَدَّةَ",
+                        "translation": "Dan yang digali/diambil",
+                        "irab_ar": "معطوف منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مِنْ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "كِتَابِ",
+                        "translation": "Kitab",
+                        "irab_ar": "اسم مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "اللَّهِ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "تَعَالَى",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَسُنَّةِ",
+                        "translation": "Dan sunnah",
+                        "irab_ar": "معطوف مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "نَبِيِّهِ",
+                        "translation": "Nabinya",
+                        "irab_ar": "مضاف إليه مجرور، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "عَلَيْهِ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الصَّلَاةُ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَالسَّلَامُ،",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "right",
+                "words": [
+                    {
+                        "text": "وَإِجْمَاعِ",
+                        "translation": "Dan ijmak",
+                        "irab_ar": "معطوف مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "عُلَمَاءِ",
+                        "translation": "Ulama",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْمُسْلِمِينَ،",
+                        "translation": "Orang Islam",
+                        "irab_ar": "مضاف إليه مجرور بالياء.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَاجْتِهَادَاتِهِمْ.",
+                        "translation": "Dan ijtihad mereka",
+                        "irab_ar": "معطوف مجرور.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify-indent",
+                "words": [
+                    {
+                        "text": "وَذَلِكَ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مِثْلُ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَحْكَامِ",
+                        "translation": "Hukum-hukum",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْوُضُوءِ،",
+                        "translation": "Wudu",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَأَحْكَامِ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الصَّلَاةِ،",
+                        "translation": "Salat",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَأَحْكَامِ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْبَيْعِ",
+                        "translation": "Jual beli",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "right",
+                "words": [
+                    {
+                        "text": "وَالشِّرَاءِ،",
+                        "translation": "Dan pembelian",
+                        "irab_ar": "معطوف مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَأَحْكَامِ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الزَّوَاجِ",
+                        "translation": "Pernikahan",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَالرَّضَاعِ،",
+                        "translation": "Dan susuan",
+                        "irab_ar": "معطوف مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَالْحَرْبِ",
+                        "translation": "Dan perang",
+                        "irab_ar": "معطوف مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَالْجِهَادِ،",
+                        "translation": "Dan jihad",
+                        "irab_ar": "معطوف مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَغَيْرِهَا.",
+                        "translation": "Dan selainnya",
+                        "irab_ar": "معطوف مجرور، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "center",
+                "words": [
+                    {
+                        "text": "فَهَذِهِ",
+                        "translation": "Maka ini",
+                        "irab_ar": "الفاء عاطفة، مبتدأ.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْأَحْكَامُ",
+                        "translation": "Hukum-hukum",
+                        "irab_ar": "مبتدأ مرفوع.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الشَّرْعِيَّةُ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "نَفْسُهَا",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "تُسَمَّى",
+                        "translation": "Dinamakan",
+                        "irab_ar": "فعل مضارع مبني للمجهول.",
+                        "ilal_ar": "معتل ناقص (إعلال بالقلب)."
+                    },
+                    {
+                        "text": "فِقْهاً",
+                        "translation": "Fikih",
+                        "irab_ar": "مفعول به ثانٍ منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "اصْطِلَاحاً.",
+                        "translation": "Secara istilah",
+                        "irab_ar": "حال أو مفعول لأجله أو تمييز منصوب.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify-indent",
+                "words": [
+                    {
+                        "text": "وَالْفَرْقُ",
+                        "translation": "Dan perbedaan",
+                        "irab_ar": "مبتدأ مرفوع.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بَيْنَ",
+                        "translation": "Di antara",
+                        "irab_ar": "ظرف مكان منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْمَعْنَيَيْنِ:",
+                        "translation": "Dua makna",
+                        "irab_ar": "مضاف إليه مجرور بالياء لأنه مثنى.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَنَّ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْأَوَّلَ",
+                        "translation": "Yang pertama",
+                        "irab_ar": "اسم أن منصوب وعلامة نصبه الفتحة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "يُطْلَقُ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "عَلَى",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مَعْرِفَةِ",
+                        "translation": "Pengetahuan",
+                        "irab_ar": "اسم مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْأَحْكَامِ،",
+                        "translation": "Hukum-hukum",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَالثَّانِي",
+                        "translation": "Dan yang kedua",
+                        "irab_ar": "معطوف منصوب.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "right",
+                "words": [
+                    {
+                        "text": "يُطْلَقُ",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "عَلَى",
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "نَفْسِ",
+                        "translation": "Sama persis (zatnya)",
+                        "irab_ar": "اسم مجرور بالكسرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْأَحْكَامِ",
+                        "translation": "Hukum-hukum",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
                     },
                     {
                         "text": "الشَّرْعِيَّةِ.",
-                        "translation": "Perbedaan Dua Makna Istilah",
-                        "root": "-",
-                        "explanation": "-",
-                        "joined_explanation": "-",
-                        "pronoun_ref": "-",
-                        "irab": "-",
-                        "verb_type": "-",
-                        "fail_ref": "-"
+                        "translation": "Lihat kosakata sebelumnya.",
+                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "ilal_ar": "-"
                     }
                 ]
             }
