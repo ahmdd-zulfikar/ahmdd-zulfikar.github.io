@@ -207,7 +207,7 @@ const fikihData = [
                         "irab": "-",
                         "verb_type": "-",
                         "fail_ref": "-",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "irab_ar": "-",
                         "ilal_ar": "-"
                     },
                     {
@@ -355,7 +355,7 @@ const fikihData = [
                         "irab": "-",
                         "verb_type": "-",
                         "fail_ref": "-",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "irab_ar": "-",
                         "ilal_ar": "-"
                     }
                 ]
@@ -521,7 +521,7 @@ const fikihData = [
                         "irab": "-",
                         "verb_type": "-",
                         "fail_ref": "-",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "irab_ar": "-",
                         "ilal_ar": "-"
                     },
                     {
@@ -830,7 +830,7 @@ const fikihData = [
                         "irab": "-",
                         "verb_type": "-",
                         "fail_ref": "-",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "irab_ar": "-",
                         "ilal_ar": "-"
                     }
                 ]
@@ -861,7 +861,7 @@ const fikihData = [
                         "irab": "-",
                         "verb_type": "-",
                         "fail_ref": "-",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "irab_ar": "-",
                         "ilal_ar": "-"
                     },
                     {
@@ -1222,7 +1222,7 @@ const fikihData = [
                         "irab": "-",
                         "verb_type": "-",
                         "fail_ref": "-",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "irab_ar": "-",
                         "ilal_ar": "-"
                     },
                     {
@@ -2939,7 +2939,7 @@ const fikihData = [
                         "irab": "-",
                         "verb_type": "-",
                         "fail_ref": "-",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "irab_ar": "-",
                         "ilal_ar": "-"
                     }
                 ]
@@ -3344,7 +3344,7 @@ const fikihData = [
                         "irab": "-",
                         "verb_type": "-",
                         "fail_ref": "-",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "irab_ar": "-",
                         "ilal_ar": "-"
                     },
                     {
@@ -3531,7 +3531,7 @@ const fikihData = [
                         "irab": "-",
                         "verb_type": "-",
                         "fail_ref": "-",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "irab_ar": "-",
                         "ilal_ar": "-"
                     },
                     {
@@ -4149,7 +4149,7 @@ const fikihData = [
                         "irab": "-",
                         "verb_type": "-",
                         "fail_ref": "-",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "irab_ar": "علامة ترقيم.",
                         "ilal_ar": "-"
                     },
                     {
@@ -4188,7 +4188,7 @@ const fikihData = [
                         "irab": "-",
                         "verb_type": "-",
                         "fail_ref": "-",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "irab_ar": "علامة ترقيم.",
                         "ilal_ar": "-"
                     },
                     {
@@ -4349,7 +4349,7 @@ const fikihData = [
                         "irab": "-",
                         "verb_type": "-",
                         "fail_ref": "-",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "irab_ar": "-",
                         "ilal_ar": "-"
                     }
                 ]
@@ -4650,7 +4650,7 @@ const fikihData = [
                         "irab": "-",
                         "verb_type": "-",
                         "fail_ref": "-",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "irab_ar": "علامة ترقيم.",
                         "ilal_ar": "-"
                     },
                     {
@@ -4715,7 +4715,7 @@ const fikihData = [
                         "irab": "-",
                         "verb_type": "-",
                         "fail_ref": "-",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "irab_ar": "علامة ترقيم.",
                         "ilal_ar": "-"
                     },
                     {
@@ -4850,7 +4850,7 @@ const fikihData = [
                         "irab": "-",
                         "verb_type": "-",
                         "fail_ref": "-",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "irab_ar": "-",
                         "ilal_ar": "-"
                     }
                 ]
@@ -5068,7 +5068,7 @@ const fikihData = [
                         "irab": "-",
                         "verb_type": "-",
                         "fail_ref": "-",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق.",
+                        "irab_ar": "-",
                         "ilal_ar": "-"
                     }
                 ]
@@ -6010,8 +6010,8 @@ const fikihData = [
                     },
                     {
                         "text": "مِنَ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Dari",
+                        "irab_ar": "حرف جر مبني على السكون وحرك بالفتح.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6028,8 +6028,8 @@ const fikihData = [
                     },
                     {
                         "text": "فِي",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Tentang / Di dalam",
+                        "irab_ar": "حرف جر مبني على السكون.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6046,32 +6046,32 @@ const fikihData = [
                     },
                     {
                         "text": "أَخْذاً",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Karena mengambil",
+                        "irab_ar": "مفعول مطلق أو مفعول لأجله منصوب بالفتحة.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "مِنْ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Dari",
+                        "irab_ar": "حرف جر مبني على السكون.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "قَوْلِهِ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Sabdanya",
+                        "irab_ar": "اسم مجرور بالكسرة، والهاء مضاف إليه.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "ﷺ:",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Shallallahu 'Alaihi Wasallam",
+                        "irab_ar": "جملة دعائية (صلى الله عليه وسلم).",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "«مَنْ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Barangsiapa",
+                        "irab_ar": "اسم شرط جازم مبني على السكون في محل رفع مبتدأ.",
                         "ilal_ar": "-"
                     }
                 ]
@@ -6129,9 +6129,9 @@ const fikihData = [
                     },
                     {
                         "text": "(رواه",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
-                        "ilal_ar": "-"
+                        "translation": "Meriwayatkannya",
+                        "irab_ar": "فعل ماض، والهاء مفعول به.",
+                        "ilal_ar": "مهموز وناقص (إعلال بالقلب)."
                     },
                     {
                         "text": "البيهقي:",
@@ -6205,8 +6205,8 @@ const fikihData = [
                     },
                     {
                         "text": "أَنَّ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Bahwa",
+                        "irab_ar": "حرف توكيد ونصب.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6229,14 +6229,14 @@ const fikihData = [
                     },
                     {
                         "text": "أَخْذاً",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Karena mengambil",
+                        "irab_ar": "مفعول مطلق أو مفعول لأجله منصوب بالفتحة.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "مِنْ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Dari",
+                        "irab_ar": "حرف جر مبني على السكون.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6276,14 +6276,14 @@ const fikihData = [
                     },
                     {
                         "text": "ﷺ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Shallallahu 'Alaihi Wasallam",
+                        "irab_ar": "جملة دعائية (صلى الله عليه وسلم).",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "عَنِ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Dari / Tentang",
+                        "irab_ar": "حرف جر.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6300,9 +6300,9 @@ const fikihData = [
                     },
                     {
                         "text": "قَالَ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
-                        "ilal_ar": "-"
+                        "translation": "Telah berfirman",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "أصله قَوَلَ، تحركت الواو وانفتح ما قبلها فقلبت ألفاً (إعلال بالقلب)."
                     },
                     {
                         "text": "بَعْدَ",
@@ -6312,8 +6312,8 @@ const fikihData = [
                     },
                     {
                         "text": "ذَلِكَ:",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Itu",
+                        "irab_ar": "اسم إشارة مضاف إليه.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6336,9 +6336,9 @@ const fikihData = [
                     },
                     {
                         "text": "قَالَ:",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
-                        "ilal_ar": "-"
+                        "translation": "Telah berfirman",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "أصله قَوَلَ، تحركت الواو وانفتح ما قبلها فقلبت ألفاً (إعلال بالقلب)."
                     }
                 ]
             },
@@ -6347,20 +6347,20 @@ const fikihData = [
                 "words": [
                     {
                         "text": "«لَا",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Tidak",
+                        "irab_ar": "حرف نفي.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "إِلَّا",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Melainkan",
+                        "irab_ar": "أداة حصر مبنية على السكون لا محل لها من الإعراب.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "أَنْ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Bahwa",
+                        "irab_ar": "حرف مصدري ونصب.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6371,14 +6371,14 @@ const fikihData = [
                     },
                     {
                         "text": "(رواه",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
-                        "ilal_ar": "-"
+                        "translation": "Meriwayatkannya",
+                        "irab_ar": "فعل ماض، والهاء مفعول به.",
+                        "ilal_ar": "مهموز وناقص (إعلال بالقلب)."
                     },
                     {
                         "text": "البخاري:",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Al-Bukhari",
+                        "irab_ar": "فاعل مرفوع وعلامة رفعه الضمة المقدرة.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6389,8 +6389,8 @@ const fikihData = [
                     },
                     {
                         "text": "ومسلم:",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Dan Muslim",
+                        "irab_ar": "الواو حرف عطف، مسلم معطوف.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6436,14 +6436,14 @@ const fikihData = [
                     },
                     {
                         "text": "أَخْذاً",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Karena mengambil",
+                        "irab_ar": "مفعول مطلق أو مفعول لأجله منصوب بالفتحة.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "مِنْ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Dari",
+                        "irab_ar": "حرف جر مبني على السكون.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6454,20 +6454,20 @@ const fikihData = [
                     },
                     {
                         "text": "عَلَيْهِ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Atasnya",
+                        "irab_ar": "جار ومجرور.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "الصَّلَاةُ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Salat",
+                        "irab_ar": "مبتدأ أو فاعل مرفوع.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "وَالسَّلَامُ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Dan keselamatan",
+                        "irab_ar": "الواو حرف عطف. السلام: معطوف على (الصلاة) مرفوع.",
                         "ilal_ar": "-"
                     }
                 ]
@@ -6477,14 +6477,14 @@ const fikihData = [
                 "words": [
                     {
                         "text": "عَنِ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Dari / Tentang",
+                        "irab_ar": "حرف جر.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "الصَّلَاةِ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Salat",
+                        "irab_ar": "مضاف إليه أو اسم مجرور.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6519,14 +6519,14 @@ const fikihData = [
                     },
                     {
                         "text": "(رواه",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
-                        "ilal_ar": "-"
+                        "translation": "Meriwayatkannya",
+                        "irab_ar": "فعل ماض، والهاء مفعول به.",
+                        "ilal_ar": "مهموز وناقص (إعلال بالقلب)."
                     },
                     {
                         "text": "البخاري:",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Al-Bukhari",
+                        "irab_ar": "فاعل مرفوع وعلامة رفعه الضمة المقدرة.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6542,8 +6542,8 @@ const fikihData = [
                 "words": [
                     {
                         "text": "ومسلم:",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Dan Muslim",
+                        "irab_ar": "الواو حرف عطف، مسلم معطوف.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6571,8 +6571,8 @@ const fikihData = [
                     },
                     {
                         "text": "بَعْضِ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Sebagian",
+                        "irab_ar": "مضاف إليه مجرور.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6589,27 +6589,27 @@ const fikihData = [
                     },
                     {
                         "text": "أَخْذاً",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Karena mengambil",
+                        "irab_ar": "مفعول مطلق أو مفعول لأجله منصوب بالفتحة.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "مِنْ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Dari",
+                        "irab_ar": "حرف جر مبني على السكون.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "قَوْلِهِ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Sabdanya",
+                        "irab_ar": "اسم مجرور بالكسرة، والهاء مضاف إليه.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "تَعَالَى:",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
-                        "ilal_ar": "-"
+                        "translation": "Maha Tinggi",
+                        "irab_ar": "فعل ماض مبني على الفتح المقدر، والفاعل ضمير مستتر (الله).",
+                        "ilal_ar": "أصله تَعَالَيَ، تحركت الياء وانفتح ما قبلها فقلبت ألفاً (إعلال بالقلب)."
                     },
                     {
                         "text": "﴿وَامْسَحُوا",
@@ -6648,8 +6648,8 @@ const fikihData = [
                     },
                     {
                         "text": "الشَّرْعِيَّةِ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Syariat",
+                        "irab_ar": "نعت لـ (الأحكام) مجرور بالكسرة.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6689,8 +6689,8 @@ const fikihData = [
                     },
                     {
                         "text": "الشَّرْعِيَّةُ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Syariat",
+                        "irab_ar": "نعت مرفوع.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6701,14 +6701,14 @@ const fikihData = [
                     },
                     {
                         "text": "وَعَلَى",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Dan atas",
+                        "irab_ar": "الواو عاطفة، على حرف جر.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "هَذَا",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Ini",
+                        "irab_ar": "اسم إشارة مبني في محل جر مضاف إليه.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6742,8 +6742,8 @@ const fikihData = [
                     },
                     {
                         "text": "أَيْ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Yaitu / Artinya",
+                        "irab_ar": "حرف تفسير مبني على السكون.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6760,8 +6760,8 @@ const fikihData = [
                     },
                     {
                         "text": "الْأَحْكَامَ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Hukum-hukum",
+                        "irab_ar": "مفعول به أو بدل منصوب.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6772,8 +6772,8 @@ const fikihData = [
                     },
                     {
                         "text": "الشَّرْعِيَّةَ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Syariat",
+                        "irab_ar": "نعت منصوب.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6784,8 +6784,8 @@ const fikihData = [
                     },
                     {
                         "text": "فِي",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Tentang / Di dalam",
+                        "irab_ar": "حرف جر مبني على السكون.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6801,8 +6801,8 @@ const fikihData = [
                 "words": [
                     {
                         "text": "الْفِقْهِ،",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Fikih",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة الظاهرة.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6813,8 +6813,8 @@ const fikihData = [
                     },
                     {
                         "text": "مِنْ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Dari",
+                        "irab_ar": "حرف جر مبني على السكون.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6825,15 +6825,15 @@ const fikihData = [
                     },
                     {
                         "text": "اللَّهِ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Allah",
+                        "irab_ar": "لفظ الجلالة مضاف إليه مجرور.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "تَعَالَى",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
-                        "ilal_ar": "-"
+                        "translation": "Maha Tinggi",
+                        "irab_ar": "فعل ماض مبني على الفتح المقدر، والفاعل ضمير مستتر (الله).",
+                        "ilal_ar": "أصله تَعَالَيَ، تحركت الياء وانفتح ما قبلها فقلبت ألفاً (إعلال بالقلب)."
                     },
                     {
                         "text": "وَسُنَّةِ",
@@ -6849,20 +6849,20 @@ const fikihData = [
                     },
                     {
                         "text": "عَلَيْهِ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Atasnya",
+                        "irab_ar": "جار ومجرور.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "الصَّلَاةُ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Salat",
+                        "irab_ar": "مبتدأ أو فاعل مرفوع.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "وَالسَّلَامُ،",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Dan keselamatan",
+                        "irab_ar": "معطوف مرفوع.",
                         "ilal_ar": "-"
                     }
                 ]
@@ -6901,14 +6901,14 @@ const fikihData = [
                 "words": [
                     {
                         "text": "وَذَلِكَ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Dan hal itu",
+                        "irab_ar": "الواو استئنافية، ذلك اسم إشارة مبتدأ.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "مِثْلُ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Seperti",
+                        "irab_ar": "خبر المبتدأ مرفوع، وهو مضاف.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6925,8 +6925,8 @@ const fikihData = [
                     },
                     {
                         "text": "وَأَحْكَامِ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Dan hukum-hukum",
+                        "irab_ar": "معطوف مجرور.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6937,8 +6937,8 @@ const fikihData = [
                     },
                     {
                         "text": "وَأَحْكَامِ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Dan hukum-hukum",
+                        "irab_ar": "معطوف مجرور.",
                         "ilal_ar": "-"
                     },
                     {
@@ -6960,8 +6960,8 @@ const fikihData = [
                     },
                     {
                         "text": "وَأَحْكَامِ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Dan hukum-hukum",
+                        "irab_ar": "معطوف مجرور.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7013,14 +7013,14 @@ const fikihData = [
                     },
                     {
                         "text": "الشَّرْعِيَّةُ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Syariat",
+                        "irab_ar": "نعت مرفوع.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "نَفْسُهَا",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Itu sendiri (zatnya)",
+                        "irab_ar": "توكيد معنوي مرفوع، والهاء مضاف إليه.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7066,8 +7066,8 @@ const fikihData = [
                     },
                     {
                         "text": "أَنَّ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Bahwa",
+                        "irab_ar": "حرف توكيد ونصب.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7078,14 +7078,14 @@ const fikihData = [
                     },
                     {
                         "text": "يُطْلَقُ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
-                        "ilal_ar": "-"
+                        "translation": "Digunakan",
+                        "irab_ar": "فعل مضارع مبني للمجهول مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "صحيح مزيد، لا إعلال فيه."
                     },
                     {
                         "text": "عَلَى",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Atas / Kepada",
+                        "irab_ar": "حرف جر مبني على السكون.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7113,14 +7113,14 @@ const fikihData = [
                 "words": [
                     {
                         "text": "يُطْلَقُ",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
-                        "ilal_ar": "-"
+                        "translation": "Digunakan",
+                        "irab_ar": "فعل مضارع مبني للمجهول مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "صحيح مزيد، لا إعلال فيه."
                     },
                     {
                         "text": "عَلَى",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Atas / Kepada",
+                        "irab_ar": "حرف جر مبني على السكون.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7137,8 +7137,8 @@ const fikihData = [
                     },
                     {
                         "text": "الشَّرْعِيَّةِ.",
-                        "translation": "Lihat kosakata sebelumnya.",
-                        "irab_ar": "اسم مجرور أو منصوب حسب السياق (مضاف سابقاً).",
+                        "translation": "Syariat",
+                        "irab_ar": "نعت لـ (الأحكام) مجرور بالكسرة.",
                         "ilal_ar": "-"
                     }
                 ]
@@ -7181,8 +7181,8 @@ const fikihData = [
                     },
                     {
                         "text": "الْفِقْهِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Fikih",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7204,8 +7204,8 @@ const fikihData = [
                 "words": [
                     {
                         "text": "مِنْ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Dari",
+                        "irab_ar": "حرف جر مبني على السكون.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7216,8 +7216,8 @@ const fikihData = [
                     },
                     {
                         "text": "الْفِقْهِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Fikih",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7228,38 +7228,38 @@ const fikihData = [
                     },
                     {
                         "text": "ــ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "-",
+                        "irab_ar": "علامة ترقيم.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "وَهُوَ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Dan dia/ia",
+                        "irab_ar": "الواو عاطفة، هو ضمير مبني في محل رفع مبتدأ.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "كَمَا",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Sebagaimana",
+                        "irab_ar": "الكاف حرف جر، ما مصدرية.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "قُلْنَا:",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
-                        "ilal_ar": "-"
+                        "translation": "Telah kami katakan",
+                        "irab_ar": "فعل ماض مبني على السكون، ونا فاعل.",
+                        "ilal_ar": "أجوف."
                     },
                     {
                         "text": "أَحْكَامٌ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Hukum-hukum",
+                        "irab_ar": "خبر مرفوع.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "شَرْعِيَّةٌ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Syariat",
+                        "irab_ar": "نعت مرفوع.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7293,14 +7293,14 @@ const fikihData = [
                     },
                     {
                         "text": "ــ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "-",
+                        "irab_ar": "علامة ترقيم.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "أَنَّهُ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Bahwasanya ia",
+                        "irab_ar": "أن حرف توكيد ونصب، والهاء اسمها.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7323,21 +7323,21 @@ const fikihData = [
                     },
                     {
                         "text": "بِالْإِيمَانِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Dengan keimanan",
+                        "irab_ar": "جار ومجرور.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "بِاللَّهِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Kepada Allah",
+                        "irab_ar": "جار ومجرور.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "تَعَالَى،",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
-                        "ilal_ar": "-"
+                        "translation": "Maha Tinggi",
+                        "irab_ar": "فعل ماض مبني على الفتح المقدر.",
+                        "ilal_ar": "ناقص."
                     }
                 ]
             },
@@ -7358,8 +7358,8 @@ const fikihData = [
                     },
                     {
                         "text": "إِلَى",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Ke / Sampai",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7376,8 +7376,8 @@ const fikihData = [
                     },
                     {
                         "text": "الْإِسْلَامِيَّةِ،",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Islam",
+                        "irab_ar": "نعت مجرور.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7400,8 +7400,8 @@ const fikihData = [
                     },
                     {
                         "text": "الْإِيمَانِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Keimanan",
+                        "irab_ar": "مضاف إليه أو اسم مجرور.",
                         "ilal_ar": "-"
                     }
                 ]
@@ -7417,8 +7417,8 @@ const fikihData = [
                     },
                     {
                         "text": "الْآخِرِ.",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Akhir",
+                        "irab_ar": "نعت مجرور.",
                         "ilal_ar": "-"
                     }
                 ]
@@ -7428,50 +7428,50 @@ const fikihData = [
                 "words": [
                     {
                         "text": "وَذَلِكَ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Dan hal itu",
+                        "irab_ar": "الواو استئنافية، ذلك اسم إشارة مبتدأ.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "لِأَنَّ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Karena bahwasanya",
+                        "irab_ar": "اللام للتعليل، أن حرف توكيد ونصب.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "عَقِيدَةَ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Akidah",
+                        "irab_ar": "اسم أن منصوب.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "الْإِيمَانِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Keimanan",
+                        "irab_ar": "مضاف إليه أو اسم مجرور.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "بِاللَّهِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Kepada Allah",
+                        "irab_ar": "جار ومجرور.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "تَعَالَى",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
-                        "ilal_ar": "-"
+                        "translation": "Maha Tinggi",
+                        "irab_ar": "فعل ماض مبني على الفتح المقدر، والفاعل ضمير مستتر (الله).",
+                        "ilal_ar": "أصله تَعَالَيَ، تحركت الياء وانفتح ما قبلها فقلبت ألفاً (إعلال بالقلب)."
                     },
                     {
                         "text": "هِيَ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Adalah / Dia",
+                        "irab_ar": "ضمير فصل لا محل له من الإعراب، أو مبتدأ.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "الَّتِي",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Yang",
+                        "irab_ar": "اسم موصول مبني في محل رفع نعت أو خبر.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7505,8 +7505,8 @@ const fikihData = [
                     },
                     {
                         "text": "الدِّينِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Agama",
+                        "irab_ar": "مجرور وعلامة جره الكسرة.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7540,20 +7540,20 @@ const fikihData = [
                 "words": [
                     {
                         "text": "وَلِأَنَّ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Dan karena bahwasanya",
+                        "irab_ar": "الواو عاطفة، اللام تعليل، أن حرف نصب.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "مَنْ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Barangsiapa",
+                        "irab_ar": "اسم شرط جازم مبني على السكون في محل رفع مبتدأ.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "لَمْ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Tidak / Belum",
+                        "irab_ar": "حرف نفي وجزم وقلب.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7564,20 +7564,20 @@ const fikihData = [
                     },
                     {
                         "text": "بِاللَّهِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Kepada Allah",
+                        "irab_ar": "جار ومجرور.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "تَعَالَى",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
-                        "ilal_ar": "-"
+                        "translation": "Maha Tinggi",
+                        "irab_ar": "فعل ماض مبني على الفتح المقدر، والفاعل ضمير مستتر (الله).",
+                        "ilal_ar": "أصله تَعَالَيَ، تحركت الياء وانفتح ما قبلها فقلبت ألفاً (إعلال بالقلب)."
                     },
                     {
                         "text": "لَا",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Tidak",
+                        "irab_ar": "حرف نفي.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7623,8 +7623,8 @@ const fikihData = [
                 "words": [
                     {
                         "text": "فِي",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Tentang / Di dalam",
+                        "irab_ar": "حرف جر مبني على السكون.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7659,26 +7659,26 @@ const fikihData = [
                     },
                     {
                         "text": "أَحْكَامِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Hukum-hukum",
+                        "irab_ar": "مضاف إليه مجرور.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "الشَّرْعِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Syariat",
+                        "irab_ar": "مضاف إليه مجرور.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "إِنَّمَا",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Sesungguhnya",
+                        "irab_ar": "كافة ومكفوفة (إن وما).",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "هُوَ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Dia",
+                        "irab_ar": "ضمير فصل لا محل له من الإعراب، أو مبتدأ.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7689,14 +7689,14 @@ const fikihData = [
                     },
                     {
                         "text": "عَنِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Dari / Tentang",
+                        "irab_ar": "حرف جر.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "الْإِيمَانِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Keimanan",
+                        "irab_ar": "مضاف إليه أو اسم مجرور.",
                         "ilal_ar": "-"
                     }
                 ]
@@ -7741,14 +7741,14 @@ const fikihData = [
                     },
                     {
                         "text": "فِي",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Tentang / Di dalam",
+                        "irab_ar": "حرف جر مبني على السكون.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "الْقُرْآنِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Al-Qur'an",
+                        "irab_ar": "اسم مجرور وعلامة جره الكسرة.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7759,8 +7759,8 @@ const fikihData = [
                     },
                     {
                         "text": "الَّتِي",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Yang",
+                        "irab_ar": "اسم موصول مبني في محل رفع نعت أو خبر.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7777,14 +7777,14 @@ const fikihData = [
                     },
                     {
                         "text": "الْفِقْهِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Fikih",
+                        "irab_ar": "مضاف إليه مجرور وعلامة جره الكسرة.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "بِالْإِيمَانِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Dengan keimanan",
+                        "irab_ar": "جار ومجرور.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7836,8 +7836,8 @@ const fikihData = [
                     },
                     {
                         "text": "هَذَا",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Ini",
+                        "irab_ar": "اسم إشارة مبني في محل جر مضاف إليه.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7848,20 +7848,20 @@ const fikihData = [
                     },
                     {
                         "text": "بَيْنَ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Di antara",
+                        "irab_ar": "ظرف مكان منصوب.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "الْأَحْكَامِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Hukum-hukum",
+                        "irab_ar": "مضاف إليه مجرور.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "وَالْإِيمَانِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Dan keimanan",
+                        "irab_ar": "معطوف مجرور.",
                         "ilal_ar": "-"
                     }
                 ]
@@ -7871,20 +7871,20 @@ const fikihData = [
                 "words": [
                     {
                         "text": "وَبَيْنَ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Dan di antara",
+                        "irab_ar": "الواو عاطفة، بين ظرف مكان منصوب.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "الشَّرِيعَةِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Syariat",
+                        "irab_ar": "معطوف أو مضاف إليه مجرور.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "وَالْعَقِيدَةِ:",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Dan akidah",
+                        "irab_ar": "معطوف مجرور.",
                         "ilal_ar": "-"
                     }
                 ]
@@ -7894,14 +7894,14 @@ const fikihData = [
                 "words": [
                     {
                         "text": "١",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "1",
+                        "irab_ar": "رقم الحديث.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "ــ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "-",
+                        "irab_ar": "علامة ترقيم.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7918,8 +7918,8 @@ const fikihData = [
                     },
                     {
                         "text": "اللَّهُ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Allah",
+                        "irab_ar": "لفظ الجلالة فاعل مرفوع وعلامة رفعه الضمة.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7942,20 +7942,20 @@ const fikihData = [
                     },
                     {
                         "text": "وَجَعَلَ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
-                        "ilal_ar": "-"
+                        "translation": "Dan menjadikan",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "صحيح سالم."
                     },
                     {
                         "text": "ذَلِكَ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Itu",
+                        "irab_ar": "اسم إشارة مضاف إليه.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "مِنْ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Dari",
+                        "irab_ar": "حرف جر مبني على السكون.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7966,8 +7966,8 @@ const fikihData = [
                     },
                     {
                         "text": "الْإِيمَانِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Keimanan",
+                        "irab_ar": "مضاف إليه أو اسم مجرور.",
                         "ilal_ar": "-"
                     }
                 ]
@@ -7977,8 +7977,8 @@ const fikihData = [
                 "words": [
                     {
                         "text": "بِهِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Dengannya",
+                        "irab_ar": "الباء حرف جر، والهاء ضمير مبني في محل جر، متعلقان بالفعل.",
                         "ilal_ar": "-"
                     },
                     {
@@ -7989,15 +7989,15 @@ const fikihData = [
                     },
                     {
                         "text": "وَتَعَالَى",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
-                        "ilal_ar": "-"
+                        "translation": "Dan Maha Tinggi",
+                        "irab_ar": "الواو عاطفة، فعل ماض مبني على الفتح المقدر.",
+                        "ilal_ar": "ناقص."
                     },
                     {
                         "text": "فَقَالَ:",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
-                        "ilal_ar": "-"
+                        "translation": "Lalu berfirman",
+                        "irab_ar": "الفاء عاطفة، فعل ماض مبني على الفتح.",
+                        "ilal_ar": "أجوف."
                     },
                     {
                         "text": "﴿يَا",
@@ -8013,8 +8013,8 @@ const fikihData = [
                     },
                     {
                         "text": "الَّذِينَ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Orang-orang yang",
+                        "irab_ar": "اسم موصول مبني في محل رفع مبتدأ.",
                         "ilal_ar": "-"
                     },
                     {
@@ -8037,14 +8037,14 @@ const fikihData = [
                     },
                     {
                         "text": "إِلَى",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Ke / Sampai",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "الصَّلَاةِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Salat",
+                        "irab_ar": "مضاف إليه أو اسم مجرور.",
                         "ilal_ar": "-"
                     }
                 ]
@@ -8072,8 +8072,8 @@ const fikihData = [
                     },
                     {
                         "text": "إِلَى",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Ke / Sampai",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
                         "ilal_ar": "-"
                     },
                     {
@@ -8084,26 +8084,26 @@ const fikihData = [
                     },
                     {
                         "text": "(سورة",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Surat",
+                        "irab_ar": "خبر لمبتدأ محذوف تقديره (هذا) أو مضاف إليه.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "المائدة:",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Al-Maidah",
+                        "irab_ar": "مضاف إليه مجرور.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "الآية",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Ayat",
+                        "irab_ar": "بدل أو خبر مرفوع / مجرور حسب السياق.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "٦).",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "6",
+                        "irab_ar": "رقم.",
                         "ilal_ar": "-"
                     }
                 ]
@@ -8113,14 +8113,14 @@ const fikihData = [
                 "words": [
                     {
                         "text": "٢",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "2",
+                        "irab_ar": "رقم.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "ــ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "-",
+                        "irab_ar": "علامة ترقيم.",
                         "ilal_ar": "-"
                     },
                     {
@@ -8131,20 +8131,20 @@ const fikihData = [
                     },
                     {
                         "text": "اللَّهُ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Allah",
+                        "irab_ar": "لفظ الجلالة فاعل مرفوع وعلامة رفعه الضمة.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "الصَّلَاةَ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Salat",
+                        "irab_ar": "اسم أن منصوب.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "وَالزَّكَاةَ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Dan zakat",
+                        "irab_ar": "معطوف منصوب.",
                         "ilal_ar": "-"
                     },
                     {
@@ -8161,14 +8161,14 @@ const fikihData = [
                     },
                     {
                         "text": "وَبَيْنَ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Dan di antara",
+                        "irab_ar": "الواو عاطفة، بين ظرف مكان منصوب.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "الْإِيمَانِ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Keimanan",
+                        "irab_ar": "مضاف إليه أو اسم مجرور.",
                         "ilal_ar": "-"
                     },
                     {
@@ -8184,21 +8184,21 @@ const fikihData = [
                 "words": [
                     {
                         "text": "الْآخِرِ،",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Akhir",
+                        "irab_ar": "نعت مجرور.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "قَالَ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
-                        "ilal_ar": "-"
+                        "translation": "Telah berfirman",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "أصله قَوَلَ، تحركت الواو وانفتح ما قبلها فقلبت ألفاً (إعلال بالقلب)."
                     },
                     {
                         "text": "تَعَالَى:",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
-                        "ilal_ar": "-"
+                        "translation": "Maha Tinggi",
+                        "irab_ar": "فعل ماض مبني على الفتح المقدر، والفاعل ضمير مستتر (الله).",
+                        "ilal_ar": "أصله تَعَالَيَ، تحركت الياء وانفتح ما قبلها فقلبت ألفاً (إعلال بالقلب)."
                     },
                     {
                         "text": "﴿الَّذِينَ",
@@ -8214,8 +8214,8 @@ const fikihData = [
                     },
                     {
                         "text": "الصَّلَاةَ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Salat",
+                        "irab_ar": "اسم أن منصوب.",
                         "ilal_ar": "-"
                     },
                     {
@@ -8226,8 +8226,8 @@ const fikihData = [
                     },
                     {
                         "text": "الزَّكَاةَ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Zakat",
+                        "irab_ar": "مفعول به منصوب.",
                         "ilal_ar": "-"
                     },
                     {
@@ -8249,8 +8249,8 @@ const fikihData = [
                 "words": [
                     {
                         "text": "هُمْ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Mereka",
+                        "irab_ar": "ضمير منفصل مبني في محل رفع مبتدأ.",
                         "ilal_ar": "-"
                     },
                     {
@@ -8261,26 +8261,26 @@ const fikihData = [
                     },
                     {
                         "text": "(سورة",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Surat",
+                        "irab_ar": "خبر لمبتدأ محذوف تقديره (هذا) أو مضاف إليه.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "النمل:",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "An-Naml",
+                        "irab_ar": "مضاف إليه مجرور.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "الآية",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Ayat",
+                        "irab_ar": "بدل أو خبر مرفوع / مجرور حسب السياق.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "٣).",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "3",
+                        "irab_ar": "رقم.",
                         "ilal_ar": "-"
                     }
                 ]
@@ -8290,14 +8290,14 @@ const fikihData = [
                 "words": [
                     {
                         "text": "٣",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "3",
+                        "irab_ar": "رقم.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "ــ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "-",
+                        "irab_ar": "علامة ترقيم.",
                         "ilal_ar": "-"
                     },
                     {
@@ -8308,14 +8308,14 @@ const fikihData = [
                     },
                     {
                         "text": "اللَّهُ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Allah",
+                        "irab_ar": "لفظ الجلالة فاعل مرفوع وعلامة رفعه الضمة.",
                         "ilal_ar": "-"
                     },
                     {
                         "text": "الصَّوْمَ",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Puasa",
+                        "irab_ar": "مفعول به منصوب.",
                         "ilal_ar": "-"
                     },
                     {
@@ -8326,8 +8326,8 @@ const fikihData = [
                     },
                     {
                         "text": "إِلَى",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Ke / Sampai",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
                         "ilal_ar": "-"
                     },
                     {
@@ -8344,8 +8344,8 @@ const fikihData = [
                     },
                     {
                         "text": "بِالْإِيمَانِ،",
-                        "translation": "Lihat kamus / kata sebelumnya.",
-                        "irab_ar": "يعرب حسب موقعه في الجملة.",
+                        "translation": "Dengan keimanan",
+                        "irab_ar": "جار ومجرور.",
                         "ilal_ar": "-"
                     }
                 ]
