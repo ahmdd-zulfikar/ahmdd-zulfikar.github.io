@@ -9874,5 +9874,1434 @@ const fikihData = [
             "[Ta'dhuluhunna: Kamu menghalangi mereka dari pernikahan. Bifahisyatin (perbuatan keji): Akhlak yang buruk atau pembangkangan (nusyuz)",
             "atau zina. Mubayyinatin (yang nyata): Jelas dan tampak]."
         ]
+    },
+    {
+        "pageNumber": 11,
+        "lines": [
+            {
+                "align": "justify-indent",
+                "words": [
+                    {
+                        "text": "٦",
+                        "translation": "6",
+                        "irab_ar": "رقم.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "ــ",
+                        "translation": "ــ",
+                        "irab_ar": "-",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَمَرَ",
+                        "translation": "Memerintahkan",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "مهموز."
+                    },
+                    {
+                        "text": "الْمُطَلَّقَةَ",
+                        "translation": "Wanita yang dicerai",
+                        "irab_ar": "مفعول به منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَنْ",
+                        "translation": "Bahwa",
+                        "irab_ar": "حرف مصدري ونصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "تَعْتَدَّ",
+                        "translation": "Dia beriddah",
+                        "irab_ar": "فعل مضارع منصوب بأن.",
+                        "ilal_ar": "صحيح مضاعف."
+                    },
+                    {
+                        "text": "ثَلَاثَةَ",
+                        "translation": "Tiga",
+                        "irab_ar": "ظرف زمان منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "قُرُوءٍ",
+                        "translation": "Quru' (Masa suci/haid)",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَأَلَّا",
+                        "translation": "Dan agar tidak",
+                        "irab_ar": "الواو عاطفة، أن حرف نصب، لا نافية.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "تَكْتُمَ",
+                        "translation": "Dia menyembunyikan",
+                        "irab_ar": "فعل مضارع منصوب بأن.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "مَا",
+                        "translation": "Apa yang",
+                        "irab_ar": "اسم موصول مبني في محل جر مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "فِي",
+                        "translation": "Di dalam",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "رَحِمِهَا",
+                        "translation": "Rahimnya",
+                        "irab_ar": "اسم مجرور، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "إِنْ",
+                        "translation": "Jika",
+                        "irab_ar": "حرف شرط جازم.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "كَانَتْ",
+                        "translation": "Dia (adalah)",
+                        "irab_ar": "فعل ماض ناقص، والتاء للتأنيث.",
+                        "ilal_ar": "أجوف."
+                    },
+                    {
+                        "text": "حَامِلاً",
+                        "translation": "Hamil",
+                        "irab_ar": "خبر كان منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَعَلَّقَ",
+                        "translation": "Dan (Allah) mengaitkan",
+                        "irab_ar": "فعل ماض.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "ذَلِكَ",
+                        "translation": "Itu",
+                        "irab_ar": "اسم إشارة مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "عَلَى",
+                        "translation": "Atas",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْإِيمَانِ",
+                        "translation": "Keimanan",
+                        "irab_ar": "مضاف إليه أو اسم مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بِاللَّهِ",
+                        "translation": "Kepada Allah",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَالْيَوْمِ",
+                        "translation": "وَالْيَوْمِ",
+                        "irab_ar": "-",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْآخِرِ،",
+                        "translation": "Akhir",
+                        "irab_ar": "نعت مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "قَالَ",
+                        "translation": "Telah berfirman",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "أصله قَوَلَ، تحركت الواو وانفتح ما قبلها فقلبت ألفاً (إعلال بالقلب)."
+                    },
+                    {
+                        "text": "تَعَالَى:",
+                        "translation": "Maha Tinggi",
+                        "irab_ar": "فعل ماض مبني على الفتح المقدر، والفاعل ضمير مستتر (الله).",
+                        "ilal_ar": "أصله تَعَالَيَ، تحركت الياء وانفتح ما قبلها فقلبت ألفاً (إعلال بالقلب)."
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "﴿وَالْمُطَلَّقَاتُ",
+                        "translation": "Dan wanita-wanita yang ditalak",
+                        "irab_ar": "مبتدأ مرفوع.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "يَتَرَبَّصْنَ",
+                        "translation": "Mereka menunggu",
+                        "irab_ar": "فعل مضارع مبني على السكون لاتصاله بنون النسوة في محل رفع خبر.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "بِأَنْفُسِهِنَّ",
+                        "translation": "Dengan diri mereka",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "ثَلَاثَةَ",
+                        "translation": "Tiga",
+                        "irab_ar": "ظرف زمان منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "قُرُوءٍ",
+                        "translation": "Quru' (Masa suci/haid)",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَلَا",
+                        "translation": "Dan tidak",
+                        "irab_ar": "الواو حرف عطف، ولا النافية للجنس.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "يَحِلُّ",
+                        "translation": "Halal",
+                        "irab_ar": "فعل مضارع مرفوع.",
+                        "ilal_ar": "مثال."
+                    },
+                    {
+                        "text": "لَهُنَّ",
+                        "translation": "Bagi mereka",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَنْ",
+                        "translation": "Bahwa",
+                        "irab_ar": "حرف مصدري ونصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "يَكْتُمْنَ",
+                        "translation": "Mereka menyembunyikan",
+                        "irab_ar": "فعل مضارع مبني على السكون في محل نصب بأن.",
+                        "ilal_ar": "صحيح سالم."
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "مَا",
+                        "translation": "Apa yang",
+                        "irab_ar": "اسم موصول مبني في محل جر مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "خَلَقَ",
+                        "translation": "Telah menciptakan",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "اللَّهُ",
+                        "translation": "Allah",
+                        "irab_ar": "لفظ الجلالة فاعل مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "فِي",
+                        "translation": "Di dalam",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَرْحَامِهِنَّ",
+                        "translation": "Rahim-rahim mereka",
+                        "irab_ar": "اسم مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "إِنْ",
+                        "translation": "Jika",
+                        "irab_ar": "حرف شرط جازم.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "كُنَّ",
+                        "translation": "Mereka (adalah)",
+                        "irab_ar": "فعل ماض ناقص مبني على السكون.",
+                        "ilal_ar": "أجوف."
+                    },
+                    {
+                        "text": "يُؤْمِنَّ",
+                        "translation": "Mereka beriman",
+                        "irab_ar": "فعل مضارع مبني على السكون في محل نصب خبر كان.",
+                        "ilal_ar": "مهموز."
+                    },
+                    {
+                        "text": "بِاللَّهِ",
+                        "translation": "Kepada Allah",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَالْيَوْمِ",
+                        "translation": "وَالْيَوْمِ",
+                        "irab_ar": "-",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْآخِرِ﴾",
+                        "translation": "Akhir",
+                        "irab_ar": "نعت مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "(سورة",
+                        "translation": "Surat",
+                        "irab_ar": "خبر لمبتدأ محذوف تقديره (هذا) أو مضاف إليه.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "right",
+                "words": [
+                    {
+                        "text": "البقرة:",
+                        "translation": "Al-Baqarah",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الآية",
+                        "translation": "Ayat",
+                        "irab_ar": "بدل أو خبر مرفوع / مجرور حسب السياق.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "٢٢٨).",
+                        "translation": "228",
+                        "irab_ar": "رقم.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify-indent",
+                "words": [
+                    {
+                        "text": "٧",
+                        "translation": "7",
+                        "irab_ar": "رقم.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "ــ",
+                        "translation": "ــ",
+                        "irab_ar": "-",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَمَرَ",
+                        "translation": "Memerintahkan",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "مهموز."
+                    },
+                    {
+                        "text": "اللَّهُ",
+                        "translation": "Allah",
+                        "irab_ar": "لفظ الجلالة فاعل مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "سُبْحَانَهُ",
+                        "translation": "Maha Suci Dia",
+                        "irab_ar": "مفعول مطلق لفعل محذوف منصوب وعلامة نصبه الفتحة، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَتَعَالَى",
+                        "translation": "Dan Maha Tinggi",
+                        "irab_ar": "الواو عاطفة، فعل ماض مبني على الفتح المقدر.",
+                        "ilal_ar": "ناقص."
+                    },
+                    {
+                        "text": "بِاجْتِنَابِ",
+                        "translation": "Dengan menjauhi",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْخَمْرِ",
+                        "translation": "Khamar",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَالْمَيْسِرِ",
+                        "translation": "Dan judi",
+                        "irab_ar": "معطوف مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَالْأَنْصَابِ",
+                        "translation": "Dan berhala-berhala",
+                        "irab_ar": "معطوف مجرور.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "وَالْأَزْلَامِ",
+                        "translation": "Dan mengundi nasib",
+                        "irab_ar": "معطوف مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بَعْدَ",
+                        "translation": "Setelah",
+                        "irab_ar": "ظرف زمان منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَنْ",
+                        "translation": "Bahwa",
+                        "irab_ar": "حرف مصدري ونصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "نَادَى",
+                        "translation": "Dia menyeru",
+                        "irab_ar": "فعل ماض مبني على الفتح المقدر.",
+                        "ilal_ar": "ناقص (إعلال بالقلب)."
+                    },
+                    {
+                        "text": "الْمُؤْمِنِينَ",
+                        "translation": "Orang-orang mukmin",
+                        "irab_ar": "مفعول به منصوب بالياء.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بِوَصْفِ",
+                        "translation": "Dengan sifat",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْإِيمَانِ،",
+                        "translation": "الْإِيمَانِ،",
+                        "irab_ar": "-",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مُشْعِراً",
+                        "translation": "Seraya memberikan isyarat",
+                        "irab_ar": "حال منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بِذَلِكَ",
+                        "translation": "Dengan hal itu",
+                        "irab_ar": "جار ومجرور (اسم إشارة).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَنَّ",
+                        "translation": "Bahwa",
+                        "irab_ar": "حرف توكيد ونصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "اجْتِنَابَهَا",
+                        "translation": "Menjauhinya",
+                        "irab_ar": "اسم أن منصوب.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "مُرْتَبِطٌ",
+                        "translation": "Terkait",
+                        "irab_ar": "خبر أن مرفوع.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بِخُلُوصِ",
+                        "translation": "Dengan kemurnian",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "إِيمَانِهِمْ،",
+                        "translation": "Iman mereka",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "فَقَالَ",
+                        "translation": "Lalu berfirman",
+                        "irab_ar": "الفاء عاطفة، فعل ماض مبني على الفتح.",
+                        "ilal_ar": "أجوف."
+                    },
+                    {
+                        "text": "تَعَالَى:",
+                        "translation": "Maha Tinggi",
+                        "irab_ar": "فعل ماض مبني على الفتح المقدر، والفاعل ضمير مستتر (الله).",
+                        "ilal_ar": "أصله تَعَالَيَ، تحركت الياء وانفتح ما قبلها فقلبت ألفاً (إعلال بالقلب)."
+                    },
+                    {
+                        "text": "﴿يَا",
+                        "translation": "Wahai",
+                        "irab_ar": "أداة نداء.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَيُّهَا",
+                        "translation": "Wahai",
+                        "irab_ar": "منادى نكرة مقصودة مبني على الضم في محل نصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الَّذِينَ",
+                        "translation": "Orang-orang yang",
+                        "irab_ar": "اسم موصول مبني في محل جر نعت لـ (أصحابه).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "آمَنُوا",
+                        "translation": "(Mereka) telah beriman",
+                        "irab_ar": "فعل ماض مبني على الضم لاتصاله بواو الجماعة.",
+                        "ilal_ar": "مهموز."
+                    },
+                    {
+                        "text": "إِنَّمَا",
+                        "translation": "Sesungguhnya (hanyalah)",
+                        "irab_ar": "كافة ومكفوفة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْخَمْرُ",
+                        "translation": "Khamar",
+                        "irab_ar": "مبتدأ مرفوع.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "وَالْمَيْسِرُ",
+                        "translation": "Dan judi",
+                        "irab_ar": "معطوف مرفوع.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَالْأَنْصَابُ",
+                        "translation": "Dan berhala-berhala",
+                        "irab_ar": "معطوف مرفوع.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَالْأَزْلَامُ",
+                        "translation": "Dan mengundi nasib",
+                        "irab_ar": "معطوف مرفوع.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "رِجْسٌ",
+                        "translation": "Najis/Keji",
+                        "irab_ar": "خبر مرفوع.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مِنْ",
+                        "translation": "Dari",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "عَمَلِ",
+                        "translation": "Perbuatan",
+                        "irab_ar": "اسم مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الشَّيْطَانِ",
+                        "translation": "Setan",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "فَاجْتَنِبُوهُ",
+                        "translation": "Maka jauhilah ia",
+                        "irab_ar": "الفاء الفصيحة، فعل أمر مبني على حذف النون، والواو فاعل، والهاء مفعول به.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "لَعَلَّكُمْ",
+                        "translation": "Agar kalian",
+                        "irab_ar": "لعل حرف ترج ونصب، والكاف اسمها.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "right",
+                "words": [
+                    {
+                        "text": "تُفْلِحُونَ﴾",
+                        "translation": "Kalian beruntung",
+                        "irab_ar": "فعل مضارع مرفوع بثبوت النون.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "(سورة",
+                        "translation": "Surat",
+                        "irab_ar": "خبر لمبتدأ محذوف تقديره (هذا) أو مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "المائدة:",
+                        "translation": "Al-Maidah",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الآية",
+                        "translation": "Ayat",
+                        "irab_ar": "بدل أو خبر مرفوع / مجرور حسب السياق.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "٩٠).",
+                        "translation": "90",
+                        "irab_ar": "رقم.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify-indent",
+                "words": [
+                    {
+                        "text": "٨",
+                        "translation": "8",
+                        "irab_ar": "رقم.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "ــ",
+                        "translation": "ــ",
+                        "irab_ar": "-",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "حَرَّمَ",
+                        "translation": "Mengharamkan",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "اللَّهُ",
+                        "translation": "Allah",
+                        "irab_ar": "لفظ الجلالة فاعل مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "سُبْحَانَهُ",
+                        "translation": "Maha Suci Dia",
+                        "irab_ar": "مفعول مطلق لفعل محذوف منصوب وعلامة نصبه الفتحة، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَتَعَالَى",
+                        "translation": "Dan Maha Tinggi",
+                        "irab_ar": "الواو عاطفة، فعل ماض مبني على الفتح المقدر.",
+                        "ilal_ar": "ناقص."
+                    },
+                    {
+                        "text": "الرِّبَا",
+                        "translation": "Riba",
+                        "irab_ar": "مفعول به منصوب بفتحة مقدرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَرَبَطَ",
+                        "translation": "Dan mengaitkan",
+                        "irab_ar": "الواو عاطفة، فعل ماض.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "بَيْنَ",
+                        "translation": "Di antara",
+                        "irab_ar": "ظرف مكان منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "تَرْكِهِ",
+                        "translation": "Meninggalkannya",
+                        "irab_ar": "مضاف إليه مجرور، والهاء مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَتَحْقِيقِ",
+                        "translation": "Dan perwujudan",
+                        "irab_ar": "معطوف مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "التَّقْوَى",
+                        "translation": "التَّقْوَى",
+                        "irab_ar": "-",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "وَالْإِيمَانِ،",
+                        "translation": "وَالْإِيمَانِ،",
+                        "irab_ar": "-",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "فَقَالَ",
+                        "translation": "Lalu berfirman",
+                        "irab_ar": "الفاء عاطفة، فعل ماض مبني على الفتح.",
+                        "ilal_ar": "أجوف."
+                    },
+                    {
+                        "text": "تَعَالَى:",
+                        "translation": "Maha Tinggi",
+                        "irab_ar": "فعل ماض مبني على الفتح المقدر، والفاعل ضمير مستتر (الله).",
+                        "ilal_ar": "أصله تَعَالَيَ، تحركت الياء وانفتح ما قبلها فقلبت ألفاً (إعلال بالقلب)."
+                    },
+                    {
+                        "text": "﴿يَا",
+                        "translation": "Wahai",
+                        "irab_ar": "أداة نداء.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَيُّهَا",
+                        "translation": "Wahai",
+                        "irab_ar": "منادى نكرة مقصودة مبني على الضم في محل نصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الَّذِينَ",
+                        "translation": "Orang-orang yang",
+                        "irab_ar": "اسم موصول مبني في محل جر نعت لـ (أصحابه).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "آمَنُوا",
+                        "translation": "(Mereka) telah beriman",
+                        "irab_ar": "فعل ماض مبني على الضم لاتصاله بواو الجماعة.",
+                        "ilal_ar": "مهموز."
+                    },
+                    {
+                        "text": "لَا",
+                        "translation": "Tidak",
+                        "irab_ar": "حرف نفي.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "تَأْكُلُوا",
+                        "translation": "Kalian memakan",
+                        "irab_ar": "فعل مضارع مجزوم بلا الناهية وعلامة جزمه حذف النون.",
+                        "ilal_ar": "مهموز."
+                    },
+                    {
+                        "text": "الرِّبَا",
+                        "translation": "Riba",
+                        "irab_ar": "مفعول به منصوب بفتحة مقدرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَضْعَافاً",
+                        "translation": "Berlipat",
+                        "irab_ar": "حال منصوب.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "مُضَاعَفَةً",
+                        "translation": "Ganda",
+                        "irab_ar": "نعت منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَاتَّقُوا",
+                        "translation": "Dan bertakwalah kalian",
+                        "irab_ar": "فعل أمر مبني على حذف النون.",
+                        "ilal_ar": "مثال (إبدال)."
+                    },
+                    {
+                        "text": "اللَّهَ",
+                        "translation": "Allah",
+                        "irab_ar": "مفعول به منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "لَعَلَّكُمْ",
+                        "translation": "Agar kalian",
+                        "irab_ar": "لعل حرف ترج ونصب، والكاف اسمها.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "تُفْلِحُونَ﴾",
+                        "translation": "Kalian beruntung",
+                        "irab_ar": "فعل مضارع مرفوع بثبوت النون.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "(سورة",
+                        "translation": "Surat",
+                        "irab_ar": "خبر لمبتدأ محذوف تقديره (هذا) أو مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "آل",
+                        "translation": "Ali (Keluarga)",
+                        "irab_ar": "مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "عمران:",
+                        "translation": "Imran",
+                        "irab_ar": "مضاف إليه مجرور بالفتحة لأنه ممنوع من الصرف.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الآية",
+                        "translation": "Ayat",
+                        "irab_ar": "بدل أو خبر مرفوع / مجرور حسب السياق.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "١٣٠).",
+                        "translation": "130",
+                        "irab_ar": "رقم.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "وَقَالَ:",
+                        "translation": "Dan berfirman",
+                        "irab_ar": "فعل ماض.",
+                        "ilal_ar": "أجوف."
+                    },
+                    {
+                        "text": "﴿يَا",
+                        "translation": "Wahai",
+                        "irab_ar": "أداة نداء.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَيُّهَا",
+                        "translation": "Wahai",
+                        "irab_ar": "منادى نكرة مقصودة مبني على الضم في محل نصب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الَّذِينَ",
+                        "translation": "Orang-orang yang",
+                        "irab_ar": "اسم موصول مبني في محل جر نعت لـ (أصحابه).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "آمَنُوا",
+                        "translation": "(Mereka) telah beriman",
+                        "irab_ar": "فعل ماض مبني على الضم لاتصاله بواو الجماعة.",
+                        "ilal_ar": "مهموز."
+                    },
+                    {
+                        "text": "اتَّقُوا",
+                        "translation": "Bertakwalah kalian",
+                        "irab_ar": "فعل أمر مبني على حذف النون.",
+                        "ilal_ar": "مثال."
+                    },
+                    {
+                        "text": "اللَّهَ",
+                        "translation": "Allah",
+                        "irab_ar": "مفعول به منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَذَرُوا",
+                        "translation": "Dan tinggalkanlah",
+                        "irab_ar": "فعل أمر مبني على حذف النون.",
+                        "ilal_ar": "مثال (حذفت فاؤه)."
+                    },
+                    {
+                        "text": "مَا",
+                        "translation": "Apa yang",
+                        "irab_ar": "اسم موصول مبني في محل جر مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بَقِيَ",
+                        "translation": "Tersisa",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "ناقص."
+                    },
+                    {
+                        "text": "مِنَ",
+                        "translation": "Dari",
+                        "irab_ar": "حرف جر مبني على السكون وحرك بالفتح.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الرِّبَا",
+                        "translation": "Riba",
+                        "irab_ar": "مفعول به منصوب بفتحة مقدرة.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "إِنْ",
+                        "translation": "Jika",
+                        "irab_ar": "حرف شرط جازم.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "كُنْتُمْ",
+                        "translation": "Kalian (adalah)",
+                        "irab_ar": "فعل ماض ناقص في محل جزم.",
+                        "ilal_ar": "أجوف."
+                    }
+                ]
+            },
+            {
+                "align": "right",
+                "words": [
+                    {
+                        "text": "مُؤْمِنِينَ﴾",
+                        "translation": "Orang-orang mukmin",
+                        "irab_ar": "خبر كان منصوب بالياء.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "(سورة",
+                        "translation": "Surat",
+                        "irab_ar": "خبر لمبتدأ محذوف تقديره (هذا) أو مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "البقرة:",
+                        "translation": "Al-Baqarah",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الآية",
+                        "translation": "Ayat",
+                        "irab_ar": "بدل أو خبر مرفوع / مجرور حسب السياق.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "٢٧٨).",
+                        "translation": "278",
+                        "irab_ar": "رقم.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify-indent",
+                "words": [
+                    {
+                        "text": "٩",
+                        "translation": "9",
+                        "irab_ar": "رقم.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "ــ",
+                        "translation": "ــ",
+                        "irab_ar": "-",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "حَضَّ",
+                        "translation": "Mendorong/Memotivasi",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "صحيح مضاعف."
+                    },
+                    {
+                        "text": "عَلَى",
+                        "translation": "Atas",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْعَمَلِ",
+                        "translation": "Bekerja",
+                        "irab_ar": "اسم مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَأَحَاطَهُ",
+                        "translation": "Dan memagarinya",
+                        "irab_ar": "فعل ماض مبني على الفتح، والهاء مفعول به.",
+                        "ilal_ar": "أجوف."
+                    },
+                    {
+                        "text": "بِسِيَاجٍ",
+                        "translation": "Dengan pagar",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مِنَ",
+                        "translation": "Dari",
+                        "irab_ar": "حرف جر مبني على السكون وحرك بالفتح.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الشُّعُورِ",
+                        "translation": "Perasaan",
+                        "irab_ar": "اسم مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بِالْمُرَاقَبَةِ",
+                        "translation": "Dengan pengawasan",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "الْإِلَهِيَّةِ",
+                        "translation": "Ilahi (Ketuhanan)",
+                        "irab_ar": "نعت مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَالشُّعُورِ",
+                        "translation": "وَالشُّعُورِ",
+                        "irab_ar": "-",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بِالْمَسْؤُولِيَّةِ،",
+                        "translation": "Dengan tanggung jawab",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "قَالَ",
+                        "translation": "Telah berfirman",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "أصله قَوَلَ، تحركت الواو وانفتح ما قبلها فقلبت ألفاً (إعلال بالقلب)."
+                    },
+                    {
+                        "text": "تَعَالَى:",
+                        "translation": "Maha Tinggi",
+                        "irab_ar": "فعل ماض مبني على الفتح المقدر، والفاعل ضمير مستتر (الله).",
+                        "ilal_ar": "أصله تَعَالَيَ، تحركت الياء وانفتح ما قبلها فقلبت ألفاً (إعلال بالقلب)."
+                    },
+                    {
+                        "text": "﴿وَقُلِ",
+                        "translation": "Dan katakanlah",
+                        "irab_ar": "فعل أمر مبني على السكون وحرك بالكسر لالتقاء الساكنين.",
+                        "ilal_ar": "أجوف."
+                    },
+                    {
+                        "text": "اعْمَلُوا",
+                        "translation": "Bekerjalah kalian",
+                        "irab_ar": "فعل أمر مبني على حذف النون.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "فَسَيَرَى",
+                        "translation": "Maka kelak akan melihat",
+                        "irab_ar": "الفاء عاطفة، السين للاستقبال، فعل مضارع مرفوع بضمة مقدرة.",
+                        "ilal_ar": "ناقص (إعلال)."
+                    },
+                    {
+                        "text": "اللَّهُ",
+                        "translation": "Allah",
+                        "irab_ar": "لفظ الجلالة فاعل مرفوع وعلامة رفعه الضمة.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "عَمَلَكُمْ",
+                        "translation": "Pekerjaan kalian",
+                        "irab_ar": "مفعول به منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَرَسُولُهُ",
+                        "translation": "Dan rasul-Nya",
+                        "irab_ar": "معطوف مرفوع.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَالْمُؤْمِنُونَ،",
+                        "translation": "Dan orang-orang mukmin",
+                        "irab_ar": "معطوف مرفوع بالواو.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَسَتُرَدُّونَ",
+                        "translation": "Dan kalian akan dikembalikan",
+                        "irab_ar": "الواو عاطفة، فعل مضارع مبني للمجهول مرفوع بثبوت النون.",
+                        "ilal_ar": "صحيح مضاعف."
+                    },
+                    {
+                        "text": "إِلَى",
+                        "translation": "Ke / Sampai",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "عَالِمِ",
+                        "translation": "Yang Mengetahui",
+                        "irab_ar": "اسم مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْغَيْبِ",
+                        "translation": "Yang gaib",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَالشَّهَادَةِ",
+                        "translation": "Dan yang nyata",
+                        "irab_ar": "معطوف مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "فَيُنَبِّئُكُمْ",
+                        "translation": "Lalu Dia akan memberitakan kepada kalian",
+                        "irab_ar": "فعل مضارع مرفوع، والكاف مفعول به.",
+                        "ilal_ar": "مهموز."
+                    }
+                ]
+            },
+            {
+                "align": "right",
+                "words": [
+                    {
+                        "text": "بِمَا",
+                        "translation": "Dengan apa yang",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "كُنْتُمْ",
+                        "translation": "Kalian (adalah)",
+                        "irab_ar": "فعل ماض ناقص في محل جزم.",
+                        "ilal_ar": "أجوف."
+                    },
+                    {
+                        "text": "تَعْمَلُونَ﴾",
+                        "translation": "Kalian kerjakan",
+                        "irab_ar": "فعل مضارع مرفوع بثبوت النون.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "(سورة",
+                        "translation": "Surat",
+                        "irab_ar": "خبر لمبتدأ محذوف تقديره (هذا) أو مضاف إليه.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "التوبة:",
+                        "translation": "At-Taubah",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الآية",
+                        "translation": "Ayat",
+                        "irab_ar": "بدل أو خبر مرفوع / مجرور حسب السياق.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "١٠٥).",
+                        "translation": "105",
+                        "irab_ar": "رقم.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify-indent",
+                "words": [
+                    {
+                        "text": "وَهَكَذَا",
+                        "translation": "Dan demikianlah",
+                        "irab_ar": "الواو استئنافية، وهكذا جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "فَقَلَّمَا",
+                        "translation": "Maka jarang sekali",
+                        "irab_ar": "الفاء عاطفة، قل فعل ماض، وما كافة.",
+                        "ilal_ar": "صحيح مضاعف."
+                    },
+                    {
+                        "text": "تَجِدُ",
+                        "translation": "Engkau dapati",
+                        "irab_ar": "فعل مضارع مرفوع.",
+                        "ilal_ar": "مثال."
+                    },
+                    {
+                        "text": "حُكْماً",
+                        "translation": "Sebuah hukum",
+                        "irab_ar": "مفعول به منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مِنْ",
+                        "translation": "Dari",
+                        "irab_ar": "حرف جر مبني على السكون.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "أَحْكَامِ",
+                        "translation": "Hukum-hukum",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الدِّينِ",
+                        "translation": "Agama",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "فِي",
+                        "translation": "Di dalam",
+                        "irab_ar": "حرف جر مبني على السكون لا محل له من الإعراب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْقُرْآنِ",
+                        "translation": "Al-Qur'an",
+                        "irab_ar": "اسم مجرور وعلامة جره الكسرة.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "إِلَّا",
+                        "translation": "Melainkan",
+                        "irab_ar": "أداة حصر مبنية على السكون لا محل لها من الإعراب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَهُوَ",
+                        "translation": "Dan dia/ia",
+                        "irab_ar": "الواو عاطفة، هو ضمير مبني في محل رفع مبتدأ.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "مَقْرُونٌ",
+                        "translation": "Bergandengan",
+                        "irab_ar": "خبر مبتدأ مرفوع.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بِالْإِيمَانِ",
+                        "translation": "Dengan keimanan",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بِاللَّهِ",
+                        "translation": "Kepada Allah",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "تَعَالَى",
+                        "translation": "Maha Tinggi",
+                        "irab_ar": "فعل ماض مبني على الفتح المقدر، والفاعل ضمير مستتر (الله).",
+                        "ilal_ar": "أصله تَعَالَيَ، تحركت الياء وانفتح ما قبلها فقلبت ألفاً (إعلال بالقلب)."
+                    },
+                    {
+                        "text": "وَمُرْتَبِطٌ",
+                        "translation": "وَمُرْتَبِطٌ",
+                        "irab_ar": "-",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "بِأَرْكَانِ",
+                        "translation": "Dengan rukun-rukun",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْعَقِيدَةِ",
+                        "translation": "Akidah",
+                        "irab_ar": "مضاف إليه مجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْإِسْلَامِيَّةِ؛",
+                        "translation": "Islam",
+                        "irab_ar": "نعت مجرور.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "justify",
+                "words": [
+                    {
+                        "text": "وَبِهَذَا",
+                        "translation": "Dan dengan inilah",
+                        "irab_ar": "جار ومجرور.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "اكْتَسَبَ",
+                        "translation": "Memperoleh",
+                        "irab_ar": "فعل ماض مبني على الفتح.",
+                        "ilal_ar": "صحيح سالم."
+                    },
+                    {
+                        "text": "الْفِقْهُ",
+                        "translation": "Fikih",
+                        "irab_ar": "مفعول به ثان منصوب (أو محكي بالقول).",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "الْإِسْلَامِيُّ",
+                        "translation": "الْإِسْلَامِيُّ",
+                        "irab_ar": "-",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "قَدَاسَةً",
+                        "translation": "Kesucian",
+                        "irab_ar": "مفعول به منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "دِينِيَّةً،",
+                        "translation": "Agamis",
+                        "irab_ar": "نعت منصوب.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "وَكَانَ",
+                        "translation": "Dan adalah (ia memiliki)",
+                        "irab_ar": "فعل ماض ناقص.",
+                        "ilal_ar": "أجوف."
+                    },
+                    {
+                        "text": "لَهُ",
+                        "translation": "Baginya",
+                        "irab_ar": "اللام حرف جر، الهاء في محل جر، والجار والمجرور خبر لا.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "سُلْطَانٌ",
+                        "translation": "Kekuasaan/Kekuatan",
+                        "irab_ar": "اسم كان مؤخر مرفوع.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "رُوحِيٌّ،",
+                        "translation": "Spiritual",
+                        "irab_ar": "نعت مرفوع.",
+                        "ilal_ar": "-"
+                    },
+                    {
+                        "text": "لِأَنَّهُ",
+                        "translation": "Karena sesungguhnya ia",
+                        "irab_ar": "اللام للتعليل، أن حرف توكيد ونصب، والهاء اسمها.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            },
+            {
+                "align": "center",
+                "words": [
+                    {
+                        "text": "١١",
+                        "translation": "11",
+                        "irab_ar": "رقم.",
+                        "ilal_ar": "-"
+                    }
+                ]
+            }
+        ],
+        "lineTranslations": [
+            "6 - Allah memerintahkan wanita yang ditalak (mutallaqah) agar beriddah selama tiga quru' dan agar dia tidak menyembunyikan apa yang ada di dalam rahimnya jika",
+            "dia sedang hamil dan (Allah) mengaitkan hal tersebut dengan keimanan kepada Allah dan hari akhir, Allah Ta'ala berfirman:",
+            "'Wanita-wanita yang ditalak handaklah menahan diri (menunggu) tiga kali quru'. Tidak halal bagi mereka menyembunyikan",
+            "apa yang diciptakan Allah dalam rahimnya, jika mereka beriman kepada Allah dan hari akhir' (Surat",
+            "Al-Baqarah: Ayat 228).",
+            "7 - Allah Subhanahu wa Ta'ala memerintahkan untuk menjauhi khamar, judi, berhala-berhala,",
+            "dan mengundi nasib setelah Dia menyeru orang-orang mukmin dengan sifat keimanan, seraya memberikan isyarat dengan hal itu bahwa menjauhinya",
+            "terkait dengan kemurnian iman mereka, maka Allah Ta'ala berfirman: 'Wahai orang-orang yang beriman, sesungguhnya (meminum) khamar,",
+            "berjudi, (berkorban untuk) berhala, mengundi nasib dengan panah, adalah najis (termasuk) perbuatan setan. Maka jauhilah perbuatan-perbuatan itu agar kamu",
+            "mendapat keberuntungan' (Surat Al-Maidah: Ayat 90).",
+            "8 - Allah Subhanahu wa Ta'ala mengharamkan riba dan mengaitkan antara meninggalkannya dengan perwujudan ketakwaan",
+            "dan keimanan, maka Allah Ta'ala berfirman: 'Wahai orang-orang yang beriman, janganlah kamu memakan riba dengan berlipat",
+            "ganda dan bertakwalah kamu kepada Allah supaya kamu mendapat keberuntungan' (Surat Ali 'Imran: Ayat 130).",
+            "Dan Allah berfirman: 'Wahai orang-orang yang beriman, bertakwalah kepada Allah dan tinggalkan sisa riba (yang belum dipungut) jika kamu",
+            "orang-orang yang beriman' (Surat Al-Baqarah: Ayat 278).",
+            "9 - Allah mendorong untuk bekerja dan memagarinya dengan pagar perasaan diawasi",
+            "oleh Allah (muraqabah ilahiyah) dan perasaan tanggung jawab, Allah Ta'ala berfirman: 'Dan katakanlah: Bekerjalah kamu, maka kelak Allah akan melihat",
+            "pekerjaanmu itu, begitu juga rasul-Nya dan orang-orang mukmin, dan kamu akan dikembalikan kepada (Allah) Yang Mengetahui akan yang gaib dan yang nyata, lalu diberitakan-Nya kepada kamu",
+            "apa yang telah kamu kerjakan' (Surat At-Taubah: Ayat 105).",
+            "Dan demikianlah, maka jarang sekali engkau dapati sebuah hukum dari hukum-hukum agama di dalam Al-Qur'an",
+            "melainkan ia (selalu) bergandengan dengan keimanan kepada Allah Ta'ala dan terkait dengan rukun-rukun akidah Islam;",
+            "dan dengan inilah fikih Islam memperoleh kesucian yang bersifat agamis, dan ia memiliki kekuatan spiritual, karena sesungguhnya ia",
+            "11"
+        ]
     }
 ];
