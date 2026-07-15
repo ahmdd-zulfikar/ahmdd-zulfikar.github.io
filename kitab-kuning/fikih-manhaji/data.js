@@ -11265,17 +11265,6 @@ const fikihData = [
                         "ilal_ar": "-"
                     }
                 ]
-            },
-            {
-                "align": "center",
-                "words": [
-                    {
-                        "text": "١١",
-                        "translation": "11",
-                        "irab_ar": "رقم.",
-                        "ilal_ar": "-"
-                    }
-                ]
             }
         ],
         "lineTranslations": [
@@ -11300,8 +11289,7 @@ const fikihData = [
             "apa yang telah kamu kerjakan' (Surat At-Taubah: Ayat 105).",
             "Dan demikianlah, maka jarang sekali engkau dapati sebuah hukum dari hukum-hukum agama di dalam Al-Qur'an",
             "melainkan ia (selalu) bergandengan dengan keimanan kepada Allah Ta'ala dan terkait dengan rukun-rukun akidah Islam;",
-            "dan dengan inilah fikih Islam memperoleh kesucian yang bersifat agamis, dan ia memiliki kekuatan spiritual, karena sesungguhnya ia",
-            "11"
+            "dan dengan inilah fikih Islam memperoleh kesucian yang bersifat agamis, dan ia memiliki kekuatan spiritual, karena sesungguhnya ia"
         ]
     }
 ];

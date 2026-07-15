@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Sistem Analisis Butir Soal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], heading: ['Plus Jakarta Sans', 'sans-serif'] },
+                    colors: { teal: { 50: '#f0fdfa', 100: '#ccfbf1', 600: '#0d9488', 700: '#0f766e', 800: '#115e59', 900: '#134e4a', 950: '#042f2e' } }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-teal-950 flex items-center justify-center min-h-screen font-sans antialiased">
+
+    <div class="bg-white p-8 rounded-3xl shadow-2xl w-full max-w-sm mx-4">
+        <div class="text-center mb-6">
+            <div class="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fa-solid fa-shield-halved text-2xl text-teal-600"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-slate-800 font-heading">Admin Login</h2>
+            <p class="text-sm text-slate-500 mt-1">Sistem Analisis Butir Soal</p>
+        </div>
+        <form id="login-form" onsubmit="handleLogin(event)">
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Username</label>
+                    <input type="text" id="login-username" required class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-xl p-3 focus:ring-2 focus:ring-teal-600 outline-none transition-all">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Password</label>
+                    <input type="password" id="login-password" required class="w-full bg-slate-50 border border-slate-200 text-slate-800 rounded-xl p-3 focus:ring-2 focus:ring-teal-600 outline-none transition-all">
+                </div>
+            </div>
+            <button type="submit" id="login-btn" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-4 rounded-xl mt-6 transition-all shadow-md flex items-center justify-center gap-2">
+                <i class="fa-solid fa-right-to-bracket"></i> <span>Masuk</span>
+            </button>
+        </form>
+    </div>
+
+    <script type="module">
+        import { GAS_URL } from "../firebase-mock.js";
+
+        // Jika sudah login, langsung diarahkan ke halaman admin
+        if (sessionStorage.getItem('admin_token')) {
+            window.location.replace('index.html');
+        }
+
+        window.handleLogin = async (e) => {
+            e.preventDefault();
+            const user = document.getElementById('login-username').value;
+            const pass = document.getElementById('login-password').value;
+            const btn = document.getElementById('login-btn');
+            
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> <span>Memverifikasi...</span>';
+            btn.disabled = true;
+
+            try {
+                const res = await fetch(GAS_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain' },
+                    body: JSON.stringify({ action: "login", username: user, password: pass })
+                });
+                const result = await res.json();
+                
+                if (result.status === "success") {
+                    sessionStorage.setItem('admin_token', result.token);
+                    window.location.replace('index.html');
+                } else {
+                    Swal.fire('Login Gagal', result.message || 'Username atau Password salah!', 'error');
+                }
+            } catch (err) {
+                Swal.fire('Error', 'Terjadi kesalahan sistem. Coba lagi.', 'error');
+            }
+            
+            btn.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i> <span>Masuk</span>';
+            btn.disabled = false;
+        };
+    </script>
+</body>
+</html>

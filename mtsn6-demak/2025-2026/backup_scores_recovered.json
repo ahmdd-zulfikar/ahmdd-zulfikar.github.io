@@ -1,0 +1,1953 @@
+[
+  {
+    "id": "9QpOVNf8pn7QxX6FNlCa",
+    "fields": {
+      "date": "28/4/2026",
+      "uid": "f67cE8QWDqT4Ijm8yvmfFkfy1oG3",
+      "timestamp": 1777370580135,
+      "type": "Latihan Soal",
+      "score": 60,
+      "isBanned": false,
+      "ipAddress": "165.99.239.57",
+      "materi": "Latihan Soal : Shalat Bagi Orang Sakit",
+      "name": "Halimatuz Zahro",
+      "kelas": "7A",
+      "details": [
+        true,
+        true,
+        true,
+        false,
+        false,
+        true,
+        true,
+        false,
+        false,
+        true
+      ]
+    }
+  },
+  {
+    "id": "kZ6GOGfFKrVHlhvhcWNl",
+    "fields": {
+      "date": "24/1/2026",
+      "timestamp": 1769228333503,
+      "type": "Latihan Shalat Jumat",
+      "name": "m akya putra & miftahul nugraha saputra",
+      "kelas": "7b",
+      "score": 87
+    }
+  },
+  {
+    "id": "kaJo8IVYazjPWOrlYkK5",
+    "fields": {
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "score": 100,
+      "name": "linda devi septiyani ",
+      "kelas": "8b",
+      "timestamp": 1776653020741,
+      "date": "20/4/2026",
+      "materi": "Latihan Soal Materi Struktur Bumi"
+    }
+  },
+  {
+    "id": "l5Duc5kYelgM1VZj504H",
+    "fields": {
+      "name": "Yulfa Fifi Ardianan",
+      "kelas": "7d",
+      "score": 87,
+      "date": "20/1/2026",
+      "type": "Latihan Khutbah Jumat",
+      "timestamp": 1768889757043
+    }
+  },
+  {
+    "id": "lBjoaukNzOFbrlC3pLqA",
+    "fields": {
+      "type": "Latihan Soal",
+      "timestamp": 1776839547166,
+      "uid": "7Vcyp0Pg5jQ7n10MQpXkBKKvct12",
+      "date": "22/4/2026",
+      "isBanned": false,
+      "score": 100,
+      "ipAddress": "156.230.178.44",
+      "materi": "Latihan Soal : Shalat Bagi Orang Sakit",
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "name": "Nur Aida Faila Sufa Sugiyono",
+      "kelas": "7A"
+    }
+  },
+  {
+    "id": "lCQLOCAYAVzA2sftyb26",
+    "fields": {
+      "score": 90,
+      "name": "Hasna Galuh Hanifah",
+      "kelas": "7B",
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "materi": "Lembar Kerja : Shalat sedang Sakit",
+      "date": "25/4/2026",
+      "timestamp": 1777089584361,
+      "type": "Lembar Kerja"
+    }
+  },
+  {
+    "id": "lNeIEwLAlADIDWdXF0Ku",
+    "fields": {
+      "type": "Latihan Soal",
+      "timestamp": 1776747887226,
+      "uid": "o1UNKzSGrMSc011pcoda9hqaLV13",
+      "date": "21/4/2026",
+      "isBanned": false,
+      "score": 90,
+      "ipAddress": "114.79.21.56",
+      "materi": "Latihan Soal : Shalat Bagi Orang Sakit",
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true
+      ],
+      "name": "Clarisa Diva Ariyani",
+      "kelas": "7C"
+    }
+  },
+  {
+    "id": "lnE5U4WsRCgW2ZHZuWHY",
+    "fields": {
+      "score": 93,
+      "name": "Nadia fanesa sari",
+      "kelas": "8b",
+      "timestamp": 1772018916179,
+      "materi": "Lembar Kerja Kimia",
+      "date": "25/2/2026"
+    }
+  },
+  {
+    "id": "lpPu8A1rxkzvJbkqe9ir",
+    "fields": {
+      "kelas": "7b",
+      "name": "faldzayrizka alafiya salsabila",
+      "score": 90,
+      "date": "21/2/2026",
+      "type": "Shalat Jama",
+      "timestamp": 1771644548035
+    }
+  },
+  {
+    "id": "lrXW1VZEIq8qqWwWKVvu",
+    "fields": {
+      "score": 13,
+      "isBanned": false,
+      "uid": "WAxEtdeJwNQPIPeSDEKKjEtnMRm2",
+      "date": "13/5/2026",
+      "type": "Latihan Soal",
+      "timestamp": 1778675994250,
+      "name": "Chilma hidayatul ulya",
+      "kelas": "7A",
+      "details": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "materi": "Latihan Soal : Shalat Sunnah Muakkad"
+    }
+  },
+  {
+    "id": "mJ1pZL49K2beMJMosfxd",
+    "fields": {
+      "type": "Shalat Jama",
+      "timestamp": 1771538792696,
+      "date": "20/2/2026",
+      "name": "Muhammad rizki saputra",
+      "kelas": "7A",
+      "score": 50
+    }
+  },
+  {
+    "id": "mRr7JBOJ93F7WJn1nVN8",
+    "fields": {
+      "name": "Emmy sherene Aquila afra",
+      "kelas": "7d",
+      "score": 60,
+      "details": [
+        true,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false,
+        true,
+        true,
+        false
+      ],
+      "materi": "Lembar Kerja : Fikih",
+      "date": "21/4/2026",
+      "type": "Lembar Kerja",
+      "timestamp": 1776757191384
+    }
+  },
+  {
+    "id": "mbZ8ZdrDorWxJ2lHWPzH",
+    "fields": {
+      "name": "Sharena Rara Afriani",
+      "kelas": "7A",
+      "score": 87,
+      "date": "28/1/2026",
+      "type": "Khutbah Jumat",
+      "timestamp": 1769564874073
+    }
+  },
+  {
+    "id": "mxFqGIzAD6ePJMgUoua0",
+    "fields": {
+      "name": "Satria nafis ahmad hanif",
+      "kelas": "7D",
+      "score": 73,
+      "type": "Latihan Khutbah Jumat",
+      "timestamp": 1768891541432,
+      "date": "20/1/2026"
+    }
+  },
+  {
+    "id": "n1X7SqjTiQ3rRQ2xACWF",
+    "fields": {
+      "date": "19/5/2026",
+      "uid": "64oPtDB1sMNj3gi4DpXzVq3laox1",
+      "timestamp": 1779194614747,
+      "type": "Latihan Soal",
+      "status": "Selesai",
+      "score": 80,
+      "isBanned": false,
+      "materi": "Latihan Soal : Shalat Sunnah Muakkad",
+      "cheatWarnings": 0,
+      "name": "Mohamad Aditya Tri Ardana",
+      "kelas": "7A",
+      "details": [
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    }
+  },
+  {
+    "id": "nBP5TxNcKUca9ZZiakOH",
+    "fields": {
+      "type": "Lembar Kerja",
+      "timestamp": 1776744368327,
+      "materi": "Lembar Kerja : Fikih",
+      "date": "21/4/2026",
+      "details": [
+        false,
+        true,
+        true,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "score": 70,
+      "name": "Bahrirotul 'Ainiyah",
+      "kelas": "7c"
+    }
+  },
+  {
+    "id": "nBpE9HdizIiy9AlLtvlA",
+    "fields": {
+      "materi": "Lembar Kerja Materi Struktur Bumi",
+      "date": "20/4/2026",
+      "timestamp": 1776651948124,
+      "name": "Salwa Anastasya Putri Asyifa",
+      "kelas": "8B (VIII B)",
+      "score": 100,
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    }
+  },
+  {
+    "id": "nMw4zWNHhKSQF5J949mA",
+    "fields": {
+      "timestamp": 1776655908739,
+      "date": "20/4/2026",
+      "materi": "Latihan Soal Materi Struktur Bumi",
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "name": "Muhammad Rizqi Ramadhani ",
+      "kelas": "8b",
+      "score": 100
+    }
+  },
+  {
+    "id": "nb6S5V7pGIjc5T2iFMAF",
+    "fields": {
+      "ipAddress": "114.79.21.62",
+      "materi": "Latihan Soal : Shalat Bagi Orang Sakit",
+      "details": [
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true
+      ],
+      "name": "DENI PARYANTO",
+      "kelas": "7D",
+      "type": "Latihan Soal",
+      "timestamp": 1776914980751,
+      "uid": "wzQwEPCA68WMNeP16ZuoxhnTCVj1",
+      "date": "23/4/2026",
+      "isBanned": false,
+      "score": 80
+    }
+  },
+  {
+    "id": "nvD9XsGAOeBqnwrr6GTG",
+    "fields": {
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "name": "Azzahra sahafanna",
+      "kelas": "8b",
+      "score": 100,
+      "timestamp": 1776651056072,
+      "materi": "Lembar Kerja Materi Struktur Bumi",
+      "date": "20/4/2026"
+    }
+  },
+  {
+    "id": "nzpo2r8rZ7WWPFJKcM8Q",
+    "fields": {
+      "timestamp": 1769838684888,
+      "type": "Kuis Optik",
+      "date": "31/1/2026",
+      "score": 90,
+      "name": "Syalwa Agustin Khairunia Asyifa",
+      "kelas": "8B"
+    }
+  },
+  {
+    "id": "oIQPEqbf3vkAc8qH3pV2",
+    "fields": {
+      "materi": "Lembar Kerja : Fikih",
+      "date": "23/4/2026",
+      "timestamp": 1776948267225,
+      "type": "Lembar Kerja",
+      "name": "Muhammat David Prasasti Hardian",
+      "kelas": "7A",
+      "score": 40,
+      "details": [
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false
+      ]
+    }
+  },
+  {
+    "id": "oLFbOgbrFXjjBTfNrqJ4",
+    "fields": {
+      "ipAddress": "140.213.165.111",
+      "materi": "Latihan Soal : Shalat Bagi Orang Sakit",
+      "details": [
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false,
+        true,
+        true,
+        true
+      ],
+      "name": "Natalia mustika sari",
+      "kelas": "7D",
+      "type": "Latihan Soal",
+      "timestamp": 1776752553685,
+      "uid": "jV9YMj9CabMuFqlEOMW0jzUCiRN2",
+      "date": "21/4/2026",
+      "isBanned": false,
+      "score": 60
+    }
+  },
+  {
+    "id": "oQf0DLlDW0bc26KXZroT",
+    "fields": {
+      "materi": "Formatif : Getaran, Gelombang, dan Cahaya",
+      "date": "7/2/2026",
+      "timestamp": 1770441526636,
+      "type": "Uji Kompetensi IPA",
+      "score": 66,
+      "name": "Nadia Fanesa Sari",
+      "kelas": "8B"
+    }
+  },
+  {
+    "id": "oR9AtMMzKkRcP903ncwi",
+    "fields": {
+      "score": 96,
+      "name": "linda devi s.",
+      "kelas": "8b",
+      "timestamp": 1771502679521,
+      "materi": "Lembar Kerja Kimia",
+      "date": "19/2/2026"
+    }
+  },
+  {
+    "id": "oW7Ip1od9Oy09KXcZB0P",
+    "fields": {
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        true,
+        false,
+        true,
+        true
+      ],
+      "name": "MEISYA ALUNA BINTANG MAHARANI",
+      "kelas": "8B",
+      "score": 70,
+      "timestamp": 1777258825284,
+      "materi": "Latihan Soal Materi Struktur Bumi",
+      "date": "27/4/2026"
+    }
+  },
+  {
+    "id": "oWUHgrjaSqbgvl1cmAme",
+    "fields": {
+      "details": [
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "name": "Sumber denis saputra",
+      "kelas": "7A",
+      "ipAddress": "103.181.255.177",
+      "materi": "Latihan Soal : Shalat Bagi Orang Sakit",
+      "isBanned": false,
+      "score": 60,
+      "type": "Latihan Soal",
+      "timestamp": 1776914594550,
+      "uid": "WgvlRMGgFtRDjLlCtltbXpOeAHD3",
+      "date": "23/4/2026"
+    }
+  },
+  {
+    "id": "ofEsohppY7oIBUWQDkTm",
+    "fields": {
+      "name": "Vivi Sri mulyani",
+      "kelas": "7A",
+      "score": 100,
+      "date": "28/1/2026",
+      "type": "Khutbah Jumat",
+      "timestamp": 1769564926839
+    }
+  },
+  {
+    "id": "opEwb5VuGQsdh4I3CPfb",
+    "fields": {
+      "timestamp": 1777902327323,
+      "type": "Latihan Soal",
+      "date": "4/5/2026",
+      "uid": "cv0hLRjVYOSdBWzJ2XTrhGudKbn2",
+      "isBanned": false,
+      "score": 100,
+      "ipAddress": "103.97.225.181",
+      "materi": "Latihan Soal : Shalat Bagi Orang Sakit",
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "name": "Fadhilah zafa dwi Maharani",
+      "kelas": "7d"
+    }
+  },
+  {
+    "id": "p3B7Yg9GlKz8bnrP0dbf",
+    "fields": {
+      "type": "Lembar Kerja",
+      "timestamp": 1776749726315,
+      "date": "21/4/2026",
+      "materi": "Lembar Kerja : Fikih",
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "score": 90,
+      "name": "dyana shofia kusuma",
+      "kelas": "7d"
+    }
+  },
+  {
+    "id": "pF9uK75IiMdd4BjhHyLm",
+    "fields": {
+      "score": 90,
+      "name": "Nadin Septia Anjani",
+      "kelas": "7B",
+      "type": "Shalat Jama",
+      "timestamp": 1771644255641,
+      "date": "21/2/2026"
+    }
+  },
+  {
+    "id": "pGjBUYuLgBWUZnMx81Kt",
+    "fields": {
+      "date": "28/1/2026",
+      "timestamp": 1769564561171,
+      "type": "Khutbah Jumat",
+      "name": "Halimatuz Zahro",
+      "kelas": "7A",
+      "score": 73
+    }
+  },
+  {
+    "id": "pJArLBG0noON2Qzt3gAD",
+    "fields": {
+      "type": "Latihan Soal",
+      "timestamp": 1777087947882,
+      "uid": "poxqS9kDgKU58L8kTQBlcFN5Ntl2",
+      "date": "25/4/2026",
+      "isBanned": true,
+      "score": 0,
+      "ipAddress": "140.213.139.116",
+      "materi": "Latihan Soal (Dikumpul Paksa / Pelanggaran)",
+      "details": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "name": "faldzayrizka alafiya salsabila",
+      "kelas": "7b"
+    }
+  },
+  {
+    "id": "pQ1Es4jPqD9QJ99xuuv1",
+    "fields": {
+      "materi": "Latihan Soal : Shalat Sunnah Muakkad",
+      "details": [
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        false,
+        true,
+        true,
+        false,
+        true,
+        true
+      ],
+      "cheatWarnings": 0,
+      "name": "KHAIRA SALSABIL FIRDAUSI",
+      "kelas": "7A",
+      "type": "Latihan Soal",
+      "timestamp": 1779197936844,
+      "uid": "96szKTlzIYVzApdRVvSKyGsh7Ap2",
+      "date": "19/5/2026",
+      "isBanned": false,
+      "status": "Selesai",
+      "score": 73
+    }
+  },
+  {
+    "id": "pYbCl0zybFEjvpoPJOjl",
+    "fields": {
+      "score": 73,
+      "kelas": "7D",
+      "name": "Saskya zahra putri",
+      "date": "20/1/2026",
+      "type": "Latihan Khutbah Jumat",
+      "timestamp": 1768889989306
+    }
+  },
+  {
+    "id": "pw6DF3bFDbKJy9xV684z",
+    "fields": {
+      "score": 80,
+      "name": "Syalwa Agustin Khairunia Asyifa",
+      "kelas": "8B",
+      "date": "20/2/2026",
+      "materi": "Evaluasi Kimia",
+      "timestamp": 1771571837179
+    }
+  },
+  {
+    "id": "q1vmmbwOBJ7AZiIf4mxC",
+    "fields": {
+      "details": [
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "name": "Fadhilah zafa Dwi Maharani",
+      "kelas": "7d",
+      "score": 20,
+      "timestamp": 1777902359307,
+      "type": "Lembar Kerja",
+      "materi": "Lembar Kerja : Shalat sedang Sakit",
+      "date": "4/5/2026"
+    }
+  },
+  {
+    "id": "qNBDdvIDlZPtUB0ud8he",
+    "fields": {
+      "type": "Latihan Khutbah Jumat",
+      "timestamp": 1768889665818,
+      "date": "20/1/2026",
+      "score": 27,
+      "name": "ahmadriskiaditya",
+      "kelas": "7d"
+    }
+  },
+  {
+    "id": "qNTP562rYZHirKe7H1SV",
+    "fields": {
+      "timestamp": 1778039604478,
+      "type": "Lembar Kerja",
+      "materi": "Lembar Kerja : Shalat sedang Sakit",
+      "date": "6/5/2026",
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "name": "Chilma Hidayatul ulya",
+      "kelas": "7A",
+      "score": 100
+    }
+  },
+  {
+    "id": "qbqk4dQqs54sOT7hQBXm",
+    "fields": {
+      "timestamp": 1769915842207,
+      "type": "Kuis Optik",
+      "date": "1/2/2026",
+      "name": "Arta Citra Laras",
+      "kelas": "8B",
+      "score": 70
+    }
+  },
+  {
+    "id": "rHj5U4bkXzmPpzZvckum",
+    "fields": {
+      "date": "21/4/2026",
+      "uid": "EbPKQJ6b3kY3x5oG9tFgqJVZFPu2",
+      "type": "Latihan Soal",
+      "timestamp": 1776750252982,
+      "score": 30,
+      "isBanned": false,
+      "ipAddress": "103.97.225.181",
+      "materi": "Latihan Soal : Shalat Bagi Orang Sakit",
+      "name": "Fadhilah zafa dwi Maharani",
+      "kelas": "7d",
+      "details": [
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true
+      ]
+    }
+  },
+  {
+    "id": "rTxb8Cvc4SDYVKREJCJn",
+    "fields": {
+      "type": "Kuis Optik",
+      "timestamp": 1769839032232,
+      "date": "31/1/2026",
+      "kelas": "8B",
+      "name": "Muhammad Iqbal dwi Firmansyah",
+      "score": 30
+    }
+  },
+  {
+    "id": "rUYa2v3yYPvdBs3yGfDR",
+    "fields": {
+      "timestamp": 1777087657034,
+      "type": "Lembar Kerja",
+      "materi": "Lembar Kerja : Shalat sedang Sakit",
+      "date": "25/4/2026",
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "name": "faldzayrizka alafiya salsabila",
+      "kelas": "7b",
+      "score": 90
+    }
+  },
+  {
+    "id": "rX5Vz75ocfalTRAJcvLx",
+    "fields": {
+      "ipAddress": "157.20.207.9",
+      "materi": "Latihan Soal : Shalat Bagi Orang Sakit",
+      "name": "ANNISA FITRI KURNIA RAYA",
+      "kelas": "7C",
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "date": "21/4/2026",
+      "uid": "YaHWeCViMwhBEGH8ZGnajD3qftd2",
+      "timestamp": 1776740662592,
+      "type": "Latihan Soal",
+      "score": 90,
+      "isBanned": false
+    }
+  },
+  {
+    "id": "rb0hTPEbSANQ46OGW6pn",
+    "fields": {
+      "name": "Raditya Bagas Anatomi Winata",
+      "kelas": "8B",
+      "score": 80,
+      "date": "31/1/2026",
+      "type": "Kuis Optik",
+      "timestamp": 1769838503030
+    }
+  },
+  {
+    "id": "rbQUBuAueZ3vtGw4zKN2",
+    "fields": {
+      "name": "NUR ZULVA ELISA PUTRI",
+      "kelas": "7B",
+      "score": 93,
+      "timestamp": 1769228121372,
+      "type": "Latihan Shalat Jumat",
+      "date": "24/1/2026"
+    }
+  },
+  {
+    "id": "rurY8UXHGhydXnMzkJu2",
+    "fields": {
+      "score": 100,
+      "kelas": "7B",
+      "name": "Eny Wahyu Ningsih",
+      "type": "Shalat Jama",
+      "timestamp": 1771643847792,
+      "date": "21/2/2026"
+    }
+  },
+  {
+    "id": "rvHIEGItdzFYLH7wJfln",
+    "fields": {
+      "type": "Khutbah Jumat",
+      "timestamp": 1769514786791,
+      "date": "27/1/2026",
+      "name": "Afika Desyifa Wijayanti",
+      "kelas": "7A",
+      "score": 87
+    }
+  },
+  {
+    "id": "rzc1GQmhQHtGu8crYxFB",
+    "fields": {
+      "score": 80,
+      "name": "Hasna Galuh Hanifah",
+      "kelas": "7B",
+      "date": "21/2/2026",
+      "type": "Shalat Jama",
+      "timestamp": 1771654864533
+    }
+  },
+  {
+    "id": "rzmzyoPp3Uo78DTzg1jV",
+    "fields": {
+      "type": "Shalat Jama",
+      "timestamp": 1770703197425,
+      "date": "10/2/2026",
+      "score": 20,
+      "kelas": "7D",
+      "name": "Muhammad Abdulloh Fandy saputra"
+    }
+  },
+  {
+    "id": "rzvP9BCt7I5n6IzRc77E",
+    "fields": {
+      "name": "Azzahra sahafanna",
+      "kelas": "8b",
+      "score": 93,
+      "materi": "Lembar Kerja Kimia",
+      "date": "18/2/2026",
+      "timestamp": 1771388404085
+    }
+  },
+  {
+    "id": "s0DrSmBapChThDGVQnu4",
+    "fields": {
+      "date": "24/1/2026",
+      "timestamp": 1769228253600,
+      "type": "Latihan Shalat Jumat",
+      "score": 87,
+      "name": "Sekar Amelia putri",
+      "kelas": "7b"
+    }
+  },
+  {
+    "id": "sAXknGrzKPNxp9VvJ1vY",
+    "fields": {
+      "timestamp": 1769228322892,
+      "type": "Latihan Shalat Jumat",
+      "date": "24/1/2026",
+      "score": 93,
+      "name": "nur zulva elisa putri",
+      "kelas": "7B"
+    }
+  },
+  {
+    "id": "sGsZZ3hsFg7AJktvVbdD",
+    "fields": {
+      "score": 73,
+      "name": "KHAIRA SALSABIL FIRDAUSI",
+      "kelas": "7A",
+      "date": "28/1/2026",
+      "type": "Khutbah Jumat",
+      "timestamp": 1769555593369
+    }
+  },
+  {
+    "id": "sR21Fh4DF1LFaAB7f3Il",
+    "fields": {
+      "isBanned": false,
+      "score": 100,
+      "status": "Selesai",
+      "type": "Latihan Soal",
+      "timestamp": 1779260438707,
+      "uid": "v71NKzf8HcROrqJEfy3Z0Vo5Oel1",
+      "date": "20/5/2026",
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "cheatWarnings": 2,
+      "name": "Chilma Hidayatul ulya",
+      "kelas": "7A",
+      "materi": "Latihan Soal : Shalat Sunnah Muakkad"
+    }
+  },
+  {
+    "id": "sdfElH8j2HLNaZcE7mXi",
+    "fields": {
+      "name": "Nadin septia anjani",
+      "kelas": "7B",
+      "score": 87,
+      "type": "Latihan Shalat Jumat",
+      "timestamp": 1769228045333,
+      "date": "24/1/2026"
+    }
+  },
+  {
+    "id": "seJepFNXyNNAkCgnS2oX",
+    "fields": {
+      "isBanned": true,
+      "score": 0,
+      "type": "Latihan Soal",
+      "timestamp": 1776839244057,
+      "uid": "7J7JAd8mwoPxCZG5RI5342xeot23",
+      "date": "22/4/2026",
+      "details": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "name": "Sharena Rara Afriani",
+      "kelas": "7A",
+      "materi": "Latihan Soal (Dikumpul Paksa / Pelanggaran)",
+      "ipAddress": "160.19.145.211"
+    }
+  },
+  {
+    "id": "snGR0xHUy6LgJY6kXSKE",
+    "fields": {
+      "materi": "Lembar Kerja Kimia",
+      "date": "20/2/2026",
+      "timestamp": 1771555621921,
+      "score": 39,
+      "kelas": "8b",
+      "name": "Muhammad Rizqi Ramadhani"
+    }
+  },
+  {
+    "id": "srOHX07DbrDRoggybwJS",
+    "fields": {
+      "kelas": "7D",
+      "name": "Ahmad rizky aditya",
+      "score": 10,
+      "date": "10/2/2026",
+      "type": "Shalat Jama",
+      "timestamp": 1770703528993
+    }
+  },
+  {
+    "id": "t0aOL8En1fNF5PIKOiCP",
+    "fields": {
+      "date": "21/2/2026",
+      "type": "Shalat Jama",
+      "timestamp": 1771654434328,
+      "name": "Hasna Galuh Hanifah",
+      "kelas": "7B",
+      "score": 20
+    }
+  },
+  {
+    "id": "t3yfxeMSnFAbKoEptlrk",
+    "fields": {
+      "timestamp": 1769856940811,
+      "type": "Kuis Optik",
+      "date": "31/1/2026",
+      "name": "Zilda aulia fadhillah",
+      "kelas": "8B",
+      "score": 80
+    }
+  },
+  {
+    "id": "tVquFAEE9DDaEeB6ndCk",
+    "fields": {
+      "timestamp": 1778845864121,
+      "type": "Latihan Soal",
+      "date": "15/5/2026",
+      "uid": "ALerSRlLbcUgJ7dsoAsr0wyBmvF2",
+      "isBanned": true,
+      "score": 0,
+      "status": "Diblokir",
+      "materi": "Latihan Soal : Shalat Sunnah Muakkad",
+      "details": [],
+      "cheatWarnings": 3,
+      "name": "Ahmad Fadil syahputra",
+      "kelas": "7A"
+    }
+  },
+  {
+    "id": "thNYiefupQ31F4lFWw2H",
+    "fields": {
+      "name": "Naila febriana azzahra",
+      "kelas": "8B",
+      "score": 87,
+      "date": "7/2/2026",
+      "materi": "Formatif : Getaran, Gelombang, dan Cahaya",
+      "type": "Uji Kompetensi IPA",
+      "timestamp": 1770441612610
+    }
+  },
+  {
+    "id": "twm1f5Icfrn3FelDxdQt",
+    "fields": {
+      "name": "QURROTA A'YUN",
+      "kelas": "8B",
+      "score": 60,
+      "details": [
+        true,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true
+      ],
+      "materi": "Latihan Soal Materi Struktur Bumi",
+      "date": "27/4/2026",
+      "timestamp": 1777258651014
+    }
+  },
+  {
+    "id": "u0eXtVd15gC9Uft6PHGO",
+    "fields": {
+      "name": "Selfi karnia sari",
+      "kelas": "7D",
+      "score": 80,
+      "date": "20/1/2026",
+      "type": "Latihan Khutbah Jumat",
+      "timestamp": 1768889274044
+    }
+  },
+  {
+    "id": "uIZOFMhyJVLTLosvCqgD",
+    "fields": {
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "score": 90,
+      "name": "Clarisa Diva Ariyani",
+      "kelas": "7c",
+      "timestamp": 1776747927836,
+      "type": "Lembar Kerja",
+      "materi": "Lembar Kerja : Fikih",
+      "date": "21/4/2026"
+    }
+  },
+  {
+    "id": "uJl9K9vnN74TgJzwRM8V",
+    "fields": {
+      "ipAddress": "103.97.225.181",
+      "materi": "Latihan Soal : Shalat Bagi Orang Sakit",
+      "details": [
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        true,
+        true
+      ],
+      "kelas": "7C",
+      "name": "Ahmad Andika",
+      "type": "Latihan Soal",
+      "timestamp": 1777873665657,
+      "date": "4/5/2026",
+      "uid": "3kN3IlrFlIQeBkDCWgOeDWPxOy73",
+      "isBanned": false,
+      "score": 60
+    }
+  },
+  {
+    "id": "ud1SsUvCYniNDasMONhT",
+    "fields": {
+      "ipAddress": "165.99.239.57",
+      "materi": "Latihan Soal : Shalat Bagi Orang Sakit",
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "name": "Nur zulva Elisa Putri",
+      "kelas": "7b",
+      "type": "Latihan Soal",
+      "timestamp": 1777088049310,
+      "uid": "Gi64Go76eSbhzbDrfCyeyElvtme2",
+      "date": "25/4/2026",
+      "isBanned": false,
+      "score": 100
+    }
+  },
+  {
+    "id": "uzneYL01NnagPeV4UPSa",
+    "fields": {
+      "date": "27/1/2026",
+      "type": "Khutbah Jumat",
+      "timestamp": 1769493210560,
+      "name": "RADITYA NAUFAL DARRY ABIYYU",
+      "kelas": "7D",
+      "score": 67
+    }
+  },
+  {
+    "id": "v8ew1HrOMwmL8eKTH39v",
+    "fields": {
+      "timestamp": 1771594026852,
+      "materi": "Lembar Kerja Kimia",
+      "date": "20/2/2026",
+      "kelas": "8B",
+      "name": "Raditya Bagas Anatomi Winata",
+      "score": 93
+    }
+  },
+  {
+    "id": "vUDAOvFnBTGRvEElgpvJ",
+    "fields": {
+      "details": [
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      "name": "HAFNA MAULIDA NIHLA SYIFA",
+      "kelas": "8b",
+      "materi": "Uji Kompetensi : Gempa Bumi",
+      "isBanned": false,
+      "score": 27,
+      "type": "Ujian Akhir Pembelajaran",
+      "timestamp": 1779452974612,
+      "uid": "C4v9uyTZPQbXXeotDKQLgQNMjfh1",
+      "date": "22/5/2026"
+    }
+  },
+  {
+    "id": "vWh87e2D2yLQg0K5qwy5",
+    "fields": {
+      "timestamp": 1776664346566,
+      "materi": "Latihan Soal Materi Struktur Bumi",
+      "date": "20/4/2026",
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "kelas": "8B",
+      "name": "Detaliana sofia hapsari",
+      "score": 100
+    }
+  },
+  {
+    "id": "va18zE1yRC9WkUyMkY5a",
+    "fields": {
+      "score": 67,
+      "name": "Muhammad Fandy saputra",
+      "kelas": "7D",
+      "date": "27/1/2026",
+      "type": "Khutbah Jumat",
+      "timestamp": 1769493289599
+    }
+  },
+  {
+    "id": "vbi809T3AxY9A09iyY2i",
+    "fields": {
+      "score": 53,
+      "name": "Natalia mustika sari",
+      "kelas": "7D",
+      "type": "Latihan Khutbah Jumat",
+      "timestamp": 1768892061463,
+      "date": "20/1/2026"
+    }
+  },
+  {
+    "id": "vgoBXLyKy5QRdky1UEVv",
+    "fields": {
+      "name": "Muhammat David Prasasti Hardian",
+      "kelas": "7A",
+      "score": 90,
+      "date": "18/2/2026",
+      "type": "Shalat Jama",
+      "timestamp": 1771400617833
+    }
+  },
+  {
+    "id": "w0ceeJn72AH6cpovLJqC",
+    "fields": {
+      "name": "Deshera Harlistianti",
+      "kelas": "7A",
+      "score": 87,
+      "date": "28/1/2026",
+      "type": "Khutbah Jumat",
+      "timestamp": 1769565008317
+    }
+  },
+  {
+    "id": "w0x2B6hQkiFgIe2q6QHk",
+    "fields": {
+      "type": "Khutbah Jumat",
+      "timestamp": 1769510399696,
+      "date": "27/1/2026",
+      "score": 100,
+      "name": "Silvia wahyu afitriani",
+      "kelas": "7À"
+    }
+  },
+  {
+    "id": "w16Syn0TFNw5XvKC1StC",
+    "fields": {
+      "score": 96,
+      "name": "Naila febriana azzahra",
+      "kelas": "8B",
+      "materi": "Lembar Kerja Kimia",
+      "date": "18/2/2026",
+      "timestamp": 1771387726059
+    }
+  },
+  {
+    "id": "w16q1LQGPQakUNlcyJXz",
+    "fields": {
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "score": 100,
+      "kelas": "7C",
+      "name": "Hengky Alfiyansyah",
+      "type": "Lembar Kerja",
+      "timestamp": 1776741041432,
+      "materi": "Lembar Kerja : Fikih",
+      "date": "21/4/2026"
+    }
+  },
+  {
+    "id": "w6LMihusXcfW1OxYoAgI",
+    "fields": {
+      "materi": "Evaluasi Kimia",
+      "date": "18/2/2026",
+      "timestamp": 1771388258107,
+      "score": 80,
+      "name": "Nadia fanesa sari ",
+      "kelas": "8B"
+    }
+  },
+  {
+    "id": "wGRxRcwpJ4tUIR6icXhP",
+    "fields": {
+      "score": 70,
+      "isBanned": false,
+      "date": "22/4/2026",
+      "uid": "PbCFqNoE9iNC5O0hjZUqrnG0XAD2",
+      "type": "Latihan Soal",
+      "timestamp": 1776860485124,
+      "name": "Rifqi Ra'iful nabil",
+      "kelas": "7a",
+      "details": [
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "ipAddress": "182.2.52.164",
+      "materi": "Latihan Soal : Shalat Bagi Orang Sakit"
+    }
+  },
+  {
+    "id": "wX0B2319PI9lP4TiOQ0T",
+    "fields": {
+      "name": "Muhammad Rizqi Ramadhani",
+      "kelas": "8B",
+      "score": 90,
+      "date": "7/2/2026",
+      "materi": "Formatif : Getaran, Gelombang, dan Cahaya",
+      "type": "Uji Kompetensi IPA",
+      "timestamp": 1770444652863
+    }
+  },
+  {
+    "id": "wcoPjavtjXDmSz4gX6nU",
+    "fields": {
+      "ipAddress": "103.97.225.181",
+      "materi": "Latihan Soal : Shalat Bagi Orang Sakit",
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true
+      ],
+      "name": "Diandra Rasty",
+      "kelas": "7B",
+      "type": "Latihan Soal",
+      "timestamp": 1777089513571,
+      "uid": "D5k7AAjwD1aJtGTaUOBNdrtwiU32",
+      "date": "25/4/2026",
+      "isBanned": false,
+      "score": 90
+    }
+  },
+  {
+    "id": "wmHTlonlDZFAcGGyXBHB",
+    "fields": {
+      "timestamp": 1771768310386,
+      "type": "Shalat Jama",
+      "date": "22/2/2026",
+      "score": 40,
+      "name": "M AFANDY VERNANDA NUGRAHA",
+      "kelas": "7B"
+    }
+  },
+  {
+    "id": "x6Nw2c3tDYUkzFkLZsLn",
+    "fields": {
+      "details": [
+        true,
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false
+      ],
+      "name": "ANASHA FITRANI",
+      "kelas": "7A",
+      "cheatWarnings": 0,
+      "materi": "Latihan Soal : Shalat Sunnah Muakkad",
+      "isBanned": false,
+      "status": "Selesai",
+      "score": 33,
+      "timestamp": 1779185999422,
+      "type": "Latihan Soal",
+      "date": "19/5/2026",
+      "uid": "2X0ovbvV97RwRgSbjdgOfZn1y3H3"
+    }
+  },
+  {
+    "id": "xDMHOJ5ywikddWHwuiwD",
+    "fields": {
+      "ipAddress": "103.97.224.223",
+      "materi": "Latihan Soal : Shalat Bagi Orang Sakit",
+      "details": [
+        false,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "name": "Selfi karnia sari",
+      "kelas": "7D",
+      "type": "Latihan Soal",
+      "timestamp": 1777377804641,
+      "uid": "lnUv76VHAaXxsuLAX41ej3fGakE2",
+      "date": "28/4/2026",
+      "isBanned": false,
+      "score": 70
+    }
+  },
+  {
+    "id": "xHVuwMvPp6FRPgtyJqTi",
+    "fields": {
+      "name": "QURROTA AYUN",
+      "kelas": "8B",
+      "score": 80,
+      "timestamp": 1770441989020,
+      "type": "Uji Kompetensi IPA",
+      "materi": "Formatif : Getaran, Gelombang, dan Cahaya",
+      "date": "7/2/2026"
+    }
+  },
+  {
+    "id": "xJmPIQwJhYCiY4hX9Qz6",
+    "fields": {
+      "type": "Lembar Kerja",
+      "timestamp": 1777906141619,
+      "materi": "Lembar Kerja : Shalat sedang Sakit",
+      "date": "4/5/2026",
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "score": 100,
+      "kelas": "7C",
+      "name": "Nadhin Aulia Rizkiana"
+    }
+  },
+  {
+    "id": "xSIQXIOMUHmTtSMGewuR",
+    "fields": {
+      "score": 90,
+      "kelas": "8B",
+      "name": "Fairel atharizz calief",
+      "date": "31/1/2026",
+      "type": "Kuis Optik",
+      "timestamp": 1769838706588
+    }
+  },
+  {
+    "id": "y7geWo1eTIlBOc2lLTo1",
+    "fields": {
+      "details": [
+        true,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "score": 30,
+      "name": "HIKMATUL FAJRIYAH RAMADHANI",
+      "kelas": "8B",
+      "timestamp": 1777258064939,
+      "materi": "Latihan Soal Materi Struktur Bumi",
+      "date": "27/4/2026"
+    }
+  },
+  {
+    "id": "yDDsKFW6f9mq8uq6np30",
+    "fields": {
+      "ipAddress": "157.20.207.9",
+      "materi": "Latihan Soal : Shalat Bagi Orang Sakit",
+      "details": [
+        false,
+        true,
+        true,
+        false,
+        true,
+        true,
+        false,
+        false,
+        true,
+        true
+      ],
+      "kelas": "7c",
+      "name": "Carissya Cahaya Ramadhani",
+      "type": "Latihan Soal",
+      "timestamp": 1776771048881,
+      "date": "21/4/2026",
+      "uid": "pHOBgRxpfJhd4A0TJbzWDMZEcwf1",
+      "isBanned": false,
+      "score": 60
+    }
+  },
+  {
+    "id": "yM3mTwy4nVt0zxXigDaA",
+    "fields": {
+      "kelas": "7d",
+      "name": "Akifah naila",
+      "score": 87,
+      "type": "Latihan Khutbah Jumat",
+      "timestamp": 1768889756942,
+      "date": "20/1/2026"
+    }
+  },
+  {
+    "id": "yMQJkjPu6PJNtcj8ViMR",
+    "fields": {
+      "score": 90,
+      "kelas": "kelas 8b",
+      "name": "natasya adelia putri",
+      "date": "31/1/2026",
+      "type": "Kuis Optik",
+      "timestamp": 1769842279523
+    }
+  },
+  {
+    "id": "yP4u7pS46bSH68U9lg9z",
+    "fields": {
+      "materi": "Latihan Soal : Shalat Bagi Orang Sakit",
+      "ipAddress": "156.230.178.44",
+      "details": [
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        false,
+        true,
+        true,
+        false
+      ],
+      "name": "dyana Shofia kusuma",
+      "kelas": "7d",
+      "type": "Latihan Soal",
+      "timestamp": 1777407681229,
+      "uid": "2BCioQpDFTUgiTrIJOi49gcLC013",
+      "date": "29/4/2026",
+      "isBanned": false,
+      "score": 70
+    }
+  },
+  {
+    "id": "yQplRIOkAYOE43qfaafH",
+    "fields": {
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "name": "Hasna galuh Hanifah",
+      "kelas": "7B",
+      "ipAddress": "103.97.225.181",
+      "materi": "Latihan Soal : Shalat Bagi Orang Sakit",
+      "isBanned": false,
+      "score": 100,
+      "type": "Latihan Soal",
+      "timestamp": 1777090269595,
+      "date": "25/4/2026",
+      "uid": "D8AIfeYhs6ZESZ6GrOh4777D9HF2"
+    }
+  },
+  {
+    "id": "yTiJfFlqTkbVlwI7Dvoo",
+    "fields": {
+      "date": "21/2/2026",
+      "type": "Shalat Jama",
+      "timestamp": 1771655769438,
+      "score": 60,
+      "name": "𝐴𝑖𝑛𝑎 𝑎𝑢𝑙𝑖𝑎 𝑟𝑎𝑚𝑎𝑑ℎ𝑎𝑛𝑖",
+      "kelas": "7b"
+    }
+  },
+  {
+    "id": "yZsgp5382z1nXQv4e8Bx",
+    "fields": {
+      "date": "21/4/2026",
+      "uid": "8JlnQXRXg8NfBcVpGI8me0jfLLB3",
+      "timestamp": 1776744346482,
+      "type": "Latihan Soal",
+      "score": 100,
+      "isBanned": false,
+      "ipAddress": "157.20.207.23",
+      "materi": "Latihan Soal : Shalat Bagi Orang Sakit",
+      "name": "Lydia shafa lutfiani",
+      "kelas": "7C",
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    }
+  },
+  {
+    "id": "yiGBY39uS02Stn0Yn6Ia",
+    "fields": {
+      "score": 80,
+      "kelas": "7c",
+      "name": "Eka Nurul Hidayah",
+      "details": [
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false
+      ],
+      "materi": "Lembar Kerja : Fikih",
+      "date": "21/4/2026",
+      "type": "Lembar Kerja",
+      "timestamp": 1776743690952
+    }
+  },
+  {
+    "id": "ykWtJ8z6WQ1E4duPpr4f",
+    "fields": {
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "score": 100,
+      "name": "Zilda aulia fadhillah",
+      "kelas": "8b",
+      "timestamp": 1776655357845,
+      "date": "20/4/2026",
+      "materi": "Lembar Kerja Materi Struktur Bumi"
+    }
+  },
+  {
+    "id": "ysrRKHZpXzCzhwk6DVlD",
+    "fields": {
+      "details": [
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true
+      ],
+      "kelas": "7B",
+      "name": "Sekar Amelia putri",
+      "materi": "Latihan Soal (Dikumpul Paksa / Pelanggaran)",
+      "ipAddress": "103.18.232.15",
+      "isBanned": true,
+      "score": 30,
+      "timestamp": 1777089877225,
+      "type": "Latihan Soal",
+      "date": "25/4/2026",
+      "uid": "7hfHO9wOcmW9HeRoTa7Y2RD0flw1"
+    }
+  },
+  {
+    "id": "z47lIil6q3vGjzf56cjo",
+    "fields": {
+      "isBanned": false,
+      "score": 60,
+      "type": "Ujian Akhir Pembelajaran",
+      "timestamp": 1778749215694,
+      "uid": "wth7kmggsAgYeqnbPVIcVk8WR3t2",
+      "date": "14/5/2026",
+      "details": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true
+      ],
+      "name": "Natasya Adelia putri",
+      "kelas": "Kelas 8B",
+      "materi": "Uji Kompetensi : Gempa Bumi"
+    }
+  },
+  {
+    "id": "zHC9T1ILT7s4b8jjTHgn",
+    "fields": {
+      "name": "Muhammad rizki saputra",
+      "kelas": "7A",
+      "cheatWarnings": 3,
+      "details": [],
+      "materi": "Latihan Soal : Shalat Sunnah Muakkad",
+      "status": "Diblokir",
+      "score": 0,
+      "isBanned": true,
+      "uid": "h4FbDZmfyFfnCuIVuNx1siOfMPU2",
+      "date": "14/5/2026",
+      "type": "Latihan Soal",
+      "timestamp": 1778734907833
+    }
+  },
+  {
+    "id": "zRlcT0bRie55TLwI0gxg",
+    "fields": {
+      "date": "22/1/2026",
+      "type": "Latihan Shalat Jumat",
+      "timestamp": 1769088181307,
+      "name": "Muhammad Revan abdullah",
+      "kelas": "7d",
+      "score": 87
+    }
+  },
+  {
+    "id": "zruLlLn7edVIY6brzlPH",
+    "fields": {
+      "kelas": "8b",
+      "name": "Clarisa chiela berliana assyifa",
+      "score": 100,
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "materi": "Latihan Soal Materi Struktur Bumi",
+      "date": "20/4/2026",
+      "timestamp": 1776652213192
+    }
+  },
+  {
+    "id": "ztGJXHPrJRpEuYlp92Tv",
+    "fields": {
+      "materi": "Uji Kompetensi : Gempa Bumi",
+      "name": "Azzahra sahafanna",
+      "kelas": "8b",
+      "details": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "uid": "wy8RRSbfkPZLCQlEA7jrTYpz3kH3",
+      "date": "15/5/2026",
+      "type": "Ujian Akhir Pembelajaran",
+      "timestamp": 1778850145074,
+      "score": 100,
+      "isBanned": false
+    }
+  }
+]
