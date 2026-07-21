@@ -569,6 +569,450 @@
     
     </div>
 
+    <!-- ================= GAME SECTION ================= -->
+    <section id="game-section" class="py-12 container mx-auto px-4 max-w-5xl">
+        <div class="text-center mb-8">
+            <span class="inline-flex items-center gap-2 bg-purple-50 border border-purple-200 text-purple-700 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-4">
+                <i class="fa-solid fa-gamepad"></i> Mini Game Interaktif
+            </span>
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-800 font-heading mb-2">Ayo Bermain & Belajar! 🎮</h2>
+            <p class="text-slate-500 text-sm max-w-lg mx-auto">Uji pemahamanmu tentang Akidah Islam melalui permainan seru berikut ini.</p>
+        </div>
+
+        <!-- Game Tabs -->
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+            <button onclick="switchGame('scramble')" id="tab-scramble" class="game-tab-btn active-game-tab px-5 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center gap-2 bg-purple-600 text-white shadow-lg shadow-purple-200">
+                <i class="fa-solid fa-puzzle-piece"></i> Susun Kata
+            </button>
+            <button onclick="switchGame('match')" id="tab-match" class="game-tab-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center gap-2 bg-white text-slate-600 border border-slate-200 hover:border-purple-300 hover:text-purple-600">
+                <i class="fa-solid fa-object-group"></i> Cocokkan Pasangan
+            </button>
+            <button onclick="switchGame('truefalse')" id="tab-truefalse" class="game-tab-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center gap-2 bg-white text-slate-600 border border-slate-200 hover:border-purple-300 hover:text-purple-600">
+                <i class="fa-solid fa-check-double"></i> Benar atau Salah
+            </button>
+        </div>
+
+        <!-- Game Container -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            
+            <!-- ===== GAME 1: SUSUN KATA ===== -->
+            <div id="game-scramble" class="game-panel p-6 md:p-8">
+                <div class="text-center mb-6">
+                    <h3 class="text-lg font-bold text-slate-800 font-heading mb-1">🔤 Susun Huruf Menjadi Kata yang Benar</h3>
+                    <p class="text-xs text-slate-500">Klik huruf-huruf yang tersedia secara berurutan untuk menyusun kata yang tepat!</p>
+                </div>
+                <div id="scramble-game-area" class="space-y-8"></div>
+                <div id="scramble-result" class="hidden text-center mt-6 p-6 rounded-xl"></div>
+                <div class="text-center mt-6">
+                    <button onclick="initScramble()" class="bg-purple-100 text-purple-700 hover:bg-purple-200 font-bold py-2.5 px-6 rounded-xl text-sm transition-colors">
+                        <i class="fa-solid fa-rotate-right mr-1"></i> Acak Ulang
+                    </button>
+                </div>
+            </div>
+
+            <!-- ===== GAME 2: COCOKKAN PASANGAN ===== -->
+            <div id="game-match" class="game-panel hidden p-6 md:p-8">
+                <div class="text-center mb-6">
+                    <h3 class="text-lg font-bold text-slate-800 font-heading mb-1">🔗 Cocokkan Istilah dengan Artinya</h3>
+                    <p class="text-xs text-slate-500">Klik satu istilah di kiri, lalu klik pasangan artinya di kanan.</p>
+                </div>
+                <div class="flex items-center justify-center gap-2 mb-4">
+                    <span class="text-sm font-bold text-slate-700">Skor: </span>
+                    <span id="match-score" class="text-lg font-bold text-purple-600">0</span>
+                    <span class="text-sm text-slate-400">/ <span id="match-total">5</span></span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8" id="match-game-area">
+                    <div id="match-left" class="space-y-3"></div>
+                    <div id="match-right" class="space-y-3"></div>
+                </div>
+                <div id="match-result" class="hidden text-center mt-6 p-6 rounded-xl"></div>
+                <div class="text-center mt-6">
+                    <button onclick="initMatch()" class="bg-purple-100 text-purple-700 hover:bg-purple-200 font-bold py-2.5 px-6 rounded-xl text-sm transition-colors">
+                        <i class="fa-solid fa-rotate-right mr-1"></i> Main Lagi
+                    </button>
+                </div>
+            </div>
+
+            <!-- ===== GAME 3: BENAR ATAU SALAH ===== -->
+            <div id="game-truefalse" class="game-panel hidden p-6 md:p-8">
+                <div class="text-center mb-6">
+                    <h3 class="text-lg font-bold text-slate-800 font-heading mb-1">✅ Benar atau Salah?</h3>
+                    <p class="text-xs text-slate-500">Tentukan apakah pernyataan berikut ini Benar atau Salah!</p>
+                </div>
+                <div class="flex items-center justify-center gap-4 mb-6">
+                    <span class="bg-slate-100 px-4 py-1.5 rounded-lg text-sm font-bold text-slate-600">Soal: <span id="tf-current">1</span>/<span id="tf-total">8</span></span>
+                    <span class="bg-emerald-50 text-emerald-700 px-4 py-1.5 rounded-lg text-sm font-bold">Benar: <span id="tf-correct">0</span></span>
+                </div>
+                <div id="tf-card" class="bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-100 rounded-2xl p-6 md:p-8 text-center mb-6 min-h-[120px] flex items-center justify-center">
+                    <p id="tf-question" class="text-lg font-bold text-slate-800 leading-relaxed"></p>
+                </div>
+                <div id="tf-buttons" class="flex justify-center gap-4">
+                    <button onclick="answerTF(true)" class="flex-1 max-w-[200px] bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 rounded-xl text-base transition-all transform hover:scale-105 shadow-md shadow-emerald-200">
+                        <i class="fa-solid fa-check mr-2"></i> BENAR
+                    </button>
+                    <button onclick="answerTF(false)" class="flex-1 max-w-[200px] bg-red-500 hover:bg-red-600 text-white font-bold py-3.5 rounded-xl text-base transition-all transform hover:scale-105 shadow-md shadow-red-200">
+                        <i class="fa-solid fa-xmark mr-2"></i> SALAH
+                    </button>
+                </div>
+                <div id="tf-feedback" class="hidden text-center mt-4 p-4 rounded-xl font-bold text-sm"></div>
+                <div id="tf-result" class="hidden text-center mt-6 p-6 rounded-xl"></div>
+                <div id="tf-retry" class="hidden text-center mt-4">
+                    <button onclick="initTrueFalse()" class="bg-purple-100 text-purple-700 hover:bg-purple-200 font-bold py-2.5 px-6 rounded-xl text-sm transition-colors">
+                        <i class="fa-solid fa-rotate-right mr-1"></i> Main Lagi
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Styles -->
+    <style>
+        .scramble-letter {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 44px; height: 44px; font-size: 1.1rem; font-weight: 800;
+            border-radius: 12px; cursor: pointer; transition: all 0.15s ease;
+            text-transform: uppercase; user-select: none;
+        }
+        .scramble-letter.available {
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe); color: #6d28d9;
+            border: 2px solid #c4b5fd; box-shadow: 0 2px 8px rgba(139,92,246,0.15);
+        }
+        .scramble-letter.available:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(139,92,246,0.3); }
+        .scramble-letter.used { opacity: 0.3; transform: scale(0.9); cursor: default; pointer-events: none; }
+        .scramble-letter.placed {
+            background: linear-gradient(135deg, #a78bfa, #7c3aed); color: white;
+            border: 2px solid #7c3aed; box-shadow: 0 2px 8px rgba(124,58,237,0.3);
+        }
+        .scramble-letter.placed:hover { background: linear-gradient(135deg, #c4b5fd, #a78bfa); }
+        .scramble-correct { animation: correctPop 0.4s ease; }
+        @keyframes correctPop { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        
+        .match-card {
+            padding: 14px 18px; border-radius: 14px; cursor: pointer;
+            transition: all 0.2s ease; font-size: 0.875rem; font-weight: 600;
+            border: 2px solid #e2e8f0; background: white; text-align: center;
+        }
+        .match-card:hover { border-color: #a78bfa; background: #faf5ff; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(139,92,246,0.15); }
+        .match-card.selected { border-color: #7c3aed; background: #ede9fe; color: #5b21b6; box-shadow: 0 0 0 3px rgba(139,92,246,0.2); }
+        .match-card.matched { border-color: #10b981; background: #d1fae5; color: #065f46; cursor: default; pointer-events: none; }
+        .match-card.wrong { border-color: #ef4444; background: #fee2e2; animation: shake 0.4s ease; }
+        @keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+
+        .tf-correct-flash { background: linear-gradient(135deg, #d1fae5, #a7f3d0) !important; border-color: #10b981 !important; }
+        .tf-wrong-flash { background: linear-gradient(135deg, #fee2e2, #fecaca) !important; border-color: #ef4444 !important; }
+    </style>
+
+    <!-- Game Scripts -->
+    <script>
+    // ===== TAB SWITCHING =====
+    function switchGame(gameId) {
+        document.querySelectorAll('.game-panel').forEach(el => el.classList.add('hidden'));
+        document.getElementById('game-' + gameId).classList.remove('hidden');
+        
+        document.querySelectorAll('.game-tab-btn').forEach(btn => {
+            btn.classList.remove('bg-purple-600', 'text-white', 'shadow-lg', 'shadow-purple-200', 'active-game-tab');
+            btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+        });
+        const activeBtn = document.getElementById('tab-' + gameId);
+        activeBtn.classList.add('bg-purple-600', 'text-white', 'shadow-lg', 'shadow-purple-200', 'active-game-tab');
+        activeBtn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
+    }
+
+    // ===== GAME 1: SUSUN KATA =====
+    const scrambleWords = [
+        { word: "AKIDAH", hint: "Keyakinan yang kuat dalam hati" },
+        { word: "IMAN", hint: "Membenarkan dalam hati, mengucapkan dengan lisan" },
+        { word: "ISLAM", hint: "Agama yang diajarkan Nabi Muhammad SAW" },
+        { word: "IHSAN", hint: "Beribadah seolah melihat Allah SWT" },
+        { word: "TAUHID", hint: "Mengesakan Allah SWT" },
+        { word: "QURAN", hint: "Kitab suci umat Islam" },
+        { word: "HADIS", hint: "Ucapan dan perbuatan Nabi SAW" },
+        { word: "SYAHADAT", hint: "Rukun Islam yang pertama" },
+        { word: "SHALAT", hint: "Ibadah wajib lima waktu sehari" },
+        { word: "MALAIKAT", hint: "Makhluk Allah dari cahaya" }
+    ];
+
+    let currentScrambles = [];
+
+    function shuffleArray(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+        return a;
+    }
+
+    function scrambleWord(word) {
+        let letters = word.split('');
+        let scrambled;
+        do { scrambled = shuffleArray(letters); } while (scrambled.join('') === word);
+        return scrambled;
+    }
+
+    function initScramble() {
+        const area = document.getElementById('scramble-game-area');
+        const result = document.getElementById('scramble-result');
+        result.classList.add('hidden');
+        area.innerHTML = '';
+        
+        currentScrambles = shuffleArray(scrambleWords).slice(0, 5);
+        
+        currentScrambles.forEach((item, idx) => {
+            const scrambled = scrambleWord(item.word);
+            area.innerHTML += `
+                <div class="bg-slate-50 rounded-xl p-5 border border-slate-100" id="scramble-item-${idx}" data-answer="${item.word}" data-solved="false">
+                    <p class="text-xs text-purple-600 font-bold mb-1 uppercase tracking-wider"><i class="fa-solid fa-lightbulb mr-1"></i> Petunjuk:</p>
+                    <p class="text-sm text-slate-600 mb-4 italic">"${item.hint}"</p>
+                    <div class="flex flex-wrap justify-center gap-2 mb-4" id="scramble-answer-${idx}"></div>
+                    <div class="flex flex-wrap justify-center gap-2" id="scramble-letters-${idx}">
+                        ${scrambled.map((l, li) => `<span class="scramble-letter available" onclick="pickLetter(${idx}, this, '${l}')" id="sl-${idx}-${li}">${l}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    function pickLetter(idx, el, letter) {
+        if (el.classList.contains('used')) return;
+        el.classList.add('used');
+        el.classList.remove('available');
+        
+        const answerArea = document.getElementById('scramble-answer-' + idx);
+        const placed = document.createElement('span');
+        placed.className = 'scramble-letter placed';
+        placed.textContent = letter;
+        placed.setAttribute('data-source-id', el.id);
+        placed.onclick = function() { removeLetter(idx, this); };
+        answerArea.appendChild(placed);
+        
+        checkScrambleAnswer(idx);
+    }
+
+    function removeLetter(idx, placedEl) {
+        const sourceId = placedEl.getAttribute('data-source-id');
+        const source = document.getElementById(sourceId);
+        source.classList.remove('used');
+        source.classList.add('available');
+        placedEl.remove();
+    }
+
+    function checkScrambleAnswer(idx) {
+        const item = document.getElementById('scramble-item-' + idx);
+        const answer = item.getAttribute('data-answer');
+        const answerArea = document.getElementById('scramble-answer-' + idx);
+        const placed = answerArea.querySelectorAll('.placed');
+        
+        if (placed.length !== answer.length) return;
+        
+        let userAnswer = '';
+        placed.forEach(p => userAnswer += p.textContent);
+        
+        if (userAnswer === answer) {
+            item.setAttribute('data-solved', 'true');
+            item.classList.add('scramble-correct');
+            item.style.borderColor = '#10b981';
+            item.style.background = '#ecfdf5';
+            placed.forEach(p => { p.style.background = 'linear-gradient(135deg, #10b981, #059669)'; p.style.borderColor = '#059669'; p.onclick = null; p.style.cursor = 'default'; });
+            document.querySelectorAll(`#scramble-letters-${idx} .scramble-letter`).forEach(el => { el.style.pointerEvents = 'none'; });
+            
+            // Check if all solved
+            const allItems = document.querySelectorAll('[id^="scramble-item-"]');
+            const allSolved = [...allItems].every(el => el.getAttribute('data-solved') === 'true');
+            if (allSolved) {
+                const result = document.getElementById('scramble-result');
+                result.classList.remove('hidden');
+                result.className = 'text-center mt-6 p-6 rounded-xl bg-emerald-50 border border-emerald-200';
+                result.innerHTML = '<p class="text-3xl mb-2">🎉</p><p class="text-lg font-bold text-emerald-800">Hebat! Semua kata berhasil disusun!</p><p class="text-sm text-emerald-600 mt-1">Kamu sudah menguasai istilah-istilah penting dalam Akidah Islam.</p>';
+            }
+        }
+    }
+
+    // ===== GAME 2: COCOKKAN PASANGAN =====
+    const matchPairs = [
+        { term: "Iman", def: "Meyakini dalam hati, lisan, dan perbuatan" },
+        { term: "Islam", def: "Ketundukan lahiriah kepada Allah SWT" },
+        { term: "Ihsan", def: "Beribadah seolah melihat Allah" },
+        { term: "Akidah", def: "Ikatan atau keyakinan yang kuat" },
+        { term: "Tauhid", def: "Mengesakan Allah SWT" },
+        { term: "Al-Qur'an", def: "Sumber utama ajaran Islam" },
+        { term: "Hadis", def: "Ucapan dan tuntunan Nabi SAW" },
+        { term: "Rukun Iman", def: "Berjumlah 6 perkara" },
+        { term: "Rukun Islam", def: "Berjumlah 5 perkara" },
+        { term: "Syahadat", def: "Pernyataan keimanan seseorang" }
+    ];
+
+    let matchState = { selected: null, score: 0, total: 0, matchedPairs: [] };
+
+    function initMatch() {
+        matchState = { selected: null, score: 0, total: 5, matchedPairs: [] };
+        document.getElementById('match-score').textContent = '0';
+        document.getElementById('match-result').classList.add('hidden');
+        
+        const pairs = shuffleArray(matchPairs).slice(0, 5);
+        matchState.total = pairs.length;
+        document.getElementById('match-total').textContent = pairs.length;
+        
+        const leftItems = shuffleArray(pairs.map((p, i) => ({ id: i, text: p.term, type: 'term' })));
+        const rightItems = shuffleArray(pairs.map((p, i) => ({ id: i, text: p.def, type: 'def' })));
+        
+        const leftEl = document.getElementById('match-left');
+        const rightEl = document.getElementById('match-right');
+        
+        leftEl.innerHTML = '<p class="text-xs font-bold text-purple-600 uppercase tracking-wider mb-1 text-center"><i class="fa-solid fa-tag mr-1"></i> Istilah</p>';
+        rightEl.innerHTML = '<p class="text-xs font-bold text-teal-600 uppercase tracking-wider mb-1 text-center"><i class="fa-solid fa-align-left mr-1"></i> Pengertian</p>';
+        
+        leftItems.forEach(item => {
+            leftEl.innerHTML += `<div class="match-card" data-id="${item.id}" data-type="term" onclick="selectMatch(this)">${item.text}</div>`;
+        });
+        rightItems.forEach(item => {
+            rightEl.innerHTML += `<div class="match-card" data-id="${item.id}" data-type="def" onclick="selectMatch(this)">${item.text}</div>`;
+        });
+    }
+
+    function selectMatch(el) {
+        if (el.classList.contains('matched')) return;
+        
+        const type = el.getAttribute('data-type');
+        const id = parseInt(el.getAttribute('data-id'));
+        
+        if (matchState.selected && matchState.selected.type === type) {
+            matchState.selected.el.classList.remove('selected');
+            matchState.selected = { el, type, id };
+            el.classList.add('selected');
+            return;
+        }
+        
+        if (!matchState.selected) {
+            matchState.selected = { el, type, id };
+            el.classList.add('selected');
+            return;
+        }
+        
+        // Check match
+        const first = matchState.selected;
+        if (first.id === id) {
+            // Correct!
+            first.el.classList.remove('selected');
+            first.el.classList.add('matched');
+            el.classList.add('matched');
+            matchState.score++;
+            document.getElementById('match-score').textContent = matchState.score;
+            matchState.matchedPairs.push(id);
+            
+            if (matchState.score === matchState.total) {
+                const result = document.getElementById('match-result');
+                result.classList.remove('hidden');
+                result.className = 'text-center mt-6 p-6 rounded-xl bg-emerald-50 border border-emerald-200';
+                result.innerHTML = '<p class="text-3xl mb-2">🏆</p><p class="text-lg font-bold text-emerald-800">Sempurna! Semua pasangan berhasil dicocokkan!</p>';
+            }
+        } else {
+            // Wrong
+            first.el.classList.remove('selected');
+            el.classList.add('wrong');
+            first.el.classList.add('wrong');
+            setTimeout(() => {
+                el.classList.remove('wrong');
+                first.el.classList.remove('wrong');
+            }, 500);
+        }
+        matchState.selected = null;
+    }
+
+    // ===== GAME 3: BENAR ATAU SALAH =====
+    const tfQuestions = [
+        { q: "Rukun Iman berjumlah 6 perkara.", a: true },
+        { q: "Rukun Islam berjumlah 6 perkara.", a: false },
+        { q: "Al-Qur'an diturunkan kepada Nabi Isa AS.", a: false },
+        { q: "Malaikat diciptakan dari cahaya (nur).", a: true },
+        { q: "Iman artinya hanya percaya di dalam hati saja.", a: false },
+        { q: "Islam artinya ketundukan kepada Allah SWT.", a: true },
+        { q: "Ihsan adalah puncak tertinggi dalam beribadah.", a: true },
+        { q: "Syahadat adalah rukun Islam yang kedua.", a: false },
+        { q: "Sumber utama akidah Islam adalah Al-Qur'an dan Hadis.", a: true },
+        { q: "Akidah artinya ikatan atau keyakinan yang kuat.", a: true },
+        { q: "Nabi Muhammad SAW adalah nabi dan rasul terakhir.", a: true },
+        { q: "Berdoa boleh ditujukan kepada selain Allah SWT.", a: false },
+        { q: "Menyekutukan Allah (syirik) adalah dosa terbesar.", a: true },
+        { q: "Iman, Islam, dan Ihsan saling berkaitan erat.", a: true },
+        { q: "Puasa Ramadhan termasuk dalam Rukun Iman.", a: false },
+        { q: "Malaikat Jibril bertugas menyampaikan wahyu.", a: true }
+    ];
+
+    let tfState = { questions: [], current: 0, correct: 0 };
+
+    function initTrueFalse() {
+        tfState.questions = shuffleArray(tfQuestions).slice(0, 8);
+        tfState.current = 0;
+        tfState.correct = 0;
+        document.getElementById('tf-total').textContent = tfState.questions.length;
+        document.getElementById('tf-correct').textContent = '0';
+        document.getElementById('tf-result').classList.add('hidden');
+        document.getElementById('tf-retry').classList.add('hidden');
+        document.getElementById('tf-buttons').classList.remove('hidden');
+        document.getElementById('tf-feedback').classList.add('hidden');
+        showTFQuestion();
+    }
+
+    function showTFQuestion() {
+        if (tfState.current >= tfState.questions.length) {
+            showTFResult();
+            return;
+        }
+        document.getElementById('tf-current').textContent = tfState.current + 1;
+        document.getElementById('tf-question').textContent = tfState.questions[tfState.current].q;
+        document.getElementById('tf-card').className = 'bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-100 rounded-2xl p-6 md:p-8 text-center mb-6 min-h-[120px] flex items-center justify-center transition-all duration-300';
+        document.getElementById('tf-feedback').classList.add('hidden');
+        document.getElementById('tf-buttons').style.pointerEvents = 'auto';
+    }
+
+    function answerTF(userAnswer) {
+        const correct = tfState.questions[tfState.current].a;
+        const card = document.getElementById('tf-card');
+        const feedback = document.getElementById('tf-feedback');
+        
+        document.getElementById('tf-buttons').style.pointerEvents = 'none';
+        
+        if (userAnswer === correct) {
+            tfState.correct++;
+            document.getElementById('tf-correct').textContent = tfState.correct;
+            card.classList.add('tf-correct-flash');
+            feedback.className = 'text-center mt-4 p-4 rounded-xl font-bold text-sm bg-emerald-50 text-emerald-700 border border-emerald-200';
+            feedback.innerHTML = '<i class="fa-solid fa-circle-check mr-2"></i> Benar! Jawaban yang tepat!';
+        } else {
+            card.classList.add('tf-wrong-flash');
+            feedback.className = 'text-center mt-4 p-4 rounded-xl font-bold text-sm bg-red-50 text-red-700 border border-red-200';
+            feedback.innerHTML = '<i class="fa-solid fa-circle-xmark mr-2"></i> Salah! Jawaban yang benar adalah: <strong>' + (correct ? 'BENAR' : 'SALAH') + '</strong>';
+        }
+        feedback.classList.remove('hidden');
+        
+        tfState.current++;
+        setTimeout(() => showTFQuestion(), 1500);
+    }
+
+    function showTFResult() {
+        document.getElementById('tf-buttons').classList.add('hidden');
+        document.getElementById('tf-feedback').classList.add('hidden');
+        const result = document.getElementById('tf-result');
+        const pct = Math.round((tfState.correct / tfState.questions.length) * 100);
+        let emoji = pct === 100 ? '🏆' : pct >= 75 ? '🌟' : pct >= 50 ? '👍' : '💪';
+        let msg = pct === 100 ? 'Sempurna! Kamu benar-benar luar biasa!' : pct >= 75 ? 'Hebat! Hampir semua benar!' : pct >= 50 ? 'Lumayan bagus! Terus belajar ya!' : 'Ayo coba lagi dan tingkatkan pemahamanmu!';
+        
+        result.classList.remove('hidden');
+        result.className = 'text-center mt-6 p-6 rounded-xl bg-gradient-to-br from-purple-50 to-blue-50 border border-purple-200';
+        result.innerHTML = `
+            <p class="text-4xl mb-2">${emoji}</p>
+            <p class="text-2xl font-bold text-purple-800">${tfState.correct} dari ${tfState.questions.length} Benar</p>
+            <p class="text-sm text-slate-600 mt-1">${msg}</p>
+        `;
+        document.getElementById('tf-retry').classList.remove('hidden');
+    }
+
+    // ===== INIT ALL GAMES ON LOAD =====
+    document.addEventListener('DOMContentLoaded', () => {
+        initScramble();
+        initMatch();
+        initTrueFalse();
+    });
+    </script>
+
     <!-- ================= FOOTER ================= -->
     <footer class="w-full bg-teal-950 text-teal-200 py-10 border-t border-teal-900 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -590,7 +1034,7 @@
     
     <!-- Diagnostic Assessment Script -->
     <script>
-        const allQuestions = [{"q": "Apa arti dari kata 'Akidah' secara bahasa?", "opts": ["Ikatan / Kepercayaan", "Perbuatan", "Doa", "Ibadah"], "a": 0}, {"q": "Rukun Iman dalam Islam berjumlah...", "opts": ["4", "5", "6", "7"], "a": 2}, {"q": "Rukun Islam berjumlah...", "opts": ["4", "5", "6", "7"], "a": 1}, {"q": "Iman kepada Allah SWT merupakan rukun iman yang ke...", "opts": ["1", "2", "3", "4"], "a": 0}, {"q": "Kitab suci yang diturunkan kepada Nabi Muhammad SAW adalah...", "opts": ["Taurat", "Zabur", "Injil", "Al-Qur'an"], "a": 3}, {"q": "Meyakini dalam hati, diucapkan dengan lisan, dan diamalkan dengan perbuatan adalah pengertian dari...", "opts": ["Islam", "Iman", "Ihsan", "Taqwa"], "a": 1}, {"q": "Melaksanakan shalat lima waktu merupakan bagian dari...", "opts": ["Rukun Iman", "Rukun Islam", "Ihsan", "Sunnah"], "a": 1}, {"q": "Beribadah seolah-olah kita melihat Allah, dan jika tidak bisa melihat-Nya, maka yakinlah Allah melihat kita adalah pengertian dari...", "opts": ["Iman", "Islam", "Ihsan", "Ikhlas"], "a": 2}, {"q": "Nabi dan Rasul terakhir yang diutus oleh Allah SWT adalah...", "opts": ["Nabi Adam AS", "Nabi Ibrahim AS", "Nabi Isa AS", "Nabi Muhammad SAW"], "a": 3}, {"q": "Hari kiamat pasti akan datang. Percaya kepada hari kiamat adalah rukun iman ke...", "opts": ["3", "4", "5", "6"], "a": 2}, {"q": "Malaikat yang bertugas menyampaikan wahyu adalah...", "opts": ["Mikail", "Jibril", "Israfil", "Izrail"], "a": 1}, {"q": "Malaikat diciptakan oleh Allah SWT dari...", "opts": ["Cahaya (Nur)", "Api", "Tanah", "Angin"], "a": 0}, {"q": "Percaya kepada Qada dan Qadar (Takdir) merupakan rukun iman ke...", "opts": ["4", "5", "6", "1"], "a": 2}, {"q": "Orang yang tidak beriman kepada Allah disebut...", "opts": ["Mukmin", "Muslim", "Kafir", "Muhsin"], "a": 2}, {"q": "Tujuan utama diciptakannya jin dan manusia adalah untuk...", "opts": ["Bekerja keras", "Beribadah kepada Allah", "Mencari kekayaan", "Berperang"], "a": 1}, {"q": "Syahadat merupakan rukun Islam yang ke...", "opts": ["1", "2", "3", "4"], "a": 0}, {"q": "Kata 'Islam' secara bahasa memiliki arti...", "opts": ["Ketundukan / Keselamatan", "Peperangan", "Kebebasan", "Kekuatan"], "a": 0}, {"q": "Berpuasa di bulan Ramadhan wajib bagi setiap umat...", "opts": ["Yahudi", "Nasrani", "Islam (Muslim)", "Majusi"], "a": 2}, {"q": "Nabi Musa AS menerima kitab suci berupa...", "opts": ["Al-Qur'an", "Zabur", "Injil", "Taurat"], "a": 3}, {"q": "Sifat wajib bagi Allah berjumlah...", "opts": ["10", "20", "99", "100"], "a": 1}, {"q": "Allah SWT itu Maha Mengetahui segalanya, hal ini disebut dengan sifat...", "opts": ["Al-'Alim", "As-Sami'", "Al-Basir", "Al-Qadir"], "a": 0}, {"q": "Menyekutukan Allah dengan selain-Nya (syirik) merupakan dosa yang...", "opts": ["Diampuni", "Paling besar", "Kecil", "Biasa saja"], "a": 1}, {"q": "Tanda-tanda orang munafik ada...", "opts": ["2", "3", "4", "5"], "a": 1}, {"q": "Orang yang beriman disebut...", "opts": ["Muslim", "Mukmin", "Musyrik", "Munafik"], "a": 1}, {"q": "Sumber ajaran akidah Islam yang utama adalah...", "opts": ["Akal pikiran", "Adat istiadat", "Al-Qur'an dan Hadis", "Sejarah"], "a": 2}, {"q": "Iblis menolak untuk sujud kepada Nabi Adam AS karena...", "opts": ["Takut", "Sombong (Merasa lebih baik)", "Lupa", "Tidak mendengar perintah"], "a": 1}, {"q": "Membayar zakat bertujuan untuk...", "opts": ["Menambah kekayaan", "Mensucikan harta dan jiwa", "Pamer", "Menghamburkan uang"], "a": 1}, {"q": "Malaikat yang mencatat amal baik manusia adalah...", "opts": ["Raqib", "Atid", "Munkar", "Nakir"], "a": 0}, {"q": "Nabi Ibrahim AS bergelar Khalilullah yang berarti...", "opts": ["Utusan Allah", "Musuh Allah", "Kekasih Allah", "Hamba Allah"], "a": 2}, {"q": "Akidah Islam mengajarkan agar kita senantiasa berbaik sangka kepada Allah, ini disebut...", "opts": ["Su'udzon", "Husnudzon", "Tawadhu'", "Takabur"], "a": 1}];
+        const allQuestions = [{"q": "Tuhan semesta alam yang wajib kita sembah adalah...", "opts": ["Allah SWT", "Malaikat", "Nabi", "Manusia"], "a": 0}, {"q": "Agama yang diridhai oleh Allah SWT adalah agama...", "opts": ["Islam", "Semua agama", "Tidak ada", "Adat istiadat"], "a": 0}, {"q": "Nabi dan Rasul terakhir bagi umat Islam adalah...", "opts": ["Nabi Muhammad SAW", "Nabi Adam AS", "Nabi Musa AS", "Nabi Isa AS"], "a": 0}, {"q": "Kitab suci petunjuk umat Islam adalah...", "opts": ["Al-Qur'an", "Hadis", "Cerita", "Buku Biasa"], "a": 0}, {"q": "Berbuat baik dan berbakti kepada kedua orang tua (Ibu dan Ayah) hukumnya...", "opts": ["Wajib", "Sunnah", "Makruh", "Mubah"], "a": 0}, {"q": "Rukun Islam yang pertama kali wajib diucapkan oleh orang yang masuk Islam adalah...", "opts": ["Syahadat", "Shalat", "Zakat", "Puasa"], "a": 0}, {"q": "Orang Islam diwajibkan melaksanakan shalat fardhu (wajib) sebanyak ... waktu dalam sehari semalam.", "opts": ["5", "4", "3", "2"], "a": 0}, {"q": "Rukun iman dalam agama Islam jumlahnya ada...", "opts": ["6", "5", "4", "3"], "a": 0}, {"q": "Malaikat diciptakan oleh Allah dari...", "opts": ["Cahaya (Nur)", "Api", "Tanah liat", "Udara"], "a": 0}, {"q": "Ibadah puasa satu bulan penuh yang wajib dilakukan umat Islam berada di bulan...", "opts": ["Ramadhan", "Syawal", "Muharram", "Rajab"], "a": 0}, {"q": "Setan atau Iblis selalu membisikkan dan mengajak manusia untuk berbuat...", "opts": ["Kejahatan/Dosa", "Kebaikan", "Rajin belajar", "Menolong teman"], "a": 0}, {"q": "Sebagai seorang muslim yang baik, kita harus selalu berkata...", "opts": ["Jujur/Benar", "Bohong", "Kasar", "Kotor"], "a": 0}, {"q": "Allah itu Maha Melihat. Oleh karena itu, kita tidak boleh berbuat curang walaupun...", "opts": ["Sedang sendirian", "Ada teman", "Diingatkan", "Tidak ketahuan guru"], "a": 0}, {"q": "Orang yang beragama Islam disebut dengan istilah...", "opts": ["Muslim", "Mukmin", "Musafir", "Muhajirin"], "a": 0}, {"q": "Berdoa memohon pertolongan hanya boleh ditujukan kepada...", "opts": ["Allah SWT", "Batu besar", "Pohon besar", "Dukun"], "a": 0}];
         let currentQuestions = [];
         
         document.addEventListener('DOMContentLoaded', () => {

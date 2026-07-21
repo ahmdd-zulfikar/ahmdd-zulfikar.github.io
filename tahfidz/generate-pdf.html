@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator PDF Silabus Tahfidz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Outfit:wght@300;400;600;700;800&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        /* ========== UI STYLES (not in PDF) ========== */
+        :root {
+            --emerald: #044b39;
+            --emerald-light: #0a7a5f;
+            --gold: #d4af37;
+            --gold-dark: #b08d2b;
+            --bg: #f0f4f3;
+        }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            margin: 0;
+            color: #1a202c;
+        }
+        .ui-header {
+            background: linear-gradient(135deg, var(--emerald) 0%, #023627 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .ui-header h1 { font-size: 2.4rem; margin-bottom: 10px; }
+        .ui-header p { opacity: 0.8; font-weight: 300; font-size: 1.1rem; }
+        .ui-container { max-width: 900px; margin: -40px auto 60px; padding: 0 20px; position: relative; z-index: 2; }
+        .ui-card {
+            background: white;
+            border-radius: 18px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin-bottom: 24px;
+        }
+        .ui-card h2 { color: var(--emerald); margin-bottom: 8px; font-size: 1.5rem; }
+        .ui-card .sub { color: #718096; margin-bottom: 24px; }
+        .btn-download {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 18px 24px;
+            background: var(--emerald);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-download:hover { background: var(--emerald-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(4,75,57,0.25); }
+        .btn-download:disabled { background: #a0aec0; cursor: not-allowed; transform: none; box-shadow: none; }
+        .btn-download i { font-size: 1.2rem; }
+        .btn-all {
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            margin-top: 10px;
+        }
+        .btn-all:hover { background: linear-gradient(135deg, #96790f, var(--gold-dark)); }
+        .progress-bar { height: 4px; background: #e2e8f0; border-radius: 4px; margin-top: 14px; overflow: hidden; display: none; }
+        .progress-bar .fill { height: 100%; background: var(--gold); border-radius: 4px; width: 0%; transition: width 0.4s ease; }
+        .status { text-align: center; margin-top: 12px; font-size: 0.9rem; color: #718096; min-height: 20px; }
+
+        /* ========== PDF CONTENT STYLES ========== */
+        .pdf-content {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            width: 210mm;
+            font-family: 'Outfit', sans-serif;
+            color: #1a202c;
+            background: white;
+        }
+        .pdf-page {
+            width: 210mm;
+            min-height: 295mm;
+            padding: 12mm 16mm;
+            box-sizing: border-box;
+            position: relative;
+            page-break-after: always;
+            background: white;
+        }
+        .pdf-page:last-child { page-break-after: avoid; }
+
+        /* Border ornamen */
+        .pdf-page::before {
+            content: '';
+            position: absolute;
+            top: 6mm; left: 6mm; right: 6mm; bottom: 6mm;
+            border: 1.5pt solid var(--emerald);
+            border-radius: 3mm;
+            pointer-events: none;
+        }
+        .pdf-page::after {
+            content: '';
+            position: absolute;
+            top: 8mm; left: 8mm; right: 8mm; bottom: 8mm;
+            border: 0.5pt solid rgba(4,75,57,0.2);
+            border-radius: 2mm;
+            pointer-events: none;
+        }
+
+        /* Corner ornaments */
+        .corner { position: absolute; width: 18mm; height: 18mm; z-index: 2; }
+        .corner svg { width: 100%; height: 100%; }
+        .corner-tl { top: 4mm; left: 4mm; }
+        .corner-tr { top: 4mm; right: 4mm; transform: scaleX(-1); }
+        .corner-bl { bottom: 4mm; left: 4mm; transform: scaleY(-1); }
+        .corner-br { bottom: 4mm; right: 4mm; transform: scale(-1, -1); }
+
+        /* Kop Surat / Header */
+        .pdf-header {
+            text-align: center;
+            padding-bottom: 5mm;
+            margin-bottom: 5mm;
+            border-bottom: 2pt solid var(--emerald);
+            position: relative;
+        }
+        .pdf-header::after {
+            content: '';
+            position: absolute;
+            bottom: -1.5mm;
+            left: 20%;
+            right: 20%;
+            height: 0.5pt;
+            background: var(--gold);
+        }
+        .pdf-institution {
+            font-size: 9pt;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 2pt;
+            margin-bottom: 2mm;
+            font-weight: 600;
+        }
+        .pdf-main-title {
+            font-size: 18pt;
+            font-weight: 800;
+            color: var(--emerald);
+            margin-bottom: 1mm;
+            letter-spacing: -0.3pt;
+        }
+        .pdf-arabic-title {
+            font-family: 'Amiri', 'Noto Naskh Arabic', serif;
+            font-size: 22pt;
+            color: var(--gold-dark);
+            direction: rtl;
+            margin-bottom: 2mm;
+        }
+        .pdf-subtitle {
+            font-size: 11pt;
+            color: var(--emerald-light);
+            font-weight: 600;
+        }
+        .pdf-year-badge {
+            display: inline-block;
+            background: var(--emerald);
+            color: white;
+            padding: 1.5mm 5mm;
+            border-radius: 10pt;
+            font-size: 8pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1pt;
+            margin-top: 2mm;
+        }
+
+        /* Info Box */
+        .pdf-info-row {
+            display: flex;
+            gap: 3mm;
+            margin-bottom: 5mm;
+        }
+        .pdf-info-box {
+            flex: 1;
+            background: #f7faf9;
+            border: 0.5pt solid #d1e0db;
+            border-radius: 2mm;
+            padding: 3mm 4mm;
+            text-align: center;
+        }
+        .pdf-info-box .label {
+            font-size: 7pt;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5pt;
+            font-weight: 600;
+        }
+        .pdf-info-box .value {
+            font-size: 12pt;
+            font-weight: 800;
+            color: var(--emerald);
+            margin-top: 1mm;
+        }
+
+        /* Section Title */
+        .pdf-section-title {
+            font-size: 13pt;
+            font-weight: 700;
+            color: var(--emerald);
+            padding: 2.5mm 4mm;
+            background: linear-gradient(90deg, rgba(4,75,57,0.08), transparent);
+            border-left: 3pt solid var(--emerald);
+            margin: 5mm 0 3mm;
+            border-radius: 0 2mm 2mm 0;
+        }
+        .pdf-section-title-gold {
+            border-left-color: var(--gold);
+            background: linear-gradient(90deg, rgba(212,175,55,0.08), transparent);
+        }
+
+        /* Tables */
+        .pdf-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 8.5pt;
+            margin-bottom: 4mm;
+        }
+        .pdf-table thead th {
+            background: var(--emerald);
+            color: white;
+            padding: 2.5mm 3mm;
+            text-align: left;
+            font-weight: 700;
+            font-size: 7.5pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5pt;
+        }
+        .pdf-table thead th:first-child { border-radius: 2mm 0 0 0; }
+        .pdf-table thead th:last-child { border-radius: 0 2mm 0 0; }
+        .pdf-table tbody td {
+            padding: 2mm 3mm;
+            border-bottom: 0.3pt solid #e2e8f0;
+            vertical-align: top;
+            line-height: 1.5;
+        }
+        .pdf-table tbody tr:nth-child(even) { background: #fafcfb; }
+        .pdf-table tbody tr:last-child td { border-bottom: none; }
+        .pdf-table tbody tr:last-child td:first-child { border-radius: 0 0 0 2mm; }
+        .pdf-table tbody tr:last-child td:last-child { border-radius: 0 0 2mm 0; }
+        .pdf-table .highlight-row { background: rgba(212,175,55,0.08) !important; font-weight: 600; }
+        .pdf-table .month-cell {
+            font-weight: 700;
+            color: var(--emerald);
+            white-space: nowrap;
+        }
+
+        /* Exam Table */
+        .pdf-table-exam thead th { background: var(--gold-dark); }
+
+        /* Daily schedule table */
+        .pdf-table-schedule thead th { background: #2d5a4e; }
+
+        /* Methodology list */
+        .pdf-method-grid {
+            display: flex;
+            gap: 3mm;
+            margin-bottom: 4mm;
+        }
+        .pdf-method-item {
+            flex: 1;
+            background: #f7faf9;
+            border: 0.5pt solid #d1e0db;
+            border-radius: 2mm;
+            padding: 3mm;
+            text-align: center;
+        }
+        .pdf-method-item .m-icon { font-size: 14pt; color: var(--emerald); margin-bottom: 1mm; }
+        .pdf-method-item .m-title { font-size: 8pt; font-weight: 700; color: var(--emerald); margin-bottom: 1mm; }
+        .pdf-method-item .m-desc { font-size: 7pt; color: #718096; line-height: 1.4; }
+
+        /* Footer */
+        .pdf-footer {
+            position: absolute;
+            bottom: 10mm;
+            left: 16mm;
+            right: 16mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 7pt;
+            color: #a0aec0;
+            border-top: 0.3pt solid #e2e8f0;
+            padding-top: 2mm;
+        }
+        .pdf-footer .page-num { font-weight: 700; color: var(--emerald); }
+
+        /* Notes / Catatan */
+        .pdf-notes {
+            background: rgba(212,175,55,0.06);
+            border: 0.5pt solid rgba(212,175,55,0.3);
+            border-radius: 2mm;
+            padding: 3mm 4mm;
+            margin: 4mm 0;
+        }
+        .pdf-notes .note-title { font-size: 8pt; font-weight: 700; color: var(--gold-dark); margin-bottom: 1mm; }
+        .pdf-notes ul { margin: 0; padding-left: 4mm; }
+        .pdf-notes li { font-size: 7.5pt; color: #4a5568; line-height: 1.6; }
+
+        /* Signature */
+        .pdf-signature {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8mm;
+            font-size: 8.5pt;
+        }
+        .pdf-sign-block { text-align: center; width: 40%; }
+        .pdf-sign-block .sign-role { font-weight: 600; color: var(--emerald); margin-bottom: 15mm; }
+        .pdf-sign-block .sign-line { border-bottom: 0.5pt solid #1a202c; padding-bottom: 1mm; margin-bottom: 1mm; }
+        .pdf-sign-block .sign-name { font-weight: 700; }
+        .pdf-sign-block .sign-nip { font-size: 7pt; color: #718096; }
+
+        /* Graduation special */
+        .pdf-graduation-box {
+            text-align: center;
+            background: linear-gradient(135deg, var(--emerald), #023627);
+            color: white;
+            border-radius: 3mm;
+            padding: 5mm;
+            margin: 4mm 0;
+        }
+        .pdf-graduation-box h3 { font-size: 13pt; color: white; margin-bottom: 2mm; }
+        .pdf-graduation-box p { font-size: 8.5pt; opacity: 0.85; line-height: 1.5; }
+        .pdf-grad-stats {
+            display: flex;
+            justify-content: center;
+            gap: 8mm;
+            margin-top: 3mm;
+        }
+        .pdf-grad-stat { text-align: center; }
+        .pdf-grad-stat .num { font-size: 18pt; font-weight: 800; color: var(--gold); }
+        .pdf-grad-stat .lbl { font-size: 7pt; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.5pt; }
+    </style>
+</head>
+<body>
+
+    <!-- ========== UI ========== -->
+    <div class="ui-header">
+        <h1><i class="fas fa-file-pdf"></i> Generator PDF Silabus</h1>
+        <p>Buat dokumen silabus Tahfidz untuk kebutuhan administrasi</p>
+    </div>
+
+    <div class="ui-container">
+        <div class="ui-card">
+            <h2><i class="fas fa-book-quran" style="color: var(--gold);"></i> Silabus Tahun 1 — Juz 30</h2>
+            <p class="sub">Juz 'Amma • An-Naba' s/d An-Nas • 37 Surat • 2 Semester</p>
+            <button class="btn-download" onclick="generatePDF('tahun1')"><i class="fas fa-download"></i> Unduh PDF Silabus Tahun 1</button>
+            <div class="progress-bar" id="prog-tahun1"><div class="fill"></div></div>
+            <div class="status" id="status-tahun1"></div>
+        </div>
+
+        <div class="ui-card">
+            <h2><i class="fas fa-book-quran" style="color: var(--gold);"></i> Silabus Tahun 2 — Juz 1</h2>
+            <p class="sub">Al-Fatihah & Al-Baqarah 1-141 • 141 Ayat • 2 Semester</p>
+            <button class="btn-download" onclick="generatePDF('tahun2')"><i class="fas fa-download"></i> Unduh PDF Silabus Tahun 2</button>
+            <div class="progress-bar" id="prog-tahun2"><div class="fill"></div></div>
+            <div class="status" id="status-tahun2"></div>
+        </div>
+
+        <div class="ui-card">
+            <h2><i class="fas fa-book-quran" style="color: var(--gold);"></i> Silabus Tahun 3 — Juz 2</h2>
+            <p class="sub">Al-Baqarah 142-252 • 111 Ayat • Muraja'ah Kubro & Wisuda</p>
+            <button class="btn-download" onclick="generatePDF('tahun3')"><i class="fas fa-download"></i> Unduh PDF Silabus Tahun 3</button>
+            <div class="progress-bar" id="prog-tahun3"><div class="fill"></div></div>
+            <div class="status" id="status-tahun3"></div>
+        </div>
+
+        <div class="ui-card" style="background: linear-gradient(135deg, var(--emerald), #023627); color: white;">
+            <h2 style="color: var(--gold);"><i class="fas fa-file-archive"></i> Unduh Semua</h2>
+            <p class="sub" style="color: rgba(255,255,255,0.7);">Unduh ketiga dokumen silabus sekaligus</p>
+            <button class="btn-download btn-all" onclick="generateAll()"><i class="fas fa-download"></i> Unduh Semua PDF (3 Dokumen)</button>
+            <div class="progress-bar" id="prog-all"><div class="fill"></div></div>
+            <div class="status" id="status-all" style="color: rgba(255,255,255,0.6);"></div>
+        </div>
+    </div>
+
+    <!-- ========== PDF CONTENT: TAHUN 1 ========== -->
+    <div class="pdf-content" id="pdf-tahun1">
+
+        <!-- Page 1: Cover + Semester 1 -->
+        <div class="pdf-page">
+            <div class="corner corner-tl"><svg viewBox="0 0 60 60"><path d="M0,0 L60,0 L60,8 L8,8 L8,60 L0,60 Z" fill="#044b39" opacity="0.6"/><path d="M0,0 L40,0 L40,4 L4,4 L4,40 L0,40 Z" fill="#d4af37" opacity="0.5"/></svg></div>
+            <div class="corner corner-tr"><svg viewBox="0 0 60 60"><path d="M0,0 L60,0 L60,8 L8,8 L8,60 L0,60 Z" fill="#044b39" opacity="0.6"/><path d="M0,0 L40,0 L40,4 L4,4 L4,40 L0,40 Z" fill="#d4af37" opacity="0.5"/></svg></div>
+            <div class="corner corner-bl"><svg viewBox="0 0 60 60"><path d="M0,0 L60,0 L60,8 L8,8 L8,60 L0,60 Z" fill="#044b39" opacity="0.6"/><path d="M0,0 L40,0 L40,4 L4,4 L4,40 L0,40 Z" fill="#d4af37" opacity="0.5"/></svg></div>
+            <div class="corner corner-br"><svg viewBox="0 0 60 60"><path d="M0,0 L60,0 L60,8 L8,8 L8,60 L0,60 Z" fill="#044b39" opacity="0.6"/><path d="M0,0 L40,0 L40,4 L4,4 L4,40 L0,40 Z" fill="#d4af37" opacity="0.5"/></svg></div>
+
+            <div class="pdf-header">
+                <div class="pdf-institution">Program Pembelajaran Tahfidz Al-Qur'an</div>
+                <div class="pdf-main-title">SILABUS TAHUN PERTAMA</div>
+                <div class="pdf-arabic-title">الجزء الثلاثون — جزء عمّ</div>
+                <div class="pdf-subtitle">Juz 30 (Juz 'Amma) — An-Naba' s/d An-Nas</div>
+                <div class="pdf-year-badge">Tahun Ajaran 2026 / 2027</div>
+            </div>
+
+            <div class="pdf-info-row">
+                <div class="pdf-info-box"><div class="label">Durasi</div><div class="value">12 Bulan</div></div>
+                <div class="pdf-info-box"><div class="label">Jumlah Surat</div><div class="value">37 Surat</div></div>
+                <div class="pdf-info-box"><div class="label">Semester</div><div class="value">2 Semester</div></div>
+                <div class="pdf-info-box"><div class="label">Sertifikasi</div><div class="value">Tahap 1</div></div>
+            </div>
+
+            <div class="pdf-section-title">Semester 1 — Fondasi Tahsin & Hafalan Surat Pendek</div>
+
+            <table class="pdf-table">
+                <thead>
+                    <tr>
+                        <th style="width:14%">Bulan</th>
+                        <th style="width:28%">Materi Hafalan</th>
+                        <th style="width:28%">Materi Tajwid</th>
+                        <th style="width:30%">Target & Evaluasi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="month-cell">1</td>
+                        <td>An-Nas (114), Al-Falaq (113), Al-Ikhlas (112), Al-Lahab (111), An-Nashr (110)</td>
+                        <td>Makharijul Huruf, Sifatul Huruf dasar</td>
+                        <td>Hafal 5 surat, tes pelafalan Makharijul Huruf</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">2</td>
+                        <td>Al-Kafirun (109), Al-Kautsar (108), Al-Ma'un (107), Quraisy (106), Al-Fil (105)</td>
+                        <td>Hukum Nun Sukun & Tanwin (Idzhar, Idgham)</td>
+                        <td>Hafal 5 surat (total 10), muraja'ah bulan 1</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">3</td>
+                        <td>Al-Humazah (104), Al-'Ashr (103), At-Takatsur (102), Al-Qari'ah (101), Al-'Adiyat (100)</td>
+                        <td>Hukum Nun Sukun & Tanwin (Iqlab, Ikhfa')</td>
+                        <td>Hafal 5 surat (total 15), muraja'ah surat 1-10</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">4</td>
+                        <td>Az-Zalzalah (99), Al-Bayyinah (98), Al-Qadr (97), Al-'Alaq (96)</td>
+                        <td>Hukum Mim Sukun (Ikhfa' Syafawi, Idgham Mimi)</td>
+                        <td>Hafal 4 surat (total 19), tasmi' surat 1-15</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">5</td>
+                        <td>At-Tin (95), Al-Insyirah (94), Adh-Dhuha (93), Al-Lail (92)</td>
+                        <td>Mad Asli (Thabi'i), pengenalan Mad Far'i</td>
+                        <td>Hafal 4 surat (total 23), muraja'ah surat 1-19</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td class="month-cell">6</td>
+                        <td>Asy-Syams (91), Al-Balad (90)</td>
+                        <td>Review tajwid Semester 1, Mad Wajib & Jaiz</td>
+                        <td><strong>UTS:</strong> Setoran 25 surat, ujian tulis tajwid, penilaian kelancaran & makhraj</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="pdf-footer">
+                <span>Dokumen Administrasi — Silabus Tahfidz Tahun 1 (Juz 30)</span>
+                <span class="page-num">Halaman 1 / 2</span>
+            </div>
+        </div>
+
+        <!-- Page 2: Semester 2 + Jadwal + TTD -->
+        <div class="pdf-page">
+            <div class="corner corner-tl"><svg viewBox="0 0 60 60"><path d="M0,0 L60,0 L60,8 L8,8 L8,60 L0,60 Z" fill="#044b39" opacity="0.6"/><path d="M0,0 L40,0 L40,4 L4,4 L4,40 L0,40 Z" fill="#d4af37" opacity="0.5"/></svg></div>
+            <div class="corner corner-tr"><svg viewBox="0 0 60 60"><path d="M0,0 L60,0 L60,8 L8,8 L8,60 L0,60 Z" fill="#044b39" opacity="0.6"/><path d="M0,0 L40,0 L40,4 L4,4 L4,40 L0,40 Z" fill="#d4af37" opacity="0.5"/></svg></div>
+            <div class="corner corner-bl"><svg viewBox="0 0 60 60"><path d="M0,0 L60,0 L60,8 L8,8 L8,60 L0,60 Z" fill="#044b39" opacity="0.6"/><path d="M0,0 L40,0 L40,4 L4,4 L4,40 L0,40 Z" fill="#d4af37" opacity="0.5"/></svg></div>
+            <div class="corner corner-br"><svg viewBox="0 0 60 60"><path d="M0,0 L60,0 L60,8 L8,8 L8,60 L0,60 Z" fill="#044b39" opacity="0.6"/><path d="M0,0 L40,0 L40,4 L4,4 L4,40 L0,40 Z" fill="#d4af37" opacity="0.5"/></svg></div>
+
+            <div class="pdf-section-title">Semester 2 — Penyelesaian Juz 30 & Sertifikasi</div>
+
+            <table class="pdf-table">
+                <thead>
+                    <tr>
+                        <th style="width:14%">Bulan</th>
+                        <th style="width:28%">Materi Hafalan</th>
+                        <th style="width:28%">Materi Tajwid</th>
+                        <th style="width:30%">Target & Evaluasi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="month-cell">7</td>
+                        <td>Al-Fajr (89), Al-Ghasyiyah (88), Al-A'la (87)</td>
+                        <td>Hukum Ra' (Tafkhim & Tarqiq), Lam Jalalah</td>
+                        <td>Hafal 3 surat (total 28), muraja'ah surat 1-25</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">8</td>
+                        <td>Ath-Thariq (86), Al-Buruj (85), Al-Insyiqaq (84)</td>
+                        <td>Waqaf & Ibtida', tanda waqaf dalam mushaf</td>
+                        <td>Hafal 3 surat (total 31), tasmi' ½ juz</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">9</td>
+                        <td>Al-Muthaffifin (83), Al-Infithar (82), At-Takwir (81)</td>
+                        <td>Qalqalah (Sughra & Kubra)</td>
+                        <td>Hafal 3 surat (total 34), muraja'ah bergilir</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">10</td>
+                        <td>'Abasa (80), An-Nazi'at (79), An-Naba' (78)</td>
+                        <td>Ghunnah dan tingkatannya, review keseluruhan</td>
+                        <td>37 surat selesai, tasmi' An-Naba' s/d An-Nas</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">11</td>
+                        <td colspan="2"><em>Muraja'ah Kubro — pengulangan harian 1 halaman, mingguan 5 surat, adab & faidah surat Juz 30</em></td>
+                        <td>Hafalan mutqin, simulasi ujian akhir</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td class="month-cell">12</td>
+                        <td colspan="2"><strong>Ujian Akhir Semester & Sertifikasi Juz 30</strong></td>
+                        <td><strong>UAS:</strong> Setoran 1 juz penuh, ujian tajwid, Syahadah Tahap 1</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="pdf-section-title pdf-section-title-gold">Jadwal Harian Tahfidz</div>
+
+            <table class="pdf-table pdf-table-schedule">
+                <thead>
+                    <tr>
+                        <th style="width:12%">Waktu</th>
+                        <th style="width:28%">Kegiatan</th>
+                        <th style="width:12%">Durasi</th>
+                        <th>Keterangan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>05:00</strong></td><td>Ziyadah (Hafalan Baru)</td><td>60 menit</td><td>Menghafal ayat/surat baru setelah Subuh</td></tr>
+                    <tr><td><strong>06:00</strong></td><td>Setoran ke Muhaffidz</td><td>30 menit</td><td>Talaqqi — menyetorkan hafalan baru</td></tr>
+                    <tr><td><strong>07:00</strong></td><td>Muraja'ah Pagi</td><td>30 menit</td><td>Mengulang hafalan lama (1 halaman)</td></tr>
+                    <tr><td><strong>15:30</strong></td><td>Muraja'ah Sore</td><td>30 menit</td><td>Mengulang hafalan baru hari ini</td></tr>
+                    <tr><td><strong>19:30</strong></td><td>Tajwid & Tahsin</td><td>45 menit</td><td>Materi tajwid teori & praktik ba'da Isya'</td></tr>
+                    <tr><td><strong>20:15</strong></td><td>Persiapan Esok</td><td>30 menit</td><td>Membaca ayat yang akan dihafal besok</td></tr>
+                </tbody>
+            </table>
+
+            <div class="pdf-notes">
+                <div class="note-title">📌 Catatan Penilaian</div>
+                <ul>
+                    <li>Predikat <strong>Mumtaz</strong> (Istimewa): Hafalan lancar, tajwid sempurna, tanpa kesalahan.</li>
+                    <li>Predikat <strong>Jayyid Jiddan</strong> (Sangat Baik): Hafalan lancar, tajwid baik, ≤ 3 kesalahan minor.</li>
+                    <li>Predikat <strong>Jayyid</strong> (Baik): Hafalan cukup lancar, tajwid cukup, ≤ 5 kesalahan minor.</li>
+                </ul>
+            </div>
+
+            <div class="pdf-signature">
+                <div class="pdf-sign-block">
+                    <div class="sign-role">Mengetahui,<br>Kepala Program Tahfidz</div>
+                    <div class="sign-line">&nbsp;</div>
+                    <div class="sign-name">( ...................................... )</div>
+                    <div class="sign-nip">NIP. ................................</div>
+                </div>
+                <div class="pdf-sign-block">
+                    <div class="sign-role">Disusun oleh,<br>Koordinator Muhaffidz</div>
+                    <div class="sign-line">&nbsp;</div>
+                    <div class="sign-name">( ...................................... )</div>
+                    <div class="sign-nip">NIP. ................................</div>
+                </div>
+            </div>
+
+            <div class="pdf-footer">
+                <span>Dokumen Administrasi — Silabus Tahfidz Tahun 1 (Juz 30)</span>
+                <span class="page-num">Halaman 2 / 2</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========== PDF CONTENT: TAHUN 2 ========== -->
+    <div class="pdf-content" id="pdf-tahun2">
+
+        <!-- Page 1 -->
+        <div class="pdf-page">
+            <div class="corner corner-tl"><svg viewBox="0 0 60 60"><path d="M0,0 L60,0 L60,8 L8,8 L8,60 L0,60 Z" fill="#044b39" opacity="0.6"/><path d="M0,0 L40,0 L40,4 L4,4 L4,40 L0,40 Z" fill="#d4af37" opacity="0.5"/></svg></div>
+            <div class="corner corner-tr"><svg viewBox="0 0 60 60"><path d="M0,0 L60,0 L60,8 L8,8 L8,60 L0,60 Z" fill="#044b39" opacity="0.6"/><path d="M0,0 L40,0 L40,4 L4,4 L4,40 L0,40 Z" fill="#d4af37" opacity="0.5"/></svg></div>
+            <div class="corner corner-bl"><svg viewBox="0 0 60 60"><path d="M0,0 L60,0 L60,8 L8,8 L8,60 L0,60 Z" fill="#044b39" opacity="0.6"/><path d="M0,0 L40,0 L40,4 L4,4 L4,40 L0,40 Z" fill="#d4af37" opacity="0.5"/></svg></div>
+            <div class="corner corner-br"><svg viewBox="0 0 60 60"><path d="M0,0 L60,0 L60,8 L8,8 L8,60 L0,60 Z" fill="#044b39" opacity="0.6"/><path d="M0,0 L40,0 L40,4 L4,4 L4,40 L0,40 Z" fill="#d4af37" opacity="0.5"/></svg></div>
+
+            <div class="pdf-header">
+                <div class="pdf-institution">Program Pembelajaran Tahfidz Al-Qur'an</div>
+                <div class="pdf-main-title">SILABUS TAHUN KEDUA</div>
+                <div class="pdf-arabic-title">الجزء الأول — سورة البقرة</div>
+                <div class="pdf-subtitle">Juz 1 — Al-Fatihah & Al-Baqarah (Ayat 1 – 141)</div>
+                <div class="pdf-year-badge">Tahun Ajaran 2027 / 2028</div>
+            </div>
+
+            <div class="pdf-info-row">
+                <div class="pdf-info-box"><div class="label">Durasi</div><div class="value">12 Bulan</div></div>
+                <div class="pdf-info-box"><div class="label">Cakupan</div><div class="value">141 Ayat</div></div>
+                <div class="pdf-info-box"><div class="label">Semester</div><div class="value">Sem 3 & 4</div></div>
+                <div class="pdf-info-box"><div class="label">Evaluasi</div><div class="value">Uji Publik</div></div>
+            </div>
+
+            <div class="pdf-section-title">Semester 3 — Al-Fatihah & Al-Baqarah Awal (Ayat 1 – 91)</div>
+
+            <table class="pdf-table">
+                <thead>
+                    <tr>
+                        <th style="width:14%">Bulan</th>
+                        <th style="width:30%">Materi Hafalan</th>
+                        <th style="width:26%">Materi Tajwid</th>
+                        <th style="width:30%">Target & Evaluasi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="month-cell">1</td>
+                        <td>Al-Fatihah (7 ayat — pendalaman makna), Al-Baqarah ayat 1-16</td>
+                        <td>Review Mad Thabi'i, Mad Wajib, Mad Jaiz, Mad 'Aridh Lissukun</td>
+                        <td>Hafal Al-Fatihah + 16 ayat, muraja'ah Juz 30</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">2</td>
+                        <td>Al-Baqarah 17-29 (perumpamaan munafiq), ayat 30-37 (kisah Adam AS)</td>
+                        <td>Mad Lazim Kilmi Mutsaqqal & Mukhaffaf</td>
+                        <td>Hafal ayat 17-37, teknik Rabt antar ayat</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">3</td>
+                        <td>Al-Baqarah 38-48 (Bani Israil bag. 1), ayat 49-57 (nikmat Allah)</td>
+                        <td>Idgham Mutamaatsilain, Mutaqaaribain, Mutajaanisain</td>
+                        <td>Hafal ayat 38-57, muraja'ah halaman 1-5</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">4</td>
+                        <td>Al-Baqarah 58-66 (kedurhakaan), ayat 67-74 (kisah sapi — Baqarah)</td>
+                        <td>Hamzah Washal & Qath'i, membaca sambung</td>
+                        <td>Hafal ayat 58-74 (½ juz ≈ 10 hal), tasmi'</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">5</td>
+                        <td>Al-Baqarah 75-82 (sifat Yahudi), ayat 83-91 (janji & pelanggaran)</td>
+                        <td>Tafkhim & Tarqiq, review tajwid semester</td>
+                        <td>Hafal ayat 75-91, persiapan UTS</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td class="month-cell">6</td>
+                        <td colspan="2"><strong>UTS — Ujian Tengah Semester:</strong> Setoran Al-Fatihah + Al-Baqarah 1-91, ujian tajwid lanjutan (teori & praktik)</td>
+                        <td>Penilaian kelancaran & ketepatan waqaf, muraja'ah Juz 30</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="pdf-section-title">Semester 4 — Penyelesaian Juz 1 & Uji Publik (Ayat 92 – 141)</div>
+
+            <table class="pdf-table">
+                <thead>
+                    <tr>
+                        <th style="width:14%">Bulan</th>
+                        <th style="width:30%">Materi Hafalan</th>
+                        <th style="width:26%">Kegiatan Pendukung</th>
+                        <th style="width:30%">Target & Evaluasi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="month-cell">7</td>
+                        <td>Al-Baqarah 92-101 (Nabi Sulaiman & sihir), ayat 102-105</td>
+                        <td>Muraja'ah halaman 1-10 bergantian</td>
+                        <td>Hafal ayat 92-105</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">8</td>
+                        <td>Al-Baqarah 106-115 (nasikh mansukh, kiblat), ayat 116-121</td>
+                        <td>Tasmi' halaman 1-15</td>
+                        <td>Hafal ayat 106-121</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">9</td>
+                        <td>Al-Baqarah 122-134 (Ibrahim & Isma'il, Ka'bah), ayat 135-141</td>
+                        <td>Rabt keseluruhan dari awal Juz 1</td>
+                        <td>Seluruh Juz 1 selesai dihafal ✓</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">10</td>
+                        <td colspan="2"><em>Muraja'ah Intensif — harian 2 halaman Juz 1, mingguan 5 surat Juz 30, simulasi setoran 1 juz</em></td>
+                        <td>Lancar setoran Juz 1 tanpa kesalahan besar</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">11</td>
+                        <td colspan="2"><em>Persiapan Uji Publik — tasmi' di kelas, simulasi penguji tamu, latihan mental, muraja'ah silang Juz 30 + 1</em></td>
+                        <td>Kesiapan mental & hafalan untuk uji publik</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td class="month-cell">12</td>
+                        <td colspan="2"><strong>UAS & Uji Publik:</strong> Setoran Juz 1 penuh, memperdengarkan Juz 30 & 1 di hadapan Muhaffidz, guru, wali santri</td>
+                        <td><strong>Syahadah Tahap 2,</strong> penilaian komprehensif</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="pdf-notes">
+                <div class="note-title">📌 Catatan Khusus Tahun 2</div>
+                <ul>
+                    <li>Ayat-ayat Juz 1 lebih panjang dari Juz 30, sehingga teknik <strong>Rabt</strong> (menghubungkan antar ayat) sangat ditekankan.</li>
+                    <li>Muraja'ah Juz 30 tetap berjalan paralel untuk menjaga kekuatan hafalan tahun pertama.</li>
+                    <li><strong>Uji Publik</strong> dilaksanakan di hadapan dewan Muhaffidz dan wali santri sebagai bentuk akuntabilitas.</li>
+                </ul>
+            </div>
+
+            <div class="pdf-signature">
+                <div class="pdf-sign-block">
+                    <div class="sign-role">Mengetahui,<br>Kepala Program Tahfidz</div>
+                    <div class="sign-line">&nbsp;</div>
+                    <div class="sign-name">( ...................................... )</div>
+                    <div class="sign-nip">NIP. ................................</div>
+                </div>
+                <div class="pdf-sign-block">
+                    <div class="sign-role">Disusun oleh,<br>Koordinator Muhaffidz</div>
+                    <div class="sign-line">&nbsp;</div>
+                    <div class="sign-name">( ...................................... )</div>
+                    <div class="sign-nip">NIP. ................................</div>
+                </div>
+            </div>
+
+            <div class="pdf-footer">
+                <span>Dokumen Administrasi — Silabus Tahfidz Tahun 2 (Juz 1)</span>
+                <span class="page-num">Halaman 1 / 1</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========== PDF CONTENT: TAHUN 3 ========== -->
+    <div class="pdf-content" id="pdf-tahun3">
+
+        <!-- Page 1 -->
+        <div class="pdf-page">
+            <div class="corner corner-tl"><svg viewBox="0 0 60 60"><path d="M0,0 L60,0 L60,8 L8,8 L8,60 L0,60 Z" fill="#044b39" opacity="0.6"/><path d="M0,0 L40,0 L40,4 L4,4 L4,40 L0,40 Z" fill="#d4af37" opacity="0.5"/></svg></div>
+            <div class="corner corner-tr"><svg viewBox="0 0 60 60"><path d="M0,0 L60,0 L60,8 L8,8 L8,60 L0,60 Z" fill="#044b39" opacity="0.6"/><path d="M0,0 L40,0 L40,4 L4,4 L4,40 L0,40 Z" fill="#d4af37" opacity="0.5"/></svg></div>
+            <div class="corner corner-bl"><svg viewBox="0 0 60 60"><path d="M0,0 L60,0 L60,8 L8,8 L8,60 L0,60 Z" fill="#044b39" opacity="0.6"/><path d="M0,0 L40,0 L40,4 L4,4 L4,40 L0,40 Z" fill="#d4af37" opacity="0.5"/></svg></div>
+            <div class="corner corner-br"><svg viewBox="0 0 60 60"><path d="M0,0 L60,0 L60,8 L8,8 L8,60 L0,60 Z" fill="#044b39" opacity="0.6"/><path d="M0,0 L40,0 L40,4 L4,4 L4,40 L0,40 Z" fill="#d4af37" opacity="0.5"/></svg></div>
+
+            <div class="pdf-header">
+                <div class="pdf-institution">Program Pembelajaran Tahfidz Al-Qur'an</div>
+                <div class="pdf-main-title">SILABUS TAHUN KETIGA</div>
+                <div class="pdf-arabic-title">الجزء الثاني — سورة البقرة</div>
+                <div class="pdf-subtitle">Juz 2 — Al-Baqarah (Ayat 142 – 252)</div>
+                <div class="pdf-year-badge">Tahun Ajaran 2028 / 2029</div>
+            </div>
+
+            <div class="pdf-info-row">
+                <div class="pdf-info-box"><div class="label">Durasi</div><div class="value">12 Bulan</div></div>
+                <div class="pdf-info-box"><div class="label">Cakupan</div><div class="value">111 Ayat</div></div>
+                <div class="pdf-info-box"><div class="label">Semester</div><div class="value">Sem 5 & 6</div></div>
+                <div class="pdf-info-box"><div class="label">Evaluasi</div><div class="value">Wisuda</div></div>
+            </div>
+
+            <div class="pdf-section-title">Semester 5 — Al-Baqarah 142 – 220 (Ayat Hukum)</div>
+
+            <table class="pdf-table">
+                <thead>
+                    <tr>
+                        <th style="width:14%">Bulan</th>
+                        <th style="width:30%">Materi Hafalan</th>
+                        <th style="width:26%">Konteks / Tema Ayat</th>
+                        <th style="width:30%">Target & Evaluasi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="month-cell">1</td>
+                        <td>Al-Baqarah 142-157</td>
+                        <td>Perpindahan kiblat, perintah sabar, inna lillahi wa inna ilaihi raji'un</td>
+                        <td>Hafal 16 ayat, muraja'ah Juz 30 & 1</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">2</td>
+                        <td>Al-Baqarah 158-176</td>
+                        <td>Shafa & Marwa, halal-haram, larangan mengikuti syetan</td>
+                        <td>Hafal 19 ayat (total 35), muraja'ah Juz 1</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">3</td>
+                        <td>Al-Baqarah 177-188</td>
+                        <td>Ayat Al-Birr (definisi kebajikan), qishash, wasiat, puasa Ramadhan</td>
+                        <td>Hafal 12 ayat (total 47), pendalaman hukum</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">4</td>
+                        <td>Al-Baqarah 189-203</td>
+                        <td>Jihad fi sabilillah, hukum haji & umrah, doa di Arafah</td>
+                        <td>Hafal 15 ayat (total 62), tasmi' ½ Juz 2</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">5</td>
+                        <td>Al-Baqarah 204-220</td>
+                        <td>Sifat munafiq, ujian orang beriman, infaq, khamr, anak yatim</td>
+                        <td>Hafal 17 ayat, persiapan UTS</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td class="month-cell">6</td>
+                        <td colspan="2"><strong>UTS — Ujian Tengah Semester:</strong> Setoran Al-Baqarah 142-220, muraja'ah acak dari Juz 30 & Juz 1</td>
+                        <td>Penilaian komprehensif tajwid, kelancaran, waqaf</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="pdf-section-title">Semester 6 — Penyelesaian Juz 2, Muraja'ah Kubro & Wisuda</div>
+
+            <table class="pdf-table">
+                <thead>
+                    <tr>
+                        <th style="width:14%">Bulan</th>
+                        <th style="width:30%">Materi / Kegiatan</th>
+                        <th style="width:26%">Detail</th>
+                        <th style="width:30%">Target & Evaluasi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="month-cell">7</td>
+                        <td>Al-Baqarah 221-235</td>
+                        <td>Hukum nikah, talaq, iddah, tata cara perceraian</td>
+                        <td>Hafal ayat 221-235, muraja'ah Juz 30+1</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">8</td>
+                        <td>Al-Baqarah 236-252</td>
+                        <td>Hukum mut'ah, infaq, kisah Thalut-Jalut-Dawud</td>
+                        <td>Seluruh Juz 2 selesai ✓, Rabt keseluruhan</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">9</td>
+                        <td>Muraja'ah Kubro — Juz 30</td>
+                        <td>Harian 3-4 halaman, tasmi' 1 juz sekali duduk</td>
+                        <td>Juz 30 mutqin dan siap ujian</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">10</td>
+                        <td>Muraja'ah Kubro — Juz 1 & 2</td>
+                        <td>Minggu 1-2: Juz 1, Minggu 3-4: Juz 2, tasmi' masing-masing</td>
+                        <td>Juz 1 & 2 mutqin, lancar sambung antar juz</td>
+                    </tr>
+                    <tr>
+                        <td class="month-cell">11</td>
+                        <td>Simulasi Ujian Akhir</td>
+                        <td>Setoran 3 juz di hadapan dewan penguji, ujian acak halaman</td>
+                        <td>Perbaikan titik lemah, persiapan wisuda</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td class="month-cell">12</td>
+                        <td colspan="2"><strong>UAS & Wisuda Tahfidz (Haflah Takhrij):</strong> Setoran seluruh Juz 30, 1, dan 2; ujian acak 3 juz; penyerahan Syahadah</td>
+                        <td><strong>Wisuda,</strong> Syahadah Tahfidz 3 Juz, rekomendasi lanjutan</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="pdf-graduation-box">
+                <h3>🎓 Penyelesaian Program 3 Tahun</h3>
+                <p>Dengan menyelesaikan program ini, santri telah menghafal 3 juz Al-Qur'an (Juz 30, 1, dan 2) dengan hafalan mutqin dan bersertifikat. Semoga menjadi amal jariyah dan syafa'at di hari akhir.</p>
+                <div class="pdf-grad-stats">
+                    <div class="pdf-grad-stat"><div class="num">3</div><div class="lbl">Juz Dihafal</div></div>
+                    <div class="pdf-grad-stat"><div class="num">6</div><div class="lbl">Semester</div></div>
+                    <div class="pdf-grad-stat"><div class="num">36</div><div class="lbl">Bulan</div></div>
+                </div>
+            </div>
+
+            <div class="pdf-signature">
+                <div class="pdf-sign-block">
+                    <div class="sign-role">Mengetahui,<br>Kepala Program Tahfidz</div>
+                    <div class="sign-line">&nbsp;</div>
+                    <div class="sign-name">( ...................................... )</div>
+                    <div class="sign-nip">NIP. ................................</div>
+                </div>
+                <div class="pdf-sign-block">
+                    <div class="sign-role">Disusun oleh,<br>Koordinator Muhaffidz</div>
+                    <div class="sign-line">&nbsp;</div>
+                    <div class="sign-name">( ...................................... )</div>
+                    <div class="sign-nip">NIP. ................................</div>
+                </div>
+            </div>
+
+            <div class="pdf-footer">
+                <span>Dokumen Administrasi — Silabus Tahfidz Tahun 3 (Juz 2)</span>
+                <span class="page-num">Halaman 1 / 1</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const pdfConfig = {
+            tahun1: { element: 'pdf-tahun1', filename: 'Silabus_Tahfidz_Tahun_1_Juz_30.pdf' },
+            tahun2: { element: 'pdf-tahun2', filename: 'Silabus_Tahfidz_Tahun_2_Juz_1.pdf' },
+            tahun3: { element: 'pdf-tahun3', filename: 'Silabus_Tahfidz_Tahun_3_Juz_2.pdf' },
+        };
+
+        function showProgress(id, pct, msg) {
+            const bar = document.getElementById('prog-' + id);
+            const status = document.getElementById('status-' + id);
+            bar.style.display = 'block';
+            bar.querySelector('.fill').style.width = pct + '%';
+            status.textContent = msg;
+        }
+
+        async function generatePDF(id) {
+            const cfg = pdfConfig[id];
+            const el = document.getElementById(cfg.element);
+            const btn = event.target.closest('button');
+
+            btn.disabled = true;
+            showProgress(id, 20, 'Mempersiapkan dokumen...');
+
+            // Move element to visible area temporarily
+            el.style.position = 'static';
+            el.style.left = 'auto';
+            
+            showProgress(id, 50, 'Mengkonversi ke PDF...');
+
+            const opt = {
+                margin: 0,
+                filename: cfg.filename,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, letterRendering: true, width: 794 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak: { mode: ['css', 'legacy'] }
+            };
+
+            try {
+                await html2pdf().set(opt).from(el).save();
+                showProgress(id, 100, '✅ PDF berhasil diunduh ke folder Unduhan!');
+            } catch (err) {
+                showProgress(id, 0, '❌ Gagal: ' + err.message);
+            }
+
+            // Hide again
+            el.style.position = 'absolute';
+            el.style.left = '-9999px';
+            
+            setTimeout(() => { btn.disabled = false; }, 2000);
+        }
+
+        async function generateAll() {
+            const btn = event.target.closest('button');
+            btn.disabled = true;
+            showProgress('all', 10, 'Memulai pembuatan 3 dokumen...');
+
+            const ids = ['tahun1', 'tahun2', 'tahun3'];
+            for (let i = 0; i < ids.length; i++) {
+                showProgress('all', Math.round(((i) / 3) * 100), `Mengunduh PDF ${i + 1} dari 3...`);
+                
+                const cfg = pdfConfig[ids[i]];
+                const el = document.getElementById(cfg.element);
+                el.style.position = 'static';
+                el.style.left = 'auto';
+
+                const opt = {
+                    margin: 0,
+                    filename: cfg.filename,
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2, useCORS: true, letterRendering: true, width: 794 },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                    pagebreak: { mode: ['css', 'legacy'] }
+                };
+
+                try {
+                    await html2pdf().set(opt).from(el).save();
+                } catch(err) {
+                    console.error(err);
+                }
+
+                el.style.position = 'absolute';
+                el.style.left = '-9999px';
+
+                // Brief delay between downloads
+                await new Promise(r => setTimeout(r, 1500));
+            }
+
+            showProgress('all', 100, '✅ Semua 3 PDF berhasil diunduh!');
+            setTimeout(() => { btn.disabled = false; }, 2000);
+        }
+    </script>
+
+</body>
+</html>
