@@ -72,39 +72,7 @@
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
-        /* Animations */
-        .fade-in {
-            animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .delay-100 {
-            animation-delay: 0.1s;
-        }
-
-        .delay-200 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-300 {
-            animation-delay: 0.3s;
-        }
-
-        .delay-400 {
-            animation-delay: 0.4s;
-        }
-
-        .delay-500 {
-            animation-delay: 0.5s;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        
 
         /* Card Hover */
         .menu-card {
@@ -132,7 +100,7 @@
 
     <!-- Main Container: Responsive Width (Max 1024px) -->
     <main
-        class="w-full max-w-5xl bg-white min-h-[90vh] md:min-h-[80vh] rounded-3xl md:rounded-[2.5rem] shadow-2xl relative flex flex-col md:flex-row overflow-hidden border border-slate-200/60 fade-in">
+        class="w-full max-w-5xl bg-white min-h-[90vh] md:min-h-[80vh] rounded-3xl md:rounded-[2.5rem] shadow-2xl relative flex flex-col md:flex-row overflow-hidden border border-slate-200/60">
 
         <!-- ================= LEFT PANEL (PROFILE) ================= -->
         <section
@@ -149,11 +117,11 @@
             <!-- Content -->
             <div class="relative z-10 flex flex-col items-center w-full">
                 <!-- Bismillah Text -->
-                <p class="font-arabic text-2xl text-teal-100/90 mb-8 fade-in delay-100 tracking-wider">بِسْمِ اللَّهِ
+                <p class="font-arabic text-2xl text-teal-100/90 mb-8 tracking-wider">بِسْمِ اللَّهِ
                     الرَّحْمَنِ الرَّحِيمِ</p>
 
                 <!-- Profile Photo -->
-                <div class="relative group fade-in delay-200 mb-6">
+                <div class="relative group mb-6">
                     <div
                         class="absolute -inset-2 bg-gradient-to-tr from-amber-400 to-teal-300 rounded-full blur-md opacity-40 group-hover:opacity-75 transition duration-500 animate-pulse">
                     </div>
@@ -170,7 +138,7 @@
                 </div>
 
                 <!-- Name & Title -->
-                <div class="fade-in delay-300">
+                <div class="">
                     <h1 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight font-heading mb-2">Ahmad
                         Zulfikar<span class="text-xl md:text-2xl font-semibold text-teal-200">, S.Pd</span></h1>
 
@@ -192,7 +160,7 @@
             </div>
 
             <!-- Social/Contact Icons (Optional Add-on) -->
-            <div class="relative z-10 flex gap-4 mt-10 fade-in delay-400">
+            <div class="relative z-10 flex gap-4 mt-10">
                 <a href="https://wa.me/6285888892326" target="_blank" rel="noopener noreferrer"
                     class="w-10 h-10 rounded-full glass-effect flex items-center justify-center text-white hover:bg-white hover:text-teal-900 transition-all shadow-lg"
                     title="Hubungi via WhatsApp">
@@ -210,7 +178,7 @@
         <section class="w-full md:w-7/12 bg-slate-50 flex flex-col p-6 sm:p-8 md:p-12 lg:p-14 overflow-y-auto">
 
             <!-- Section Title -->
-            <div class="mb-8 fade-in delay-200">
+            <div class="mb-8">
                 <h2 class="text-xl md:text-2xl font-bold text-slate-800 font-heading">Portofolio</h2>
                 <div class="h-1 w-12 bg-teal-500 rounded-full mt-2"></div>
                 <p class="text-sm text-slate-500 mt-3">Rekam jejak pengabdian dalam dunia pendidikan.</p>
@@ -221,7 +189,7 @@
 
                 <!-- Menu 1: PPTQ At-Tibyan Laren -->
                 <a href="javascript:void(0)" onclick="showModal('attibyan')"
-                    class="group block w-full fade-in delay-300">
+                    class="group block w-full">
                     <div
                         class="menu-card relative flex items-center p-4 md:p-5 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                         <div
@@ -256,7 +224,7 @@
 
                 <!-- Menu 2: MAN 2 Brebes -->
                 <a href="javascript:void(0)" onclick="showModal('man2brebes')"
-                    class="group block w-full fade-in delay-400">
+                    class="group block w-full">
                     <div
                         class="menu-card relative flex items-center p-4 md:p-5 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                         <div
@@ -288,7 +256,7 @@
 
                 <!-- Menu 3: MTsN 6 Demak -->
                 <a href="javascript:void(0)" onclick="showModal('mtsn6demak')"
-                    class="group block w-full fade-in delay-500">
+                    class="group block w-full">
                     <div
                         class="menu-card relative flex items-center p-4 md:p-5 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                         <div
@@ -320,7 +288,7 @@
 
                 <!-- Menu 4: MTSS Al-Ishlah Laren -->
                 <a href="javascript:void(0)" onclick="showModal('alishlah')"
-                    class="group block w-full fade-in delay-500">
+                    class="group block w-full">
                     <div
                         class="menu-card relative flex items-center p-4 md:p-5 bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
                         <div
