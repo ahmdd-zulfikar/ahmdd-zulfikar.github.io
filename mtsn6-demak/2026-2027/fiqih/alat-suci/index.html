@@ -547,8 +547,268 @@
     
     </main>
 
-    
     </div>
+
+    <!-- ================= GAME TARIK TAMBANG SECTION ================= -->
+    <section id="game-tarik-tambang" class="py-12 container mx-auto px-4 max-w-5xl">
+        <div class="text-center mb-8">
+            <span class="inline-flex items-center gap-2 bg-teal-50 border border-teal-200 text-teal-700 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-4 shadow-sm">
+                <i class="fa-solid fa-gamepad text-amber-500"></i> Mini Game Fiqih
+            </span>
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-800 font-heading mb-2">🚩 Tarik Tambang Thaharah</h2>
+            <p class="text-slate-500 text-sm max-w-lg mx-auto">Uji pemahamanmu tentang Alat-Alat Bersuci & Thaharah dalam duel Tarik Tambang yang seru!</p>
+        </div>
+
+        <!-- Tug Game Container -->
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden relative min-h-[500px] flex flex-col">
+            
+            <!-- Game Header Bar -->
+            <div class="bg-gradient-to-r from-teal-700 to-teal-800 p-3 md:p-4 text-white flex justify-between items-center z-30 shadow-md">
+                <div class="flex items-center gap-2">
+                    <div class="bg-teal-600/80 p-2 rounded-lg border border-teal-500">
+                        <i class="fa-solid fa-droplet text-amber-300 text-base"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-sm md:text-base font-bold font-heading">Duel Tarik Tambang</h3>
+                        <p class="text-[11px] text-teal-200">Jawab soal dengan benar untuk menarik tali!</p>
+                    </div>
+                </div>
+
+                <!-- Mode Controls (Fixed to 2 Player) -->
+                <div class="flex items-center gap-2">
+                    <span class="px-3 py-1.5 rounded-lg text-xs font-bold border border-teal-400 bg-amber-400 text-slate-900 shadow">
+                        <i class="fa-solid fa-users mr-1"></i> 2 Pemain (Dual)
+                    </span>
+                </div>
+            </div>
+
+            <!-- Arena Main Content (3 Columns) -->
+            <div class="flex-grow flex flex-row w-full relative min-h-[420px] bg-slate-50 overflow-hidden">
+                
+                <!-- Left Panel (Tim Santri) -->
+                <div id="tug-panel-left" class="w-[30%] md:w-[28%] border-r border-slate-200 flex flex-col h-full bg-blue-100/90 z-20 relative shadow-md transition-colors duration-300">
+                    <div class="p-2 text-center border-b border-blue-200 bg-blue-200/80">
+                        <span class="text-[10px] md:text-xs font-extrabold text-blue-700 uppercase bg-blue-50 px-2.5 py-1 rounded-full tracking-wider shadow-sm">Tim Santri (Biru)</span>
+                    </div>
+                    <div class="flex-grow flex flex-col p-2 min-h-0 overflow-y-auto">
+                        <div class="flex-grow flex items-center justify-center py-2 min-h-[60px]">
+                            <p id="tug-q-left" class="text-xs md:text-sm font-semibold text-center text-slate-800 leading-relaxed px-1">Menyiapkan soal...</p>
+                        </div>
+                        <div id="tug-opts-left" class="grid grid-cols-1 gap-1.5 mt-auto pb-1"></div>
+                    </div>
+                </div>
+
+                <!-- Center Visual Arena -->
+                <div class="flex-grow relative bg-sky-50 overflow-hidden z-10 border-x border-slate-200 flex flex-col items-center justify-center">
+                    <div class="absolute top-4 left-6 text-sky-200 text-4xl opacity-70"><i class="fa-solid fa-cloud"></i></div>
+                    <div class="absolute top-8 right-8 text-sky-200 text-3xl opacity-50"><i class="fa-solid fa-cloud"></i></div>
+                    
+                    <!-- Center Line -->
+                    <div class="absolute top-4 bottom-4 left-1/2 w-0.5 border-l-2 border-dashed border-slate-300 z-0 -translate-x-1/2"></div>
+
+                    <!-- Dynamic Tug Container -->
+                    <div id="tug-container" class="flex items-center justify-center h-full w-full absolute inset-0 transition-transform duration-500 ease-out">
+                        <!-- Left Character -->
+                        <div id="tug-char-left" class="character absolute left-[2%] md:left-[10%] bottom-[45%] transition-transform">
+                            <svg width="85" height="85" viewBox="0 0 100 100" class="drop-shadow-md">
+                                <path d="M35 75 L35 98 L45 98 L45 75 Z" fill="#1e3a8a" />
+                                <path d="M55 75 L55 98 L65 98 L65 75 Z" fill="#1e3a8a" />
+                                <rect x="30" y="45" width="40" height="35" rx="4" fill="#2563eb" />
+                                <circle cx="50" cy="32" r="15" fill="#fcd34d" />
+                                <path d="M34 18 L66 18 L66 30 L34 30 Z" fill="#f1f5f9" />
+                                <ellipse cx="50" cy="18" rx="16" ry="3" fill="#e2e8f0" />
+                                <circle cx="54" cy="34" r="2" fill="#1e293b" />
+                                <circle cx="60" cy="34" r="2" fill="#1e293b" />
+                                <path d="M30 50 Q20 55 25 60" stroke="#2563eb" stroke-width="8" stroke-linecap="round" fill="none" />
+                                <circle cx="25" cy="60" r="5" fill="#fcd34d" />
+                                <path d="M50 52 L90 58" stroke="#2563eb" stroke-width="8" stroke-linecap="round" />
+                                <circle cx="90" cy="58" r="6" fill="#fcd34d" stroke="#d97706" stroke-width="1"/>
+                            </svg>
+                        </div>
+
+                        <!-- Rope -->
+                        <div class="relative w-[75%] md:w-[65%] flex items-center justify-center -top-2">
+                            <div class="rope-line w-full h-2.5 bg-amber-800 rounded-full shadow"></div>
+                            <div id="tug-knot" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 bg-amber-400 border-2 border-amber-800 rounded-full z-20 flex items-center justify-center shadow-md">
+                                <i class="fa-solid fa-flag text-red-600 text-[10px]"></i>
+                            </div>
+                        </div>
+
+                        <!-- Right Character -->
+                        <div id="tug-char-right" class="character absolute right-[2%] md:right-[10%] bottom-[45%] scale-x-[-1] transition-transform">
+                            <svg width="85" height="85" viewBox="0 0 100 100" class="drop-shadow-md">
+                                <path d="M35 75 L35 98 L45 98 L45 75 Z" fill="#7f1d1d" />
+                                <path d="M55 75 L55 98 L65 98 L65 75 Z" fill="#7f1d1d" />
+                                <rect x="30" y="45" width="40" height="35" rx="4" fill="#dc2626" />
+                                <circle cx="50" cy="32" r="15" fill="#fcd34d" />
+                                <path d="M34 14 L66 16 L66 30 L34 30 Z" fill="#1f2937" />
+                                <ellipse cx="50" cy="15" rx="16" ry="3" fill="#374151" />
+                                <circle cx="54" cy="34" r="2" fill="#1e293b" />
+                                <circle cx="60" cy="34" r="2" fill="#1e293b" />
+                                <path d="M30 50 Q20 55 25 60" stroke="#dc2626" stroke-width="8" stroke-linecap="round" fill="none" />
+                                <circle cx="25" cy="60" r="5" fill="#fcd34d" />
+                                <path d="M50 52 L90 58" stroke="#dc2626" stroke-width="8" stroke-linecap="round" />
+                                <circle cx="90" cy="58" r="6" fill="#fcd34d" stroke="#b45309" stroke-width="1"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Panel (Tim Merah) -->
+                <div id="tug-panel-right" class="w-[30%] md:w-[28%] border-l border-slate-200 flex flex-col h-full bg-red-100/90 z-20 relative shadow-md transition-colors duration-300">
+                    <div class="p-2 text-center border-b border-red-200 bg-red-200/80">
+                        <span id="tug-right-title" class="text-[10px] md:text-xs font-extrabold text-red-700 uppercase bg-red-50 px-2.5 py-1 rounded-full tracking-wider shadow-sm">Tim Merah (Pemain 2)</span>
+                    </div>
+                    <div class="flex-grow flex flex-col p-2 min-h-0 overflow-y-auto">
+                        <div class="flex-grow flex items-center justify-center py-2 min-h-[60px]">
+                            <p id="tug-q-right" class="text-xs md:text-sm font-semibold text-center text-slate-800 leading-relaxed px-1">Menyiapkan soal...</p>
+                        </div>
+                        <div id="tug-opts-right" class="grid grid-cols-1 gap-1.5 mt-auto pb-1"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Winner Overlay -->
+            <div id="tug-winner-overlay" class="hidden absolute inset-0 z-50 bg-slate-900/90 flex flex-col items-center justify-center p-6 text-center animate-fadeIn">
+                <div class="text-6xl mb-3 animate-bounce">🏆</div>
+                <h3 class="text-xs font-bold text-amber-400 uppercase tracking-widest mb-1">Pemenang Pertandingan</h3>
+                <h2 id="tug-winner-name" class="text-3xl md:text-4xl font-black text-white mb-6 font-heading drop-shadow-md">TIM SANTRI</h2>
+                <button onclick="resetTugGame()" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 active:scale-95 flex items-center gap-2">
+                    <i class="fa-solid fa-rotate-right"></i> Main Lagi
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tug Game Styles -->
+    <style>
+        .rope-line {
+            background: repeating-linear-gradient(45deg, #854d0e, #854d0e 8px, #713f12 8px, #713f12 16px);
+        }
+        .pulling-left { animation: tugPullLeft 0.4s ease infinite; }
+        .pulling-right { animation: tugPullRight 0.4s ease infinite; }
+        @keyframes tugPullLeft { 0%, 100% { transform: translateX(0) rotate(0deg); } 50% { transform: translateX(-8px) rotate(-6deg); } }
+        @keyframes tugPullRight { 0%, 100% { transform: scaleX(-1) translateX(0) rotate(0deg); } 50% { transform: scaleX(-1) translateX(-8px) rotate(-6deg); } }
+    </style>
+
+    <!-- Tug Game Script -->
+    <script>
+    const tugQuestions = [
+        { q: "Secara bahasa (etimologi), kata 'Thaharah' memiliki arti...", opts: ["Bersih atau suci", "Berhias dan tampan", "Mandi keramas", "Olahraga pagi"], a: 0 },
+        { q: "Secara istilah, Thaharah adalah bersuci dari hadas dan najis agar...", opts: ["Sah melaksanakan ibadah", "Dipuji oleh teman", "Badan menjadi wangi", "Pakaian menjadi baru"], a: 0 },
+        { q: "Bersuci Lahiriah adalah kegiatan membersihkan...", opts: ["Badan, pakaian & tempat dari najis", "Hati dari sifat iri dengki", "Pikiran dari rasa malas", "Dompet dan tabungan"], a: 0 },
+        { q: "Bersuci Batiniyah adalah kegiatan membersihkan jiwa/hati dari...", opts: ["Penyakit hati seperti riya & syirik", "Kotoran debu dan kuman", "Air bekas wudhu", "Pakaian yang kotor"], a: 0 },
+        { q: "Contoh nyata dari bersuci Lahiriah adalah...", opts: ["Berwudhu, mandi & istinja'", "Bertaubat dan berzikir", "Memaafkan kesalahan teman", "Berbuat jujur"], a: 0 },
+        { q: "Contoh nyata dari bersuci Batiniyah adalah...", opts: ["Bertaubat & memohon ampunan Allah", "Mencuci baju dengan sabun", "Mandi 2 kali sehari", "Cebok dengan air bersih"], a: 0 },
+        { q: "Air Mutlak (suci dan mensucikan) adalah air murni seperti...", opts: ["Air hujan, laut, dan sumur", "Air teh dan air sirup", "Air kelapa muda", "Air kopi panas"], a: 0 },
+        { q: "Air teh, air kopi, dan air kelapa hukumnya adalah suci, tetapi...", opts: ["Tidak bisa untuk bersuci/wudhu", "Sah untuk wudhu", "Haram untuk diminum", "Dilarang diminum"], a: 0 },
+        { q: "Apakah sah berwudhu menggunakan air sirup yang bersih dan harum?", opts: ["Tidak sah (suci tapi tidak mensucikan)", "Sah dan berpahala", "Boleh jika terpaksa", "Sangat dianjurkan"], a: 0 },
+        { q: "Air kurang dari 2 qullah yang terkena kotoran/najis disebut...", opts: ["Air Mutanajjis (tidak sah untuk bersuci)", "Air Mutlak", "Air Suci Murni", "Air Bersih"], a: 0 },
+        { q: "Menjaga hati dari sifat sombong dan pamer (riya) merupakan bagian dari...", opts: ["Bersuci Batiniyah", "Bersuci Lahiriah", "Mandi Wajib", "Tayamum"], a: 0 },
+        { q: "Mencuci baju yang terkena noda kotoran hingga bersih merupakan bentuk...", opts: ["Bersuci Lahiriah", "Bersuci Batiniyah", "Bertaubat", "Ibadah Ihsan"], a: 0 }
+    ];
+
+    let tugState = {
+        pos: 50, // 0 to 100
+        active: true
+    };
+
+    function initTugGame() {
+        tugState.pos = 50;
+        tugState.active = true;
+        updateTugVisuals();
+        document.getElementById('tug-winner-overlay').classList.add('hidden');
+        generateTugQuestion('left');
+        generateTugQuestion('right');
+    }
+
+    function resetTugGame() {
+        initTugGame();
+    }
+
+    function updateTugVisuals() {
+        if (tugState.pos < 0) tugState.pos = 0;
+        if (tugState.pos > 100) tugState.pos = 100;
+        
+        const container = document.getElementById('tug-container');
+        const offset = (tugState.pos - 50) * 1.2;
+        container.style.transform = `translateX(${offset}%)`;
+    }
+
+    function pullTugRope(side) {
+        if (!tugState.active) return;
+        
+        const char = document.getElementById(side === 'left' ? 'tug-char-left' : 'tug-char-right');
+        const anim = side === 'left' ? 'pulling-left' : 'pulling-right';
+        
+        char.classList.add(anim);
+        setTimeout(() => char.classList.remove(anim), 400);
+
+        if (side === 'left') tugState.pos -= 6;
+        else tugState.pos += 6;
+
+        updateTugVisuals();
+        checkTugWin();
+    }
+
+    function checkTugWin() {
+        if (tugState.pos <= 25) {
+            endTugGame('TIM SANTRI (BIRU)', 'blue');
+        } else if (tugState.pos >= 75) {
+            endTugGame('TIM MERAH (MERAH)', 'red');
+        }
+    }
+
+    function endTugGame(winnerName, color) {
+        tugState.active = false;
+        
+        const overlay = document.getElementById('tug-winner-overlay');
+        const nameEl = document.getElementById('tug-winner-name');
+        nameEl.textContent = winnerName;
+        nameEl.className = `text-3xl md:text-4xl font-black font-heading mb-6 drop-shadow-md ${color === 'blue' ? 'text-blue-400' : 'text-red-400'}`;
+        overlay.classList.remove('hidden');
+    }
+
+    function generateTugQuestion(side) {
+        if (!tugState.active) return;
+        const qData = tugQuestions[Math.floor(Math.random() * tugQuestions.length)];
+        
+        const qEl = document.getElementById(`tug-q-${side}`);
+        const optsEl = document.getElementById(`tug-opts-${side}`);
+        
+        qEl.textContent = qData.q;
+        optsEl.innerHTML = '';
+        
+        // Shuffle options
+        let opts = [...qData.opts];
+        const correctText = opts[qData.a];
+        opts.sort(() => Math.random() - 0.5);
+
+        opts.forEach(opt => {
+            const btn = document.createElement('button');
+            const colorBg = side === 'left' ? 'bg-blue-50 border-blue-200 text-blue-900 hover:bg-blue-600 hover:text-white' : 'bg-red-50 border-red-200 text-red-900 hover:bg-red-600 hover:text-white';
+            btn.className = `w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all ${colorBg} shadow-sm`;
+            btn.textContent = opt;
+            btn.onclick = () => {
+                const allBtns = optsEl.querySelectorAll('button');
+                allBtns.forEach(b => b.disabled = true);
+                if (opt === correctText) {
+                    btn.className = "w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-bold bg-emerald-500 text-white border-emerald-600 shadow-md";
+                    pullTugRope(side);
+                    setTimeout(() => generateTugQuestion(side), 500);
+                } else {
+                    btn.className = "w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-bold bg-red-500 text-white border-red-600 animate-pulse";
+                    setTimeout(() => generateTugQuestion(side), 700);
+                }
+            };
+            optsEl.appendChild(btn);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        initTugGame();
+    });
+    </script>
 
     <!-- ================= FOOTER ================= -->
     <footer class="w-full bg-teal-950 text-teal-200 py-10 border-t border-teal-900 mt-auto">
