@@ -590,6 +590,9 @@
             <button onclick="switchGame('truefalse')" id="tab-truefalse" class="game-tab-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center gap-2 bg-white text-slate-600 border border-slate-200 hover:border-purple-300 hover:text-purple-600">
                 <i class="fa-solid fa-check-double"></i> Benar atau Salah
             </button>
+            <button onclick="switchGame('tug')" id="tab-tug" class="game-tab-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center gap-2 bg-white text-slate-600 border border-slate-200 hover:border-purple-300 hover:text-purple-600">
+                <i class="fa-solid fa-flag"></i> Tarik Tambang
+            </button>
         </div>
 
         <!-- Game Container -->
@@ -662,6 +665,114 @@
                     </button>
                 </div>
             </div>
+
+            <!-- ===== GAME 4: TARIK TAMBANG ===== -->
+            <div id="game-tug" class="game-panel hidden p-4 md:p-6">
+                <div class="text-center mb-6">
+                    <h3 class="text-lg font-bold text-slate-800 font-heading mb-1">🚩 Duel Tarik Tambang Akidah</h3>
+                    <p class="text-xs text-slate-500">Ajak temanmu bertanding! Jawab soal dengan benar untuk menarik tali (Mode 2 Pemain).</p>
+                </div>
+                
+                <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden relative min-h-[440px] flex flex-col shadow-inner">
+                    <!-- Arena Main Content (3 Columns) -->
+                    <div class="flex-grow flex flex-row w-full relative min-h-[400px] overflow-hidden">
+                        
+                        <!-- Left Panel (Tim Santri) -->
+                        <div id="tug-panel-left" class="w-[32%] md:w-[30%] border-r border-slate-200 flex flex-col h-full bg-purple-100/90 z-20 relative shadow-md transition-colors duration-300">
+                            <div class="p-2 text-center border-b border-purple-200 bg-purple-200/80">
+                                <span class="text-[10px] md:text-xs font-extrabold text-purple-800 uppercase bg-purple-50 px-2.5 py-1 rounded-full tracking-wider shadow-sm">Tim Santri (Biru)</span>
+                            </div>
+                            <div class="flex-grow flex flex-col p-2 min-h-0 overflow-y-auto">
+                                <div class="flex-grow flex items-center justify-center py-2 min-h-[60px]">
+                                    <p id="tug-q-left" class="text-xs md:text-sm font-semibold text-center text-slate-800 leading-relaxed px-1">Menyiapkan soal...</p>
+                                </div>
+                                <div id="tug-opts-left" class="grid grid-cols-1 gap-1.5 mt-auto pb-1"></div>
+                            </div>
+                        </div>
+
+                        <!-- Center Visual Arena -->
+                        <div class="flex-grow relative bg-sky-50 overflow-hidden z-10 border-x border-slate-200 flex flex-col items-center justify-center">
+                            <div class="absolute top-4 left-6 text-sky-200 text-4xl opacity-70"><i class="fa-solid fa-cloud"></i></div>
+                            <div class="absolute top-8 right-8 text-sky-200 text-3xl opacity-50"><i class="fa-solid fa-cloud"></i></div>
+                            
+                            <!-- Center Line -->
+                            <div class="absolute top-4 bottom-4 left-1/2 w-0.5 border-l-2 border-dashed border-slate-300 z-0 -translate-x-1/2"></div>
+
+                            <!-- Dynamic Tug Container -->
+                            <div id="tug-container" class="flex items-center justify-center h-full w-full absolute inset-0 transition-transform duration-500 ease-out">
+                                <!-- Left Character -->
+                                <div id="tug-char-left" class="character absolute left-[2%] md:left-[8%] bottom-[40%] transition-transform">
+                                    <svg width="80" height="80" viewBox="0 0 100 100" class="drop-shadow-md">
+                                        <path d="M35 75 L35 98 L45 98 L45 75 Z" fill="#1e3a8a" />
+                                        <path d="M55 75 L55 98 L65 98 L65 75 Z" fill="#1e3a8a" />
+                                        <rect x="30" y="45" width="40" height="35" rx="4" fill="#2563eb" />
+                                        <circle cx="50" cy="32" r="15" fill="#fcd34d" />
+                                        <path d="M34 18 L66 18 L66 30 L34 30 Z" fill="#f1f5f9" />
+                                        <ellipse cx="50" cy="18" rx="16" ry="3" fill="#e2e8f0" />
+                                        <circle cx="54" cy="34" r="2" fill="#1e293b" />
+                                        <circle cx="60" cy="34" r="2" fill="#1e293b" />
+                                        <path d="M30 50 Q20 55 25 60" stroke="#2563eb" stroke-width="8" stroke-linecap="round" fill="none" />
+                                        <circle cx="25" cy="60" r="5" fill="#fcd34d" />
+                                        <path d="M50 52 L90 58" stroke="#2563eb" stroke-width="8" stroke-linecap="round" />
+                                        <circle cx="90" cy="58" r="6" fill="#fcd34d" stroke="#d97706" stroke-width="1"/>
+                                    </svg>
+                                </div>
+
+                                <!-- Rope -->
+                                <div class="relative w-[75%] md:w-[65%] flex items-center justify-center top-2 md:top-2.5">
+                                    <div class="rope-line w-full h-2.5 bg-amber-800 rounded-full shadow"></div>
+                                    <div id="tug-knot" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 bg-amber-400 border-2 border-amber-800 rounded-full z-20 flex items-center justify-center shadow-md">
+                                        <i class="fa-solid fa-flag text-red-600 text-[10px]"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Right Character -->
+                                <div id="tug-char-right" class="character absolute right-[2%] md:right-[8%] bottom-[40%] scale-x-[-1] transition-transform">
+                                    <svg width="80" height="80" viewBox="0 0 100 100" class="drop-shadow-md">
+                                        <path d="M35 75 L35 98 L45 98 L45 75 Z" fill="#7f1d1d" />
+                                        <path d="M55 75 L55 98 L65 98 L65 75 Z" fill="#7f1d1d" />
+                                        <rect x="30" y="45" width="40" height="35" rx="4" fill="#dc2626" />
+                                        <circle cx="50" cy="32" r="15" fill="#fcd34d" />
+                                        <path d="M34 14 L66 16 L66 30 L34 30 Z" fill="#1f2937" />
+                                        <ellipse cx="50" cy="15" rx="16" ry="3" fill="#374151" />
+                                        <circle cx="54" cy="34" r="2" fill="#1e293b" />
+                                        <circle cx="60" cy="34" r="2" fill="#1e293b" />
+                                        <path d="M30 50 Q20 55 25 60" stroke="#dc2626" stroke-width="8" stroke-linecap="round" fill="none" />
+                                        <circle cx="25" cy="60" r="5" fill="#fcd34d" />
+                                        <path d="M50 52 L90 58" stroke="#dc2626" stroke-width="8" stroke-linecap="round" />
+                                        <circle cx="90" cy="58" r="6" fill="#fcd34d" stroke="#b45309" stroke-width="1"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Panel (Tim Merah) -->
+                        <div id="tug-panel-right" class="w-[32%] md:w-[30%] border-l border-slate-200 flex flex-col h-full bg-red-100/90 z-20 relative shadow-md transition-colors duration-300">
+                            <div class="p-2 text-center border-b border-red-200 bg-red-200/80">
+                                <span id="tug-right-title" class="text-[10px] md:text-xs font-extrabold text-red-700 uppercase bg-red-50 px-2.5 py-1 rounded-full tracking-wider shadow-sm">Tim Merah (Pemain 2)</span>
+                            </div>
+                            <div class="flex-grow flex flex-col p-2 min-h-0 overflow-y-auto">
+                                <div class="flex-grow flex items-center justify-center py-2 min-h-[60px]">
+                                    <p id="tug-q-right" class="text-xs md:text-sm font-semibold text-center text-slate-800 leading-relaxed px-1">Menyiapkan soal...</p>
+                                </div>
+                                <div id="tug-opts-right" class="grid grid-cols-1 gap-1.5 mt-auto pb-1"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Winner Overlay -->
+                    <div id="tug-winner-overlay" class="hidden absolute inset-0 z-50 bg-slate-900/90 flex flex-col items-center justify-center p-6 text-center animate-fadeIn">
+                        <div class="text-6xl mb-3 animate-bounce">🏆</div>
+                        <h3 class="text-xs font-bold text-amber-400 uppercase tracking-widest mb-1">Pemenang Pertandingan</h3>
+                        <h2 id="tug-winner-name" class="text-3xl md:text-4xl font-black text-white mb-6 font-heading drop-shadow-md">TIM SANTRI</h2>
+                        <button onclick="resetTugGame()" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 active:scale-95 flex items-center gap-2">
+                            <i class="fa-solid fa-rotate-right"></i> Main Lagi
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
         </div>
     </section>
 
@@ -700,6 +811,14 @@
 
         .tf-correct-flash { background: linear-gradient(135deg, #d1fae5, #a7f3d0) !important; border-color: #10b981 !important; }
         .tf-wrong-flash { background: linear-gradient(135deg, #fee2e2, #fecaca) !important; border-color: #ef4444 !important; }
+
+        .rope-line {
+            background: repeating-linear-gradient(45deg, #854d0e, #854d0e 8px, #713f12 8px, #713f12 16px);
+        }
+        .pulling-left { animation: tugPullLeft 0.4s ease infinite; }
+        .pulling-right { animation: tugPullRight 0.4s ease infinite; }
+        @keyframes tugPullLeft { 0%, 100% { transform: translateX(0) rotate(0deg); } 50% { transform: translateX(-8px) rotate(-6deg); } }
+        @keyframes tugPullRight { 0%, 100% { transform: scaleX(-1) translateX(0) rotate(0deg); } 50% { transform: scaleX(-1) translateX(-8px) rotate(-6deg); } }
     </style>
 
     <!-- Game Scripts -->
@@ -1005,11 +1124,122 @@
         document.getElementById('tf-retry').classList.remove('hidden');
     }
 
+    // ===== GAME 4: TARIK TAMBANG =====
+    const tugQuestions = [
+        { q: "Dasar hukum utama akidah Islam adalah...", opts: ["Al-Qur'an dan As-Sunnah", "Pendapat manusia & akal", "Tradisi dan kebiasaan", "Buku-buku sejarah"], a: 0 },
+        { q: "Akidah Islam bersifat 'tauqifi', artinya...", opts: ["Tidak dapat ditetapkan kecuali dengan dalil syar'i", "Boleh diubah sesuai zaman", "Berdasarkan pemikiran manusia", "Bebas ditafsirkan siapa saja"], a: 0 },
+        { q: "Selain Allah SWT sendiri, siapa satu-satunya manusia yang mengetahui tentang Allah?", opts: ["Rasulullah SAW", "Para ilmuwan", "Para raja", "Manusia umumnya"], a: 0 },
+        { q: "Pengambilan sumber dan dasar akidah Islam hanya terbatas pada...", opts: ["Al-Qur'an dan As-Sunnah", "Akal dan perasaan", "Mimpi dan khayalan", "Buku-buku umum"], a: 0 },
+        { q: "Menurut sabda Nabi SAW, apa jaminan bagi orang yang berpegang teguh pada Al-Qur'an & Sunnah?", opts: ["Tidak akan sesat", "Akan menjadi kaya raya", "Tidak pernah sakit", "Bisa terbang"], a: 0 },
+        { q: "Dua perkara yang ditinggalkan Rasulullah SAW agar umatnya tidak sesat adalah...", opts: ["Kitab Allah dan Sunnah Rasul-Nya", "Harta warisan dan emas", "Tahta dan jabatan", "Rumah dan tanah"], a: 0 },
+        { q: "Kata 'tauqifi' menegaskan bahwa penetapan akidah Islam harus berdasarkan...", opts: ["Dalil syar'i (Al-Qur'an & As-Sunnah)", "Suara terbanyak masyarakat", "Musyawarah adat", "Perasaan hati"], a: 0 },
+        { q: "Pengutipan hadis 'Aku telah tinggalkan pada kamu dua perkara...' berstatus...", opts: ["Hadits Shahih Lighairihi, H.R. Malik", "Hadits Dhaif", "Hadits Palsu", "Pendapat pribadi"], a: 0 },
+        { q: "Mengapa akidah Islam tidak dapat ditetapkan berdasarkan rekaan akal manusia?", opts: ["Karena akidah bersifat tauqifi", "Karena manusia tidak suka membaca", "Karena dilarang berpikir", "Karena buku akidah tidak ada"], a: 0 },
+        { q: "Lanjutan potongan hadis 'تَرَكْتُ فِيْكُمْ أَمْرَيْنِ لَنْ تَضِلُّوا مَا تَمَسَّكْتُمْ بِهِمَا' adalah...", opts: ["كِتَابَ اللهِ وَسُنَّةَ رَسُوْلِهِ", "الدُّنْيَا وَالْآخِرَةُ", "الصَّلَاةُ وَالزَّكَاةُ", "الْعِلْمُ وَالْعَمَلُ"], a: 0 }
+    ];
+
+    let tugState = {
+        pos: 50,
+        active: true
+    };
+
+    function initTugGame() {
+        tugState.pos = 50;
+        tugState.active = true;
+        updateTugVisuals();
+        document.getElementById('tug-winner-overlay').classList.add('hidden');
+        generateTugQuestion('left');
+        generateTugQuestion('right');
+    }
+
+    function resetTugGame() {
+        initTugGame();
+    }
+
+    function updateTugVisuals() {
+        if (tugState.pos < 0) tugState.pos = 0;
+        if (tugState.pos > 100) tugState.pos = 100;
+        
+        const container = document.getElementById('tug-container');
+        const offset = (tugState.pos - 50) * 1.2;
+        container.style.transform = `translateX(${offset}%)`;
+    }
+
+    function pullTugRope(side) {
+        if (!tugState.active) return;
+        
+        const char = document.getElementById(side === 'left' ? 'tug-char-left' : 'tug-char-right');
+        const anim = side === 'left' ? 'pulling-left' : 'pulling-right';
+        
+        char.classList.add(anim);
+        setTimeout(() => char.classList.remove(anim), 400);
+
+        if (side === 'left') tugState.pos -= 6;
+        else tugState.pos += 6;
+
+        updateTugVisuals();
+        checkTugWin();
+    }
+
+    function checkTugWin() {
+        if (tugState.pos <= 25) {
+            endTugGame('TIM SANTRI (BIRU)', 'blue');
+        } else if (tugState.pos >= 75) {
+            endTugGame('TIM MERAH (MERAH)', 'red');
+        }
+    }
+
+    function endTugGame(winnerName, color) {
+        tugState.active = false;
+        
+        const overlay = document.getElementById('tug-winner-overlay');
+        const nameEl = document.getElementById('tug-winner-name');
+        nameEl.textContent = winnerName;
+        nameEl.className = `text-3xl md:text-4xl font-black font-heading mb-6 drop-shadow-md ${color === 'blue' ? 'text-purple-400' : 'text-red-400'}`;
+        overlay.classList.remove('hidden');
+    }
+
+    function generateTugQuestion(side) {
+        if (!tugState.active) return;
+        const qData = tugQuestions[Math.floor(Math.random() * tugQuestions.length)];
+        
+        const qEl = document.getElementById(`tug-q-${side}`);
+        const optsEl = document.getElementById(`tug-opts-${side}`);
+        
+        qEl.textContent = qData.q;
+        optsEl.innerHTML = '';
+        
+        let opts = [...qData.opts];
+        const correctText = opts[qData.a];
+        opts.sort(() => Math.random() - 0.5);
+
+        opts.forEach(opt => {
+            const btn = document.createElement('button');
+            const colorBg = side === 'left' ? 'bg-purple-50 border-purple-200 text-purple-900 hover:bg-purple-600 hover:text-white' : 'bg-red-50 border-red-200 text-red-900 hover:bg-red-600 hover:text-white';
+            btn.className = `w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all ${colorBg} shadow-sm`;
+            btn.textContent = opt;
+            btn.onclick = () => {
+                const allBtns = optsEl.querySelectorAll('button');
+                allBtns.forEach(b => b.disabled = true);
+                if (opt === correctText) {
+                    btn.className = "w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-bold bg-emerald-500 text-white border-emerald-600 shadow-md";
+                    pullTugRope(side);
+                    setTimeout(() => generateTugQuestion(side), 500);
+                } else {
+                    btn.className = "w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-bold bg-red-500 text-white border-red-600 animate-pulse";
+                    setTimeout(() => generateTugQuestion(side), 700);
+                }
+            };
+            optsEl.appendChild(btn);
+        });
+    }
+
     // ===== INIT ALL GAMES ON LOAD =====
     document.addEventListener('DOMContentLoaded', () => {
         initScramble();
         initMatch();
         initTrueFalse();
+        initTugGame();
     });
     </script>
 
