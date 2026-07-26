@@ -1,0 +1,2198 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Materi Fikih - Alat-Alat Bersuci</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    },
+                    colors: {
+                        teal: {
+                            850: '#0f5d56',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        .no-select { user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; }
+        input, select, textarea { user-select: text; -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; }
+        h1, h2, h3, h4, h5, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Pengaturan Teks Arab agar harakat terlihat sangat jelas */
+        .arabic-text { 
+            font-family: 'Amiri', serif; 
+            direction: rtl; 
+            line-height: 2.0 !important; 
+            word-spacing: 0.25em; 
+        }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        .option-label { cursor: pointer; transition: all 0.2s ease-in-out; border: 1px solid #e2e8f0; }
+        .option-label:hover { border-color: #0f766e; background-color: #f0fdfa; }
+        .option-input:checked + .option-content { background-color: #f0fdfa; border-color: #0f766e; box-shadow: 0 0 0 1px #0f766e; }
+        .option-input:checked + .option-content .option-circle { background-color: #0f766e; color: white; border-color: #0f766e; }
+        .pattern-bg { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        
+        .fade-text { transition: opacity 0.3s ease-in-out; }
+        .modal-backdrop { background-color: rgba(15, 23, 42, 0.7); backdrop-filter: blur(4px); animation: fadeIn 0.2s ease-out; }
+        .modal-content { animation: slideUp 0.3s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        
+        #anti-cheat-banner { transition: transform 0.3s ease-in-out; }
+        .student-watermark { position: fixed; top: -50%; left: -50%; width: 200vw; height: 200vh; pointer-events: none; z-index: 9999; opacity: 0.03; display: flex; flex-wrap: wrap; align-content: flex-start; word-break: break-all; font-size: 1.3rem; font-weight: 800; line-height: 1.8; color: #000; transform: rotate(-25deg); text-transform: uppercase; }
+        
+        .b64t { opacity: 0; transition: opacity 0.3s; }
+        .b64-ready { opacity: 1; }
+    </style>
+</head>
+<body class="no-select selection:bg-teal-200 selection:text-teal-900 flex flex-col min-h-screen overflow-x-hidden">
+
+    <!-- Anti Cheat Overlay -->
+    <div id="anti-cheat-banner" class="fixed top-0 left-0 w-full bg-red-600 text-white text-center py-2 z-[10001] transform -translate-y-full flex items-center justify-center gap-2 text-sm font-semibold shadow-md">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span id="anti-cheat-msg" class="b64t" data-b="U2lzdGVtIFBlbmdhd2FzYW4gQWt0aWY6IERpbGFyYW5nIG1lbnlhbGluIHRla3MgYXRhdSBtZW5pbmdnYWxrYW4gaGFsYW1hbiB1amlhbiE="></span>
+    </div>
+
+    <div id="anti-snip-overlay" class="fixed inset-0 bg-slate-900/95 backdrop-blur-xl z-[10000] hidden flex-col items-center justify-center text-white transition-opacity duration-200">
+        <i class="fa-solid fa-eye-slash text-7xl mb-6 text-red-500 animate-pulse"></i>
+        <h2 class="text-3xl font-bold font-heading mb-2 text-center b64t" data-b="TGF5YXIgVWppYW4gRGlzZW1idW55aWthbg=="></h2>
+        <p class="text-slate-300 text-center max-w-md px-4 mb-4 b64t" data-b="U2lzdGVtIG1lbmRldGVrc2kgQW5kYSBtZW5pbmdnYWxrYW4gaGFsYW1hbiB1amlhbiBhdGF1IG1lbWJ1a2EgYXBsaWthc2kgbGFpbi4="></p>
+        <div id="snip-identity" class="bg-red-900/50 border border-red-500 text-amber-400 font-bold text-xl px-6 py-3 rounded-xl mb-6 hidden uppercase tracking-wider text-center"></div>
+        <button onclick="regainFocus()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105 b64t" data-b="S2VtYmFsaSBrZSBVamlhbg=="></button>
+    </div>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Brand -->
+                <a href="../../" target="_top" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <div class="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-book-open text-sm"></i>
+                    </div>
+                    <span class="font-heading font-bold text-lg tracking-wide text-slate-800">Belajar<span class="text-teal-600">Online</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    
+                    
+
+                    
+                    <!-- Standalone Link Fiqih -->
+                    <a href="../../fiqih/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors flex items-center gap-1 py-4">
+                        Fiqih
+                    </a>
+                    
+                    <!-- Standalone Link Akidah Akhlak -->
+                    <a href="../../akidah-akhlak/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors flex items-center gap-1 py-4">
+                        Akidah Akhlak
+                    </a>
+
+                    <a href="../../formatif/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Uji Kompetensi
+                    </a>
+                    <a href="../../nilai-siswa/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Rekap Nilai
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-slate-600 hover:text-teal-600 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full max-h-[85vh] overflow-y-auto">
+            <div class="px-2 pt-4 pb-6 space-y-1">
+                
+                
+
+                
+                <!-- Standalone Link Fiqih Mobile -->
+                <div class="px-2 mt-1">
+                    <a href="../../fiqih/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Fiqih</a>
+                </div>
+                
+                <!-- Standalone Link Akidah Akhlak Mobile -->
+                <div class="px-2 mt-1">
+                    <a href="../../akidah-akhlak/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Akidah Akhlak</a>
+                </div>
+
+                <!-- Standalone Links Mobile -->
+                <div class="px-2 mt-1">
+                    <a href="../../formatif/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Uji Kompetensi</a>
+                </div>
+                <div class="px-2 mt-1">
+                    <a href="../../nilai-siswa/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Rekap Nilai</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+<header class="bg-teal-900 relative pt-32 pb-32 overflow-hidden pattern-bg">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-teal-900/90"></div>
+    <div class="container mx-auto px-4 relative z-10 max-w-4xl text-center">
+        <span class="inline-flex items-center gap-2 bg-teal-800/80 border border-teal-700 text-teal-100 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-6 shadow-sm">
+            <i class="fa-solid fa-book-bookmark text-amber-400"></i> Fikih Ibadah
+        </span>
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white font-heading leading-tight">
+            <span class="text-amber-400">Alat-Alat Bersuci</span>
+        </h1>
+        <p class="text-lg text-teal-100/90 max-w-2xl mx-auto font-light leading-relaxed mb-10 italic">
+            "Kebersihan (bersuci) itu adalah sebagian dari iman." <br>
+            <span class="text-sm opacity-75 font-semibold not-italic">HR. Muslim</span>
+        </p>
+        <a href="#materi" class="bg-amber-500 hover:bg-amber-400 text-teal-950 px-8 py-3.5 rounded-xl font-semibold transition inline-flex items-center gap-2 shadow-lg transform hover:-translate-y-0.5">
+            Mulai Belajar <i class="fa-solid fa-arrow-down text-sm"></i>
+        </a>
+    </div>
+</header>
+
+<!-- Main Body Content Container -->
+<main class="flex-grow">
+
+    <!-- Asesmen Diagnostik Section -->
+    <section id="diagnostik" class="py-10 container mx-auto px-4 -mt-24 relative z-30 max-w-4xl">
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+            <div class="bg-gradient-to-r from-teal-600 to-teal-800 p-6 text-white flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-bold font-heading flex items-center gap-3">
+                        <i class="fa-solid fa-clipboard-question text-amber-400"></i> Cek Pemahaman Awal (Asesmen Diagnostik)
+                    </h2>
+                    <p class="text-teal-100 mt-2 text-sm">Jawab 5 pertanyaan dasar ini sebelum mulai belajar materi.</p>
+                </div>
+                <div id="diag-score-badge" class="hidden bg-white text-teal-800 px-4 py-2 rounded-xl font-bold text-xl shadow-lg border-2 border-teal-400">
+                    <span id="diag-score">100</span>/100
+                </div>
+            </div>
+            
+            <div class="p-6 md:p-8" id="diag-container">
+                <form id="diag-form" class="space-y-6">
+                    <div id="diag-dynamic-container">
+                        <!-- Questions will be injected here via JavaScript -->
+                    </div>
+                    
+                    <div class="pt-4 border-t border-slate-100 flex justify-end items-center gap-4">
+                        <span id="diag-warning" class="text-red-500 text-sm font-semibold hidden"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Jawab semua 5 pertanyaan terlebih dahulu!</span>
+                        <button type="button" onclick="submitDiagnostic()" id="diag-submit-btn" class="bg-amber-500 hover:bg-amber-600 text-teal-950 font-bold py-3 px-8 rounded-xl transition shadow-sm">Cek Hasil <i class="fa-solid fa-arrow-right ml-2"></i></button>
+                    </div>
+                </form>
+                
+                <div id="diag-result-card" class="hidden bg-slate-50 border border-slate-200 rounded-xl p-6 text-center">
+                    <div id="diag-result-icon" class="text-5xl mb-4"></div>
+                    <h3 id="diag-result-title" class="text-xl font-bold text-slate-800 mb-2"></h3>
+                    <p id="diag-result-desc" class="text-slate-600 mb-6"></p>
+                    <button type="button" onclick="resetDiagnostic()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 px-6 rounded-lg transition text-sm">Coba Lagi</button>
+                    <a href="#materi" class="inline-block ml-3 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold py-2.5 px-6 rounded-lg transition text-sm">Lanjut ke Materi <i class="fa-solid fa-arrow-down ml-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materi Section -->
+    <section id="materi" class="py-12 container mx-auto px-4 relative z-20 max-w-5xl pt-4">
+        
+        
+        <!-- Video Pembelajaran -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden mb-6 hover:shadow-md transition-shadow">
+            <div class="p-5 md:p-6 border-b border-slate-100 flex items-center gap-3">
+                <span class="bg-red-50 text-red-600 w-10 h-10 rounded-lg flex items-center justify-center shrink-0">
+                    <i class="fa-brands fa-youtube text-xl"></i>
+                </span>
+                <h3 class="text-xl md:text-2xl font-bold text-slate-800 font-heading">Video Pembelajaran</h3>
+            </div>
+            <div class="p-5 md:p-6">
+                <div class="aspect-w-16 aspect-h-9 relative w-full overflow-hidden rounded-xl bg-slate-100" style="padding-top: 56.25%;">
+                    <iframe class="absolute top-0 left-0 w-full h-full rounded-xl" src="https://www.youtube.com/embed/4Bmxlmtpt1A?si=YxAjS47udQKYq-Ot" title="Video Pembelajaran Alat Bersuci" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cards-container">
+            
+            <!-- Card A -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer group" onclick="openContentModal('content-a')">
+                <div class="p-6 text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-hand-holding-droplet"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2">Bersuci</h3>
+                    <p class="text-xs text-slate-500">Pengertian, perbedaan, dan dasar hukum bersuci.</p>
+                </div>
+            </div>
+
+            <!-- Card B -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer group" onclick="openContentModal('content-b')">
+                <div class="p-6 text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-glass-water"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2">Kedudukan Air</h3>
+                    <p class="text-xs text-slate-500">Air sebagai alat bersuci utama dan pembagiannya.</p>
+                </div>
+            </div>
+
+            <!-- Card C -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer group" onclick="openContentModal('content-c')">
+                <div class="p-6 text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-amber-500 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-cube"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2">Benda Padat</h3>
+                    <p class="text-xs text-slate-500">Syarat benda padat pengganti air untuk bersuci.</p>
+                </div>
+            </div>
+
+            <!-- Card D -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer group" onclick="openContentModal('content-d')">
+                <div class="p-6 text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2">Hikmah</h3>
+                    <p class="text-xs text-slate-500">Manfaat bersuci bagi manusia dan ekosistem alam.</p>
+                </div>
+            </div>
+
+            <!-- Card E -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer group" onclick="openContentModal('content-e')">
+                <div class="p-6 text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2">Islam Wasatiyyah</h3>
+                    <p class="text-xs text-slate-500">Penerapan moderasi dan toleransi dalam thaharah.</p>
+                </div>
+            </div>
+
+            <!-- Card F -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer group" onclick="openContentModal('content-f')">
+                <div class="p-6 text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2">Tugas Mandiri</h3>
+                    <p class="text-xs text-slate-500">Tugas observasi klasifikasi air di lingkungan.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Templates for Modals -->
+        <template id="content-a" data-title="Bersuci" data-icon="fa-hand-holding-droplet" data-color="teal">
+            <div class="space-y-8 pl-2 md:pl-6 border-l-2 border-teal-100">
+                <div class="relative">
+                    <div class="absolute -left-[29px] md:-left-[45px] top-1 w-4 h-4 bg-white border-4 border-teal-500 rounded-full"></div>
+                    <h4 class="font-bold text-slate-800 text-lg">1. Pengertian Bersuci</h4>
+                    <p class="text-slate-600 text-base mt-2 leading-relaxed">
+                        Bersuci dalam bahasa Arab disebut <strong class="text-teal-700 italic">Thaharah (الطهارة)</strong>. 
+                        Istilah thaharah dari segi bahasa berarti membersihkan diri, pakaian, tempat dan benda-benda lain dari najis dan hadast dengan tata cara yang ditentukan oleh syariat Islam. 
+                        Setiap orang yang akan mengerjakan shalat dan tawaf diwajibkan terlebih dahulu berthaharah, seperti berwudhu, tayamum atau mandi.
+                    </p>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute -left-[29px] md:-left-[45px] top-1 w-4 h-4 bg-white border-4 border-teal-500 rounded-full"></div>
+                    <h4 class="font-bold text-slate-800 text-lg mb-3">2. Perbedaan Bersuci dan Membersihkan <span class="text-xs font-normal text-slate-400 bg-slate-100 px-2 py-1 rounded ml-2">Klik kartu di bawah</span></h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="group cursor-pointer h-40 perspective" onclick="this.querySelector('.flip-inner').classList.toggle('rotate-y-180')">
+                            <div class="flip-inner relative w-full h-full transition-transform duration-500 preserve-3d">
+                                <div class="absolute w-full h-full backface-hidden bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col items-center justify-center text-center">
+                                    <i class="fa-solid fa-broom text-4xl text-amber-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                                    <h5 class="font-bold text-slate-700">Membersihkan Diri</h5>
+                                </div>
+                                <div class="absolute w-full h-full backface-hidden rotate-y-180 bg-amber-50 p-4 rounded-xl border border-amber-200 flex flex-col items-center justify-center text-center">
+                                    <ul class="text-xs text-slate-700 font-medium text-left list-disc pl-4">
+                                        <li>Bertujuan untuk membersihkan</li>
+                                        <li>Mengikuti pola hidup sehat</li>
+                                        <li><span class="text-red-500 font-bold">TIDAK</span> mensyaratkan niat</li>
+                                        <li><span class="text-red-500 font-bold">TIDAK</span> diatur syariat Islam</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="group cursor-pointer h-40 perspective" onclick="this.querySelector('.flip-inner').classList.toggle('rotate-y-180')">
+                            <div class="flip-inner relative w-full h-full transition-transform duration-500 preserve-3d">
+                                <div class="absolute w-full h-full backface-hidden bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col items-center justify-center text-center">
+                                    <i class="fa-solid fa-hand-sparkles text-4xl text-teal-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                                    <h5 class="font-bold text-slate-700">Bersuci</h5>
+                                </div>
+                                <div class="absolute w-full h-full backface-hidden rotate-y-180 bg-teal-50 p-4 rounded-xl border border-teal-200 flex flex-col items-center justify-center text-center">
+                                    <ul class="text-xs text-teal-900 font-medium text-left list-disc pl-4">
+                                        <li>Menyertakan Niat</li>
+                                        <li>Tata cara diatur oleh syariat Islam</li>
+                                        <li>Bertujuan untuk membersihkan</li>
+                                        <li>Mengikuti pola hidup sehat</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[29px] md:-left-[45px] top-1 w-4 h-4 bg-white border-4 border-teal-500 rounded-full"></div>
+                    <h4 class="font-bold text-slate-800 text-lg">3. Pembagian Bersuci</h4>
+                    <ul class="list-none space-y-4 mt-3">
+                        <li class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <h5 class="font-bold text-slate-700 mb-1">A. Bersuci Lahiriyah (Hissiyah)</h5>
+                            <p class="text-sm text-slate-600">Meliputi kegiatan bersuci dari najis dan hadats. Terbagi menjadi:</p>
+                            <ul class="list-disc pl-5 mt-2 text-sm text-slate-600">
+                                <li><strong>Bersuci dari najis:</strong> Membersihkan kotoran pada badan/tempat sampai hilang rasa, bau, dan warnanya.</li>
+                                <li><strong>Bersuci dari hadats:</strong> Menghilangkan hadats dengan wudhu atau mandi.</li>
+                            </ul>
+                        </li>
+                        <li class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <h5 class="font-bold text-slate-700 mb-1">B. Bersuci Batiniah</h5>
+                            <p class="text-sm text-slate-600">Membersihkan jiwa dari kotoran batin berupa dosa dan maksiat (seperti syirik, takabur, ria'). Caranya dengan bertobat kepada Allah Swt.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[29px] md:-left-[45px] top-1 w-4 h-4 bg-white border-4 border-teal-500 rounded-full"></div>
+                    <h4 class="font-bold text-slate-800 text-lg">4. Dasar Hukum Bersuci</h4>
+                    <div class="space-y-4 mt-3">
+                        <blockquote class="bg-slate-50 border-l-4 border-teal-500 p-4 rounded-r-lg italic text-slate-700 text-sm">
+                            "Sungguh, Allah menyukai orang yang tobat dan menyukai orang yang menyucikan diri." <br>
+                            <span class="font-semibold">(QS. Al-Baqarah [1]: 222)</span>
+                        </blockquote>
+                        <blockquote class="bg-slate-50 border-l-4 border-teal-500 p-4 rounded-r-lg italic text-slate-700 text-sm">
+                            "Di dalamnya ada orang-orang yang ingin membersihkan diri. Allah menyukai orang-orang yang bersih." <br>
+                            <span class="font-semibold">(QS. Al-Taubah [9]: 108)</span>
+                        </blockquote>
+                        <blockquote class="bg-slate-50 border-l-4 border-teal-500 p-4 rounded-r-lg italic text-slate-700 text-sm">
+                            "Wahai orang-orang yang beriman! Apabila kamu hendak melaksanakan shalat, maka basuhlah wajahmu dan tanganmu sampai ke siku, dan sapulah kepalamu dan (basuh) kedua kakimu sampai ke kedua mata kaki. Jika kamu junub, maka mandilah." <br>
+                            <span class="font-semibold">(QS. Al-Maidah [5]: 6)</span>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="content-b" data-title="Kedudukan Air Dalam Bersuci" data-icon="fa-glass-water" data-color="blue">
+            <div class="space-y-8 pl-2 md:pl-6 border-l-2 border-blue-100">
+                <div class="relative">
+                    <div class="absolute -left-[29px] md:-left-[45px] top-1 w-4 h-4 bg-white border-4 border-blue-500 rounded-full"></div>
+                    <h4 class="font-bold text-slate-800 text-lg">1. Air Sebagai Alat Bersuci</h4>
+                    <p class="text-slate-600 text-base mt-2 leading-relaxed">
+                        Alat yang paling utama untuk bersuci adalah air. Namun tidak semua air dapat digunakan sebagai alat bersuci. Oleh karena itu, kita harus mengetahui pembagian air.
+                    </p>
+                </div>
+                <div class="relative">
+                    <div class="absolute -left-[29px] md:-left-[45px] top-1 w-4 h-4 bg-white border-4 border-blue-500 rounded-full"></div>
+                    <h4 class="font-bold text-slate-800 text-lg mb-3">2. Air Ditinjau dari Pembagiannya</h4>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <button onclick="switchTab('tab-mutlak', this)" class="water-tab-btn active px-4 py-2 text-sm font-semibold rounded-lg bg-blue-600 text-white transition-colors">Air Mutlak</button>
+                        <button onclick="switchTab('tab-gairu', this)" class="water-tab-btn px-4 py-2 text-sm font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">Suci Tdk Mensucikan</button>
+                        <button onclick="switchTab('tab-mutanajjis', this)" class="water-tab-btn px-4 py-2 text-sm font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">Mutanajjis</button>
+                        <button onclick="switchTab('tab-mustamal', this)" class="water-tab-btn px-4 py-2 text-sm font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">Musta'mal</button>
+                        <button onclick="switchTab('tab-musyammas', this)" class="water-tab-btn px-4 py-2 text-sm font-semibold rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors">Musyammas</button>
+                    </div>
+                    <div class="bg-blue-50 border border-blue-100 rounded-xl p-5 min-h-[140px]">
+                        <div id="tab-mutlak" class="water-tab-content block animate-fadeIn">
+                            <h5 class="font-bold text-blue-800 mb-2"><i class="fa-solid fa-droplet mr-2"></i>Air Suci dan Mensucikan (Air Mutlak / Thahir Muthahhir)</h5>
+                            <p class="text-slate-700 text-sm">Air murni yang belum tercampur najis dan belum berubah sifat (bau, rasa, warnanya). Sah untuk bersuci.</p>
+                            <ul class="list-disc pl-5 text-blue-800 text-xs mt-2 font-medium">
+                                <li><strong>Air Hujan:</strong> Turun dari langit. (QS Al-Anfal: 11)</li>
+                                <li><strong>Air dari mata air:</strong> Keluar sendirinya ke permukaan.</li>
+                                <li><strong>Air Laut:</strong> "Air laut itu suci..." (HR. Bukhari).</li>
+                                <li><strong>Air Sungai:</strong> Mengalir terus menerus.</li>
+                                <li><strong>Air Sumur:</strong> "...adalah suci, tidak dapat dinajiskan."</li>
+                                <li><strong>Air Es/Salju</strong> dan <strong>Air Embun</strong>.</li>
+                            </ul>
+                        </div>
+                        <div id="tab-gairu" class="water-tab-content hidden animate-fadeIn">
+                            <h5 class="font-bold text-slate-800 mb-2"><i class="fa-solid fa-mug-hot mr-2"></i>Air Suci Tetapi Tidak Mensucikan (Thahir Gairu Mutahhir)</h5>
+                            <p class="text-slate-700 text-sm">Halal diminum tetapi tidak sah untuk bersuci (tidak bisa menghilangkan hadas).</p>
+                            <ul class="list-disc pl-5 text-slate-600 text-xs mt-2 font-medium">
+                                <li>Air buah-buahan (air kelapa)</li>
+                                <li>Air yang dikeluarkan dari pepohonan (nira)</li>
+                                <li>Air suci yang tercampur benda suci lain dan hilang nama airnya secara mutlak (air teh, air kopi)</li>
+                            </ul>
+                        </div>
+                        <div id="tab-mutanajjis" class="water-tab-content hidden animate-fadeIn">
+                            <h5 class="font-bold text-red-800 mb-2"><i class="fa-solid fa-biohazard mr-2"></i>Air Mutanajjis</h5>
+                            <p class="text-slate-700 text-sm">Air yang terkena najis. Tidak halal diminum dan tidak sah untuk bersuci.</p>
+                            <ul class="list-disc pl-5 text-red-700 text-xs mt-2 font-medium">
+                                <li>Air yang sudah berubah warna, bau dan rasanya karena terkena najis.</li>
+                                <li>Air yang belum berubah warnanya, tetapi jumlahnya sedikit (kurang dari dua kulah / ± 216 liter) dan terkena najis.</li>
+                            </ul>
+                        </div>
+                        <div id="tab-mustamal" class="water-tab-content hidden animate-fadeIn">
+                            <h5 class="font-bold text-slate-800 mb-2"><i class="fa-solid fa-recycle mr-2"></i>Air Musta'mal</h5>
+                            <p class="text-slate-700 text-sm">Air yang sedikit ukurannya (kurang dari 2 kulah) dan merupakan bekas pakai untuk bersuci walaupun tidak berubah warnanya.</p>
+                            <div class="bg-white border border-slate-200 p-3 mt-3 rounded-lg">
+                                <p class="text-xs font-bold text-slate-800 mb-1">Volume 2 Kulah = ± 216 Liter</p>
+                                <p class="text-xs text-slate-600">Bak mandi persegi = P: 56 cm x L: 56 cm x T: 56 cm</p>
+                            </div>
+                        </div>
+                        <div id="tab-musyammas" class="water-tab-content hidden animate-fadeIn">
+                            <h5 class="font-bold text-amber-800 mb-2"><i class="fa-solid fa-sun mr-2"></i>Air Musyammas</h5>
+                            <p class="text-slate-700 text-sm">Air yang dijemur atau terkena panas matahari dan disimpan dalam bejana/bak penampungan (wadah yang bisa berkarat) selain dari emas dan perak.</p>
+                            <p class="text-amber-700 text-xs mt-2 font-bold">Hukum: Makruh dipakai bersuci ke badan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="content-c" data-title="Benda-Benda Bersuci Selain Air" data-icon="fa-cube" data-color="amber">
+            <div class="space-y-6 pl-2 md:pl-6 border-l-2 border-amber-100">
+                <p class="text-slate-600 text-base leading-relaxed">
+                    Benda-benda selain air yang dapat digunakan untuk bersuci adalah benda yang mampu menyerap air. Semua benda tersebut harus dalam keadaan bersih. Contohnya adalah kayu, batu, tisu kering, tanah, pecahan genting.
+                </p>
+                <div class="bg-slate-50 rounded-xl p-4 border border-slate-100">
+                    <h4 class="font-bold text-slate-800 mb-3 text-base"><i class="fa-solid fa-cube text-amber-600 mr-2"></i>Bersuci dengan Batu</h4>
+                    <p class="text-sm text-slate-700 mb-3">Bersuci dengan batu agar hasilnya bersih dan mensucikan maka harus dipenuhi 8 syarat berikut:</p>
+                    <ol class="list-decimal pl-5 text-sm text-slate-700 space-y-1 font-medium">
+                        <li>Menggunakan 3 buah batu (atau 1 batu dengan 3 sisi).</li>
+                        <li>Batu yang digunakan dapat membersihkan (tidak terlalu datar/runcing).</li>
+                        <li>Belum mengering (kotorannya belum mengering).</li>
+                        <li>Belum berpindah (kotoran belum bergeser dari tempatnya).</li>
+                        <li>Tidak bercampur dengan kotoran lain atau air.</li>
+                        <li>Tidak meluber (belum melebar dari tempat keluarnya).</li>
+                        <li>Batu dalam keadaan tidak basah.</li>
+                        <li>Batu dalam keadaan suci (tidak terkena najis).</li>
+                    </ol>
+                </div>
+            </div>
+        </template>
+
+        <template id="content-d" data-title="Hikmah Alat Bersuci" data-icon="fa-lightbulb" data-color="emerald">
+            <div class="grid md:grid-cols-2 gap-4 pl-2 md:pl-6 border-l-2 border-emerald-100">
+                <div class="bg-emerald-50 p-5 rounded-xl border border-emerald-100">
+                    <h4 class="font-bold text-emerald-800 text-base mb-2"><i class="fa-solid fa-heart-pulse mr-2"></i>Kesehatan Manusia</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Mencegah penyakit menular, menjauhkan dari bakteri, dan memberi rasa nyaman serta percaya diri di masyarakat.</p>
+                </div>
+                <div class="bg-emerald-50 p-5 rounded-xl border border-emerald-100">
+                    <h4 class="font-bold text-emerald-800 text-base mb-2"><i class="fa-solid fa-leaf mr-2"></i>Kelestarian Alam</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">Mencegah boros air dan melarang pembuangan kotoran di sumber air demi menjaga ekosistem.</p>
+                </div>
+            </div>
+        </template>
+
+        <template id="content-e" data-title="Islam Wasatiyyah" data-icon="fa-scale-balanced" data-color="purple">
+            <div class="pl-2 md:pl-6 border-l-2 border-purple-100">
+                <p class="text-slate-700 text-base leading-relaxed mb-4">
+                    Penerapan nilai moderasi dalam thaharah:
+                </p>
+                <ul class="list-disc pl-5 text-slate-600 text-base space-y-2">
+                    <li><strong>Toleransi Antar Mazhab:</strong> Menghargai perbedaan ulama tentang batalnya wudhu tanpa saling menyalahkan.</li>
+                    <li><strong>Hemat Air:</strong> Bersuci secukupnya (tidak israf), sesuai sunnah Nabi.</li>
+                    <li><strong>Kemudahan (Rukhshah):</strong> Menggunakan tayamum saat darurat tanpa memaksakan diri memakai air jika dapat membahayakan keselamatan jiwa.</li>
+                </ul>
+            </div>
+        </template>
+
+        <template id="content-f" data-title="Tugas Mandiri" data-icon="fa-clipboard-check" data-color="indigo">
+            <div class="pl-2 md:pl-6 border-l-2 border-indigo-100">
+                <p class="text-slate-700 text-base leading-relaxed mb-3">
+                    Amati 3 (tiga) sumber air yang ada di sekitar rumah atau madrasah Anda (misal: air keran masjid, air genangan, air selokan).
+                </p>
+                <ol class="list-decimal pl-5 text-slate-700 text-sm space-y-2 mb-4 font-medium">
+                    <li>Klasifikasikan jenis air tersebut ke dalam 4 macam air menurut Fiqih.</li>
+                    <li>Berdasarkan klasifikasi tersebut, tuliskan pendapat Anda apakah air tersebut boleh digunakan untuk berwudhu.</li>
+                    <li>Tuliskan 1 langkah nyata yang bisa Anda lakukan untuk menjaga kebersihan salah satu sumber air tersebut.</li>
+                </ol>
+                <div class="bg-indigo-50 border border-indigo-100 text-indigo-700 text-sm p-4 rounded-xl font-bold flex items-center gap-3">
+                    <i class="fa-solid fa-circle-info text-xl"></i> Tuliskan hasil observasi dan kumpulkan di buku tugas pada pertemuan selanjutnya!
+                </div>
+            </div>
+        </template>
+        
+        <!-- Interactive Modal Structure -->
+        <div id="content-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-4" style="background-color: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px);">
+            <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col relative animate-fadeIn">
+                <!-- Header -->
+                <div id="modal-header" class="p-5 md:p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50 rounded-t-2xl">
+                    <h3 id="modal-title" class="text-xl md:text-2xl font-bold font-heading text-slate-800 flex items-center gap-3">
+                        Title
+                    </h3>
+                    <button onclick="closeContentModal()" class="w-8 h-8 rounded-full bg-white border border-slate-200 text-slate-500 hover:text-red-500 hover:border-red-200 flex items-center justify-center transition-colors">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <!-- Body -->
+                <div id="modal-body" class="p-5 md:p-8 overflow-y-auto">
+                    Content
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Custom Styles for Interactive Elements -->
+    <style>
+        .perspective { perspective: 1000px; }
+        .preserve-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+        @keyframes fadeInInteractive { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fadeIn { animation: fadeInInteractive 0.3s ease-out forwards; }
+    </style>
+
+    <!-- Interactive Scripts -->
+    <script>
+        function openContentModal(id) {
+            const modal = document.getElementById('content-modal');
+            const titleEl = document.getElementById('modal-title');
+            const bodyEl = document.getElementById('modal-body');
+            
+            const template = document.getElementById(id);
+            if(!template) return;
+            
+            const title = template.getAttribute('data-title');
+            const icon = template.getAttribute('data-icon');
+            const color = template.getAttribute('data-color');
+            
+            titleEl.innerHTML = `<span class="bg-${color}-50 text-${color}-600 w-10 h-10 rounded-lg flex items-center justify-center shrink-0 shadow-sm"><i class="fa-solid ${icon}"></i></span> ${title}`;
+            bodyEl.innerHTML = template.innerHTML;
+            
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeContentModal() {
+            document.getElementById('content-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+            document.getElementById('modal-body').innerHTML = '';
+        }
+
+        function switchTab(tabId, btn) {
+            // Because the tab content is inside the modal, we query from within the modal
+            const modalBody = document.getElementById('modal-body');
+            
+            modalBody.querySelectorAll('.water-tab-content').forEach(el => el.classList.add('hidden'));
+            modalBody.querySelectorAll('.water-tab-btn').forEach(el => {
+                el.classList.remove('bg-blue-600', 'text-white');
+                el.classList.add('bg-slate-100', 'text-slate-600');
+            });
+            
+            modalBody.querySelector('#' + tabId).classList.remove('hidden');
+            btn.classList.remove('bg-slate-100', 'text-slate-600');
+            btn.classList.add('bg-blue-600', 'text-white');
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('content-modal').addEventListener('click', function(e) {
+            if(e.target === this) {
+                closeContentModal();
+            }
+        });
+    </script>
+
+    
+    </main>
+
+    </div>
+
+    <!-- ================= GAME INTERAKTIF SECTION ================= -->
+    <section id="game-interaktif" class="py-12 container mx-auto px-4 max-w-5xl">
+        <div class="text-center mb-8">
+            <span class="inline-flex items-center gap-2 bg-teal-50 border border-teal-200 text-teal-700 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-4 shadow-sm">
+                <i class="fa-solid fa-gamepad text-amber-500"></i> Mini Game Fiqih
+            </span>
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-800 font-heading mb-6">🎮 Game Interaktif Thaharah</h2>
+            
+            <!-- Game Tabs -->
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-2">
+                <button onclick="switchGameTab('tug', this)" id="tab-btn-tug" class="game-tab-btn px-6 py-2.5 rounded-xl font-bold shadow-sm transition-all bg-teal-600 text-white border border-teal-700"><i class="fa-solid fa-flag mr-2"></i> Tarik Tambang</button>
+                <button onclick="switchGameTab('war', this)" id="tab-btn-war" class="game-tab-btn px-6 py-2.5 rounded-xl font-bold shadow-sm transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"><i class="fa-solid fa-khanda mr-2"></i> Duel Perang</button>
+            </div>
+            <p class="text-slate-500 text-sm max-w-lg mx-auto mt-4">Uji pemahamanmu tentang Alat-Alat Bersuci & Thaharah dalam arena interaktif!</p>
+        </div>
+
+        <div id="game-wrapper-tug" class="block animate-fadeIn">
+
+        <!-- Data Siswa (Master Data) & Firebase -->
+        <script type="module">
+            import dataSiswa from "../../data-siswa.js";
+            import { initializeApp, getAuth, signInAnonymously, getFirestore, collection, addDoc } from "../../firebase-mock.js";
+
+            window.masterDataSiswa = dataSiswa;
+
+            // --- FIREBASE CONFIG ---
+            const firebaseConfig = {
+                authDomain: "belajaronline-b5512.firebaseapp.com",
+                projectId: "belajaronline-b5512",
+                storageBucket: "belajaronline-b5512.firebasestorage.app",
+                messagingSenderId: "896107581081",
+                appId: "1:896107581081:web:629056c097c90fdf583208",
+                measurementId: "G-7MKNGF9PCX"
+            };
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
+            const db = getFirestore(app);
+            const appId = 'belajaronline-b5512';
+            const COLLECTION_NAME = 'scores_2026';
+
+            // Fungsi Global Simpan Skor
+            window.submitGameScores = async function(players, gameModeName) {
+                try {
+                    if (!auth.currentUser) await signInAnonymously(auth);
+                    for (let p of players) {
+                        await addDoc(collection(db, 'artifacts', appId, 'public', 'data', COLLECTION_NAME), {
+                            name: p.name, 
+                            kelas: p.kelas, 
+                            score: p.score, 
+                            materi: gameModeName, 
+                            type: 'Latihan Soal', 
+                            date: new Date().toLocaleDateString('id-ID'), 
+                            timestamp: Date.now(), 
+                            details: [], 
+                            uid: auth.currentUser.uid, 
+                            isBanned: false
+                        });
+                    }
+                    console.log("Skor berhasil disimpan ke Firebase!");
+                } catch (e) {
+                    console.error("Gagal simpan skor Firebase:", e);
+                }
+            };
+
+            // Re-render lobby if it's already initialized but was missing data
+            if (typeof renderLobbyForms === 'function') {
+                renderLobbyForms('all');
+            }
+        </script>
+
+        <!-- Tug Game Container -->
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden relative min-h-[500px] flex flex-col">
+            
+            <!-- Anti Spam Warning Toast -->
+            <div id="tug-spam-warning" class="absolute top-20 left-1/2 -translate-x-1/2 z-[70] hidden flex items-center gap-3 bg-red-600 text-white px-5 py-3 rounded-full font-bold shadow-2xl animate-bounce">
+                <i class="fa-solid fa-triangle-exclamation text-xl"></i>
+                <span>Jangan asal tebak! Baca soal dengan teliti!</span>
+            </div>
+
+            <!-- Lobby Overlay -->
+            <div id="tug-lobby-overlay" class="absolute inset-0 z-[60] bg-slate-900/95 flex flex-col items-center justify-center p-6 text-center overflow-y-auto">
+                <div class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 w-full max-w-2xl my-auto animate-fadeIn">
+                    <h3 class="text-2xl font-bold font-heading text-slate-800 mb-2">Persiapan Pertandingan</h3>
+                    <p class="text-sm text-slate-500 mb-6">Pilih mode dan masukkan data pemain sebelum bertanding.</p>
+                    
+                    <!-- Mode Selection -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 text-left border-b border-slate-100 pb-6">
+                        <div>
+                            <label class="block text-sm font-bold text-blue-700 mb-2"><i class="fa-solid fa-user-plus mr-1"></i> Jumlah Pemain Tim Biru</label>
+                            <select id="tug-mode-select-left" class="w-full border border-blue-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition bg-blue-50 text-blue-900 font-semibold" onchange="renderLobbyForms('left')">
+                                <option value="1">1 Pemain</option>
+                                <option value="2">2 Pemain</option>
+                                <option value="3">3 Pemain</option>
+                                <option value="4">4 Pemain</option>
+                                <option value="5">5 Pemain</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-red-700 mb-2"><i class="fa-solid fa-user-plus mr-1"></i> Jumlah Pemain Tim Merah</label>
+                            <select id="tug-mode-select-right" class="w-full border border-red-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-red-500 outline-none transition bg-red-50 text-red-900 font-semibold" onchange="renderLobbyForms('right')">
+                                <option value="1">1 Pemain</option>
+                                <option value="2">2 Pemain</option>
+                                <option value="3">3 Pemain</option>
+                                <option value="4">4 Pemain</option>
+                                <option value="5">5 Pemain</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 text-left">
+                        <!-- Tim Kiri -->
+                        <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
+                            <h4 class="font-bold text-blue-800 mb-3 text-sm border-b border-blue-200 pb-2"><i class="fa-solid fa-users mr-2"></i>Tim Santri (Biru)</h4>
+                            <div class="mb-3">
+                                <label class="block text-xs font-semibold text-blue-700 mb-1">Pilih Kelas</label>
+                                <select id="tug-class-left" class="w-full border border-blue-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none" onchange="renderLobbyForms('left')">
+                                    <option value="">-- Pilih Kelas --</option>
+                                    <option value="7A">7A</option>
+                                    <option value="7B">7B</option>
+                                    <option value="7C">7C</option>
+                                    <option value="7D">7D</option>
+                                </select>
+                            </div>
+                            <div id="tug-players-left" class="space-y-2"></div>
+                        </div>
+
+                        <!-- Tim Kanan -->
+                        <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                            <h4 class="font-bold text-red-800 mb-3 text-sm border-b border-red-200 pb-2"><i class="fa-solid fa-users mr-2"></i>Tim Merah</h4>
+                            <div class="mb-3">
+                                <label class="block text-xs font-semibold text-red-700 mb-1">Pilih Kelas</label>
+                                <select id="tug-class-right" class="w-full border border-red-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-red-500 outline-none" onchange="renderLobbyForms('right')">
+                                    <option value="">-- Pilih Kelas --</option>
+                                    <option value="7A">7A</option>
+                                    <option value="7B">7B</option>
+                                    <option value="7C">7C</option>
+                                    <option value="7D">7D</option>
+                                </select>
+                            </div>
+                            <div id="tug-players-right" class="space-y-2"></div>
+                        </div>
+                    </div>
+
+                    <div id="tug-lobby-error" class="hidden text-red-600 text-sm font-bold mb-4 bg-red-50 py-2 rounded-lg border border-red-200">
+                        Harap pilih kelas dan nama semua pemain!
+                    </div>
+
+                    <button onclick="startTugMatch()" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3.5 px-8 rounded-xl shadow-lg transition-transform transform hover:scale-[1.02] active:scale-95 text-lg">
+                        Mulai Pertandingan <i class="fa-solid fa-play ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Game Header Bar -->
+            <div class="bg-gradient-to-r from-teal-700 to-teal-800 p-3 md:p-4 text-white flex justify-between items-center z-30 shadow-md">
+                <div class="flex items-center gap-2">
+                    <div class="bg-teal-600/80 p-2 rounded-lg border border-teal-500">
+                        <i class="fa-solid fa-droplet text-amber-300 text-base"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-sm md:text-base font-bold font-heading">Duel Tarik Tambang</h3>
+                        <p class="text-[11px] text-teal-200">Jawab soal dengan benar untuk menarik tali!</p>
+                    </div>
+                </div>
+
+                <!-- Mode Controls (Dynamic) -->
+                <div class="flex items-center gap-2">
+                    <span id="tug-mode-display" class="px-3 py-1.5 rounded-lg text-xs font-bold border border-teal-400 bg-amber-400 text-slate-900 shadow">
+                        <i class="fa-solid fa-users mr-1"></i> Mode Pemain
+                    </span>
+                </div>
+            </div>
+
+            <!-- Arena Main Content (3 Columns) -->
+            <div class="flex-grow flex flex-row w-full relative min-h-[420px] bg-slate-50 overflow-hidden">
+                
+                <!-- Left Panel (Tim Santri) -->
+                <div id="tug-panel-left" class="w-[30%] md:w-[28%] border-r border-slate-200 flex flex-col h-full bg-blue-100/90 z-20 relative shadow-md transition-colors duration-300">
+                    <div class="p-2 text-center border-b border-blue-200 bg-blue-200/80">
+                        <span class="text-[10px] md:text-xs font-extrabold text-blue-700 uppercase bg-blue-50 px-2.5 py-1 rounded-full tracking-wider shadow-sm">Tim Santri (Biru)</span>
+                    </div>
+                    <div class="flex-grow flex flex-col p-2 min-h-0 overflow-y-auto">
+                        <div class="flex-grow flex items-center justify-center py-2 min-h-[60px]">
+                            <p id="tug-q-left" class="text-xs md:text-sm font-semibold text-center text-slate-800 leading-relaxed px-1">Menyiapkan soal...</p>
+                        </div>
+                        <div id="tug-opts-left" class="grid grid-cols-1 gap-1.5 mt-auto pb-1"></div>
+                    </div>
+                </div>
+
+                <!-- Center Visual Arena -->
+                <div class="flex-grow relative bg-sky-50 overflow-hidden z-10 border-x border-slate-200 flex flex-col items-center justify-center">
+                    <div class="absolute top-4 left-6 text-sky-200 text-4xl opacity-70"><i class="fa-solid fa-cloud"></i></div>
+                    <div class="absolute top-8 right-8 text-sky-200 text-3xl opacity-50"><i class="fa-solid fa-cloud"></i></div>
+                    
+                    <!-- Center Line -->
+                    <div class="absolute top-4 bottom-4 left-1/2 w-0.5 border-l-2 border-dashed border-slate-300 z-0 -translate-x-1/2"></div>
+
+                    <!-- Dynamic Tug Container -->
+                    <div id="tug-container" class="flex items-center justify-center h-full w-full absolute inset-0 transition-transform duration-500 ease-out">
+                        <!-- Left Character -->
+                        <div id="tug-char-left" class="character absolute left-[2%] md:left-[10%] bottom-[40%] transition-transform">
+                            <svg width="85" height="85" viewBox="0 0 100 100" class="drop-shadow-md">
+                                <path d="M35 75 L35 98 L45 98 L45 75 Z" fill="#1e3a8a" />
+                                <path d="M55 75 L55 98 L65 98 L65 75 Z" fill="#1e3a8a" />
+                                <rect x="30" y="45" width="40" height="35" rx="4" fill="#2563eb" />
+                                <circle cx="50" cy="32" r="15" fill="#fcd34d" />
+                                <path d="M34 18 L66 18 L66 30 L34 30 Z" fill="#f1f5f9" />
+                                <ellipse cx="50" cy="18" rx="16" ry="3" fill="#e2e8f0" />
+                                <circle cx="54" cy="34" r="2" fill="#1e293b" />
+                                <circle cx="60" cy="34" r="2" fill="#1e293b" />
+                                <path d="M30 50 Q20 55 25 60" stroke="#2563eb" stroke-width="8" stroke-linecap="round" fill="none" />
+                                <circle cx="25" cy="60" r="5" fill="#fcd34d" />
+                                <path d="M50 52 L90 58" stroke="#2563eb" stroke-width="8" stroke-linecap="round" />
+                                <circle cx="90" cy="58" r="6" fill="#fcd34d" stroke="#d97706" stroke-width="1"/>
+                            </svg>
+                        </div>
+
+                        <!-- Rope -->
+                        <div class="relative w-[75%] md:w-[65%] flex items-center justify-center top-2 md:top-2.5">
+                            <div class="rope-line w-full h-2.5 bg-amber-800 rounded-full shadow"></div>
+                            <div id="tug-knot" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 bg-amber-400 border-2 border-amber-800 rounded-full z-20 flex items-center justify-center shadow-md">
+                                <i class="fa-solid fa-flag text-red-600 text-[10px]"></i>
+                            </div>
+                        </div>
+
+                        <!-- Right Character -->
+                        <div id="tug-char-right" class="character absolute right-[2%] md:right-[10%] bottom-[40%] scale-x-[-1] transition-transform">
+                            <svg width="85" height="85" viewBox="0 0 100 100" class="drop-shadow-md">
+                                <path d="M35 75 L35 98 L45 98 L45 75 Z" fill="#7f1d1d" />
+                                <path d="M55 75 L55 98 L65 98 L65 75 Z" fill="#7f1d1d" />
+                                <rect x="30" y="45" width="40" height="35" rx="4" fill="#dc2626" />
+                                <circle cx="50" cy="32" r="15" fill="#fcd34d" />
+                                <path d="M34 14 L66 16 L66 30 L34 30 Z" fill="#1f2937" />
+                                <ellipse cx="50" cy="15" rx="16" ry="3" fill="#374151" />
+                                <circle cx="54" cy="34" r="2" fill="#1e293b" />
+                                <circle cx="60" cy="34" r="2" fill="#1e293b" />
+                                <path d="M30 50 Q20 55 25 60" stroke="#dc2626" stroke-width="8" stroke-linecap="round" fill="none" />
+                                <circle cx="25" cy="60" r="5" fill="#fcd34d" />
+                                <path d="M50 52 L90 58" stroke="#dc2626" stroke-width="8" stroke-linecap="round" />
+                                <circle cx="90" cy="58" r="6" fill="#fcd34d" stroke="#b45309" stroke-width="1"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Panel (Tim Merah) -->
+                <div id="tug-panel-right" class="w-[30%] md:w-[28%] border-l border-slate-200 flex flex-col h-full bg-red-100/90 z-20 relative shadow-md transition-colors duration-300">
+                    <div class="p-2 text-center border-b border-red-200 bg-red-200/80">
+                        <span id="tug-right-title" class="text-[10px] md:text-xs font-extrabold text-red-700 uppercase bg-red-50 px-2.5 py-1 rounded-full tracking-wider shadow-sm">Tim Merah</span>
+                    </div>
+                    <div class="flex-grow flex flex-col p-2 min-h-0 overflow-y-auto">
+                        <div class="flex-grow flex items-center justify-center py-2 min-h-[60px]">
+                            <p id="tug-q-right" class="text-xs md:text-sm font-semibold text-center text-slate-800 leading-relaxed px-1">Menyiapkan soal...</p>
+                        </div>
+                        <div id="tug-opts-right" class="grid grid-cols-1 gap-1.5 mt-auto pb-1"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Winner Overlay -->
+            <div id="tug-winner-overlay" class="hidden absolute inset-0 z-50 bg-slate-900/90 flex flex-col items-center justify-center p-6 text-center animate-fadeIn">
+                <div class="text-6xl mb-3 animate-bounce">🏆</div>
+                <h3 class="text-xs font-bold text-amber-400 uppercase tracking-widest mb-1">Pemenang Pertandingan</h3>
+                <h2 id="tug-winner-name" class="text-3xl md:text-4xl font-black text-white mb-6 font-heading drop-shadow-md">TIM SANTRI</h2>
+                <button onclick="resetTugGame()" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 active:scale-95 flex items-center gap-2">
+                    <i class="fa-solid fa-rotate-right"></i> Main Lagi
+                </button>
+            </div>
+        </div>
+        </div>
+        </div> <!-- End Wrapper Tug -->
+
+        <!-- War Game Wrapper -->
+        <div id="game-wrapper-war" class="hidden animate-fadeIn">
+            <!-- War Game Container -->
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden relative min-h-[500px] flex flex-col">
+                
+                <!-- Anti Spam Warning Toast (War) -->
+                <div id="war-spam-warning" class="absolute top-20 left-1/2 -translate-x-1/2 z-[70] hidden flex items-center gap-3 bg-red-600 text-white px-5 py-3 rounded-full font-bold shadow-2xl animate-bounce">
+                    <i class="fa-solid fa-triangle-exclamation text-xl"></i>
+                    <span>Jangan asal tebak! Baca soal dengan teliti!</span>
+                </div>
+
+                <!-- Lobby Overlay (War) -->
+                <div id="war-lobby-overlay" class="absolute inset-0 z-[60] bg-slate-900/95 flex flex-col items-center justify-center p-6 text-center overflow-y-auto">
+                    <div class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 w-full max-w-2xl my-auto animate-fadeIn">
+                        <h3 class="text-2xl font-bold font-heading text-slate-800 mb-2">Persiapan Pertandingan</h3>
+                        <p class="text-sm text-slate-500 mb-6">Pilih mode dan masukkan data pemain sebelum bertanding.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 text-left border-b border-slate-100 pb-6">
+                            <div>
+                                <label class="block text-sm font-bold text-blue-700 mb-2"><i class="fa-solid fa-user-plus mr-1"></i> Jumlah Pemain Pasukan Biru</label>
+                                <select id="war-mode-select-left" class="w-full border border-blue-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition bg-blue-50 text-blue-900 font-semibold" onchange="renderWarLobbyForms('left')">
+                                    <option value="1">1 Pemain</option>
+                                    <option value="2">2 Pemain</option>
+                                    <option value="3">3 Pemain</option>
+                                    <option value="4">4 Pemain</option>
+                                    <option value="5">5 Pemain</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-red-700 mb-2"><i class="fa-solid fa-user-plus mr-1"></i> Jumlah Pemain Pasukan Merah</label>
+                                <select id="war-mode-select-right" class="w-full border border-red-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-red-500 outline-none transition bg-red-50 text-red-900 font-semibold" onchange="renderWarLobbyForms('right')">
+                                    <option value="1">1 Pemain</option>
+                                    <option value="2">2 Pemain</option>
+                                    <option value="3">3 Pemain</option>
+                                    <option value="4">4 Pemain</option>
+                                    <option value="5">5 Pemain</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 text-left">
+                            <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
+                                <h4 class="font-bold text-blue-800 mb-3 text-sm border-b border-blue-200 pb-2"><i class="fa-solid fa-shield mr-2"></i>Pasukan Biru</h4>
+                                <div class="mb-3">
+                                    <label class="block text-xs font-semibold text-blue-700 mb-1">Pilih Kelas</label>
+                                    <select id="war-class-left" class="w-full border border-blue-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none" onchange="renderWarLobbyForms('left')">
+                                        <option value="">-- Pilih Kelas --</option>
+                                        <option value="7A">7A</option>
+                                        <option value="7B">7B</option>
+                                        <option value="7C">7C</option>
+                                        <option value="7D">7D</option>
+                                    </select>
+                                </div>
+                                <div id="war-players-left" class="space-y-2"></div>
+                            </div>
+
+                            <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                                <h4 class="font-bold text-red-800 mb-3 text-sm border-b border-red-200 pb-2"><i class="fa-solid fa-shield mr-2"></i>Pasukan Merah</h4>
+                                <div class="mb-3">
+                                    <label class="block text-xs font-semibold text-red-700 mb-1">Pilih Kelas</label>
+                                    <select id="war-class-right" class="w-full border border-red-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-red-500 outline-none" onchange="renderWarLobbyForms('right')">
+                                        <option value="">-- Pilih Kelas --</option>
+                                        <option value="7A">7A</option>
+                                        <option value="7B">7B</option>
+                                        <option value="7C">7C</option>
+                                        <option value="7D">7D</option>
+                                    </select>
+                                </div>
+                                <div id="war-players-right" class="space-y-2"></div>
+                            </div>
+                        </div>
+
+                        <div id="war-lobby-error" class="hidden text-red-600 text-sm font-bold mb-4 bg-red-50 py-2 rounded-lg border border-red-200">
+                            Harap lengkapi pilihan kelas dan nama pemain!
+                        </div>
+
+                        <button onclick="startWarMatch()" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3.5 px-8 rounded-xl shadow-lg transition-transform transform hover:scale-[1.02] active:scale-95 text-lg">
+                            Mulai Pertempuran <i class="fa-solid fa-khanda ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Game Header Bar -->
+                <div class="bg-gradient-to-r from-slate-800 to-slate-900 p-3 md:p-4 text-white flex justify-between items-center z-30 shadow-md">
+                    <div class="flex items-center gap-2">
+                        <div class="bg-slate-700/80 p-2 rounded-lg border border-slate-600">
+                            <i class="fa-solid fa-khanda text-amber-400 text-base"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-sm md:text-base font-bold font-heading">Duel Perang Gladiator</h3>
+                            <p class="text-[11px] text-slate-300">Benar = Menyerang | Salah = Tangkis</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span id="war-mode-display" class="px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-600 bg-slate-700 text-slate-100 shadow">
+                            <i class="fa-solid fa-users mr-1"></i> Mode Pemain
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Arena Main Content -->
+                <div class="flex flex-row flex-grow relative overflow-hidden h-[400px]">
+                    <!-- Left Panel -->
+                    <div id="war-panel-left" class="w-[30%] md:w-[28%] border-r border-slate-300 flex flex-col h-full bg-blue-50/90 z-20 relative shadow-md">
+                        <div class="p-2 text-center border-b border-blue-200 bg-blue-100">
+                            <span class="text-[10px] md:text-xs font-extrabold text-blue-800 uppercase bg-blue-50 px-2.5 py-1 rounded-full shadow-sm">Pasukan Biru</span>
+                        </div>
+                        <div class="flex-grow flex flex-col p-2 min-h-0 overflow-y-auto">
+                            <div class="flex-grow flex items-center justify-center py-2 min-h-[60px]">
+                                <p id="war-q-left" class="text-xs md:text-sm font-semibold text-center text-slate-800 px-1">Menyiapkan soal...</p>
+                            </div>
+                            <div id="war-opts-left" class="grid grid-cols-1 gap-1.5 mt-auto pb-1"></div>
+                        </div>
+                    </div>
+
+                    <!-- Center Arena -->
+                    <div id="war-arena" class="w-[40%] md:w-[44%] relative flex items-center justify-center overflow-hidden z-10 border-x border-slate-300/50">
+                        <!-- Animated Sky -->
+                        <div class="absolute inset-0 bg-gradient-to-b from-sky-600 via-sky-400 to-amber-300/60 z-0"></div>
+                        <!-- Clouds -->
+                        <div class="absolute top-6 left-[5%] text-white/30 text-2xl war-cloud-drift"><i class="fa-solid fa-cloud"></i></div>
+                        <div class="absolute top-14 right-[10%] text-white/20 text-lg war-cloud-drift" style="animation-delay:-3s"><i class="fa-solid fa-cloud"></i></div>
+                        <!-- Ground -->
+                        <div class="absolute bottom-0 w-full h-[42%] z-[1]">
+                            <div class="absolute inset-0 bg-gradient-to-b from-amber-600 via-amber-700 to-stone-700"></div>
+                            <div class="absolute top-0 w-full h-2 bg-green-700/50"></div>
+                            <!-- Sand texture -->
+                            <div class="absolute inset-0 opacity-20" style="background-image:repeating-radial-gradient(circle at 20% 50%, transparent 0, transparent 2px, rgba(0,0,0,.1) 2px, transparent 3px)"></div>
+                        </div>
+                        
+                        <!-- HP Bars -->
+                        <div class="absolute top-3 left-3 right-3 z-40 flex justify-between items-start gap-2">
+                            <!-- Left HP -->
+                            <div class="w-1/2 flex flex-col gap-0.5">
+                                <div class="flex items-center gap-1.5">
+                                    <div class="w-6 h-6 rounded-full bg-blue-700 border-2 border-yellow-400 flex items-center justify-center"><i class="fa-solid fa-shield-halved text-[8px] text-yellow-300"></i></div>
+                                    <span class="text-[9px] font-black text-white uppercase tracking-wider drop-shadow-lg">Pasukan Biru</span>
+                                </div>
+                                <div class="w-full h-5 bg-slate-900 rounded-md border-2 border-yellow-600/80 overflow-hidden shadow-lg relative">
+                                    <div id="war-hp-bar-left" class="h-full w-full transition-all duration-700 ease-out relative overflow-hidden" style="background: linear-gradient(90deg, #22c55e 0%, #22c55e 40%, #eab308 60%, #ef4444 100%); background-size: 100% 100%">
+                                        <div class="absolute inset-0 war-hp-shine"></div>
+                                    </div>
+                                    <span id="war-hp-text-left" class="absolute inset-0 flex items-center justify-center text-[9px] font-black text-white drop-shadow-md">100%</span>
+                                </div>
+                            </div>
+                            <!-- VS Badge -->
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-yellow-400 to-amber-600 border-2 border-yellow-800 flex items-center justify-center shadow-lg mt-3">
+                                <span class="text-[8px] font-black text-yellow-900">VS</span>
+                            </div>
+                            <!-- Right HP -->
+                            <div class="w-1/2 flex flex-col gap-0.5 items-end">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-[9px] font-black text-white uppercase tracking-wider drop-shadow-lg">Pasukan Merah</span>
+                                    <div class="w-6 h-6 rounded-full bg-red-700 border-2 border-yellow-400 flex items-center justify-center"><i class="fa-solid fa-shield-halved text-[8px] text-yellow-300"></i></div>
+                                </div>
+                                <div class="w-full h-5 bg-slate-900 rounded-md border-2 border-yellow-600/80 overflow-hidden shadow-lg relative">
+                                    <div id="war-hp-bar-right" class="h-full w-full transition-all duration-700 ease-out relative overflow-hidden" style="background: linear-gradient(270deg, #22c55e 0%, #22c55e 40%, #eab308 60%, #ef4444 100%); background-size: 100% 100%">
+                                        <div class="absolute inset-0 war-hp-shine"></div>
+                                    </div>
+                                    <span id="war-hp-text-right" class="absolute inset-0 flex items-center justify-center text-[9px] font-black text-white drop-shadow-md">100%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Left Warrior -->
+                        <div id="war-char-left" class="character absolute left-[8%] md:left-[12%] bottom-[30%] transition-transform z-10 war-idle-breathe">
+                            <svg width="100" height="120" viewBox="0 0 120 140" class="drop-shadow-xl">
+                                <!-- Shadow -->
+                                <ellipse cx="60" cy="138" rx="30" ry="5" fill="rgba(0,0,0,.2)" />
+                                <!-- Legs -->
+                                <path d="M42 105 L38 135 L48 135 L50 105 Z" fill="#1e3a8a" />
+                                <path d="M70 105 L72 135 L82 135 L78 105 Z" fill="#1e3a8a" />
+                                <!-- Boots -->
+                                <rect x="35" y="130" width="16" height="8" rx="3" fill="#78350f" />
+                                <rect x="69" y="130" width="16" height="8" rx="3" fill="#78350f" />
+                                <!-- Chainmail skirt -->
+                                <path d="M38 90 L82 90 L86 110 L34 110 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1"/>
+                                <line x1="42" y1="90" x2="40" y2="110" stroke="#64748b" stroke-width="0.5" />
+                                <line x1="52" y1="90" x2="50" y2="110" stroke="#64748b" stroke-width="0.5" />
+                                <line x1="62" y1="90" x2="64" y2="110" stroke="#64748b" stroke-width="0.5" />
+                                <line x1="72" y1="90" x2="74" y2="110" stroke="#64748b" stroke-width="0.5" />
+                                <!-- Chest Armor (Gold Plate) -->
+                                <path d="M36 50 L84 50 L82 92 L38 92 Z" fill="url(#goldGrad)" stroke="#b45309" stroke-width="2"/>
+                                <!-- Armor detail lines -->
+                                <line x1="60" y1="52" x2="60" y2="90" stroke="#b45309" stroke-width="1" opacity=".5"/>
+                                <path d="M44 62 Q60 72 76 62" stroke="#b45309" stroke-width="1" fill="none" opacity=".5"/>
+                                <!-- Cape flowing -->
+                                <path d="M38 50 L28 55 L22 120 L36 115 Z" fill="#1e40af" opacity=".7"/>
+                                <!-- Neck -->
+                                <rect x="52" y="38" width="16" height="14" rx="3" fill="#d4a76a" />
+                                <!-- Head -->
+                                <circle cx="60" cy="30" r="16" fill="#d4a76a" />
+                                <!-- Eyes -->
+                                <ellipse cx="54" cy="30" rx="2.5" ry="3" fill="white" />
+                                <ellipse cx="66" cy="30" rx="2.5" ry="3" fill="white" />
+                                <circle cx="55" cy="30" r="1.5" fill="#1e293b" />
+                                <circle cx="67" cy="30" r="1.5" fill="#1e293b" />
+                                <!-- Eyebrows (determined) -->
+                                <line x1="51" y1="25" x2="58" y2="26" stroke="#4a3728" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="63" y1="26" x2="70" y2="25" stroke="#4a3728" stroke-width="2" stroke-linecap="round"/>
+                                <!-- Helmet (Roman/Islamic style with plume) -->
+                                <path d="M38 28 Q40 8 60 5 Q80 8 82 28 L80 36 L40 36 Z" fill="#94a3b8" stroke="#64748b" stroke-width="2"/>
+                                <!-- Helmet crest/plume -->
+                                <path d="M56 5 Q60 -8 64 5" fill="none" stroke="#1e40af" stroke-width="6" stroke-linecap="round"/>
+                                <path d="M52 8 Q60 -12 68 8" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+                                <!-- Helmet nose guard -->
+                                <rect x="57" y="18" width="6" height="18" rx="2" fill="#94a3b8" stroke="#64748b" stroke-width="1"/>
+                                <!-- Sword Arm (right) -->
+                                <path d="M80 58 L100 40" stroke="#d4a76a" stroke-width="9" stroke-linecap="round" />
+                                <!-- Sword -->
+                                <rect x="95" y="8" width="5" height="36" rx="1" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1" transform="rotate(20, 97, 26)"/>
+                                <rect x="90" y="38" width="15" height="6" rx="2" fill="#b45309" transform="rotate(20, 97, 41)"/>
+                                <!-- Shield Arm (left) -->
+                                <path d="M40 58 L22 68" stroke="#d4a76a" stroke-width="9" stroke-linecap="round" />
+                                <!-- Shield -->
+                                <circle cx="16" cy="74" r="20" fill="url(#blueShieldGrad)" stroke="#eab308" stroke-width="3" />
+                                <circle cx="16" cy="74" r="12" fill="none" stroke="#eab308" stroke-width="1.5" />
+                                <circle cx="16" cy="74" r="4" fill="#eab308" />
+                                <!-- Gradients -->
+                                <defs>
+                                    <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#fbbf24"/>
+                                        <stop offset="50%" stop-color="#f59e0b"/>
+                                        <stop offset="100%" stop-color="#d97706"/>
+                                    </linearGradient>
+                                    <radialGradient id="blueShieldGrad">
+                                        <stop offset="0%" stop-color="#3b82f6"/>
+                                        <stop offset="100%" stop-color="#1e3a8a"/>
+                                    </radialGradient>
+                                </defs>
+                            </svg>
+                        </div>
+
+                        <!-- Right Warrior -->
+                        <div id="war-char-right" class="character absolute right-[8%] md:right-[12%] bottom-[30%] transition-transform z-10 war-idle-breathe" style="animation-delay:-.5s">
+                            <svg width="100" height="120" viewBox="0 0 120 140" class="drop-shadow-xl" style="transform:scaleX(-1)">
+                                <!-- Shadow -->
+                                <ellipse cx="60" cy="138" rx="30" ry="5" fill="rgba(0,0,0,.2)" />
+                                <!-- Legs -->
+                                <path d="M42 105 L38 135 L48 135 L50 105 Z" fill="#7f1d1d" />
+                                <path d="M70 105 L72 135 L82 135 L78 105 Z" fill="#7f1d1d" />
+                                <!-- Boots -->
+                                <rect x="35" y="130" width="16" height="8" rx="3" fill="#451a03" />
+                                <rect x="69" y="130" width="16" height="8" rx="3" fill="#451a03" />
+                                <!-- Chainmail skirt -->
+                                <path d="M38 90 L82 90 L86 110 L34 110 Z" fill="#64748b" stroke="#475569" stroke-width="1"/>
+                                <line x1="42" y1="90" x2="40" y2="110" stroke="#475569" stroke-width="0.5" />
+                                <line x1="52" y1="90" x2="50" y2="110" stroke="#475569" stroke-width="0.5" />
+                                <line x1="62" y1="90" x2="64" y2="110" stroke="#475569" stroke-width="0.5" />
+                                <line x1="72" y1="90" x2="74" y2="110" stroke="#475569" stroke-width="0.5" />
+                                <!-- Chest Armor (Silver) -->
+                                <path d="M36 50 L84 50 L82 92 L38 92 Z" fill="url(#silverGrad)" stroke="#475569" stroke-width="2"/>
+                                <line x1="60" y1="52" x2="60" y2="90" stroke="#475569" stroke-width="1" opacity=".5"/>
+                                <path d="M44 62 Q60 72 76 62" stroke="#475569" stroke-width="1" fill="none" opacity=".5"/>
+                                <!-- Cape -->
+                                <path d="M38 50 L28 55 L22 120 L36 115 Z" fill="#991b1b" opacity=".7"/>
+                                <!-- Neck -->
+                                <rect x="52" y="38" width="16" height="14" rx="3" fill="#d4a76a" />
+                                <!-- Head -->
+                                <circle cx="60" cy="30" r="16" fill="#d4a76a" />
+                                <!-- Eyes -->
+                                <ellipse cx="54" cy="30" rx="2.5" ry="3" fill="white" />
+                                <ellipse cx="66" cy="30" rx="2.5" ry="3" fill="white" />
+                                <circle cx="55" cy="30" r="1.5" fill="#1e293b" />
+                                <circle cx="67" cy="30" r="1.5" fill="#1e293b" />
+                                <!-- Eyebrows -->
+                                <line x1="51" y1="25" x2="58" y2="26" stroke="#4a3728" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="63" y1="26" x2="70" y2="25" stroke="#4a3728" stroke-width="2" stroke-linecap="round"/>
+                                <!-- Dark Helmet -->
+                                <path d="M38 28 Q40 8 60 5 Q80 8 82 28 L80 36 L40 36 Z" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
+                                <!-- Red plume -->
+                                <path d="M56 5 Q60 -8 64 5" fill="none" stroke="#991b1b" stroke-width="6" stroke-linecap="round"/>
+                                <path d="M52 8 Q60 -12 68 8" fill="none" stroke="#dc2626" stroke-width="4" stroke-linecap="round"/>
+                                <!-- Nose guard -->
+                                <rect x="57" y="18" width="6" height="18" rx="2" fill="#1e293b" stroke="#0f172a" stroke-width="1"/>
+                                <!-- Sword Arm -->
+                                <path d="M80 58 L100 40" stroke="#d4a76a" stroke-width="9" stroke-linecap="round" />
+                                <!-- Sword -->
+                                <rect x="95" y="8" width="5" height="36" rx="1" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1" transform="rotate(20, 97, 26)"/>
+                                <rect x="90" y="38" width="15" height="6" rx="2" fill="#78350f" transform="rotate(20, 97, 41)"/>
+                                <!-- Shield Arm -->
+                                <path d="M40 58 L22 68" stroke="#d4a76a" stroke-width="9" stroke-linecap="round" />
+                                <!-- Shield -->
+                                <circle cx="16" cy="74" r="20" fill="url(#redShieldGrad)" stroke="#cbd5e1" stroke-width="3" />
+                                <circle cx="16" cy="74" r="12" fill="none" stroke="#cbd5e1" stroke-width="1.5" />
+                                <circle cx="16" cy="74" r="4" fill="#cbd5e1" />
+                                <defs>
+                                    <linearGradient id="silverGrad" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#e2e8f0"/>
+                                        <stop offset="50%" stop-color="#cbd5e1"/>
+                                        <stop offset="100%" stop-color="#94a3b8"/>
+                                    </linearGradient>
+                                    <radialGradient id="redShieldGrad">
+                                        <stop offset="0%" stop-color="#ef4444"/>
+                                        <stop offset="100%" stop-color="#7f1d1d"/>
+                                    </radialGradient>
+                                </defs>
+                            </svg>
+                        </div>
+
+                        <!-- Clash Spark Container (center) -->
+                        <div id="war-clash-fx" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none opacity-0 transition-opacity duration-100">
+                            <div class="relative w-16 h-16">
+                                <div class="war-spark" style="--angle:0deg"></div>
+                                <div class="war-spark" style="--angle:45deg"></div>
+                                <div class="war-spark" style="--angle:90deg"></div>
+                                <div class="war-spark" style="--angle:135deg"></div>
+                                <div class="war-spark" style="--angle:180deg"></div>
+                                <div class="war-spark" style="--angle:225deg"></div>
+                                <div class="war-spark" style="--angle:270deg"></div>
+                                <div class="war-spark" style="--angle:315deg"></div>
+                            </div>
+                        </div>
+
+                        <!-- Block Shield FX -->
+                        <div id="war-block-fx" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none opacity-0 transition-opacity duration-100">
+                            <div class="w-14 h-14 rounded-full border-4 border-yellow-400 war-block-ring"></div>
+                        </div>
+
+                        <!-- Damage FX -->
+                        <div id="war-fx-left" class="absolute left-[30%] bottom-[55%] z-50 pointer-events-none opacity-0 transition-all duration-300 war-dmg-float">
+                            <span class="text-2xl font-black text-red-500 drop-shadow-lg" style="text-shadow: 0 0 10px rgba(239,68,68,.6)">-20 HP</span>
+                        </div>
+                        <div id="war-fx-right" class="absolute right-[30%] bottom-[55%] z-50 pointer-events-none opacity-0 transition-all duration-300 war-dmg-float">
+                            <span class="text-2xl font-black text-red-500 drop-shadow-lg" style="text-shadow: 0 0 10px rgba(239,68,68,.6)">-20 HP</span>
+                        </div>
+
+                        <!-- Block Text FX -->
+                        <div id="war-block-text-left" class="absolute left-[30%] bottom-[55%] z-50 pointer-events-none opacity-0 transition-all duration-300 war-dmg-float">
+                            <span class="text-xl font-black text-blue-400 drop-shadow-lg" style="text-shadow: 0 0 10px rgba(96,165,250,.6)"><i class="fa-solid fa-shield-halved"></i> TANGKIS!</span>
+                        </div>
+                        <div id="war-block-text-right" class="absolute right-[30%] bottom-[55%] z-50 pointer-events-none opacity-0 transition-all duration-300 war-dmg-float">
+                            <span class="text-xl font-black text-red-400 drop-shadow-lg" style="text-shadow: 0 0 10px rgba(248,113,113,.6)"><i class="fa-solid fa-shield-halved"></i> TANGKIS!</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Panel -->
+                    <div id="war-panel-right" class="w-[30%] md:w-[28%] border-l border-slate-300 flex flex-col h-full bg-red-50/90 z-20 relative shadow-md">
+                        <div class="p-2 text-center border-b border-red-200 bg-red-100">
+                            <span class="text-[10px] md:text-xs font-extrabold text-red-800 uppercase bg-red-50 px-2.5 py-1 rounded-full shadow-sm">Pasukan Merah</span>
+                        </div>
+                        <div class="flex-grow flex flex-col p-2 min-h-0 overflow-y-auto">
+                            <div class="flex-grow flex items-center justify-center py-2 min-h-[60px]">
+                                <p id="war-q-right" class="text-xs md:text-sm font-semibold text-center text-slate-800 px-1">Menyiapkan soal...</p>
+                            </div>
+                            <div id="war-opts-right" class="grid grid-cols-1 gap-1.5 mt-auto pb-1"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Winner Overlay (War) -->
+                <div id="war-winner-overlay" class="hidden absolute inset-0 z-50 bg-slate-900/90 flex flex-col items-center justify-center p-6 text-center animate-fadeIn">
+                    <div class="text-6xl mb-3 animate-bounce">⚔️</div>
+                    <h3 class="text-xs font-bold text-amber-400 uppercase tracking-widest mb-1">Pasukan Pemenang</h3>
+                    <h2 id="war-winner-name" class="text-3xl md:text-4xl font-black text-white mb-6 font-heading drop-shadow-md">PASUKAN BIRU</h2>
+                    <button onclick="resetWarGame()" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 active:scale-95 flex items-center gap-2">
+                        <i class="fa-solid fa-rotate-right"></i> Main Lagi
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tug Game Styles -->
+    <style>
+        .rope-line {
+            background: repeating-linear-gradient(45deg, #854d0e, #854d0e 8px, #713f12 8px, #713f12 16px);
+        }
+        .pulling-left { animation: tugPullLeft 0.4s ease infinite; }
+        .pulling-right { animation: tugPullRight 0.4s ease infinite; }
+        @keyframes tugPullLeft { 0%, 100% { transform: translateX(0) rotate(0deg); } 50% { transform: translateX(-8px) rotate(-6deg); } }
+        @keyframes tugPullLeft { 0%, 100% { transform: translateX(0) rotate(0deg); } 50% { transform: translateX(-8px) rotate(-6deg); } }
+        @keyframes tugPullRight { 0%, 100% { transform: scaleX(-1) translateX(0) rotate(0deg); } 50% { transform: scaleX(-1) translateX(-8px) rotate(-6deg); } }
+        
+        /* War Game Animations */
+        .war-attack-left { animation: warAttLeft 0.6s cubic-bezier(.36,.07,.19,.97); }
+        .war-attack-right { animation: warAttRight 0.6s cubic-bezier(.36,.07,.19,.97); }
+        .war-block-left { animation: warBlkLeft 0.5s ease-in-out; }
+        .war-block-right { animation: warBlkRight 0.5s ease-in-out; }
+
+        @keyframes warAttLeft {
+            0% { transform: translateX(0) rotate(0deg) scale(1); }
+            20% { transform: translateX(-20px) rotate(-8deg) scale(1.05); }
+            50% { transform: translateX(80px) rotate(15deg) scale(1.1); }
+            70% { transform: translateX(60px) rotate(5deg) scale(1); }
+            100% { transform: translateX(0) rotate(0deg) scale(1); }
+        }
+        @keyframes warAttRight {
+            0% { transform: translateX(0) rotate(0deg) scale(1); }
+            20% { transform: translateX(20px) rotate(8deg) scale(1.05); }
+            50% { transform: translateX(-80px) rotate(-15deg) scale(1.1); }
+            70% { transform: translateX(-60px) rotate(-5deg) scale(1); }
+            100% { transform: translateX(0) rotate(0deg) scale(1); }
+        }
+        @keyframes warBlkLeft {
+            0% { transform: translateX(0) scale(1); }
+            30% { transform: translateX(-20px) scale(0.9); }
+            60% { transform: translateX(-8px) scale(1.05); filter: drop-shadow(0 0 20px #60a5fa) drop-shadow(0 0 40px #3b82f6); }
+            100% { transform: translateX(0) scale(1); filter: none; }
+        }
+        @keyframes warBlkRight {
+            0% { transform: translateX(0) scale(1); }
+            30% { transform: translateX(20px) scale(0.9); }
+            60% { transform: translateX(8px) scale(1.05); filter: drop-shadow(0 0 20px #f87171) drop-shadow(0 0 40px #ef4444); }
+            100% { transform: translateX(0) scale(1); filter: none; }
+        }
+
+        /* Idle breathing */
+        .war-idle-breathe {
+            animation: warBreathe 2.5s ease-in-out infinite;
+        }
+        @keyframes warBreathe {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        /* Screen shake */
+        .war-screen-shake {
+            animation: warShake 0.4s ease-in-out;
+        }
+        @keyframes warShake {
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(-4px, 2px); }
+            20% { transform: translate(6px, -3px); }
+            30% { transform: translate(-5px, 1px); }
+            40% { transform: translate(3px, -2px); }
+            50% { transform: translate(-2px, 3px); }
+            60% { transform: translate(4px, -1px); }
+            70% { transform: translate(-3px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            90% { transform: translate(-1px, 1px); }
+        }
+
+        /* Hit flash */
+        .war-hit-flash {
+            animation: warFlash 0.3s ease;
+        }
+        @keyframes warFlash {
+            0% { filter: brightness(1); }
+            25% { filter: brightness(3) hue-rotate(30deg); }
+            50% { filter: brightness(0.5) saturate(2); }
+            75% { filter: brightness(2); }
+            100% { filter: brightness(1); }
+        }
+
+        /* Spark particles */
+        .war-spark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 3px;
+            height: 12px;
+            background: linear-gradient(to bottom, #fbbf24, #f59e0b, transparent);
+            border-radius: 2px;
+            transform-origin: center center;
+            transform: rotate(var(--angle)) translateY(-20px);
+            animation: warSparkFly 0.4s ease-out forwards;
+        }
+        @keyframes warSparkFly {
+            0% { opacity: 1; transform: rotate(var(--angle)) translateY(0); }
+            100% { opacity: 0; transform: rotate(var(--angle)) translateY(-35px) scaleY(0.3); }
+        }
+
+        /* Block ring expand */
+        .war-block-ring {
+            animation: warRingExpand 0.5s ease-out forwards;
+        }
+        @keyframes warRingExpand {
+            0% { transform: scale(0.3); opacity: 1; border-width: 6px; }
+            100% { transform: scale(2.5); opacity: 0; border-width: 1px; }
+        }
+
+        /* Cloud drift */
+        .war-cloud-drift {
+            animation: warCloudDrift 12s linear infinite;
+        }
+        @keyframes warCloudDrift {
+            0% { transform: translateX(-50px); }
+            100% { transform: translateX(200px); }
+        }
+
+        /* HP shine sweep */
+        .war-hp-shine {
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.3) 50%, transparent 100%);
+            background-size: 200% 100%;
+            animation: warHpShineSweep 3s ease-in-out infinite;
+        }
+        @keyframes warHpShineSweep {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        /* Damage float up */
+        .war-dmg-float-active {
+            animation: warDmgFloat 0.8s ease-out forwards;
+        }
+        @keyframes warDmgFloat {
+            0% { opacity: 1; transform: translateY(0) scale(0.5); }
+            30% { opacity: 1; transform: translateY(-15px) scale(1.3); }
+            100% { opacity: 0; transform: translateY(-40px) scale(0.8); }
+        }
+
+        /* HP bar low glow */
+        .war-hp-low {
+            box-shadow: 0 0 10px rgba(239,68,68,.6), inset 0 0 5px rgba(239,68,68,.3);
+        }
+        .war-hp-critical {
+            animation: warHpCritPulse 0.5s ease-in-out infinite alternate;
+        }
+        @keyframes warHpCritPulse {
+            0% { box-shadow: 0 0 5px rgba(239,68,68,.4); }
+            100% { box-shadow: 0 0 20px rgba(239,68,68,.9), inset 0 0 10px rgba(239,68,68,.4); }
+        }
+    </style>
+
+    <!-- Tug Game Script -->
+    <script>
+    const tugQuestions = [
+        { q: "Menurut syariat, apa perbedaan utama antara 'Bersuci' dan sekadar 'Membersihkan'?", opts: ["Bersuci mensyaratkan niat", "Bersuci pakai sabun", "Membersihkan diatur fiqih", "Sama saja"], a: 0 },
+        { q: "Membersihkan jiwa dari dosa, syirik, dan ria' termasuk dalam kategori bersuci...", opts: ["Batiniyah", "Lahiriyah", "Hissiyah", "Tayamum"], a: 0 },
+        { q: "Air murni yang belum berubah sifatnya seperti air hujan dan mata air disebut...", opts: ["Air Mutlak (Suci Mensucikan)", "Air Musta'mal", "Air Mutanajjis", "Air Musyammas"], a: 0 },
+        { q: "Air kelapa dan air teh halal diminum, namun untuk wudhu hukumnya...", opts: ["Suci tapi tidak mensucikan", "Boleh jika terpaksa", "Haram", "Makruh"], a: 0 },
+        { q: "Air kurang dari 2 kulah yang terkena najis sehingga haram untuk bersuci disebut...", opts: ["Air Mutanajjis", "Air Mutlak", "Air Musta'mal", "Air Musyammas"], a: 0 },
+        { q: "Air bekas pakai bersuci (wudhu/mandi) yang ukurannya kurang dari 2 kulah disebut...", opts: ["Air Musta'mal", "Air Mutlak", "Air Mutanajjis", "Air Musyammas"], a: 0 },
+        { q: "Air yang dijemur di bawah terik matahari pada wadah logam berkarat disebut...", opts: ["Air Musyammas (Makruh dipakai)", "Air Musta'mal (Haram dipakai)", "Air Mutlak (Sah dipakai)", "Air Mutanajjis"], a: 0 },
+        { q: "Menurut ilmu Fiqih, volume air 2 Kulah itu setara dengan kurang lebih...", opts: ["216 Liter", "100 Liter", "500 Liter", "50 Liter"], a: 0 },
+        { q: "Jika tidak ada air, kita boleh beristinja' menggunakan benda padat seperti...", opts: ["Batu, tisu kering, dan kayu", "Plastik dan kaca", "Roti dan makanan", "Batu yang basah"], a: 0 },
+        { q: "Salah satu syarat bersuci menggunakan batu adalah minimal menggunakan...", opts: ["3 buah batu (atau 1 batu 3 sisi)", "1 buah batu", "5 buah batu", "Bebas berapapun"], a: 0 },
+        { q: "Batu tidak sah digunakan untuk bersuci apabila kotoran (najis) yang akan dibersihkan...", opts: ["Sudah mengering / berpindah", "Masih basah", "Berasal dari benda cair", "Tidak berbau"], a: 0 },
+        { q: "Hukum bersuci (thaharah) bagi orang yang akan melaksanakan shalat adalah...", opts: ["Wajib", "Sunnah", "Makruh", "Mubah"], a: 0 }
+    ];
+
+    let tugState = {
+        pos: 50, // 0 to 100
+        active: false,
+        playersLeft: [],
+        playersRight: [],
+        lastQTimeLeft: 0,
+        lastQTimeRight: 0,
+        spamLockLeft: false,
+        spamLockRight: false,
+        spamCountLeft: 0,
+        spamCountRight: 0
+    };
+
+    function initTugGame() {
+        document.getElementById('tug-lobby-overlay').classList.remove('hidden');
+        document.getElementById('tug-winner-overlay').classList.add('hidden');
+        tugState.active = false;
+        renderLobbyForms('all');
+    }
+
+    function renderLobbyForms(side = 'all') {
+        if (side === 'all' || side === 'left') {
+            const countLeft = parseInt(document.getElementById('tug-mode-select-left').value);
+            const classLeft = document.getElementById('tug-class-left').value;
+            renderPlayerDropdowns('tug-players-left', classLeft, countLeft, 'left');
+        }
+        if (side === 'all' || side === 'right') {
+            const countRight = parseInt(document.getElementById('tug-mode-select-right').value);
+            const classRight = document.getElementById('tug-class-right').value;
+            renderPlayerDropdowns('tug-players-right', classRight, countRight, 'right');
+        }
+    }
+
+    function renderPlayerDropdowns(containerId, className, count, side) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = '';
+        if (!className) return;
+
+        // Gunakan master data yang di-load dari data-siswa.js
+        const students = window.masterDataSiswa ? (window.masterDataSiswa[className] || []) : [];
+
+        for (let i = 0; i < count; i++) {
+            const select = document.createElement('select');
+            select.className = `w-full border rounded-lg px-3 py-1.5 text-xs outline-none focus:ring-2 ${side === 'left' ? 'border-blue-200 focus:ring-blue-500' : 'border-red-200 focus:ring-red-500'}`;
+            select.id = `player-${side}-${i}`;
+            
+            const defaultOpt = document.createElement('option');
+            defaultOpt.value = "";
+            defaultOpt.textContent = `-- Pilih Pemain ${i+1} --`;
+            select.appendChild(defaultOpt);
+
+            students.forEach(student => {
+                const opt = document.createElement('option');
+                opt.value = student;
+                opt.textContent = student;
+                select.appendChild(opt);
+            });
+            container.appendChild(select);
+        }
+    }
+
+    function startTugMatch() {
+        const modeCountLeft = parseInt(document.getElementById('tug-mode-select-left').value);
+        const modeCountRight = parseInt(document.getElementById('tug-mode-select-right').value);
+        const errEl = document.getElementById('tug-lobby-error');
+        
+        tugState.playersLeft = [];
+        tugState.playersRight = [];
+        let valid = true;
+
+        for (let i = 0; i < modeCountLeft; i++) {
+            const pl = document.getElementById(`player-left-${i}`);
+            if (!pl || !pl.value) { valid = false; break; }
+            tugState.playersLeft.push(pl.value);
+        }
+
+        for (let i = 0; i < modeCountRight; i++) {
+            const pr = document.getElementById(`player-right-${i}`);
+            if (!pr || !pr.value) { valid = false; break; }
+            tugState.playersRight.push(pr.value);
+        }
+
+        if (!valid) {
+            errEl.classList.remove('hidden');
+            return;
+        }
+
+        errEl.classList.add('hidden');
+        document.getElementById('tug-lobby-overlay').classList.add('hidden');
+        
+        document.getElementById('tug-mode-display').innerHTML = `<i class="fa-solid fa-users mr-1"></i> ${modeCountLeft} vs ${modeCountRight}`;
+
+        tugState.pos = 50;
+        tugState.active = true;
+        tugState.spamLockLeft = false;
+        tugState.spamLockRight = false;
+        tugState.spamCountLeft = 0;
+        tugState.spamCountRight = 0;
+        updateTugVisuals();
+        
+        generateTugQuestion('left');
+        generateTugQuestion('right');
+    }
+
+    function resetTugGame() {
+        initTugGame();
+    }
+
+    function updateTugVisuals() {
+        if (tugState.pos < 0) tugState.pos = 0;
+        if (tugState.pos > 100) tugState.pos = 100;
+        
+        const container = document.getElementById('tug-container');
+        const offset = (tugState.pos - 50) * 1.2;
+        container.style.transform = `translateX(${offset}%)`;
+    }
+
+    function pullTugRope(side) {
+        if (!tugState.active) return;
+        
+        const char = document.getElementById(side === 'left' ? 'tug-char-left' : 'tug-char-right');
+        const anim = side === 'left' ? 'pulling-left' : 'pulling-right';
+        
+        char.classList.add(anim);
+        setTimeout(() => char.classList.remove(anim), 400);
+
+        if (side === 'left') tugState.pos -= 6;
+        else tugState.pos += 6;
+
+        updateTugVisuals();
+        checkTugWin();
+    }
+
+    function checkTugWin() {
+        if (tugState.pos <= 25) {
+            endTugGame('left');
+        } else if (tugState.pos >= 75) {
+            endTugGame('right');
+        }
+    }
+
+    function endTugGame(winnerSide) {
+        tugState.active = false;
+        
+        const winnerName = winnerSide === 'left' ? 'TIM SANTRI (BIRU)' : 'TIM MERAH';
+        const color = winnerSide === 'left' ? 'blue' : 'red';
+        
+        // Simpan nilai ke Firebase
+        const classLeft = document.getElementById('tug-class-left').value;
+        const classRight = document.getElementById('tug-class-right').value;
+        const playersToSave = [];
+        
+        tugState.playersLeft.forEach(pName => {
+            playersToSave.push({ name: pName, kelas: classLeft, score: winnerSide === 'left' ? 100 : 80 });
+        });
+        tugState.playersRight.forEach(pName => {
+            playersToSave.push({ name: pName, kelas: classRight, score: winnerSide === 'right' ? 100 : 80 });
+        });
+        
+        if (window.submitGameScores) {
+            window.submitGameScores(playersToSave, "Mini Game Fiqih : Tarik Tambang (Alat-Alat Bersuci)");
+        }
+        
+        const overlay = document.getElementById('tug-winner-overlay');
+        const nameEl = document.getElementById('tug-winner-name');
+        nameEl.textContent = winnerName;
+        nameEl.className = `text-3xl md:text-4xl font-black font-heading mb-6 drop-shadow-md ${color === 'blue' ? 'text-blue-400' : 'text-red-400'}`;
+        overlay.classList.remove('hidden');
+    }
+
+    function handleSpamWarning(side) {
+        if (side === 'left') {
+            tugState.spamCountLeft++;
+            if (tugState.spamCountLeft > 3) {
+                showCustomAlert("TIM SANTRI (BIRU) didiskualifikasi karena menekan jawaban terlalu cepat (>3x)!");
+                endTugGame('right');
+                return;
+            }
+            tugState.spamLockLeft = true;
+        } else {
+            tugState.spamCountRight++;
+            if (tugState.spamCountRight > 3) {
+                showCustomAlert("TIM MERAH didiskualifikasi karena menekan jawaban terlalu cepat (>3x)!");
+                endTugGame('left');
+                return;
+            }
+            tugState.spamLockRight = true;
+        }
+
+        const warning = document.getElementById('tug-spam-warning');
+        warning.classList.remove('hidden');
+
+        const qEl = document.getElementById(`tug-q-${side}`);
+        const optsEl = document.getElementById(`tug-opts-${side}`);
+        qEl.innerHTML = `<span class="text-red-600 animate-pulse"><i class="fa-solid fa-ban"></i> Terkunci (Spam Pinalti ${side === 'left' ? tugState.spamCountLeft : tugState.spamCountRight}/3)</span>`;
+        optsEl.innerHTML = '';
+
+        setTimeout(() => {
+            warning.classList.add('hidden');
+            if (side === 'left') tugState.spamLockLeft = false;
+            else tugState.spamLockRight = false;
+            // Regenerate question after lock
+            if (tugState.active) generateTugQuestion(side);
+        }, 3000);
+    }
+
+    function generateTugQuestion(side) {
+        if (!tugState.active) return;
+
+        if (side === 'left') tugState.lastQTimeLeft = Date.now();
+        else tugState.lastQTimeRight = Date.now();
+
+        if ((side === 'left' && tugState.spamLockLeft) || (side === 'right' && tugState.spamLockRight)) {
+            return;
+        }
+
+        const qData = tugQuestions[Math.floor(Math.random() * tugQuestions.length)];
+        
+        const qEl = document.getElementById(`tug-q-${side}`);
+        const optsEl = document.getElementById(`tug-opts-${side}`);
+        
+        qEl.textContent = qData.q;
+        optsEl.innerHTML = '';
+        
+        let opts = [...qData.opts];
+        const correctText = opts[qData.a];
+        opts.sort(() => Math.random() - 0.5);
+
+        opts.forEach(opt => {
+            const btn = document.createElement('button');
+            const colorBg = side === 'left' ? 'bg-blue-50 border-blue-200 text-blue-900 hover:bg-blue-600 hover:text-white' : 'bg-red-50 border-red-200 text-red-900 hover:bg-red-600 hover:text-white';
+            btn.className = `w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all ${colorBg} shadow-sm`;
+            btn.textContent = opt;
+            btn.onclick = () => {
+                const now = Date.now();
+                const lastTime = side === 'left' ? tugState.lastQTimeLeft : tugState.lastQTimeRight;
+                if (now - lastTime < 1500) {
+                    handleSpamWarning(side);
+                    return;
+                }
+
+                const allBtns = optsEl.querySelectorAll('button');
+                allBtns.forEach(b => b.disabled = true);
+                if (opt === correctText) {
+                    btn.className = "w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-bold bg-emerald-500 text-white border-emerald-600 shadow-md";
+                    pullTugRope(side);
+                    setTimeout(() => generateTugQuestion(side), 500);
+                } else {
+                    btn.className = "w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-bold bg-red-500 text-white border-red-600 animate-pulse";
+                    setTimeout(() => generateTugQuestion(side), 700);
+                }
+            };
+            optsEl.appendChild(btn);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        initTugGame();
+        initWarGame(); // Init war game lobby
+    });
+
+    // --- GAME TABS LOGIC ---
+    function switchGameTab(tab, btn) {
+        document.querySelectorAll('.game-tab-btn').forEach(b => {
+            b.classList.remove('bg-teal-600', 'text-white', 'border-teal-700');
+            b.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
+        });
+        btn.classList.add('bg-teal-600', 'text-white', 'border-teal-700');
+        btn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
+
+        document.getElementById('game-wrapper-tug').classList.add('hidden');
+        document.getElementById('game-wrapper-war').classList.add('hidden');
+
+        document.getElementById(`game-wrapper-${tab}`).classList.remove('hidden');
+    }
+
+    // --- WAR GAME LOGIC ---
+    let warState = {
+        hpLeft: 100,
+        hpRight: 100,
+        active: false,
+        playersLeft: [],
+        playersRight: [],
+        lastQTimeLeft: 0,
+        lastQTimeRight: 0,
+        spamLockLeft: false,
+        spamLockRight: false,
+        spamCountLeft: 0,
+        spamCountRight: 0
+    };
+
+    function initWarGame() {
+        document.getElementById('war-lobby-overlay').classList.remove('hidden');
+        document.getElementById('war-winner-overlay').classList.add('hidden');
+        warState.active = false;
+        renderWarLobbyForms('all');
+    }
+
+    function renderWarLobbyForms(side = 'all') {
+        if (side === 'all' || side === 'left') {
+            const countLeft = parseInt(document.getElementById('war-mode-select-left').value);
+            const classLeft = document.getElementById('war-class-left').value;
+            renderPlayerDropdowns('war-players-left', classLeft, countLeft, 'left');
+        }
+        if (side === 'all' || side === 'right') {
+            const countRight = parseInt(document.getElementById('war-mode-select-right').value);
+            const classRight = document.getElementById('war-class-right').value;
+            renderPlayerDropdowns('war-players-right', classRight, countRight, 'right');
+        }
+    }
+
+    function startWarMatch() {
+        const modeCountLeft = parseInt(document.getElementById('war-mode-select-left').value);
+        const modeCountRight = parseInt(document.getElementById('war-mode-select-right').value);
+        const errEl = document.getElementById('war-lobby-error');
+        
+        warState.playersLeft = [];
+        warState.playersRight = [];
+        let valid = true;
+
+        for (let i = 0; i < modeCountLeft; i++) {
+            const pl = document.getElementById(`player-left-${i}`);
+            if (!pl || !pl.value) { valid = false; break; }
+            warState.playersLeft.push(pl.value);
+        }
+
+        for (let i = 0; i < modeCountRight; i++) {
+            const pr = document.getElementById(`player-right-${i}`);
+            if (!pr || !pr.value) { valid = false; break; }
+            warState.playersRight.push(pr.value);
+        }
+
+        if (!valid) {
+            errEl.classList.remove('hidden');
+            return;
+        }
+
+        errEl.classList.add('hidden');
+        document.getElementById('war-lobby-overlay').classList.add('hidden');
+        document.getElementById('war-mode-display').innerHTML = `<i class="fa-solid fa-users mr-1"></i> ${modeCountLeft} vs ${modeCountRight}`;
+
+        warState.hpLeft = 100;
+        warState.hpRight = 100;
+        warState.active = true;
+        warState.spamLockLeft = false;
+        warState.spamLockRight = false;
+        warState.spamCountLeft = 0;
+        warState.spamCountRight = 0;
+        
+        updateWarVisuals();
+        generateWarQuestion('left');
+        generateWarQuestion('right');
+    }
+
+    function resetWarGame() {
+        initWarGame();
+    }
+
+    function updateWarVisuals() {
+        const hpLeftBar = document.getElementById('war-hp-bar-left');
+        const hpRightBar = document.getElementById('war-hp-bar-right');
+        const hpLeftText = document.getElementById('war-hp-text-left');
+        const hpRightText = document.getElementById('war-hp-text-right');
+        
+        const hpL = Math.max(0, warState.hpLeft);
+        const hpR = Math.max(0, warState.hpRight);
+        
+        hpLeftBar.style.width = hpL + '%';
+        hpRightBar.style.width = hpR + '%';
+        hpLeftText.textContent = hpL + '%';
+        hpRightText.textContent = hpR + '%';
+
+        // HP bar glow effects
+        const hpLeftContainer = hpLeftBar.parentElement;
+        const hpRightContainer = hpRightBar.parentElement;
+        hpLeftContainer.classList.remove('war-hp-low', 'war-hp-critical');
+        hpRightContainer.classList.remove('war-hp-low', 'war-hp-critical');
+        if (hpL <= 20) hpLeftContainer.classList.add('war-hp-critical');
+        else if (hpL <= 40) hpLeftContainer.classList.add('war-hp-low');
+        if (hpR <= 20) hpRightContainer.classList.add('war-hp-critical');
+        else if (hpR <= 40) hpRightContainer.classList.add('war-hp-low');
+    }
+
+    function showClashSparks() {
+        const fx = document.getElementById('war-clash-fx');
+        fx.style.opacity = '1';
+        // Re-trigger spark animations by cloning
+        const container = fx.querySelector('.relative');
+        const clone = container.cloneNode(true);
+        container.parentNode.replaceChild(clone, container);
+        setTimeout(() => { fx.style.opacity = '0'; }, 400);
+    }
+
+    function showBlockRing() {
+        const fx = document.getElementById('war-block-fx');
+        fx.style.opacity = '1';
+        const ring = fx.querySelector('.war-block-ring');
+        const clone = ring.cloneNode(true);
+        ring.parentNode.replaceChild(clone, ring);
+        setTimeout(() => { fx.style.opacity = '0'; }, 500);
+    }
+
+    function warAttack(attackerSide) {
+        if (!warState.active) return;
+        const arena = document.getElementById('war-arena');
+        const charAtk = document.getElementById(`war-char-${attackerSide}`);
+        const defenderSide = attackerSide === 'left' ? 'right' : 'left';
+        
+        // Pause idle
+        charAtk.classList.remove('war-idle-breathe');
+
+        const anim = attackerSide === 'left' ? 'war-attack-left' : 'war-attack-right';
+        charAtk.classList.add(anim);
+        
+        setTimeout(() => {
+            const charDef = document.getElementById(`war-char-${defenderSide}`);
+            charDef.classList.remove('war-idle-breathe');
+            charDef.classList.add('war-hit-flash');
+            
+            // Screen shake
+            arena.classList.add('war-screen-shake');
+            
+            // Sparks
+            showClashSparks();
+            
+            if (defenderSide === 'left') warState.hpLeft -= 20;
+            else warState.hpRight -= 20;
+            
+            updateWarVisuals();
+
+            // Damage text float
+            const fx = document.getElementById(`war-fx-${defenderSide}`);
+            fx.classList.remove('war-dmg-float-active');
+            void fx.offsetWidth; // force reflow
+            fx.style.opacity = '1';
+            fx.classList.add('war-dmg-float-active');
+            
+            setTimeout(() => {
+                fx.style.opacity = '0';
+                fx.classList.remove('war-dmg-float-active');
+                charDef.classList.remove('war-hit-flash');
+                charAtk.classList.remove(anim);
+                arena.classList.remove('war-screen-shake');
+                charAtk.classList.add('war-idle-breathe');
+                charDef.classList.add('war-idle-breathe');
+                checkWarWin();
+            }, 600);
+
+        }, 300); 
+    }
+
+    function warBlock(failedAttackerSide) {
+        if (!warState.active) return;
+        const arena = document.getElementById('war-arena');
+        const defenderSide = failedAttackerSide === 'left' ? 'right' : 'left';
+        const charDef = document.getElementById(`war-char-${defenderSide}`);
+        const charAtk = document.getElementById(`war-char-${failedAttackerSide}`);
+        
+        charAtk.classList.remove('war-idle-breathe');
+        charDef.classList.remove('war-idle-breathe');
+
+        // Attacker lunges forward
+        const atkAnim = failedAttackerSide === 'left' ? 'war-attack-left' : 'war-attack-right';
+        charAtk.classList.add(atkAnim);
+
+        setTimeout(() => {
+            const anim = defenderSide === 'left' ? 'war-block-left' : 'war-block-right';
+            charDef.classList.add(anim);
+            
+            // Shield ring FX
+            showBlockRing();
+
+            // Show TANGKIS text
+            const blockText = document.getElementById(`war-block-text-${defenderSide}`);
+            blockText.classList.remove('war-dmg-float-active');
+            void blockText.offsetWidth;
+            blockText.style.opacity = '1';
+            blockText.classList.add('war-dmg-float-active');
+            
+            setTimeout(() => {
+                charDef.classList.remove(anim);
+                charAtk.classList.remove(atkAnim);
+                charAtk.classList.add('war-idle-breathe');
+                charDef.classList.add('war-idle-breathe');
+                blockText.style.opacity = '0';
+                blockText.classList.remove('war-dmg-float-active');
+            }, 500);
+        }, 250);
+    }
+
+    function checkWarWin() {
+        if (warState.hpLeft <= 0) {
+            endWarGame('right');
+        } else if (warState.hpRight <= 0) {
+            endWarGame('left');
+        }
+    }
+
+    function endWarGame(winnerSide) {
+        warState.active = false;
+        
+        const winnerName = winnerSide === 'left' ? 'PASUKAN BIRU' : 'PASUKAN MERAH';
+        const color = winnerSide === 'left' ? 'blue' : 'red';
+        
+        // Simpan nilai ke Firebase
+        const classLeft = document.getElementById('war-class-left').value;
+        const classRight = document.getElementById('war-class-right').value;
+        const playersToSave = [];
+        
+        warState.playersLeft.forEach(pName => {
+            playersToSave.push({ name: pName, kelas: classLeft, score: winnerSide === 'left' ? 100 : 80 });
+        });
+        warState.playersRight.forEach(pName => {
+            playersToSave.push({ name: pName, kelas: classRight, score: winnerSide === 'right' ? 100 : 80 });
+        });
+        
+        if (window.submitGameScores) {
+            window.submitGameScores(playersToSave, "Mini Game Fiqih : Duel Perang (Alat-Alat Bersuci)");
+        }
+        
+        const overlay = document.getElementById('war-winner-overlay');
+        const nameEl = document.getElementById('war-winner-name');
+        nameEl.textContent = winnerName;
+        nameEl.className = `text-3xl md:text-4xl font-black font-heading mb-6 drop-shadow-md ${color === 'blue' ? 'text-blue-400' : 'text-red-400'}`;
+        overlay.classList.remove('hidden');
+    }
+
+    function handleWarSpamWarning(side) {
+        if (side === 'left') {
+            warState.spamCountLeft++;
+            if (warState.spamCountLeft > 3) {
+                showCustomAlert("PASUKAN BIRU didiskualifikasi karena menekan jawaban terlalu cepat (>3x)!");
+                endWarGame('right');
+                return;
+            }
+            warState.spamLockLeft = true;
+        } else {
+            warState.spamCountRight++;
+            if (warState.spamCountRight > 3) {
+                showCustomAlert("PASUKAN MERAH didiskualifikasi karena menekan jawaban terlalu cepat (>3x)!");
+                endWarGame('left');
+                return;
+            }
+            warState.spamLockRight = true;
+        }
+
+        const warning = document.getElementById('war-spam-warning');
+        warning.classList.remove('hidden');
+
+        const qEl = document.getElementById(`war-q-${side}`);
+        const optsEl = document.getElementById(`war-opts-${side}`);
+        qEl.innerHTML = `<span class="text-red-600 animate-pulse"><i class="fa-solid fa-ban"></i> Terkunci (Spam Pinalti ${side === 'left' ? warState.spamCountLeft : warState.spamCountRight}/3)</span>`;
+        optsEl.innerHTML = '';
+
+        setTimeout(() => {
+            warning.classList.add('hidden');
+            if (side === 'left') warState.spamLockLeft = false;
+            else warState.spamLockRight = false;
+            if (warState.active) generateWarQuestion(side);
+        }, 3000);
+    }
+
+    function generateWarQuestion(side) {
+        if (!warState.active) return;
+
+        if (side === 'left') warState.lastQTimeLeft = Date.now();
+        else warState.lastQTimeRight = Date.now();
+
+        if ((side === 'left' && warState.spamLockLeft) || (side === 'right' && warState.spamLockRight)) {
+            return;
+        }
+
+        const qData = tugQuestions[Math.floor(Math.random() * tugQuestions.length)];
+        
+        const qEl = document.getElementById(`war-q-${side}`);
+        const optsEl = document.getElementById(`war-opts-${side}`);
+        
+        qEl.textContent = qData.q;
+        optsEl.innerHTML = '';
+        
+        let opts = [...qData.opts];
+        const correctText = opts[qData.a];
+        opts.sort(() => Math.random() - 0.5);
+
+        opts.forEach(opt => {
+            const btn = document.createElement('button');
+            const colorBg = side === 'left' ? 'bg-blue-50 border-blue-200 text-blue-900 hover:bg-blue-600 hover:text-white' : 'bg-red-50 border-red-200 text-red-900 hover:bg-red-600 hover:text-white';
+            btn.className = `w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all ${colorBg} shadow-sm`;
+            btn.textContent = opt;
+            btn.onclick = () => {
+                const now = Date.now();
+                const lastTime = side === 'left' ? warState.lastQTimeLeft : warState.lastQTimeRight;
+                if (now - lastTime < 1500) {
+                    handleWarSpamWarning(side);
+                    return;
+                }
+
+                const allBtns = optsEl.querySelectorAll('button');
+                allBtns.forEach(b => b.disabled = true);
+                
+                if (opt === correctText) {
+                    btn.className = "w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-bold bg-emerald-500 text-white border-emerald-600 shadow-md";
+                    warAttack(side);
+                    setTimeout(() => generateWarQuestion(side), 1200);
+                } else {
+                    btn.className = "w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-bold bg-red-500 text-white border-red-600 animate-pulse";
+                    warBlock(side);
+                    setTimeout(() => generateWarQuestion(side), 1200);
+                }
+            };
+            optsEl.appendChild(btn);
+        });
+    }
+
+    </script>
+
+    <!-- Custom Alert Modal -->
+    <div id="custom-alert-modal" class="fixed inset-0 modal-backdrop hidden items-center justify-center z-[10002] px-4">
+        <div class="modal-content bg-slate-900 border border-slate-700 text-white rounded-2xl p-6 shadow-2xl max-w-sm w-full text-center relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 to-amber-500"></div>
+            <div class="mx-auto w-16 h-16 bg-red-500/20 text-red-500 flex items-center justify-center rounded-full mb-4 text-3xl animate-pulse">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3 class="text-xl font-bold font-heading mb-2">Peringatan Sistem</h3>
+            <p id="custom-alert-msg" class="text-slate-300 text-sm mb-6 leading-relaxed"></p>
+            <button onclick="closeCustomAlert()" class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg transition-transform active:scale-95 w-full border border-indigo-400">
+                Oke, Mengerti
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let customAlertCallback = null;
+        function showCustomAlert(msg, callback) {
+            document.getElementById('custom-alert-msg').textContent = msg;
+            document.getElementById('custom-alert-modal').classList.remove('hidden');
+            document.getElementById('custom-alert-modal').classList.add('flex');
+            customAlertCallback = callback;
+        }
+        function closeCustomAlert() {
+            document.getElementById('custom-alert-modal').classList.add('hidden');
+            document.getElementById('custom-alert-modal').classList.remove('flex');
+            if (customAlertCallback) {
+                customAlertCallback();
+                customAlertCallback = null;
+            }
+        }
+    </script>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="w-full bg-teal-950 text-teal-200 py-10 border-t border-teal-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <a href="../../" target="_top" class="inline-flex items-center justify-center gap-3 mb-4 text-white hover:opacity-80 transition-opacity">
+                <i class="fa-solid fa-book-open text-xl text-teal-500"></i>
+                <span class="font-heading font-bold text-xl tracking-wide">Belajar<span class="text-teal-500">Online</span></span>
+            </a>
+            <p class="text-sm text-teal-400/80 max-w-md mx-auto mb-8">
+                Belajar Online adalah Sistem Pembelajaran Berbasis Digital untuk Memudahkan Guru dan Murid dalam Mencapai Tujuan Pembelajaran.
+            </p>
+            <div class="pt-6 border-t border-teal-900/50 text-xs text-teal-500">
+                <p>&copy; 2026 Ahmad Zulfikar, S.Pd.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+
+    
+    <!-- Diagnostic Assessment Script -->
+    <script>
+        const allQuestions = [{"q": "Air yang biasa kita gunakan untuk wudhu adalah...", "opts": ["Air bersih/suci", "Air kopi", "Air sirup", "Air selokan"], "a": 0}, {"q": "Sebelum melaksanakan shalat, kita wajib membersihkan diri dengan cara...", "opts": ["Wudhu", "Mandi kembang", "Cuci baju", "Sikat gigi"], "a": 0}, {"q": "Contoh benda yang bisa dipakai bersuci selain air adalah...", "opts": ["Batu / Debu", "Kertas", "Plastik", "Daun pisang"], "a": 0}, {"q": "Apakah air teh atau kopi boleh digunakan untuk berwudhu?", "opts": ["Tidak boleh", "Boleh", "Sangat Boleh", "Wajib"], "a": 0}, {"q": "Jika ada kotoran (najis) nempel di baju kita, maka kita harus...", "opts": ["Mencucinya dengan air bersih", "Menjemurnya saja", "Dibiarkan saja", "Disetrika"], "a": 0}, {"q": "Kita berwudhu menggunakan...", "opts": ["Air bersih", "Pasir", "Air sabun", "Minyak goreng"], "a": 0}, {"q": "Jika tidak ada air sama sekali, kita boleh bersuci dengan debu bersih. Ini disebut...", "opts": ["Tayamum", "Mandi", "Wudhu", "Keramas"], "a": 0}, {"q": "Sesuatu yang kotor dan membatalkan wudhu (seperti kotoran cicak) disebut...", "opts": ["Najis", "Hadas", "Kotoran biasa", "Debu"], "a": 0}, {"q": "Bolehkah kita berwudhu menggunakan air hujan yang turun dari langit?", "opts": ["Boleh", "Tidak Boleh", "Haram", "Makruh"], "a": 0}, {"q": "Membersihkan kotoran setelah kita buang air kecil atau buang air besar disebut...", "opts": ["Istinja' (Cebok)", "Mandi", "Wudhu", "Tayamum"], "a": 0}, {"q": "Alat yang paling utama dan sempurna untuk bersuci adalah...", "opts": ["Air suci", "Tisu", "Batu", "Kayu"], "a": 0}, {"q": "Air laut itu rasanya asin. Apakah boleh digunakan untuk wudhu?", "opts": ["Boleh", "Tidak Boleh", "Haram", "Kotor"], "a": 0}, {"q": "Jika terpaksa tayamum, syarat debu yang dipakai harus...", "opts": ["Suci dan bersih", "Basah terkena air", "Hitam dan bau", "Kasar dan banyak kerikil"], "a": 0}, {"q": "Air kelapa murni itu sangat enak diminum, tapi apakah boleh dipakai wudhu?", "opts": ["Tidak boleh", "Boleh", "Sangat boleh", "Wajib"], "a": 0}, {"q": "Membersihkan diri secara keseluruhan setelah mandi junub harus meratakan air ke...", "opts": ["Seluruh tubuh", "Rambut saja", "Tangan saja", "Kaki saja"], "a": 0}];
+        let currentQuestions = [];
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedScore = localStorage.getItem('diag_score_alat_suci');
+            if(savedScore !== null) {
+                showDiagResult(parseInt(savedScore));
+            } else {
+                renderRandomQuestions();
+            }
+        });
+
+        function renderRandomQuestions() {
+            // Shuffle and pick 5
+            let shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
+            currentQuestions = shuffled.slice(0, 5);
+            
+            const container = document.getElementById('diag-dynamic-container');
+            container.innerHTML = '';
+            
+            const letters = ['A', 'B', 'C', 'D'];
+            
+            currentQuestions.forEach((qObj, index) => {
+                let optionsHtml = '';
+                qObj.opts.forEach((optText, oIdx) => {
+                    optionsHtml += `
+                        <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-teal-50 transition-colors">
+                            <input type="radio" name="q${index}" value="${oIdx}" class="mr-3 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">${letters[oIdx]}. ${optText}</span>
+                        </label>
+                    `;
+                });
+                
+                container.innerHTML += `
+                    <div class="diag-q mb-6" data-q="${index}">
+                        <p class="font-bold text-slate-800 mb-3">${index + 1}. ${qObj.q}</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            ${optionsHtml}
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function submitDiagnostic() {
+            const form = document.getElementById('diag-form');
+            let answeredCount = 0;
+            let score = 0;
+            
+            for(let i=0; i<5; i++) {
+                const selected = form.querySelector(`input[name="q${i}"]:checked`);
+                if(selected) {
+                    answeredCount++;
+                    if(parseInt(selected.value) === currentQuestions[i].a) score += 20;
+                }
+            }
+            
+            if(answeredCount < 5) {
+                document.getElementById('diag-warning').classList.remove('hidden');
+                return;
+            }
+            
+            document.getElementById('diag-warning').classList.add('hidden');
+            localStorage.setItem('diag_score_alat_suci', score);
+            showDiagResult(score);
+        }
+        
+        function showDiagResult(score) {
+            document.getElementById('diag-form').classList.add('hidden');
+            const resultCard = document.getElementById('diag-result-card');
+            resultCard.classList.remove('hidden');
+            
+            const badge = document.getElementById('diag-score-badge');
+            badge.classList.remove('hidden');
+            document.getElementById('diag-score').textContent = score;
+            
+            const icon = document.getElementById('diag-result-icon');
+            const title = document.getElementById('diag-result-title');
+            const desc = document.getElementById('diag-result-desc');
+            
+            if(score === 100) {
+                icon.innerHTML = '<i class="fa-solid fa-face-smile-beam text-emerald-500"></i>';
+                title.textContent = 'Luar Biasa!';
+                desc.textContent = 'Pemahaman awalmu tentang materi ini sudah sangat sempurna. Mari kita perdalam lagi di materi utama!';
+            } else if(score >= 60) {
+                icon.innerHTML = '<i class="fa-solid fa-face-smile text-amber-500"></i>';
+                title.textContent = 'Cukup Baik!';
+                desc.textContent = 'Kamu sudah punya gambaran tentang materi ini. Yuk, baca materinya untuk menyempurnakan pemahamanmu!';
+            } else {
+                icon.innerHTML = '<i class="fa-solid fa-face-thinking text-blue-500"></i>';
+                title.textContent = 'Mari Belajar Bersama!';
+                desc.textContent = 'Tidak apa-apa, materi di bawah ini dirancang khusus untuk membantumu memahami semua dasar-dasar kebersihan dengan mudah.';
+            }
+        }
+        
+        function resetDiagnostic() {
+            localStorage.removeItem('diag_score_alat_suci');
+            document.getElementById('diag-form').reset();
+            renderRandomQuestions(); // Load new random 5 questions
+            document.getElementById('diag-form').classList.remove('hidden');
+            document.getElementById('diag-result-card').classList.add('hidden');
+            document.getElementById('diag-score-badge').classList.add('hidden');
+        }
+    </script>
+
+
+</body>
+</html>
