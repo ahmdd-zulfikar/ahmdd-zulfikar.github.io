@@ -128,6 +128,18 @@
         <!-- Materi Section -->
         <section id="materi" class="py-12 container mx-auto px-4 relative z-20 max-w-5xl -mt-16">
             
+            <!-- Video Materi -->
+            <div class="mb-10 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="p-6 md:p-8">
+                    <h3 class="font-bold text-slate-800 font-heading text-xl md:text-2xl mb-4 flex items-center gap-2">
+                        <i class="fa-brands fa-youtube text-red-600"></i> Video Pembelajaran
+                    </h3>
+                    <div class="relative w-full overflow-hidden rounded-xl bg-slate-100" style="padding-top: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/0HUfUtpYA7g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cards-container">
                 
                 <!-- Card A -->
@@ -471,6 +483,2221 @@
         </div>
     </div>
 
+    
+    <!-- ================= SIMULASI THAHARAH ================= -->
+    <style>
+        .sim-scene{border-radius:1.5rem;position:relative;overflow:hidden;min-height:240px;display:flex;align-items:center;justify-content:center;border:2px solid #bae6fd}
+        .sim-obj{font-size:5rem;z-index:10;transition:all .6s ease;filter:drop-shadow(0 4px 12px rgba(0,0,0,.15))}
+        .sim-obj-clean{filter:drop-shadow(0 0 25px rgba(16,185,129,.6));transform:scale(1.15)}
+        .sim-stain{position:absolute;border-radius:50%;filter:blur(10px);z-index:8;transition:opacity .8s ease,transform .8s ease;pointer-events:none}
+        .sim-wave{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(180deg,rgba(56,189,248,.2),rgba(14,165,233,.45));transition:height .8s cubic-bezier(.4,0,.2,1);z-index:5}
+        .sim-wave::before{content:'';position:absolute;top:-8px;left:0;right:0;height:16px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 20'%3E%3Cpath d='M0,10C150,0 300,20 450,10C600,0 750,20 900,10C1050,0 1200,20 1200,10L1200,20L0,20Z' fill='rgba(56,189,248,.3)'/%3E%3C/svg%3E") repeat-x;animation:simWv 3s ease-in-out infinite}
+        @keyframes simWv{0%,100%{transform:translateX(0)}50%{transform:translateX(-40px)}}
+
+        /* Tool buttons */
+        .sim-tool{display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 8px;border-radius:1rem;border:2px solid #e2e8f0;background:#fff;cursor:pointer;transition:all .3s ease;position:relative;min-width:0}
+        .sim-tool:hover:not(.sim-t-ok):not(.sim-t-no):not(.sim-t-off){border-color:#93c5fd;background:#eff6ff;transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.08)}
+        .sim-tool:active:not(.sim-t-ok):not(.sim-t-no):not(.sim-t-off){transform:scale(.95)}
+        .sim-tool-em{font-size:1.8rem;transition:transform .3s ease;line-height:1}
+        .sim-tool:hover .sim-tool-em{transform:scale(1.15)}
+        .sim-tool-lb{font-size:.65rem;font-weight:700;color:#64748b;text-align:center;line-height:1.2}
+        .sim-t-ok{border-color:#10b981!important;background:linear-gradient(135deg,#ecfdf5,#d1fae5)!important;pointer-events:none}
+        .sim-t-ok::after{content:'✓';position:absolute;top:-5px;right:-5px;width:18px;height:18px;background:#10b981;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900}
+        .sim-t-no{animation:simSk .5s ease;border-color:#fca5a5!important;background:#fef2f2!important}
+        .sim-t-off{opacity:.35;pointer-events:none}
+        @keyframes simSk{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+
+        /* Particles */
+        .sim-drop{position:absolute;width:7px;height:11px;background:radial-gradient(ellipse at 30% 20%,#7dd3fc,#0ea5e9);border-radius:50% 50% 50% 50%/60% 60% 40% 40%;z-index:15;animation:simDf var(--d,.8s) ease-in forwards}
+        @keyframes simDf{0%{transform:translateY(0) scale(1);opacity:.9}80%{opacity:.5}100%{transform:translateY(var(--f,100px)) scale(.3);opacity:0}}
+        .sim-sparkle{position:absolute;width:6px;height:6px;background:#fbbf24;border-radius:50%;z-index:15;box-shadow:0 0 6px #fbbf24,0 0 12px #f59e0b;animation:simSp var(--d,.7s) ease-out forwards}
+        @keyframes simSp{0%{transform:translate(0,0) scale(0);opacity:1}50%{transform:translate(var(--dx,20px),var(--dy,-30px)) scale(1.4);opacity:.8}100%{transform:translate(calc(var(--dx,20px)*1.5),calc(var(--dy,-30px)*1.5)) scale(0);opacity:0}}
+        .sim-dust{position:absolute;width:5px;height:5px;border-radius:50%;z-index:15;animation:simDu var(--d,.9s) ease-out forwards}
+        @keyframes simDu{0%{transform:translate(0,0) scale(1);opacity:.8}100%{transform:translate(var(--dx,15px),var(--dy,-35px)) scale(.2);opacity:0}}
+
+        /* Toast */
+        .sim-toast{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);padding:8px 20px;border-radius:12px;font-weight:800;font-size:.85rem;z-index:30;animation:simTp 1.2s ease-out forwards;pointer-events:none}
+        @keyframes simTp{0%{transform:translate(-50%,-50%) scale(.5);opacity:0}15%{transform:translate(-50%,-50%) scale(1.1);opacity:1}70%{transform:translate(-50%,-60%) scale(1);opacity:1}100%{transform:translate(-50%,-70%) scale(.8);opacity:0}}
+
+        /* Flying tool */
+        .sim-fly{position:fixed;z-index:200;pointer-events:none;font-size:2.5rem;transition:all .5s cubic-bezier(.34,1.56,.64,1)}
+
+        /* Slide up */
+        .sim-su{animation:simSu .4s ease-out}
+        @keyframes simSu{0%{transform:translateY(15px);opacity:0}100%{transform:translateY(0);opacity:1}}
+
+        /* Progress step icons */
+        .sim-ps{display:flex;flex-direction:column;align-items:center;gap:2px;transition:all .4s ease;opacity:.35}
+        .sim-ps-done{opacity:1;transform:scale(1.1)}
+        .sim-ps-done .sim-ps-em{filter:drop-shadow(0 0 6px rgba(16,185,129,.5))}
+        .sim-ps-active{opacity:1;animation:simPl 1.5s ease-in-out infinite}
+        @keyframes simPl{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+
+        /* Confetti */
+        .sim-conf{position:absolute;z-index:20;animation:simCf var(--d,2.5s) ease-in forwards}
+        @keyframes simCf{0%{transform:translateY(-10px) rotate(0);opacity:1}100%{transform:translateY(var(--f,280px)) rotate(720deg);opacity:0}}
+
+        /* Cards */
+        .sim-card{transition:all .3s ease;cursor:pointer}
+        .sim-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.12)}
+
+        /* Clean badge */
+        .sim-badge{animation:simBp .5s cubic-bezier(.34,1.56,.64,1)}
+        @keyframes simBp{0%{transform:scale(0) rotate(-10deg)}100%{transform:scale(1) rotate(0)}}
+    </style>
+
+    <!-- ================= GAME SECTION ================= -->
+    <section class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center mb-10 fade-in delay-100">
+            <span class="inline-flex items-center gap-2 bg-teal-50 border border-teal-200 text-teal-700 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-4 shadow-sm">
+                <i class="fa-solid fa-gamepad text-amber-500"></i> Mini Game Fiqih
+            </span>
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-800 font-heading mb-6">🎮 Game Interaktif Thaharah</h2>
+            
+            <!-- Game Tabs -->
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-2">
+                <button onclick="switchGameTab('sim', this)" id="tab-btn-sim" class="game-tab-btn px-6 py-2.5 rounded-xl font-bold shadow-sm transition-all bg-teal-600 text-white border border-teal-700"><i class="fa-solid fa-hand-holding-droplet mr-2"></i> Simulasi Thaharah</button>
+                <button onclick="switchGameTab('war', this)" id="tab-btn-war" class="game-tab-btn px-6 py-2.5 rounded-xl font-bold shadow-sm transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"><i class="fa-solid fa-khanda mr-2"></i> Duel Perang</button>
+            </div>
+            <p class="text-slate-500 text-sm max-w-lg mx-auto mt-4">Uji pemahamanmu tentang Hadas dan Najis dalam arena interaktif!</p>
+        </div>
+
+        <!-- ================= SIMULASI THAHARAH ================= -->
+        <div id="game-wrapper-sim" class="block animate-fadeIn max-w-5xl mx-auto">
+            <div id="sim-menu"></div>
+            <div id="sim-arena" class="hidden"></div>
+            <div id="sim-complete" class="hidden"></div>
+        </div>
+
+    <script>
+    // ===================== SIMULASI THAHARAH =====================
+    const simData = [
+        {
+            id:'mukhaffafah', title:'Najis Mukhaffafah', subtitle:'Air Kencing Bayi (ASI) di Baju',
+            emoji:'👶', obj:'👕', cat:'najis',
+            cc:'bg-emerald-50 border-emerald-200', lc:'text-emerald-700',
+            bg:'linear-gradient(180deg,#ecfdf5,#a7f3d0,#6ee7b7)', stain:'#eab308', stainSz:45,
+            desc:'Bajumu terkena air kencing bayi laki-laki yang hanya minum ASI.',
+            tools:[
+                {id:'perciki',em:'💧',lb:'Perciki Air'},
+                {id:'siram',em:'🚿',lb:'Siram Deras'},
+                {id:'sabun',em:'🧼',lb:'Cuci Sabun'},
+                {id:'tanah',em:'🪨',lb:'Campur Tanah'},
+                {id:'jemur',em:'☀️',lb:'Jemur Saja'}
+            ],
+            steps:[
+                {tid:'perciki', hint:'Bagaimana cara mensucikan najis ringan ini?', dalil:'HR. Abu Dawud & An-Nasa\'i — "Cukup dipercikkan air pada kencing bayi laki-laki yang belum makan selain ASI."', fx:'water'}
+            ],
+            note:'Najis mukhaffafah (ringan) cukup diperciki air bersih tanpa digosok. Ini rukhshah (keringanan) dari Allah SWT.'
+        },
+        {
+            id:'ainiyyah', title:"Najis Mutawassithah 'Ainiyyah", subtitle:'Darah Tampak di Lantai',
+            emoji:'🩸', obj:'🧱', cat:'najis',
+            cc:'bg-red-50 border-red-200', lc:'text-red-700',
+            bg:'linear-gradient(180deg,#fef2f2,#fecaca,#fca5a5)', stain:'#ef4444', stainSz:50,
+            desc:'Lantai terkena darah yang masih tampak wujudnya.',
+            steps:[
+                {tid:'buang', hint:'Langkah pertama: bagaimana menangani zat najis yang tampak?', dalil:'Wajib menghilangkan wujud najis yang tampak terlebih dahulu sebelum membasuh.', fx:'sparkle'},
+                {tid:'siram', hint:'Zat sudah dibuang. Lalu apa selanjutnya?', dalil:'HR. Muslim — Najis mutawassithah suci jika hilang sifat najisnya: bau, rasa, dan warnanya.', fx:'water'}
+            ],
+            tools:[
+                {id:'buang',em:'🫳',lb:'Buang Zatnya'},
+                {id:'siram',em:'🚿',lb:'Siram Air Bersih'},
+                {id:'perciki',em:'💧',lb:'Perciki Air'},
+                {id:'tanah',em:'🪨',lb:'Campur Tanah'},
+                {id:'lap',em:'🧻',lb:'Lap Tisu Kering'}
+            ],
+            note:"Najis 'ainiyyah: hilangkan zatnya dulu, lalu siram air bersih hingga hilang bau, warna, dan rasanya."
+        },
+        {
+            id:'hukmiyyah', title:"Najis Mutawassithah Hukmiyyah", subtitle:'Air Kencing Kering (Tak Tampak)',
+            emoji:'💨', obj:'👖', cat:'najis',
+            cc:'bg-amber-50 border-amber-200', lc:'text-amber-700',
+            bg:'linear-gradient(180deg,#fffbeb,#fde68a,#fbbf24)', stain:'#94a3b8', stainSz:35,
+            desc:'Celanamu terkena air kencing yang sudah kering dan tak tampak wujudnya.',
+            tools:[
+                {id:'alirkan',em:'🚿',lb:'Alirkan Air Suci'},
+                {id:'sabun',em:'🧼',lb:'Cuci Sabun'},
+                {id:'tanah',em:'🪨',lb:'Campur Tanah'},
+                {id:'jemur',em:'☀️',lb:'Jemur Saja'},
+                {id:'diam',em:'🚫',lb:'Biarkan Saja'}
+            ],
+            steps:[
+                {tid:'alirkan', hint:'Najis tidak tampak, bagaimana mensucikannya?', dalil:'Cukup dialiri air suci karena wujud fisik najis sudah tidak tampak.', fx:'water'}
+            ],
+            note:'Najis hukmiyyah cukup dialiri air suci tanpa digosok, karena wujud najis sudah tidak ada.'
+        },
+        {
+            id:'mughaladhah', title:'Najis Mughaladhah', subtitle:'Mangkuk Dijilat Anjing',
+            emoji:'🐕', obj:'🥣', cat:'najis',
+            cc:'bg-purple-50 border-purple-200', lc:'text-purple-700',
+            bg:'linear-gradient(180deg,#faf5ff,#e9d5ff,#c4b5fd)', stain:'#a3e635', stainSz:50,
+            desc:'Mangkukmu dijilat oleh anjing. Bagaimana mensucikannya?',
+            tools:[
+                {id:'buang',em:'🫳',lb:'Buang Sisa'},
+                {id:'tanah-air',em:'🪨💧',lb:'Basuh + Tanah'},
+                {id:'basuh6',em:'🚿',lb:'Basuh 6× Air'},
+                {id:'sabun',em:'🧼',lb:'Sabun 3×'},
+                {id:'perciki',em:'💧',lb:'Perciki Air'},
+                {id:'rendam',em:'🪣',lb:'Rendam Air Garam'}
+            ],
+            steps:[
+                {tid:'buang', hint:'Langkah pertama sebelum membasuh?', dalil:'Buang sisa air/makanan yang terkena jilatan terlebih dahulu.', fx:'sparkle'},
+                {tid:'tanah-air', hint:'Basuhan pertama harus menggunakan apa?', dalil:'HR. Muslim No. 279 — "...hendaklah dibasuh tujuh kali, yang pertama dengan tanah."', fx:'dust'},
+                {tid:'basuh6', hint:'Setelah basuhan pertama, lanjutkan dengan apa?', dalil:'Dilanjutkan 6 basuhan lagi dengan air bersih sehingga genap 7 kali.', fx:'water'}
+            ],
+            note:'Najis mughaladhah wajib dibasuh 7 kali. Basuhan pertama dicampur tanah (turab). Sesuai HR. Muslim.'
+        },
+        {
+            id:'hadas-kecil', title:'Hadas Kecil — Wudhu', subtitle:'Hendak Shalat Setelah Buang Air',
+            emoji:'🕌', obj:'🤲', cat:'hadas',
+            cc:'bg-blue-50 border-blue-200', lc:'text-blue-700',
+            bg:'linear-gradient(180deg,#eff6ff,#bfdbfe,#93c5fd)', stain:'#94a3b8', stainSz:80,
+            desc:'Kamu hendak shalat setelah buang air kecil. Lakukan wudhu dengan urutan yang benar!',
+            tools:[
+                {id:'niat',em:'🤲',lb:'Niat'},
+                {id:'wajah',em:'😶',lb:'Basuh Wajah'},
+                {id:'tangan',em:'💪',lb:'Basuh Tangan'},
+                {id:'kepala',em:'👤',lb:'Usap Kepala'},
+                {id:'kaki',em:'🦶',lb:'Basuh Kaki'},
+                {id:'dada',em:'🫁',lb:'Usap Dada'},
+                {id:'mandi',em:'🛁',lb:'Mandi Dulu'}
+            ],
+            steps:[
+                {tid:'niat', hint:'Apa hal pertama sebelum memulai wudhu?', dalil:'HR. Bukhari & Muslim — "Sesungguhnya setiap amalan tergantung pada niatnya."', fx:'sparkle'},
+                {tid:'wajah', hint:'Anggota badan pertama yang dibasuh?', dalil:'QS. Al-Maidah [5]:6 — "...maka basuhlah wajahmu..."', fx:'water'},
+                {tid:'tangan', hint:'Setelah wajah, anggota badan berikutnya?', dalil:'QS. Al-Maidah [5]:6 — "...dan tanganmu sampai ke siku..."', fx:'water'},
+                {tid:'kepala', hint:'Setelah tangan, apa selanjutnya?', dalil:'QS. Al-Maidah [5]:6 — "...dan usaplah kepalamu..."', fx:'water'},
+                {tid:'kaki', hint:'Rukun terakhir yang dibasuh?', dalil:'QS. Al-Maidah [5]:6 — "...dan (basuh) kakimu sampai ke mata kaki."', fx:'water'}
+            ],
+            note:'Rukun wudhu: Niat → Basuh wajah → Basuh tangan sampai siku → Usap kepala → Basuh kaki sampai mata kaki. Wajib TERTIB (berurutan)!'
+        },
+        {
+            id:'hadas-besar', title:'Hadas Besar — Mandi Wajib', subtitle:'Setelah Haidh / Junub',
+            emoji:'🚿', obj:'💧', cat:'hadas',
+            cc:'bg-cyan-50 border-cyan-200', lc:'text-cyan-700',
+            bg:'linear-gradient(180deg,#ecfeff,#a5f3fc,#67e8f9)', stain:'#94a3b8', stainSz:70,
+            desc:'Kamu dalam keadaan junub/selesai haidh dan hendak shalat. Lakukan mandi wajib!',
+            tools:[
+                {id:'niat',em:'🤲',lb:'Niat Mandi Wajib'},
+                {id:'ratakan',em:'🚿',lb:'Ratakan Air Seluruh Tubuh'},
+                {id:'wudhu',em:'💦',lb:'Wudhu Saja'},
+                {id:'tayamum',em:'🏜️',lb:'Tayamum'},
+                {id:'kepala',em:'🧑',lb:'Siram Kepala Saja'}
+            ],
+            steps:[
+                {tid:'niat', hint:'Apa rukun pertama mandi wajib?', dalil:'HR. Bukhari & Muslim — "Sesungguhnya setiap amalan tergantung pada niatnya." Niat di dalam hati.', fx:'sparkle'},
+                {tid:'ratakan', hint:'Setelah niat, apa yang harus dilakukan?', dalil:'Fardhu mandi wajib: meratakan air ke seluruh permukaan tubuh, termasuk rambut dan sela-sela lipatan.', fx:'water'}
+            ],
+            note:'Hadas besar disucikan dengan mandi wajib (ghusl). Rukunnya 2: niat dan meratakan air ke seluruh tubuh.'
+        }
+    ];
+
+    let simSt={cur:null, idx:0, err:0, done:new Set()};
+
+    function simRenderMenu(){
+        const m=document.getElementById('sim-menu');
+        const nj=simData.filter(s=>s.cat==='najis'), hd=simData.filter(s=>s.cat==='hadas');
+        m.innerHTML=`
+        <div class="mb-8">
+            <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 flex items-center gap-2"><span class="w-8 h-0.5 bg-red-300 rounded"></span>Skenario Najis<span class="w-8 h-0.5 bg-red-300 rounded"></span></h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">${nj.map(simCardH).join('')}</div>
+        </div>
+        <div>
+            <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 flex items-center gap-2"><span class="w-8 h-0.5 bg-blue-300 rounded"></span>Skenario Hadas<span class="w-8 h-0.5 bg-blue-300 rounded"></span></h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${hd.map(simCardH).join('')}</div>
+        </div>`;
+    }
+    function simCardH(s){
+        const dn=simSt.done.has(s.id);
+        return `<div class="sim-card ${s.cc} border-2 rounded-2xl p-5 text-center relative overflow-hidden group" onclick="simGo('${s.id}')">
+            ${dn?'<div class="absolute top-2 right-2 bg-emerald-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs shadow"><i class="fa-solid fa-check"></i></div>':''}
+            <div class="text-4xl mb-3 group-hover:scale-110 transition-transform">${s.emoji}</div>
+            <h4 class="font-bold text-slate-800 text-sm mb-1">${s.title}</h4>
+            <p class="text-xs text-slate-500 leading-relaxed">${s.subtitle}</p>
+            <div class="mt-3 text-xs font-semibold ${s.lc}">${s.steps.length} langkah <i class="fa-solid fa-arrow-right ml-1"></i></div>
+        </div>`;
+    }
+
+    function simGo(id){
+        const s=simData.find(x=>x.id===id); if(!s) return;
+        simSt.cur=s; simSt.idx=0; simSt.err=0;
+        document.getElementById('sim-menu').classList.add('hidden');
+        document.getElementById('sim-complete').classList.add('hidden');
+        const a=document.getElementById('sim-arena');
+        a.classList.remove('hidden');
+        a.innerHTML=`
+        <button onclick="simBack()" class="mb-4 text-sm text-slate-500 hover:text-slate-800 transition font-semibold flex items-center gap-1"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
+        <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+            <div class="sim-scene" id="sim-scene" style="background:${s.bg}">
+                <div class="sim-stain" id="sim-stain" style="background:${s.stain};width:${s.stainSz}px;height:${s.stainSz}px;top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+                <div class="sim-obj" id="sim-obj">${s.obj}</div>
+                <div class="sim-wave" id="sim-wave" style="height:0%"></div>
+                <div id="sim-fx"></div>
+                <div id="sim-badge" class="hidden absolute top-4 right-4 z-20 bg-emerald-500 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg sim-badge">✨ SUCI!</div>
+            </div>
+            <div class="p-5 md:p-6">
+                <div class="flex items-start gap-3 mb-3">
+                    <span class="text-3xl shrink-0">${s.emoji}</span>
+                    <div><h3 class="font-bold text-slate-800 text-lg font-heading">${s.title}</h3><p class="text-sm text-slate-500 mt-1">${s.desc}</p></div>
+                </div>
+                <div id="sim-prog" class="flex items-center justify-center gap-3 my-5 flex-wrap"></div>
+                <div id="sim-hint" class="text-center mb-5"></div>
+                <div class="bg-slate-50 rounded-xl border border-slate-200 p-4 mb-4">
+                    <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 text-center"><i class="fa-solid fa-toolbox mr-1"></i> Pilih Alat / Tindakan</p>
+                    <div id="sim-tools" class="grid grid-cols-3 sm:grid-cols-5 gap-3 justify-items-center"></div>
+                </div>
+                <div id="sim-dalil" class="hidden mt-4"></div>
+                <div id="sim-next" class="hidden text-center mt-4"></div>
+            </div>
+        </div>`;
+        simRenderStep();
+    }
+
+    function simRenderStep(){
+        const s=simSt.cur, i=simSt.idx, t=s.steps.length;
+        // Progress icons
+        const pg=document.getElementById('sim-prog');
+        pg.innerHTML=s.steps.map((_,si)=>{
+            let cls='sim-ps';
+            if(si<i) cls+=' sim-ps-done';
+            else if(si===i) cls+=' sim-ps-active';
+            const tool=s.tools.find(tt=>tt.id===s.steps[si].tid);
+            return `<div class="${cls}"><span class="sim-ps-em text-2xl">${tool?tool.em:'⬜'}</span><span class="text-[10px] font-bold text-slate-500">${si+1}</span></div>
+            ${si<t-1?'<i class="fa-solid fa-chevron-right text-slate-300 text-xs self-center"></i>':''}`;
+        }).join('');
+
+        // Hint
+        document.getElementById('sim-hint').innerHTML=`
+            <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full mb-2">Langkah ${i+1} dari ${t}</span>
+            <p class="text-sm font-semibold text-slate-700">${s.steps[i].hint}</p>`;
+
+        // Tools
+        const tls=document.getElementById('sim-tools');
+        tls.innerHTML=s.tools.map(tool=>{
+            const usedStep=s.steps.findIndex(st=>st.tid===tool.id);
+            const isDone=usedStep!==-1 && usedStep<i;
+            return `<button class="sim-tool${isDone?' sim-t-ok':''}" onclick="simPick('${tool.id}',this)" data-tid="${tool.id}">
+                <span class="sim-tool-em">${tool.em}</span><span class="sim-tool-lb">${tool.lb}</span>
+            </button>`;
+        }).join('');
+
+        document.getElementById('sim-dalil').classList.add('hidden');
+        document.getElementById('sim-next').classList.add('hidden');
+    }
+
+    function simPick(tid,btn){
+        const s=simSt.cur, step=s.steps[simSt.idx];
+        if(btn.classList.contains('sim-t-ok')||btn.classList.contains('sim-t-off')) return;
+
+        if(tid===step.tid){
+            // ✅ CORRECT
+            btn.classList.add('sim-t-ok');
+            // Disable wrong tools temporarily
+            document.querySelectorAll('#sim-tools .sim-tool:not(.sim-t-ok)').forEach(b=>b.classList.add('sim-t-off'));
+
+            // Fly tool emoji to scene
+            simFly(btn);
+            // Particle FX
+            setTimeout(()=>{
+                if(step.fx==='water') simFxWater();
+                else if(step.fx==='sparkle') simFxSparkle();
+                else if(step.fx==='dust') simFxDust();
+            },300);
+            // Toast
+            simToast('✓ Benar!','bg-emerald-500 text-white');
+            // Fade stain
+            const pct=(simSt.idx+1)/s.steps.length;
+            document.getElementById('sim-stain').style.opacity=1-pct;
+            document.getElementById('sim-wave').style.height=(pct*100)+'%';
+            // Update progress icons
+            const dots=document.querySelectorAll('#sim-prog .sim-ps');
+            if(dots[simSt.idx]) dots[simSt.idx].classList.replace('sim-ps-active','sim-ps-done');
+
+            // Dalil
+            const dl=document.getElementById('sim-dalil');
+            dl.classList.remove('hidden');
+            dl.innerHTML=`<div class="sim-su bg-emerald-50 border border-emerald-200 rounded-xl p-4">
+                <div class="flex items-start gap-2"><i class="fa-solid fa-book-quran text-emerald-600 mt-0.5"></i><div>
+                <p class="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-1">Dalil / Penjelasan</p>
+                <p class="text-sm text-emerald-800 leading-relaxed">${step.dalil}</p></div></div></div>`;
+
+            // Next/Finish btn
+            const nx=document.getElementById('sim-next');
+            nx.classList.remove('hidden');
+            if(simSt.idx>=s.steps.length-1){
+                document.getElementById('sim-badge').classList.remove('hidden');
+                document.getElementById('sim-obj').classList.add('sim-obj-clean');
+                nx.innerHTML=`<button onclick="simFinish()" class="sim-su bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all transform hover:scale-105 active:scale-95"><i class="fa-solid fa-trophy mr-2"></i>Lihat Hasil</button>`;
+            } else {
+                nx.innerHTML=`<button onclick="simNext()" class="sim-su bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all transform hover:scale-105 active:scale-95">Lanjutkan <i class="fa-solid fa-arrow-right ml-1"></i></button>`;
+            }
+        } else {
+            // ❌ WRONG
+            simSt.err++;
+            btn.classList.add('sim-t-no');
+            simToast('✗ Bukan itu!','bg-red-500 text-white');
+            setTimeout(()=>btn.classList.remove('sim-t-no'),600);
+        }
+    }
+
+    function simNext(){ simSt.idx++; simRenderStep(); }
+
+    function simFinish(){
+        simSt.done.add(simSt.cur.id);
+        const s=simSt.cur, e=simSt.err;
+        let stars=3; if(e>=3) stars=1; else if(e>=1) stars=2;
+        document.getElementById('sim-arena').classList.add('hidden');
+        const c=document.getElementById('sim-complete');
+        c.classList.remove('hidden');
+        c.innerHTML=`<div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden relative">
+            <div id="sim-confbox" class="absolute inset-0 overflow-hidden pointer-events-none z-10"></div>
+            <div class="relative z-20 p-8 md:p-10 text-center sim-su">
+                <div class="text-6xl mb-4">🎉</div>
+                <h3 class="text-2xl md:text-3xl font-black text-slate-800 font-heading mb-2">Alhamdulillah!</h3>
+                <p class="text-sm text-slate-500 mb-4">Simulasi <strong>${s.title}</strong> selesai!</p>
+                <div class="flex justify-center gap-1 mb-4">${[1,2,3].map(i=>`<span class="text-3xl ${i<=stars?'text-amber-400':'text-slate-200'}" style="filter:${i<=stars?'drop-shadow(0 0 4px rgba(245,158,11,.5))':'none'}">${i<=stars?'⭐':'☆'}</span>`).join('')}</div>
+                <p class="text-xs text-slate-400 mb-6">${e===0?'Sempurna! Tanpa kesalahan!':e+' kesalahan'}</p>
+                <div class="bg-teal-50 border border-teal-200 rounded-xl p-5 text-left mb-6 max-w-lg mx-auto">
+                    <div class="flex items-start gap-2"><i class="fa-solid fa-lightbulb text-teal-600 mt-0.5"></i><div>
+                    <p class="text-xs font-bold text-teal-700 uppercase tracking-wider mb-1">Ringkasan</p>
+                    <p class="text-sm text-teal-800 leading-relaxed">${s.note}</p></div></div>
+                </div>
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <button onclick="simBack()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3 px-6 rounded-full transition text-sm"><i class="fa-solid fa-grip mr-1"></i>Menu</button>
+                    <button onclick="simReplay()" class="bg-gradient-to-r from-sky-500 to-blue-500 hover:from-sky-600 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-full shadow transition text-sm"><i class="fa-solid fa-rotate-right mr-1"></i>Ulangi</button>
+                </div>
+            </div></div>`;
+        simConfetti();
+    }
+
+    function simBack(){
+        document.getElementById('sim-arena').classList.add('hidden');
+        document.getElementById('sim-complete').classList.add('hidden');
+        document.getElementById('sim-menu').classList.remove('hidden');
+        simRenderMenu();
+    }
+    function simReplay(){ document.getElementById('sim-complete').classList.add('hidden'); simGo(simSt.cur.id); }
+
+    // === FX ===
+    function simFly(btn){
+        const r=btn.getBoundingClientRect(), sc=document.getElementById('sim-scene').getBoundingClientRect();
+        const em=btn.querySelector('.sim-tool-em').textContent;
+        const f=document.createElement('div');
+        f.className='sim-fly'; f.textContent=em;
+        f.style.left=(r.left+r.width/2-20)+'px'; f.style.top=(r.top-5)+'px';
+        document.body.appendChild(f);
+        requestAnimationFrame(()=>{
+            f.style.left=(sc.left+sc.width/2-20)+'px';
+            f.style.top=(sc.top+sc.height/2-25)+'px';
+            f.style.transform='scale(1.8)'; f.style.opacity='.4';
+        });
+        setTimeout(()=>f.remove(),600);
+    }
+    function simToast(msg,cls){
+        const sc=document.getElementById('sim-scene');
+        const t=document.createElement('div');
+        t.className='sim-toast '+cls; t.textContent=msg;
+        sc.appendChild(t); setTimeout(()=>t.remove(),1300);
+    }
+    function simFxWater(){
+        const c=document.getElementById('sim-fx');
+        for(let i=0;i<14;i++){
+            const d=document.createElement('div'); d.className='sim-drop';
+            d.style.left=(25+Math.random()*50)+'%'; d.style.top=(5+Math.random()*30)+'%';
+            d.style.setProperty('--f',(70+Math.random()*60)+'px');
+            d.style.setProperty('--d',(0.5+Math.random()*0.5)+'s');
+            d.style.animationDelay=(Math.random()*.3)+'s';
+            c.appendChild(d); setTimeout(()=>d.remove(),1200);
+        }
+    }
+    function simFxSparkle(){
+        const c=document.getElementById('sim-fx');
+        for(let i=0;i<10;i++){
+            const sp=document.createElement('div'); sp.className='sim-sparkle';
+            sp.style.left=(35+Math.random()*30)+'%'; sp.style.top=(25+Math.random()*30)+'%';
+            sp.style.setProperty('--dx',(-40+Math.random()*80)+'px');
+            sp.style.setProperty('--dy',(-50+Math.random()*30)+'px');
+            sp.style.setProperty('--d',(0.4+Math.random()*0.4)+'s');
+            sp.style.animationDelay=(Math.random()*.2)+'s';
+            c.appendChild(sp); setTimeout(()=>sp.remove(),1000);
+        }
+    }
+    function simFxDust(){
+        const c=document.getElementById('sim-fx');
+        for(let i=0;i<15;i++){
+            const d=document.createElement('div'); d.className='sim-dust';
+            d.style.left=(30+Math.random()*40)+'%'; d.style.top=(30+Math.random()*25)+'%';
+            d.style.setProperty('--dx',(-30+Math.random()*60)+'px');
+            d.style.setProperty('--dy',(-40+Math.random()*20)+'px');
+            d.style.setProperty('--d',(0.5+Math.random()*0.5)+'s');
+            d.style.background=['#92400e','#a16207','#78350f','#b45309'][Math.floor(Math.random()*4)];
+            c.appendChild(d); setTimeout(()=>d.remove(),1200);
+        }
+        setTimeout(simFxWater,400);
+    }
+    function simConfetti(){
+        const b=document.getElementById('sim-confbox'); if(!b) return;
+        const cols=['#f43f5e','#8b5cf6','#3b82f6','#10b981','#f59e0b','#ec4899','#06b6d4'];
+        for(let i=0;i<40;i++){
+            const c=document.createElement('div'); c.className='sim-conf';
+            c.style.left=(Math.random()*100)+'%'; c.style.top='-10px';
+            c.style.width=(5+Math.random()*6)+'px'; c.style.height=(5+Math.random()*6)+'px';
+            c.style.background=cols[Math.floor(Math.random()*cols.length)];
+            c.style.borderRadius=Math.random()>.5?'50%':'2px';
+            c.style.setProperty('--f',(200+Math.random()*200)+'px');
+            c.style.setProperty('--d',(1.5+Math.random()*1.5)+'s');
+            c.style.animationDelay=(Math.random()*.8)+'s';
+            b.appendChild(c); setTimeout(()=>c.remove(),4000);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', simRenderMenu);
+    </script>
+
+    <!-- ================= DUEL PERANG ================= -->
+    <div id="game-wrapper-war" class="hidden animate-fadeIn">
+
+        <!-- Data Siswa (Master Data) & Firebase -->
+        <script type="module">
+            import dataSiswa from "../../data-siswa.js";
+            import { initializeApp, getAuth, signInAnonymously, getFirestore, collection, addDoc } from "../../firebase-mock.js";
+
+            window.masterDataSiswa = dataSiswa;
+
+            // --- FIREBASE CONFIG ---
+            const firebaseConfig = {
+                authDomain: "belajaronline-b5512.firebaseapp.com",
+                projectId: "belajaronline-b5512",
+                storageBucket: "belajaronline-b5512.firebasestorage.app",
+                messagingSenderId: "896107581081",
+                appId: "1:896107581081:web:629056c097c90fdf583208",
+                measurementId: "G-7MKNGF9PCX"
+            };
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth(app);
+            const db = getFirestore(app);
+            const appId = 'belajaronline-b5512';
+            const COLLECTION_NAME = 'scores_2026';
+
+            // Fungsi Global Simpan Skor
+            window.submitGameScores = async function(players, gameModeName) {
+                try {
+                    if (!auth.currentUser) await signInAnonymously(auth);
+                    for (let p of players) {
+                        await addDoc(collection(db, 'artifacts', appId, 'public', 'data', COLLECTION_NAME), {
+                            name: p.name, 
+                            kelas: p.kelas, 
+                            score: p.score, 
+                            materi: gameModeName, 
+                            type: 'Latihan Soal', 
+                            date: new Date().toLocaleDateString('id-ID'), 
+                            timestamp: Date.now(), 
+                            details: [], 
+                            uid: auth.currentUser.uid, 
+                            isBanned: false
+                        });
+                    }
+                    console.log("Skor berhasil disimpan ke Firebase!");
+                } catch (e) {
+                    console.error("Gagal simpan skor Firebase:", e);
+                }
+            };
+
+            // Re-render lobby if it's already initialized but was missing data
+            if (typeof renderLobbyForms === 'function') {
+                renderLobbyForms('all');
+            }
+        </script>
+        <style>
+
+        .war-attack-left { animation: warAttLeft 0.6s cubic-bezier(.36,.07,.19,.97); }
+        .war-attack-right { animation: warAttRight 0.6s cubic-bezier(.36,.07,.19,.97); }
+        .war-block-left { animation: warBlkLeft 0.5s ease-in-out; }
+        .war-block-right { animation: warBlkRight 0.5s ease-in-out; }
+
+        @keyframes warAttLeft {
+            0% { transform: translateX(0) rotate(0deg) scale(1); }
+            20% { transform: translateX(-20px) rotate(-8deg) scale(1.05); }
+            50% { transform: translateX(80px) rotate(15deg) scale(1.1); }
+            70% { transform: translateX(60px) rotate(5deg) scale(1); }
+            100% { transform: translateX(0) rotate(0deg) scale(1); }
+        }
+        @keyframes warAttRight {
+            0% { transform: translateX(0) rotate(0deg) scale(1); }
+            20% { transform: translateX(20px) rotate(8deg) scale(1.05); }
+            50% { transform: translateX(-80px) rotate(-15deg) scale(1.1); }
+            70% { transform: translateX(-60px) rotate(-5deg) scale(1); }
+            100% { transform: translateX(0) rotate(0deg) scale(1); }
+        }
+        @keyframes warBlkLeft {
+            0% { transform: translateX(0) scale(1); }
+            30% { transform: translateX(-20px) scale(0.9); }
+            60% { transform: translateX(-8px) scale(1.05); filter: drop-shadow(0 0 20px #60a5fa) drop-shadow(0 0 40px #3b82f6); }
+            100% { transform: translateX(0) scale(1); filter: none; }
+        }
+        @keyframes warBlkRight {
+            0% { transform: translateX(0) scale(1); }
+            30% { transform: translateX(20px) scale(0.9); }
+            60% { transform: translateX(8px) scale(1.05); filter: drop-shadow(0 0 20px #f87171) drop-shadow(0 0 40px #ef4444); }
+            100% { transform: translateX(0) scale(1); filter: none; }
+        }
+
+        /* Idle breathing */
+        .war-idle-breathe {
+            animation: warBreathe 2.5s ease-in-out infinite;
+        }
+        @keyframes warBreathe {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        /* Screen shake */
+        .war-screen-shake {
+            animation: warShake 0.4s ease-in-out;
+        }
+        @keyframes warShake {
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(-4px, 2px); }
+            20% { transform: translate(6px, -3px); }
+            30% { transform: translate(-5px, 1px); }
+            40% { transform: translate(3px, -2px); }
+            50% { transform: translate(-2px, 3px); }
+            60% { transform: translate(4px, -1px); }
+            70% { transform: translate(-3px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            90% { transform: translate(-1px, 1px); }
+        }
+
+        /* Hit flash */
+        .war-hit-flash {
+            animation: warFlash 0.3s ease;
+        }
+        @keyframes warFlash {
+            0% { filter: brightness(1); }
+            25% { filter: brightness(3) hue-rotate(30deg); }
+            50% { filter: brightness(0.5) saturate(2); }
+            75% { filter: brightness(2); }
+            100% { filter: brightness(1); }
+        }
+
+        /* Spark particles */
+        .war-spark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 3px;
+            height: 12px;
+            background: linear-gradient(to bottom, #fbbf24, #f59e0b, transparent);
+            border-radius: 2px;
+            transform-origin: center center;
+            transform: rotate(var(--angle)) translateY(-20px);
+            animation: warSparkFly 0.4s ease-out forwards;
+        }
+        @keyframes warSparkFly {
+            0% { opacity: 1; transform: rotate(var(--angle)) translateY(0); }
+            100% { opacity: 0; transform: rotate(var(--angle)) translateY(-35px) scaleY(0.3); }
+        }
+
+        /* Block ring expand */
+        .war-block-ring {
+            animation: warRingExpand 0.5s ease-out forwards;
+        }
+        @keyframes warRingExpand {
+            0% { transform: scale(0.3); opacity: 1; border-width: 6px; }
+            100% { transform: scale(2.5); opacity: 0; border-width: 1px; }
+        }
+
+        /* Cloud drift */
+        .war-cloud-drift {
+            animation: warCloudDrift 12s linear infinite;
+        }
+        @keyframes warCloudDrift {
+            0% { transform: translateX(-50px); }
+            100% { transform: translateX(200px); }
+        }
+
+        /* HP shine sweep */
+        .war-hp-shine {
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.3) 50%, transparent 100%);
+            background-size: 200% 100%;
+            animation: warHpShineSweep 3s ease-in-out infinite;
+        }
+        @keyframes warHpShineSweep {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        /* Damage float up */
+        .war-dmg-float-active {
+            animation: warDmgFloat 0.8s ease-out forwards;
+        }
+        @keyframes warDmgFloat {
+            0% { opacity: 1; transform: translateY(0) scale(0.5); }
+            30% { opacity: 1; transform: translateY(-15px) scale(1.3); }
+            100% { opacity: 0; transform: translateY(-40px) scale(0.8); }
+        }
+
+        /* HP bar low glow */
+        .war-hp-low {
+            box-shadow: 0 0 10px rgba(239,68,68,.6), inset 0 0 5px rgba(239,68,68,.3);
+        }
+        .war-hp-critical {
+            animation: warHpCritPulse 0.5s ease-in-out infinite alternate;
+        }
+        @keyframes warHpCritPulse {
+            0% { box-shadow: 0 0 5px rgba(239,68,68,.4); }
+            100% { box-shadow: 0 0 20px rgba(239,68,68,.9), inset 0 0 10px rgba(239,68,68,.4); }
+        }
+    
+</style>
+        <!-- War Game Wrapper -->
+        <div id="game-wrapper-war" class="block animate-fadeIn">
+            <!-- War Game Container -->
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden relative min-h-[500px] flex flex-col">
+                
+                <!-- Anti Spam Warning Toast (War) -->
+                <div id="war-spam-warning" class="absolute top-20 left-1/2 -translate-x-1/2 z-[70] hidden flex items-center gap-3 bg-red-600 text-white px-5 py-3 rounded-full font-bold shadow-2xl animate-bounce">
+                    <i class="fa-solid fa-triangle-exclamation text-xl"></i>
+                    <span>Jangan asal tebak! Baca soal dengan teliti!</span>
+                </div>
+
+                <!-- Lobby Overlay (War) -->
+                <div id="war-lobby-overlay" class="absolute inset-0 z-[60] bg-slate-900/95 flex flex-col items-center justify-center p-6 text-center overflow-y-auto">
+                    <div class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 w-full max-w-2xl my-auto animate-fadeIn">
+                        <h3 class="text-2xl font-bold font-heading text-slate-800 mb-2">Persiapan Pertandingan</h3>
+                        <p class="text-sm text-slate-500 mb-6">Pilih mode dan masukkan data pemain sebelum bertanding.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 text-left border-b border-slate-100 pb-6">
+                            <div>
+                                <label class="block text-sm font-bold text-blue-700 mb-2"><i class="fa-solid fa-user-plus mr-1"></i> Jumlah Pemain Pasukan Biru</label>
+                                <select id="war-mode-select-left" class="w-full border border-blue-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition bg-blue-50 text-blue-900 font-semibold" onchange="renderWarLobbyForms('left')">
+                                    <option value="1">1 Pemain</option>
+                                    <option value="2">2 Pemain</option>
+                                    <option value="3">3 Pemain</option>
+                                    <option value="4">4 Pemain</option>
+                                    <option value="5">5 Pemain</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-red-700 mb-2"><i class="fa-solid fa-user-plus mr-1"></i> Jumlah Pemain Pasukan Merah</label>
+                                <select id="war-mode-select-right" class="w-full border border-red-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-red-500 outline-none transition bg-red-50 text-red-900 font-semibold" onchange="renderWarLobbyForms('right')">
+                                    <option value="1">1 Pemain</option>
+                                    <option value="2">2 Pemain</option>
+                                    <option value="3">3 Pemain</option>
+                                    <option value="4">4 Pemain</option>
+                                    <option value="5">5 Pemain</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 text-left">
+                            <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
+                                <h4 class="font-bold text-blue-800 mb-3 text-sm border-b border-blue-200 pb-2"><i class="fa-solid fa-shield mr-2"></i>Pasukan Biru</h4>
+                                <div class="mb-3">
+                                    <label class="block text-xs font-semibold text-blue-700 mb-1">Pilih Kelas</label>
+                                    <select id="war-class-left" class="w-full border border-blue-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none" onchange="renderWarLobbyForms('left')">
+                                        <option value="">-- Pilih Kelas --</option>
+                                        <option value="7A">7A</option>
+                                        <option value="7B">7B</option>
+                                        <option value="7C">7C</option>
+                                        <option value="7D">7D</option>
+                                    </select>
+                                </div>
+                                <div id="war-players-left" class="space-y-2"></div>
+                            </div>
+
+                            <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                                <h4 class="font-bold text-red-800 mb-3 text-sm border-b border-red-200 pb-2"><i class="fa-solid fa-shield mr-2"></i>Pasukan Merah</h4>
+                                <div class="mb-3">
+                                    <label class="block text-xs font-semibold text-red-700 mb-1">Pilih Kelas</label>
+                                    <select id="war-class-right" class="w-full border border-red-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-red-500 outline-none" onchange="renderWarLobbyForms('right')">
+                                        <option value="">-- Pilih Kelas --</option>
+                                        <option value="7A">7A</option>
+                                        <option value="7B">7B</option>
+                                        <option value="7C">7C</option>
+                                        <option value="7D">7D</option>
+                                    </select>
+                                </div>
+                                <div id="war-players-right" class="space-y-2"></div>
+                            </div>
+                        </div>
+
+                        <div id="war-lobby-error" class="hidden text-red-600 text-sm font-bold mb-4 bg-red-50 py-2 rounded-lg border border-red-200">
+                            Harap lengkapi pilihan kelas dan nama pemain!
+                        </div>
+
+                        <button onclick="startWarMatch()" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3.5 px-8 rounded-xl shadow-lg transition-transform transform hover:scale-[1.02] active:scale-95 text-lg">
+                            Mulai Pertempuran <i class="fa-solid fa-khanda ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Game Header Bar -->
+                <div class="bg-gradient-to-r from-slate-800 to-slate-900 p-3 md:p-4 text-white flex justify-between items-center z-30 shadow-md">
+                    <div class="flex items-center gap-2">
+                        <div class="bg-slate-700/80 p-2 rounded-lg border border-slate-600">
+                            <i class="fa-solid fa-khanda text-amber-400 text-base"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-sm md:text-base font-bold font-heading">Duel Perang Gladiator</h3>
+                            <p class="text-[11px] text-slate-300">Benar = Menyerang | Salah = Tangkis</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span id="war-mode-display" class="px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-600 bg-slate-700 text-slate-100 shadow">
+                            <i class="fa-solid fa-users mr-1"></i> Mode Pemain
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Arena Main Content -->
+                <div class="flex flex-row flex-grow relative overflow-hidden h-[400px]">
+                    <!-- Left Panel -->
+                    <div id="war-panel-left" class="w-[30%] md:w-[28%] border-r border-slate-300 flex flex-col h-full bg-blue-50/90 z-20 relative shadow-md">
+                        <div class="p-2 text-center border-b border-blue-200 bg-blue-100">
+                            <span class="text-[10px] md:text-xs font-extrabold text-blue-800 uppercase bg-blue-50 px-2.5 py-1 rounded-full shadow-sm">Pasukan Biru</span>
+                        </div>
+                        <div class="flex-grow flex flex-col p-2 min-h-0 overflow-y-auto">
+                            <div class="flex-grow flex items-center justify-center py-2 min-h-[60px]">
+                                <p id="war-q-left" class="text-xs md:text-sm font-semibold text-center text-slate-800 px-1">Menyiapkan soal...</p>
+                            </div>
+                            <div id="war-opts-left" class="grid grid-cols-1 gap-1.5 mt-auto pb-1"></div>
+                        </div>
+                    </div>
+
+                    <!-- Center Arena -->
+                    <div id="war-arena" class="w-[40%] md:w-[44%] relative flex items-center justify-center overflow-hidden z-10 border-x border-slate-300/50">
+                        <!-- Animated Sky -->
+                        <div class="absolute inset-0 bg-gradient-to-b from-sky-600 via-sky-400 to-amber-300/60 z-0"></div>
+                        <!-- Clouds -->
+                        <div class="absolute top-6 left-[5%] text-white/30 text-2xl war-cloud-drift"><i class="fa-solid fa-cloud"></i></div>
+                        <div class="absolute top-14 right-[10%] text-white/20 text-lg war-cloud-drift" style="animation-delay:-3s"><i class="fa-solid fa-cloud"></i></div>
+                        <!-- Ground -->
+                        <div class="absolute bottom-0 w-full h-[42%] z-[1]">
+                            <div class="absolute inset-0 bg-gradient-to-b from-amber-600 via-amber-700 to-stone-700"></div>
+                            <div class="absolute top-0 w-full h-2 bg-green-700/50"></div>
+                            <!-- Sand texture -->
+                            <div class="absolute inset-0 opacity-20" style="background-image:repeating-radial-gradient(circle at 20% 50%, transparent 0, transparent 2px, rgba(0,0,0,.1) 2px, transparent 3px)"></div>
+                        </div>
+                        
+                        <!-- HP Bars -->
+                        <div class="absolute top-3 left-3 right-3 z-40 flex justify-between items-start gap-2">
+                            <!-- Left HP -->
+                            <div class="w-1/2 flex flex-col gap-0.5">
+                                <div class="flex items-center gap-1.5">
+                                    <div class="w-6 h-6 rounded-full bg-blue-700 border-2 border-yellow-400 flex items-center justify-center"><i class="fa-solid fa-shield-halved text-[8px] text-yellow-300"></i></div>
+                                    <span class="text-[9px] font-black text-white uppercase tracking-wider drop-shadow-lg">Pasukan Biru</span>
+                                </div>
+                                <div class="w-full h-5 bg-slate-900 rounded-md border-2 border-yellow-600/80 overflow-hidden shadow-lg relative">
+                                    <div id="war-hp-bar-left" class="h-full w-full transition-all duration-700 ease-out relative overflow-hidden" style="background: linear-gradient(90deg, #22c55e 0%, #22c55e 40%, #eab308 60%, #ef4444 100%); background-size: 100% 100%">
+                                        <div class="absolute inset-0 war-hp-shine"></div>
+                                    </div>
+                                    <span id="war-hp-text-left" class="absolute inset-0 flex items-center justify-center text-[9px] font-black text-white drop-shadow-md">100%</span>
+                                </div>
+                            </div>
+                            <!-- VS Badge -->
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-yellow-400 to-amber-600 border-2 border-yellow-800 flex items-center justify-center shadow-lg mt-3">
+                                <span class="text-[8px] font-black text-yellow-900">VS</span>
+                            </div>
+                            <!-- Right HP -->
+                            <div class="w-1/2 flex flex-col gap-0.5 items-end">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-[9px] font-black text-white uppercase tracking-wider drop-shadow-lg">Pasukan Merah</span>
+                                    <div class="w-6 h-6 rounded-full bg-red-700 border-2 border-yellow-400 flex items-center justify-center"><i class="fa-solid fa-shield-halved text-[8px] text-yellow-300"></i></div>
+                                </div>
+                                <div class="w-full h-5 bg-slate-900 rounded-md border-2 border-yellow-600/80 overflow-hidden shadow-lg relative">
+                                    <div id="war-hp-bar-right" class="h-full w-full transition-all duration-700 ease-out relative overflow-hidden" style="background: linear-gradient(270deg, #22c55e 0%, #22c55e 40%, #eab308 60%, #ef4444 100%); background-size: 100% 100%">
+                                        <div class="absolute inset-0 war-hp-shine"></div>
+                                    </div>
+                                    <span id="war-hp-text-right" class="absolute inset-0 flex items-center justify-center text-[9px] font-black text-white drop-shadow-md">100%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Left Warrior -->
+                        <div id="war-char-left" class="character absolute left-[8%] md:left-[12%] bottom-[30%] transition-transform z-10 war-idle-breathe">
+                            <svg width="100" height="120" viewBox="0 0 120 140" class="drop-shadow-xl">
+                                <!-- Shadow -->
+                                <ellipse cx="60" cy="138" rx="30" ry="5" fill="rgba(0,0,0,.2)" />
+                                <!-- Legs -->
+                                <path d="M42 105 L38 135 L48 135 L50 105 Z" fill="#1e3a8a" />
+                                <path d="M70 105 L72 135 L82 135 L78 105 Z" fill="#1e3a8a" />
+                                <!-- Boots -->
+                                <rect x="35" y="130" width="16" height="8" rx="3" fill="#78350f" />
+                                <rect x="69" y="130" width="16" height="8" rx="3" fill="#78350f" />
+                                <!-- Chainmail skirt -->
+                                <path d="M38 90 L82 90 L86 110 L34 110 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1"/>
+                                <line x1="42" y1="90" x2="40" y2="110" stroke="#64748b" stroke-width="0.5" />
+                                <line x1="52" y1="90" x2="50" y2="110" stroke="#64748b" stroke-width="0.5" />
+                                <line x1="62" y1="90" x2="64" y2="110" stroke="#64748b" stroke-width="0.5" />
+                                <line x1="72" y1="90" x2="74" y2="110" stroke="#64748b" stroke-width="0.5" />
+                                <!-- Chest Armor (Gold Plate) -->
+                                <path d="M36 50 L84 50 L82 92 L38 92 Z" fill="url(#goldGrad)" stroke="#b45309" stroke-width="2"/>
+                                <!-- Armor detail lines -->
+                                <line x1="60" y1="52" x2="60" y2="90" stroke="#b45309" stroke-width="1" opacity=".5"/>
+                                <path d="M44 62 Q60 72 76 62" stroke="#b45309" stroke-width="1" fill="none" opacity=".5"/>
+                                <!-- Cape flowing -->
+                                <path d="M38 50 L28 55 L22 120 L36 115 Z" fill="#1e40af" opacity=".7"/>
+                                <!-- Neck -->
+                                <rect x="52" y="38" width="16" height="14" rx="3" fill="#d4a76a" />
+                                <!-- Head -->
+                                <circle cx="60" cy="30" r="16" fill="#d4a76a" />
+                                <!-- Eyes -->
+                                <ellipse cx="54" cy="30" rx="2.5" ry="3" fill="white" />
+                                <ellipse cx="66" cy="30" rx="2.5" ry="3" fill="white" />
+                                <circle cx="55" cy="30" r="1.5" fill="#1e293b" />
+                                <circle cx="67" cy="30" r="1.5" fill="#1e293b" />
+                                <!-- Eyebrows (determined) -->
+                                <line x1="51" y1="25" x2="58" y2="26" stroke="#4a3728" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="63" y1="26" x2="70" y2="25" stroke="#4a3728" stroke-width="2" stroke-linecap="round"/>
+                                <!-- Helmet (Roman/Islamic style with plume) -->
+                                <path d="M38 28 Q40 8 60 5 Q80 8 82 28 L80 36 L40 36 Z" fill="#94a3b8" stroke="#64748b" stroke-width="2"/>
+                                <!-- Helmet crest/plume -->
+                                <path d="M56 5 Q60 -8 64 5" fill="none" stroke="#1e40af" stroke-width="6" stroke-linecap="round"/>
+                                <path d="M52 8 Q60 -12 68 8" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+                                <!-- Helmet nose guard -->
+                                <rect x="57" y="18" width="6" height="18" rx="2" fill="#94a3b8" stroke="#64748b" stroke-width="1"/>
+                                <!-- Sword Arm (right) -->
+                                <path d="M80 58 L100 40" stroke="#d4a76a" stroke-width="9" stroke-linecap="round" />
+                                <!-- Sword -->
+                                <rect x="95" y="8" width="5" height="36" rx="1" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1" transform="rotate(20, 97, 26)"/>
+                                <rect x="90" y="38" width="15" height="6" rx="2" fill="#b45309" transform="rotate(20, 97, 41)"/>
+                                <!-- Shield Arm (left) -->
+                                <path d="M40 58 L22 68" stroke="#d4a76a" stroke-width="9" stroke-linecap="round" />
+                                <!-- Shield -->
+                                <circle cx="16" cy="74" r="20" fill="url(#blueShieldGrad)" stroke="#eab308" stroke-width="3" />
+                                <circle cx="16" cy="74" r="12" fill="none" stroke="#eab308" stroke-width="1.5" />
+                                <circle cx="16" cy="74" r="4" fill="#eab308" />
+                                <!-- Gradients -->
+                                <defs>
+                                    <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#fbbf24"/>
+                                        <stop offset="50%" stop-color="#f59e0b"/>
+                                        <stop offset="100%" stop-color="#d97706"/>
+                                    </linearGradient>
+                                    <radialGradient id="blueShieldGrad">
+                                        <stop offset="0%" stop-color="#3b82f6"/>
+                                        <stop offset="100%" stop-color="#1e3a8a"/>
+                                    </radialGradient>
+                                </defs>
+                            </svg>
+                        </div>
+
+                        <!-- Right Warrior -->
+                        <div id="war-char-right" class="character absolute right-[8%] md:right-[12%] bottom-[30%] transition-transform z-10 war-idle-breathe" style="animation-delay:-.5s">
+                            <svg width="100" height="120" viewBox="0 0 120 140" class="drop-shadow-xl" style="transform:scaleX(-1)">
+                                <!-- Shadow -->
+                                <ellipse cx="60" cy="138" rx="30" ry="5" fill="rgba(0,0,0,.2)" />
+                                <!-- Legs -->
+                                <path d="M42 105 L38 135 L48 135 L50 105 Z" fill="#7f1d1d" />
+                                <path d="M70 105 L72 135 L82 135 L78 105 Z" fill="#7f1d1d" />
+                                <!-- Boots -->
+                                <rect x="35" y="130" width="16" height="8" rx="3" fill="#451a03" />
+                                <rect x="69" y="130" width="16" height="8" rx="3" fill="#451a03" />
+                                <!-- Chainmail skirt -->
+                                <path d="M38 90 L82 90 L86 110 L34 110 Z" fill="#64748b" stroke="#475569" stroke-width="1"/>
+                                <line x1="42" y1="90" x2="40" y2="110" stroke="#475569" stroke-width="0.5" />
+                                <line x1="52" y1="90" x2="50" y2="110" stroke="#475569" stroke-width="0.5" />
+                                <line x1="62" y1="90" x2="64" y2="110" stroke="#475569" stroke-width="0.5" />
+                                <line x1="72" y1="90" x2="74" y2="110" stroke="#475569" stroke-width="0.5" />
+                                <!-- Chest Armor (Silver) -->
+                                <path d="M36 50 L84 50 L82 92 L38 92 Z" fill="url(#silverGrad)" stroke="#475569" stroke-width="2"/>
+                                <line x1="60" y1="52" x2="60" y2="90" stroke="#475569" stroke-width="1" opacity=".5"/>
+                                <path d="M44 62 Q60 72 76 62" stroke="#475569" stroke-width="1" fill="none" opacity=".5"/>
+                                <!-- Cape -->
+                                <path d="M38 50 L28 55 L22 120 L36 115 Z" fill="#991b1b" opacity=".7"/>
+                                <!-- Neck -->
+                                <rect x="52" y="38" width="16" height="14" rx="3" fill="#d4a76a" />
+                                <!-- Head -->
+                                <circle cx="60" cy="30" r="16" fill="#d4a76a" />
+                                <!-- Eyes -->
+                                <ellipse cx="54" cy="30" rx="2.5" ry="3" fill="white" />
+                                <ellipse cx="66" cy="30" rx="2.5" ry="3" fill="white" />
+                                <circle cx="55" cy="30" r="1.5" fill="#1e293b" />
+                                <circle cx="67" cy="30" r="1.5" fill="#1e293b" />
+                                <!-- Eyebrows -->
+                                <line x1="51" y1="25" x2="58" y2="26" stroke="#4a3728" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="63" y1="26" x2="70" y2="25" stroke="#4a3728" stroke-width="2" stroke-linecap="round"/>
+                                <!-- Dark Helmet -->
+                                <path d="M38 28 Q40 8 60 5 Q80 8 82 28 L80 36 L40 36 Z" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
+                                <!-- Red plume -->
+                                <path d="M56 5 Q60 -8 64 5" fill="none" stroke="#991b1b" stroke-width="6" stroke-linecap="round"/>
+                                <path d="M52 8 Q60 -12 68 8" fill="none" stroke="#dc2626" stroke-width="4" stroke-linecap="round"/>
+                                <!-- Nose guard -->
+                                <rect x="57" y="18" width="6" height="18" rx="2" fill="#1e293b" stroke="#0f172a" stroke-width="1"/>
+                                <!-- Sword Arm -->
+                                <path d="M80 58 L100 40" stroke="#d4a76a" stroke-width="9" stroke-linecap="round" />
+                                <!-- Sword -->
+                                <rect x="95" y="8" width="5" height="36" rx="1" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1" transform="rotate(20, 97, 26)"/>
+                                <rect x="90" y="38" width="15" height="6" rx="2" fill="#78350f" transform="rotate(20, 97, 41)"/>
+                                <!-- Shield Arm -->
+                                <path d="M40 58 L22 68" stroke="#d4a76a" stroke-width="9" stroke-linecap="round" />
+                                <!-- Shield -->
+                                <circle cx="16" cy="74" r="20" fill="url(#redShieldGrad)" stroke="#cbd5e1" stroke-width="3" />
+                                <circle cx="16" cy="74" r="12" fill="none" stroke="#cbd5e1" stroke-width="1.5" />
+                                <circle cx="16" cy="74" r="4" fill="#cbd5e1" />
+                                <defs>
+                                    <linearGradient id="silverGrad" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#e2e8f0"/>
+                                        <stop offset="50%" stop-color="#cbd5e1"/>
+                                        <stop offset="100%" stop-color="#94a3b8"/>
+                                    </linearGradient>
+                                    <radialGradient id="redShieldGrad">
+                                        <stop offset="0%" stop-color="#ef4444"/>
+                                        <stop offset="100%" stop-color="#7f1d1d"/>
+                                    </radialGradient>
+                                </defs>
+                            </svg>
+                        </div>
+
+                        <!-- Clash Spark Container (center) -->
+                        <div id="war-clash-fx" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none opacity-0 transition-opacity duration-100">
+                            <div class="relative w-16 h-16">
+                                <div class="war-spark" style="--angle:0deg"></div>
+                                <div class="war-spark" style="--angle:45deg"></div>
+                                <div class="war-spark" style="--angle:90deg"></div>
+                                <div class="war-spark" style="--angle:135deg"></div>
+                                <div class="war-spark" style="--angle:180deg"></div>
+                                <div class="war-spark" style="--angle:225deg"></div>
+                                <div class="war-spark" style="--angle:270deg"></div>
+                                <div class="war-spark" style="--angle:315deg"></div>
+                            </div>
+                        </div>
+
+                        <!-- Block Shield FX -->
+                        <div id="war-block-fx" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none opacity-0 transition-opacity duration-100">
+                            <div class="w-14 h-14 rounded-full border-4 border-yellow-400 war-block-ring"></div>
+                        </div>
+
+                        <!-- Damage FX -->
+                        <div id="war-fx-left" class="absolute left-[30%] bottom-[55%] z-50 pointer-events-none opacity-0 transition-all duration-300 war-dmg-float">
+                            <span class="text-2xl font-black text-red-500 drop-shadow-lg" style="text-shadow: 0 0 10px rgba(239,68,68,.6)">-20 HP</span>
+                        </div>
+                        <div id="war-fx-right" class="absolute right-[30%] bottom-[55%] z-50 pointer-events-none opacity-0 transition-all duration-300 war-dmg-float">
+                            <span class="text-2xl font-black text-red-500 drop-shadow-lg" style="text-shadow: 0 0 10px rgba(239,68,68,.6)">-20 HP</span>
+                        </div>
+
+                        <!-- Block Text FX -->
+                        <div id="war-block-text-left" class="absolute left-[30%] bottom-[55%] z-50 pointer-events-none opacity-0 transition-all duration-300 war-dmg-float">
+                            <span class="text-xl font-black text-blue-400 drop-shadow-lg" style="text-shadow: 0 0 10px rgba(96,165,250,.6)"><i class="fa-solid fa-shield-halved"></i> TANGKIS!</span>
+                        </div>
+                        <div id="war-block-text-right" class="absolute right-[30%] bottom-[55%] z-50 pointer-events-none opacity-0 transition-all duration-300 war-dmg-float">
+                            <span class="text-xl font-black text-red-400 drop-shadow-lg" style="text-shadow: 0 0 10px rgba(248,113,113,.6)"><i class="fa-solid fa-shield-halved"></i> TANGKIS!</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Panel -->
+                    <div id="war-panel-right" class="w-[30%] md:w-[28%] border-l border-slate-300 flex flex-col h-full bg-red-50/90 z-20 relative shadow-md">
+                        <div class="p-2 text-center border-b border-red-200 bg-red-100">
+                            <span class="text-[10px] md:text-xs font-extrabold text-red-800 uppercase bg-red-50 px-2.5 py-1 rounded-full shadow-sm">Pasukan Merah</span>
+                        </div>
+                        <div class="flex-grow flex flex-col p-2 min-h-0 overflow-y-auto">
+                            <div class="flex-grow flex items-center justify-center py-2 min-h-[60px]">
+                                <p id="war-q-right" class="text-xs md:text-sm font-semibold text-center text-slate-800 px-1">Menyiapkan soal...</p>
+                            </div>
+                            <div id="war-opts-right" class="grid grid-cols-1 gap-1.5 mt-auto pb-1"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Winner Overlay (War) -->
+                <div id="war-winner-overlay" class="hidden absolute inset-0 z-50 bg-slate-900/90 flex flex-col items-center justify-center p-6 text-center animate-fadeIn">
+                    <div class="text-6xl mb-3 animate-bounce">⚔️</div>
+                    <h3 class="text-xs font-bold text-amber-400 uppercase tracking-widest mb-1">Pasukan Pemenang</h3>
+                    <h2 id="war-winner-name" class="text-3xl md:text-4xl font-black text-white mb-6 font-heading drop-shadow-md">PASUKAN BIRU</h2>
+                    <button onclick="resetWarGame()" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 active:scale-95 flex items-center gap-2">
+                        <i class="fa-solid fa-rotate-right"></i> Main Lagi
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tug Game Styles -->
+    <style>
+        .rope-line {
+            background: repeating-linear-gradient(45deg, #854d0e, #854d0e 8px, #713f12 8px, #713f12 16px);
+        }
+        .pulling-left { animation: tugPullLeft 0.4s ease infinite; }
+        .pulling-right { animation: tugPullRight 0.4s ease infinite; }
+        @keyframes tugPullLeft { 0%, 100% { transform: translateX(0) rotate(0deg); } 50% { transform: translateX(-8px) rotate(-6deg); } }
+        @keyframes tugPullLeft { 0%, 100% { transform: translateX(0) rotate(0deg); } 50% { transform: translateX(-8px) rotate(-6deg); } }
+        @keyframes tugPullRight { 0%, 100% { transform: scaleX(-1) translateX(0) rotate(0deg); } 50% { transform: scaleX(-1) translateX(-8px) rotate(-6deg); } }
+        
+        /* War Game Animations */
+        .war-attack-left { animation: warAttLeft 0.6s cubic-bezier(.36,.07,.19,.97); }
+        .war-attack-right { animation: warAttRight 0.6s cubic-bezier(.36,.07,.19,.97); }
+        .war-block-left { animation: warBlkLeft 0.5s ease-in-out; }
+        .war-block-right { animation: warBlkRight 0.5s ease-in-out; }
+
+        @keyframes warAttLeft {
+            0% { transform: translateX(0) rotate(0deg) scale(1); }
+            20% { transform: translateX(-20px) rotate(-8deg) scale(1.05); }
+            50% { transform: translateX(80px) rotate(15deg) scale(1.1); }
+            70% { transform: translateX(60px) rotate(5deg) scale(1); }
+            100% { transform: translateX(0) rotate(0deg) scale(1); }
+        }
+        @keyframes warAttRight {
+            0% { transform: translateX(0) rotate(0deg) scale(1); }
+            20% { transform: translateX(20px) rotate(8deg) scale(1.05); }
+            50% { transform: translateX(-80px) rotate(-15deg) scale(1.1); }
+            70% { transform: translateX(-60px) rotate(-5deg) scale(1); }
+            100% { transform: translateX(0) rotate(0deg) scale(1); }
+        }
+        @keyframes warBlkLeft {
+            0% { transform: translateX(0) scale(1); }
+            30% { transform: translateX(-20px) scale(0.9); }
+            60% { transform: translateX(-8px) scale(1.05); filter: drop-shadow(0 0 20px #60a5fa) drop-shadow(0 0 40px #3b82f6); }
+            100% { transform: translateX(0) scale(1); filter: none; }
+        }
+        @keyframes warBlkRight {
+            0% { transform: translateX(0) scale(1); }
+            30% { transform: translateX(20px) scale(0.9); }
+            60% { transform: translateX(8px) scale(1.05); filter: drop-shadow(0 0 20px #f87171) drop-shadow(0 0 40px #ef4444); }
+            100% { transform: translateX(0) scale(1); filter: none; }
+        }
+
+        /* Idle breathing */
+        .war-idle-breathe {
+            animation: warBreathe 2.5s ease-in-out infinite;
+        }
+        @keyframes warBreathe {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        /* Screen shake */
+        .war-screen-shake {
+            animation: warShake 0.4s ease-in-out;
+        }
+        @keyframes warShake {
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(-4px, 2px); }
+            20% { transform: translate(6px, -3px); }
+            30% { transform: translate(-5px, 1px); }
+            40% { transform: translate(3px, -2px); }
+            50% { transform: translate(-2px, 3px); }
+            60% { transform: translate(4px, -1px); }
+            70% { transform: translate(-3px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            90% { transform: translate(-1px, 1px); }
+        }
+
+        /* Hit flash */
+        .war-hit-flash {
+            animation: warFlash 0.3s ease;
+        }
+        @keyframes warFlash {
+            0% { filter: brightness(1); }
+            25% { filter: brightness(3) hue-rotate(30deg); }
+            50% { filter: brightness(0.5) saturate(2); }
+            75% { filter: brightness(2); }
+            100% { filter: brightness(1); }
+        }
+
+        /* Spark particles */
+        .war-spark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 3px;
+            height: 12px;
+            background: linear-gradient(to bottom, #fbbf24, #f59e0b, transparent);
+            border-radius: 2px;
+            transform-origin: center center;
+            transform: rotate(var(--angle)) translateY(-20px);
+            animation: warSparkFly 0.4s ease-out forwards;
+        }
+        @keyframes warSparkFly {
+            0% { opacity: 1; transform: rotate(var(--angle)) translateY(0); }
+            100% { opacity: 0; transform: rotate(var(--angle)) translateY(-35px) scaleY(0.3); }
+        }
+
+        /* Block ring expand */
+        .war-block-ring {
+            animation: warRingExpand 0.5s ease-out forwards;
+        }
+        @keyframes warRingExpand {
+            0% { transform: scale(0.3); opacity: 1; border-width: 6px; }
+            100% { transform: scale(2.5); opacity: 0; border-width: 1px; }
+        }
+
+        /* Cloud drift */
+        .war-cloud-drift {
+            animation: warCloudDrift 12s linear infinite;
+        }
+        @keyframes warCloudDrift {
+            0% { transform: translateX(-50px); }
+            100% { transform: translateX(200px); }
+        }
+
+        /* HP shine sweep */
+        .war-hp-shine {
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.3) 50%, transparent 100%);
+            background-size: 200% 100%;
+            animation: warHpShineSweep 3s ease-in-out infinite;
+        }
+        @keyframes warHpShineSweep {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        /* Damage float up */
+        .war-dmg-float-active {
+            animation: warDmgFloat 0.8s ease-out forwards;
+        }
+        @keyframes warDmgFloat {
+            0% { opacity: 1; transform: translateY(0) scale(0.5); }
+            30% { opacity: 1; transform: translateY(-15px) scale(1.3); }
+            100% { opacity: 0; transform: translateY(-40px) scale(0.8); }
+        }
+
+        /* HP bar low glow */
+        .war-hp-low {
+            box-shadow: 0 0 10px rgba(239,68,68,.6), inset 0 0 5px rgba(239,68,68,.3);
+        }
+        .war-hp-critical {
+            animation: warHpCritPulse 0.5s ease-in-out infinite alternate;
+        }
+        @keyframes warHpCritPulse {
+            0% { box-shadow: 0 0 5px rgba(239,68,68,.4); }
+            100% { box-shadow: 0 0 20px rgba(239,68,68,.9), inset 0 0 10px rgba(239,68,68,.4); }
+        }
+    </style>
+
+    <!-- Tug Game Script -->
+    <script>
+    const tugQuestions = [
+        { q: "Menurut syariat, apa perbedaan utama antara 'Bersuci' dan sekadar 'Membersihkan'?", opts: ["Bersuci mensyaratkan niat", "Bersuci pakai sabun", "Membersihkan diatur fiqih", "Sama saja"], a: 0 },
+        { q: "Membersihkan jiwa dari dosa, syirik, dan ria' termasuk dalam kategori bersuci...", opts: ["Batiniyah", "Lahiriyah", "Hissiyah", "Tayamum"], a: 0 },
+        { q: "Air murni yang belum berubah sifatnya seperti air hujan dan mata air disebut...", opts: ["Air Mutlak (Suci Mensucikan)", "Air Musta'mal", "Air Mutanajjis", "Air Musyammas"], a: 0 },
+        { q: "Air kelapa dan air teh halal diminum, namun untuk wudhu hukumnya...", opts: ["Suci tapi tidak mensucikan", "Boleh jika terpaksa", "Haram", "Makruh"], a: 0 },
+        { q: "Air kurang dari 2 kulah yang terkena najis sehingga haram untuk bersuci disebut...", opts: ["Air Mutanajjis", "Air Mutlak", "Air Musta'mal", "Air Musyammas"], a: 0 },
+        { q: "Air bekas pakai bersuci (wudhu/mandi) yang ukurannya kurang dari 2 kulah disebut...", opts: ["Air Musta'mal", "Air Mutlak", "Air Mutanajjis", "Air Musyammas"], a: 0 },
+        { q: "Air yang dijemur di bawah terik matahari pada wadah logam berkarat disebut...", opts: ["Air Musyammas (Makruh dipakai)", "Air Musta'mal (Haram dipakai)", "Air Mutlak (Sah dipakai)", "Air Mutanajjis"], a: 0 },
+        { q: "Menurut ilmu Fiqih, volume air 2 Kulah itu setara dengan kurang lebih...", opts: ["216 Liter", "100 Liter", "500 Liter", "50 Liter"], a: 0 },
+        { q: "Jika tidak ada air, kita boleh beristinja' menggunakan benda padat seperti...", opts: ["Batu, tisu kering, dan kayu", "Plastik dan kaca", "Roti dan makanan", "Batu yang basah"], a: 0 },
+        { q: "Salah satu syarat bersuci menggunakan batu adalah minimal menggunakan...", opts: ["3 buah batu (atau 1 batu 3 sisi)", "1 buah batu", "5 buah batu", "Bebas berapapun"], a: 0 },
+        { q: "Batu tidak sah digunakan untuk bersuci apabila kotoran (najis) yang akan dibersihkan...", opts: ["Sudah mengering / berpindah", "Masih basah", "Berasal dari benda cair", "Tidak berbau"], a: 0 },
+        { q: "Hukum bersuci (thaharah) bagi orang yang akan melaksanakan shalat adalah...", opts: ["Wajib", "Sunnah", "Makruh", "Mubah"], a: 0 }
+    ];
+
+    let tugState = {
+        pos: 50, // 0 to 100
+        active: false,
+        playersLeft: [],
+        playersRight: [],
+        lastQTimeLeft: 0,
+        lastQTimeRight: 0,
+        spamLockLeft: false,
+        spamLockRight: false,
+        spamCountLeft: 0,
+        spamCountRight: 0
+    };
+
+    function initTugGame() {
+        document.getElementById('tug-lobby-overlay').classList.remove('hidden');
+        document.getElementById('tug-winner-overlay').classList.add('hidden');
+        tugState.active = false;
+        renderLobbyForms('all');
+    }
+
+    function renderLobbyForms(side = 'all') {
+        if (side === 'all' || side === 'left') {
+            const countLeft = parseInt(document.getElementById('tug-mode-select-left').value);
+            const classLeft = document.getElementById('tug-class-left').value;
+            renderPlayerDropdowns('tug-players-left', classLeft, countLeft, 'left');
+        }
+        if (side === 'all' || side === 'right') {
+            const countRight = parseInt(document.getElementById('tug-mode-select-right').value);
+            const classRight = document.getElementById('tug-class-right').value;
+            renderPlayerDropdowns('tug-players-right', classRight, countRight, 'right');
+        }
+    }
+
+    function renderPlayerDropdowns(containerId, className, count, side) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = '';
+        if (!className) return;
+
+        // Gunakan master data yang di-load dari data-siswa.js
+        const students = window.masterDataSiswa ? (window.masterDataSiswa[className] || []) : [];
+
+        for (let i = 0; i < count; i++) {
+            const select = document.createElement('select');
+            select.className = `w-full border rounded-lg px-3 py-1.5 text-xs outline-none focus:ring-2 ${side === 'left' ? 'border-blue-200 focus:ring-blue-500' : 'border-red-200 focus:ring-red-500'}`;
+            select.id = `player-${side}-${i}`;
+            
+            const defaultOpt = document.createElement('option');
+            defaultOpt.value = "";
+            defaultOpt.textContent = `-- Pilih Pemain ${i+1} --`;
+            select.appendChild(defaultOpt);
+
+            students.forEach(student => {
+                const opt = document.createElement('option');
+                opt.value = student;
+                opt.textContent = student;
+                select.appendChild(opt);
+            });
+            container.appendChild(select);
+        }
+    }
+
+    function startTugMatch() {
+        const modeCountLeft = parseInt(document.getElementById('tug-mode-select-left').value);
+        const modeCountRight = parseInt(document.getElementById('tug-mode-select-right').value);
+        const errEl = document.getElementById('tug-lobby-error');
+        
+        tugState.playersLeft = [];
+        tugState.playersRight = [];
+        let valid = true;
+
+        for (let i = 0; i < modeCountLeft; i++) {
+            const pl = document.getElementById(`player-left-${i}`);
+            if (!pl || !pl.value) { valid = false; break; }
+            tugState.playersLeft.push(pl.value);
+        }
+
+        for (let i = 0; i < modeCountRight; i++) {
+            const pr = document.getElementById(`player-right-${i}`);
+            if (!pr || !pr.value) { valid = false; break; }
+            tugState.playersRight.push(pr.value);
+        }
+
+        if (!valid) {
+            errEl.classList.remove('hidden');
+            return;
+        }
+
+        errEl.classList.add('hidden');
+        document.getElementById('tug-lobby-overlay').classList.add('hidden');
+        
+        document.getElementById('tug-mode-display').innerHTML = `<i class="fa-solid fa-users mr-1"></i> ${modeCountLeft} vs ${modeCountRight}`;
+
+        tugState.pos = 50;
+        tugState.active = true;
+        tugState.spamLockLeft = false;
+        tugState.spamLockRight = false;
+        tugState.spamCountLeft = 0;
+        tugState.spamCountRight = 0;
+        updateTugVisuals();
+        
+        generateTugQuestion('left');
+        generateTugQuestion('right');
+    }
+
+    function resetTugGame() {
+        initTugGame();
+    }
+
+    function updateTugVisuals() {
+        if (tugState.pos < 0) tugState.pos = 0;
+        if (tugState.pos > 100) tugState.pos = 100;
+        
+        const container = document.getElementById('tug-container');
+        const offset = (tugState.pos - 50) * 1.2;
+        container.style.transform = `translateX(${offset}%)`;
+    }
+
+    function pullTugRope(side) {
+        if (!tugState.active) return;
+        
+        const char = document.getElementById(side === 'left' ? 'tug-char-left' : 'tug-char-right');
+        const anim = side === 'left' ? 'pulling-left' : 'pulling-right';
+        
+        char.classList.add(anim);
+        setTimeout(() => char.classList.remove(anim), 400);
+
+        if (side === 'left') tugState.pos -= 6;
+        else tugState.pos += 6;
+
+        updateTugVisuals();
+        checkTugWin();
+    }
+
+    function checkTugWin() {
+        if (tugState.pos <= 25) {
+            endTugGame('left');
+        } else if (tugState.pos >= 75) {
+            endTugGame('right');
+        }
+    }
+
+    function endTugGame(winnerSide) {
+        tugState.active = false;
+        
+        const winnerName = winnerSide === 'left' ? 'TIM SANTRI (BIRU)' : 'TIM MERAH';
+        const color = winnerSide === 'left' ? 'blue' : 'red';
+        
+        // Simpan nilai ke Firebase
+        const classLeft = document.getElementById('tug-class-left').value;
+        const classRight = document.getElementById('tug-class-right').value;
+        const playersToSave = [];
+        
+        tugState.playersLeft.forEach(pName => {
+            playersToSave.push({ name: pName, kelas: classLeft, score: winnerSide === 'left' ? 100 : 80 });
+        });
+        tugState.playersRight.forEach(pName => {
+            playersToSave.push({ name: pName, kelas: classRight, score: winnerSide === 'right' ? 100 : 80 });
+        });
+        
+        if (window.submitGameScores) {
+            window.submitGameScores(playersToSave, "Mini Game Fiqih : Tarik Tambang (Alat-Alat Bersuci)");
+        }
+        
+        const overlay = document.getElementById('tug-winner-overlay');
+        const nameEl = document.getElementById('tug-winner-name');
+        nameEl.textContent = winnerName;
+        nameEl.className = `text-3xl md:text-4xl font-black font-heading mb-6 drop-shadow-md ${color === 'blue' ? 'text-blue-400' : 'text-red-400'}`;
+        overlay.classList.remove('hidden');
+    }
+
+    function handleSpamWarning(side) {
+        if (side === 'left') {
+            tugState.spamCountLeft++;
+            if (tugState.spamCountLeft > 3) {
+                showCustomAlert("TIM SANTRI (BIRU) didiskualifikasi karena menekan jawaban terlalu cepat (>3x)!");
+                endTugGame('right');
+                return;
+            }
+            tugState.spamLockLeft = true;
+        } else {
+            tugState.spamCountRight++;
+            if (tugState.spamCountRight > 3) {
+                showCustomAlert("TIM MERAH didiskualifikasi karena menekan jawaban terlalu cepat (>3x)!");
+                endTugGame('left');
+                return;
+            }
+            tugState.spamLockRight = true;
+        }
+
+        const warning = document.getElementById('tug-spam-warning');
+        warning.classList.remove('hidden');
+
+        const qEl = document.getElementById(`tug-q-${side}`);
+        const optsEl = document.getElementById(`tug-opts-${side}`);
+        qEl.innerHTML = `<span class="text-red-600 animate-pulse"><i class="fa-solid fa-ban"></i> Terkunci (Spam Pinalti ${side === 'left' ? tugState.spamCountLeft : tugState.spamCountRight}/3)</span>`;
+        optsEl.innerHTML = '';
+
+        setTimeout(() => {
+            warning.classList.add('hidden');
+            if (side === 'left') tugState.spamLockLeft = false;
+            else tugState.spamLockRight = false;
+            // Regenerate question after lock
+            if (tugState.active) generateTugQuestion(side);
+        }, 3000);
+    }
+
+    function generateTugQuestion(side) {
+        if (!tugState.active) return;
+
+        if (side === 'left') tugState.lastQTimeLeft = Date.now();
+        else tugState.lastQTimeRight = Date.now();
+
+        if ((side === 'left' && tugState.spamLockLeft) || (side === 'right' && tugState.spamLockRight)) {
+            return;
+        }
+
+        const qData = tugQuestions[Math.floor(Math.random() * tugQuestions.length)];
+        
+        const qEl = document.getElementById(`tug-q-${side}`);
+        const optsEl = document.getElementById(`tug-opts-${side}`);
+        
+        qEl.textContent = qData.q;
+        optsEl.innerHTML = '';
+        
+        let opts = [...qData.opts];
+        const correctText = opts[qData.a];
+        opts.sort(() => Math.random() - 0.5);
+
+        opts.forEach(opt => {
+            const btn = document.createElement('button');
+            const colorBg = side === 'left' ? 'bg-blue-50 border-blue-200 text-blue-900 hover:bg-blue-600 hover:text-white' : 'bg-red-50 border-red-200 text-red-900 hover:bg-red-600 hover:text-white';
+            btn.className = `w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all ${colorBg} shadow-sm`;
+            btn.textContent = opt;
+            btn.onclick = () => {
+                const now = Date.now();
+                const lastTime = side === 'left' ? tugState.lastQTimeLeft : tugState.lastQTimeRight;
+                if (now - lastTime < 1500) {
+                    handleSpamWarning(side);
+                    return;
+                }
+
+                const allBtns = optsEl.querySelectorAll('button');
+                allBtns.forEach(b => b.disabled = true);
+                if (opt === correctText) {
+                    btn.className = "w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-bold bg-emerald-500 text-white border-emerald-600 shadow-md";
+                    pullTugRope(side);
+                    setTimeout(() => generateTugQuestion(side), 500);
+                } else {
+                    btn.className = "w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-bold bg-red-500 text-white border-red-600 animate-pulse";
+                    setTimeout(() => generateTugQuestion(side), 700);
+                }
+            };
+            optsEl.appendChild(btn);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        initTugGame();
+        initWarGame(); // Init war game lobby
+    });
+
+    // --- GAME TABS LOGIC ---
+    function switchGameTab(tab, btn) {
+        document.querySelectorAll('.game-tab-btn').forEach(b => {
+            b.classList.remove('bg-teal-600', 'text-white', 'border-teal-700');
+            b.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
+        });
+        btn.classList.add('bg-teal-600', 'text-white', 'border-teal-700');
+        btn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
+
+        document.getElementById('game-wrapper-tug').classList.add('hidden');
+        document.getElementById('game-wrapper-war').classList.add('hidden');
+
+        document.getElementById(`game-wrapper-${tab}`).classList.remove('hidden');
+    }
+
+    // --- WAR GAME LOGIC ---
+    let warState = {
+        hpLeft: 100,
+        hpRight: 100,
+        active: false,
+        playersLeft: [],
+        playersRight: [],
+        lastQTimeLeft: 0,
+        lastQTimeRight: 0,
+        spamLockLeft: false,
+        spamLockRight: false,
+        spamCountLeft: 0,
+        spamCountRight: 0
+    };
+
+    function initWarGame() {
+        document.getElementById('war-lobby-overlay').classList.remove('hidden');
+        document.getElementById('war-winner-overlay').classList.add('hidden');
+        warState.active = false;
+        renderWarLobbyForms('all');
+    }
+
+    function renderWarLobbyForms(side = 'all') {
+        if (side === 'all' || side === 'left') {
+            const countLeft = parseInt(document.getElementById('war-mode-select-left').value);
+            const classLeft = document.getElementById('war-class-left').value;
+            renderPlayerDropdowns('war-players-left', classLeft, countLeft, 'left');
+        }
+        if (side === 'all' || side === 'right') {
+            const countRight = parseInt(document.getElementById('war-mode-select-right').value);
+            const classRight = document.getElementById('war-class-right').value;
+            renderPlayerDropdowns('war-players-right', classRight, countRight, 'right');
+        }
+    }
+
+    function startWarMatch() {
+        const modeCountLeft = parseInt(document.getElementById('war-mode-select-left').value);
+        const modeCountRight = parseInt(document.getElementById('war-mode-select-right').value);
+        const errEl = document.getElementById('war-lobby-error');
+        
+        warState.playersLeft = [];
+        warState.playersRight = [];
+        let valid = true;
+
+        for (let i = 0; i < modeCountLeft; i++) {
+            const pl = document.getElementById(`player-left-${i}`);
+            if (!pl || !pl.value) { valid = false; break; }
+            warState.playersLeft.push(pl.value);
+        }
+
+        for (let i = 0; i < modeCountRight; i++) {
+            const pr = document.getElementById(`player-right-${i}`);
+            if (!pr || !pr.value) { valid = false; break; }
+            warState.playersRight.push(pr.value);
+        }
+
+        if (!valid) {
+            errEl.classList.remove('hidden');
+            return;
+        }
+
+        errEl.classList.add('hidden');
+        document.getElementById('war-lobby-overlay').classList.add('hidden');
+        document.getElementById('war-mode-display').innerHTML = `<i class="fa-solid fa-users mr-1"></i> ${modeCountLeft} vs ${modeCountRight}`;
+
+        warState.hpLeft = 100;
+        warState.hpRight = 100;
+        warState.active = true;
+        warState.spamLockLeft = false;
+        warState.spamLockRight = false;
+        warState.spamCountLeft = 0;
+        warState.spamCountRight = 0;
+        
+        updateWarVisuals();
+        generateWarQuestion('left');
+        generateWarQuestion('right');
+    }
+
+    function resetWarGame() {
+        initWarGame();
+    }
+
+    function updateWarVisuals() {
+        const hpLeftBar = document.getElementById('war-hp-bar-left');
+        const hpRightBar = document.getElementById('war-hp-bar-right');
+        const hpLeftText = document.getElementById('war-hp-text-left');
+        const hpRightText = document.getElementById('war-hp-text-right');
+        
+        const hpL = Math.max(0, warState.hpLeft);
+        const hpR = Math.max(0, warState.hpRight);
+        
+        hpLeftBar.style.width = hpL + '%';
+        hpRightBar.style.width = hpR + '%';
+        hpLeftText.textContent = hpL + '%';
+        hpRightText.textContent = hpR + '%';
+
+        // HP bar glow effects
+        const hpLeftContainer = hpLeftBar.parentElement;
+        const hpRightContainer = hpRightBar.parentElement;
+        hpLeftContainer.classList.remove('war-hp-low', 'war-hp-critical');
+        hpRightContainer.classList.remove('war-hp-low', 'war-hp-critical');
+        if (hpL <= 20) hpLeftContainer.classList.add('war-hp-critical');
+        else if (hpL <= 40) hpLeftContainer.classList.add('war-hp-low');
+        if (hpR <= 20) hpRightContainer.classList.add('war-hp-critical');
+        else if (hpR <= 40) hpRightContainer.classList.add('war-hp-low');
+    }
+
+    function showClashSparks() {
+        const fx = document.getElementById('war-clash-fx');
+        fx.style.opacity = '1';
+        // Re-trigger spark animations by cloning
+        const container = fx.querySelector('.relative');
+        const clone = container.cloneNode(true);
+        container.parentNode.replaceChild(clone, container);
+        setTimeout(() => { fx.style.opacity = '0'; }, 400);
+    }
+
+    function showBlockRing() {
+        const fx = document.getElementById('war-block-fx');
+        fx.style.opacity = '1';
+        const ring = fx.querySelector('.war-block-ring');
+        const clone = ring.cloneNode(true);
+        ring.parentNode.replaceChild(clone, ring);
+        setTimeout(() => { fx.style.opacity = '0'; }, 500);
+    }
+
+    function warAttack(attackerSide) {
+        if (!warState.active) return;
+        const arena = document.getElementById('war-arena');
+        const charAtk = document.getElementById(`war-char-${attackerSide}`);
+        const defenderSide = attackerSide === 'left' ? 'right' : 'left';
+        
+        // Pause idle
+        charAtk.classList.remove('war-idle-breathe');
+
+        const anim = attackerSide === 'left' ? 'war-attack-left' : 'war-attack-right';
+        charAtk.classList.add(anim);
+        
+        setTimeout(() => {
+            const charDef = document.getElementById(`war-char-${defenderSide}`);
+            charDef.classList.remove('war-idle-breathe');
+            charDef.classList.add('war-hit-flash');
+            
+            // Screen shake
+            arena.classList.add('war-screen-shake');
+            
+            // Sparks
+            showClashSparks();
+            
+            if (defenderSide === 'left') warState.hpLeft -= 20;
+            else warState.hpRight -= 20;
+            
+            updateWarVisuals();
+
+            // Damage text float
+            const fx = document.getElementById(`war-fx-${defenderSide}`);
+            fx.classList.remove('war-dmg-float-active');
+            void fx.offsetWidth; // force reflow
+            fx.style.opacity = '1';
+            fx.classList.add('war-dmg-float-active');
+            
+            setTimeout(() => {
+                fx.style.opacity = '0';
+                fx.classList.remove('war-dmg-float-active');
+                charDef.classList.remove('war-hit-flash');
+                charAtk.classList.remove(anim);
+                arena.classList.remove('war-screen-shake');
+                charAtk.classList.add('war-idle-breathe');
+                charDef.classList.add('war-idle-breathe');
+                checkWarWin();
+            }, 600);
+
+        }, 300); 
+    }
+
+    function warBlock(failedAttackerSide) {
+        if (!warState.active) return;
+        const arena = document.getElementById('war-arena');
+        const defenderSide = failedAttackerSide === 'left' ? 'right' : 'left';
+        const charDef = document.getElementById(`war-char-${defenderSide}`);
+        const charAtk = document.getElementById(`war-char-${failedAttackerSide}`);
+        
+        charAtk.classList.remove('war-idle-breathe');
+        charDef.classList.remove('war-idle-breathe');
+
+        // Attacker lunges forward
+        const atkAnim = failedAttackerSide === 'left' ? 'war-attack-left' : 'war-attack-right';
+        charAtk.classList.add(atkAnim);
+
+        setTimeout(() => {
+            const anim = defenderSide === 'left' ? 'war-block-left' : 'war-block-right';
+            charDef.classList.add(anim);
+            
+            // Shield ring FX
+            showBlockRing();
+
+            // Show TANGKIS text
+            const blockText = document.getElementById(`war-block-text-${defenderSide}`);
+            blockText.classList.remove('war-dmg-float-active');
+            void blockText.offsetWidth;
+            blockText.style.opacity = '1';
+            blockText.classList.add('war-dmg-float-active');
+            
+            setTimeout(() => {
+                charDef.classList.remove(anim);
+                charAtk.classList.remove(atkAnim);
+                charAtk.classList.add('war-idle-breathe');
+                charDef.classList.add('war-idle-breathe');
+                blockText.style.opacity = '0';
+                blockText.classList.remove('war-dmg-float-active');
+            }, 500);
+        }, 250);
+    }
+
+    function checkWarWin() {
+        if (warState.hpLeft <= 0) {
+            endWarGame('right');
+        } else if (warState.hpRight <= 0) {
+            endWarGame('left');
+        }
+    }
+
+    function endWarGame(winnerSide) {
+        warState.active = false;
+        
+        const winnerName = winnerSide === 'left' ? 'PASUKAN BIRU' : 'PASUKAN MERAH';
+        const color = winnerSide === 'left' ? 'blue' : 'red';
+        
+        // Simpan nilai ke Firebase
+        const classLeft = document.getElementById('war-class-left').value;
+        const classRight = document.getElementById('war-class-right').value;
+        const playersToSave = [];
+        
+        warState.playersLeft.forEach(pName => {
+            playersToSave.push({ name: pName, kelas: classLeft, score: winnerSide === 'left' ? 100 : 80 });
+        });
+        warState.playersRight.forEach(pName => {
+            playersToSave.push({ name: pName, kelas: classRight, score: winnerSide === 'right' ? 100 : 80 });
+        });
+        
+        if (window.submitGameScores) {
+            window.submitGameScores(playersToSave, "Mini Game Fiqih : Duel Perang (Alat-Alat Bersuci)");
+        }
+        
+        const overlay = document.getElementById('war-winner-overlay');
+        const nameEl = document.getElementById('war-winner-name');
+        nameEl.textContent = winnerName;
+        nameEl.className = `text-3xl md:text-4xl font-black font-heading mb-6 drop-shadow-md ${color === 'blue' ? 'text-blue-400' : 'text-red-400'}`;
+        overlay.classList.remove('hidden');
+    }
+
+    function handleWarSpamWarning(side) {
+        if (side === 'left') {
+            warState.spamCountLeft++;
+            if (warState.spamCountLeft > 3) {
+                showCustomAlert("PASUKAN BIRU didiskualifikasi karena menekan jawaban terlalu cepat (>3x)!");
+                endWarGame('right');
+                return;
+            }
+            warState.spamLockLeft = true;
+        } else {
+            warState.spamCountRight++;
+            if (warState.spamCountRight > 3) {
+                showCustomAlert("PASUKAN MERAH didiskualifikasi karena menekan jawaban terlalu cepat (>3x)!");
+                endWarGame('left');
+                return;
+            }
+            warState.spamLockRight = true;
+        }
+
+        const warning = document.getElementById('war-spam-warning');
+        warning.classList.remove('hidden');
+
+        const qEl = document.getElementById(`war-q-${side}`);
+        const optsEl = document.getElementById(`war-opts-${side}`);
+        qEl.innerHTML = `<span class="text-red-600 animate-pulse"><i class="fa-solid fa-ban"></i> Terkunci (Spam Pinalti ${side === 'left' ? warState.spamCountLeft : warState.spamCountRight}/3)</span>`;
+        optsEl.innerHTML = '';
+
+        setTimeout(() => {
+            warning.classList.add('hidden');
+            if (side === 'left') warState.spamLockLeft = false;
+            else warState.spamLockRight = false;
+            if (warState.active) generateWarQuestion(side);
+        }, 3000);
+    }
+
+    function generateWarQuestion(side) {
+        if (!warState.active) return;
+
+        if (side === 'left') warState.lastQTimeLeft = Date.now();
+        else warState.lastQTimeRight = Date.now();
+
+        if ((side === 'left' && warState.spamLockLeft) || (side === 'right' && warState.spamLockRight)) {
+            return;
+        }
+
+        const qData = tugQuestions[Math.floor(Math.random() * tugQuestions.length)];
+        
+        const qEl = document.getElementById(`war-q-${side}`);
+        const optsEl = document.getElementById(`war-opts-${side}`);
+        
+        qEl.textContent = qData.q;
+        optsEl.innerHTML = '';
+        
+        let opts = [...qData.opts];
+        const correctText = opts[qData.a];
+        opts.sort(() => Math.random() - 0.5);
+
+        opts.forEach(opt => {
+            const btn = document.createElement('button');
+            const colorBg = side === 'left' ? 'bg-blue-50 border-blue-200 text-blue-900 hover:bg-blue-600 hover:text-white' : 'bg-red-50 border-red-200 text-red-900 hover:bg-red-600 hover:text-white';
+            btn.className = `w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all ${colorBg} shadow-sm`;
+            btn.textContent = opt;
+            btn.onclick = () => {
+                const now = Date.now();
+                const lastTime = side === 'left' ? warState.lastQTimeLeft : warState.lastQTimeRight;
+                if (now - lastTime < 1500) {
+                    handleWarSpamWarning(side);
+                    return;
+                }
+
+                const allBtns = optsEl.querySelectorAll('button');
+                allBtns.forEach(b => b.disabled = true);
+                
+                if (opt === correctText) {
+                    btn.className = "w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-bold bg-emerald-500 text-white border-emerald-600 shadow-md";
+                    warAttack(side);
+                    setTimeout(() => generateWarQuestion(side), 1200);
+                } else {
+                    btn.className = "w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-bold bg-red-500 text-white border-red-600 animate-pulse";
+                    warBlock(side);
+                    setTimeout(() => generateWarQuestion(side), 1200);
+                }
+            };
+            optsEl.appendChild(btn);
+        });
+    }
+
+    </script>
+
+    
+        <script>
+        // --- WAR GAME LOGIC ---
+
+    const warQuestions = [
+        { q: "Contoh najis mukhaffafah (ringan) adalah...", opts: ["Air kencing bayi laki-laki yang hanya minum ASI", "Kotoran ayam", "Air liur anjing", "Darah"], a: 0 },
+        { q: "Cara mensucikan najis mughaladhah adalah dengan dibasuh air sebanyak...", opts: ["7 kali, salah satunya dicampur debu/tanah", "3 kali dengan sabun", "1 kali mengalir", "Cukup dilap tisu"], a: 0 },
+        { q: "Air liur anjing dan babi termasuk jenis najis...", opts: ["Mughaladhah (Berat)", "Mutawassithah (Sedang)", "Mukhaffafah (Ringan)", "Hukmiyah"], a: 0 },
+        { q: "Najis hukmiyah adalah najis yang...", opts: ["Diyakini ada tapi wujud, bau, dan rasanya tidak terlihat", "Masih basah dan menempel di baju", "Hanya terkena pakaian dalam", "Sangat bau"], a: 0 },
+        { q: "Orang yang berhadas kecil cara mensucikannya dengan...", opts: ["Wudhu atau Tayamum", "Mandi Wajib", "Keramas", "Cuci muka saja"], a: 0 },
+        { q: "Membersihkan sisa kotoran buang air (cebok) dalam ilmu fiqih disebut...", opts: ["Istinja'", "Mandi Junub", "Tayamum", "Wudhu"], a: 0 },
+        { q: "Darah kotor yang keluar setiap bulan dari perempuan dewasa disebut...", opts: ["Haidh", "Nifas", "Wiladah", "Istihadlah"], a: 0 },
+        { q: "Darah yang keluar setelah perempuan melahirkan disebut...", opts: ["Nifas", "Haidh", "Wiladah", "Mutawassithah"], a: 0 },
+        { q: "Rukun (fardhu) tayamum yang benar berjumlah...", opts: ["4 rukun (Niat, usap wajah, usap 2 tangan, tertib)", "6 rukun", "3 rukun", "7 rukun"], a: 0 },
+        { q: "Syarat utama diperbolehkannya tayamum adalah...", opts: ["Tidak ada air / Sedang sakit", "Malas wudhu", "Musim hujan", "Sedang bepergian dekat"], a: 0 }
+    ];
+
+    let warState = {
+        hpLeft: 100,
+        hpRight: 100,
+        active: false,
+        playersLeft: [],
+        playersRight: [],
+        lastQTimeLeft: 0,
+        lastQTimeRight: 0,
+        spamLockLeft: false,
+        spamLockRight: false,
+        spamCountLeft: 0,
+        spamCountRight: 0
+    };
+
+    function initWarGame() {
+        document.getElementById('war-lobby-overlay').classList.remove('hidden');
+        document.getElementById('war-winner-overlay').classList.add('hidden');
+        warState.active = false;
+        renderWarLobbyForms('all');
+    }
+
+    function renderWarLobbyForms(side = 'all') {
+        if (side === 'all' || side === 'left') {
+            const countLeft = parseInt(document.getElementById('war-mode-select-left').value);
+            const classLeft = document.getElementById('war-class-left').value;
+            renderPlayerDropdowns('war-players-left', classLeft, countLeft, 'left');
+        }
+        if (side === 'all' || side === 'right') {
+            const countRight = parseInt(document.getElementById('war-mode-select-right').value);
+            const classRight = document.getElementById('war-class-right').value;
+            renderPlayerDropdowns('war-players-right', classRight, countRight, 'right');
+        }
+    }
+
+    function startWarMatch() {
+        const modeCountLeft = parseInt(document.getElementById('war-mode-select-left').value);
+        const modeCountRight = parseInt(document.getElementById('war-mode-select-right').value);
+        const errEl = document.getElementById('war-lobby-error');
+        
+        warState.playersLeft = [];
+        warState.playersRight = [];
+        let valid = true;
+
+        for (let i = 0; i < modeCountLeft; i++) {
+            const pl = document.getElementById(`player-left-${i}`);
+            if (!pl || !pl.value) { valid = false; break; }
+            warState.playersLeft.push(pl.value);
+        }
+
+        for (let i = 0; i < modeCountRight; i++) {
+            const pr = document.getElementById(`player-right-${i}`);
+            if (!pr || !pr.value) { valid = false; break; }
+            warState.playersRight.push(pr.value);
+        }
+
+        if (!valid) {
+            errEl.classList.remove('hidden');
+            return;
+        }
+
+        errEl.classList.add('hidden');
+        document.getElementById('war-lobby-overlay').classList.add('hidden');
+        document.getElementById('war-mode-display').innerHTML = `<i class="fa-solid fa-users mr-1"></i> ${modeCountLeft} vs ${modeCountRight}`;
+
+        warState.hpLeft = 100;
+        warState.hpRight = 100;
+        warState.active = true;
+        warState.spamLockLeft = false;
+        warState.spamLockRight = false;
+        warState.spamCountLeft = 0;
+        warState.spamCountRight = 0;
+        
+        updateWarVisuals();
+        generateWarQuestion('left');
+        generateWarQuestion('right');
+    }
+
+    function resetWarGame() {
+        initWarGame();
+    }
+
+    function updateWarVisuals() {
+        const hpLeftBar = document.getElementById('war-hp-bar-left');
+        const hpRightBar = document.getElementById('war-hp-bar-right');
+        const hpLeftText = document.getElementById('war-hp-text-left');
+        const hpRightText = document.getElementById('war-hp-text-right');
+        
+        const hpL = Math.max(0, warState.hpLeft);
+        const hpR = Math.max(0, warState.hpRight);
+        
+        hpLeftBar.style.width = hpL + '%';
+        hpRightBar.style.width = hpR + '%';
+        hpLeftText.textContent = hpL + '%';
+        hpRightText.textContent = hpR + '%';
+
+        // HP bar glow effects
+        const hpLeftContainer = hpLeftBar.parentElement;
+        const hpRightContainer = hpRightBar.parentElement;
+        hpLeftContainer.classList.remove('war-hp-low', 'war-hp-critical');
+        hpRightContainer.classList.remove('war-hp-low', 'war-hp-critical');
+        if (hpL <= 20) hpLeftContainer.classList.add('war-hp-critical');
+        else if (hpL <= 40) hpLeftContainer.classList.add('war-hp-low');
+        if (hpR <= 20) hpRightContainer.classList.add('war-hp-critical');
+        else if (hpR <= 40) hpRightContainer.classList.add('war-hp-low');
+    }
+
+    function showClashSparks() {
+        const fx = document.getElementById('war-clash-fx');
+        fx.style.opacity = '1';
+        // Re-trigger spark animations by cloning
+        const container = fx.querySelector('.relative');
+        const clone = container.cloneNode(true);
+        container.parentNode.replaceChild(clone, container);
+        setTimeout(() => { fx.style.opacity = '0'; }, 400);
+    }
+
+    function showBlockRing() {
+        const fx = document.getElementById('war-block-fx');
+        fx.style.opacity = '1';
+        const ring = fx.querySelector('.war-block-ring');
+        const clone = ring.cloneNode(true);
+        ring.parentNode.replaceChild(clone, ring);
+        setTimeout(() => { fx.style.opacity = '0'; }, 500);
+    }
+
+    function warAttack(attackerSide) {
+        if (!warState.active) return;
+        const arena = document.getElementById('war-arena');
+        const charAtk = document.getElementById(`war-char-${attackerSide}`);
+        const defenderSide = attackerSide === 'left' ? 'right' : 'left';
+        
+        // Pause idle
+        charAtk.classList.remove('war-idle-breathe');
+
+        const anim = attackerSide === 'left' ? 'war-attack-left' : 'war-attack-right';
+        charAtk.classList.add(anim);
+        
+        setTimeout(() => {
+            const charDef = document.getElementById(`war-char-${defenderSide}`);
+            charDef.classList.remove('war-idle-breathe');
+            charDef.classList.add('war-hit-flash');
+            
+            // Screen shake
+            arena.classList.add('war-screen-shake');
+            
+            // Sparks
+            showClashSparks();
+            
+            if (defenderSide === 'left') warState.hpLeft -= 20;
+            else warState.hpRight -= 20;
+            
+            updateWarVisuals();
+
+            // Damage text float
+            const fx = document.getElementById(`war-fx-${defenderSide}`);
+            fx.classList.remove('war-dmg-float-active');
+            void fx.offsetWidth; // force reflow
+            fx.style.opacity = '1';
+            fx.classList.add('war-dmg-float-active');
+            
+            setTimeout(() => {
+                fx.style.opacity = '0';
+                fx.classList.remove('war-dmg-float-active');
+                charDef.classList.remove('war-hit-flash');
+                charAtk.classList.remove(anim);
+                arena.classList.remove('war-screen-shake');
+                charAtk.classList.add('war-idle-breathe');
+                charDef.classList.add('war-idle-breathe');
+                checkWarWin();
+            }, 600);
+
+        }, 300); 
+    }
+
+    function warBlock(failedAttackerSide) {
+        if (!warState.active) return;
+        const arena = document.getElementById('war-arena');
+        const defenderSide = failedAttackerSide === 'left' ? 'right' : 'left';
+        const charDef = document.getElementById(`war-char-${defenderSide}`);
+        const charAtk = document.getElementById(`war-char-${failedAttackerSide}`);
+        
+        charAtk.classList.remove('war-idle-breathe');
+        charDef.classList.remove('war-idle-breathe');
+
+        // Attacker lunges forward
+        const atkAnim = failedAttackerSide === 'left' ? 'war-attack-left' : 'war-attack-right';
+        charAtk.classList.add(atkAnim);
+
+        setTimeout(() => {
+            const anim = defenderSide === 'left' ? 'war-block-left' : 'war-block-right';
+            charDef.classList.add(anim);
+            
+            // Shield ring FX
+            showBlockRing();
+
+            // Show TANGKIS text
+            const blockText = document.getElementById(`war-block-text-${defenderSide}`);
+            blockText.classList.remove('war-dmg-float-active');
+            void blockText.offsetWidth;
+            blockText.style.opacity = '1';
+            blockText.classList.add('war-dmg-float-active');
+            
+            setTimeout(() => {
+                charDef.classList.remove(anim);
+                charAtk.classList.remove(atkAnim);
+                charAtk.classList.add('war-idle-breathe');
+                charDef.classList.add('war-idle-breathe');
+                blockText.style.opacity = '0';
+                blockText.classList.remove('war-dmg-float-active');
+            }, 500);
+        }, 250);
+    }
+
+    function checkWarWin() {
+        if (warState.hpLeft <= 0) {
+            endWarGame('right');
+        } else if (warState.hpRight <= 0) {
+            endWarGame('left');
+        }
+    }
+
+    function endWarGame(winnerSide) {
+        warState.active = false;
+        
+        const winnerName = winnerSide === 'left' ? 'PASUKAN BIRU' : 'PASUKAN MERAH';
+        const color = winnerSide === 'left' ? 'blue' : 'red';
+        
+        // Simpan nilai ke Firebase
+        const classLeft = document.getElementById('war-class-left').value;
+        const classRight = document.getElementById('war-class-right').value;
+        const playersToSave = [];
+        
+        warState.playersLeft.forEach(pName => {
+            playersToSave.push({ name: pName, kelas: classLeft, score: winnerSide === 'left' ? 100 : 80 });
+        });
+        warState.playersRight.forEach(pName => {
+            playersToSave.push({ name: pName, kelas: classRight, score: winnerSide === 'right' ? 100 : 80 });
+        });
+        
+        if (window.submitGameScores) {
+            window.submitGameScores(playersToSave, "Mini Game Fiqih : Duel Perang (Hadas & Najis)");
+        }
+        
+        const overlay = document.getElementById('war-winner-overlay');
+        const nameEl = document.getElementById('war-winner-name');
+        nameEl.textContent = winnerName;
+        nameEl.className = `text-3xl md:text-4xl font-black font-heading mb-6 drop-shadow-md ${color === 'blue' ? 'text-blue-400' : 'text-red-400'}`;
+        overlay.classList.remove('hidden');
+    }
+
+    function handleWarSpamWarning(side) {
+        if (side === 'left') {
+            warState.spamCountLeft++;
+            if (warState.spamCountLeft > 3) {
+                showCustomAlert("PASUKAN BIRU didiskualifikasi karena menekan jawaban terlalu cepat (>3x)!");
+                endWarGame('right');
+                return;
+            }
+            warState.spamLockLeft = true;
+        } else {
+            warState.spamCountRight++;
+            if (warState.spamCountRight > 3) {
+                showCustomAlert("PASUKAN MERAH didiskualifikasi karena menekan jawaban terlalu cepat (>3x)!");
+                endWarGame('left');
+                return;
+            }
+            warState.spamLockRight = true;
+        }
+
+        const warning = document.getElementById('war-spam-warning');
+        warning.classList.remove('hidden');
+
+        const qEl = document.getElementById(`war-q-${side}`);
+        const optsEl = document.getElementById(`war-opts-${side}`);
+        qEl.innerHTML = `<span class="text-red-600 animate-pulse"><i class="fa-solid fa-ban"></i> Terkunci (Spam Pinalti ${side === 'left' ? warState.spamCountLeft : warState.spamCountRight}/3)</span>`;
+        optsEl.innerHTML = '';
+
+        setTimeout(() => {
+            warning.classList.add('hidden');
+            if (side === 'left') warState.spamLockLeft = false;
+            else warState.spamLockRight = false;
+            if (warState.active) generateWarQuestion(side);
+        }, 3000);
+    }
+
+    function generateWarQuestion(side) {
+        if (!warState.active) return;
+
+        if (side === 'left') warState.lastQTimeLeft = Date.now();
+        else warState.lastQTimeRight = Date.now();
+
+        if ((side === 'left' && warState.spamLockLeft) || (side === 'right' && warState.spamLockRight)) {
+            return;
+        }
+
+        const qData = warQuestions[Math.floor(Math.random() * warQuestions.length)];
+        
+        const qEl = document.getElementById(`war-q-${side}`);
+        const optsEl = document.getElementById(`war-opts-${side}`);
+        
+        qEl.textContent = qData.q;
+        optsEl.innerHTML = '';
+        
+        let opts = [...qData.opts];
+        const correctText = opts[qData.a];
+        opts.sort(() => Math.random() - 0.5);
+
+        opts.forEach(opt => {
+            const btn = document.createElement('button');
+            const colorBg = side === 'left' ? 'bg-blue-50 border-blue-200 text-blue-900 hover:bg-blue-600 hover:text-white' : 'bg-red-50 border-red-200 text-red-900 hover:bg-red-600 hover:text-white';
+            btn.className = `w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all ${colorBg} shadow-sm`;
+            btn.textContent = opt;
+            btn.onclick = () => {
+                const now = Date.now();
+                const lastTime = side === 'left' ? warState.lastQTimeLeft : warState.lastQTimeRight;
+                if (now - lastTime < 1500) {
+                    handleWarSpamWarning(side);
+                    return;
+                }
+
+                const allBtns = optsEl.querySelectorAll('button');
+                allBtns.forEach(b => b.disabled = true);
+                
+                if (opt === correctText) {
+                    btn.className = "w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-bold bg-emerald-500 text-white border-emerald-600 shadow-md";
+                    warAttack(side);
+                    setTimeout(() => generateWarQuestion(side), 1200);
+                } else {
+                    btn.className = "w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-bold bg-red-500 text-white border-red-600 animate-pulse";
+                    warBlock(side);
+                    setTimeout(() => generateWarQuestion(side), 1200);
+                }
+            };
+            optsEl.appendChild(btn);
+        });
+    }
+
+    
+        
+        // Auto init war game on load since there's no tab switching
+        document.addEventListener('DOMContentLoaded', () => {
+            initWarGame();
+        });
+        </script>
+        <!-- Custom Alert Modal -->
+    <div id="custom-alert-modal" class="fixed inset-0 modal-backdrop hidden items-center justify-center z-[10002] px-4">
+
+        <div class="modal-content bg-slate-900 border border-slate-700 text-white rounded-2xl p-6 shadow-2xl max-w-sm w-full text-center relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 to-amber-500"></div>
+            <div class="mx-auto w-16 h-16 bg-red-500/20 text-red-500 flex items-center justify-center rounded-full mb-4 text-3xl animate-pulse">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3 class="text-xl font-bold font-heading mb-2">Peringatan Sistem</h3>
+            <p id="custom-alert-msg" class="text-slate-300 text-sm mb-6 leading-relaxed"></p>
+            <button onclick="closeCustomAlert()" class="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-2.5 rounded-full font-bold shadow-lg transition-transform active:scale-95 w-full border border-indigo-400">
+                Oke, Mengerti
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let customAlertCallback = null;
+        function showCustomAlert(msg, callback) {
+            document.getElementById('custom-alert-msg').textContent = msg;
+            document.getElementById('custom-alert-modal').classList.remove('hidden');
+            document.getElementById('custom-alert-modal').classList.add('flex');
+            customAlertCallback = callback;
+        }
+        function closeCustomAlert() {
+            document.getElementById('custom-alert-modal').classList.add('hidden');
+            document.getElementById('custom-alert-modal').classList.remove('flex');
+            if (customAlertCallback) {
+                customAlertCallback();
+                customAlertCallback = null;
+            }
+        }
+    </script>
+    
+    </div> <!-- End game-wrapper-war -->
+    
+    </section>
+
     <!-- ================= FOOTER ================= -->
     <footer class="w-full bg-teal-950 text-teal-200 py-10 border-t border-teal-900 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -530,6 +2757,21 @@
                 closeContentModal();
             }
         });
+
+        // --- GAME TABS LOGIC ---
+        function switchGameTab(tab, btn) {
+            document.querySelectorAll('.game-tab-btn').forEach(b => {
+                b.classList.remove('bg-teal-600', 'text-white', 'border-teal-700');
+                b.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
+            });
+            btn.classList.add('bg-teal-600', 'text-white', 'border-teal-700');
+            btn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
+
+            document.getElementById('game-wrapper-sim').classList.add('hidden');
+            document.getElementById('game-wrapper-war').classList.add('hidden');
+
+            document.getElementById(`game-wrapper-${tab}`).classList.remove('hidden');
+        }
     </script>
 </body>
 </html>
