@@ -1446,16 +1446,16 @@
         if (side === 'all' || side === 'left') {
             const countLeft = parseInt(document.getElementById('tug-mode-select-left').value);
             const classLeft = document.getElementById('tug-class-left').value;
-            renderPlayerDropdowns('tug-players-left', classLeft, countLeft, 'left');
+            renderPlayerDropdowns('tug-players-left', classLeft, countLeft, 'left', 'tug');
         }
         if (side === 'all' || side === 'right') {
             const countRight = parseInt(document.getElementById('tug-mode-select-right').value);
             const classRight = document.getElementById('tug-class-right').value;
-            renderPlayerDropdowns('tug-players-right', classRight, countRight, 'right');
+            renderPlayerDropdowns('tug-players-right', classRight, countRight, 'right', 'tug');
         }
     }
 
-    function renderPlayerDropdowns(containerId, className, count, side) {
+    function renderPlayerDropdowns(containerId, className, count, side, prefix = 'tug') {
         const container = document.getElementById(containerId);
         container.innerHTML = '';
         if (!className) return;
@@ -1466,7 +1466,7 @@
         for (let i = 0; i < count; i++) {
             const select = document.createElement('select');
             select.className = `w-full border rounded-lg px-3 py-1.5 text-xs outline-none focus:ring-2 ${side === 'left' ? 'border-blue-200 focus:ring-blue-500' : 'border-red-200 focus:ring-red-500'}`;
-            select.id = `player-${side}-${i}`;
+            select.id = `${prefix}-player-${side}-${i}`;
             
             const defaultOpt = document.createElement('option');
             defaultOpt.value = "";
@@ -1493,13 +1493,13 @@
         let valid = true;
 
         for (let i = 0; i < modeCountLeft; i++) {
-            const pl = document.getElementById(`player-left-${i}`);
+            const pl = document.getElementById(`tug-player-left-${i}`);
             if (!pl || !pl.value) { valid = false; break; }
             tugState.playersLeft.push(pl.value);
         }
 
         for (let i = 0; i < modeCountRight; i++) {
-            const pr = document.getElementById(`player-right-${i}`);
+            const pr = document.getElementById(`tug-player-right-${i}`);
             if (!pr || !pr.value) { valid = false; break; }
             tugState.playersRight.push(pr.value);
         }
@@ -1724,12 +1724,12 @@
         if (side === 'all' || side === 'left') {
             const countLeft = parseInt(document.getElementById('war-mode-select-left').value);
             const classLeft = document.getElementById('war-class-left').value;
-            renderPlayerDropdowns('war-players-left', classLeft, countLeft, 'left');
+            renderPlayerDropdowns('war-players-left', classLeft, countLeft, 'left', 'war');
         }
         if (side === 'all' || side === 'right') {
             const countRight = parseInt(document.getElementById('war-mode-select-right').value);
             const classRight = document.getElementById('war-class-right').value;
-            renderPlayerDropdowns('war-players-right', classRight, countRight, 'right');
+            renderPlayerDropdowns('war-players-right', classRight, countRight, 'right', 'war');
         }
     }
 
@@ -1743,13 +1743,13 @@
         let valid = true;
 
         for (let i = 0; i < modeCountLeft; i++) {
-            const pl = document.getElementById(`player-left-${i}`);
+            const pl = document.getElementById(`war-player-left-${i}`);
             if (!pl || !pl.value) { valid = false; break; }
             warState.playersLeft.push(pl.value);
         }
 
         for (let i = 0; i < modeCountRight; i++) {
-            const pr = document.getElementById(`player-right-${i}`);
+            const pr = document.getElementById(`war-player-right-${i}`);
             if (!pr || !pr.value) { valid = false; break; }
             warState.playersRight.push(pr.value);
         }
