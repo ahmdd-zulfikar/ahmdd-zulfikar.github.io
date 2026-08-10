@@ -139,7 +139,15 @@
     </nav>
 
     <!-- Script to load master data -->
-    <script src="../data-siswa.js"></script>
+    <script type="module">
+        import dataSiswaModule from '../data-siswa.js';
+        window.dataSiswa = dataSiswaModule;
+        
+        // Populate if DOM already loaded or init function is available
+        if (typeof initClassSelect === 'function') {
+            initClassSelect();
+        }
+    </script>
 
     <!-- ================= MAIN CONTENT ================= -->
     <main class="flex-grow w-full max-w-2xl px-4 pt-32 pb-12 flex flex-col items-center relative z-10">
@@ -347,7 +355,9 @@
 
         function initClassSelect() {
             const select = document.getElementById('select-kelas');
-            if(typeof dataSiswa !== 'undefined') {
+            if(typeof dataSiswa !== 'undefined' && select.children.length <= 1) {
+                // Clear existing just in case, but keep the default
+                select.innerHTML = '<option value="">-- Pilih Kelas --</option>';
                 Object.keys(dataSiswa).forEach(kls => {
                     select.innerHTML += `<option value="${kls}">${kls}</option>`;
                 });
