@@ -138,6 +138,9 @@
         </div>
     </nav>
 
+    <!-- Script to load master data -->
+    <script src="../data-siswa.js"></script>
+
     <!-- ================= MAIN CONTENT ================= -->
     <main class="flex-grow w-full max-w-2xl px-4 pt-32 pb-12 flex flex-col items-center relative z-10">
 
@@ -155,15 +158,116 @@
             </div>
         </div>
 
-        <div class="w-full mb-6">
-            <h2 class="text-xl font-bold text-slate-800 mb-4 px-2">Daftar Uji Kompetensi Formatif</h2>
-            <div class="glass-card rounded-2xl p-10 flex flex-col items-center justify-center text-center bg-white/90 border border-slate-200">
-                <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 mb-4">
-                    <i class="fa-solid fa-folder-open text-2xl"></i>
+        <div class="w-full mb-6" id="cbt-container">
+            <!-- State 1: Mode Selection -->
+            <div id="state-mode-selection" class="w-full transition-all duration-500">
+                <h2 class="text-xl font-bold text-slate-800 mb-4 px-2 text-center">Pilih Mode Ujian</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <button onclick="selectMode('mandiri')" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 text-center hover:shadow-md hover:border-teal-500 hover:bg-teal-50 transition-all flex flex-col items-center group">
+                        <div class="w-16 h-16 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-lg mb-1">Mode Mandiri</h3>
+                        <p class="text-xs text-slate-500">Satu siswa mengerjakan seluruh 20 soal secara mandiri di perangkat ini.</p>
+                    </button>
+                    
+                    <button onclick="selectMode('estafet')" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 text-center hover:shadow-md hover:border-amber-500 hover:bg-amber-50 transition-all flex flex-col items-center group">
+                        <div class="w-16 h-16 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-users-rays"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-lg mb-1">Mode Estafet</h3>
+                        <p class="text-xs text-slate-500">20 siswa berbeda menjawab masing-masing 1 soal secara bergantian.</p>
+                    </button>
                 </div>
-                <h3 class="font-bold text-lg text-slate-800 mb-2">Belum Tersedia</h3>
-                <p class="text-sm text-slate-500 max-w-sm mx-auto">Daftar uji kompetensi formatif saat ini belum tersedia. Silakan cek kembali nanti.</p>
             </div>
+
+            <!-- State 2: Setup (Class & Name selection) -->
+            <div id="state-setup" class="w-full hidden transition-all duration-500 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold text-slate-800" id="setup-title">Persiapan Ujian</h2>
+                    <button onclick="resetToModeSelection()" class="text-sm text-slate-500 hover:text-red-500 font-semibold"><i class="fa-solid fa-arrow-left mr-1"></i> Kembali</button>
+                </div>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Pilih Kelas</label>
+                        <select id="select-kelas" onchange="populateSiswa()" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-slate-50 text-slate-700 font-medium">
+                            <option value="">-- Pilih Kelas --</option>
+                        </select>
+                    </div>
+                    
+                    <div id="container-select-nama" class="hidden">
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Pilih Nama Siswa</label>
+                        <select id="select-nama" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-slate-50 text-slate-700 font-medium">
+                            <option value="">-- Pilih Nama --</option>
+                        </select>
+                    </div>
+                    
+                    <button id="btn-mulai" onclick="startTest()" disabled class="w-full mt-4 bg-teal-600 hover:bg-teal-700 disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold py-3.5 px-4 rounded-xl transition shadow-md">
+                        Mulai Ujian <i class="fa-solid fa-play ml-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- State 3: Test Area -->
+            <div id="state-test" class="w-full hidden transition-all duration-500">
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center font-bold text-sm">
+                                <span id="current-q-num">1</span>/20
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-500 font-bold uppercase tracking-wider" id="test-mode-label">Mode Mandiri</p>
+                                <p class="text-sm font-bold text-slate-800" id="test-student-name">Nama Siswa</p>
+                            </div>
+                        </div>
+                        <div class="text-right hidden" id="estafet-indicator">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-xs font-bold border border-amber-200">
+                                <i class="fa-solid fa-bolt"></i> Estafet
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 md:p-8" id="question-container">
+                        <!-- Question content injected here -->
+                    </div>
+                    
+                    <div class="bg-slate-50 border-t border-slate-200 p-4 flex justify-between items-center">
+                        <button id="btn-prev" onclick="prevQuestion()" class="px-5 py-2.5 rounded-lg font-bold text-slate-600 hover:bg-slate-200 transition bg-slate-100 hidden">
+                            <i class="fa-solid fa-arrow-left mr-2"></i> Sebelumnya
+                        </button>
+                        <button id="btn-next" onclick="nextQuestion()" class="px-5 py-2.5 rounded-lg font-bold text-white bg-teal-600 hover:bg-teal-700 transition ml-auto shadow-sm">
+                            Selanjutnya <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- State 4: Result -->
+            <div id="state-result" class="w-full hidden transition-all duration-500 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="bg-teal-600 p-8 text-center text-white">
+                    <i class="fa-solid fa-trophy text-5xl text-amber-400 mb-4 drop-shadow-md"></i>
+                    <h2 class="text-2xl font-bold font-heading mb-1">Uji Kompetensi Selesai!</h2>
+                    <p class="text-teal-100 text-sm" id="result-subtitle">Terima kasih telah berpartisipasi.</p>
+                </div>
+                <div class="p-6 text-center">
+                    <p class="text-slate-500 text-sm font-bold uppercase tracking-widest mb-2">Nilai Akhir</p>
+                    <div class="text-6xl font-black text-slate-800 mb-6" id="result-score">100</div>
+                    
+                    <div id="estafet-breakdown" class="hidden text-left mb-6 mt-4">
+                        <h3 class="font-bold text-slate-800 mb-3 border-b pb-2">Rincian Jawaban Siswa (Estafet)</h3>
+                        <div class="max-h-64 overflow-y-auto space-y-2 pr-2" id="estafet-list">
+                            <!-- Injected -->
+                        </div>
+                    </div>
+                    
+                    <button onclick="location.reload()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3 px-8 rounded-xl transition">
+                        <i class="fa-solid fa-rotate-right mr-2"></i> Mulai Ulang
+                    </button>
+                </div>
+            </div>
+            
         </div>
 
     </main>
@@ -195,6 +299,275 @@
         }
         setInterval(updateClock, 1000);
         updateClock();
+
+        // 20 Questions Data
+        const questions = [
+            { q: "Perhatikan pernyataan-pernyataan berikut!\n(1) Buang angin.\n(2) Buang air kecil.\n(3) Buang air besar.\n(4) Tidur lelap.\n(5) Hilang akal seperti mabuk.\nPernyataan-pernyataan tersebut menunjukkan ....", opts: ["hal-hal yang membatalkan wudu", "hal-hal yang membatalkan puasa", "hikmah berwudu", "cara beristinjak"], ans: 0 },
+            { q: "Menjelang waktu Zuhur Wahyu sudah mempersiapkan diri dengan berwudu untuk melaksanakan salat Zuhur, sambil berbaring menunggu waktu salat wahyu ketiduran, maka Wahyu ....", opts: ["berhadas sedang", "berhadas berat", "berhadas kecil", "berhadas besar"], ans: 2 },
+            { q: "Di bawah ini yang termasuk sunah wudu adalah ....", opts: ["niat", "tertib", "membaca basmalah sebelum berwudu", "mumayiz"], ans: 2 },
+            { q: "Kotoran yang menghalangi sahnya salat sehingga wajib dihilangkan dan dibersihkan disebut ....", opts: ["hadas", "najis", "bersuci", "istinja"], ans: 1 },
+            { q: "Apabila tidak mendapatkan air, maka bersuci untuk menghilangkan hadas kecil ataupun besar cukup dengan tayamum, yaitu ....", opts: ["mengusap muka dan kaki dengan debu", "mengusap muka dan tangan dengan debu", "mengusap muka dan telinga dengan debu", "membasuh muka dan tangan dengan air"], ans: 1 },
+            { q: "Salah satu yang membatalkan tayamum adalah ....", opts: ["semua yang membatalkan wudu", "melihat maksiat sebelum salat", "makan dan minum sebelum salat", "berselisih paham dengan teman"], ans: 0 },
+            { q: "Ada orang yang hendak membersihkan najis yang menempel di tubuhnya. Kemudian ia melihat seekor anjing yang tersengal nafasnya karena kehausan, sementara waktu salat hampir habis. Akhirnya orang tersebut memutuskan untuk menggunakan air daripada memberikan minum kepada anjing. Hukum keputusan yang diambil oleh orang tersebut adalah ....", opts: ["makruh", "mubah", "haram", "sunah"], ans: 2 },
+            { q: "Dua kulah dapat disetarakan dengan kurang lebih ... liter air.", opts: ["240", "250", "260", "270"], ans: 3 },
+            { q: "Perhatikan hal-hal berikut!\n(1) Air yang terjemur atau terkena panas matahari dalam botol.\n(2) Air sungai yang belum berubah warna, bau, dan rasa.\n(3) Air yang dikeluarkan dari pepohonan.\n(4) Air kelapa.\nDari hal-hal di atas air yang dapat digunakan untuk bersuci ditunjukkan pada nomor ....", opts: ["(1)", "(2)", "(3)", "(4)"], ans: 1 },
+            { q: "Perhatikan pernyataan-pernyataan berikut!\n(1) Mendidik manusia agar hidup bersih.\n(2) Menjaga kebersihan berarti menjaga diri dari penyakit.\n(3) Mempersulit dalam melakukan ibadah.\n(4) Menunjukkan status sosial.\n(5) Menjadi sarana untuk mendekatkan diri kepada Allah Swt.\nDari pernyataan-pernyataan di atas, hikmah taharah ditunjukkan oleh nomor ....", opts: ["(1), (2), (3)", "(1), (2), (5)", "(2), (3), (4)", "(3), (4), (5)"], ans: 1 },
+            { q: "Ahmad baru saja selesai bermain sepak bola di lapangan yang becek. Celana dan kakinya terkena lumpur yang bercampur dengan sedikit kotoran ayam. Ia ingin segera melaksanakan salat Asar. Tindakan yang paling tepat dilakukan Ahmad terkait pengertian taharah (bersuci) secara syariat Islam agar salatnya sah adalah ....", opts: ["langsung berwudu dan salat karena lumpur dan kotoran ayam adalah najis ringan", "membersihkan noda kotoran ayam dari celana dan kakinya terlebih dahulu dengan air mutlak kemudian berwudu", "mengganti celananya dengan yang bersih lalu bertayamum karena sulit menemukan air bersih di lapangan", "cukup mengelap kotoran tersebut dengan tisu sampai bersih lalu berwudu"], ans: 1 },
+            { q: "Setelah buang air kecil di toilet umum Rina hanya menemukan tisu kering dan tidak ada air sama sekali di bilik toiletnya. Ia tahu bahwa salat sudah masuk waktu dan ia harus segera bersuci. Tindakan bersuci yang paling sesuai dengan tuntunan syariat dalam kondisi darurat yang dialami Rina adalah ....", opts: ["tetap menunggu air tersedia meskipun harus menunda salat hingga keluar waktu", "menggunakan tisu kering (istijmar) untuk membersihkan najis semaksimal mungkin lalu segera berwudu (jika ada air untuk wudu di luar toilet) atau bertayamum jika tidak ada air sama sekali", "tetap salat tanpa bersuci karena dalam keadaan darurat (darurat taharah)", "langsung berwudu di luar toilet tanpa membersihkan kotoran terlebih dahulu"], ans: 1 },
+            { q: "Di sebuah perjalanan jauh mobil yang ditumpangi Hasan mengalami pecah ban di daerah terpencil. Saat waktu salat Magrib tiba Hasan tidak menemukan air sama sekali baik di sekitar mobil maupun di warung terdekat. Solusi terbaik bagi Hasan untuk tetap dapat menunaikan salat Magrib tepat waktu dalam kondisi tersebut adalah ....", opts: ["tetap salat Magrib tanpa bersuci (wudu atau tayamum) karena darurat", "mencari air sejauh mungkin meskipun waktu salat akan habis", "melakukan tayamum menggunakan debu atau tanah yang suci sebagai pengganti wudu", "menjamak salat Magrib dengan Isya ketika nanti menemukan air"], ans: 2 },
+            { q: "Penggunaan benda padat seperti batu untuk beristinja diperbolehkan dengan syarat benda tersebut dapat membersihkan najis, suci, dan bukan termasuk benda yang ....", opts: ["keras", "mahal", "dimuliakan", "bekas pakai"], ans: 2 },
+            { q: "Perbedaan antara air dan debu sebagai alat taharah jika dilihat dari cakupan penggunaannya adalah ....", opts: ["air digunakan untuk hadas kecil dan besar sedangkan debu hanya untuk hadas kecil", "air menghilangkan hadas dan najis sedangkan debu hanya pengganti wudu dan mandi wajib dalam kondisi tertentu", "air adalah alat bersuci yang mutlak tanpa syarat sedangkan debu adalah alat bersuci yang lebih utama", "air hanya untuk membersihkan najis sedangkan debu untuk menghilangkan hadas"], ans: 1 },
+            { q: "Di sebuah daerah perkebunan, sumber air hanya berasal dari satu sumur kecil yang airnya keruh karena lumpur tetapi tidak berbau najis. Di sisi lain tersedia banyak debu kering dan suci. Dalam situasi ini alat taharah yang seharusnya didahulukan oleh penduduk setempat untuk berwudu adalah ....", opts: ["debu karena air sumur keruh dan kurang bersih", "air sumur karena air tetap lebih utama dari debu selama suci", "pilihan bebas tergantung mana yang dianggap lebih higienis", "tidak sah keduanya, harus mencari air lain yang jernih"], ans: 1 },
+            { q: "Pak Ahmad memiliki air di ember yang volumenya kurang dari dua kulah (sekitar 190 liter). Air tersebut terkena setetes air kencing kucing namun tidak menunjukkan perubahan warna, bau, maupun rasa. Berdasarkan hukum fikih status air di ember Pak Ahmad adalah ....", opts: ["suci dan menyucikan (air mutlak) karena tidak ada perubahan sifat air", "suci tetapi tidak menyucikan (air mustakmal) karena sudah bercampur dengan najis meskipun sedikit", "najis (air mutanajis) karena volumenya sedikit dan terkena najis meskipun sifatnya tidak berubah", "makruh digunakan (air musyamas) karena terkena najis di bawah sinar matahari"], ans: 2 },
+            { q: "Air musyamas (air yang dipanaskan di bawah sinar matahari dalam wadah logam) dihukumi makruh menurut sebagian ulama mazhab Syafi'i. Alasan dibalik hukum makruh ini yang menunjukkan pemikiran tingkat tinggi dalam fikih adalah ....", opts: ["khawatir air tersebut sudah bercampur dengan karat logam wadahnya", "adanya kekhawatiran dari sisi medis dapat menimbulkan penyakit kulit jika digunakan", "air yang panas mengurangi kekhusyukan dalam berwudu", "air tersebut dianggap sudah berubah sifatnya dari kemutlakannya"], ans: 1 },
+            { q: "Seorang muslim menemukan setetes darah yang sudah mengering dan tidak berbau di sajadahnya. Ia ragu apakah sajadahnya suci atau tidak. Berdasarkan klasifikasi najis 'ainiyah dan hukmiyah, status sajadah tersebut adalah ....", opts: ["najis 'ainiyah yang harus dicuci karena wujud najisnya (darah) masih ada", "najis hukmiyah karena sifat-sifat najis (bau, warna, rasa) sudah tidak tampak, sehingga cukup dibilas sekali", "suci karena darah yang mengering tidak lagi dianggap najis jika tidak ada wujudnya", "najis mutawasitah dan harus dicuci sampai diyakini bekasnya hilang"], ans: 0 },
+            { q: "Perbedaan antara hadas dan najis dalam konteks ibadah adalah ....", opts: ["hadas adalah kotoran yang terlihat sedangkan najis adalah kondisi tidak suci yang tidak terlihat", "hadas berkaitan dengan kondisi spiritual/hukum seseorang sedangkan najis berkaitan dengan kotoran fisik pada badan, pakaian, atau tempat", "hadas dapat disucikan dengan air atau tayamum sedangkan najis hanya bisa disucikan dengan air", "hadas membatalkan puasa sedangkan najis tidak"], ans: 1 }
+        ];
+
+        // State Management
+        let currentMode = ''; // 'mandiri' or 'estafet'
+        let currentClass = '';
+        let currentUser = '';
+        let currentQuestionIndex = 0;
+        
+        let answers = new Array(20).fill(null); 
+        // For estafet, we need to track who answered what
+        let estafetLog = []; // { studentName: string, qIndex: number, correct: boolean }
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', () => {
+            initClassSelect();
+            
+            // Add change listener to nama select
+            document.getElementById('select-nama').addEventListener('change', (e) => {
+                currentUser = e.target.value;
+                document.getElementById('btn-mulai').disabled = !currentUser;
+            });
+        });
+
+        function initClassSelect() {
+            const select = document.getElementById('select-kelas');
+            if(typeof dataSiswa !== 'undefined') {
+                Object.keys(dataSiswa).forEach(kls => {
+                    select.innerHTML += `<option value="${kls}">${kls}</option>`;
+                });
+            }
+        }
+
+        function populateSiswa() {
+            currentClass = document.getElementById('select-kelas').value;
+            const selectNama = document.getElementById('select-nama');
+            const containerNama = document.getElementById('container-select-nama');
+            
+            selectNama.innerHTML = '<option value="">-- Pilih Nama --</option>';
+            document.getElementById('btn-mulai').disabled = true;
+            currentUser = '';
+            
+            if(currentClass && typeof dataSiswa !== 'undefined') {
+                dataSiswa[currentClass].forEach(nama => {
+                    selectNama.innerHTML += `<option value="${nama}">${nama}</option>`;
+                });
+                containerNama.classList.remove('hidden');
+                
+                if (currentMode === 'estafet') {
+                    document.getElementById('setup-title').innerText = `Estafet Soal No. ${currentQuestionIndex + 1}`;
+                }
+            } else {
+                containerNama.classList.add('hidden');
+            }
+        }
+
+        function selectMode(mode) {
+            currentMode = mode;
+            currentQuestionIndex = 0;
+            answers = new Array(20).fill(null);
+            estafetLog = [];
+            
+            document.getElementById('state-mode-selection').classList.add('hidden');
+            document.getElementById('state-setup').classList.remove('hidden');
+            
+            document.getElementById('select-kelas').value = '';
+            document.getElementById('container-select-nama').classList.add('hidden');
+            document.getElementById('btn-mulai').disabled = true;
+            
+            if(mode === 'estafet') {
+                document.getElementById('setup-title').innerText = "Estafet Soal No. 1";
+                document.getElementById('btn-mulai').innerHTML = 'Jawab Soal <i class="fa-solid fa-play ml-2"></i>';
+            } else {
+                document.getElementById('setup-title').innerText = "Persiapan Ujian Mandiri";
+                document.getElementById('btn-mulai').innerHTML = 'Mulai Ujian <i class="fa-solid fa-play ml-2"></i>';
+            }
+        }
+
+        function resetToModeSelection() {
+            document.getElementById('state-setup').classList.add('hidden');
+            document.getElementById('state-mode-selection').classList.remove('hidden');
+        }
+
+        function startTest() {
+            document.getElementById('state-setup').classList.add('hidden');
+            document.getElementById('state-test').classList.remove('hidden');
+            
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const q = questions[currentQuestionIndex];
+            document.getElementById('current-q-num').innerText = currentQuestionIndex + 1;
+            
+            if(currentMode === 'mandiri') {
+                document.getElementById('test-mode-label').innerText = "Mode Mandiri";
+                document.getElementById('test-student-name').innerText = currentUser;
+                document.getElementById('estafet-indicator').classList.add('hidden');
+                
+                // Show prev/next
+                document.getElementById('btn-prev').classList.toggle('hidden', currentQuestionIndex === 0);
+                
+                const btnNext = document.getElementById('btn-next');
+                if(currentQuestionIndex === questions.length - 1) {
+                    btnNext.innerHTML = 'Selesai <i class="fa-solid fa-check ml-2"></i>';
+                    btnNext.className = "px-5 py-2.5 rounded-lg font-bold text-white bg-amber-500 hover:bg-amber-600 transition ml-auto shadow-sm";
+                } else {
+                    btnNext.innerHTML = 'Selanjutnya <i class="fa-solid fa-arrow-right ml-2"></i>';
+                    btnNext.className = "px-5 py-2.5 rounded-lg font-bold text-white bg-teal-600 hover:bg-teal-700 transition ml-auto shadow-sm";
+                }
+            } else {
+                // Estafet Mode
+                document.getElementById('test-mode-label').innerText = `Kelas ${currentClass}`;
+                document.getElementById('test-student-name').innerText = currentUser;
+                document.getElementById('estafet-indicator').classList.remove('hidden');
+                
+                document.getElementById('btn-prev').classList.add('hidden'); // No going back in estafet
+                const btnNext = document.getElementById('btn-next');
+                btnNext.innerHTML = 'Simpan & Berikan ke Teman <i class="fa-solid fa-share ml-2"></i>';
+                btnNext.className = "px-5 py-2.5 rounded-lg font-bold text-white bg-amber-500 hover:bg-amber-600 transition ml-auto shadow-sm";
+                
+                if(currentQuestionIndex === questions.length - 1) {
+                    btnNext.innerHTML = 'Selesai & Lihat Hasil <i class="fa-solid fa-flag-checkered ml-2"></i>';
+                }
+            }
+            
+            const qText = q.q.replace(/\n/g, '<br>');
+            
+            let optsHtml = '';
+            const letters = ['A', 'B', 'C', 'D'];
+            q.opts.forEach((opt, idx) => {
+                const isSelected = answers[currentQuestionIndex] === idx ? 'checked' : '';
+                const bgClass = isSelected ? 'bg-teal-50 border-teal-500' : 'bg-white border-slate-200';
+                optsHtml += `
+                    <label class="flex items-start p-4 border ${bgClass} rounded-xl cursor-pointer hover:border-teal-400 transition-colors mb-3 option-label">
+                        <input type="radio" name="opt" value="${idx}" class="mt-1 mr-4 text-teal-600 focus:ring-teal-500" ${isSelected} onchange="selectOption(${idx}, this)">
+                        <span class="text-slate-700 font-medium"><b>${letters[idx]}.</b> ${opt}</span>
+                    </label>
+                `;
+            });
+            
+            document.getElementById('question-container').innerHTML = `
+                <p class="font-bold text-slate-800 text-lg mb-6 leading-relaxed">${qText}</p>
+                <div>${optsHtml}</div>
+            `;
+        }
+
+        function selectOption(idx, inputEl) {
+            answers[currentQuestionIndex] = idx;
+            // Update UI styling for labels
+            document.querySelectorAll('.option-label').forEach(lbl => {
+                lbl.classList.remove('bg-teal-50', 'border-teal-500');
+                lbl.classList.add('bg-white', 'border-slate-200');
+            });
+            const parent = inputEl.closest('label');
+            parent.classList.remove('bg-white', 'border-slate-200');
+            parent.classList.add('bg-teal-50', 'border-teal-500');
+        }
+
+        function prevQuestion() {
+            if(currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                renderQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            if (answers[currentQuestionIndex] === null && currentMode === 'estafet') {
+                alert("Harap pilih jawaban terlebih dahulu sebelum melanjutkan estafet!");
+                return;
+            }
+            
+            if (currentMode === 'estafet') {
+                // Log the estafet result for this student
+                const isCorrect = answers[currentQuestionIndex] === questions[currentQuestionIndex].ans;
+                estafetLog.push({
+                    studentName: currentUser,
+                    qIndex: currentQuestionIndex,
+                    correct: isCorrect
+                });
+                
+                if (currentQuestionIndex < questions.length - 1) {
+                    currentQuestionIndex++;
+                    // Return to setup for next student
+                    document.getElementById('state-test').classList.add('hidden');
+                    document.getElementById('state-setup').classList.remove('hidden');
+                    
+                    document.getElementById('setup-title').innerText = `Estafet Soal No. ${currentQuestionIndex + 1}`;
+                    document.getElementById('select-nama').value = '';
+                    currentUser = '';
+                    document.getElementById('btn-mulai').disabled = true;
+                } else {
+                    finishTest();
+                }
+            } else {
+                // Mandiri
+                if (currentQuestionIndex < questions.length - 1) {
+                    currentQuestionIndex++;
+                    renderQuestion();
+                } else {
+                    finishTest();
+                }
+            }
+        }
+
+        function finishTest() {
+            document.getElementById('state-test').classList.add('hidden');
+            document.getElementById('state-result').classList.remove('hidden');
+            
+            let correctCount = 0;
+            if (currentMode === 'mandiri') {
+                answers.forEach((ans, idx) => {
+                    if (ans === questions[idx].ans) correctCount++;
+                });
+                const score = Math.round((correctCount / questions.length) * 100);
+                document.getElementById('result-score').innerText = score;
+                document.getElementById('result-subtitle').innerText = `Nama: ${currentUser} | Kelas: ${currentClass}`;
+            } else {
+                // Estafet
+                estafetLog.forEach(log => {
+                    if (log.correct) correctCount++;
+                });
+                const score = Math.round((correctCount / questions.length) * 100);
+                document.getElementById('result-score').innerText = score;
+                document.getElementById('result-subtitle').innerText = `Skor Kolektif Kelas ${currentClass} (Mode Estafet)`;
+                
+                const breakdownEl = document.getElementById('estafet-breakdown');
+                const listEl = document.getElementById('estafet-list');
+                breakdownEl.classList.remove('hidden');
+                
+                let listHtml = '';
+                estafetLog.forEach((log, idx) => {
+                    const icon = log.correct ? '<i class="fa-solid fa-check text-emerald-500"></i>' : '<i class="fa-solid fa-xmark text-red-500"></i>';
+                    const bgClass = log.correct ? 'bg-emerald-50' : 'bg-red-50';
+                    listHtml += `
+                        <div class="flex justify-between items-center p-3 rounded-lg border border-slate-100 ${bgClass}">
+                            <div>
+                                <span class="text-xs font-bold text-slate-500 mr-2">No. ${idx + 1}</span>
+                                <span class="text-sm font-semibold text-slate-700">${log.studentName}</span>
+                            </div>
+                            <div class="text-lg">${icon}</div>
+                        </div>
+                    `;
+                });
+                listEl.innerHTML = listHtml;
+            }
+        }
     </script>
 </body>
 </html>

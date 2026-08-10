@@ -125,8 +125,46 @@
     </header>
 
     <main class="flex-grow">
+        <!-- Asesmen Diagnostik Section -->
+        <section id="diagnostik" class="py-10 container mx-auto px-4 -mt-24 relative z-30 max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+                <div class="bg-gradient-to-r from-teal-600 to-teal-800 p-6 text-white flex justify-between items-center">
+                    <div>
+                        <h2 class="text-2xl font-bold font-heading flex items-center gap-3">
+                            <i class="fa-solid fa-clipboard-question text-amber-400"></i> Cek Pemahaman Awal (Asesmen Diagnostik)
+                        </h2>
+                        <p class="text-teal-100 mt-2 text-sm">Jawab 5 pertanyaan dasar ini sebelum mulai belajar materi.</p>
+                    </div>
+                    <div id="diag-score-badge" class="hidden bg-white text-teal-800 px-4 py-2 rounded-xl font-bold text-xl shadow-lg border-2 border-teal-400">
+                        <span id="diag-score">100</span>/100
+                    </div>
+                </div>
+                
+                <div class="p-6 md:p-8" id="diag-container">
+                    <form id="diag-form" class="space-y-6">
+                        <div id="diag-dynamic-container">
+                            <!-- Questions will be injected here via JavaScript -->
+                        </div>
+                        
+                        <div class="pt-4 border-t border-slate-100 flex justify-end items-center gap-4">
+                            <span id="diag-warning" class="text-red-500 text-sm font-semibold hidden"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Jawab semua 5 pertanyaan terlebih dahulu!</span>
+                            <button type="button" onclick="submitDiagnostic()" id="diag-submit-btn" class="bg-amber-500 hover:bg-amber-600 text-teal-950 font-bold py-3 px-8 rounded-xl transition shadow-sm">Cek Hasil <i class="fa-solid fa-arrow-right ml-2"></i></button>
+                        </div>
+                    </form>
+                    
+                    <div id="diag-result-card" class="hidden bg-slate-50 border border-slate-200 rounded-xl p-6 text-center">
+                        <div id="diag-result-icon" class="text-5xl mb-4"></div>
+                        <h3 id="diag-result-title" class="text-xl font-bold text-slate-800 mb-2"></h3>
+                        <p id="diag-result-desc" class="text-slate-600 mb-6"></p>
+                        <button type="button" onclick="resetDiagnostic()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 px-6 rounded-lg transition text-sm">Coba Lagi</button>
+                        <a href="#materi" class="inline-block ml-3 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold py-2.5 px-6 rounded-lg transition text-sm">Lanjut ke Materi <i class="fa-solid fa-arrow-down ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Materi Section -->
-        <section id="materi" class="py-12 container mx-auto px-4 relative z-20 max-w-5xl -mt-16">
+        <section id="materi" class="py-12 container mx-auto px-4 relative z-20 max-w-5xl pt-4">
             
             <!-- Video Materi -->
             <div class="mb-10 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
@@ -2772,6 +2810,119 @@
 
             document.getElementById(`game-wrapper-${tab}`).classList.remove('hidden');
         }
+    </script>
+    <!-- Diagnostic Assessment Script -->
+    <script>
+        const diagQuestions = [
+            { q: "Bersuci dalam agama Islam disebut juga dengan istilah...", opts: ["Thaharah", "Wudhu", "Tayamum", "Istinja'"], a: 0 },
+            { q: "Alat yang paling utama dan sah untuk bersuci adalah...", opts: ["Batu", "Air mutlak (suci & mensucikan)", "Tisu", "Daun-daunan"], a: 1 },
+            { q: "Air kencing bayi laki-laki yang belum makan apa-apa selain ASI termasuk najis...", opts: ["Mughaladhah (Berat)", "Mutawassithah (Sedang)", "Mukhaffafah (Ringan)", "Ma'fu (Dimaafkan)"], a: 2 },
+            { q: "Cara membersihkan najis ringan (Mukhaffafah) yang paling tepat adalah...", opts: ["Dicuci pakai sabun sampai bersih", "Memercikkan air ke bagian yang terkena najis", "Dibasuhi 7 kali dengan debu", "Dilap dengan tisu kering"], a: 1 },
+            { q: "Seseorang diwajibkan mandi besar (mandi wajib) jika ia mengalami...", opts: ["Hadas Kecil", "Luka berdarah", "Hadas Besar", "Menyentuh kotoran"], a: 2 },
+            { q: "Jika kita tidak menemukan air sama sekali untuk wudhu, kita bisa menggantinya dengan...", opts: ["Tayamum", "Mandi biasa", "Membasuh muka saja", "Istinja'"], a: 0 },
+            { q: "Contoh najis Mutawassithah (najis sedang) di bawah ini adalah...", opts: ["Jilatan anjing", "Kotoran hewan", "Kencing bayi laki-laki ASI", "Bangkai belalang"], a: 1 }
+        ];
+        let currentDiagQuestions = [];
+        
+        function renderRandomQuestions() {
+            let shuffled = [...diagQuestions].sort(() => 0.5 - Math.random());
+            currentDiagQuestions = shuffled.slice(0, 5);
+            
+            const container = document.getElementById('diag-dynamic-container');
+            if(!container) return;
+            container.innerHTML = '';
+            
+            const letters = ['A', 'B', 'C', 'D'];
+            
+            currentDiagQuestions.forEach((qObj, index) => {
+                let optionsHtml = '';
+                qObj.opts.forEach((optText, oIdx) => {
+                    optionsHtml += `
+                        <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-teal-50 transition-colors">
+                            <input type="radio" name="q${index}" value="${oIdx}" class="mr-3 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">${letters[oIdx]}. ${optText}</span>
+                        </label>
+                    `;
+                });
+                
+                container.innerHTML += `
+                    <div class="diag-q mb-6" data-q="${index}">
+                        <p class="font-bold text-slate-800 mb-3">${index + 1}. ${qObj.q}</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            ${optionsHtml}
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function submitDiagnostic() {
+            const form = document.getElementById('diag-form');
+            let answeredCount = 0;
+            let score = 0;
+            
+            for(let i=0; i<5; i++) {
+                const selected = form.querySelector(`input[name="q${i}"]:checked`);
+                if(selected) {
+                    answeredCount++;
+                    if(parseInt(selected.value) === currentDiagQuestions[i].a) score += 20;
+                }
+            }
+            
+            if(answeredCount < 5) {
+                document.getElementById('diag-warning').classList.remove('hidden');
+                return;
+            }
+            
+            document.getElementById('diag-warning').classList.add('hidden');
+            localStorage.setItem('diag_score_bersuci', score);
+            showDiagResult(score);
+        }
+        
+        function showDiagResult(score) {
+            document.getElementById('diag-form').classList.add('hidden');
+            const resultCard = document.getElementById('diag-result-card');
+            resultCard.classList.remove('hidden');
+            
+            const badge = document.getElementById('diag-score-badge');
+            badge.classList.remove('hidden');
+            document.getElementById('diag-score').textContent = score;
+            
+            const icon = document.getElementById('diag-result-icon');
+            const title = document.getElementById('diag-result-title');
+            const desc = document.getElementById('diag-result-desc');
+            
+            if(score === 100) {
+                icon.innerHTML = '<i class="fa-solid fa-face-smile-beam text-emerald-500"></i>';
+                title.textContent = 'Luar Biasa!';
+                desc.textContent = 'Pemahaman awalmu tentang materi ini sudah sangat sempurna. Mari kita perdalam lagi di materi utama!';
+            } else if(score >= 60) {
+                icon.innerHTML = '<i class="fa-solid fa-face-smile text-amber-500"></i>';
+                title.textContent = 'Cukup Baik!';
+                desc.textContent = 'Kamu sudah punya gambaran tentang materi ini. Yuk, baca materinya untuk menyempurnakan pemahamanmu!';
+            } else {
+                icon.innerHTML = '<i class="fa-solid fa-face-thinking text-blue-500"></i>';
+                title.textContent = 'Mari Belajar Bersama!';
+                desc.textContent = 'Tidak apa-apa, materi di bawah ini dirancang khusus untuk membantumu memahami dasar-dasar bersuci dengan mudah.';
+            }
+        }
+        
+        function resetDiagnostic() {
+            localStorage.removeItem('diag_score_bersuci');
+            document.getElementById('diag-form').reset();
+            renderRandomQuestions();
+            document.getElementById('diag-form').classList.remove('hidden');
+            document.getElementById('diag-result-card').classList.add('hidden');
+            document.getElementById('diag-score-badge').classList.add('hidden');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderRandomQuestions();
+            const savedScore = localStorage.getItem('diag_score_bersuci');
+            if(savedScore !== null) {
+                showDiagResult(parseInt(savedScore));
+            }
+        });
     </script>
 </body>
 </html>
