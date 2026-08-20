@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Materi Akidah Akhlak - Akhlak Terpuji</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    },
+                    colors: {
+                        teal: {
+                            850: '#0f5d56',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        .no-select { user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; }
+        input, select, textarea { user-select: text; -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; }
+        h1, h2, h3, h4, h5, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Pengaturan Teks Arab agar harakat terlihat sangat jelas */
+        .arabic-text { 
+            font-family: 'Amiri', serif; 
+            direction: rtl; 
+            line-height: 2.0 !important; 
+            word-spacing: 0.25em; 
+        }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        .option-label { cursor: pointer; transition: all 0.2s ease-in-out; border: 1px solid #e2e8f0; }
+        .option-label:hover { border-color: #0f766e; background-color: #f0fdfa; }
+        .option-input:checked + .option-content { background-color: #f0fdfa; border-color: #0f766e; box-shadow: 0 0 0 1px #0f766e; }
+        .option-input:checked + .option-content .option-circle { background-color: #0f766e; color: white; border-color: #0f766e; }
+        .pattern-bg { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        
+        .fade-text { transition: opacity 0.3s ease-in-out; }
+        .modal-backdrop { background-color: rgba(15, 23, 42, 0.7); backdrop-filter: blur(4px); animation: fadeIn 0.2s ease-out; }
+        .modal-content { animation: slideUp 0.3s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        
+        #anti-cheat-banner { transition: transform 0.3s ease-in-out; }
+        .student-watermark { position: fixed; top: -50%; left: -50%; width: 200vw; height: 200vh; pointer-events: none; z-index: 9999; opacity: 0.03; display: flex; flex-wrap: wrap; align-content: flex-start; word-break: break-all; font-size: 1.3rem; font-weight: 800; line-height: 1.8; color: #000; transform: rotate(-25deg); text-transform: uppercase; }
+        
+        .b64t { opacity: 0; transition: opacity 0.3s; }
+        .b64-ready { opacity: 1; }
+    </style>
+</head>
+<body class="no-select selection:bg-teal-200 selection:text-teal-900 flex flex-col min-h-screen overflow-x-hidden">
+
+    <!-- Anti Cheat Overlay -->
+    <div id="anti-cheat-banner" class="fixed top-0 left-0 w-full bg-red-600 text-white text-center py-2 z-[10001] transform -translate-y-full flex items-center justify-center gap-2 text-sm font-semibold shadow-md">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span id="anti-cheat-msg" class="b64t" data-b="U2lzdGVtIFBlbmdhd2FzYW4gQWt0aWY6IERpbGFyYW5nIG1lbnlhbGluIHRla3MgYXRhdSBtZW5pbmdnYWxrYW4gaGFsYW1hbiB1amlhbiE="></span>
+    </div>
+
+    <div id="anti-snip-overlay" class="fixed inset-0 bg-slate-900/95 backdrop-blur-xl z-[10000] hidden flex-col items-center justify-center text-white transition-opacity duration-200">
+        <i class="fa-solid fa-eye-slash text-7xl mb-6 text-red-500 animate-pulse"></i>
+        <h2 class="text-3xl font-bold font-heading mb-2 text-center b64t" data-b="TGF5YXIgVWppYW4gRGlzZW1idW55aWthbg=="></h2>
+        <p class="text-slate-300 text-center max-w-md px-4 mb-4 b64t" data-b="U2lzdGVtIG1lbmRldGVrc2kgQW5kYSBtZW5pbmdnYWxrYW4gaGFsYW1hbiB1amlhbiBhdGF1IG1lbWJ1a2EgYXBsaWthc2kgbGFpbi4="></p>
+        <div id="snip-identity" class="bg-red-900/50 border border-red-500 text-amber-400 font-bold text-xl px-6 py-3 rounded-xl mb-6 hidden uppercase tracking-wider text-center"></div>
+        <button onclick="regainFocus()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105 b64t" data-b="S2VtYmFsaSBrZSBVamlhbg=="></button>
+    </div>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Brand -->
+                <a href="../../" target="_top" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <div class="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-book-open text-sm"></i>
+                    </div>
+                    <span class="font-heading font-bold text-lg tracking-wide text-slate-800">Belajar<span class="text-teal-600">Online</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    
+                    
+
+                    
+                    <!-- Standalone Link Fiqih -->
+                    <a href="../../fiqih/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors flex items-center gap-1 py-4">
+                        Fiqih
+                    </a>
+                    
+                    <!-- Standalone Link Akidah Akhlak -->
+                    <a href="../../akidah-akhlak/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors flex items-center gap-1 py-4">
+                        Akidah Akhlak
+                    </a>
+
+                    <a href="../../formatif/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Uji Kompetensi
+                    </a>
+                    <a href="../../nilai-siswa/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Rekap Nilai
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-slate-600 hover:text-teal-600 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full max-h-[85vh] overflow-y-auto">
+            <div class="px-2 pt-4 pb-6 space-y-1">
+                
+                
+
+                
+                <!-- Standalone Link Fiqih Mobile -->
+                <div class="px-2 mt-1">
+                    <a href="../../fiqih/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Fiqih</a>
+                </div>
+                
+                <!-- Standalone Link Akidah Akhlak Mobile -->
+                <div class="px-2 mt-1">
+                    <a href="../../akidah-akhlak/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Akidah Akhlak</a>
+                </div>
+
+                <!-- Standalone Links Mobile -->
+                <div class="px-2 mt-1">
+                    <a href="../../formatif/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Uji Kompetensi</a>
+                </div>
+                <div class="px-2 mt-1">
+                    <a href="../../nilai-siswa/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Rekap Nilai</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+<header class="bg-teal-900 relative pt-32 pb-32 overflow-hidden pattern-bg">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-teal-900/90"></div>
+    <div class="container mx-auto px-4 relative z-10 max-w-4xl text-center">
+        <span class="inline-flex items-center gap-2 bg-teal-800/80 border border-teal-700 text-teal-100 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-6 shadow-sm">
+            <i class="fa-solid fa-book-bookmark text-amber-400"></i> Akidah Akhlak
+        </span>
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white font-heading leading-tight">
+            <span class="text-amber-400">Akhlak Terpuji</span>
+        </h1>
+        <p class="text-lg text-teal-100/90 max-w-2xl mx-auto font-light leading-relaxed mb-10 italic">
+            Tobat, Taat, Istikamah, dan Ikhlas
+        </p>
+        <a href="#materi" class="bg-amber-500 hover:bg-amber-400 text-teal-950 px-8 py-3.5 rounded-xl font-semibold transition inline-flex items-center gap-2 shadow-lg transform hover:-translate-y-0.5">
+            Mulai Belajar <i class="fa-solid fa-arrow-down text-sm"></i>
+        </a>
+    </div>
+</header>
+
+<!-- Main Body Content Container -->
+<main class="flex-grow">
+
+    <!-- Asesmen Diagnostik Section -->
+    <section id="diagnostik" class="py-10 container mx-auto px-4 -mt-24 relative z-30 max-w-4xl">
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+            <div class="bg-gradient-to-r from-teal-600 to-teal-800 p-6 text-white flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-bold font-heading flex items-center gap-3">
+                        <i class="fa-solid fa-clipboard-question text-amber-400"></i> Cek Pemahaman Awal (Asesmen Diagnostik)
+                    </h2>
+                    <p class="text-teal-100 mt-2 text-sm">Jawab 5 pertanyaan dasar ini sebelum mulai belajar materi.</p>
+                </div>
+                <div id="diag-score-badge" class="hidden bg-white text-teal-800 px-4 py-2 rounded-xl font-bold text-xl shadow-lg border-2 border-teal-400">
+                    <span id="diag-score">100</span>/100
+                </div>
+            </div>
+            
+            <div class="p-6 md:p-8" id="diag-container">
+                <form id="diag-form" class="space-y-6">
+                    <div id="diag-dynamic-container">
+                        <!-- Questions will be injected here via JavaScript -->
+                    </div>
+                    
+                    <div class="pt-4 border-t border-slate-100 flex justify-end items-center gap-4">
+                        <span id="diag-warning" class="text-red-500 text-sm font-semibold hidden"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Jawab semua 5 pertanyaan terlebih dahulu!</span>
+                        <button type="button" onclick="submitDiagnostic()" id="diag-submit-btn" class="bg-amber-500 hover:bg-amber-600 text-teal-950 font-bold py-3 px-8 rounded-xl transition shadow-sm">Cek Hasil <i class="fa-solid fa-arrow-right ml-2"></i></button>
+                    </div>
+                </form>
+                
+                <div id="diag-result-card" class="hidden bg-slate-50 border border-slate-200 rounded-xl p-6 text-center">
+                    <div id="diag-result-icon" class="text-5xl mb-4"></div>
+                    <h3 id="diag-result-title" class="text-xl font-bold text-slate-800 mb-2"></h3>
+                    <p id="diag-result-desc" class="text-slate-600 mb-6"></p>
+                    <button type="button" onclick="resetDiagnostic()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 px-6 rounded-lg transition text-sm">Coba Lagi</button>
+                    <a href="#materi" class="inline-block ml-3 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold py-2.5 px-6 rounded-lg transition text-sm">Lanjut ke Materi <i class="fa-solid fa-arrow-down ml-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materi Section -->
+    <section id="materi" class="py-12 container mx-auto px-4 relative z-20 max-w-5xl pt-4">
+        
+        
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cards-container">
+            <!-- Card A: Pengantar -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer group" onclick="openContentModal('content-a')">
+                <div class="p-6 text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-map"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2">Pengantar & Apersepsi</h3>
+                    <p class="text-xs text-slate-500">Peta konsep dan pengantar materi akhlak terpuji.</p>
+                </div>
+            </div>
+            <!-- Card B: Tobat -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer group" onclick="openContentModal('content-b')">
+                <div class="p-6 text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-hands-holding-circle"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2">Tobat</h3>
+                    <p class="text-xs text-slate-500">Kembali ke jalan yang benar dan memohon ampunan.</p>
+                </div>
+            </div>
+            <!-- Card C: Taat -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer group" onclick="openContentModal('content-c')">
+                <div class="p-6 text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-amber-500 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-person-praying"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2">Taat</h3>
+                    <p class="text-xs text-slate-500">Tunduk dan patuh pada perintah Allah, Rasul, dan Ulil Amri.</p>
+                </div>
+            </div>
+            <!-- Card D: Istikamah -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer group" onclick="openContentModal('content-d')">
+                <div class="p-6 text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2">Istikamah</h3>
+                    <p class="text-xs text-slate-500">Konsisten dalam menjalankan kebaikan dan ibadah.</p>
+                </div>
+            </div>
+            <!-- Card E: Ikhlas -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer group" onclick="openContentModal('content-e')">
+                <div class="p-6 text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2">Ikhlas</h3>
+                    <p class="text-xs text-slate-500">Memurnikan niat hanya mengharap rida Allah Swt.</p>
+                </div>
+            </div>
+            <!-- Card F: Renungan -->
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer group" onclick="openContentModal('content-f')">
+                <div class="p-6 text-center flex flex-col items-center">
+                    <div class="w-16 h-16 bg-rose-50 text-rose-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-rose-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-house-chimney"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2">Renungan</h3>
+                    <p class="text-xs text-slate-500">Keterkaitan keempat perilaku dan filosofi pondasi rumah.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Templates -->
+        <template id="content-a" data-title="Pengantar & Apersepsi" data-icon="fa-map" data-color="blue">
+            <div class="space-y-6 pl-2 md:pl-6 border-l-2 border-blue-100">
+                <p class="text-slate-700 text-base leading-relaxed">
+                    Mempelajari materi tobat, taat, istikamah, dan ikhlas akan membuat kalian sadar untuk cinta kepada Allah dan rasul-Nya, mencintai diri dan sesama manusia. Sebelum kalian membaca materi, terlebih dahulu bacalah pantun berikut!
+                </p>
+                
+                <div class="bg-blue-50/50 p-6 rounded-xl border border-blue-100 text-center my-6 shadow-sm">
+                    <p class="text-slate-700 italic text-lg leading-relaxed mb-4">
+                        Hari Minggu pergilah ke sawah<br>
+                        Lumpur penuhi seluruh badan<br>
+                        Memiliki sikap istikamah<br>
+                        Dipercaya dan jadi teladan
+                    </p>
+                    <p class="text-slate-700 italic text-lg leading-relaxed">
+                        Anak beradab layak dipuji<br>
+                        Karena taat pada agama<br>
+                        Mengenal sifat-sifat terpuji<br>
+                        Makin cinta diri dan sesama
+                    </p>
+                </div>
+
+                <div class="bg-white border-l-4 border-blue-500 p-5 shadow-sm rounded-r-xl my-4">
+                    <p class="text-slate-700 text-base leading-relaxed mb-3">
+                        Generasi saleh-salehah, adakah orang yang bebas dari salah dan dosa? Orang tua, saudara, teman–teman kalian atau bahkan kalian sendiri apakah bebas dari salah dan dosa? Tentu tidak bukan?
+                    </p>
+                    <p class="text-slate-700 text-base leading-relaxed mb-3">
+                        Orang yang terpelihara dari dosa hanyalah para nabi dan rasul karena mereka memiliki sifat <strong>maksum</strong> (bebas dari dosa, kesalahan, dan kekeliruan). Namun, janganlah berputus asa karena orang yang baik itu bukan orang yang tak pernah salah, melainkan yang mengakui kesalahan dan mau bertobat.
+                    </p>
+                    <p class="text-slate-800 font-bold text-base leading-relaxed text-center mt-6">
+                        "Sebaik-baik manusia apabila melakukan dosa atau kesalahan adalah segera bertobat kemudian kembali menjadi manusia yang taat dan istikamah melakukan ketaatan tersebut dengan ikhlas."
+                    </p>
+                </div>
+            </div>
+        </template>
+        
+        <template id="content-b" data-title="Tobat" data-icon="fa-hands-holding-circle" data-color="teal">
+            <div class="space-y-6 pl-2 md:pl-6 border-l-2 border-teal-100">
+                <div>
+                    <h4 class="font-bold text-teal-800 text-lg mb-3">a. Pengertian Tobat</h4>
+                    <p class="text-slate-700 text-base leading-relaxed">
+                        Tobat secara bahasa berarti <strong>kembali</strong>. Adapun secara istilah adalah kembali ke jalan yang benar dengan didasari keinginan yang kuat dalam hati untuk tidak kembali melakukan dosa-dosa yang pernah dilakukan sebelumnya.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-teal-800 text-lg mb-3">b. Dalil Perintah Tobat</h4>
+                    <p class="text-slate-700 text-base leading-relaxed mb-3">
+                        Manusia bertobat memiliki beberapa alasan di antaranya berdasarkan dalil naqli berikut (Surah at-Tahrim/66: 8):
+                    </p>
+                    <div class="bg-teal-50/50 p-6 rounded-xl border border-teal-100 text-center my-4">
+                        <p class="arabic-text text-2xl text-slate-800 mb-4 leading-loose font-bold">يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْا تُوْبُوْٓا اِلَى اللّٰهِ تَوْبَةً نَّصُوْحًا عَسٰى رَبُّكُمْ اَنْ يُّكَفِّرَ عَنْكُمْ سَيِّاٰتِكُمْ وَيُدْخِلَكُمْ جَنّٰتٍ تَجْرِيْ مِنْ تَحْتِهَا الْاَنْهٰرُۙ يَوْمَ لَا يُخْزِى اللّٰهُ النَّبِيَّ وَالَّذِيْنَ اٰمَنُوْا مَعَهٗۚ نُوْرُهُمْ يَسْعٰى بَيْنَ اَيْدِيْهِمْ وَبِاَيْمَانِهِمْ يَقُوْلُوْنَ رَبَّنَآ اَتْمِمْ لَنَا نُوْرَنَا وَاغْفِرْ لَنَاۚ اِنَّكَ عَلٰى كُلِّ شَيْءٍ قَدِيْرٌ</p>
+                        <p class="text-slate-600 italic text-sm text-left">
+                            <strong>Artinya:</strong> Wahai orang-orang yang beriman, bertobatlah kepada Allah dengan tobat yang semurni-murninya. Mudah-mudahan Tuhanmu akan menghapus kesalahan-kesalahanmu dan memasukkanmu ke dalam surga yang mengalir di bawahnya sungai-sungai pada hari ketika Allah tidak menghinakan Nabi dan orang-orang yang beriman bersamanya. Cahaya mereka memancar di hadapan dan di sebelah kanannya. Mereka berkata, “Ya Tuhan kami, sempurnakanlah untuk kami cahaya kami dan ampunilah kami. Sesungguhnya Engkau Maha Kuasa atas segala sesuatu.” (QS at-Tahrim/66: 8)
+                        </p>
+                    </div>
+                    
+                    <p class="text-slate-700 text-base leading-relaxed mt-4 mb-2 font-semibold">Dalil Akli pentingnya tobat:</p>
+                    <ol class="list-decimal pl-5 text-slate-700 text-sm space-y-2">
+                        <li>Manusia makhluk yang lemah sehingga sering kali jatuh dalam dosa sehingga harus selalu bertobat.</li>
+                        <li>Allah Swt. melarang manusia berputus asa karena selalu ada ampunan bagi yang mau bertobat.</li>
+                        <li>Dosa itu memiliki akibat yang sangat buruk, contoh jauh dari Allah Swt., gelisah, mematikan hati.</li>
+                        <li>Umur manusia terbatas sehingga harus sadar, terbatas pula waktu yang dimiliki.</li>
+                    </ol>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-teal-800 text-lg mb-3">c. Contoh dan Manfaat Tobat</h4>
+                    <p class="text-slate-700 text-base leading-relaxed mb-3">
+                        Dahulu para nabi dan rasul juga bertobat, bukan karena melakukan dosa, melainkan merasa takut amal mereka tidak diterima atau merasa melakukan sesuatu yang tidak pantas (seperti contoh Nabi Ibrahim dan Nabi Nuh).
+                    </p>
+                    <p class="text-slate-700 text-base leading-relaxed mb-3">
+                        <strong>Manfaat Tobat:</strong> Memperoleh cinta dan ampunan dari Allah Swt., memperoleh semangat hidup baru, penolak bala, mendapatkan jalan kebenaran kembali, dan memperoleh kepercayaan masyarakat lagi.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-teal-800 text-lg mb-3">d. Upaya Membiasakan Tobat</h4>
+                    <ul class="list-disc pl-5 text-slate-700 text-sm space-y-2">
+                        <li>Berhenti melakukan dosa saat itu juga.</li>
+                        <li>Segera memohon ampun kepada Allah Swt. dan menyesali perbuatan tersebut.</li>
+                        <li>Berjanji tidak akan melakukannya lagi.</li>
+                        <li>Jika bersalah kepada manusia: segera meminta maaf, berjanji tidak mengulangi, dan membebaskan hak orang lain yang telah dilanggar (misalnya mengembalikan barang jika mencuri).</li>
+                    </ul>
+                </div>
+            </div>
+        </template>
+        
+        <template id="content-c" data-title="Taat" data-icon="fa-person-praying" data-color="amber">
+            <div class="space-y-6 pl-2 md:pl-6 border-l-2 border-amber-100">
+                <div>
+                    <h4 class="font-bold text-amber-800 text-lg mb-3">a. Pengertian Taat</h4>
+                    <p class="text-slate-700 text-base leading-relaxed">
+                        Taat secara bahasa berarti senantiasa tunduk atau patuh. Adapun taat artinya patuh menuruti perintah secara ikhlas, tidak berlaku curang, setia, saleh, kuat iman, dan rajin mengamalkan ibadah.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-amber-800 text-lg mb-3">b. Dalil Perintah Taat</h4>
+                    <p class="text-slate-700 text-base leading-relaxed mb-3">
+                        Allah Swt. berfirman dalam surah an-Nisa/4: 59:
+                    </p>
+                    <div class="bg-amber-50/50 p-6 rounded-xl border border-amber-100 text-center my-4">
+                        <p class="arabic-text text-2xl text-slate-800 mb-4 leading-loose font-bold">يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْٓا اَطِيْعُوا اللّٰهَ وَاَطِيْعُوا الرَّسُوْلَ وَاُولِى الْاَمْرِ مِنْكُمْۚ فَاِنْ تَنَازَعْتُمْ فِيْ شَيْءٍ فَرُدُّوْهُ اِلَى اللّٰهِ وَالرَّسُوْلِ اِنْ كُنْتُمْ تُؤْمِنُوْنَ بِاللّٰهِ وَالْيَوْمِ الْاٰخِرِۗ ذٰلِكَ خَيْرٌ وَّاَحْسَنُ تَأْوِيْلًا ࣖ</p>
+                        <p class="text-slate-600 italic text-sm text-left">
+                            <strong>Artinya:</strong> Wahai orang-orang yang beriman, taatilah Allah dan taatilah rasul (Nabi Muhammad) serta ululamri (pemegang kekuasaan) di antara kamu. Jika kamu berbeda pendapat tentang sesuatu, kembalikanlah kepada Allah (Al-Qur’an) dan rasul (sunahnya) jika kamu beriman kepada Allah dan hari Akhir. Yang demikian itu lebih baik (bagimu) dan lebih bagus akibatnya (di dunia dan di akhirat). (QS an-Nisa/4: 59)
+                        </p>
+                    </div>
+                    <p class="text-slate-700 text-base leading-relaxed mt-4 mb-2 font-semibold">Dalil Akli:</p>
+                    <ol class="list-decimal pl-5 text-slate-700 text-sm space-y-2">
+                        <li>Allah Swt. telah menciptakan dan mengatur alam semesta termasuk manusia, sehingga manusia harus taat pada Allah Swt.</li>
+                        <li>Allah Swt. adalah sumber keadilan dan kebenaran.</li>
+                        <li>Allah Swt. akan memberikan pahala bagi yang taat dan balasan buruk bagi yang tidak taat.</li>
+                    </ol>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-amber-800 text-lg mb-3">c. Contoh dan Manfaat Taat</h4>
+                    <p class="text-slate-700 text-base leading-relaxed mb-3">
+                        Kalian dapat menaati Allah, rasul, dan pemimpin (selama tidak bertentangan dengan perintah Allah) dengan cara: Ikhlas, mematuhi tata tertib sekolah, husnuzan, menaati rambu-rambu lalu lintas, dan menjalankan ibadah wajib serta sunah.
+                    </p>
+                    <p class="text-slate-700 text-base leading-relaxed mb-3">
+                        <strong>Manfaat:</strong> Jiwa menjadi tenang, mendapat rida Allah, kemudahan hidup, kepuasan batin, keberanian, dan surga.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-amber-800 text-lg mb-3">d. Upaya Membiasakan Taat</h4>
+                    <ul class="list-disc pl-5 text-slate-700 text-sm space-y-2">
+                        <li>Memperbanyak zikir dan berdoa memohon pertolongan Allah.</li>
+                        <li>Menanamkan niat kuat untuk menjauhi larangan-Nya.</li>
+                        <li>Tidak menunda-nunda perintah seperti salat dan puasa.</li>
+                        <li>Meneladani rasul, berselawat, dan mendengarkan arahan pemimpin (ulil amri) serta menaati aturan yang berlaku (seperti UU/tata tertib).</li>
+                    </ul>
+                </div>
+            </div>
+        </template>
+        
+        <template id="content-d" data-title="Istikamah" data-icon="fa-arrow-trend-up" data-color="emerald">
+            <div class="space-y-6 pl-2 md:pl-6 border-l-2 border-emerald-100">
+                <div>
+                    <h4 class="font-bold text-emerald-800 text-lg mb-3">a. Pengertian Istikamah</h4>
+                    <p class="text-slate-700 text-base leading-relaxed">
+                        Istikamah secara bahasa berarti <strong>lurus</strong>. Adapun istikamah secara istilah adalah usaha untuk menjaga perbuatan baik atau perilaku konsisten dalam menjalankan kebaikan seperti ibadah dan lainnya.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-emerald-800 text-lg mb-3">b. Dalil Perintah Istikamah</h4>
+                    <p class="text-slate-700 text-base leading-relaxed mb-3">
+                        Allah Swt. berfirman dalam surah Hud/11: 112:
+                    </p>
+                    <div class="bg-emerald-50/50 p-6 rounded-xl border border-emerald-100 text-center my-4">
+                        <p class="arabic-text text-2xl text-slate-800 mb-4 leading-loose font-bold">فَاسْتَقِمْ كَمَآ اُمِرْتَ وَمَنْ تَابَ مَعَكَ وَلَا تَطْغَوْاۗ اِنَّهٗ بِمَا تَعْمَلُوْنَ بَصِيْرٌ</p>
+                        <p class="text-slate-600 italic text-sm text-left">
+                            <strong>Artinya:</strong> Maka, tetaplah (di jalan yang benar), sebagaimana engkau (Nabi Muhammad) telah diperintahkan. Begitu pula orang yang bertobat bersamamu. Janganlah kamu melampaui batas! Sesungguhnya Dia Maha Melihat apa yang kamu kerjakan. (QS Hud/11: 112)
+                        </p>
+                    </div>
+                    
+                    <p class="text-slate-700 text-base leading-relaxed mt-4 mb-2 font-semibold">Dalil Akli:</p>
+                    <ol class="list-decimal pl-5 text-slate-700 text-sm space-y-2">
+                        <li>Setiap manusia ingin mencapai tujuan hidup yang lebih baik dan berkualitas. Pencapaian itu membutuhkan sebuah konsistensi dan ketekunan.</li>
+                        <li>Manusia memiliki kewajiban dan tanggung jawab, sehingga harus selalu istikamah untuk memenuhinya.</li>
+                        <li>Untuk memupuk iman kepada Allah Swt. diperlukan sikap istikamah.</li>
+                    </ol>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-emerald-800 text-lg mb-3">c. Contoh dan Manfaat Istikamah</h4>
+                    <p class="text-slate-700 text-base leading-relaxed mb-3">
+                        Kisah <strong>Nabi Nuh a.s.</strong> adalah contoh nyata istikamah. Beliau berdakwah siang dan malam selama 950 tahun meskipun hanya mendapat 80 pengikut dan selalu diejek. Contoh di masa kini: salat tepat waktu, tadarus tiap hari, dan menaati aturan meski tak ada yang mengawasi.
+                    </p>
+                    <p class="text-slate-700 text-base leading-relaxed mb-3">
+                        <strong>Manfaat:</strong> Dijauhkan dari rasa takut dan sedih, sukses dunia akhirat, akal dan hati dilindungi dari kerusakan, diangkat martabatnya, diselamatkan dari kerusakan moral, mampu mengendalikan diri, dan masuk surga.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-emerald-800 text-lg mb-3">d. Upaya Membiasakan Istikamah</h4>
+                    <ul class="list-disc pl-5 text-slate-700 text-sm space-y-2">
+                        <li>Totalitas dalam melaksanakan perintah Allah dan menjauhi larangan-Nya.</li>
+                        <li>Selalu taat.</li>
+                        <li>Mengingat ancaman Allah bagi yang melanggar.</li>
+                        <li>Mengendalikan diri dan selalu waspada.</li>
+                        <li>Sabar dalam aktivitas dan menghadapi risiko kebaikan.</li>
+                    </ul>
+                </div>
+            </div>
+        </template>
+        
+        <template id="content-e" data-title="Ikhlas" data-icon="fa-heart" data-color="purple">
+            <div class="space-y-6 pl-2 md:pl-6 border-l-2 border-purple-100">
+                <div>
+                    <h4 class="font-bold text-purple-800 text-lg mb-3">a. Pengertian Ikhlas</h4>
+                    <p class="text-slate-700 text-base leading-relaxed">
+                        Ikhlas menurut bahasa adalah membersihkan dan memurnikan sesuatu. Adapun pengertian ikhlas secara istilah adalah membersihkan niat dan perbuatan dari segala tujuan selain Allah Swt., sehingga hanya mengharapkan rida dan penerimaan-Nya semata tanpa campuran tujuan duniawi, pujian manusia, atau keuntungan pribadi.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-purple-800 text-lg mb-3">b. Dalil Perintah Ikhlas</h4>
+                    <p class="text-slate-700 text-base leading-relaxed mb-3">
+                        Allah Swt. berfirman dalam surah al-Bayyinah/98: 5:
+                    </p>
+                    <div class="bg-purple-50/50 p-6 rounded-xl border border-purple-100 text-center my-4">
+                        <p class="arabic-text text-2xl text-slate-800 mb-4 leading-loose font-bold">وَمَآ اُمِرُوْٓا اِلَّا لِيَعْبُدُوا اللّٰهَ مُخْلِصِيْنَ لَهُ الدِّيْنَ ەۙ حُنَفَاۤءَ وَيُقِيْمُوا الصَّلٰوةَ وَيُؤْتُوا الزَّكٰوةَ وَذٰلِكَ دِيْنُ الْقَيِّمَةِۗ</p>
+                        <p class="text-slate-600 italic text-sm text-left">
+                            <strong>Artinya:</strong> Mereka tidak diperintah, kecuali untuk menyembah Allah dengan mengikhlaskan ketaatan kepada-Nya lagi hanif (istikamah), melaksanakan salat, dan menunaikan zakat. Itulah agama yang lurus (benar). (QS al-Bayyinah/98: 5)
+                        </p>
+                    </div>
+                    
+                    <p class="text-slate-700 text-base leading-relaxed mt-4 mb-2 font-semibold">Dalil Akli:</p>
+                    <ol class="list-decimal pl-5 text-slate-700 text-sm space-y-2">
+                        <li>Sikap ikhlas membuat seseorang terbebas dari pengaruh luar yang memengaruhi niat yang lurus.</li>
+                        <li>Sikap ikhlas akan meningkatkan kepercayaan diri dan mental seseorang dalam menghadapi tantangan.</li>
+                        <li>Sikap ikhlas membuat seseorang fokus pada hal yang utama tanpa terganggu oleh hal-hal yang tidak penting.</li>
+                    </ol>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-purple-800 text-lg mb-3">c. Contoh dan Manfaat Ikhlas</h4>
+                    <p class="text-slate-700 text-base leading-relaxed mb-3">
+                        Kisah <strong>Nabi Ibrahim a.s.</strong> yang diperintah menyembelih Ismail adalah contoh nyata keikhlasan luar biasa. Contoh di masa kini: niat salat dan puasa karena Allah, serta membantu fakir miskin semata-mata karena Allah.
+                    </p>
+                    <p class="text-slate-700 text-base leading-relaxed mb-3">
+                        <strong>Manfaat:</strong> Bersikap tenang dan yakin, hati lebih sabar menghadapi masalah, pikiran fokus dan maksimal dalam setiap kegiatan, serta rendah hati (tidak sombong).
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-purple-800 text-lg mb-3">d. Upaya Membiasakan Ikhlas</h4>
+                    <ul class="list-disc pl-5 text-slate-700 text-sm space-y-2">
+                        <li>Melakukan ibadah tidak berdasarkan pujian atau cacian orang.</li>
+                        <li>Tidak merasa kecewa jika kebaikan yang dilakukan tidak dibalas.</li>
+                        <li>Membiasakan beramal saat sendiri maupun dalam keramaian.</li>
+                        <li>Tidak membanggakan diri di hadapan orang lain.</li>
+                        <li>Beramal secara diam-diam.</li>
+                    </ul>
+                </div>
+            </div>
+        </template>
+        
+        <template id="content-f" data-title="Renungan & Keterkaitan" data-icon="fa-house-chimney" data-color="rose">
+            <div class="space-y-6 pl-2 md:pl-6 border-l-2 border-rose-100">
+                <p class="text-slate-700 text-base leading-relaxed">
+                    Setelah mempelajari materi tobat, taat, istikamah, dan ikhlas, keempat perilaku ini saling terkait membentuk pondasi spiritual orang Islam. Ibarat <strong>sebuah rumah</strong>:
+                </p>
+                
+                <div class="bg-rose-50/50 p-6 rounded-xl border border-rose-100 shadow-sm my-4">
+                    <ul class="list-none space-y-4 text-slate-700 text-base">
+                        <li>
+                            <i class="fa-solid fa-layer-group text-rose-500 w-6"></i> <strong>Tobat (Pondasi)</strong>: Hati dibersihkan dari dosa sebagai dasar yang kuat. Tanpa tobat, bangunan amal akan mudah runtuh.
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-border-all text-rose-500 w-6"></i> <strong>Taat (Dinding)</strong>: Pelindung dari godaan dan maksiat, memperkuat bangunan iman.
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-grip-lines-vertical text-rose-500 w-6"></i> <strong>Istikamah (Tiang)</strong>: Menjaga agar ketaatan tidak sementara. Tiang inilah yang membuat rumah tetap kokoh menghadapi ujian hidup.
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-house-chimney-window text-rose-500 w-6"></i> <strong>Ikhlas (Atap)</strong>: Menaungi seluruh amal. Tanpa keikhlasan, amal kebaikan akan bocor dan sia-sia. Dengan ikhlas, semua amal akan diterima dan memberi ketenangan batin.
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white border-l-4 border-rose-500 p-5 shadow-sm rounded-r-xl mt-6">
+                    <h4 class="font-bold text-rose-800 text-lg mb-2">Sang Maha Cinta</h4>
+                    <p class="text-slate-700 text-base leading-relaxed">
+                        Memahami dan mengamalkan tobat, taat, istikamah, dan ikhlas dapat meningkatkan kecintaan pada Allah dan rasul-Nya, serta cinta kepada diri dan sesama manusia. <strong>Ikhlas</strong> membangun kejujuran sehingga hidup lebih tenang dan membangun hubungan yang lebih baik dengan sesama.
+                    </p>
+                </div>
+            </div>
+        </template>
+
+
+    </section>
+
+        <!-- Interactive Modal Structure (Moved outside section to fix z-index) -->
+        <div id="content-modal" class="fixed inset-0 z-[9999] hidden flex items-center justify-center px-4" style="background-color: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px);">
+            <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col relative animate-fadeIn">
+                <!-- Header -->
+                <div id="modal-header" class="p-5 md:p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50 rounded-t-2xl">
+                    <h3 id="modal-title" class="text-xl md:text-2xl font-bold font-heading text-slate-800 flex items-center gap-3">
+                        Title
+                    </h3>
+                    <button onclick="closeContentModal()" class="w-8 h-8 rounded-full bg-white border border-slate-200 text-slate-500 hover:text-red-500 hover:border-red-200 flex items-center justify-center transition-colors">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <!-- Body -->
+                <div id="modal-body" class="p-5 md:p-8 overflow-y-auto">
+                    Content
+                </div>
+            </div>
+        </div>
+
+    <!-- Custom Styles for Interactive Elements -->
+    <style>
+        .perspective { perspective: 1000px; }
+        .preserve-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+        @keyframes fadeInInteractive { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fadeIn { animation: fadeInInteractive 0.3s ease-out forwards; }
+    </style>
+
+    <!-- Interactive Scripts -->
+    <script>
+        function openContentModal(id) {
+            const modal = document.getElementById('content-modal');
+            const titleEl = document.getElementById('modal-title');
+            const bodyEl = document.getElementById('modal-body');
+            
+            const template = document.getElementById(id);
+            if(!template) return;
+            
+            const title = template.getAttribute('data-title');
+            const icon = template.getAttribute('data-icon');
+            const color = template.getAttribute('data-color');
+            
+            titleEl.innerHTML = `<span class="bg-${color}-50 text-${color}-600 w-10 h-10 rounded-lg flex items-center justify-center shrink-0 shadow-sm"><i class="fa-solid ${icon}"></i></span> ${title}`;
+            bodyEl.innerHTML = template.innerHTML;
+            
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeContentModal() {
+            document.getElementById('content-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+            document.getElementById('modal-body').innerHTML = '';
+        }
+
+        function switchTab(tabId, btn) {
+            // Because the tab content is inside the modal, we query from within the modal
+            const modalBody = document.getElementById('modal-body');
+            
+            modalBody.querySelectorAll('.water-tab-content').forEach(el => el.classList.add('hidden'));
+            modalBody.querySelectorAll('.water-tab-btn').forEach(el => {
+                el.classList.remove('bg-blue-600', 'text-white');
+                el.classList.add('bg-slate-100', 'text-slate-600');
+            });
+            
+            modalBody.querySelector('#' + tabId).classList.remove('hidden');
+            btn.classList.remove('bg-slate-100', 'text-slate-600');
+            btn.classList.add('bg-blue-600', 'text-white');
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('content-modal').addEventListener('click', function(e) {
+            if(e.target === this) {
+                closeContentModal();
+            }
+        });
+    </script>
+
+    
+    </main>
+
+    
+    </div>
+
+    <!-- ================= GAME SECTION ================= -->
+    <section id="game-section" class="py-12 container mx-auto px-4 max-w-5xl">
+        <div class="text-center mb-8">
+            <span class="inline-flex items-center gap-2 bg-purple-50 border border-purple-200 text-purple-700 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-4">
+                <i class="fa-solid fa-gamepad"></i> Mini Game Interaktif
+            </span>
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-800 font-heading mb-2">Ayo Bermain & Belajar! 🎮</h2>
+            <p class="text-slate-500 text-sm max-w-lg mx-auto">Uji pemahamanmu tentang Akidah Islam melalui permainan seru berikut ini.</p>
+        </div>
+
+        <!-- Game Tabs -->
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+            <button onclick="switchGame('scramble')" id="tab-scramble" class="game-tab-btn active-game-tab px-5 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center gap-2 bg-purple-600 text-white shadow-lg shadow-purple-200">
+                <i class="fa-solid fa-puzzle-piece"></i> Susun Kata
+            </button>
+            <button onclick="switchGame('match')" id="tab-match" class="game-tab-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center gap-2 bg-white text-slate-600 border border-slate-200 hover:border-purple-300 hover:text-purple-600">
+                <i class="fa-solid fa-object-group"></i> Cocokkan Pasangan
+            </button>
+            <button onclick="switchGame('wordsearch')" id="tab-wordsearch" class="game-tab-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center gap-2 bg-white text-slate-600 border border-slate-200 hover:border-purple-300 hover:text-purple-600">
+                <i class="fa-solid fa-magnifying-glass"></i> Tebak Kata
+            </button>
+            <button onclick="switchGame('tug')" id="tab-tug" class="game-tab-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center gap-2 bg-white text-slate-600 border border-slate-200 hover:border-purple-300 hover:text-purple-600">
+                <i class="fa-solid fa-flag"></i> Tarik Tambang
+            </button>
+        </div>
+
+        <!-- Game Container -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            
+            <!-- ===== GAME 1: SUSUN KATA ===== -->
+            <div id="game-scramble" class="game-panel p-6 md:p-8">
+                <div class="text-center mb-6">
+                    <h3 class="text-lg font-bold text-slate-800 font-heading mb-1">🔤 Susun Huruf Menjadi Kata yang Benar</h3>
+                    <p class="text-xs text-slate-500">Klik huruf-huruf yang tersedia secara berurutan untuk menyusun kata yang tepat!</p>
+                </div>
+                <div id="scramble-game-area" class="space-y-8"></div>
+                <div id="scramble-result" class="hidden text-center mt-6 p-6 rounded-xl"></div>
+                <div class="text-center mt-6">
+                    <button onclick="initScramble()" class="bg-purple-100 text-purple-700 hover:bg-purple-200 font-bold py-2.5 px-6 rounded-xl text-sm transition-colors">
+                        <i class="fa-solid fa-rotate-right mr-1"></i> Acak Ulang
+                    </button>
+                </div>
+            </div>
+
+            <!-- ===== GAME 2: COCOKKAN PASANGAN ===== -->
+            <div id="game-match" class="game-panel hidden p-6 md:p-8">
+                <div class="text-center mb-6">
+                    <h3 class="text-lg font-bold text-slate-800 font-heading mb-1">🔗 Cocokkan Istilah dengan Artinya</h3>
+                    <p class="text-xs text-slate-500">Klik satu istilah di kiri, lalu klik pasangan artinya di kanan.</p>
+                </div>
+                <div class="flex items-center justify-center gap-2 mb-4">
+                    <span class="text-sm font-bold text-slate-700">Skor: </span>
+                    <span id="match-score" class="text-lg font-bold text-purple-600">0</span>
+                    <span class="text-sm text-slate-400">/ <span id="match-total">5</span></span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8" id="match-game-area">
+                    <div id="match-left" class="space-y-3"></div>
+                    <div id="match-right" class="space-y-3"></div>
+                </div>
+                <div id="match-result" class="hidden text-center mt-6 p-6 rounded-xl"></div>
+                <div class="text-center mt-6">
+                    <button onclick="initMatch()" class="bg-purple-100 text-purple-700 hover:bg-purple-200 font-bold py-2.5 px-6 rounded-xl text-sm transition-colors">
+                        <i class="fa-solid fa-rotate-right mr-1"></i> Main Lagi
+                    </button>
+                </div>
+            </div>
+
+            <!-- ===== GAME 3: TEBAK KATA (WORD SEARCH) ===== -->
+            <div id="game-wordsearch" class="game-panel hidden p-4 md:p-6">
+                <div class="text-center mb-6">
+                    <h3 class="text-lg font-bold text-slate-800 font-heading mb-1">🔍 Tebak Kata</h3>
+                    <p class="text-xs text-slate-500">Temukan kata tersembunyi! Klik huruf pertama, lalu klik huruf terakhir.</p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row gap-6 items-start">
+                    <!-- Grid Container -->
+                    <div class="w-full md:w-2/3 flex justify-center">
+                        <div id="ws-grid" class="inline-grid gap-1 p-2 bg-slate-100 rounded-xl border-2 border-slate-200 select-none touch-none shadow-inner">
+                            <!-- JS will generate grid here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Words List -->
+                    <div class="w-full md:w-1/3">
+                        <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl p-5 border border-purple-100 h-full shadow-sm">
+                            <h4 class="font-bold text-purple-800 text-sm mb-4 flex items-center gap-2 border-b border-purple-200 pb-2">
+                                <i class="fa-solid fa-list-check"></i> Kata yang Dicari
+                            </h4>
+                            <div id="ws-words-list" class="flex flex-wrap gap-2 md:flex-col">
+                                <!-- JS will generate words here -->
+                            </div>
+                            <div id="ws-result" class="hidden mt-6 text-center animate-bounce">
+                                <p class="text-4xl mb-2">🎉</p>
+                                <p class="text-emerald-600 font-bold text-base">Luar Biasa! Semua Kata Ditemukan!</p>
+                            </div>
+                            <div class="text-center mt-8">
+                                <button onclick="initWordSearch()" class="w-full bg-white text-purple-700 hover:bg-purple-100 border border-purple-200 font-bold py-2.5 px-4 rounded-xl text-sm transition-colors shadow-sm">
+                                    <i class="fa-solid fa-rotate-right mr-1"></i> Acak Ulang Grid
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== GAME 4: TARIK TAMBANG ===== -->
+            <div id="game-tug" class="game-panel hidden p-4 md:p-6">
+                <div class="text-center mb-6">
+                    <h3 class="text-lg font-bold text-slate-800 font-heading mb-1">🚩 Duel Tarik Tambang Akidah</h3>
+                    <p class="text-xs text-slate-500">Ajak temanmu bertanding! Jawab soal dengan benar untuk menarik tali (Mode 2 Pemain).</p>
+                </div>
+                
+                <div class="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden relative min-h-[440px] flex flex-col shadow-inner">
+                    <!-- Arena Main Content (3 Columns) -->
+                    <div class="flex-grow flex flex-row w-full relative min-h-[400px] overflow-hidden">
+                        
+                        <!-- Left Panel (Tim Santri) -->
+                        <div id="tug-panel-left" class="w-[32%] md:w-[30%] border-r border-slate-200 flex flex-col h-full bg-purple-100/90 z-20 relative shadow-md transition-colors duration-300">
+                            <div class="p-2 text-center border-b border-purple-200 bg-purple-200/80">
+                                <span class="text-[10px] md:text-xs font-extrabold text-purple-800 uppercase bg-purple-50 px-2.5 py-1 rounded-full tracking-wider shadow-sm">Tim Santri (Biru)</span>
+                            </div>
+                            <div class="flex-grow flex flex-col p-2 min-h-0 overflow-y-auto">
+                                <div class="flex-grow flex items-center justify-center py-2 min-h-[60px]">
+                                    <p id="tug-q-left" class="text-xs md:text-sm font-semibold text-center text-slate-800 leading-relaxed px-1">Menyiapkan soal...</p>
+                                </div>
+                                <div id="tug-opts-left" class="grid grid-cols-1 gap-1.5 mt-auto pb-1"></div>
+                            </div>
+                        </div>
+
+                        <!-- Center Visual Arena -->
+                        <div class="flex-grow relative bg-sky-50 overflow-hidden z-10 border-x border-slate-200 flex flex-col items-center justify-center">
+                            <div class="absolute top-4 left-6 text-sky-200 text-4xl opacity-70"><i class="fa-solid fa-cloud"></i></div>
+                            <div class="absolute top-8 right-8 text-sky-200 text-3xl opacity-50"><i class="fa-solid fa-cloud"></i></div>
+                            
+                            <!-- Center Line -->
+                            <div class="absolute top-4 bottom-4 left-1/2 w-0.5 border-l-2 border-dashed border-slate-300 z-0 -translate-x-1/2"></div>
+
+                            <!-- Dynamic Tug Container -->
+                            <div id="tug-container" class="flex items-center justify-center h-full w-full absolute inset-0 transition-transform duration-500 ease-out">
+                                <!-- Left Character -->
+                                <div id="tug-char-left" class="character absolute left-[2%] md:left-[8%] bottom-[40%] transition-transform">
+                                    <svg width="80" height="80" viewBox="0 0 100 100" class="drop-shadow-md">
+                                        <path d="M35 75 L35 98 L45 98 L45 75 Z" fill="#1e3a8a" />
+                                        <path d="M55 75 L55 98 L65 98 L65 75 Z" fill="#1e3a8a" />
+                                        <rect x="30" y="45" width="40" height="35" rx="4" fill="#2563eb" />
+                                        <circle cx="50" cy="32" r="15" fill="#fcd34d" />
+                                        <path d="M34 18 L66 18 L66 30 L34 30 Z" fill="#f1f5f9" />
+                                        <ellipse cx="50" cy="18" rx="16" ry="3" fill="#e2e8f0" />
+                                        <circle cx="54" cy="34" r="2" fill="#1e293b" />
+                                        <circle cx="60" cy="34" r="2" fill="#1e293b" />
+                                        <path d="M30 50 Q20 55 25 60" stroke="#2563eb" stroke-width="8" stroke-linecap="round" fill="none" />
+                                        <circle cx="25" cy="60" r="5" fill="#fcd34d" />
+                                        <path d="M50 52 L90 58" stroke="#2563eb" stroke-width="8" stroke-linecap="round" />
+                                        <circle cx="90" cy="58" r="6" fill="#fcd34d" stroke="#d97706" stroke-width="1"/>
+                                    </svg>
+                                </div>
+
+                                <!-- Rope -->
+                                <div class="relative w-[75%] md:w-[65%] flex items-center justify-center top-2 md:top-2.5">
+                                    <div class="rope-line w-full h-2.5 bg-amber-800 rounded-full shadow"></div>
+                                    <div id="tug-knot" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 bg-amber-400 border-2 border-amber-800 rounded-full z-20 flex items-center justify-center shadow-md">
+                                        <i class="fa-solid fa-flag text-red-600 text-[10px]"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Right Character -->
+                                <div id="tug-char-right" class="character absolute right-[2%] md:right-[8%] bottom-[40%] scale-x-[-1] transition-transform">
+                                    <svg width="80" height="80" viewBox="0 0 100 100" class="drop-shadow-md">
+                                        <path d="M35 75 L35 98 L45 98 L45 75 Z" fill="#7f1d1d" />
+                                        <path d="M55 75 L55 98 L65 98 L65 75 Z" fill="#7f1d1d" />
+                                        <rect x="30" y="45" width="40" height="35" rx="4" fill="#dc2626" />
+                                        <circle cx="50" cy="32" r="15" fill="#fcd34d" />
+                                        <path d="M34 14 L66 16 L66 30 L34 30 Z" fill="#1f2937" />
+                                        <ellipse cx="50" cy="15" rx="16" ry="3" fill="#374151" />
+                                        <circle cx="54" cy="34" r="2" fill="#1e293b" />
+                                        <circle cx="60" cy="34" r="2" fill="#1e293b" />
+                                        <path d="M30 50 Q20 55 25 60" stroke="#dc2626" stroke-width="8" stroke-linecap="round" fill="none" />
+                                        <circle cx="25" cy="60" r="5" fill="#fcd34d" />
+                                        <path d="M50 52 L90 58" stroke="#dc2626" stroke-width="8" stroke-linecap="round" />
+                                        <circle cx="90" cy="58" r="6" fill="#fcd34d" stroke="#b45309" stroke-width="1"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Panel (Tim Merah) -->
+                        <div id="tug-panel-right" class="w-[32%] md:w-[30%] border-l border-slate-200 flex flex-col h-full bg-red-100/90 z-20 relative shadow-md transition-colors duration-300">
+                            <div class="p-2 text-center border-b border-red-200 bg-red-200/80">
+                                <span id="tug-right-title" class="text-[10px] md:text-xs font-extrabold text-red-700 uppercase bg-red-50 px-2.5 py-1 rounded-full tracking-wider shadow-sm">Tim Merah (Pemain 2)</span>
+                            </div>
+                            <div class="flex-grow flex flex-col p-2 min-h-0 overflow-y-auto">
+                                <div class="flex-grow flex items-center justify-center py-2 min-h-[60px]">
+                                    <p id="tug-q-right" class="text-xs md:text-sm font-semibold text-center text-slate-800 leading-relaxed px-1">Menyiapkan soal...</p>
+                                </div>
+                                <div id="tug-opts-right" class="grid grid-cols-1 gap-1.5 mt-auto pb-1"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Winner Overlay -->
+                    <div id="tug-winner-overlay" class="hidden absolute inset-0 z-50 bg-slate-900/90 flex flex-col items-center justify-center p-6 text-center animate-fadeIn">
+                        <div class="text-6xl mb-3 animate-bounce">🏆</div>
+                        <h3 class="text-xs font-bold text-amber-400 uppercase tracking-widest mb-1">Pemenang Pertandingan</h3>
+                        <h2 id="tug-winner-name" class="text-3xl md:text-4xl font-black text-white mb-6 font-heading drop-shadow-md">TIM SANTRI</h2>
+                        <button onclick="resetTugGame()" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 active:scale-95 flex items-center gap-2">
+                            <i class="fa-solid fa-rotate-right"></i> Main Lagi
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Styles -->
+    <style>
+        .scramble-letter {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 44px; height: 44px; font-size: 1.1rem; font-weight: 800;
+            border-radius: 12px; cursor: pointer; transition: all 0.15s ease;
+            text-transform: uppercase; user-select: none;
+        }
+        .scramble-letter.available {
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe); color: #6d28d9;
+            border: 2px solid #c4b5fd; box-shadow: 0 2px 8px rgba(139,92,246,0.15);
+        }
+        .scramble-letter.available:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(139,92,246,0.3); }
+        .scramble-letter.used { opacity: 0.3; transform: scale(0.9); cursor: default; pointer-events: none; }
+        .scramble-letter.placed {
+            background: linear-gradient(135deg, #a78bfa, #7c3aed); color: white;
+            border: 2px solid #7c3aed; box-shadow: 0 2px 8px rgba(124,58,237,0.3);
+        }
+        .scramble-letter.placed:hover { background: linear-gradient(135deg, #c4b5fd, #a78bfa); }
+        .scramble-correct { animation: correctPop 0.4s ease; }
+        @keyframes correctPop { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        
+        .match-card {
+            padding: 14px 18px; border-radius: 14px; cursor: pointer;
+            transition: all 0.2s ease; font-size: 0.875rem; font-weight: 600;
+            border: 2px solid #e2e8f0; background: white; text-align: center;
+        }
+        .match-card:hover { border-color: #a78bfa; background: #faf5ff; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(139,92,246,0.15); }
+        .match-card.selected { border-color: #7c3aed; background: #ede9fe; color: #5b21b6; box-shadow: 0 0 0 3px rgba(139,92,246,0.2); }
+        .match-card.matched { border-color: #10b981; background: #d1fae5; color: #065f46; cursor: default; pointer-events: none; }
+        .match-card.wrong { border-color: #ef4444; background: #fee2e2; animation: shake 0.4s ease; }
+        @keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+
+        .tf-correct-flash { background: linear-gradient(135deg, #d1fae5, #a7f3d0) !important; border-color: #10b981 !important; }
+        .tf-wrong-flash { background: linear-gradient(135deg, #fee2e2, #fecaca) !important; border-color: #ef4444 !important; }
+
+        .rope-line {
+            background: repeating-linear-gradient(45deg, #854d0e, #854d0e 8px, #713f12 8px, #713f12 16px);
+        }
+        .pulling-left { animation: tugPullLeft 0.4s ease infinite; }
+        .pulling-right { animation: tugPullRight 0.4s ease infinite; }
+        @keyframes tugPullLeft { 0%, 100% { transform: translateX(0) rotate(0deg); } 50% { transform: translateX(-8px) rotate(-6deg); } }
+        @keyframes tugPullRight { 0%, 100% { transform: scaleX(-1) translateX(0) rotate(0deg); } 50% { transform: scaleX(-1) translateX(-8px) rotate(-6deg); } }
+    </style>
+
+    <!-- Game Scripts -->
+    <script>
+    // ===== TAB SWITCHING =====
+    function switchGame(gameId) {
+        document.querySelectorAll('.game-panel').forEach(el => el.classList.add('hidden'));
+        document.getElementById('game-' + gameId).classList.remove('hidden');
+        
+        document.querySelectorAll('.game-tab-btn').forEach(btn => {
+            btn.classList.remove('bg-purple-600', 'text-white', 'shadow-lg', 'shadow-purple-200', 'active-game-tab');
+            btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+        });
+        const activeBtn = document.getElementById('tab-' + gameId);
+        activeBtn.classList.add('bg-purple-600', 'text-white', 'shadow-lg', 'shadow-purple-200', 'active-game-tab');
+        activeBtn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
+    }
+
+    // ===== GAME 1: SUSUN KATA =====
+    const scrambleWords = [
+        { word: "AKIDAH", hint: "Ikatan atau janji, dasar keyakinan Islam" },
+        { word: "TAUQIFI", hint: "Sifat Akidah: tak bisa ditetapkan kecuali dari dalil" },
+        { word: "MUSYRIK", hint: "Orang yang menyekutukan Allah SWT" },
+        { word: "MUHSIN", hint: "Orang yang menerapkan ihsan dalam beribadah" },
+        { word: "TAUHID", hint: "Ilmu yang membahas akidah dan keyakinan" },
+        { word: "FIKIH", hint: "Ilmu yang membahas hukum amal perbuatan lahir" },
+        { word: "TASAWUF", hint: "Ilmu akhlak batin (berhubungan dengan ihsan)" },
+        { word: "IMAN", hint: "Mengenal, kesadaran, dan haqqul yakin" },
+        { word: "ISLAM", hint: "Tunduk dan patuh sepenuhnya kepada Allah" },
+        { word: "IHSAN", hint: "Beribadah seakan-akan melihat Allah" }
+    ];
+
+    let currentScrambles = [];
+
+    function shuffleArray(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+        return a;
+    }
+
+    function scrambleWord(word) {
+        let letters = word.split('');
+        let scrambled;
+        do { scrambled = shuffleArray(letters); } while (scrambled.join('') === word);
+        return scrambled;
+    }
+
+    function initScramble() {
+        const area = document.getElementById('scramble-game-area');
+        const result = document.getElementById('scramble-result');
+        result.classList.add('hidden');
+        area.innerHTML = '';
+        
+        currentScrambles = shuffleArray(scrambleWords).slice(0, 5);
+        
+        currentScrambles.forEach((item, idx) => {
+            const scrambled = scrambleWord(item.word);
+            area.innerHTML += `
+                <div class="bg-slate-50 rounded-xl p-5 border border-slate-100" id="scramble-item-${idx}" data-answer="${item.word}" data-solved="false">
+                    <p class="text-xs text-purple-600 font-bold mb-1 uppercase tracking-wider"><i class="fa-solid fa-lightbulb mr-1"></i> Petunjuk:</p>
+                    <p class="text-sm text-slate-600 mb-4 italic">"${item.hint}"</p>
+                    <div class="flex flex-wrap justify-center gap-2 mb-4" id="scramble-answer-${idx}"></div>
+                    <div class="flex flex-wrap justify-center gap-2" id="scramble-letters-${idx}">
+                        ${scrambled.map((l, li) => `<span class="scramble-letter available" onclick="pickLetter(${idx}, this, '${l}')" id="sl-${idx}-${li}">${l}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    function pickLetter(idx, el, letter) {
+        if (el.classList.contains('used')) return;
+        el.classList.add('used');
+        el.classList.remove('available');
+        
+        const answerArea = document.getElementById('scramble-answer-' + idx);
+        const placed = document.createElement('span');
+        placed.className = 'scramble-letter placed';
+        placed.textContent = letter;
+        placed.setAttribute('data-source-id', el.id);
+        placed.onclick = function() { removeLetter(idx, this); };
+        answerArea.appendChild(placed);
+        
+        checkScrambleAnswer(idx);
+    }
+
+    function removeLetter(idx, placedEl) {
+        const sourceId = placedEl.getAttribute('data-source-id');
+        const source = document.getElementById(sourceId);
+        source.classList.remove('used');
+        source.classList.add('available');
+        placedEl.remove();
+    }
+
+    function checkScrambleAnswer(idx) {
+        const item = document.getElementById('scramble-item-' + idx);
+        const answer = item.getAttribute('data-answer');
+        const answerArea = document.getElementById('scramble-answer-' + idx);
+        const placed = answerArea.querySelectorAll('.placed');
+        
+        if (placed.length !== answer.length) return;
+        
+        let userAnswer = '';
+        placed.forEach(p => userAnswer += p.textContent);
+        
+        if (userAnswer === answer) {
+            item.setAttribute('data-solved', 'true');
+            item.classList.add('scramble-correct');
+            item.style.borderColor = '#10b981';
+            item.style.background = '#ecfdf5';
+            placed.forEach(p => { p.style.background = 'linear-gradient(135deg, #10b981, #059669)'; p.style.borderColor = '#059669'; p.onclick = null; p.style.cursor = 'default'; });
+            document.querySelectorAll(`#scramble-letters-${idx} .scramble-letter`).forEach(el => { el.style.pointerEvents = 'none'; });
+            
+            // Check if all solved
+            const allItems = document.querySelectorAll('[id^="scramble-item-"]');
+            const allSolved = [...allItems].every(el => el.getAttribute('data-solved') === 'true');
+            if (allSolved) {
+                const result = document.getElementById('scramble-result');
+                result.classList.remove('hidden');
+                result.className = 'text-center mt-6 p-6 rounded-xl bg-emerald-50 border border-emerald-200';
+                result.innerHTML = '<p class="text-3xl mb-2">🎉</p><p class="text-lg font-bold text-emerald-800">Hebat! Semua kata berhasil disusun!</p><p class="text-sm text-emerald-600 mt-1">Kamu sudah menguasai istilah-istilah penting dalam Akidah Islam.</p>';
+            }
+        }
+    }
+
+    // ===== GAME 2: COCOKKAN PASANGAN =====
+    const matchPairs = [
+        { term: "Tauqifi", def: "Hanya dapat ditetapkan berdasarkan dalil syar'i" },
+        { term: "Akidah", def: "Janji atau pokok dasar keyakinan yang lurus" },
+        { term: "Iman", def: "Amal batin (Ilmu Tauhid)" },
+        { term: "Islam", def: "Amal lahir/tindakan nyata (Ilmu Fikih)" },
+        { term: "Ihsan", def: "Kualitas/wujud dari ibadah (Ilmu Tasawuf)" },
+        { term: "Muhsin", def: "Seseorang yang beribadah seolah melihat Allah" },
+        { term: "Syirik", def: "Menyekutukan Allah, tujuan akidah adalah menghindarinya" },
+        { term: "Haqqul Yakin", def: "Tingkatan iman tertinggi dengan ketaatan" },
+        { term: "Al-Qur'an", def: "Dasar utama yang diwahyukan lewat Jibril" },
+        { term: "Hadis", def: "Sumber kedua yang memperjelas ayat Al-Qur'an" }
+    ];
+
+    let matchState = { selected: null, score: 0, total: 0, matchedPairs: [] };
+
+    function initMatch() {
+        matchState = { selected: null, score: 0, total: 5, matchedPairs: [] };
+        document.getElementById('match-score').textContent = '0';
+        document.getElementById('match-result').classList.add('hidden');
+        
+        const pairs = shuffleArray(matchPairs).slice(0, 5);
+        matchState.total = pairs.length;
+        document.getElementById('match-total').textContent = pairs.length;
+        
+        const leftItems = shuffleArray(pairs.map((p, i) => ({ id: i, text: p.term, type: 'term' })));
+        const rightItems = shuffleArray(pairs.map((p, i) => ({ id: i, text: p.def, type: 'def' })));
+        
+        const leftEl = document.getElementById('match-left');
+        const rightEl = document.getElementById('match-right');
+        
+        leftEl.innerHTML = '<p class="text-xs font-bold text-purple-600 uppercase tracking-wider mb-1 text-center"><i class="fa-solid fa-tag mr-1"></i> Istilah</p>';
+        rightEl.innerHTML = '<p class="text-xs font-bold text-teal-600 uppercase tracking-wider mb-1 text-center"><i class="fa-solid fa-align-left mr-1"></i> Pengertian</p>';
+        
+        leftItems.forEach(item => {
+            leftEl.innerHTML += `<div class="match-card" data-id="${item.id}" data-type="term" onclick="selectMatch(this)">${item.text}</div>`;
+        });
+        rightItems.forEach(item => {
+            rightEl.innerHTML += `<div class="match-card" data-id="${item.id}" data-type="def" onclick="selectMatch(this)">${item.text}</div>`;
+        });
+    }
+
+    function selectMatch(el) {
+        if (el.classList.contains('matched')) return;
+        
+        const type = el.getAttribute('data-type');
+        const id = parseInt(el.getAttribute('data-id'));
+        
+        if (matchState.selected && matchState.selected.type === type) {
+            matchState.selected.el.classList.remove('selected');
+            matchState.selected = { el, type, id };
+            el.classList.add('selected');
+            return;
+        }
+        
+        if (!matchState.selected) {
+            matchState.selected = { el, type, id };
+            el.classList.add('selected');
+            return;
+        }
+        
+        // Check match
+        const first = matchState.selected;
+        if (first.id === id) {
+            // Correct!
+            first.el.classList.remove('selected');
+            first.el.classList.add('matched');
+            el.classList.add('matched');
+            matchState.score++;
+            document.getElementById('match-score').textContent = matchState.score;
+            matchState.matchedPairs.push(id);
+            
+            if (matchState.score === matchState.total) {
+                const result = document.getElementById('match-result');
+                result.classList.remove('hidden');
+                result.className = 'text-center mt-6 p-6 rounded-xl bg-emerald-50 border border-emerald-200';
+                result.innerHTML = '<p class="text-3xl mb-2">🏆</p><p class="text-lg font-bold text-emerald-800">Sempurna! Semua pasangan berhasil dicocokkan!</p>';
+            }
+        } else {
+            // Wrong
+            first.el.classList.remove('selected');
+            el.classList.add('wrong');
+            first.el.classList.add('wrong');
+            setTimeout(() => {
+                el.classList.remove('wrong');
+                first.el.classList.remove('wrong');
+            }, 500);
+        }
+        matchState.selected = null;
+    }
+
+    // ===== GAME 3: TEBAK KATA (WORD SEARCH) =====
+    const allWsWords = [
+        { word: "AKIDAH", clue: "Artinya ikatan atau janji secara bahasa" },
+        { word: "ISLAM", clue: "Mengutamakan amal lahir dan tindakan nyata" },
+        { word: "IHSAN", clue: "Beribadah seolah-olah melihat Allah Swt." },
+        { word: "IMAN", clue: "Keyakinan batin yang dibenarkan dengan hati" },
+        { word: "TAUQIFI", clue: "Sifat mutlak akidah yang wajib berdasar dalil" },
+        { word: "SYIRIK", clue: "Dosa menyekutukan Allah Swt." },
+        { word: "MUHSIN", clue: "Sebutan bagi orang yang menerapkan Ihsan" },
+        { word: "TAUHID", clue: "Ilmu yang secara khusus membahas ketuhanan" },
+        { word: "FIKIH", clue: "Ilmu yang membahas hukum syariat praktis" },
+        { word: "TASAWUF", clue: "Ilmu yang memfokuskan pada akhlak batin" }
+    ];
+    let currentWsWords = [];
+    const wsSize = 10;
+    let wsGrid = [];
+    let wsFound = [];
+    let wsFirstCell = null;
+    const wsColors = ['bg-red-500', 'bg-blue-500', 'bg-emerald-500', 'bg-amber-500', 'bg-purple-500', 'bg-pink-500', 'bg-indigo-500', 'bg-teal-500', 'bg-orange-500', 'bg-cyan-500'];
+
+    function initWordSearch() {
+        wsGrid = Array(wsSize).fill(null).map(() => Array(wsSize).fill(''));
+        wsFound = [];
+        wsFirstCell = null;
+        document.getElementById('ws-result').classList.add('hidden');
+        
+        // Pick 3 random words
+        currentWsWords = shuffleArray(allWsWords).slice(0, 3);
+        
+        // Place words
+        currentWsWords.forEach(wObj => {
+            let word = wObj.word;
+            let placed = false;
+            let attempts = 0;
+            while (!placed && attempts < 200) {
+                attempts++;
+                const dir = Math.floor(Math.random() * 4); // Only 4 readable directions
+                const dx = [1, 0, 1, 1][dir]; // Right, Down, Up-Right, Down-Right
+                const dy = [0, 1, -1, 1][dir];
+                const x = Math.floor(Math.random() * wsSize);
+                const y = Math.floor(Math.random() * wsSize);
+                const endX = x + dx * (word.length - 1);
+                const endY = y + dy * (word.length - 1);
+                
+                if (endX >= 0 && endX < wsSize && endY >= 0 && endY < wsSize) {
+                    let canPlace = true;
+                    for (let i = 0; i < word.length; i++) {
+                        if (wsGrid[y + dy * i][x + dx * i] !== '' && wsGrid[y + dy * i][x + dx * i] !== word[i]) {
+                            canPlace = false; break;
+                        }
+                    }
+                    if (canPlace) {
+                        for (let i = 0; i < word.length; i++) {
+                            wsGrid[y + dy * i][x + dx * i] = word[i];
+                        }
+                        placed = true;
+                    }
+                }
+            }
+        });
+        
+        // Fill empty
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        for(let i=0; i<wsSize; i++) {
+            for(let j=0; j<wsSize; j++) {
+                if(wsGrid[i][j] === '') wsGrid[i][j] = letters.charAt(Math.floor(Math.random() * letters.length));
+            }
+        }
+        
+        renderWordSearch();
+    }
+
+    function renderWordSearch() {
+        const gridEl = document.getElementById('ws-grid');
+        gridEl.style.gridTemplateColumns = `repeat(${wsSize}, minmax(0, 1fr))`;
+        gridEl.innerHTML = '';
+        
+        for(let r=0; r<wsSize; r++) {
+            for(let c=0; c<wsSize; c++) {
+                gridEl.innerHTML += `<div id="ws-cell-${r}-${c}" class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-white text-slate-700 font-bold text-sm md:text-lg rounded cursor-pointer transition-colors shadow-sm hover:bg-purple-50" onclick="handleWsClick(${r}, ${c})">${wsGrid[r][c]}</div>`;
+            }
+        }
+        
+        const listEl = document.getElementById('ws-words-list');
+        listEl.innerHTML = '';
+        currentWsWords.forEach((wObj, idx) => {
+            listEl.innerHTML += `
+                <div id="ws-word-${wObj.word}" class="p-3 mb-2 rounded-xl text-sm font-semibold border bg-white text-slate-700 border-slate-200 transition-colors shadow-sm">
+                    <div class="flex items-start gap-2">
+                        <i class="fa-solid fa-circle-question text-purple-400 mt-0.5"></i>
+                        <span>${wObj.clue}</span>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    function handleWsClick(r, c) {
+        if (wsFound.length === currentWsWords.length) return;
+        const cell = document.getElementById(`ws-cell-${r}-${c}`);
+        
+        if (!wsFirstCell) {
+            wsFirstCell = {r, c};
+            cell.classList.add('ring-4', 'ring-purple-400', 'bg-purple-100');
+        } else {
+            const r1 = wsFirstCell.r, c1 = wsFirstCell.c;
+            const r2 = r, c2 = c;
+            document.getElementById(`ws-cell-${r1}-${c1}`).classList.remove('ring-4', 'ring-purple-400', 'bg-purple-100');
+            wsFirstCell = null;
+            
+            const dr = r2 - r1;
+            const dc = c2 - c1;
+            if (dr === 0 && dc === 0) return; // same cell
+            
+            // Check if straight line
+            if (dr !== 0 && dc !== 0 && Math.abs(dr) !== Math.abs(dc)) return; 
+            
+            const stepR = dr === 0 ? 0 : dr / Math.abs(dr);
+            const stepC = dc === 0 ? 0 : dc / Math.abs(dc);
+            const steps = Math.max(Math.abs(dr), Math.abs(dc));
+            
+            let selectedWord = "";
+            let cells = [];
+            for (let i = 0; i <= steps; i++) {
+                const cr = r1 + stepR * i;
+                const cc = c1 + stepC * i;
+                selectedWord += wsGrid[cr][cc];
+                cells.push({r: cr, c: cc});
+            }
+            
+            // Reverse word check as well
+            let reverseWord = selectedWord.split('').reverse().join('');
+            let wordMatchObj = currentWsWords.find(w => w.word === selectedWord || w.word === reverseWord);
+            
+            if (wordMatchObj && !wsFound.includes(wordMatchObj.word)) {
+                let wordMatch = wordMatchObj.word;
+                wsFound.push(wordMatch);
+                
+                // Use index in currentWsWords for color
+                const color = wsColors[currentWsWords.indexOf(wordMatchObj) % wsColors.length];
+                cells.forEach(pos => {
+                    const el = document.getElementById(`ws-cell-${pos.r}-${pos.c}`);
+                    el.className = `w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-white font-bold text-sm md:text-lg rounded cursor-pointer transition-colors shadow-sm ${color}`;
+                });
+                
+                const wordEl = document.getElementById(`ws-word-${wordMatch}`);
+                wordEl.className = `p-3 mb-2 rounded-xl text-sm font-semibold border ${color} text-white border-transparent transition-colors shadow-sm flex items-center gap-2`;
+                wordEl.innerHTML = `<i class="fa-solid fa-check-circle"></i> <span><del>${wordMatchObj.clue}</del> <strong class="ml-1 opacity-90">(${wordMatch})</strong></span>`;
+                
+                if (wsFound.length === currentWsWords.length) {
+                    document.getElementById('ws-result').classList.remove('hidden');
+                }
+            }
+        }
+    }
+
+    // ===== GAME 4: TARIK TAMBANG =====
+    const tugQuestions = [
+        { q: "Dasar hukum akidah Islam bersifat tauqifi, yang berarti...", opts: ["Tidak bisa ditetapkan kecuali dengan dalil syar'i", "Bisa diubah sesuai perkembangan zaman", "Ditetapkan oleh akal pikiran filsuf", "Berdasarkan budaya masyarakat"], a: 0 },
+        { q: "Ilmu yang secara khusus membahas rukun Islam (amal lahir) adalah...", opts: ["Ilmu Fikih", "Ilmu Tauhid", "Ilmu Tasawuf", "Ilmu Hadis"], a: 0 },
+        { q: "Dalam tingkatan iman, mengimani sesuatu yang diikuti dengan ketaatan penuh disebut...", opts: ["Tingkat Haqqul Yakin", "Tingkat Kesadaran", "Tingkat Mengenal", "Tingkat Ma'rifat"], a: 0 },
+        { q: "Ihsan merupakan perwujudan dari pelaksanaan ibadah. Ilmu yang membahas akhlak batin ini adalah...", opts: ["Ilmu Tasawuf", "Ilmu Fikih", "Ilmu Kalam", "Ilmu Tauhid"], a: 0 },
+        { q: "Ayat Al-Qur'an (QS. Al-A'raf: 172) menjelaskan bahwa manusia telah memberi kesaksian tentang Tuhan sejak...", opts: ["Di dalam alam ruh (tulang punggung/sulbi)", "Lahir ke dunia", "Masuk usia baligh", "Selesai membaca Al-Qur'an"], a: 0 },
+        { q: "Kemusyrikan terbagi menjadi dua, salah satunya adalah syirik khafy, yang artinya...", opts: ["Syirik yang tersembunyi di dalam hati", "Syirik terang-terangan (menyembah patung)", "Syirik menyekutukan Nabi", "Syirik kecil tanpa disadari"], a: 0 },
+        { q: "Salah satu tujuan mempelajari akidah Islam adalah untuk membimbing manusia dari...", opts: ["Pengaruh akal pikiran yang menyesatkan", "Kekurangan harta benda duniawi", "Kemunduran ilmu pengetahuan sains", "Keinginan untuk terus belajar"], a: 0 },
+        { q: "Jika Iman, Islam, dan Ihsan diibaratkan sebuah bangunan, maka Iman berperan sebagai...", opts: ["Pondasi (akar)", "Dinding (batang)", "Atap (daun)", "Dekorasi (buah)"], a: 0 },
+        { q: "Ihsan terbagi menjadi empat macam, salah satunya adalah...", opts: ["Ihsan terhadap makhluk lain (alam/lingkungan)", "Ihsan terhadap patung", "Ihsan terhadap setan", "Ihsan terhadap benda mati"], a: 0 },
+        { q: "Pondasi awal dari akidah Islam adalah keyakinan terhadap Allah SWT sebagai Tuhan yang...", opts: ["Wajib dikenal melalui sifat-sifat-Nya", "Tampak wujudnya oleh mata manusia", "Ada karena keyakinan para leluhur", "Terbatas pada penciptaan bumi saja"], a: 0 }
+    ];
+
+    let tugState = {
+        pos: 50,
+        active: true
+    };
+
+    function initTugGame() {
+        tugState.pos = 50;
+        tugState.active = true;
+        updateTugVisuals();
+        document.getElementById('tug-winner-overlay').classList.add('hidden');
+        generateTugQuestion('left');
+        generateTugQuestion('right');
+    }
+
+    function resetTugGame() {
+        initTugGame();
+    }
+
+    function updateTugVisuals() {
+        if (tugState.pos < 0) tugState.pos = 0;
+        if (tugState.pos > 100) tugState.pos = 100;
+        
+        const container = document.getElementById('tug-container');
+        const offset = (tugState.pos - 50) * 1.2;
+        container.style.transform = `translateX(${offset}%)`;
+    }
+
+    function pullTugRope(side) {
+        if (!tugState.active) return;
+        
+        const char = document.getElementById(side === 'left' ? 'tug-char-left' : 'tug-char-right');
+        const anim = side === 'left' ? 'pulling-left' : 'pulling-right';
+        
+        char.classList.add(anim);
+        setTimeout(() => char.classList.remove(anim), 400);
+
+        if (side === 'left') tugState.pos -= 6;
+        else tugState.pos += 6;
+
+        updateTugVisuals();
+        checkTugWin();
+    }
+
+    function checkTugWin() {
+        if (tugState.pos <= 25) {
+            endTugGame('TIM SANTRI (BIRU)', 'blue');
+        } else if (tugState.pos >= 75) {
+            endTugGame('TIM MERAH (MERAH)', 'red');
+        }
+    }
+
+    function endTugGame(winnerName, color) {
+        tugState.active = false;
+        
+        const overlay = document.getElementById('tug-winner-overlay');
+        const nameEl = document.getElementById('tug-winner-name');
+        nameEl.textContent = winnerName;
+        nameEl.className = `text-3xl md:text-4xl font-black font-heading mb-6 drop-shadow-md ${color === 'blue' ? 'text-purple-400' : 'text-red-400'}`;
+        overlay.classList.remove('hidden');
+    }
+
+    function generateTugQuestion(side) {
+        if (!tugState.active) return;
+        const qData = tugQuestions[Math.floor(Math.random() * tugQuestions.length)];
+        
+        const qEl = document.getElementById(`tug-q-${side}`);
+        const optsEl = document.getElementById(`tug-opts-${side}`);
+        
+        qEl.textContent = qData.q;
+        optsEl.innerHTML = '';
+        
+        let opts = [...qData.opts];
+        const correctText = opts[qData.a];
+        opts.sort(() => Math.random() - 0.5);
+
+        opts.forEach(opt => {
+            const btn = document.createElement('button');
+            const colorBg = side === 'left' ? 'bg-purple-50 border-purple-200 text-purple-900 hover:bg-purple-600 hover:text-white' : 'bg-red-50 border-red-200 text-red-900 hover:bg-red-600 hover:text-white';
+            btn.className = `w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all ${colorBg} shadow-sm`;
+            btn.textContent = opt;
+            btn.onclick = () => {
+                const allBtns = optsEl.querySelectorAll('button');
+                allBtns.forEach(b => b.disabled = true);
+                if (opt === correctText) {
+                    btn.className = "w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-bold bg-emerald-500 text-white border-emerald-600 shadow-md";
+                    pullTugRope(side);
+                    setTimeout(() => generateTugQuestion(side), 500);
+                } else {
+                    btn.className = "w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-bold bg-red-500 text-white border-red-600 animate-pulse";
+                    setTimeout(() => generateTugQuestion(side), 700);
+                }
+            };
+            optsEl.appendChild(btn);
+        });
+    }
+
+    // ===== INIT ALL GAMES ON LOAD =====
+    document.addEventListener('DOMContentLoaded', () => {
+        initScramble();
+        initMatch();
+        initWordSearch();
+        initTugGame();
+    });
+    </script>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="w-full bg-teal-950 text-teal-200 py-10 border-t border-teal-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <a href="../../" target="_top" class="inline-flex items-center justify-center gap-3 mb-4 text-white hover:opacity-80 transition-opacity">
+                <i class="fa-solid fa-book-open text-xl text-teal-500"></i>
+                <span class="font-heading font-bold text-xl tracking-wide">Belajar<span class="text-teal-500">Online</span></span>
+            </a>
+            <p class="text-sm text-teal-400/80 max-w-md mx-auto mb-8">
+                Belajar Online adalah Sistem Pembelajaran Berbasis Digital untuk Memudahkan Guru dan Murid dalam Mencapai Tujuan Pembelajaran.
+            </p>
+            <div class="pt-6 border-t border-teal-900/50 text-xs text-teal-500">
+                <p>&copy; 2026 Ahmad Zulfikar, S.Pd.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+
+    
+    <!-- Diagnostic Assessment Script -->
+    <script>
+        const allQuestions = [
+            {"q": "Tobat secara bahasa memiliki arti...", "opts": ["Kembali", "Bersih", "Menahan", "Jujur"], "a": 0},
+            {"q": "Tindakan yang harus segera dilakukan saat menyadari kesalahan adalah...", "opts": ["Segera bertobat dan berjanji tidak mengulangi", "Menunda tobat hingga tua", "Menyalahkan orang lain", "Membiarkan saja karena merasa aman"], "a": 0},
+            {"q": "Sifat nabi dan rasul yang bebas dari dosa disebut...", "opts": ["Maksum", "Mustahil", "Jaiz", "Mubah"], "a": 0},
+            {"q": "Surah yang berisi perintah tobat dengan 'taubatan nasuha' adalah...", "opts": ["QS at-Tahrim: 8", "QS an-Nisa: 59", "QS Hud: 112", "QS al-Bayyinah: 5"], "a": 0},
+            {"q": "Secara bahasa, taat berarti...", "opts": ["Tunduk dan patuh", "Lurus", "Membersihkan", "Kembali"], "a": 0},
+            {"q": "Perintah untuk taat kepada Allah, Rasul, dan Ulil Amri terdapat dalam surah...", "opts": ["QS an-Nisa: 59", "QS al-Maidah: 3", "QS at-Tahrim: 8", "QS Fussilat: 30"], "a": 0},
+            {"q": "Ketaatan kepada pemimpin (Ulil Amri) berlaku selama...", "opts": ["Tidak bertentangan dengan perintah Allah dan Rasul-Nya", "Menguntungkan diri sendiri", "Tidak merugikan orang lain", "Diberi imbalan"], "a": 0},
+            {"q": "Istikamah secara bahasa berarti...", "opts": ["Lurus", "Kembali", "Tunduk", "Membersihkan"], "a": 0},
+            {"q": "Salah satu nabi yang sangat istikamah berdakwah selama 950 tahun meskipun hanya mendapat 80 pengikut adalah...", "opts": ["Nabi Nuh a.s.", "Nabi Ibrahim a.s.", "Nabi Musa a.s.", "Nabi Isa a.s."], "a": 0},
+            {"q": "Surah yang memerintahkan untuk tetap istikamah di jalan yang benar adalah...", "opts": ["QS Hud: 112", "QS al-Baqarah: 183", "QS at-Tahrim: 8", "QS al-Ikhlas: 1"], "a": 0},
+            {"q": "Kata ikhlas secara bahasa berarti...", "opts": ["Membersihkan dan memurnikan", "Kembali", "Lurus", "Patuh"], "a": 0},
+            {"q": "Nabi yang menjadi contoh keikhlasan ketika diperintah untuk mengorbankan putranya adalah...", "opts": ["Nabi Ibrahim a.s.", "Nabi Nuh a.s.", "Nabi Yunus a.s.", "Nabi Ayyub a.s."], "a": 0},
+            {"q": "Dalam analogi bangunan rumah, Tobat diibaratkan sebagai...", "opts": ["Pondasi awal kehidupan", "Dinding pelindung", "Tiang penopang", "Atap yang menaungi"], "a": 0},
+            {"q": "Ketaatan dalam analogi rumah berfungsi sebagai...", "opts": ["Dinding pelindung dari godaan", "Pondasi dasar", "Atap penutup", "Jendela rumah"], "a": 0},
+            {"q": "Sikap Ikhlas dalam beramal diibaratkan sebagai... dalam sebuah rumah.", "opts": ["Atap yang menaungi seluruh amal", "Tiang yang kokoh", "Pondasi awal", "Dinding pelindung"], "a": 0}
+        ];
+        let currentQuestions = [];
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedScore = localStorage.getItem('diag_score_akhlak_terpuji');
+            if(savedScore !== null) {
+                showDiagResult(parseInt(savedScore));
+            } else {
+                renderRandomQuestions();
+            }
+        });
+
+        function renderRandomQuestions() {
+            // Shuffle and pick 5
+            let shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
+            currentQuestions = shuffled.slice(0, 5);
+            
+            const container = document.getElementById('diag-dynamic-container');
+            container.innerHTML = '';
+            
+            const letters = ['A', 'B', 'C', 'D'];
+            
+            currentQuestions.forEach((qObj, index) => {
+                let optionsHtml = '';
+                qObj.opts.forEach((optText, oIdx) => {
+                    optionsHtml += `
+                        <label class="flex items-center p-3 border border-slate-200 rounded-lg cursor-pointer hover:bg-teal-50 transition-colors">
+                            <input type="radio" name="q${index}" value="${oIdx}" class="mr-3 text-teal-600 focus:ring-teal-500">
+                            <span class="text-slate-700">${letters[oIdx]}. ${optText}</span>
+                        </label>
+                    `;
+                });
+                
+                container.innerHTML += `
+                    <div class="diag-q mb-6" data-q="${index}">
+                        <p class="font-bold text-slate-800 mb-3">${index + 1}. ${qObj.q}</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            ${optionsHtml}
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function submitDiagnostic() {
+            const form = document.getElementById('diag-form');
+            let answeredCount = 0;
+            let score = 0;
+            const submitBtn = document.getElementById('diag-submit-btn');
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Memproses...';
+            
+            for(let i=0; i<5; i++) {
+                const selected = form.querySelector(`input[name="q${i}"]:checked`);
+                if(selected) {
+                    answeredCount++;
+                    if(parseInt(selected.value) === currentQuestions[i].a) score += 20;
+                }
+            }
+            
+            if(answeredCount < 5) {
+                document.getElementById('diag-warning').classList.remove('hidden');
+                submitBtn.innerHTML = 'Cek Hasil <i class="fa-solid fa-arrow-right ml-2"></i>';
+                return;
+            }
+            
+            document.getElementById('diag-warning').classList.add('hidden');
+            
+            setTimeout(() => {
+                showDiagResult(score);
+                localStorage.setItem('diag_score_akhlak_terpuji', score.toString());
+            }, 800);
+        }
+        
+        function showDiagResult(score) {
+            document.getElementById('diag-form').classList.add('hidden');
+            const resultCard = document.getElementById('diag-result-card');
+            resultCard.classList.remove('hidden');
+            
+            const badge = document.getElementById('diag-score-badge');
+            badge.classList.remove('hidden');
+            document.getElementById('diag-score').textContent = score;
+            
+            const icon = document.getElementById('diag-result-icon');
+            const title = document.getElementById('diag-result-title');
+            const desc = document.getElementById('diag-result-desc');
+            
+            if(score === 100) {
+                icon.innerHTML = '<i class="fa-solid fa-face-smile-beam text-emerald-500"></i>';
+                title.textContent = 'Luar Biasa!';
+                desc.textContent = 'Pemahaman awalmu tentang materi ini sudah sangat sempurna. Mari kita perdalam lagi di materi utama!';
+            } else if(score >= 60) {
+                icon.innerHTML = '<i class="fa-solid fa-face-smile text-amber-500"></i>';
+                title.textContent = 'Cukup Baik!';
+                desc.textContent = 'Kamu sudah punya gambaran tentang materi ini. Yuk, baca materinya untuk menyempurnakan pemahamanmu!';
+            } else {
+                icon.innerHTML = '<i class="fa-solid fa-face-thinking text-blue-500"></i>';
+                title.textContent = 'Mari Belajar Bersama!';
+                desc.textContent = 'Tidak apa-apa, materi di bawah ini dirancang khusus untuk membantumu memahami semua dasar-dasar kebersihan dengan mudah.';
+            }
+        }
+        
+        function resetDiagnostic() {
+            localStorage.removeItem('diag_score_akhlak_terpuji');
+            document.getElementById('diag-form').reset();
+            renderRandomQuestions(); // Load new random 5 questions
+            document.getElementById('diag-form').classList.remove('hidden');
+            document.getElementById('diag-result-card').classList.add('hidden');
+            document.getElementById('diag-score-badge').classList.add('hidden');
+        }
+    </script>
+
+
+</body>
+</html>
