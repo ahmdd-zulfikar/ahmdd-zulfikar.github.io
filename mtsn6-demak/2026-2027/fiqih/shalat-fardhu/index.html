@@ -236,8 +236,8 @@
                 <a href="#materi" class="bg-amber-500 hover:bg-amber-400 text-teal-950 px-7 py-3 rounded-xl font-bold transition inline-flex items-center gap-2 shadow-lg transform hover:-translate-y-0.5 text-sm md:text-base">
                     <i class="fa-solid fa-book-open"></i> Pelajari Materi
                 </a>
-                <a href="#diagnostik" class="bg-teal-800/80 hover:bg-teal-700 border border-teal-600 text-white px-7 py-3 rounded-xl font-semibold transition inline-flex items-center gap-2 shadow-sm text-sm md:text-base">
-                    <i class="fa-solid fa-clipboard-check text-amber-400"></i> Cek Kemampuan Awal
+                <a href="#game-section" class="bg-teal-800/80 hover:bg-teal-700 border border-teal-600 text-white px-7 py-3 rounded-xl font-semibold transition inline-flex items-center gap-2 shadow-sm text-sm md:text-base">
+                    <i class="fa-solid fa-gamepad text-amber-400"></i> Mini Game Fiqih
                 </a>
             </div>
         </div>
@@ -245,56 +245,9 @@
 
     <!-- Main Body Content Container -->
     <main class="flex-grow">
-        
-        <!-- ================= ASESMEN DIAGNOSTIK (SOAL MUDAH & PENGETAHUAN UMUM) ================= -->
-        <section id="diagnostik" class="py-12 container mx-auto px-4 -mt-16 relative z-20 max-w-5xl">
-            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
-                <div class="p-6 md:p-8 bg-gradient-to-r from-teal-50 via-white to-teal-50/30 border-b border-slate-200/80">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                        <div>
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-100 text-teal-800 mb-2">
-                                <i class="fa-solid fa-bolt text-amber-500"></i> Tes Diagnostik Awal
-                            </span>
-                            <h3 class="text-xl md:text-2xl font-bold text-slate-800 font-heading">Kuis Santai Pengantar Shalat</h3>
-                            <p class="text-sm text-slate-500 mt-1">Jawab 5 pertanyaan ringan seputar kebiasaan ibadah shalat sehari-hari.</p>
-                        </div>
-                        <div id="diag-score-badge" class="hidden shrink-0 text-center bg-white p-4 rounded-xl shadow-sm border border-slate-200">
-                            <span class="text-xs text-slate-400 block font-semibold">Skor Kuis</span>
-                            <span id="diag-score" class="text-3xl font-extrabold text-teal-600">0</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-6 md:p-8">
-                    <form id="diag-form" class="space-y-6">
-                        <div id="diag-questions-container" class="space-y-6"></div>
-                        <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-100">
-                            <span id="diag-warning" class="text-red-500 text-sm font-semibold hidden"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Harap jawab semua 5 pertanyaan terlebih dahulu!</span>
-                            <button type="button" onclick="submitDiagnostic()" id="diag-submit-btn" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-teal-950 font-bold py-3 px-8 rounded-xl transition shadow-sm">
-                                Cek Hasil <i class="fa-solid fa-arrow-right ml-2"></i>
-                            </button>
-                        </div>
-                    </form>
-                    
-                    <div id="diag-result-card" class="hidden bg-slate-50 border border-slate-200 rounded-xl p-6 text-center">
-                        <div id="diag-result-icon" class="text-5xl mb-4"></div>
-                        <h3 id="diag-result-title" class="text-xl font-bold text-slate-800 mb-2"></h3>
-                        <p id="diag-result-desc" class="text-slate-600 mb-6 text-sm max-w-md mx-auto"></p>
-                        <div class="flex flex-wrap items-center justify-center gap-3">
-                            <button type="button" onclick="resetDiagnostic()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 px-6 rounded-lg transition text-sm">
-                                <i class="fa-solid fa-rotate-right mr-1.5"></i> Coba Soal Lain
-                            </button>
-                            <a href="#materi" class="bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold py-2.5 px-6 rounded-lg transition text-sm">
-                                Lanjut ke Materi <i class="fa-solid fa-arrow-down ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- ================= MATERI SECTION ================= -->
-        <section id="materi" class="py-10 container mx-auto px-4 relative z-20 max-w-5xl">
+        <section id="materi" class="py-14 container mx-auto px-4 relative z-20 max-w-5xl">
             <div class="text-center mb-10">
                 <span class="text-teal-600 font-bold tracking-wider text-xs uppercase mb-2 block">Peta Konsep</span>
                 <h2 class="text-3xl font-bold text-slate-800 font-heading">6 Modul Inti Shalat Fardhu</h2>
@@ -1485,100 +1438,6 @@
             `;
         }
 
-        // ================= TES DIAGNOSTIK (SOAL MUDAH & PENGETAHUAN UMUM) =================
-        const diagnosticBank = [
-            { q: "Berapa jumlah waktu shalat fardhu yang wajib dikerjakan oleh umat Islam dalam sehari semalam?", opts: ["5 Waktu", "3 Waktu", "4 Waktu", "7 Waktu"], a: 0 },
-            { q: "Shalat fardhu apa yang dikerjakan pada waktu pagi hari sebelum matahari terbit?", opts: ["Shalat Subuh", "Shalat Dzuhur", "Shalat Ashar", "Shalat Isya'"], a: 0 },
-            { q: "Ketika hendak melaksanakan shalat, seluruh umat Islam menghadap ke arah...", opts: ["Kiblat (Ka'bah di Makkah)", "Arah matahari terbit", "Arah angin laut", "Arah kutub utara"], a: 0 },
-            { q: "Sebelum mendirikan shalat, kita diwajibkan untuk membersihkan diri dari hadas kecil dengan cara...", opts: ["Berwudhu", "Mencuci muka saja", "Mengganti pakaian", "Memakai minyak wangi"], a: 0 },
-            { q: "Seruan atau panggilan yang berkumandang dari masjid sebagai tanda masuknya waktu shalat disebut...", opts: ["Adzan", "Iqamah", "Takbiran", "Tadarus"], a: 0 },
-            { q: "Shalat fardhu yang memiliki jumlah 3 rakaat dikerjakan saat matahari terbenam adalah...", opts: ["Shalat Maghrib", "Shalat Subuh", "Shalat Dzuhur", "Shalat Ashar"], a: 0 },
-            { q: "Tempat ibadah utama yang biasa digunakan umat Islam untuk melaksanakan shalat berjamaah adalah...", opts: ["Masjid atau Mushalla", "Aula sekolah", "Lapangan terbuka", "Ruang kelas"], a: 0 },
-            { q: "Orang yang memimpin jalannya shalat berjamaah di barisan paling depan disebut...", opts: ["Imam", "Makmum", "Muadzin", "Khatib"], a: 0 },
-            { q: "Shalat Dzuhur dan Shalat Ashar masing-masing terdiri dari jumlah rakaat sebanyak...", opts: ["4 Rakaat", "2 Rakaat", "3 Rakaat", "5 Rakaat"], a: 0 },
-            { q: "Gerakan shalat membungkukkan badan dengan meletakkan kedua tangan di lutut disebut gerakan...", opts: ["Ruku'", "I'tidal", "Sujud", "Duduk tasyahud"], a: 0 },
-            { q: "Mengucapkan kalimat 'Allahu Akbar' saat mengawali shalat dinamakan ucapan...", opts: ["Takbir", "Tahmid", "Tasbih", "Tahlil"], a: 0 },
-            { q: "Berapakah jumlah rakaat yang dikerjakan pada Shalat Subuh?", opts: ["2 Rakaat", "3 Rakaat", "4 Rakaat", "1 Rakaat"], a: 0 },
-            { q: "Gerakan shalat dengan menempelkan dahi, hidung, dan kedua telapak tangan ke tempat sujud disebut...", opts: ["Sujud", "Ruku'", "I'tidal", "Salam"], a: 0 },
-            { q: "Di bagian akhir shalat, kita mengucapkan kalimat salam sambil menolehkan kepala ke arah...", opts: ["Kanan dan Kiri", "Atas dan Bawah", "Depan dan Belakang", "Dada dan Perut"], a: 0 },
-            { q: "Shalat yang dilaksanakan bersama-sama oleh dua orang atau lebih disebut shalat...", opts: ["Berjamaah", "Munfarid", "Sendirian", "Khusus"], a: 0 }
-        ];
-
-        let currentDiagQuestions = [];
-
-        function renderDiagnosticQuestions() {
-            const shuffled = [...diagnosticBank].sort(() => 0.5 - Math.random());
-            currentDiagQuestions = shuffled.slice(0, 5);
-            
-            const container = document.getElementById('diag-questions-container');
-            container.innerHTML = currentDiagQuestions.map((q, idx) => `
-                <div class="bg-slate-50/70 p-5 rounded-xl border border-slate-200">
-                    <p class="font-bold text-slate-800 text-sm md:text-base mb-3 leading-relaxed">
-                        <span class="text-teal-600 mr-1">${idx + 1}.</span> ${q.q}
-                    </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                        ${q.opts.map((opt, oIdx) => `
-                            <label class="flex items-center p-3 bg-white rounded-lg border border-slate-200 hover:border-teal-500 hover:bg-teal-50/40 cursor-pointer text-xs md:text-sm transition-all">
-                                <input type="radio" name="diag_q${idx}" value="${oIdx}" class="text-teal-600 mr-3 focus:ring-teal-500">
-                                <span class="text-slate-700 font-medium">${opt}</span>
-                            </label>
-                        `).join('')}
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function submitDiagnostic() {
-            let answered = 0;
-            let score = 0;
-            for (let i = 0; i < 5; i++) {
-                const selected = document.querySelector(`input[name="diag_q${i}"]:checked`);
-                if (selected) {
-                    answered++;
-                    if (parseInt(selected.value) === currentDiagQuestions[i].a) score += 20;
-                }
-            }
-
-            if (answered < 5) {
-                document.getElementById('diag-warning').classList.remove('hidden');
-                return;
-            }
-
-            document.getElementById('diag-warning').classList.add('hidden');
-            document.getElementById('diag-form').classList.add('hidden');
-            
-            const resultCard = document.getElementById('diag-result-card');
-            resultCard.classList.remove('hidden');
-            document.getElementById('diag-score-badge').classList.remove('hidden');
-            document.getElementById('diag-score').textContent = score;
-
-            const icon = document.getElementById('diag-result-icon');
-            const title = document.getElementById('diag-result-title');
-            const desc = document.getElementById('diag-result-desc');
-
-            if (score === 100) {
-                icon.innerHTML = '<i class="fa-solid fa-trophy text-amber-500"></i>';
-                title.textContent = 'Pemahaman Awal Sangat Baik!';
-                desc.textContent = 'Kamu sudah sangat mengenal ibadah shalat sehari-hari dengan tepat. Yuk pelajari modul di bawah untuk memperdalam rincian rukun, syarat, dan sunnahnya!';
-            } else if (score >= 60) {
-                icon.innerHTML = '<i class="fa-solid fa-thumbs-up text-teal-600"></i>';
-                title.textContent = 'Bagus Sekali!';
-                desc.textContent = 'Dasar pemahamanmu sudah cukup baik. Baca 6 modul di bawah agar pemahaman fikih shalatmu semakin sempurna!';
-            } else {
-                icon.innerHTML = '<i class="fa-solid fa-book-open-reader text-blue-500"></i>';
-                title.textContent = 'Ayo Belajar Bersama!';
-                desc.textContent = 'Jangan khawatir, modul interaktif Shalat Fardhu di bawah ini akan memandumu memahami tata cara shalat dengan mudah dan menyenangkan.';
-            }
-        }
-
-        function resetDiagnostic() {
-            document.getElementById('diag-form').reset();
-            renderDiagnosticQuestions();
-            document.getElementById('diag-form').classList.remove('hidden');
-            document.getElementById('diag-result-card').classList.add('hidden');
-            document.getElementById('diag-score-badge').classList.add('hidden');
-        }
-
         // ================= GLOBAL HELPER DATA SISWA UNTUK GAMES =================
         function populateStudentSelect(gameKey) {
             const classSelect = document.getElementById(`${gameKey}-class-select`);
@@ -2187,7 +2046,6 @@
         // Init All Elements on Load
         document.addEventListener('DOMContentLoaded', () => {
             showPrayerNiat('subuh', document.querySelector('.niat-tab-btn'));
-            renderDiagnosticQuestions();
             initScrambleGame();
             initMatchGame();
             initWordSearchGame();
