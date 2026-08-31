@@ -1,0 +1,2567 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Fikih - Shalat Fardhu Lima Waktu</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    },
+                    colors: {
+                        teal: {
+                            850: '#0f5d56',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        .no-select { user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; }
+        input, select, textarea { user-select: text; -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; }
+        h1, h2, h3, h4, h5, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        .arabic-text { 
+            font-family: 'Amiri', serif; 
+            direction: rtl; 
+            line-height: 2.2 !important; 
+            word-spacing: 0.25em; 
+            font-size: 1.5rem;
+        }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        .pattern-bg { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        
+        .modal-backdrop { background-color: rgba(15, 23, 42, 0.7); backdrop-filter: blur(4px); animation: fadeIn 0.2s ease-out; }
+        .modal-content { animation: slideUp 0.3s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        
+        .option-label { cursor: pointer; transition: all 0.2s ease-in-out; border: 1px solid #e2e8f0; }
+        .option-label:hover { border-color: #0f766e; background-color: #f0fdfa; }
+        .option-input:checked + .option-content { background-color: #f0fdfa; border-color: #0f766e; box-shadow: 0 0 0 1px #0f766e; }
+        .option-input:checked + .option-content .option-circle { background-color: #0f766e; color: white; border-color: #0f766e; }
+        
+        #anti-cheat-banner { transition: transform 0.3s ease-in-out; }
+        .student-watermark { position: fixed; top: -50%; left: -50%; width: 200vw; height: 200vh; pointer-events: none; z-index: 9999; opacity: 0.03; display: flex; flex-wrap: wrap; align-content: flex-start; word-break: break-all; font-size: 1.3rem; font-weight: 800; line-height: 1.8; color: #000; transform: rotate(-25deg); text-transform: uppercase; }
+        
+        .b64t { opacity: 0; transition: opacity 0.3s; }
+        .b64-ready { opacity: 1; }
+
+        /* Game WordSearch Grid */
+        .ws-grid-cell { width: 30px; height: 30px; font-weight: 700; user-select: none; font-size: 0.8rem; }
+        @media(min-width: 640px) {
+            .ws-grid-cell { width: 36px; height: 36px; font-size: 0.95rem; }
+        }
+        @media(min-width: 768px) {
+            .ws-grid-cell { width: 40px; height: 40px; font-size: 1.05rem; }
+        }
+
+        /* War Game Animations & Effects */
+        .war-attack-left { animation: warAttLeft 0.6s cubic-bezier(.36,.07,.19,.97); }
+        .war-attack-right { animation: warAttRight 0.6s cubic-bezier(.36,.07,.19,.97); }
+        .war-block-left { animation: warBlkLeft 0.5s ease-in-out; }
+        .war-block-right { animation: warBlkRight 0.5s ease-in-out; }
+
+        @keyframes warAttLeft {
+            0% { transform: translateX(0) rotate(0deg); }
+            30% { transform: translateX(-15px) rotate(-8deg); }
+            60% { transform: translateX(90px) rotate(15deg) scale(1.1); }
+            80% { transform: translateX(70px) rotate(8deg); }
+            100% { transform: translateX(0) rotate(0deg); }
+        }
+        @keyframes warAttRight {
+            0% { transform: translateX(0) rotate(0deg); }
+            30% { transform: translateX(15px) rotate(8deg); }
+            60% { transform: translateX(-90px) rotate(-15deg) scale(1.1); }
+            80% { transform: translateX(-70px) rotate(-8deg); }
+            100% { transform: translateX(0) rotate(0deg); }
+        }
+        @keyframes warBlkLeft {
+            0% { transform: translateX(0); }
+            30% { transform: translateX(-15px) scale(0.95); }
+            60% { transform: translateX(-25px) scale(0.9); }
+            100% { transform: translateX(0) scale(1); }
+        }
+        @keyframes warBlkRight {
+            0% { transform: translateX(0); }
+            30% { transform: translateX(15px) scale(0.95); }
+            60% { transform: translateX(25px) scale(0.9); }
+            100% { transform: translateX(0) scale(1); }
+        }
+
+        .war-idle-breathe { animation: warBreathe 2.5s ease-in-out infinite alternate; }
+        @keyframes warBreathe {
+            0% { transform: translateY(0) scaleY(1); }
+            100% { transform: translateY(-4px) scaleY(1.02); }
+        }
+
+        .war-screen-shake { animation: warShake 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes warShake {
+            10%, 90% { transform: translate3d(-2px, 0, 0); }
+            20%, 80% { transform: translate3d(3px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-5px, 0, 0); }
+            40%, 60% { transform: translate3d(5px, 0, 0); }
+        }
+
+        .war-spark {
+            position: absolute; width: 4px; height: 16px; background: linear-gradient(to top, #fbbf24, #f59e0b, transparent);
+            border-radius: 2px; transform-origin: bottom center; animation: sparkFly 0.5s ease-out forwards;
+        }
+        @keyframes sparkFly {
+            0% { transform: rotate(var(--angle)) translateY(0) scaleY(1); opacity: 1; }
+            100% { transform: rotate(var(--angle)) translateY(-45px) scaleY(0.3); opacity: 0; }
+        }
+
+        .war-hp-shine {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: hpShine 2s infinite;
+        }
+        @keyframes hpShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .war-cloud-drift { animation: cloudDrift 20s linear infinite; }
+        @keyframes cloudDrift {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(600px); }
+        }
+    </style>
+</head>
+<body class="no-select selection:bg-teal-200 selection:text-teal-900 flex flex-col min-h-screen overflow-x-hidden">
+
+    <!-- Anti Cheat Overlay -->
+    <div id="anti-cheat-banner" class="fixed top-0 left-0 w-full bg-red-600 text-white text-center py-2 z-[10001] transform -translate-y-full flex items-center justify-center gap-2 text-sm font-semibold shadow-md">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <span id="anti-cheat-msg" class="b64t" data-b="U2lzdGVtIFBlbmdhd2FzYW4gQWt0aWY6IERpbGFyYW5nIG1lbnlhbGluIHRla3MgYXRhdSBtZW5pbmdnYWxrYW4gaGFsYW1hbiB1amlhbiE="></span>
+    </div>
+
+    <div id="anti-snip-overlay" class="fixed inset-0 bg-slate-900/95 backdrop-blur-xl z-[10000] hidden flex-col items-center justify-center text-white transition-opacity duration-200">
+        <i class="fa-solid fa-eye-slash text-7xl mb-6 text-red-500 animate-pulse"></i>
+        <h2 class="text-3xl font-bold font-heading mb-2 text-center b64t" data-b="TGF5YXIgVWppYW4gRGlzZW1idW55aWthbg=="></h2>
+        <p class="text-slate-300 text-center max-w-md px-4 mb-4 b64t" data-b="U2lzdGVtIG1lbmRldGVrc2kgQW5kYSBtZW5pbmdnYWxrYW4gaGFsYW1hbiB1amlhbiBhdGF1IG1lbWJ1a2EgYXBsaWthc2kgbGFpbi4="></p>
+        <div id="snip-identity" class="bg-red-900/50 border border-red-500 text-amber-400 font-bold text-xl px-6 py-3 rounded-xl mb-6 hidden uppercase tracking-wider text-center"></div>
+        <button onclick="regainFocus()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105 b64t" data-b="S2VtYmFsaSBrZSBVamlhbg=="></button>
+    </div>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Brand -->
+                <a href="../../" target="_top" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <div class="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-book-open text-sm"></i>
+                    </div>
+                    <span class="font-heading font-bold text-lg tracking-wide text-slate-800">Belajar<span class="text-teal-600">Online</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../../fiqih/" target="_top" class="text-sm font-bold text-teal-600 relative after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-0.5 after:bg-teal-600 transition-colors py-4">
+                        Fiqih
+                    </a>
+                    <a href="../../akidah-akhlak/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors py-4">
+                        Akidah Akhlak
+                    </a>
+                    <a href="../../formatif/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Uji Kompetensi
+                    </a>
+                    <a href="../../nilai-siswa/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Rekap Nilai
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-slate-600 hover:text-teal-600 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full max-h-[85vh] overflow-y-auto">
+            <div class="px-2 pt-4 pb-6 space-y-1">
+                <a href="../../fiqih/" target="_top" class="block px-3 py-3 rounded-md text-base font-bold text-teal-700 bg-teal-50 border-l-4 border-teal-600 transition-colors">Fiqih</a>
+                <a href="../../akidah-akhlak/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Akidah Akhlak</a>
+                <a href="../../formatif/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Uji Kompetensi</a>
+                <a href="../../nilai-siswa/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Rekap Nilai</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= HERO SECTION ================= -->
+    <header class="bg-teal-900 relative pt-32 pb-32 overflow-hidden pattern-bg">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-teal-900/90"></div>
+        <div class="container mx-auto px-4 relative z-10 max-w-4xl text-center">
+            <span class="inline-flex items-center gap-2 bg-teal-800/80 border border-teal-700 text-teal-100 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-6 shadow-sm">
+                <i class="fa-solid fa-book-bookmark text-amber-400"></i> Fikih Ibadah
+            </span>
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-3 font-arabic" dir="rtl">صَلَاةُ الْفَرْضِ الْخَمْسِ</h2>
+            <h1 class="text-3xl md:text-5xl font-bold mb-6 text-white font-heading leading-tight">
+                Ketentuan & Tata Cara <br/> <span class="text-amber-400">Shalat Fardhu 5 Waktu</span>
+            </h1>
+            <p class="text-base md:text-lg text-teal-100/90 max-w-2xl mx-auto font-light leading-relaxed mb-8 italic">
+                "Dan dirikanlah shalat, tunaikanlah zakat, dan ruku'lah beserta orang-orang yang ruku'." <br>
+                <span class="text-sm opacity-80 font-semibold not-italic text-amber-300">QS. Al-Baqarah: 43</span>
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <a href="#materi" class="bg-amber-500 hover:bg-amber-400 text-teal-950 px-7 py-3 rounded-xl font-bold transition inline-flex items-center gap-2 shadow-lg transform hover:-translate-y-0.5 text-sm md:text-base">
+                    <i class="fa-solid fa-book-open"></i> Pelajari Materi
+                </a>
+                <a href="#diagnostik" class="bg-teal-800/80 hover:bg-teal-700 border border-teal-600 text-white px-7 py-3 rounded-xl font-semibold transition inline-flex items-center gap-2 shadow-sm text-sm md:text-base">
+                    <i class="fa-solid fa-clipboard-check text-amber-400"></i> Cek Kemampuan Awal
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Body Content Container -->
+    <main class="flex-grow">
+        
+        <!-- ================= ASESMEN DIAGNOSTIK (SOAL MUDAH & PENGETAHUAN UMUM) ================= -->
+        <section id="diagnostik" class="py-12 container mx-auto px-4 -mt-16 relative z-20 max-w-5xl">
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+                <div class="p-6 md:p-8 bg-gradient-to-r from-teal-50 via-white to-teal-50/30 border-b border-slate-200/80">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-100 text-teal-800 mb-2">
+                                <i class="fa-solid fa-bolt text-amber-500"></i> Tes Diagnostik Awal
+                            </span>
+                            <h3 class="text-xl md:text-2xl font-bold text-slate-800 font-heading">Kuis Santai Pengantar Shalat</h3>
+                            <p class="text-sm text-slate-500 mt-1">Jawab 5 pertanyaan ringan seputar kebiasaan ibadah shalat sehari-hari.</p>
+                        </div>
+                        <div id="diag-score-badge" class="hidden shrink-0 text-center bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                            <span class="text-xs text-slate-400 block font-semibold">Skor Kuis</span>
+                            <span id="diag-score" class="text-3xl font-extrabold text-teal-600">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 md:p-8">
+                    <form id="diag-form" class="space-y-6">
+                        <div id="diag-questions-container" class="space-y-6"></div>
+                        <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-100">
+                            <span id="diag-warning" class="text-red-500 text-sm font-semibold hidden"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Harap jawab semua 5 pertanyaan terlebih dahulu!</span>
+                            <button type="button" onclick="submitDiagnostic()" id="diag-submit-btn" class="w-full sm:w-auto bg-amber-500 hover:bg-amber-600 text-teal-950 font-bold py-3 px-8 rounded-xl transition shadow-sm">
+                                Cek Hasil <i class="fa-solid fa-arrow-right ml-2"></i>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div id="diag-result-card" class="hidden bg-slate-50 border border-slate-200 rounded-xl p-6 text-center">
+                        <div id="diag-result-icon" class="text-5xl mb-4"></div>
+                        <h3 id="diag-result-title" class="text-xl font-bold text-slate-800 mb-2"></h3>
+                        <p id="diag-result-desc" class="text-slate-600 mb-6 text-sm max-w-md mx-auto"></p>
+                        <div class="flex flex-wrap items-center justify-center gap-3">
+                            <button type="button" onclick="resetDiagnostic()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 px-6 rounded-lg transition text-sm">
+                                <i class="fa-solid fa-rotate-right mr-1.5"></i> Coba Soal Lain
+                            </button>
+                            <a href="#materi" class="bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold py-2.5 px-6 rounded-lg transition text-sm">
+                                Lanjut ke Materi <i class="fa-solid fa-arrow-down ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= MATERI SECTION ================= -->
+        <section id="materi" class="py-10 container mx-auto px-4 relative z-20 max-w-5xl">
+            <div class="text-center mb-10">
+                <span class="text-teal-600 font-bold tracking-wider text-xs uppercase mb-2 block">Peta Konsep</span>
+                <h2 class="text-3xl font-bold text-slate-800 font-heading">6 Modul Inti Shalat Fardhu</h2>
+                <p class="text-slate-500 text-sm mt-2 max-w-lg mx-auto">Klik pada kartu modul untuk membaca penjelasan lengkap, dalil Al-Qur'an, hadits, dan tabel rincian fikih.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="cards-container">
+                
+                <!-- Card A -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center" onclick="openContentModal('content-a')">
+                    <div class="w-16 h-16 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-book-quran"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2 group-hover:text-teal-700">Pengertian & Dalil</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Hakikat shalat, kedudukan sebagai tiang agama, dan dasar hukum wajibnya.</p>
+                    <span class="w-full py-2 bg-slate-50 text-teal-700 text-xs font-semibold rounded-xl group-hover:bg-teal-50 border border-slate-100 group-hover:border-teal-200">
+                        Buka Modul &rarr;
+                    </span>
+                </div>
+
+                <!-- Card B -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center" onclick="openContentModal('content-b')">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2 group-hover:text-blue-700">Waktu & Rakaat</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Batas awal dan akhir waktu shalat 5 waktu serta waktu terlarang shalat.</p>
+                    <span class="w-full py-2 bg-slate-50 text-blue-700 text-xs font-semibold rounded-xl group-hover:bg-blue-50 border border-slate-100 group-hover:border-blue-200">
+                        Buka Modul &rarr;
+                    </span>
+                </div>
+
+                <!-- Card C -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center" onclick="openContentModal('content-c')">
+                    <div class="w-16 h-16 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-amber-500 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2 group-hover:text-amber-700">Syarat Wajib & Sah</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Kriteria mukallaf, batas aurat, suci badan tempat, dan kiblat.</p>
+                    <span class="w-full py-2 bg-slate-50 text-amber-700 text-xs font-semibold rounded-xl group-hover:bg-amber-50 border border-slate-100 group-hover:border-amber-200">
+                        Buka Modul &rarr;
+                    </span>
+                </div>
+
+                <!-- Card D -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center" onclick="openContentModal('content-d')">
+                    <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-person-praying"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2 group-hover:text-emerald-700">13 Rukun Shalat</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Rukun Qalbi, Qauli, Fi'li serta urgensi Tuma'ninah di 4 gerakan.</p>
+                    <span class="w-full py-2 bg-slate-50 text-emerald-700 text-xs font-semibold rounded-xl group-hover:bg-emerald-50 border border-slate-100 group-hover:border-emerald-200">
+                        Buka Modul &rarr;
+                    </span>
+                </div>
+
+                <!-- Card E -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center" onclick="openContentModal('content-e')">
+                    <div class="w-16 h-16 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-star-and-crescent"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2 group-hover:text-purple-700">Sunnah Ab'adh & Hai'at</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Perbedaan sunnah berakibat sujud sahwi (Ab'adh) dan sunnah pelengkap (Hai'at).</p>
+                    <span class="w-full py-2 bg-slate-50 text-purple-700 text-xs font-semibold rounded-xl group-hover:bg-purple-50 border border-slate-100 group-hover:border-purple-200">
+                        Buka Modul &rarr;
+                    </span>
+                </div>
+
+                <!-- Card F -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center" onclick="openContentModal('content-f')">
+                    <div class="w-16 h-16 bg-rose-50 text-rose-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-rose-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-heart-circle-check"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2 group-hover:text-rose-700">Pembatal & Hikmah</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Hal-hal yang merusak keabsahan shalat dan hikmah spiritual kehidupan.</p>
+                    <span class="w-full py-2 bg-slate-50 text-rose-700 text-xs font-semibold rounded-xl group-hover:bg-rose-50 border border-slate-100 group-hover:border-rose-200">
+                        Buka Modul &rarr;
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- ================= CONTENT TEMPLATES (MODAL) ================= -->
+            
+            <!-- Modal A: Pengertian & Dalil -->
+            <template id="content-a" data-title="Pengertian, Hukum & Dalil Shalat" data-icon="fa-book-quran" data-color="teal">
+                <div class="space-y-6 pl-2 md:pl-6 border-l-2 border-teal-100">
+                    <div>
+                        <h4 class="font-bold text-teal-900 text-lg mb-2">1. Pengertian Shalat Fardhu</h4>
+                        <p class="text-slate-700 text-sm md:text-base leading-relaxed mb-3">
+                            Kata <strong>shalat</strong> secara bahasa (etimologi) berasal dari bahasa Arab (<span class="arabic-text text-xl">الصَّلَاةُ</span>) yang berarti <strong>doa</strong> memohon kebajikan atau rahmat.
+                        </p>
+                        <p class="text-slate-700 text-sm md:text-base leading-relaxed">
+                            Sedangkan menurut istilah ilmu fikih (terminologi syariat), shalat adalah <strong>ibadah yang tersusun dari beberapa perkataan dan perbuatan yang diawali dengan takbiratul ihram dan diakhiri dengan salam</strong>, dengan memenuhi rukun serta syarat-syarat tertentu.
+                        </p>
+                    </div>
+
+                    <div class="bg-teal-50/60 p-5 rounded-xl border border-teal-100">
+                        <h4 class="font-bold text-teal-900 text-base mb-2">2. Hukum Shalat Lima Waktu</h4>
+                        <p class="text-slate-700 text-sm leading-relaxed mb-3">
+                            Hukum melaksanakan shalat lima waktu adalah <strong class="text-teal-800">Fardhu 'Ain</strong> (wajib bagi setiap orang muslim yang telah baligh dan berakal). Kewajiban ini tidak boleh diwakilkan ataupun ditinggalkan dalam keadaan apapun selama akal masih berfungsi.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-teal-900 text-lg mb-3">3. Dalil Naqli Al-Qur'an dan Hadits</h4>
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 text-center mb-4">
+                            <p class="arabic-text text-slate-800 mb-3 font-bold">وَاَقِيْمُوا الصَّلٰوةَ وَاٰتُوا الزَّكٰوةَ وَارْكَعُوْا مَعَ الرّٰكِعِيْنَ</p>
+                            <p class="text-slate-600 italic text-xs md:text-sm">
+                                "Dan laksanakanlah shalat, tunaikanlah zakat, dan ruku'lah beserta orang-orang yang ruku'." (QS. Al-Baqarah: 43)
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 text-center mb-4">
+                            <p class="arabic-text text-slate-800 mb-3 font-bold">اِنَّ الصَّلٰوةَ تَنْهٰى عَنِ الْفَحْشَاۤءِ وَالْمُنْكَرِ</p>
+                            <p class="text-slate-600 italic text-xs md:text-sm">
+                                "Sesungguhnya shalat itu mencegah dari (perbuatan-perbuatan) keji dan mungkar." (QS. Al-'Ankabut: 45)
+                            </p>
+                        </div>
+
+                        <div class="bg-teal-900 text-white p-5 rounded-xl text-center">
+                            <p class="arabic-text text-amber-300 mb-2 font-bold">الصَّلَاةُ عِمَادُ الدِّينِ، فَمَنْ أَقَامَهَا فَقَدْ أَقَامَ الدِّينَ، وَمَنْ هَدَمَهَا فَقَدْ هَدَمَ الدِّينَ</p>
+                            <p class="text-teal-100 text-xs md:text-sm italic">
+                                "Shalat adalah tiang agama. Barangsiapa yang mendirikannya, maka sesungguhnya ia telah menegakkan agama; dan barangsiapa yang merobohkannya, maka sesungguhnya ia telah meruntuhkan agama." (HR. Al-Baihaqi)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Modal B: Waktu Shalat & Rakaat -->
+            <template id="content-b" data-title="Ketentuan Waktu & Jumlah Rakaat" data-icon="fa-clock" data-color="blue">
+                <div class="space-y-6 pl-2 md:pl-6 border-l-2 border-blue-100">
+                    <p class="text-slate-700 text-sm md:text-base leading-relaxed">
+                        Allah SWT menetapkan waktu shalat fardhu dalam batasan tertentu sebagaimana firman-Nya: <em>"Sesungguhnya shalat itu adalah fardhu yang ditentukan waktunya atas orang-orang yang beriman"</em> (QS. An-Nisa: 103).
+                    </p>
+
+                    <div class="space-y-4">
+                        <!-- Dzuhur -->
+                        <div class="bg-blue-50/60 p-4 rounded-xl border border-blue-100">
+                            <div class="flex items-center justify-between mb-1">
+                                <h5 class="font-bold text-blue-900 text-base flex items-center gap-2"><i class="fa-solid fa-sun text-amber-500"></i> Shalat Dzuhur</h5>
+                                <span class="bg-blue-200 text-blue-800 text-xs px-2.5 py-0.5 rounded-full font-bold">4 Rakaat</span>
+                            </div>
+                            <p class="text-xs md:text-sm text-slate-700 leading-relaxed">
+                                <strong>Awal Waktu:</strong> Sejak tergelincirnya matahari dari tengah langit (zawal) ke arah barat.<br>
+                                <strong>Akhir Waktu:</strong> Ketika panjang bayangan suatu benda sama dengan tinggi aslinya (ditambah bayangan saat zawal).
+                            </p>
+                        </div>
+
+                        <!-- Ashar -->
+                        <div class="bg-amber-50/60 p-4 rounded-xl border border-amber-100">
+                            <div class="flex items-center justify-between mb-1">
+                                <h5 class="font-bold text-amber-900 text-base flex items-center gap-2"><i class="fa-solid fa-cloud-sun text-amber-600"></i> Shalat Ashar</h5>
+                                <span class="bg-amber-200 text-amber-800 text-xs px-2.5 py-0.5 rounded-full font-bold">4 Rakaat</span>
+                            </div>
+                            <p class="text-xs md:text-sm text-slate-700 leading-relaxed">
+                                <strong>Awal Waktu:</strong> Ketika bayangan suatu benda melebihi panjang aslinya.<br>
+                                <strong>Akhir Waktu:</strong> Saat seluruh piringan matahari terbenam di ufuk barat secara sempurna.
+                            </p>
+                        </div>
+
+                        <!-- Maghrib -->
+                        <div class="bg-orange-50/60 p-4 rounded-xl border border-orange-100">
+                            <div class="flex items-center justify-between mb-1">
+                                <h5 class="font-bold text-orange-900 text-base flex items-center gap-2"><i class="fa-solid fa-mountain-sun text-orange-600"></i> Shalat Maghrib</h5>
+                                <span class="bg-orange-200 text-orange-800 text-xs px-2.5 py-0.5 rounded-full font-bold">3 Rakaat</span>
+                            </div>
+                            <p class="text-xs md:text-sm text-slate-700 leading-relaxed">
+                                <strong>Awal Waktu:</strong> Sejak terbenamnya seluruh bundaran matahari di ufuk barat.<br>
+                                <strong>Akhir Waktu:</strong> Ketika mega merah (*syafaq ahmar*) di langit barat hilang sempurna.
+                            </p>
+                        </div>
+
+                        <!-- Isya -->
+                        <div class="bg-indigo-50/60 p-4 rounded-xl border border-indigo-100">
+                            <div class="flex items-center justify-between mb-1">
+                                <h5 class="font-bold text-indigo-900 text-base flex items-center gap-2"><i class="fa-solid fa-moon text-indigo-500"></i> Shalat Isya'</h5>
+                                <span class="bg-indigo-200 text-indigo-800 text-xs px-2.5 py-0.5 rounded-full font-bold">4 Rakaat</span>
+                            </div>
+                            <p class="text-xs md:text-sm text-slate-700 leading-relaxed">
+                                <strong>Awal Waktu:</strong> Sejak hilangnya mega merah di langit bagian barat.<br>
+                                <strong>Akhir Waktu:</strong> Saat terbit fajar shadiq di ufuk timur.
+                            </p>
+                        </div>
+
+                        <!-- Subuh -->
+                        <div class="bg-teal-50/60 p-4 rounded-xl border border-teal-100">
+                            <div class="flex items-center justify-between mb-1">
+                                <h5 class="font-bold text-teal-900 text-base flex items-center gap-2"><i class="fa-solid fa-sun-plant-wilt text-teal-600"></i> Shalat Subuh</h5>
+                                <span class="bg-teal-200 text-teal-800 text-xs px-2.5 py-0.5 rounded-full font-bold">2 Rakaat</span>
+                            </div>
+                            <p class="text-xs md:text-sm text-slate-700 leading-relaxed">
+                                <strong>Awal Waktu:</strong> Sejak terbitnya Fajar Shadiq (cahaya putih membentang di ufuk timur).<br>
+                                <strong>Akhir Waktu:</strong> Saat piringan atas matahari mulai terbit (*syuruq/thulu'*).
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-red-50 p-4 rounded-xl border border-red-200">
+                        <h5 class="font-bold text-red-800 text-xs md:text-sm mb-1"><i class="fa-solid fa-circle-exclamation mr-1"></i> Waktu Terlarang Shalat Sunnah Mutlak:</h5>
+                        <ul class="list-disc pl-5 text-xs text-slate-600 space-y-1">
+                            <li>Setelah shalat Subuh hingga matahari terbit naik setinggi tombak.</li>
+                            <li>Ketika matahari tepat di tengah langit (istiwa') hingga tergelincir (kecuali hari Jumat).</li>
+                            <li>Setelah shalat Ashar hingga matahari terbenam sempurna.</li>
+                        </ul>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Modal C: Syarat Wajib & Sah -->
+            <template id="content-c" data-title="Syarat Wajib & Syarat Sah Shalat" data-icon="fa-list-check" data-color="amber">
+                <div class="space-y-6 pl-2 md:pl-6 border-l-2 border-amber-100">
+                    <div>
+                        <h4 class="font-bold text-amber-900 text-lg mb-3">1. Syarat Wajib Shalat</h4>
+                        <p class="text-xs md:text-sm text-slate-600 mb-3">Kriteria yang menyebabkan seseorang dibebani kewajiban shalat:</p>
+                        <ol class="list-decimal pl-5 text-slate-700 text-xs md:text-sm space-y-1.5">
+                            <li><strong>Beragama Islam</strong> (orang kafir tidak dituntut di dunia, namun dihisab di akhirat).</li>
+                            <li><strong>Baligh</strong> (dewasa, ditandai mimpi basah bagi laki-laki atau haid bagi wanita, atau usia 15 tahun).</li>
+                            <li><strong>Berakal sehat</strong> (orang gila, mabuk tak sengaja, atau pingsan tidak wajib shalat).</li>
+                            <li><strong>Suci dari Haid dan Nifas</strong> (khusus wanita).</li>
+                            <li><strong>Telah sampai dakwah Islam kepadanya</strong>.</li>
+                        </ol>
+                    </div>
+
+                    <div class="border-t border-slate-100 pt-4">
+                        <h4 class="font-bold text-amber-900 text-lg mb-3">2. Syarat Sah Shalat</h4>
+                        <p class="text-xs md:text-sm text-slate-600 mb-3">Hal-hal yang harus dipenuhi sebelum dan saat shalat agar ibadahnya sah di hadapan syariat:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                                <strong class="text-slate-800 text-xs md:text-sm block mb-1">a. Suci dari Dua Hadas</strong>
+                                <p class="text-xs text-slate-500">Suci dari hadas kecil (dengan berwudhu/tayamum) dan hadas besar (dengan mandi wajib).</p>
+                            </div>
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                                <strong class="text-slate-800 text-xs md:text-sm block mb-1">b. Suci dari Najis</strong>
+                                <p class="text-xs text-slate-500">Badan, pakaian, dan tempat sujud harus bersih dari segala macam najis.</p>
+                            </div>
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                                <strong class="text-slate-800 text-xs md:text-sm block mb-1">c. Menutup Aurat</strong>
+                                <p class="text-xs text-slate-500">Laki-laki: antara pusar dan lutut. Wanita: seluruh tubuh kecuali muka dan telapak tangan.</p>
+                            </div>
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                                <strong class="text-slate-800 text-xs md:text-sm block mb-1">d. Masuk Waktu Shalat</strong>
+                                <p class="text-xs text-slate-500">Yakin bahwa waktu shalat yang hendak dikerjakan telah benar-benar masuk.</p>
+                            </div>
+                            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 md:col-span-2">
+                                <strong class="text-slate-800 text-xs md:text-sm block mb-1">e. Menghadap ke Arah Kiblat</strong>
+                                <p class="text-xs text-slate-500">Menghadap ke arah Ka'bah (Masjidil Haram di Makkah) dengan dada bagi orang yang mampu.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Modal D: 13 Rukun Shalat -->
+            <template id="content-d" data-title="13 Rukun Shalat & Tuma'ninah" data-icon="fa-person-praying" data-color="emerald">
+                <div class="space-y-6 pl-2 md:pl-6 border-l-2 border-emerald-100">
+                    <p class="text-slate-700 text-sm md:text-base leading-relaxed">
+                        Rukun shalat adalah bagian pokok yang wajib dikerjakan dalam shalat. Jika ada satu rukun yang ditinggalkan sengaja maupun lupa, maka shalatnya tidak sah. Menurut Mazhab Syafi'i terdapat <strong>13 rukun</strong> yang terbagi menjadi 3 kategori:
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="bg-emerald-50/50 p-4 rounded-xl border border-emerald-100">
+                            <h5 class="font-bold text-emerald-900 text-sm mb-2"><i class="fa-solid fa-heart text-emerald-600 mr-1.5"></i> A. Rukun Qalbi (Hati)</h5>
+                            <ul class="list-disc pl-5 text-xs md:text-sm text-slate-700 space-y-1">
+                                <li><strong>1. Niat</strong>: Menyengaja mengerjakan shalat di dalam hati bersamaan dengan Takbiratul Ihram.</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-100">
+                            <h5 class="font-bold text-blue-900 text-sm mb-2"><i class="fa-solid fa-comment-dots text-blue-600 mr-1.5"></i> B. Rukun Qauli (Ucapan / Lisan)</h5>
+                            <p class="text-xs text-slate-500 mb-2">Wajib diucapkan dengan lisan dan terdengar oleh telinga sendiri (tidak cukup dalam hati):</p>
+                            <ul class="list-disc pl-5 text-xs md:text-sm text-slate-700 space-y-1">
+                                <li><strong>2. Takbiratul Ihram</strong> (Mengucapkan <em>"Allaahu Akbar"</em>).</li>
+                                <li><strong>4. Membaca Surah Al-Fatihah</strong> di setiap rakaat beserta basmalah dan menjaga makharijul hurufnya.</li>
+                                <li><strong>10. Membaca Tasyahud Akhir</strong> saat duduk tasyahud akhir.</li>
+                                <li><strong>11. Membaca Shalawat atas Nabi SAW</strong> pada tasyahud akhir.</li>
+                                <li><strong>12. Mengucapkan Salam Pertama</strong> sambil menoleh ke kanan.</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-amber-50/50 p-4 rounded-xl border border-amber-100">
+                            <h5 class="font-bold text-amber-900 text-sm mb-2"><i class="fa-solid fa-person text-amber-600 mr-1.5"></i> C. Rukun Fi'li (Gerakan Tubuh)</h5>
+                            <ul class="list-disc pl-5 text-xs md:text-sm text-slate-700 space-y-1.5">
+                                <li><strong>3. Berdiri tegak</strong> bagi yang mampu pada shalat fardhu.</li>
+                                <li><strong>5. Ruku'</strong> beserta <strong>Tuma'ninah</strong>.</li>
+                                <li><strong>6. I'tidal</strong> (bangkit dari ruku') beserta <strong>Tuma'ninah</strong>.</li>
+                                <li><strong>7. Sujud dua kali</strong> beserta <strong>Tuma'ninah</strong>.</li>
+                                <li><strong>8. Duduk di antara dua sujud</strong> beserta <strong>Tuma'ninah</strong>.</li>
+                                <li><strong>9. Duduk untuk Tasyahud Akhir</strong>.</li>
+                                <li><strong>13. Tertib</strong> (mengerjakan semua rukun secara berurutan).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-teal-900 text-white p-4 rounded-xl">
+                        <strong class="text-amber-400 block mb-1 text-sm"><i class="fa-solid fa-info-circle mr-1"></i> Pentingnya Tuma'ninah:</strong>
+                        <p class="text-xs text-teal-100 leading-relaxed">
+                            Tuma'ninah adalah diam sejenak setelah semua anggota badan menetap di posisinya sekira lamanya membaca kalimat tasbih (<em>Subhaanallaah</em>). Tuma'ninah wajib dilakukan pada 4 tempat: Ruku', I'tidal, Sujud, dan Duduk Antara Dua Sujud.
+                        </p>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Modal E: Sunnah Ab'adh & Hai'at -->
+            <template id="content-e" data-title="Sunnah Shalat (Ab'adh & Hai'at)" data-icon="fa-star-and-crescent" data-color="purple">
+                <div class="space-y-6 pl-2 md:pl-6 border-l-2 border-purple-100">
+                    <p class="text-slate-700 text-sm md:text-base leading-relaxed">
+                        Amalan sunnah dalam shalat berfungsi untuk menyempurnakan dan menambal kekurangan pahala ibadah shalat kita. Dalam fikih Syafi'i, sunnah shalat dibagi dua:
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Sunnah Ab'adh -->
+                        <div class="bg-purple-50/70 p-5 rounded-xl border border-purple-200 flex flex-col">
+                            <span class="inline-block bg-purple-200 text-purple-900 text-xs font-bold px-2.5 py-1 rounded-md w-fit mb-2">1. Sunnah Ab'adh</span>
+                            <h5 class="font-bold text-purple-900 text-base mb-2">Disunnahkan Sujud Sahwi jika lupa</h5>
+                            <p class="text-xs text-slate-600 mb-3 leading-relaxed">
+                                Merupakan amalan sunnah yang kedudukannya sangat dianjurkan. Jika tertinggal karena lupa atau sengaja, disunnahkan melakukan Sujud Sahwi sebelum salam.
+                            </p>
+                            <div class="mt-auto bg-white p-3 rounded-lg border border-purple-100 text-xs text-slate-700 space-y-1">
+                                <strong>Rincian Sunnah Ab'adh:</strong>
+                                <ul class="list-disc pl-4 space-y-1 mt-1">
+                                    <li>Duduk tasyahud awal.</li>
+                                    <li>Membaca bacaan tasyahud awal.</li>
+                                    <li>Membaca shalawat kepada Nabi pada tasyahud awal.</li>
+                                    <li>Membaca shalawat kepada keluarga Nabi pada tasyahud akhir.</li>
+                                    <li>Membaca doa Qunut pada shalat Subuh dan shalat Witir pada separuh akhir Ramadhan.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Sunnah Hai'at -->
+                        <div class="bg-indigo-50/70 p-5 rounded-xl border border-indigo-200 flex flex-col">
+                            <span class="inline-block bg-indigo-200 text-indigo-900 text-xs font-bold px-2.5 py-1 rounded-md w-fit mb-2">2. Sunnah Hai'at</span>
+                            <h5 class="font-bold text-indigo-900 text-base mb-2">Tidak perlu Sujud Sahwi jika lupa</h5>
+                            <p class="text-xs text-slate-600 mb-3 leading-relaxed">
+                                Merupakan amalan pelengkap keindahan dan keutamaan shalat. Jika tertinggal, shalat tetap sah dan tidak disunnahkan sujud sahwi.
+                            </p>
+                            <div class="mt-auto bg-white p-3 rounded-lg border border-indigo-100 text-xs text-slate-700 space-y-1">
+                                <strong>Contoh Sunnah Hai'at:</strong>
+                                <ul class="list-disc pl-4 space-y-1 mt-1">
+                                    <li>Mengangkat tangan saat takbiratul ihram, ruku', i'tidal, dan bangun dari tasyahud awal.</li>
+                                    <li>Meletakkan telapak tangan kanan di atas punggung pergelangan tangan kiri di bawah dada.</li>
+                                    <li>Membaca doa Iftitah setelah takbiratul ihram.</li>
+                                    <li>Membaca Ta'awudz sebelum Al-Fatihah dan membaca <em>Aamiin</em> sesudahnya.</li>
+                                    <li>Membaca surah pendek setelah Al-Fatihah.</li>
+                                    <li>Membaca tasbih pada ruku' dan sujud.</li>
+                                    <li>Menoleh ke kiri pada salam kedua.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Modal F: Pembatal & Hikmah -->
+            <template id="content-f" data-title="Pembatal Shalat & Hikmah Ibadah" data-icon="fa-heart-circle-check" data-color="rose">
+                <div class="space-y-6 pl-2 md:pl-6 border-l-2 border-rose-100">
+                    <div>
+                        <h4 class="font-bold text-rose-900 text-lg mb-3">1. Hal-Hal yang Membatalkan Shalat</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                            <div class="flex items-start p-3 bg-red-50/60 rounded-lg text-xs text-slate-700 border border-red-100">
+                                <i class="fa-solid fa-xmark text-red-500 mt-0.5 mr-2"></i>
+                                <span>Berbicara dengan sengaja selain bacaan shalat walau hanya dua huruf.</span>
+                            </div>
+                            <div class="flex items-start p-3 bg-red-50/60 rounded-lg text-xs text-slate-700 border border-red-100">
+                                <i class="fa-solid fa-xmark text-red-500 mt-0.5 mr-2"></i>
+                                <span>Bergerak banyak secara berturut-turut (tiga gerakan berurutan).</span>
+                            </div>
+                            <div class="flex items-start p-3 bg-red-50/60 rounded-lg text-xs text-slate-700 border border-red-100">
+                                <i class="fa-solid fa-xmark text-red-500 mt-0.5 mr-2"></i>
+                                <span>Berhadas (hadas kecil seperti buang angin atau hadas besar) sebelum salam pertama.</span>
+                            </div>
+                            <div class="flex items-start p-3 bg-red-50/60 rounded-lg text-xs text-slate-700 border border-red-100">
+                                <i class="fa-solid fa-xmark text-red-500 mt-0.5 mr-2"></i>
+                                <span>Terkena najis yang tidak dimaafkan pada badan/pakaian dan tidak langsung disingkirkan.</span>
+                            </div>
+                            <div class="flex items-start p-3 bg-red-50/60 rounded-lg text-xs text-slate-700 border border-red-100">
+                                <i class="fa-solid fa-xmark text-red-500 mt-0.5 mr-2"></i>
+                                <span>Terbukanya aurat dengan sengaja, atau tidak segera ditutup saat terbuka tak sengaja.</span>
+                            </div>
+                            <div class="flex items-start p-3 bg-red-50/60 rounded-lg text-xs text-slate-700 border border-red-100">
+                                <i class="fa-solid fa-xmark text-red-500 mt-0.5 mr-2"></i>
+                                <span>Makan atau minum dengan sengaja walau hanya sedikit (sebesar biji wijen).</span>
+                            </div>
+                            <div class="flex items-start p-3 bg-red-50/60 rounded-lg text-xs text-slate-700 border border-red-100">
+                                <i class="fa-solid fa-xmark text-red-500 mt-0.5 mr-2"></i>
+                                <span>Tertawa terbahak-bahak hingga mengeluarkan suara huruf.</span>
+                            </div>
+                            <div class="flex items-start p-3 bg-red-50/60 rounded-lg text-xs text-slate-700 border border-red-100">
+                                <i class="fa-solid fa-xmark text-red-500 mt-0.5 mr-2"></i>
+                                <span>Berpaling atau membelakangi kiblat dengan dadanya.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-slate-100 pt-4">
+                        <h4 class="font-bold text-teal-900 text-lg mb-3">2. Hikmah Melaksanakan Shalat Fardhu</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <div class="bg-teal-50 p-4 rounded-xl border border-teal-100 text-center">
+                                <i class="fa-solid fa-shield-heart text-teal-600 text-2xl mb-2"></i>
+                                <h5 class="font-bold text-slate-800 text-sm mb-1">Mencegah Keji & Mungkar</h5>
+                                <p class="text-xs text-slate-600">Membentengi diri dari godaan syahwat dan perbuatan tercela.</p>
+                            </div>
+                            <div class="bg-teal-50 p-4 rounded-xl border border-teal-100 text-center">
+                                <i class="fa-solid fa-peace text-teal-600 text-2xl mb-2"></i>
+                                <h5 class="font-bold text-slate-800 text-sm mb-1">Ketenangan Jiwa</h5>
+                                <p class="text-xs text-slate-600">Menghadirkan kedamaian hati dan mengurangi stres serta kecemasan.</p>
+                            </div>
+                            <div class="bg-teal-50 p-4 rounded-xl border border-teal-100 text-center">
+                                <i class="fa-solid fa-business-time text-teal-600 text-2xl mb-2"></i>
+                                <h5 class="font-bold text-slate-800 text-sm mb-1">Disiplin Waktu & Hidup</h5>
+                                <p class="text-xs text-slate-600">Melatih pola hidup tertib, teratur, dan senantiasa bersih bersuci.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </section>
+
+        <!-- ================= LAFAL NIAT & BACAAN SHALAT ================= -->
+        <section id="niat-bacaan" class="py-14 bg-teal-950 text-white relative pattern-bg">
+            <div class="container mx-auto px-4 relative z-10 max-w-5xl">
+                <div class="text-center mb-10">
+                    <span class="text-amber-400 font-bold tracking-wider text-xs uppercase mb-2 block">Panduan Praktis</span>
+                    <h2 class="text-3xl font-bold font-heading">Lafal Niat & Bacaan Shalat 5 Waktu</h2>
+                    <p class="text-teal-200/80 text-sm mt-2 max-w-md mx-auto">Pilih waktu shalat di bawah ini untuk melihat teks Arab berharakat, bacaan latin, dan terjemahannya.</p>
+                </div>
+
+                <!-- Tabs Shalat -->
+                <div class="flex flex-wrap items-center justify-center gap-2 mb-8">
+                    <button onclick="showPrayerNiat('subuh', this)" class="niat-tab-btn active-niat-tab px-5 py-2.5 rounded-xl font-bold text-xs md:text-sm transition-all bg-amber-500 text-teal-950 shadow-md">
+                        Subuh
+                    </button>
+                    <button onclick="showPrayerNiat('dzuhur', this)" class="niat-tab-btn px-5 py-2.5 rounded-xl font-bold text-xs md:text-sm transition-all bg-teal-900/80 text-teal-200 hover:bg-teal-800 border border-teal-700">
+                        Dzuhur
+                    </button>
+                    <button onclick="showPrayerNiat('ashar', this)" class="niat-tab-btn px-5 py-2.5 rounded-xl font-bold text-xs md:text-sm transition-all bg-teal-900/80 text-teal-200 hover:bg-teal-800 border border-teal-700">
+                        Ashar
+                    </button>
+                    <button onclick="showPrayerNiat('maghrib', this)" class="niat-tab-btn px-5 py-2.5 rounded-xl font-bold text-xs md:text-sm transition-all bg-teal-900/80 text-teal-200 hover:bg-teal-800 border border-teal-700">
+                        Maghrib
+                    </button>
+                    <button onclick="showPrayerNiat('isya', this)" class="niat-tab-btn px-5 py-2.5 rounded-xl font-bold text-xs md:text-sm transition-all bg-teal-900/80 text-teal-200 hover:bg-teal-800 border border-teal-700">
+                        Isya'
+                    </button>
+                </div>
+
+                <!-- Display Box Niat -->
+                <div id="niat-display-box" class="bg-white text-slate-800 p-6 md:p-10 rounded-2xl shadow-2xl max-w-4xl mx-auto">
+                    <div id="niat-content-area" class="space-y-6">
+                        <!-- Loaded via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= GAME SECTION ================= -->
+        <section id="game-section" class="py-14 container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-8">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-teal-100 text-teal-800 mb-2">
+                    <i class="fa-solid fa-gamepad text-teal-600"></i> Mini Game Fikih Shalat
+                </span>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-800 font-heading">🎮 Game Edukasi Interaktif Shalat</h2>
+                <p class="text-slate-500 text-sm mt-1">Uji ingatan istilah, rukun, dan ketentuan shalat dengan game seru berhadiah skor di bawah ini.</p>
+            </div>
+
+            <!-- Game Tabs -->
+            <div class="flex flex-wrap items-center justify-center gap-2.5 md:gap-3 mb-8">
+                <button onclick="switchGame('scramble')" id="tab-scramble" class="game-tab-btn active-game-tab px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all flex items-center gap-2 bg-teal-600 text-white shadow-lg">
+                    <i class="fa-solid fa-arrow-down-a-z"></i> Susun Kata
+                </button>
+                <button onclick="switchGame('match')" id="tab-match" class="game-tab-btn px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all flex items-center gap-2 bg-white text-slate-600 border border-slate-200 hover:border-teal-300 hover:text-teal-600">
+                    <i class="fa-solid fa-arrows-split-up-and-left"></i> Pasangkan Istilah
+                </button>
+                <button onclick="switchGame('wordsearch')" id="tab-wordsearch" class="game-tab-btn px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all flex items-center gap-2 bg-white text-slate-600 border border-slate-200 hover:border-teal-300 hover:text-teal-600">
+                    <i class="fa-solid fa-table-cells"></i> Cari Kata Petunjuk
+                </button>
+                <button onclick="switchGame('war')" id="tab-war" class="game-tab-btn px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all flex items-center gap-2 bg-white text-slate-600 border border-slate-200 hover:border-teal-300 hover:text-teal-600">
+                    <i class="fa-solid fa-khanda text-amber-500"></i> Duel Perang Gladiator
+                </button>
+            </div>
+
+            <!-- Game Panels Container -->
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+                
+                <!-- ================= GAME 1: SUSUN KATA (10 SOAL) ================= -->
+                <div id="game-scramble" class="game-panel p-6 md:p-8">
+                    <!-- Name Input Bar -->
+                    <div class="bg-teal-50 border border-teal-200 p-4 rounded-xl mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-user-circle text-teal-600 text-2xl"></i>
+                            <div>
+                                <span class="text-xs font-bold text-teal-800 uppercase block">Data Pemain</span>
+                                <span id="scramble-player-display" class="text-sm font-semibold text-slate-700">Belum memilih nama</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+                            <select id="scramble-class-select" class="border border-teal-300 rounded-lg px-3 py-1.5 text-xs bg-white focus:ring-2 focus:ring-teal-500 outline-none" onchange="populateStudentSelect('scramble')">
+                                <option value="">-- Pilih Kelas --</option>
+                                <option value="7A">7A</option>
+                                <option value="7B">7B</option>
+                                <option value="7C">7C</option>
+                                <option value="7D">7D</option>
+                                <option value="7E">7E</option>
+                            </select>
+                            <select id="scramble-student-select" class="border border-teal-300 rounded-lg px-3 py-1.5 text-xs bg-white focus:ring-2 focus:ring-teal-500 outline-none flex-grow md:w-48" onchange="updatePlayerName('scramble')">
+                                <option value="">-- Pilih Siswa --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="text-center mb-6">
+                        <h4 class="text-xl font-bold text-slate-800 font-heading">Susun Huruf Menjadi Istilah Shalat</h4>
+                        <p class="text-slate-500 text-xs md:text-sm mt-1">Pilih huruf-huruf acak di bawah secara berurutan untuk menjawab petunjuk.</p>
+                    </div>
+                    <div id="scramble-game-area" class="space-y-6 max-w-2xl mx-auto"></div>
+                </div>
+
+                <!-- ================= GAME 2: PASANGKAN ISTILAH (10 SOAL) ================= -->
+                <div id="game-match" class="game-panel hidden p-6 md:p-8">
+                    <!-- Name Input Bar -->
+                    <div class="bg-blue-50 border border-blue-200 p-4 rounded-xl mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-user-circle text-blue-600 text-2xl"></i>
+                            <div>
+                                <span class="text-xs font-bold text-blue-800 uppercase block">Data Pemain</span>
+                                <span id="match-player-display" class="text-sm font-semibold text-slate-700">Belum memilih nama</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+                            <select id="match-class-select" class="border border-blue-300 rounded-lg px-3 py-1.5 text-xs bg-white focus:ring-2 focus:ring-blue-500 outline-none" onchange="populateStudentSelect('match')">
+                                <option value="">-- Pilih Kelas --</option>
+                                <option value="7A">7A</option>
+                                <option value="7B">7B</option>
+                                <option value="7C">7C</option>
+                                <option value="7D">7D</option>
+                                <option value="7E">7E</option>
+                            </select>
+                            <select id="match-student-select" class="border border-blue-300 rounded-lg px-3 py-1.5 text-xs bg-white focus:ring-2 focus:ring-blue-500 outline-none flex-grow md:w-48" onchange="updatePlayerName('match')">
+                                <option value="">-- Pilih Siswa --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="text-center mb-6">
+                        <h4 class="text-xl font-bold text-slate-800 font-heading">Cocokkan 10 Konsep & Definisi Shalat</h4>
+                        <p class="text-slate-500 text-xs md:text-sm mt-1">Klik 1 kartu di kolom kiri, lalu klik kartu pasangannya di kolom kanan!</p>
+                        <div class="mt-2 text-xs font-bold text-teal-600">
+                            Terhubung: <span id="match-score-display">0</span> / 10 Pasang
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto" id="match-game-area"></div>
+                </div>
+
+                <!-- ================= GAME 3: CARI KATA PETUNJUK (10 SOAL) ================= -->
+                <div id="game-wordsearch" class="game-panel hidden p-6 md:p-8">
+                    <!-- Name Input Bar -->
+                    <div class="bg-purple-50 border border-purple-200 p-4 rounded-xl mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-user-circle text-purple-600 text-2xl"></i>
+                            <div>
+                                <span class="text-xs font-bold text-purple-800 uppercase block">Data Pemain</span>
+                                <span id="wordsearch-player-display" class="text-sm font-semibold text-slate-700">Belum memilih nama</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+                            <select id="wordsearch-class-select" class="border border-purple-300 rounded-lg px-3 py-1.5 text-xs bg-white focus:ring-2 focus:ring-purple-500 outline-none" onchange="populateStudentSelect('wordsearch')">
+                                <option value="">-- Pilih Kelas --</option>
+                                <option value="7A">7A</option>
+                                <option value="7B">7B</option>
+                                <option value="7C">7C</option>
+                                <option value="7D">7D</option>
+                                <option value="7E">7E</option>
+                            </select>
+                            <select id="wordsearch-student-select" class="border border-purple-300 rounded-lg px-3 py-1.5 text-xs bg-white focus:ring-2 focus:ring-purple-500 outline-none flex-grow md:w-48" onchange="updatePlayerName('wordsearch')">
+                                <option value="">-- Pilih Siswa --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="text-center mb-6">
+                        <h4 class="text-xl font-bold text-slate-800 font-heading">Temukan 10 Kata Rahasia Berdasarkan Petunjuk</h4>
+                        <p class="text-slate-500 text-xs md:text-sm mt-1">Baca petunjuk teka-teki, tebak katanya, lalu klik huruf awal & akhir pada kotak huruf!</p>
+                    </div>
+
+                    <div class="flex flex-col lg:flex-row items-start justify-center gap-6">
+                        <!-- Grid Matrix -->
+                        <div class="w-full lg:w-auto flex justify-center overflow-x-auto p-2">
+                            <div id="ws-grid" class="grid grid-cols-12 gap-1 bg-slate-100 p-2.5 md:p-3 rounded-2xl border border-slate-200"></div>
+                        </div>
+
+                        <!-- Clue Box -->
+                        <div class="w-full lg:w-80 bg-slate-50 p-4 md:p-5 rounded-2xl border border-slate-200 flex-shrink-0">
+                            <div class="flex items-center justify-between border-b border-slate-200 pb-2 mb-3">
+                                <h5 class="font-bold text-slate-800 text-sm">10 Petunjuk Teka-Teki:</h5>
+                                <span id="ws-counter" class="text-xs font-extrabold text-teal-600 bg-teal-50 px-2 py-0.5 rounded-full border border-teal-100">0 / 10</span>
+                            </div>
+                            <div id="ws-clue-list" class="space-y-2 max-h-[380px] overflow-y-auto pr-1"></div>
+                            <div id="ws-result" class="hidden mt-4 p-3 bg-emerald-100 border border-emerald-300 text-emerald-800 rounded-xl text-center text-xs font-bold">
+                                🎉 Hebat! Semua 10 kata rahasia shalat berhasil kamu pecahkan!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= GAME 4: DUEL PERANG GLADIATOR ================= -->
+                <div id="game-war" class="game-panel hidden relative flex flex-col overflow-hidden min-h-[500px]">
+                    <!-- Spam Warning -->
+                    <div id="war-spam-warning" class="absolute top-20 left-1/2 -translate-x-1/2 z-[70] hidden flex items-center gap-3 bg-red-600 text-white px-5 py-3 rounded-full font-bold shadow-2xl animate-bounce">
+                        <i class="fa-solid fa-hand text-xl"></i>
+                        <span>Terlalu Cepat! Baca soal dengan tenang (Jeda 1.5 detik)!</span>
+                    </div>
+
+                    <!-- Lobby Overlay (War) -->
+                    <div id="war-lobby-overlay" class="absolute inset-0 z-[60] bg-slate-900/95 flex flex-col items-center justify-center p-6 text-center overflow-y-auto">
+                        <div class="bg-white rounded-2xl shadow-2xl p-6 md:p-8 w-full max-w-2xl my-auto animate-fadeIn">
+                            <h3 class="text-2xl font-bold font-heading text-slate-800 mb-2">Persiapan Duel Gladiator</h3>
+                            <p class="text-sm text-slate-500 mb-6">Pilih mode jumlah pemain, kelas, dan nama siswa dari data master.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 text-left border-b border-slate-100 pb-6">
+                                <div>
+                                    <label class="block text-sm font-bold text-blue-700 mb-2"><i class="fa-solid fa-user-plus mr-1"></i> Jumlah Pemain Tim Biru</label>
+                                    <select id="war-mode-select-left" class="w-full border border-blue-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-blue-500 outline-none transition bg-blue-50 text-blue-900 font-semibold" onchange="renderWarLobbyForms('left')">
+                                        <option value="1">1 Pemain</option>
+                                        <option value="2">2 Pemain</option>
+                                        <option value="3">3 Pemain</option>
+                                        <option value="4">4 Pemain</option>
+                                        <option value="5">5 Pemain</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-red-700 mb-2"><i class="fa-solid fa-user-plus mr-1"></i> Jumlah Pemain Tim Merah</label>
+                                    <select id="war-mode-select-right" class="w-full border border-red-200 rounded-xl px-4 py-2.5 text-sm focus:ring-2 focus:ring-red-500 outline-none transition bg-red-50 text-red-900 font-semibold" onchange="renderWarLobbyForms('right')">
+                                        <option value="1">1 Pemain</option>
+                                        <option value="2">2 Pemain</option>
+                                        <option value="3">3 Pemain</option>
+                                        <option value="4">4 Pemain</option>
+                                        <option value="5">5 Pemain</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 text-left">
+                                <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
+                                    <h4 class="font-bold text-blue-800 mb-3 text-sm border-b border-blue-200 pb-2"><i class="fa-solid fa-shield mr-2"></i>Pasukan Biru</h4>
+                                    <div class="mb-3">
+                                        <label class="block text-xs font-semibold text-blue-700 mb-1">Pilih Kelas</label>
+                                        <select id="war-class-left" class="w-full border border-blue-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none" onchange="renderWarLobbyForms('left')">
+                                            <option value="">-- Pilih Kelas --</option>
+                                            <option value="7A">7A</option>
+                                            <option value="7B">7B</option>
+                                            <option value="7C">7C</option>
+                                            <option value="7D">7D</option>
+                                            <option value="7E">7E</option>
+                                        </select>
+                                    </div>
+                                    <div id="war-players-left" class="space-y-2"></div>
+                                </div>
+
+                                <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                                    <h4 class="font-bold text-red-800 mb-3 text-sm border-b border-red-200 pb-2"><i class="fa-solid fa-shield mr-2"></i>Pasukan Merah</h4>
+                                    <div class="mb-3">
+                                        <label class="block text-xs font-semibold text-red-700 mb-1">Pilih Kelas</label>
+                                        <select id="war-class-right" class="w-full border border-red-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-red-500 outline-none" onchange="renderWarLobbyForms('right')">
+                                            <option value="">-- Pilih Kelas --</option>
+                                            <option value="7A">7A</option>
+                                            <option value="7B">7B</option>
+                                            <option value="7C">7C</option>
+                                            <option value="7D">7D</option>
+                                            <option value="7E">7E</option>
+                                        </select>
+                                    </div>
+                                    <div id="war-players-right" class="space-y-2"></div>
+                                </div>
+                            </div>
+
+                            <div id="war-lobby-error" class="hidden text-red-600 text-sm font-bold mb-4 bg-red-50 py-2 rounded-lg border border-red-200">
+                                Harap lengkapi pilihan kelas dan nama pemain!
+                            </div>
+
+                            <button onclick="startWarMatch()" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3.5 px-8 rounded-xl shadow-lg transition-transform transform hover:scale-[1.02] active:scale-95 text-lg">
+                                Mulai Pertempuran <i class="fa-solid fa-khanda ml-2 text-amber-300"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Game Header Bar -->
+                    <div class="bg-gradient-to-r from-slate-800 to-slate-900 p-3 md:p-4 text-white flex justify-between items-center z-30 shadow-md">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-slate-700/80 p-2 rounded-lg border border-slate-600">
+                                <i class="fa-solid fa-khanda text-amber-400 text-base"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-sm md:text-base font-bold font-heading">Duel Perang Gladiator Shalat</h3>
+                                <p class="text-[11px] text-slate-300">Benar = Menyerang | Salah = Tangkis</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span id="war-mode-display" class="px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-600 bg-slate-700 text-slate-100 shadow">
+                                <i class="fa-solid fa-users mr-1"></i> Mode Pemain
+                            </span>
+                            <button onclick="resetWarGame()" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200">
+                                <i class="fa-solid fa-rotate-left mr-1"></i> Ganti Pemain
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Arena Main Content -->
+                    <div class="flex flex-row flex-grow relative overflow-hidden h-[420px]">
+                        <!-- Left Panel -->
+                        <div id="war-panel-left" class="w-[30%] md:w-[28%] border-r border-slate-300 flex flex-col h-full bg-blue-50/90 z-20 relative shadow-md">
+                            <div class="p-2 text-center border-b border-blue-200 bg-blue-100">
+                                <span class="text-[10px] md:text-xs font-extrabold text-blue-800 uppercase bg-blue-50 px-2.5 py-1 rounded-full shadow-sm">Pasukan Biru</span>
+                            </div>
+                            <div class="flex-grow flex flex-col p-2 min-h-0 overflow-y-auto">
+                                <div class="flex-grow flex items-center justify-center py-2 min-h-[60px]">
+                                    <p id="war-q-left" class="text-xs md:text-sm font-semibold text-center text-slate-800 px-1">Menyiapkan soal...</p>
+                                </div>
+                                <div id="war-opts-left" class="grid grid-cols-1 gap-1.5 mt-auto pb-1"></div>
+                            </div>
+                        </div>
+
+                        <!-- Center Arena -->
+                        <div id="war-arena" class="w-[40%] md:w-[44%] relative flex items-center justify-center overflow-hidden z-10 border-x border-slate-300/50">
+                            <!-- Animated Sky -->
+                            <div class="absolute inset-0 bg-gradient-to-b from-sky-600 via-sky-400 to-amber-300/60 z-0"></div>
+                            <!-- Clouds -->
+                            <div class="absolute top-6 left-[5%] text-white/30 text-2xl war-cloud-drift"><i class="fa-solid fa-cloud"></i></div>
+                            <div class="absolute top-14 right-[10%] text-white/20 text-lg war-cloud-drift" style="animation-delay:-3s"><i class="fa-solid fa-cloud"></i></div>
+                            <!-- Ground -->
+                            <div class="absolute bottom-0 w-full h-[42%] z-[1]">
+                                <div class="absolute inset-0 bg-gradient-to-b from-amber-600 via-amber-700 to-stone-700"></div>
+                                <div class="absolute top-0 w-full h-2 bg-green-700/50"></div>
+                                <div class="absolute inset-0 opacity-20" style="background-image:repeating-radial-gradient(circle at 20% 50%, transparent 0, transparent 2px, rgba(0,0,0,.1) 2px, transparent 3px)"></div>
+                            </div>
+                            
+                            <!-- HP Bars -->
+                            <div class="absolute top-3 left-3 right-3 z-40 flex justify-between items-start gap-2">
+                                <!-- Left HP -->
+                                <div class="w-1/2 flex flex-col gap-0.5">
+                                    <div class="flex items-center gap-1.5">
+                                        <div class="w-6 h-6 rounded-full bg-blue-700 border-2 border-yellow-400 flex items-center justify-center"><i class="fa-solid fa-shield-halved text-[8px] text-yellow-300"></i></div>
+                                        <span class="text-[9px] font-black text-white uppercase tracking-wider drop-shadow-lg">Pasukan Biru</span>
+                                    </div>
+                                    <div class="w-full h-5 bg-slate-900 rounded-md border-2 border-yellow-600/80 overflow-hidden shadow-lg relative">
+                                        <div id="war-hp-bar-left" class="h-full w-full transition-all duration-700 ease-out relative overflow-hidden" style="background: linear-gradient(90deg, #22c55e 0%, #22c55e 40%, #eab308 60%, #ef4444 100%); background-size: 100% 100%">
+                                            <div class="absolute inset-0 war-hp-shine"></div>
+                                        </div>
+                                        <span id="war-hp-text-left" class="absolute inset-0 flex items-center justify-center text-[9px] font-black text-white drop-shadow-md">100%</span>
+                                    </div>
+                                </div>
+                                <!-- VS Badge -->
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-yellow-400 to-amber-600 border-2 border-yellow-800 flex items-center justify-center shadow-lg mt-3">
+                                    <span class="text-[8px] font-black text-yellow-900">VS</span>
+                                </div>
+                                <!-- Right HP -->
+                                <div class="w-1/2 flex flex-col gap-0.5 items-end">
+                                    <div class="flex items-center gap-1.5">
+                                        <span class="text-[9px] font-black text-white uppercase tracking-wider drop-shadow-lg">Pasukan Merah</span>
+                                        <div class="w-6 h-6 rounded-full bg-red-700 border-2 border-yellow-400 flex items-center justify-center"><i class="fa-solid fa-shield-halved text-[8px] text-yellow-300"></i></div>
+                                    </div>
+                                    <div class="w-full h-5 bg-slate-900 rounded-md border-2 border-yellow-600/80 overflow-hidden shadow-lg relative">
+                                        <div id="war-hp-bar-right" class="h-full w-full transition-all duration-700 ease-out relative overflow-hidden" style="background: linear-gradient(270deg, #22c55e 0%, #22c55e 40%, #eab308 60%, #ef4444 100%); background-size: 100% 100%">
+                                            <div class="absolute inset-0 war-hp-shine"></div>
+                                        </div>
+                                        <span id="war-hp-text-right" class="absolute inset-0 flex items-center justify-center text-[9px] font-black text-white drop-shadow-md">100%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Left Warrior -->
+                            <div id="war-char-left" class="character absolute left-[8%] md:left-[12%] bottom-[30%] transition-transform z-10 war-idle-breathe">
+                                <svg width="100" height="120" viewBox="0 0 120 140" class="drop-shadow-xl">
+                                    <ellipse cx="60" cy="138" rx="30" ry="5" fill="rgba(0,0,0,.2)" />
+                                    <path d="M42 105 L38 135 L48 135 L50 105 Z" fill="#1e3a8a" />
+                                    <path d="M70 105 L72 135 L82 135 L78 105 Z" fill="#1e3a8a" />
+                                    <rect x="35" y="130" width="16" height="8" rx="3" fill="#78350f" />
+                                    <rect x="69" y="130" width="16" height="8" rx="3" fill="#78350f" />
+                                    <path d="M38 90 L82 90 L86 110 L34 110 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1"/>
+                                    <path d="M36 50 L84 50 L82 92 L38 92 Z" fill="#3b82f6" stroke="#1d4ed8" stroke-width="2"/>
+                                    <rect x="52" y="38" width="16" height="14" rx="3" fill="#d4a76a" />
+                                    <circle cx="60" cy="30" r="16" fill="#d4a76a" />
+                                    <ellipse cx="54" cy="30" rx="2.5" ry="3" fill="white" />
+                                    <ellipse cx="66" cy="30" rx="2.5" ry="3" fill="white" />
+                                    <circle cx="55" cy="30" r="1.5" fill="#1e293b" />
+                                    <circle cx="67" cy="30" r="1.5" fill="#1e293b" />
+                                    <path d="M38 28 Q40 8 60 5 Q80 8 82 28 L80 36 L40 36 Z" fill="#94a3b8" stroke="#64748b" stroke-width="2"/>
+                                    <path d="M56 5 Q60 -8 64 5" fill="none" stroke="#1e40af" stroke-width="6" stroke-linecap="round"/>
+                                    <!-- Pedang Kanan -->
+                                    <g transform="translate(85, 45) rotate(25)">
+                                        <rect x="-3" y="-35" width="6" height="40" rx="2" fill="#e2e8f0" stroke="#94a3b8"/>
+                                        <rect x="-10" y="5" width="20" height="4" rx="1" fill="#d97706"/>
+                                        <rect x="-2" y="9" width="4" height="12" rx="1" fill="#78350f"/>
+                                    </g>
+                                    <!-- Perisai Kiri -->
+                                    <ellipse cx="28" cy="70" rx="16" ry="24" fill="#1e40af" stroke="#fbbf24" stroke-width="3"/>
+                                </svg>
+                            </div>
+
+                            <!-- Right Warrior -->
+                            <div id="war-char-right" class="character absolute right-[8%] md:right-[12%] bottom-[30%] transition-transform z-10 war-idle-breathe" style="animation-delay:-.5s">
+                                <svg width="100" height="120" viewBox="0 0 120 140" class="drop-shadow-xl" style="transform: scaleX(-1);">
+                                    <ellipse cx="60" cy="138" rx="30" ry="5" fill="rgba(0,0,0,.2)" />
+                                    <path d="M42 105 L38 135 L48 135 L50 105 Z" fill="#991b1b" />
+                                    <path d="M70 105 L72 135 L82 135 L78 105 Z" fill="#991b1b" />
+                                    <rect x="35" y="130" width="16" height="8" rx="3" fill="#78350f" />
+                                    <rect x="69" y="130" width="16" height="8" rx="3" fill="#78350f" />
+                                    <path d="M38 90 L82 90 L86 110 L34 110 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1"/>
+                                    <path d="M36 50 L84 50 L82 92 L38 92 Z" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/>
+                                    <rect x="52" y="38" width="16" height="14" rx="3" fill="#d4a76a" />
+                                    <circle cx="60" cy="30" r="16" fill="#d4a76a" />
+                                    <ellipse cx="54" cy="30" rx="2.5" ry="3" fill="white" />
+                                    <ellipse cx="66" cy="30" rx="2.5" ry="3" fill="white" />
+                                    <circle cx="55" cy="30" r="1.5" fill="#1e293b" />
+                                    <circle cx="67" cy="30" r="1.5" fill="#1e293b" />
+                                    <path d="M38 28 Q40 8 60 5 Q80 8 82 28 L80 36 L40 36 Z" fill="#94a3b8" stroke="#64748b" stroke-width="2"/>
+                                    <path d="M56 5 Q60 -8 64 5" fill="none" stroke="#991b1b" stroke-width="6" stroke-linecap="round"/>
+                                    <!-- Pedang Kanan -->
+                                    <g transform="translate(85, 45) rotate(25)">
+                                        <rect x="-3" y="-35" width="6" height="40" rx="2" fill="#e2e8f0" stroke="#94a3b8"/>
+                                        <rect x="-10" y="5" width="20" height="4" rx="1" fill="#d97706"/>
+                                        <rect x="-2" y="9" width="4" height="12" rx="1" fill="#78350f"/>
+                                    </g>
+                                    <!-- Perisai Kiri -->
+                                    <ellipse cx="28" cy="70" rx="16" ry="24" fill="#991b1b" stroke="#fbbf24" stroke-width="3"/>
+                                </svg>
+                            </div>
+
+                            <!-- Clash Effects -->
+                            <div id="war-clash-fx" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 pointer-events-none opacity-0 transition-opacity duration-100">
+                                <div class="w-16 h-16 rounded-full bg-amber-400/40 blur-md"></div>
+                            </div>
+                        </div>
+
+                        <!-- Right Panel -->
+                        <div id="war-panel-right" class="w-[30%] md:w-[28%] border-l border-slate-300 flex flex-col h-full bg-red-50/90 z-20 relative shadow-md">
+                            <div class="p-2 text-center border-b border-red-200 bg-red-100">
+                                <span class="text-[10px] md:text-xs font-extrabold text-red-800 uppercase bg-red-50 px-2.5 py-1 rounded-full shadow-sm">Pasukan Merah</span>
+                            </div>
+                            <div class="flex-grow flex flex-col p-2 min-h-0 overflow-y-auto">
+                                <div class="flex-grow flex items-center justify-center py-2 min-h-[60px]">
+                                    <p id="war-q-right" class="text-xs md:text-sm font-semibold text-center text-slate-800 px-1">Menyiapkan soal...</p>
+                                </div>
+                                <div id="war-opts-right" class="grid grid-cols-1 gap-1.5 mt-auto pb-1"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Winner Overlay -->
+                    <div id="war-winner-overlay" class="hidden absolute inset-0 z-50 bg-slate-900/90 flex flex-col items-center justify-center p-6 text-center animate-fadeIn">
+                        <div class="w-20 h-20 rounded-full bg-amber-400/20 text-amber-400 flex items-center justify-center text-4xl mb-4 animate-bounce">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <h2 id="war-winner-name" class="text-3xl md:text-4xl font-black text-white mb-2 font-heading drop-shadow-md">PASUKAN BIRU MENANG!</h2>
+                        <p class="text-slate-300 text-sm max-w-md mx-auto mb-6">Pertempuran sengit fikih shalat telah usai. Nilai pemenang berhasil dicatat!</p>
+                        <button onclick="resetWarGame()" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform active:scale-95 flex items-center gap-2">
+                            <i class="fa-solid fa-rotate-right"></i> Main Lagi
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= QUIZ CBT SECTION ================= -->
+        <section id="latihan" class="py-16 bg-slate-100 border-t border-slate-200 relative overflow-hidden">
+            <div id="exam-watermark" class="student-watermark hidden"></div>
+            <div class="container mx-auto px-4 max-w-4xl relative z-10">
+                <div class="text-center mb-10">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-100 text-red-700 mb-2">
+                        <i class="fa-solid fa-shield-halved"></i> Ujian Diawasi Sistem
+                    </span>
+                    <h2 class="text-3xl font-bold text-slate-800 font-heading mb-2">Uji Kompetensi Fikih: Shalat Fardhu</h2>
+                    <p class="text-sm text-slate-500">Kerjakan 15 butir soal pilihan ganda untuk merekam nilai pemahaman akhirmu ke database sekolah.</p>
+                </div>
+
+                <!-- Form Login Siswa -->
+                <div id="quiz-login" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 relative max-w-2xl mx-auto">
+                    <div id="auth-status" class="absolute top-6 right-6 text-xs font-semibold text-slate-400 flex items-center">
+                        <i class="fa-solid fa-circle-notch fa-spin mr-2"></i> <span class="b64t" data-b="TWVuZ2h1YnVuZ2thbi4uLg=="></span>
+                    </div>
+                    
+                    <div class="mb-8 text-center">
+                        <div class="w-14 h-14 bg-teal-50 rounded-full flex items-center justify-center mx-auto text-teal-600 text-2xl mb-4">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 font-heading b64t" data-b="RGF0YSBTaXN3YQ=="></h3>
+                        <p class="text-sm text-slate-500 b64t" data-b="TGVuZ2thcGkgZGF0YSBkaXJpIHNlYmVsdW0gbWVtdWxhaSBwZW5nZXJqYWFuLg=="></p>
+                    </div>
+
+                    <div id="banned-alert" class="hidden bg-red-50 border border-red-200 text-red-700 p-5 mb-6 rounded-xl text-sm relative">
+                        <div class="font-bold mb-2 flex items-center text-base"><i class="fa-solid fa-ban mr-2"></i> <span class="b64t" data-b="QWtzZXMgUGVyYW5na2F0IERpYmxva2ly"></span></div>
+                        <p class="mb-4 b64t" data-b="UGVyYW5na2F0IGluaSBkaWt1bmNpIGthcmVuYSB0ZXJkZXRla3NpIGtlY3VyYW5nYW4uIEh1YnVuZ2kgcGVuZ2F3YXMu"></p>
+                        <button onclick="promptUnblock()" class="w-full sm:w-auto bg-red-100 hover:bg-red-200 text-red-800 font-bold py-2 px-4 rounded-lg text-xs transition border border-red-300 flex justify-center items-center">
+                            <i class="fa-solid fa-unlock-keyhole mr-2"></i> <span class="b64t" data-b="QnVrYSBCbG9raXI="></span>
+                        </button>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-slate-700 text-sm font-semibold mb-1.5 b64t" data-b="TmFtYSBMZW5na2Fw"></label>
+                            <input type="text" id="student-name" class="b64p w-full p-3.5 border border-slate-300 rounded-xl outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white relative z-20" data-b="Q29udG9oOiBBaG1hZCBTYW50b3Nv">
+                        </div>
+                        <div>
+                            <label class="block text-slate-700 text-sm font-semibold mb-1.5 b64t" data-b="S2VsYXM="></label>
+                            <input type="text" id="student-class" class="b64p w-full p-3.5 border border-slate-300 rounded-xl outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 bg-white relative z-20" data-b="Q29udG9oOiA3QQ==">
+                        </div>
+                        <button id="start-btn" onclick="startQuiz()" disabled class="w-full bg-slate-300 text-slate-500 font-medium py-3.5 rounded-xl cursor-not-allowed transition mt-4 relative z-20">
+                            <span class="b64t" data-b="TWVtdWF0IFNpc3RlbS4uLg=="></span>
+                        </button>
+                        <p id="auth-error-msg" class="text-red-500 text-xs text-center hidden b64t" data-b="R2FnYWwgdGVyaHVidW5nIGtlIGRhdGFiYXNlLg=="></p>
+                    </div>
+                </div>
+
+                <!-- Quiz Container -->
+                <div id="quiz-container" class="hidden space-y-6 relative">
+                    <div id="quiz-lock-overlay" class="hidden absolute inset-0 bg-white/90 backdrop-blur-sm z-50 flex flex-col items-center justify-center rounded-xl p-4 text-center">
+                        <div class="bg-red-600 text-white px-6 py-4 rounded-xl font-bold shadow-lg flex items-center gap-3 mb-6">
+                            <i class="fa-solid fa-lock text-2xl"></i> <span class="b64t" data-b="VUpJQU4gRElLVU5DSQ=="></span>
+                        </div>
+                        <p class="text-slate-800 font-medium mb-4 b64t" data-b="UGVyYW5na2F0IGluaSBkaWJsb2tpciBrYXJlbmEgbWVsYWt1a2FuIHBlbGFuZ2dhcmFuIGJlcmthbGkta2FsaS4="></p>
+                        <button onclick="promptUnblock()" class="bg-white text-red-600 hover:text-red-700 font-bold py-3 px-6 rounded-xl shadow-md border border-red-200 hover:bg-red-50 transition flex items-center gap-2">
+                            <i class="fa-solid fa-unlock-keyhole"></i> <span class="b64t" data-b="QnVrYSBCbG9raXIgKEd1cnUp"></span>
+                        </button>
+                    </div>
+
+                    <div class="bg-teal-800 text-white p-4 rounded-xl flex justify-between items-center shadow-sm relative z-20">
+                        <div class="font-medium text-sm flex items-center">
+                            <i class="fa-solid fa-circle-user mr-2 text-teal-300 text-lg"></i>
+                            <span><span id="display-name" class="font-bold">---</span> (<span id="display-class">---</span>)</span>
+                        </div>
+                        <div id="violation-counter" class="bg-red-500/20 px-3 py-1 rounded-md text-xs font-semibold border border-red-500 text-red-100 hidden">
+                            <i class="fa-solid fa-warning mr-1"></i> <span class="b64t" data-b="UGVsYW5nZ2FyYW46"></span> <span id="v-count">0</span>/3
+                        </div>
+                    </div>
+
+                    <form id="quiz-form" class="space-y-6 relative z-20"></form>
+
+                    <div class="pt-6 relative z-20 max-w-2xl mx-auto">
+                        <button type="button" id="submit-btn" onclick="preSubmitCheck()" class="w-full bg-amber-500 hover:bg-amber-600 text-teal-950 font-semibold py-4 rounded-xl shadow-sm transition flex justify-center items-center gap-2">
+                            <i class="fa-solid fa-paper-plane text-sm"></i> <span class="b64t" data-b="S2lyaW0gSmF3YWJhbg=="></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= CONTENT MODAL ================= -->
+    <div id="content-modal" class="fixed inset-0 z-[9999] hidden flex items-center justify-center px-4" style="background-color: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px);">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col relative animate-fadeIn">
+            <div id="modal-header" class="p-5 md:p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50 rounded-t-2xl">
+                <h3 id="modal-title" class="text-lg md:text-xl font-bold font-heading text-slate-800 flex items-center gap-3">
+                    Judul Modul
+                </h3>
+                <button onclick="closeContentModal()" class="w-8 h-8 rounded-full bg-white border border-slate-200 text-slate-500 hover:text-red-500 hover:border-red-200 flex items-center justify-center transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="modal-body" class="p-5 md:p-8 overflow-y-auto">
+                Konten Modul
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Custom Modal -->
+    <div id="custom-modal" class="hidden fixed inset-0 z-[10002] flex items-center justify-center modal-backdrop px-4">
+        <div class="bg-white rounded-2xl shadow-xl p-8 max-w-sm w-full modal-content border border-slate-100 text-center relative flex flex-col items-center">
+            <div id="modal-icon-container" class="w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4 bg-slate-50 text-2xl">
+                <i class="fa-solid fa-bell text-slate-500"></i>
+            </div>
+            <h3 id="cmodal-title" class="text-xl font-bold text-slate-800 mb-2 font-heading"></h3>
+            <div id="cmodal-body" class="text-slate-600 w-full text-sm mb-6 leading-relaxed"></div>
+            <div id="cmodal-actions" class="flex flex-col gap-2 w-full"></div>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="w-full bg-teal-950 text-teal-200 py-10 border-t border-teal-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <a href="../../" target="_top" class="inline-flex items-center justify-center gap-3 mb-4 text-white hover:opacity-80 transition-opacity">
+                <div class="w-7 h-7 rounded-lg bg-teal-600 flex items-center justify-center text-white">
+                    <i class="fa-solid fa-book-open text-xs"></i>
+                </div>
+                <span class="font-heading font-bold text-xl tracking-wide">Belajar<span class="text-teal-500">Online</span></span>
+            </a>
+            <p class="text-sm text-teal-400/80 max-w-md mx-auto mb-8">
+                Sistem Pembelajaran Digital MTs Negeri 6 Demak. Memudahkan Guru dan Siswa dalam Mencapai Tujuan Pembelajaran Fikih.
+            </p>
+            <div class="pt-6 border-t border-teal-900/50 text-xs text-teal-500">
+                <p>&copy; 2026 Ahmad Zulfikar, S.Pd. - MTs Negeri 6 Demak</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= IMPORT DATA SISWA & FIREBASE ================= -->
+    <script type="module">
+        import dataSiswa from "../../data-siswa.js?v=2";
+        import { initializeApp, getAuth, signInAnonymously, onAuthStateChanged, getFirestore, collection, addDoc } from "../../firebase-mock.js";
+
+        window.masterDataSiswa = dataSiswa;
+
+        const firebaseConfig = {
+            authDomain: "belajaronline-b5512.firebaseapp.com",
+            projectId: "belajaronline-b5512",
+            storageBucket: "belajaronline-b5512.firebasestorage.app",
+            messagingSenderId: "896107581081",
+            appId: "1:896107581081:web:629056c097c90fdf583208"
+        };
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const appId = 'belajaronline-b5512';
+        const COLLECTION_NAME = 'scores_2026';
+
+        window.submitGameScores = async function(players, gameModeName) {
+            try {
+                if (!auth.currentUser) await signInAnonymously(auth);
+                for (let p of players) {
+                    await addDoc(collection(db, 'artifacts', appId, 'public', 'data', COLLECTION_NAME), {
+                        name: p.name, 
+                        kelas: p.kelas, 
+                        score: p.score, 
+                        materi: gameModeName, 
+                        type: 'Mini Game', 
+                        date: new Date().toLocaleDateString('id-ID'), 
+                        timestamp: Date.now(), 
+                        details: [], 
+                        uid: auth.currentUser.uid, 
+                        isBanned: false
+                    });
+                }
+                console.log("Skor mini game berhasil disimpan!");
+            } catch (e) {
+                console.error("Gagal simpan skor Firebase:", e);
+            }
+        };
+
+        // Window expose for CBT Quiz
+        window.quizAuth = auth;
+        window.quizDb = db;
+        window.quizAppId = appId;
+        window.quizCollection = COLLECTION_NAME;
+        window.quizAddDoc = addDoc;
+        window.quizCollectionFn = collection;
+        window.quizSignIn = signInAnonymously;
+    </script>
+
+    <!-- ================= SCRIPTS & GAME LOGIC ================= -->
+    <script>
+        // Modal Open / Close Logic
+        function openContentModal(templateId) {
+            const template = document.getElementById(templateId);
+            if (!template) return;
+            
+            const title = template.getAttribute('data-title');
+            const icon = template.getAttribute('data-icon');
+            const color = template.getAttribute('data-color') || 'teal';
+            
+            const titleEl = document.getElementById('modal-title');
+            titleEl.innerHTML = `<i class="fa-solid ${icon} text-${color}-600"></i> <span>${title}</span>`;
+            
+            const bodyEl = document.getElementById('modal-body');
+            bodyEl.innerHTML = '';
+            bodyEl.appendChild(template.content.cloneNode(true));
+            
+            const modal = document.getElementById('content-modal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeContentModal() {
+            const modal = document.getElementById('content-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('content-modal')?.addEventListener('click', function(e) {
+            if (e.target === this) closeContentModal();
+        });
+
+        // --- DATA NIAT 5 WAKTU ---
+        const niatData = {
+            subuh: {
+                title: "Shalat Subuh (2 Rakaat)",
+                munfarid: {
+                    arab: "أُصَلِّي فَرْضَ الصُّبْحِ رَكْعَتَيْنِ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلهِ تَعَالَى",
+                    latin: "Ushallii fardhash-shubhi rak'ataini mustaqbilal qiblati adaa-an lillaahi Ta'aalaa.",
+                    arti: "Aku berniat shalat fardhu Subuh dua rakaat menghadap kiblat, tunai karena Allah Ta'ala."
+                },
+                makmum: {
+                    arab: "أُصَلِّي فَرْضَ الصُّبْحِ رَكْعَتَيْنِ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً مَأْمُوْمًا لِلهِ تَعَالَى",
+                    latin: "Ushallii fardhash-shubhi rak'ataini mustaqbilal qiblati adaa-an ma'muuman lillaahi Ta'aalaa.",
+                    arti: "Aku berniat shalat fardhu Subuh dua rakaat menghadap kiblat sebagai makmum karena Allah Ta'ala."
+                }
+            },
+            dzuhur: {
+                title: "Shalat Dzuhur (4 Rakaat)",
+                munfarid: {
+                    arab: "أُصَلِّي فَرْضَ الظُّهْرِ أَرْبَعَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلهِ تَعَالَى",
+                    latin: "Ushallii fardhazh-zhuhri arba'a raka'aatin mustaqbilal qiblati adaa-an lillaahi Ta'aalaa.",
+                    arti: "Aku berniat shalat fardhu Dzuhur empat rakaat menghadap kiblat, tunai karena Allah Ta'ala."
+                },
+                makmum: {
+                    arab: "أُصَلِّي فَرْضَ الظُّهْرِ أَرْبَعَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً مَأْمُوْمًا لِلهِ تَعَالَى",
+                    latin: "Ushallii fardhazh-zhuhri arba'a raka'aatin mustaqbilal qiblati adaa-an ma'muuman lillaahi Ta'aalaa.",
+                    arti: "Aku berniat shalat fardhu Dzuhur empat rakaat menghadap kiblat sebagai makmum karena Allah Ta'ala."
+                }
+            },
+            ashar: {
+                title: "Shalat Ashar (4 Rakaat)",
+                munfarid: {
+                    arab: "أُصَلِّي فَرْضَ الْعَصْرِ أَرْبَعَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلهِ تَعَالَى",
+                    latin: "Ushallii fardhal 'ashri arba'a raka'aatin mustaqbilal qiblati adaa-an lillaahi Ta'aalaa.",
+                    arti: "Aku berniat shalat fardhu Ashar empat rakaat menghadap kiblat, tunai karena Allah Ta'ala."
+                },
+                makmum: {
+                    arab: "أُصَلِّي فَرْضَ الْعَصْرِ أَرْبَعَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً مَأْمُوْمًا لِلهِ تَعَالَى",
+                    latin: "Ushallii fardhal 'ashri arba'a raka'aatin mustaqbilal qiblati adaa-an ma'muuman lillaahi Ta'aalaa.",
+                    arti: "Aku berniat shalat fardhu Ashar empat rakaat menghadap kiblat sebagai makmum karena Allah Ta'ala."
+                }
+            },
+            maghrib: {
+                title: "Shalat Maghrib (3 Rakaat)",
+                munfarid: {
+                    arab: "أُصَلِّي فَرْضَ الْمَغْرِبِ ثَلَاثَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلهِ تَعَالَى",
+                    latin: "Ushallii fardhal maghribi tsalaatsa raka'aatin mustaqbilal qiblati adaa-an lillaahi Ta'aalaa.",
+                    arti: "Aku berniat shalat fardhu Maghrib tiga rakaat menghadap kiblat, tunai karena Allah Ta'ala."
+                },
+                makmum: {
+                    arab: "أُصَلِّي فَرْضَ الْمَغْرِبِ ثَلَاثَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً مَأْمُوْمًا لِلهِ تَعَالَى",
+                    latin: "Ushallii fardhal maghribi tsalaatsa raka'aatin mustaqbilal qiblati adaa-an ma'muuman lillaahi Ta'aalaa.",
+                    arti: "Aku berniat shalat fardhu Maghrib tiga rakaat menghadap kiblat sebagai makmum karena Allah Ta'ala."
+                }
+            },
+            isya: {
+                title: "Shalat Isya' (4 Rakaat)",
+                munfarid: {
+                    arab: "أُصَلِّي فَرْضَ الْعِشَاءِ أَرْبَعَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً لِلهِ تَعَالَى",
+                    latin: "Ushallii fardhal 'isyaa-i arba'a raka'aatin mustaqbilal qiblati adaa-an lillaahi Ta'aalaa.",
+                    arti: "Aku berniat shalat fardhu Isya' empat rakaat menghadap kiblat, tunai karena Allah Ta'ala."
+                },
+                makmum: {
+                    arab: "أُصَلِّي فَرْضَ الْعِشَاءِ أَرْبَعَ رَكَعَاتٍ مُسْتَقْبِلَ الْقِبْلَةِ أَدَاءً مَأْمُوْمًا لِلهِ تَعَالَى",
+                    latin: "Ushallii fardhal 'isyaa-i arba'a raka'aatin mustaqbilal qiblati adaa-an ma'muuman lillaahi Ta'aalaa.",
+                    arti: "Aku berniat shalat fardhu Isya' empat rakaat menghadap kiblat sebagai makmum karena Allah Ta'ala."
+                }
+            }
+        };
+
+        function showPrayerNiat(key, btn) {
+            document.querySelectorAll('.niat-tab-btn').forEach(b => {
+                b.classList.remove('bg-amber-500', 'text-teal-950', 'shadow-md', 'active-niat-tab');
+                b.classList.add('bg-teal-900/80', 'text-teal-200', 'border', 'border-teal-700');
+            });
+            btn.classList.add('bg-amber-500', 'text-teal-950', 'shadow-md', 'active-niat-tab');
+            btn.classList.remove('bg-teal-900/80', 'text-teal-200', 'border', 'border-teal-700');
+
+            const data = niatData[key];
+            const area = document.getElementById('niat-content-area');
+            area.innerHTML = `
+                <div class="border-b border-slate-200 pb-4 text-center">
+                    <span class="text-xs font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-3 py-1 rounded-full border border-teal-100">Lafal Niat</span>
+                    <h3 class="text-xl md:text-2xl font-bold text-slate-800 font-heading mt-2">${data.title}</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                        <div>
+                            <span class="inline-block px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-lg mb-4">1. Shalat Sendirian (Munfarid)</span>
+                            <p class="arabic-text text-xl md:text-2xl text-slate-800 font-bold mb-4 text-right leading-loose">${data.munfarid.arab}</p>
+                            <p class="text-teal-700 italic text-xs md:text-sm font-medium mb-2">${data.munfarid.latin}</p>
+                        </div>
+                        <p class="text-slate-600 text-xs md:text-sm border-t border-slate-200 pt-3 mt-4">"${data.munfarid.arti}"</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between">
+                        <div>
+                            <span class="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg mb-4">2. Sebagai Makmum (Berjamaah)</span>
+                            <p class="arabic-text text-xl md:text-2xl text-slate-800 font-bold mb-4 text-right leading-loose">${data.makmum.arab}</p>
+                            <p class="text-teal-700 italic text-xs md:text-sm font-medium mb-2">${data.makmum.latin}</p>
+                        </div>
+                        <p class="text-slate-600 text-xs md:text-sm border-t border-slate-200 pt-3 mt-4">"${data.makmum.arti}"</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ================= TES DIAGNOSTIK (SOAL MUDAH & PENGETAHUAN UMUM) =================
+        const diagnosticBank = [
+            { q: "Berapa jumlah waktu shalat fardhu yang wajib dikerjakan oleh umat Islam dalam sehari semalam?", opts: ["5 Waktu", "3 Waktu", "4 Waktu", "7 Waktu"], a: 0 },
+            { q: "Shalat fardhu apa yang dikerjakan pada waktu pagi hari sebelum matahari terbit?", opts: ["Shalat Subuh", "Shalat Dzuhur", "Shalat Ashar", "Shalat Isya'"], a: 0 },
+            { q: "Ketika hendak melaksanakan shalat, seluruh umat Islam menghadap ke arah...", opts: ["Kiblat (Ka'bah di Makkah)", "Arah matahari terbit", "Arah angin laut", "Arah kutub utara"], a: 0 },
+            { q: "Sebelum mendirikan shalat, kita diwajibkan untuk membersihkan diri dari hadas kecil dengan cara...", opts: ["Berwudhu", "Mencuci muka saja", "Mengganti pakaian", "Memakai minyak wangi"], a: 0 },
+            { q: "Seruan atau panggilan yang berkumandang dari masjid sebagai tanda masuknya waktu shalat disebut...", opts: ["Adzan", "Iqamah", "Takbiran", "Tadarus"], a: 0 },
+            { q: "Shalat fardhu yang memiliki jumlah 3 rakaat dikerjakan saat matahari terbenam adalah...", opts: ["Shalat Maghrib", "Shalat Subuh", "Shalat Dzuhur", "Shalat Ashar"], a: 0 },
+            { q: "Tempat ibadah utama yang biasa digunakan umat Islam untuk melaksanakan shalat berjamaah adalah...", opts: ["Masjid atau Mushalla", "Aula sekolah", "Lapangan terbuka", "Ruang kelas"], a: 0 },
+            { q: "Orang yang memimpin jalannya shalat berjamaah di barisan paling depan disebut...", opts: ["Imam", "Makmum", "Muadzin", "Khatib"], a: 0 },
+            { q: "Shalat Dzuhur dan Shalat Ashar masing-masing terdiri dari jumlah rakaat sebanyak...", opts: ["4 Rakaat", "2 Rakaat", "3 Rakaat", "5 Rakaat"], a: 0 },
+            { q: "Gerakan shalat membungkukkan badan dengan meletakkan kedua tangan di lutut disebut gerakan...", opts: ["Ruku'", "I'tidal", "Sujud", "Duduk tasyahud"], a: 0 },
+            { q: "Mengucapkan kalimat 'Allahu Akbar' saat mengawali shalat dinamakan ucapan...", opts: ["Takbir", "Tahmid", "Tasbih", "Tahlil"], a: 0 },
+            { q: "Berapakah jumlah rakaat yang dikerjakan pada Shalat Subuh?", opts: ["2 Rakaat", "3 Rakaat", "4 Rakaat", "1 Rakaat"], a: 0 },
+            { q: "Gerakan shalat dengan menempelkan dahi, hidung, dan kedua telapak tangan ke tempat sujud disebut...", opts: ["Sujud", "Ruku'", "I'tidal", "Salam"], a: 0 },
+            { q: "Di bagian akhir shalat, kita mengucapkan kalimat salam sambil menolehkan kepala ke arah...", opts: ["Kanan dan Kiri", "Atas dan Bawah", "Depan dan Belakang", "Dada dan Perut"], a: 0 },
+            { q: "Shalat yang dilaksanakan bersama-sama oleh dua orang atau lebih disebut shalat...", opts: ["Berjamaah", "Munfarid", "Sendirian", "Khusus"], a: 0 }
+        ];
+
+        let currentDiagQuestions = [];
+
+        function renderDiagnosticQuestions() {
+            const shuffled = [...diagnosticBank].sort(() => 0.5 - Math.random());
+            currentDiagQuestions = shuffled.slice(0, 5);
+            
+            const container = document.getElementById('diag-questions-container');
+            container.innerHTML = currentDiagQuestions.map((q, idx) => `
+                <div class="bg-slate-50/70 p-5 rounded-xl border border-slate-200">
+                    <p class="font-bold text-slate-800 text-sm md:text-base mb-3 leading-relaxed">
+                        <span class="text-teal-600 mr-1">${idx + 1}.</span> ${q.q}
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        ${q.opts.map((opt, oIdx) => `
+                            <label class="flex items-center p-3 bg-white rounded-lg border border-slate-200 hover:border-teal-500 hover:bg-teal-50/40 cursor-pointer text-xs md:text-sm transition-all">
+                                <input type="radio" name="diag_q${idx}" value="${oIdx}" class="text-teal-600 mr-3 focus:ring-teal-500">
+                                <span class="text-slate-700 font-medium">${opt}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function submitDiagnostic() {
+            let answered = 0;
+            let score = 0;
+            for (let i = 0; i < 5; i++) {
+                const selected = document.querySelector(`input[name="diag_q${i}"]:checked`);
+                if (selected) {
+                    answered++;
+                    if (parseInt(selected.value) === currentDiagQuestions[i].a) score += 20;
+                }
+            }
+
+            if (answered < 5) {
+                document.getElementById('diag-warning').classList.remove('hidden');
+                return;
+            }
+
+            document.getElementById('diag-warning').classList.add('hidden');
+            document.getElementById('diag-form').classList.add('hidden');
+            
+            const resultCard = document.getElementById('diag-result-card');
+            resultCard.classList.remove('hidden');
+            document.getElementById('diag-score-badge').classList.remove('hidden');
+            document.getElementById('diag-score').textContent = score;
+
+            const icon = document.getElementById('diag-result-icon');
+            const title = document.getElementById('diag-result-title');
+            const desc = document.getElementById('diag-result-desc');
+
+            if (score === 100) {
+                icon.innerHTML = '<i class="fa-solid fa-trophy text-amber-500"></i>';
+                title.textContent = 'Pemahaman Awal Sangat Baik!';
+                desc.textContent = 'Kamu sudah sangat mengenal ibadah shalat sehari-hari dengan tepat. Yuk pelajari modul di bawah untuk memperdalam rincian rukun, syarat, dan sunnahnya!';
+            } else if (score >= 60) {
+                icon.innerHTML = '<i class="fa-solid fa-thumbs-up text-teal-600"></i>';
+                title.textContent = 'Bagus Sekali!';
+                desc.textContent = 'Dasar pemahamanmu sudah cukup baik. Baca 6 modul di bawah agar pemahaman fikih shalatmu semakin sempurna!';
+            } else {
+                icon.innerHTML = '<i class="fa-solid fa-book-open-reader text-blue-500"></i>';
+                title.textContent = 'Ayo Belajar Bersama!';
+                desc.textContent = 'Jangan khawatir, modul interaktif Shalat Fardhu di bawah ini akan memandumu memahami tata cara shalat dengan mudah dan menyenangkan.';
+            }
+        }
+
+        function resetDiagnostic() {
+            document.getElementById('diag-form').reset();
+            renderDiagnosticQuestions();
+            document.getElementById('diag-form').classList.remove('hidden');
+            document.getElementById('diag-result-card').classList.add('hidden');
+            document.getElementById('diag-score-badge').classList.add('hidden');
+        }
+
+        // ================= GLOBAL HELPER DATA SISWA UNTUK GAMES =================
+        function populateStudentSelect(gameKey) {
+            const classSelect = document.getElementById(`${gameKey}-class-select`);
+            const studentSelect = document.getElementById(`${gameKey}-student-select`);
+            studentSelect.innerHTML = '<option value="">-- Pilih Siswa --</option>';
+            
+            const selectedClass = classSelect.value;
+            if (!selectedClass || !window.masterDataSiswa || !window.masterDataSiswa[selectedClass]) return;
+
+            const list = window.masterDataSiswa[selectedClass];
+            list.forEach(name => {
+                const opt = document.createElement('option');
+                opt.value = name;
+                opt.textContent = name;
+                studentSelect.appendChild(opt);
+            });
+        }
+
+        function updatePlayerName(gameKey) {
+            const classVal = document.getElementById(`${gameKey}-class-select`).value;
+            const studentVal = document.getElementById(`${gameKey}-student-select`).value;
+            const display = document.getElementById(`${gameKey}-player-display`);
+
+            if (classVal && studentVal) {
+                display.innerHTML = `<span class="text-teal-700 font-bold">${studentVal}</span> <span class="bg-teal-100 text-teal-800 text-xs px-2 py-0.5 rounded-full ml-1 font-semibold">Kelas ${classVal}</span>`;
+            } else {
+                display.textContent = 'Belum memilih nama';
+            }
+        }
+
+        function getActivePlayer(gameKey) {
+            const classVal = document.getElementById(`${gameKey}-class-select`)?.value;
+            const studentVal = document.getElementById(`${gameKey}-student-select`)?.value;
+            if (classVal && studentVal) {
+                return { name: studentVal, kelas: classVal };
+            }
+            return null;
+        }
+
+        function switchGame(gameId) {
+            document.querySelectorAll('.game-panel').forEach(el => el.classList.add('hidden'));
+            document.getElementById('game-' + gameId).classList.remove('hidden');
+
+            document.querySelectorAll('.game-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-teal-600', 'text-white', 'shadow-lg', 'active-game-tab');
+                btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+            });
+            const activeBtn = document.getElementById('tab-' + gameId);
+            activeBtn.classList.add('bg-teal-600', 'text-white', 'shadow-lg', 'active-game-tab');
+            activeBtn.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+
+            if (gameId === 'war' && !warState.active) {
+                initWarGame();
+            }
+        }
+
+        // ================= GAME 1: SUSUN KATA (10 SOAL) =================
+        const scrambleWords = [
+            { word: "SHALAT", clue: "Ibadah wajib lima waktu yang menjadi tiang agama Islam" },
+            { word: "TAKBIROTUL", clue: "Takbir pertama yang menandai dimulainya shalat" },
+            { word: "TUMANINAH", clue: "Sikap tenang dan diam sejenak di antara dua gerakan shalat" },
+            { word: "FARDHUAIN", clue: "Hukum wajib shalat bagi setiap individu mukallaf" },
+            { word: "ISTIDAL", clue: "Bangkit dan berdiri tegak setelah melakukan gerakan ruku'" },
+            { word: "SUJUD", clue: "Gerakan menempelkan dahi dan hidung ke tempat shalat" },
+            { word: "TASYAHUD", clue: "Bacaan doa yang dibaca saat duduk tahiyyat" },
+            { word: "TERTIB", clue: "Mengerjakan semua rukun shalat secara berurutan" },
+            { word: "SUJUDSAHWI", clue: "Sujud penambal kekurangan akibat lupa sunnah ab'adh" },
+            { word: "KHUSYUK", clue: "Sikap ikhlas dan memusatkan pikiran hanya kepada Allah saat shalat" }
+        ];
+        let currentScrambleIdx = 0;
+        let scrambleSelected = [];
+        let scrambleScore = 0;
+
+        function initScrambleGame() {
+            currentScrambleIdx = 0;
+            scrambleScore = 0;
+            renderScrambleItem();
+        }
+
+        function renderScrambleItem() {
+            const item = scrambleWords[currentScrambleIdx];
+            const letters = item.word.split('').sort(() => 0.5 - Math.random());
+            scrambleSelected = [];
+
+            const area = document.getElementById('scramble-game-area');
+            area.innerHTML = `
+                <div class="bg-slate-50 p-5 md:p-6 rounded-2xl border border-slate-200 text-center">
+                    <div class="flex justify-between items-center text-xs font-bold text-teal-700 mb-3 border-b border-slate-200 pb-2">
+                        <span>SOAL ${currentScrambleIdx + 1} DARI ${scrambleWords.length}</span>
+                        <span>SKOR: ${scrambleScore}</span>
+                    </div>
+                    <p class="text-sm font-semibold text-slate-700 mb-6">Petunjuk: <span class="text-slate-900 font-bold italic">"${item.clue}"</span></p>
+                    
+                    <!-- Kotak Jawaban -->
+                    <div id="scramble-slots" class="flex flex-wrap items-center justify-center gap-2 mb-6 min-h-[48px]">
+                        ${item.word.split('').map(() => `<div class="w-9 h-9 md:w-11 md:h-11 border-2 border-dashed border-slate-300 rounded-lg flex items-center justify-center font-bold text-teal-700 text-base md:text-lg bg-white"></div>`).join('')}
+                    </div>
+
+                    <!-- Pilihan Huruf Acak -->
+                    <div id="scramble-pool" class="flex flex-wrap items-center justify-center gap-2 mb-6">
+                        ${letters.map((l) => `
+                            <button onclick="pickScrambleLetter('${l}', this)" class="w-9 h-9 md:w-11 md:h-11 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-lg shadow-sm text-base md:text-lg transition-transform active:scale-95">
+                                ${l}
+                            </button>
+                        `).join('')}
+                    </div>
+
+                    <div class="flex items-center justify-center gap-3">
+                        <button onclick="resetCurrentScramble()" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-lg text-xs font-bold transition">
+                            <i class="fa-solid fa-rotate-left mr-1"></i> Ulangi Huruf
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function pickScrambleLetter(letter, btn) {
+            btn.disabled = true;
+            btn.classList.add('opacity-30', 'pointer-events-none');
+            scrambleSelected.push({ letter, btn });
+
+            const targetWord = scrambleWords[currentScrambleIdx].word;
+            const slots = document.getElementById('scramble-slots').children;
+            
+            slots[scrambleSelected.length - 1].textContent = letter;
+            slots[scrambleSelected.length - 1].classList.remove('border-dashed', 'border-slate-300');
+            slots[scrambleSelected.length - 1].classList.add('border-teal-500', 'bg-teal-50');
+
+            if (scrambleSelected.length === targetWord.length) {
+                const formedWord = scrambleSelected.map(x => x.letter).join('');
+                if (formedWord === targetWord) {
+                    scrambleScore += 10;
+                    setTimeout(() => {
+                        if (currentScrambleIdx + 1 < scrambleWords.length) {
+                            currentScrambleIdx++;
+                            renderScrambleItem();
+                        } else {
+                            // Finish 10 questions
+                            const player = getActivePlayer('scramble');
+                            if (player && window.submitGameScores) {
+                                window.submitGameScores([{ name: player.name, kelas: player.kelas, score: scrambleScore }], "Mini Game Fiqih: Susun Kata Shalat");
+                            }
+                            alert(`🎉 Selamat! Kamu telah menyelesaikan semua 10 soal Susun Kata dengan total Skor: ${scrambleScore}!`);
+                            initScrambleGame();
+                        }
+                    }, 300);
+                } else {
+                    setTimeout(() => {
+                        alert("❌ Susunan huruf belum tepat. Ayo coba susun kembali!");
+                        resetCurrentScramble();
+                    }, 300);
+                }
+            }
+        }
+
+        function resetCurrentScramble() {
+            renderScrambleItem();
+        }
+
+        // ================= GAME 2: PASANGKAN ISTILAH (10 SOAL) =================
+        const matchPairs = [
+            { id: 1, left: "Shalat Subuh", right: "2 Rakaat, waktu fajar shadiq hingga terbit matahari" },
+            { id: 2, left: "Shalat Maghrib", right: "3 Rakaat, waktu matahari terbenam hingga hilang mega merah" },
+            { id: 3, left: "Rukun Qalbi", right: "Niat di dalam hati saat takbiratul ihram" },
+            { id: 4, left: "Rukun Qauli", right: "Al-Fatihah, Tasyahud Akhir, Shalawat & Salam" },
+            { id: 5, left: "Rukun Fi'li", right: "Berdiri, Ruku', I'tidal, Sujud dua kali, dan Duduk" },
+            { id: 6, left: "Sunnah Ab'adh", right: "Doa Qunut Subuh & Duduk Tasyahud Awal" },
+            { id: 7, left: "Sunnah Hai'at", right: "Membaca Doa Iftitah & Surah Pendek" },
+            { id: 8, left: "Aurat Laki-Laki", right: "Bagian tubuh antara pusar sampai kedua lutut" },
+            { id: 9, left: "Aurat Perempuan", right: "Seluruh tubuh kecuali muka & telapak tangan" },
+            { id: 10, left: "Pembatal Shalat", right: "Berbicara sengaja, berhadas, atau terkena najis" }
+        ];
+        let matchSelectedLeft = null;
+        let matchedCount = 0;
+
+        function initMatchGame() {
+            matchedCount = 0;
+            matchSelectedLeft = null;
+            document.getElementById('match-score-display').textContent = '0';
+            
+            const lefts = [...matchPairs].sort(() => 0.5 - Math.random());
+            const rights = [...matchPairs].sort(() => 0.5 - Math.random());
+
+            const area = document.getElementById('match-game-area');
+            area.innerHTML = `
+                <div class="space-y-2.5">
+                    <span class="text-xs font-bold text-slate-400 block mb-1 uppercase">KOLOM ISTILAH</span>
+                    ${lefts.map(item => `
+                        <button onclick="handleMatchLeft(${item.id}, this)" class="match-left-btn w-full p-3.5 bg-slate-50 hover:bg-teal-50 border border-slate-200 hover:border-teal-400 rounded-xl text-left font-bold text-slate-800 text-xs md:text-sm transition-all shadow-sm" data-id="${item.id}">
+                            ${item.left}
+                        </button>
+                    `).join('')}
+                </div>
+                <div class="space-y-2.5">
+                    <span class="text-xs font-bold text-slate-400 block mb-1 uppercase">KOLOM PENJELASAN</span>
+                    ${rights.map(item => `
+                        <button onclick="handleMatchRight(${item.id}, this)" class="match-right-btn w-full p-3.5 bg-slate-50 hover:bg-teal-50 border border-slate-200 hover:border-teal-400 rounded-xl text-left text-xs md:text-sm text-slate-700 transition-all shadow-sm" data-id="${item.id}">
+                            ${item.right}
+                        </button>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function handleMatchLeft(id, btn) {
+            document.querySelectorAll('.match-left-btn').forEach(b => b.classList.remove('bg-teal-600', 'text-white', 'border-teal-600'));
+            btn.classList.add('bg-teal-600', 'text-white', 'border-teal-600');
+            matchSelectedLeft = { id, btn };
+        }
+
+        function handleMatchRight(id, btn) {
+            if (!matchSelectedLeft) return;
+            if (matchSelectedLeft.id === id) {
+                // Correct match
+                matchSelectedLeft.btn.className = "match-left-btn w-full p-3.5 bg-emerald-500 text-white border-emerald-600 rounded-xl text-left font-bold text-xs md:text-sm shadow-sm pointer-events-none";
+                btn.className = "match-right-btn w-full p-3.5 bg-emerald-500 text-white border-emerald-600 rounded-xl text-left font-medium text-xs md:text-sm shadow-sm pointer-events-none";
+                matchedCount++;
+                document.getElementById('match-score-display').textContent = matchedCount;
+                matchSelectedLeft = null;
+
+                if (matchedCount === matchPairs.length) {
+                    const player = getActivePlayer('match');
+                    if (player && window.submitGameScores) {
+                        window.submitGameScores([{ name: player.name, kelas: player.kelas, score: 100 }], "Mini Game Fiqih: Pasangkan Istilah Shalat");
+                    }
+                    setTimeout(() => {
+                        alert("🎉 Sempurna! Semua 10 pasangan konsep shalat berhasil kamu pasangkan dengan benar!");
+                    }, 300);
+                }
+            } else {
+                // Wrong match
+                btn.classList.add('bg-red-100', 'border-red-400');
+                setTimeout(() => {
+                    btn.classList.remove('bg-red-100', 'border-red-400');
+                }, 400);
+            }
+        }
+
+        // ================= GAME 3: CARI KATA PETUNJUK (10 SOAL) =================
+        const wsClues = [
+            { word: "KIBLAT", clue: "1. Arah Ka'bah di Makkah yang wajib dituju saat shalat" },
+            { word: "RUKUK", clue: "2. Gerakan membungkukkan badan dan memegang kedua lutut" },
+            { word: "DZUHUR", clue: "3. Shalat 4 rakaat saat matahari tergelincir di siang hari" },
+            { word: "ASHAR", clue: "4. Shalat 4 rakaat saat bayangan melebihi panjang benda" },
+            { word: "ISYA", clue: "5. Shalat 4 rakaat di malam hari setelah mega merah hilang" },
+            { word: "AURAT", clue: "6. Bagian tubuh yang wajib ditutupi oleh pakaian suci" },
+            { word: "WUDHU", clue: "7. Bersuci membasuh anggota badan dengan air bersih" },
+            { word: "ADZAN", clue: "8. Seruan atau panggilan tanda masuk waktu shalat" },
+            { word: "IMAM", clue: "9. Orang yang memimpin shalat berjamaah di shaf paling depan" },
+            { word: "MAKMUM", clue: "10. Orang yang mengikuti gerakan imam dalam shalat" }
+        ];
+
+        const wsGridLetters = [
+            ['K','I','B','L','A','T','X','Q','K','B','R','Z'],
+            ['A','S','H','A','R','H','R','U','I','A','U','D'],
+            ['J','I','K','H','L','A','S','U','B','T','K','Z'],
+            ['U','A','M','I','N','T','A','K','L','A','U','H'],
+            ['D','T','R','U','K','U','K','U','A','L','K','U'],
+            ['K','W','U','D','H','U','R','N','T','A','U','R'],
+            ['I','T','E','R','T','I','B','U','T','K','M','Z'],
+            ['B','T','U','M','A','N','I','T','A','H','A','A'],
+            ['L','A','U','R','A','T','S','A','H','I','K','D'],
+            ['A','I','M','A','M','A','H','U','D','K','M','Z'],
+            ['T','A','D','Z','A','N','X','Y','Z','W','U','A'],
+            ['Z','I','S','Y','A','L','M','A','K','M','U','M']
+        ];
+
+        let wsFound = [];
+        let wsFirstClick = null;
+
+        function initWordSearchGame() {
+            wsFound = [];
+            wsFirstClick = null;
+            document.getElementById('ws-counter').textContent = `0 / ${wsClues.length}`;
+
+            const gridEl = document.getElementById('ws-grid');
+            gridEl.innerHTML = '';
+
+            for (let r = 0; r < 12; r++) {
+                for (let c = 0; c < 12; c++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'ws-grid-cell flex items-center justify-center bg-white rounded-lg border border-slate-200 cursor-pointer text-slate-700 hover:bg-purple-100 transition-colors';
+                    cell.textContent = wsGridLetters[r][c];
+                    cell.dataset.r = r;
+                    cell.dataset.c = c;
+                    cell.onclick = () => handleWsCellClick(r, c, cell);
+                    gridEl.appendChild(cell);
+                }
+            }
+
+            const listEl = document.getElementById('ws-clue-list');
+            listEl.innerHTML = wsClues.map(item => `
+                <div id="ws-c-${item.word}" class="p-2.5 bg-white rounded-xl border border-slate-200 text-xs text-slate-700 flex items-start justify-between gap-2 shadow-sm transition-colors">
+                    <div>
+                        <span class="font-medium text-slate-800">${item.clue}</span>
+                        <div id="ws-revealed-${item.word}" class="hidden mt-1 text-[11px] font-extrabold text-emerald-700">
+                            Jawaban: <span class="tracking-widest uppercase">${item.word}</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-circle-check text-slate-300 text-sm mt-0.5 flex-shrink-0"></i>
+                </div>
+            `).join('');
+            document.getElementById('ws-result').classList.add('hidden');
+        }
+
+        function handleWsCellClick(r, c, cell) {
+            if (!wsFirstClick) {
+                wsFirstClick = { r, c, cell };
+                cell.classList.add('bg-purple-600', 'text-white');
+            } else {
+                const r1 = wsFirstClick.r, c1 = wsFirstClick.c;
+                const r2 = r, c2 = c;
+                
+                let word = "";
+                let cellsToHighlight = [];
+                if (r1 === r2) {
+                    const startC = Math.min(c1, c2);
+                    const endC = Math.max(c1, c2);
+                    for (let x = startC; x <= endC; x++) {
+                        word += wsGridLetters[r1][x];
+                        const idx = r1 * 12 + x;
+                        cellsToHighlight.push(document.getElementById('ws-grid').children[idx]);
+                    }
+                } else if (c1 === c2) {
+                    const startR = Math.min(r1, r2);
+                    const endR = Math.max(r1, r2);
+                    for (let y = startR; y <= endR; y++) {
+                        word += wsGridLetters[y][c1];
+                        const idx = y * 12 + c1;
+                        cellsToHighlight.push(document.getElementById('ws-grid').children[idx]);
+                    }
+                }
+
+                const targetClue = wsClues.find(x => x.word === word);
+
+                if (targetClue && !wsFound.includes(word)) {
+                    wsFound.push(word);
+                    cellsToHighlight.forEach(el => {
+                        el.className = 'ws-grid-cell flex items-center justify-center bg-emerald-500 text-white rounded-lg font-bold pointer-events-none';
+                    });
+                    
+                    const cardEl = document.getElementById('ws-c-' + word);
+                    cardEl.className = 'p-2.5 bg-emerald-50 rounded-xl border border-emerald-300 text-xs text-emerald-900 flex items-start justify-between gap-2 shadow-sm';
+                    cardEl.querySelector('i').className = 'fa-solid fa-circle-check text-emerald-600 text-sm mt-0.5 flex-shrink-0';
+                    document.getElementById('ws-revealed-' + word).classList.remove('hidden');
+
+                    document.getElementById('ws-counter').textContent = `${wsFound.length} / ${wsClues.length}`;
+
+                    if (wsFound.length === wsClues.length) {
+                        document.getElementById('ws-result').classList.remove('hidden');
+                        const player = getActivePlayer('wordsearch');
+                        if (player && window.submitGameScores) {
+                            window.submitGameScores([{ name: player.name, kelas: player.kelas, score: 100 }], "Mini Game Fiqih: Cari Kata Shalat");
+                        }
+                    }
+                } else {
+                    wsFirstClick.cell.classList.remove('bg-purple-600', 'text-white');
+                }
+                wsFirstClick = null;
+            }
+        }
+
+        // ================= GAME 4: DUEL PERANG GLADIATOR =================
+        const warQuestions = [
+            { q: "Batas akhir waktu shalat Subuh ditandai dengan peristiwa...", opts: ["Terbitnya piringan matahari (Syuruq)", "Matahari terbenam di ufuk barat", "Panjang bayangan sama dengan benda", "Hilangnya mega merah"], a: 0 },
+            { q: "Shalat fardhu yang disunnahkan untuk membaca surah secara bersuara keras (Jahar) adalah...", opts: ["Subuh, Maghrib, dan Isya'", "Dzuhur dan Ashar", "Semua shalat lima waktu", "Hanya Shalat Jumat saja"], a: 0 },
+            { q: "Jika seseorang ragu-ragu dalam shalat mengenai jumlah rakaat (3 atau 4), maka ia harus...", opts: ["Mengambil jumlah rakaat yang paling sedikit", "Langsung membatalkan shalatnya", "Mengambil jumlah yang paling banyak", "Menanyakan kepada makmum lain"], a: 0 },
+            { q: "Doa yang disunnahkan untuk dibaca sesaat setelah Takbiratul Ihram adalah...", opts: ["Doa Iftitah", "Doa Qunut", "Doa Kifarat", "Doa Tasyahud"], a: 0 },
+            { q: "Salah satu waktu yang diharamkan untuk melakukan shalat sunnah mutlak adalah...", opts: ["Setelah shalat Ashar sampai matahari terbenam", "Setelah adzan Dzuhur", "Pada waktu dhuha", "Pada sepertiga malam terakhir"], a: 0 },
+            { q: "Membaca Surah Al-Fatihah di setiap rakaat shalat fardhu wajib menyertakan...", opts: ["Bacaan Basmalah dengan tartil", "Membaca surah Al-Ikhlas", "Membaca doa qunut", "Membaca shalawat nabi"], a: 0 },
+            { q: "Batas aurat bagi seorang wanita muslimah ketika shalat adalah seluruh tubuh kecuali...", opts: ["Wajah dan kedua telapak tangan", "Wajah, rambut, dan kaki", "Dada sampai lutut", "Pundak dan telapak kaki"], a: 0 },
+            { q: "Diam sejenak dengan seluruh anggota tubuh menetap saat ruku' dan sujud disebut...", opts: ["Tuma'ninah", "Tasyahud", "Istighfar", "Takbir"], a: 0 },
+            { q: "Apabila seseorang tertawa terbahak-bahak hingga mengeluarkan suara huruf saat shalat, maka hukum shalatnya...", opts: ["Batal secara mutlak", "Tetap sah tetapi makruh", "Cukup diganti sujud sahwi", "Dimaafkan jika tidak sengaja"], a: 0 },
+            { q: "Salam penutup yang merupakan rukun wajib shalat adalah...", opts: ["Salam pertama ke arah kanan", "Salam kedua ke arah kiri", "Kedua-dua salam sekaligus", "Mengusap wajah setelah salam"], a: 0 },
+            { q: "Shalat yang dikerjakan sendirian tanpa mengikuti imam dinamakan shalat...", opts: ["Munfarid", "Berjamaah", "Makmum Masbuq", "Khauf"], a: 0 },
+            { q: "Hikmah utama ibadah shalat sebagaimana tercantum dalam QS. Al-Ankabut: 45 adalah...", opts: ["Mencegah dari perbuatan keji dan mungkar", "Menjadikan badan selalu kaya", "Bebas dari segala penyakit fisik", "Menggugurkan kewajiban puasa"], a: 0 }
+        ];
+
+        let warState = {
+            active: false,
+            hpLeft: 100,
+            hpRight: 100,
+            playersLeft: [],
+            playersRight: [],
+            classLeft: "",
+            classRight: "",
+            lastQTimeLeft: 0,
+            lastQTimeRight: 0
+        };
+
+        function initWarGame() {
+            warState.active = false;
+            warState.hpLeft = 100;
+            warState.hpRight = 100;
+            updateWarHpVisuals();
+            renderWarLobbyForms('all');
+            document.getElementById('war-lobby-overlay').classList.remove('hidden');
+            document.getElementById('war-winner-overlay').classList.add('hidden');
+        }
+
+        function renderWarLobbyForms(side = 'all') {
+            if (side === 'all' || side === 'left') {
+                const countLeft = parseInt(document.getElementById('war-mode-select-left').value);
+                const classLeft = document.getElementById('war-class-left').value;
+                renderWarPlayerDropdowns('war-players-left', classLeft, countLeft, 'left');
+            }
+            if (side === 'all' || side === 'right') {
+                const countRight = parseInt(document.getElementById('war-mode-select-right').value);
+                const classRight = document.getElementById('war-class-right').value;
+                renderWarPlayerDropdowns('war-players-right', classRight, countRight, 'right');
+            }
+        }
+
+        function renderWarPlayerDropdowns(containerId, className, count, side) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            if (!className) return;
+
+            const students = window.masterDataSiswa ? (window.masterDataSiswa[className] || []) : [];
+
+            for (let i = 0; i < count; i++) {
+                const select = document.createElement('select');
+                select.className = `w-full border rounded-lg px-3 py-1.5 text-xs outline-none focus:ring-2 bg-white ${side === 'left' ? 'border-blue-200 focus:ring-blue-500' : 'border-red-200 focus:ring-red-500'}`;
+                select.id = `war-player-${side}-${i}`;
+                
+                const defaultOpt = document.createElement('option');
+                defaultOpt.value = "";
+                defaultOpt.textContent = `-- Pilih Pemain ${i+1} --`;
+                select.appendChild(defaultOpt);
+
+                students.forEach(student => {
+                    const opt = document.createElement('option');
+                    opt.value = student;
+                    opt.textContent = student;
+                    select.appendChild(opt);
+                });
+                container.appendChild(select);
+            }
+        }
+
+        function startWarMatch() {
+            const modeCountLeft = parseInt(document.getElementById('war-mode-select-left').value);
+            const modeCountRight = parseInt(document.getElementById('war-mode-select-right').value);
+            const errEl = document.getElementById('war-lobby-error');
+            
+            warState.playersLeft = [];
+            warState.playersRight = [];
+            warState.classLeft = document.getElementById('war-class-left').value;
+            warState.classRight = document.getElementById('war-class-right').value;
+
+            let valid = true;
+
+            for (let i = 0; i < modeCountLeft; i++) {
+                const pl = document.getElementById(`war-player-left-${i}`);
+                if (!pl || !pl.value) { valid = false; break; }
+                warState.playersLeft.push(pl.value);
+            }
+
+            for (let i = 0; i < modeCountRight; i++) {
+                const pr = document.getElementById(`war-player-right-${i}`);
+                if (!pr || !pr.value) { valid = false; break; }
+                warState.playersRight.push(pr.value);
+            }
+
+            if (!valid) {
+                errEl.classList.remove('hidden');
+                return;
+            }
+
+            errEl.classList.add('hidden');
+            document.getElementById('war-lobby-overlay').classList.add('hidden');
+            document.getElementById('war-mode-display').innerHTML = `<i class="fa-solid fa-users mr-1"></i> ${modeCountLeft} vs ${modeCountRight}`;
+
+            warState.hpLeft = 100;
+            warState.hpRight = 100;
+            warState.active = true;
+            updateWarHpVisuals();
+
+            generateWarQuestion('left');
+            generateWarQuestion('right');
+        }
+
+        function resetWarGame() {
+            initWarGame();
+        }
+
+        function updateWarHpVisuals() {
+            document.getElementById('war-hp-bar-left').style.width = warState.hpLeft + '%';
+            document.getElementById('war-hp-text-left').textContent = warState.hpLeft + '%';
+            document.getElementById('war-hp-bar-right').style.width = warState.hpRight + '%';
+            document.getElementById('war-hp-text-right').textContent = warState.hpRight + '%';
+        }
+
+        function generateWarQuestion(side) {
+            if (!warState.active) return;
+            if (side === 'left') warState.lastQTimeLeft = Date.now();
+            else warState.lastQTimeRight = Date.now();
+
+            const qData = warQuestions[Math.floor(Math.random() * warQuestions.length)];
+            const qEl = document.getElementById(`war-q-${side}`);
+            const optsEl = document.getElementById(`war-opts-${side}`);
+            
+            qEl.textContent = qData.q;
+            optsEl.innerHTML = '';
+            
+            let opts = [...qData.opts];
+            const correctText = opts[qData.a];
+            opts.sort(() => Math.random() - 0.5);
+
+            opts.forEach(opt => {
+                const btn = document.createElement('button');
+                const colorBg = side === 'left' ? 'bg-blue-50 border-blue-200 text-blue-900 hover:bg-blue-600 hover:text-white' : 'bg-red-50 border-red-200 text-red-900 hover:bg-red-600 hover:text-white';
+                btn.className = `w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all ${colorBg} shadow-sm`;
+                btn.textContent = opt;
+                btn.onclick = () => {
+                    const now = Date.now();
+                    const lastTime = side === 'left' ? warState.lastQTimeLeft : warState.lastQTimeRight;
+                    if (now - lastTime < 1500) {
+                        handleWarSpamWarning();
+                        return;
+                    }
+
+                    const allBtns = optsEl.querySelectorAll('button');
+                    allBtns.forEach(b => b.disabled = true);
+                    
+                    if (opt === correctText) {
+                        btn.className = "w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-bold bg-emerald-500 text-white border-emerald-600 shadow-md";
+                        warAttack(side);
+                        setTimeout(() => generateWarQuestion(side), 1200);
+                    } else {
+                        btn.className = "w-full border text-left px-2.5 py-1.5 rounded-lg text-xs font-bold bg-red-500 text-white border-red-600 animate-pulse";
+                        warBlock(side);
+                        setTimeout(() => generateWarQuestion(side), 1200);
+                    }
+                };
+                optsEl.appendChild(btn);
+            });
+        }
+
+        function handleWarSpamWarning() {
+            const warningEl = document.getElementById('war-spam-warning');
+            warningEl.classList.remove('hidden');
+            setTimeout(() => warningEl.classList.add('hidden'), 2000);
+        }
+
+        function warAttack(side) {
+            const attacker = document.getElementById(`war-char-${side}`);
+            const defenderSide = side === 'left' ? 'right' : 'left';
+            const clash = document.getElementById('war-clash-fx');
+            const arena = document.getElementById('war-arena');
+
+            attacker.classList.add(side === 'left' ? 'war-attack-left' : 'war-attack-right');
+            setTimeout(() => {
+                clash.classList.remove('opacity-0');
+                clash.classList.add('opacity-100');
+                arena.classList.add('war-screen-shake');
+            }, 300);
+
+            setTimeout(() => {
+                attacker.classList.remove(side === 'left' ? 'war-attack-left' : 'war-attack-right');
+                clash.classList.add('opacity-0');
+                clash.classList.remove('opacity-100');
+                arena.classList.remove('war-screen-shake');
+            }, 600);
+
+            if (defenderSide === 'left') {
+                warState.hpLeft = Math.max(0, warState.hpLeft - 20);
+            } else {
+                warState.hpRight = Math.max(0, warState.hpRight - 20);
+            }
+            updateWarHpVisuals();
+
+            if (warState.hpLeft <= 0) {
+                endWarGame('right');
+            } else if (warState.hpRight <= 0) {
+                endWarGame('left');
+            }
+        }
+
+        function warBlock(side) {
+            const defender = document.getElementById(`war-char-${side}`);
+            defender.classList.add(side === 'left' ? 'war-block-left' : 'war-block-right');
+            setTimeout(() => {
+                defender.classList.remove(side === 'left' ? 'war-block-left' : 'war-block-right');
+            }, 500);
+        }
+
+        function endWarGame(winnerSide) {
+            warState.active = false;
+            const overlay = document.getElementById('war-winner-overlay');
+            const winnerText = document.getElementById('war-winner-name');
+            
+            const winningTeamName = winnerSide === 'left' ? 'PASUKAN BIRU MENANG!' : 'PASUKAN MERAH MENANG!';
+            winnerText.textContent = winningTeamName;
+            overlay.classList.remove('hidden');
+
+            const winners = winnerSide === 'left' ? warState.playersLeft : warState.playersRight;
+            const winClass = winnerSide === 'left' ? warState.classLeft : warState.classRight;
+            
+            if (window.submitGameScores && winners.length > 0) {
+                const playersToSave = winners.map(name => ({ name: name, kelas: winClass, score: 100 }));
+                window.submitGameScores(playersToSave, "Mini Game Fiqih: Duel Perang Shalat");
+            }
+        }
+
+        // Init All Elements on Load
+        document.addEventListener('DOMContentLoaded', () => {
+            showPrayerNiat('subuh', document.querySelector('.niat-tab-btn'));
+            renderDiagnosticQuestions();
+            initScrambleGame();
+            initMatchGame();
+            initWordSearchGame();
+        });
+    </script>
+
+    <!-- ================= CBT EXAM & ANTI CHEAT SYSTEM ================= -->
+    <script>
+        const d64 = (s) => { try { return decodeURIComponent(escape(atob(s))); } catch(e) { return ""; } };
+        
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll('.b64t').forEach(el => { el.innerHTML = d64(el.getAttribute('data-b')); el.classList.add('b64-ready'); });
+            document.querySelectorAll('.b64p').forEach(el => { el.placeholder = d64(el.getAttribute('data-b')); });
+        });
+
+        // --- SYSTEM ANTI CHEAT ---
+        window.isExamActive = false;
+        let cheatWarnings = 0;
+        const MAX_WARNINGS = 3;
+        
+        document.addEventListener('contextmenu', e => { e.preventDefault(); showAntiCheatBanner(d64("S2xpayBLYW5hbiBkaW5vbmFrdGlma2FuIQ==")); });
+        document.addEventListener('copy', e => { e.preventDefault(); showAntiCheatBanner(d64("RGlsYXJhbmcgbWVsYWt1a2FuIENvcHkgZGF0YSE=")); });
+        document.addEventListener('cut', e => { e.preventDefault(); showAntiCheatBanner(d64("RGlsYXJhbmcgbWVsYWt1a2FuIEN1dCBkYXRhIQ==")); });
+        document.addEventListener('paste', e => { e.preventDefault(); showAntiCheatBanner(d64("RGlsYXJhbmcgbWVsYWt1a2FuIFBhc3RlIGRhdGEh")); });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) || (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.key === 'S' || e.key === 's' || e.key === 'C' || e.key === 'c' || e.key === 'V' || e.key === 'v' || e.key === 'X' || e.key === 'x'))) {
+                e.preventDefault(); showAntiCheatBanner(d64("UGludGFzYW4gS2V5Ym9hcmQgZGltYXRpa2FuIHVudHVrIGtlYW1hbmFuIQ=="));
+            }
+            if ((e.metaKey && e.shiftKey && (e.key === 's' || e.key === 'S')) || (e.metaKey && e.shiftKey && (e.key === '3' || e.key === '4' || e.key === '5'))) {
+                e.preventDefault(); if (window.isExamActive) { navigator.clipboard.writeText(''); handleTabViolation(d64("U2lzdGVtIG1lbmRldGVrc2kgdXBheWEgU2NyZWVuc2hvdCAvIFNuaXBwaW5nIFRvb2wh")); }
+            }
+        });
+
+        document.addEventListener('keyup', (e) => {
+            if (e.key === 'PrintScreen' || e.keyCode === 44) {
+                if (window.isExamActive) { navigator.clipboard.writeText(''); handleTabViolation(d64("U2lzdGVtIG1lbmRldGVrc2kgdXBheWEgU2NyZWVuc2hvdCAoUHJpbnRTY3JlZW4pIQ==")); }
+            }
+        });
+
+        function showAntiCheatBanner(msg) {
+            const banner = document.getElementById('anti-cheat-banner');
+            document.getElementById('anti-cheat-msg').textContent = msg;
+            banner.classList.remove('-translate-y-full');
+            setTimeout(() => { banner.classList.add('-translate-y-full'); }, 2500);
+        }
+
+        document.addEventListener('visibilitychange', function() { 
+            if (document.hidden && window.isExamActive) { document.getElementById('anti-snip-overlay').classList.remove('hidden'); document.getElementById('anti-snip-overlay').classList.add('flex'); handleTabViolation(d64("QW5kYSBtZW5pbmdnYWxrYW4gaGFsYW1hbiB1amlhbiAoQmVyYWxpaCBBcGxpa2FzaS9UYWIpIQ==")); }
+        });
+
+        window.addEventListener('pagehide', function() {
+            if (window.isExamActive) { document.getElementById('anti-snip-overlay').classList.remove('hidden'); document.getElementById('anti-snip-overlay').classList.add('flex'); handleTabViolation(d64("TGF5YXIgVWppYW4ga2VoaWxhbmdhbiBmb2t1cyAoRGltaW5pbWFsa2FuL1NjcmVlbnNob3QgYWt0aWYpIQ==")); }
+        });
+
+        window.addEventListener('blur', function() {
+            if (window.isExamActive && document.activeElement !== document.getElementById('student-name') && document.activeElement !== document.getElementById('student-class')) {
+                document.getElementById('anti-snip-overlay').classList.remove('hidden'); document.getElementById('anti-snip-overlay').classList.add('flex'); handleTabViolation(d64("S2VoaWxhbmdhbiBGb2t1cyBMYXlhciE="));
+            }
+        });
+
+        window.regainFocus = function() { document.getElementById('anti-snip-overlay').classList.add('hidden'); document.getElementById('anti-snip-overlay').classList.remove('flex'); }
+
+        function handleTabViolation(reasonMsg) {
+            if(!window.isExamActive) return;
+            cheatWarnings++;
+            document.getElementById('violation-counter').classList.remove('hidden'); document.getElementById('v-count').textContent = cheatWarnings;
+
+            if (cheatWarnings >= MAX_WARNINGS) {
+                window.isExamActive = false; localStorage.setItem('fikih_banned_device', 'true');
+                document.getElementById('anti-snip-overlay').classList.add('hidden'); document.getElementById('quiz-lock-overlay').classList.remove('hidden');
+                showModal({
+                    title: d64("4p2MIFVqaWFuIERpaGVudGlrYW4gUGFrc2E="), message: `<div class="text-red-600 font-semibold mb-2">${d64("QmF0YXMgUGVsYW5nZ2FyYW4gVGVyY2FwYWkh")}</div><p class="text-xs text-slate-500 mb-2">Alasan: ${reasonMsg}</p>Perangkat diblokir permanen. Jawaban otomatis dikirim.`,
+                    type: 'error', buttons: [{ text: "Mengerti", class: "bg-red-600 text-white hover:bg-red-700", onClick: () => submitQuizLogic(true) }]
+                });
+            } else {
+                showModal({
+                    title: d64("8J+SoCBQZXJpbmdhdGFuIEtlY3VyYW5nYW4h"), message: `<div class="text-amber-600 font-medium mb-1">Pelanggaran: ${cheatWarnings} / ${MAX_WARNINGS}</div><p class="text-xs font-bold text-slate-700">${reasonMsg}</p>`,
+                    type: 'warning', buttons: [{ text: "Saya Paham", class: "bg-amber-500 text-white hover:bg-amber-600", onClick: () => regainFocus() }]
+                });
+            }
+        }
+
+        // --- AUTH & LOGIN SYSTEM ---
+        window.addEventListener('load', () => {
+            const startBtn = document.getElementById('start-btn');
+            const authStatus = document.getElementById('auth-status');
+            const isDeviceBanned = localStorage.getItem('fikih_banned_device') === 'true';
+
+            setTimeout(() => {
+                if (isDeviceBanned) {
+                    startBtn.disabled = true; startBtn.className = "w-full bg-red-100 text-red-500 font-bold py-3.5 rounded-xl cursor-not-allowed mt-4 border border-red-200 relative z-20";
+                    startBtn.innerHTML = '<i class="fa-solid fa-lock mr-2"></i> Perangkat Diblokir';
+                    document.getElementById('banned-alert').classList.remove('hidden'); document.getElementById('student-name').disabled = true; document.getElementById('student-class').disabled = true;
+                } else {
+                    startBtn.disabled = false; startBtn.className = "w-full bg-teal-600 hover:bg-teal-700 text-white font-medium py-3.5 rounded-xl transition mt-4 relative z-20";
+                    startBtn.innerHTML = `${d64("TWVsYWt1a2FuIFVqaWFu")} <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>`;
+                }
+                authStatus.innerHTML = '<i class="fa-solid fa-check text-teal-500 mr-1"></i> Terhubung'; authStatus.classList.replace('text-slate-400', 'text-teal-600'); document.getElementById('auth-error-msg').classList.add('hidden');
+            }, 600);
+        });
+
+        window.promptUnblock = function() {
+            showModal({
+                title: "Otorisasi Guru", type: 'warning',
+                message: `<p class="mb-3 text-sm text-slate-600 text-left">Masukkan PIN Rahasia untuk membuka blokir.</p><input type="password" id="unblock-pin" class="w-full p-3 border border-slate-300 rounded-lg outline-none text-sm text-slate-800" placeholder="Masukkan PIN"><p id="pin-error" class="text-red-500 text-xs font-semibold text-left hidden"><i class="fa-solid fa-circle-xmark mr-1"></i> PIN salah!</p>`,
+                buttons: [{text: "Batal", class: "bg-slate-100 text-slate-700 hover:bg-slate-200"}, {text: "Buka Akses", class: "bg-teal-600 text-white", close: false, onClick: () => window.verifyPIN()}]
+            });
+        };
+
+        window.verifyPIN = function() {
+            if (document.getElementById('unblock-pin').value === "443588") {
+                localStorage.removeItem('fikih_banned_device'); hideModal();
+                showModal({ title: "Blokir Dibuka!", message: "Akses ujian dikembalikan. Halaman akan dimuat ulang.", type: 'success', buttons: [{ text: "Muat Ulang Halaman", class: "bg-teal-600 text-white", onClick: () => window.location.reload() }] });
+            } else { document.getElementById('pin-error').classList.remove('hidden'); }
+        };
+
+        // --- MODAL HELPER ---
+        const modal = document.getElementById('custom-modal');
+        function showModal(config) {
+            document.getElementById('cmodal-title').textContent = config.title;
+            document.getElementById('cmodal-body').innerHTML = config.message;
+            let iconClass = 'fa-bell text-slate-500'; let bgClass = 'bg-slate-100';
+            if (config.type === 'warning') { iconClass = 'fa-triangle-exclamation text-amber-500'; bgClass = 'bg-amber-50'; }
+            if (config.type === 'success') { iconClass = 'fa-check text-teal-500'; bgClass = 'bg-teal-50'; }
+            if (config.type === 'error') { iconClass = 'fa-xmark text-red-500'; bgClass = 'bg-red-50'; }
+            if (config.type === 'loading') { iconClass = 'fa-spinner fa-spin text-teal-500'; bgClass = 'bg-teal-50'; }
+
+            document.getElementById('modal-icon-container').className = `w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4 text-2xl ${bgClass}`;
+            document.getElementById('modal-icon-container').innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
+            
+            const actions = document.getElementById('cmodal-actions'); actions.innerHTML = '';
+            if (config.buttons) {
+                config.buttons.forEach(btn => {
+                    const b = document.createElement('button');
+                    b.className = `w-full py-2.5 rounded-xl font-medium transition text-sm ${btn.class || 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`;
+                    b.innerHTML = btn.text; b.onclick = () => { if (btn.close !== false) hideModal(); if (btn.onClick) btn.onClick(); }; actions.appendChild(b);
+                });
+            } else if (config.type !== 'loading') {
+                const b = document.createElement('button'); b.className = "w-full bg-teal-600 text-white py-2.5 rounded-xl font-medium hover:bg-teal-700 transition text-sm";
+                b.textContent = "Tutup"; b.onclick = hideModal; actions.appendChild(b);
+            }
+            modal.classList.remove('hidden');
+        }
+        function hideModal() { modal.classList.add('hidden'); }
+
+        // --- QUIZ QUESTIONS (SHALAT FARDHU) ---
+        const questionData = [
+            {
+                q: "Secara bahasa (etimologi), kata shalat berasal dari bahasa Arab yang bermakna doa memohon kebaikan. Adapun menurut istilah syariat fikih, shalat fardhu didefinisikan sebagai...",
+                options: [
+                    "Ibadah yang tersusun dari beberapa ucapan dan perbuatan yang diawali takbiratul ihram dan diakhiri dengan salam serta memenuhi syarat dan rukun tertentu",
+                    "Doa yang dipanjatkan seorang hamba kepada Allah SWT di tempat sunyi setelah membaca wirid dan dzikir",
+                    "Amalan ibadah fisik berupa gerakan membungkuk dan menunduk yang dilakukan menghadap Ka'bah",
+                    "Kewajiban menghafal surah-surah Al-Qur'an dan melafalkannya saat fajar dan terbenamnya matahari"
+                ],
+                a: 0
+            },
+            {
+                q: "Hukum melaksanakan shalat fardhu lima waktu bagi setiap individu muslim yang telah mencapai usia baligh dan berakal sehat adalah...",
+                options: [
+                    "Fardhu 'Ain yang wajib ditunaikan oleh setiap mukallaf dan berdosa besar jika ditinggalkan",
+                    "Fardhu Kifayah yang jika sudah ditunaikan sebagian orang maka gugur kewajiban bagi yang lain",
+                    "Sunnah Muakkad yang sangat dianjurkan namun tidak berdosa bagi yang meninggalkannya",
+                    "Wajib bersyarat hanya bagi mereka yang memiliki kelapangan rezeki dan waktu luang"
+                ],
+                a: 0
+            },
+            {
+                q: "Perhatikan firman Allah SWT: 'Innash-shalaata tanhaa 'anil fahsyaa-i wal munkar' (QS. Al-Ankabut: 45). Ayat ini secara tegas menjelaskan tentang salah satu fungsi dan hikmah utama ibadah shalat, yaitu...",
+                options: [
+                    "Mencegah pelakunya dari terjerumus ke dalam perbuatan-perbuatan keji dan kemungkaran",
+                    "Menjamin pelakunya terbebas dari segala macam musibah dan kesulitan hidup di dunia",
+                    "Menggugurkan kewajiban menunaikan ibadah puasa dan zakat di kemudian hari",
+                    "Membuat seseorang menjadi terpandang dan disegani di tengah masyarakat luas"
+                ],
+                a: 0
+            },
+            {
+                q: "Waktu pelaksanaan shalat fardhu telah ditentukan batas-batas syar'inya. Batas awal dimulainya waktu shalat Dzuhur ditandai dengan peristiwa alam berupa...",
+                options: [
+                    "Tergelincirnya matahari ke arah barat dari titik tengah langit (istiwa'/zawal)",
+                    "Bayangan benda memiliki panjang yang sama persis dengan tinggi aslinya",
+                    "Hilangnya mega merah (syafaq ahmar) di ufuk barat secara sempurna",
+                    "Munculnya fajar shadiq yang membentang putih di cakrawala ufuk timur"
+                ],
+                a: 0
+            },
+            {
+                q: "Pak Danu hendak menunaikan shalat Ashar. Berdasarkan ketentuan fikih, waktu shalat Ashar secara resmi berakhir ketika...",
+                options: [
+                    "Seluruh piringan matahari telah terbenam sempurna di ufuk barat",
+                    "Panjang bayangan benda telah mencapai dua kali lipat dari tinggi aslinya",
+                    "Adzan Maghrib selesai dikumandangkan oleh muadzin di masjid",
+                    "Mega merah di langit mulai tampak terlihat samar-samar"
+                ],
+                a: 0
+            },
+            {
+                q: "Di antara syarat-syarat pelaksanaan shalat, terdapat perbedaan antara Syarat Wajib dan Syarat Sah. Pernyataan di bawah ini yang merupakan Syarat Wajib shalat adalah...",
+                options: [
+                    "Beragama Islam, telah baligh, dan memiliki akal yang sehat (tidak gila/pingsan)",
+                    "Menutup aurat dengan pakaian yang suci dari segala jenis najis",
+                    "Mengetahui secara pasti bahwa waktu shalat telah benar-benar masuk",
+                    "Menghadapkan dada lurus ke arah kiblat (Ka'bah di Makkah)"
+                ],
+                a: 0
+            },
+            {
+                q: "Ahmad sedang shalat fardhu. Tiba-tiba di tengah shalat, ia teringat bahwa ia belum berwudhu setelah buang angin kecil. Tindakan yang wajib diambil oleh Ahmad adalah...",
+                options: [
+                    "Membatalkan shalatnya seketika, berwudhu kembali, lalu mengulang shalat dari awal",
+                    "Meneruskan shalat hingga selesai, kemudian bersujud sahwi dua kali sebelum salam",
+                    "Cukup beristighfar dalam hati dan shalatnya tetap sah karena tidak sengaja",
+                    "Meneruskan shalat lalu langsung mengambil wudhu untuk shalat berikutnya"
+                ],
+                a: 0
+            },
+            {
+                q: "Dalam Mazhab Syafi'i, rukun shalat berjumlah 13 perkara. Rukun yang termasuk dalam kelompok Rukun Qalbi (pekerjaan hati) adalah...",
+                options: [
+                    "Niat shalat yang dihadirkan di dalam hati bersamaan dengan Takbiratul Ihram",
+                    "Membaca Surah Al-Fatihah dengan melafalkan huruf-hurufnya secara fasih",
+                    "Melakukan ruku' dengan posisi punggung dan kepala yang lurus",
+                    "Duduk tasyahud akhir dan membaca doa tasyahud secara lengkap"
+                ],
+                a: 0
+            },
+            {
+                q: "Berikut ini rukun shalat yang tergolong ke dalam Rukun Qauli (ucapan yang wajib dilafalkan dan didengar telinga sendiri) adalah...",
+                options: [
+                    "Takbiratul Ihram, membaca Surah Al-Fatihah, Tasyahud Akhir, Shalawat atas Nabi, dan Salam Pertama",
+                    "Membaca doa iftitah, ta'awudz, surah pendek, dan tasbih ruku'",
+                    "Membaca niat shalat, doa qunut, dan salam kedua ke arah kiri",
+                    "Membaca takbir intiqal (perpindahan gerakan) dan membaca amin"
+                ],
+                a: 0
+            },
+            {
+                q: "Ketika melakukan ruku', i'tidal, sujud, dan duduk di antara dua sujud, seseorang diwajibkan melakukan Tuma'ninah. Maksud dari Tuma'ninah adalah...",
+                options: [
+                    "Diam sejenak dengan semua anggota badan menetap sekira lamanya membaca kalimat tasbih",
+                    "Membaca surah Al-Qur'an yang sangat panjang hingga jamaah merasa khusyuk",
+                    "Mempercepat gerakan shalat agar tidak tertinggal waktu fardhu",
+                    "Memusatkan pandangan mata lurus menatap ke arah depan dada"
+                ],
+                a: 0
+            },
+            {
+                q: "Seorang makmum lupa tidak membaca doa Qunut pada rakaat kedua Shalat Subuh. Menurut mazhab Syafi'i, shalat makmum tersebut...",
+                options: [
+                    "Tetap sah, dan disunnahkan untuk melakukan Sujud Sahwi sebelum salam karena Qunut adalah Sunnah Ab'adh",
+                    "Batal secara mutlak dan wajib mengulang shalat Subuh dari rakaat pertama",
+                    "Sah tanpa perlu sujud sahwi karena doa Qunut hanyalah sunnah biasa (Hai'at)",
+                    "Harus diganti dengan menambah satu rakaat lagi setelah salam"
+                ],
+                a: 0
+            },
+            {
+                q: "Amalan-amalan berikut ini yang seluruhnya tergolong ke dalam Sunnah Hai'at (sunnah pelengkap yang tidak perlu sujud sahwi jika tertinggal) adalah...",
+                options: [
+                    "Membaca doa iftitah, membaca ta'awudz, mengucap amin, dan menoleh ke kiri pada salam kedua",
+                    "Duduk tasyahud awal, membaca shalawat tasyahud awal, dan membaca qunut",
+                    "Membaca Surah Al-Fatihah, ruku' dengan tuma'ninah, dan sujud dua kali",
+                    "Menutup aurat, bersuci dari hadas kecil, dan menghadap ke arah kiblat"
+                ],
+                a: 0
+            },
+            {
+                q: "Ketika sedang shalat, Ridwan bergerak melangkah sebanyak tiga kali berturut-turut tanpa ada jeda waktu untuk mengejar shaf depan yang kosong. Status shalat Ridwan adalah...",
+                options: [
+                    "Batal, karena melakukan gerakan banyak (tiga kali berturut-turut) di luar gerakan shalat",
+                    "Tetap sah, karena merapatkan shaf shalat memiliki keutamaan yang besar",
+                    "Sah tetapi makruh, dan Ridwan disunnahkan membayar sedekah kifarat",
+                    "Sah asalkan gerakan tersebut dilakukan dengan niat ikhlas"
+                ],
+                a: 0
+            },
+            {
+                q: "Batas aurat bagi seorang perempuan muslimah ketika mendirikan shalat fardhu di hadapan Allah SWT adalah...",
+                options: [
+                    "Seluruh anggota tubuhnya kecuali wajah dan kedua telapak tangan (bagian luar dan dalam)",
+                    "Antara bagian pusar sampai dengan kedua lutut kaki",
+                    "Seluruh anggota badan tertutup rapat termasuk wajah harus memakai cadar",
+                    "Dari bagian dada hingga ke bawah mata kaki tanpa kecuali"
+                ],
+                a: 0
+            },
+            {
+                q: "Hadits Nabi Muhammad SAW menegaskan: 'Ash-shalaatu 'imaadud-diin...'. Makna dari sabda Rasulullah SAW tersebut adalah...",
+                options: [
+                    "Shalat adalah tiang penyangga agama Islam, barangsiapa mendirikannya berarti menegakkan agama",
+                    "Shalat adalah amal ibadah yang paling mudah dan ringan untuk dikerjakan siapa saja",
+                    "Shalat merupakan penentu banyaknya rezeki harta benda di kehidupan duniawi",
+                    "Shalat adalah satu-satunya amalan yang bisa menghapuskan dosa syirik besar"
+                ],
+                a: 0
+            }
+        ];
+
+        let studentData = { name: "", class: "" };
+
+        window.startQuiz = function() {
+            if (localStorage.getItem('fikih_banned_device') === 'true') { return showModal({ title: "Akses Ditolak", message: "Perangkat ini telah diblokir karena pelanggaran.", type: 'error' }); }
+            const n = document.getElementById('student-name').value.trim(); const c = document.getElementById('student-class').value.trim();
+            if (!n || !c) return showModal({ title: "Perhatian", message: "Mohon lengkapi Nama dan Kelas terlebih dahulu.", type: 'warning' });
+            
+            window.isExamActive = true; cheatWarnings = 0; studentData = { name: n, class: c };
+            document.getElementById('display-name').textContent = n; document.getElementById('display-class').textContent = c;
+            
+            const snipIdentity = document.getElementById('snip-identity');
+            snipIdentity.innerHTML = `<i class="fa-solid fa-user-xmark mr-2"></i> PELANGGAR: <br>${n} (${c})`; snipIdentity.classList.remove('hidden');
+            const watermark = document.getElementById('exam-watermark'); watermark.innerText = ` ${n} • KELAS ${c} • `.repeat(1500); watermark.classList.remove('hidden');
+
+            document.getElementById('quiz-login').classList.add('hidden'); document.getElementById('quiz-container').classList.remove('hidden');
+            
+            document.getElementById('quiz-form').innerHTML = questionData.map((item, index) => `
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <p class="font-medium text-slate-800 mb-5 text-sm md:text-base leading-relaxed text-justify"><span class="text-teal-600 font-bold mr-1">${index + 1}.</span> ${item.q}</p>
+                    <div class="space-y-3">
+                        ${item.options.map((opt, oIdx) => `
+                            <label class="option-label flex items-start p-3 md:p-4 rounded-xl bg-white relative cursor-pointer hover:bg-teal-50/50 border border-slate-200 transition-colors">
+                                <input type="radio" name="q${index}" value="${oIdx}" class="option-input hidden peer">
+                                <div class="option-content w-full flex items-start peer-checked:bg-teal-50 peer-checked:border-teal-600 border border-transparent rounded-lg p-1 -m-1">
+                                    <span class="option-circle w-7 h-7 flex-shrink-0 flex items-center justify-center bg-slate-50 rounded-full mr-3 md:mr-4 text-xs font-bold text-slate-500 border border-slate-300 transition-colors mt-0.5 peer-checked:bg-teal-600 peer-checked:text-white peer-checked:border-teal-600">${String.fromCharCode(65+oIdx)}</span>
+                                    <span class="text-slate-600 text-sm md:text-base peer-checked:text-teal-900 leading-relaxed font-medium">${opt}</span>
+                                </div>
+                            </label>`).join('')}
+                    </div>
+                </div>`).join('');
+            document.getElementById('latihan').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        window.preSubmitCheck = function() {
+            const answered = questionData.filter((_, i) => document.querySelector(`input[name="q${i}"]:checked`)).length;
+            if (answered < questionData.length) { 
+                showModal({ title: "Pengecekan Jawaban", message: `Kamu baru menjawab <b class="text-amber-500">${answered}</b> dari <b>${questionData.length}</b> soal.<br>Pastikan semuanya terisi agar nilaimu maksimal.`, type: 'warning', buttons: [{ text: "Cek Kembali", class: "bg-slate-100" }, { text: "Tetap Kirim", class: "bg-teal-600 text-white", onClick: () => submitQuizLogic(false) }] });
+            } else {
+                submitQuizLogic(false);
+            }
+        }
+
+        async function submitQuizLogic(isForcedCheat = false) {
+            window.isExamActive = false; document.getElementById('exam-watermark').classList.add('hidden'); 
+            let correctCount = 0; const details = []; 
+            questionData.forEach((item, i) => { const sel = document.querySelector(`input[name="q${i}"]:checked`); const isCorrect = sel ? parseInt(sel.value) === item.a : false; details.push(isCorrect); if (isCorrect) correctCount++; });
+
+            const score = Math.round((correctCount / questionData.length) * 100);
+            if(!isForcedCheat) showModal({ title: "Memproses...", message: "Menyimpan hasil pengerjaanmu ke server...", type: 'loading', buttons: [] });
+
+            try {
+                if (window.quizAuth && !window.quizAuth.currentUser && window.quizSignIn) {
+                    await window.quizSignIn(window.quizAuth);
+                }
+                if (window.quizAddDoc && window.quizCollectionFn && window.quizDb) {
+                    await window.quizAddDoc(window.quizCollectionFn(window.quizDb, 'artifacts', window.quizAppId, 'public', 'data', window.quizCollection), {
+                        name: studentData.name, kelas: studentData.class, score: score, 
+                        materi: isForcedCheat ? 'Latihan Soal (Dikumpul Paksa) - Shalat Fardhu' : 'Latihan Soal : Shalat Fardhu', 
+                        type: 'Latihan Soal', date: new Date().toLocaleDateString('id-ID'), 
+                        timestamp: Date.now(), details: details, uid: (window.quizAuth && window.quizAuth.currentUser ? window.quizAuth.currentUser.uid : 'anon'), isBanned: isForcedCheat
+                    });
+                }
+                
+                if(!isForcedCheat) {
+                    showModal({ title: "Selesai!", type: 'success', message: `<div class="text-center"><span class="text-5xl font-bold text-teal-600 block mb-2">${score}</span><span class="text-sm font-medium text-slate-500">Nilai ujian berhasil direkam oleh sistem.</span></div>`, buttons: [{ text: "Tutup & Selesai", class: "bg-teal-600 text-white" }] });
+                }
+                
+                document.getElementById('quiz-form').classList.add('pointer-events-none', 'opacity-50');
+                const btn = document.getElementById('submit-btn'); btn.disabled = true; btn.className = "w-full bg-slate-300 text-slate-500 font-semibold py-4 rounded-xl cursor-not-allowed flex justify-center items-center gap-2 relative z-20";
+                btn.innerHTML = '<i class="fa-solid fa-check text-sm"></i> Jawaban Terkirim';
+            } catch (e) { 
+                showModal({ title: "Gagal Mengirim", message: "Error Jaringan: " + e.message, type: 'error' }); 
+            }
+        }
+    </script>
+</body>
+</html>
