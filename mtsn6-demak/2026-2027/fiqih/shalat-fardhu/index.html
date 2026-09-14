@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -715,30 +715,82 @@
                 <p class="text-slate-500 text-sm mt-1">Uji ingatan istilah, rukun, dan ketentuan shalat dengan game seru berhadiah skor di bawah ini.</p>
             </div>
 
-            <!-- Game Tabs -->
-            <div class="flex flex-wrap items-center justify-center gap-2.5 md:gap-3 mb-8">
-                <button onclick="switchGame('scramble')" id="tab-scramble" class="game-tab-btn active-game-tab px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all flex items-center gap-2 bg-teal-600 text-white shadow-lg">
-                    <i class="fa-solid fa-arrow-down-a-z"></i> Susun Kata
-                </button>
-                <button onclick="switchGame('match')" id="tab-match" class="game-tab-btn px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all flex items-center gap-2 bg-white text-slate-600 border border-slate-200 hover:border-teal-300 hover:text-teal-600">
-                    <i class="fa-solid fa-arrows-split-up-and-left"></i> Pasangkan Istilah
-                </button>
-                <button onclick="switchGame('wordsearch')" id="tab-wordsearch" class="game-tab-btn px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all flex items-center gap-2 bg-white text-slate-600 border border-slate-200 hover:border-teal-300 hover:text-teal-600">
-                    <i class="fa-solid fa-table-cells"></i> Cari Kata Petunjuk
-                </button>
-                <button onclick="switchGame('tebakgambar')" id="tab-tebakgambar" class="game-tab-btn px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all flex items-center gap-2 bg-white text-slate-600 border border-slate-200 hover:border-teal-300 hover:text-teal-600">
-                    <i class="fa-solid fa-image text-amber-500"></i> Tebak Gambar
-                </button>
-                <button onclick="switchGame('war')" id="tab-war" class="game-tab-btn px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all flex items-center gap-2 bg-white text-slate-600 border border-slate-200 hover:border-teal-300 hover:text-teal-600">
-                    <i class="fa-solid fa-khanda text-amber-500"></i> Duel Perang Gladiator
+            <!-- Game Menu Grid -->
+            <div id="game-menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 max-w-5xl mx-auto mb-8 px-2">
+                <!-- Card 1 -->
+                <div onclick="switchGame('scramble')" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 hover:shadow-lg transition-all cursor-pointer group flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-teal-600 text-white flex items-center justify-center text-3xl mb-4 shadow-inner group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-arrow-down-a-z"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2 font-heading">Susun Kata</h3>
+                    <p class="text-sm text-slate-500 mb-6 flex-1">Rangkai huruf menjadi istilah penting dalam materi Fikih Shalat.</p>
+                    <button class="w-full bg-slate-50 text-teal-700 font-bold py-2.5 rounded-xl border border-slate-200 group-hover:bg-teal-50 group-hover:border-teal-300 transition-colors">Mainkan Game &rarr;</button>
+                </div>
+                
+                <!-- Card 2 -->
+                <div onclick="switchGame('match')" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 hover:shadow-lg transition-all cursor-pointer group flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-blue-500 text-white flex items-center justify-center text-3xl mb-4 shadow-inner group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-arrows-split-up-and-left"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2 font-heading">Pasangkan Istilah</h3>
+                    <p class="text-sm text-slate-500 mb-6 flex-1">Tarik dan cocokkan definisi hukum shalat dengan pasangannya.</p>
+                    <button class="w-full bg-slate-50 text-blue-700 font-bold py-2.5 rounded-xl border border-slate-200 group-hover:bg-blue-50 group-hover:border-blue-300 transition-colors">Mainkan Game &rarr;</button>
+                </div>
+
+                <!-- Card 3 -->
+                <div onclick="switchGame('wordsearch')" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 hover:shadow-lg transition-all cursor-pointer group flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-emerald-500 text-white flex items-center justify-center text-3xl mb-4 shadow-inner group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-table-cells"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2 font-heading">Cari Kata Petunjuk</h3>
+                    <p class="text-sm text-slate-500 mb-6 flex-1">Temukan kata tersembunyi dari kisi huruf berdasarkan petunjuk.</p>
+                    <button class="w-full bg-slate-50 text-emerald-700 font-bold py-2.5 rounded-xl border border-slate-200 group-hover:bg-emerald-50 group-hover:border-emerald-300 transition-colors">Mainkan Game &rarr;</button>
+                </div>
+
+                <!-- Card 4 -->
+                <div onclick="switchGame('tebakgambar')" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 hover:shadow-lg transition-all cursor-pointer group flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-amber-500 text-white flex items-center justify-center text-3xl mb-4 shadow-inner group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-image"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2 font-heading">Tebak Gambar</h3>
+                    <p class="text-sm text-slate-500 mb-6 flex-1">Amati ilustrasi visual ibadah shalat dan identifikasi hukumnya.</p>
+                    <button class="w-full bg-slate-50 text-amber-700 font-bold py-2.5 rounded-xl border border-slate-200 group-hover:bg-amber-50 group-hover:border-amber-300 transition-colors">Mainkan Game &rarr;</button>
+                </div>
+                
+                <!-- Card 5 -->
+                <div onclick="switchGame('war')" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 hover:shadow-lg transition-all cursor-pointer group flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-2xl bg-rose-500 text-white flex items-center justify-center text-3xl mb-4 shadow-inner group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-khanda"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2 font-heading">Duel Gladiator</h3>
+                    <p class="text-sm text-slate-500 mb-6 flex-1">Pertempuran seru multipemain 1v1 menjawab kuis adu cepat fikih.</p>
+                    <button class="w-full bg-slate-50 text-rose-700 font-bold py-2.5 rounded-xl border border-slate-200 group-hover:bg-rose-50 group-hover:border-rose-300 transition-colors">Mainkan Game &rarr;</button>
+                </div>
+
+                <!-- Card 6 -->
+                <div onclick="switchGame('klasifikasi')" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 hover:shadow-lg transition-all cursor-pointer group flex flex-col items-center text-center border-b-4 border-b-indigo-500">
+                    <div class="w-16 h-16 rounded-2xl bg-indigo-600 text-white flex items-center justify-center text-3xl mb-4 shadow-inner group-hover:scale-110 transition-transform relative overflow-hidden">
+                        <div class="absolute inset-0 bg-white/20 rotate-45 transform translate-y-8"></div>
+                        <i class="fa-solid fa-layer-group relative z-10"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-2 font-heading">Klasifikasi Hukum</h3>
+                    <p class="text-sm text-slate-500 mb-6 flex-1">Ujian pamungkas! Kelompokkan syarat, rukun, sunnah & hal batal shalat.</p>
+                    <button class="w-full bg-indigo-50 text-indigo-700 font-bold py-2.5 rounded-xl border border-indigo-200 group-hover:bg-indigo-100 transition-colors">Mulai Ujian &rarr;</button>
+                </div>
+            </div>
+
+            <!-- Back Button (Hidden initially) -->
+            <div id="game-back-btn-container" class="hidden text-center mb-6 max-w-5xl mx-auto">
+                <button onclick="backToGameMenu()" class="bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold py-2.5 px-6 rounded-full text-sm transition-colors shadow-sm border border-slate-200 hover:text-slate-800 flex items-center gap-2 mx-auto">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali ke Menu Pilihan Game
                 </button>
             </div>
 
             <!-- Game Panels Container -->
-            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+            <div id="game-panels-wrapper" class="hidden bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
                 
                 <!-- ================= GAME 1: SUSUN KATA (10 SOAL) ================= -->
-                <div id="game-scramble" class="game-panel p-6 md:p-8">
+                <div id="game-scramble" class="game-panel hidden p-6 md:p-8">
                     <!-- Name Input Bar -->
                     <div class="bg-teal-50 border border-teal-200 p-4 rounded-xl mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
                         <div class="flex items-center gap-2">
@@ -1147,6 +1199,130 @@
                     </div>
                 </div>
 
+                <!-- ================= GAME 6: KLASIFIKASI HUKUM SHALAT ================= -->
+                <div id="game-klasifikasi" class="game-panel hidden flex flex-col min-h-[500px]">
+                    <div class="bg-gradient-to-r from-indigo-600 to-blue-700 text-white p-6 md:p-8 rounded-2xl shadow-lg relative overflow-hidden mb-6">
+                        <div class="absolute -right-6 -top-6 text-indigo-500/20 text-9xl pointer-events-none transform rotate-12"><i class="fa-solid fa-layer-group"></i></div>
+                        <div class="relative z-10">
+                            <span class="bg-indigo-900/30 text-indigo-100 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm mb-3 inline-block border border-indigo-400/30">
+                                GAME 6
+                            </span>
+                            <h2 class="text-3xl md:text-4xl font-black mb-2 font-heading tracking-wide drop-shadow-md">Klasifikasi Hukum Shalat</h2>
+                            <p class="text-indigo-100 text-sm md:text-base max-w-xl font-medium leading-relaxed">
+                                Klik setiap kotak di bawah ini dan tentukan apakah ia termasuk Syarat Wajib, Syarat Sah, Rukun, Sunnah, atau Hal yang Membatalkan Shalat!
+                            </p>
+                            
+                            <div class="mt-6 flex flex-col md:flex-row gap-4 items-center bg-indigo-900/40 p-4 rounded-xl border border-indigo-400/30 backdrop-blur-sm max-w-3xl">
+                                <div class="w-full flex flex-col gap-4">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                        <div>
+                                            <label class="block text-[10px] font-bold text-indigo-200 uppercase tracking-wider mb-1">Kelas</label>
+                                            <select id="klasifikasi-class-select" onchange="renderKlasifikasiPlayers()" class="w-full bg-white/10 border border-indigo-300/30 text-white text-sm rounded-lg focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 block p-2.5 appearance-none font-semibold">
+                                                <option value="" class="text-slate-800">-- Pilih Kelas --</option>
+                                                <option value="7A" class="text-slate-800">7A</option>
+                                                <option value="7B" class="text-slate-800">7B</option>
+                                                <option value="7C" class="text-slate-800">7C</option>
+                                                <option value="7D" class="text-slate-800">7D</option>
+                                                <option value="7E" class="text-slate-800">7E</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-[10px] font-bold text-indigo-200 uppercase tracking-wider mb-1">Jumlah Pemain</label>
+                                            <select id="klasifikasi-count-select" onchange="renderKlasifikasiPlayers()" class="w-full bg-white/10 border border-indigo-300/30 text-white text-sm rounded-lg focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 block p-2.5 appearance-none font-semibold">
+                                                <option value="1" class="text-slate-800">1 Orang (Individu)</option>
+                                                <option value="2" class="text-slate-800">2 Orang</option>
+                                                <option value="3" class="text-slate-800">3 Orang</option>
+                                                <option value="4" class="text-slate-800">4 Orang</option>
+                                                <option value="5" class="text-slate-800">5 Orang</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div id="klasifikasi-players-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                                        <!-- Rendered by JS -->
+                                        <div>
+                                            <label class="block text-[10px] font-bold text-indigo-200 uppercase tracking-wider mb-1">Pemain 1</label>
+                                            <select id="klasifikasi-player-0" class="w-full bg-white/10 border border-indigo-300/30 text-white text-sm rounded-lg focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 block p-2.5 appearance-none font-semibold">
+                                                <option value="" class="text-slate-800">-- Pilih Nama --</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-end mt-2">
+                                        <button onclick="initKlasifikasiGame()" class="w-full md:w-auto bg-white text-indigo-700 hover:bg-indigo-50 font-bold py-2.5 px-6 rounded-lg transition-transform active:scale-95 shadow-md flex items-center justify-center gap-2 whitespace-nowrap">
+                                            <i class="fa-solid fa-play"></i> Mulai Game
+                                        </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5 md:p-8 flex-1">
+                        <div class="flex justify-between items-center mb-6">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center shadow-inner">
+                                    <i class="fa-solid fa-user-graduate"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Pemain Aktif</p>
+                                    <p id="klasifikasi-player-display" class="font-bold text-slate-700 text-sm">-</p>
+                                </div>
+                            </div>
+                            <div class="bg-indigo-50 px-4 py-2 rounded-xl border border-indigo-100 flex items-center gap-2">
+                                <span class="text-indigo-800 font-black text-xl" id="klasifikasi-score-display">?</span>
+                                <span class="text-indigo-400 text-sm font-bold">/ 100</span>
+                            </div>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="mb-6">
+                            <div class="flex justify-between text-xs font-bold text-slate-500 mb-1">
+                                <span>Progress</span>
+                                <span id="klasifikasi-progress-text">0 / 30</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                                <div id="klasifikasi-progress-bar" class="bg-indigo-500 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Grid Area -->
+                        
+                        <div id="klasifikasi-grid" class="flex flex-wrap gap-2.5 md:gap-3 justify-center">
+                            <!-- Chips will be generated here -->
+                        </div>
+                        <div class="mt-8 text-center hidden" id="klasifikasi-submit-container">
+                            <button onclick="submitKlasifikasi()" id="btn-submit-klasifikasi" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-xl transition-transform active:scale-95 shadow-lg flex items-center justify-center gap-2 mx-auto">
+                                <i class="fa-solid fa-paper-plane"></i> Kumpulkan Jawaban
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <!-- Modal Popup Klasifikasi -->
+                    <div id="klasifikasi-modal" class="hidden fixed inset-0 z-50 bg-slate-900/40 flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+                        <div class="bg-white w-full max-w-sm rounded-2xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300" id="klasifikasi-modal-content">
+                            <div class="bg-indigo-600 p-4 text-center">
+                                <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white text-sm mx-auto mb-1">
+                                    <i class="fa-solid fa-question"></i>
+                                </div>
+                                <h3 class="text-white font-bold text-sm">Pilih Kategori:</h3>
+                            </div>
+                            <div class="p-5 text-center">
+                                <p id="klasifikasi-item-text" class="text-base font-bold text-slate-800 mb-3 pb-2 border-b border-dashed border-slate-200">
+                                    Membaca Surah Al-Fatihah
+                                </p>
+                                <div class="grid grid-cols-1 gap-2.5">
+                                    <button onclick="checkKlasifikasi('Syarat Wajib')" class="klasifikasi-opt-btn bg-slate-50 hover:bg-slate-100 border-2 border-slate-200 text-slate-700 font-bold py-1.5 px-3 rounded-lg text-sm transition-all active:scale-95 hover:border-indigo-300 hover:text-indigo-600">Syarat Wajib Shalat</button>
+                                    <button onclick="checkKlasifikasi('Syarat Sah')" class="klasifikasi-opt-btn bg-slate-50 hover:bg-slate-100 border-2 border-slate-200 text-slate-700 font-bold py-1.5 px-3 rounded-lg text-sm transition-all active:scale-95 hover:border-indigo-300 hover:text-indigo-600">Syarat Sah Shalat</button>
+                                    <button onclick="checkKlasifikasi('Rukun')" class="klasifikasi-opt-btn bg-slate-50 hover:bg-slate-100 border-2 border-slate-200 text-slate-700 font-bold py-1.5 px-3 rounded-lg text-sm transition-all active:scale-95 hover:border-indigo-300 hover:text-indigo-600">Rukun Shalat</button>
+                                    <button onclick="checkKlasifikasi('Sunnah')" class="klasifikasi-opt-btn bg-slate-50 hover:bg-slate-100 border-2 border-slate-200 text-slate-700 font-bold py-1.5 px-3 rounded-lg text-sm transition-all active:scale-95 hover:border-indigo-300 hover:text-indigo-600">Sunnah Shalat</button>
+                                    <button onclick="checkKlasifikasi('Batal')" class="klasifikasi-opt-btn bg-slate-50 hover:bg-slate-100 border-2 border-slate-200 text-slate-700 font-bold py-1.5 px-3 rounded-lg text-sm transition-all active:scale-95 hover:border-indigo-300 hover:text-indigo-600">Hal yang Membatalkan Shalat</button>
+                                </div>
+                            </div>
+                            <div class="bg-slate-50 p-3 text-center border-t border-slate-100">
+                                <button onclick="closeKlasifikasiModal()" class="text-slate-400 hover:text-slate-600 font-semibold text-sm transition-colors">Tutup / Batal</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
         </section>
 
@@ -1488,8 +1664,7 @@
             list.forEach(name => {
                 const opt = document.createElement('option');
                 opt.value = name;
-                opt.textContent = name;
-                studentSelect.appendChild(opt);
+                opt.textContent = name; opt.className = 'text-slate-800 bg-white'; studentSelect.appendChild(opt);
             });
         }
 
@@ -1505,6 +1680,38 @@
             }
         }
 
+        
+        function renderKlasifikasiPlayers() {
+            const classVal = document.getElementById('klasifikasi-class-select').value;
+            const count = parseInt(document.getElementById('klasifikasi-count-select').value) || 1;
+            const container = document.getElementById('klasifikasi-players-container');
+            container.innerHTML = '';
+            
+            if (!classVal) return;
+            const list = window.masterDataSiswa ? (window.masterDataSiswa[classVal] || []) : [];
+            
+            for (let i = 0; i < count; i++) {
+                const wrapper = document.createElement('div');
+                wrapper.innerHTML = `
+                    <div>
+                        <label class="block text-[10px] font-bold text-indigo-200 uppercase tracking-wider mb-1">Pemain ${i+1}</label>
+                        <select id="klasifikasi-player-${i}" class="w-full bg-white/10 border border-indigo-300/30 text-white text-sm rounded-lg focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 block p-2.5 appearance-none font-semibold">
+                            <option value="" class="text-slate-800">-- Pilih Nama --</option>
+                        </select>
+                    </div>
+                `;
+                const select = wrapper.querySelector('select');
+                list.forEach(name => {
+                    const opt = document.createElement('option');
+                    opt.value = name;
+                    opt.textContent = name;
+                    opt.className = 'text-slate-800 bg-white';
+                    select.appendChild(opt);
+                });
+                container.appendChild(wrapper.firstElementChild);
+            }
+        }
+
         function getActivePlayer(gameKey) {
             const classVal = document.getElementById(`${gameKey}-class-select`)?.value;
             const studentVal = document.getElementById(`${gameKey}-student-select`)?.value;
@@ -1513,22 +1720,28 @@
             }
             return null;
         }
+    </script>
 
-        function switchGame(gameId) {
+    <!-- ================= SCRIPTS & GAME LOGIC ================= -->
+    <script>
+                function switchGame(gameId) {
+            document.getElementById('game-menu-grid').classList.add('hidden');
+            document.getElementById('game-back-btn-container').classList.remove('hidden');
+            document.getElementById('game-panels-wrapper').classList.remove('hidden');
+
             document.querySelectorAll('.game-panel').forEach(el => el.classList.add('hidden'));
             document.getElementById('game-' + gameId).classList.remove('hidden');
-
-            document.querySelectorAll('.game-tab-btn').forEach(btn => {
-                btn.classList.remove('bg-teal-600', 'text-white', 'shadow-lg', 'active-game-tab');
-                btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
-            });
-            const activeBtn = document.getElementById('tab-' + gameId);
-            activeBtn.classList.add('bg-teal-600', 'text-white', 'shadow-lg', 'active-game-tab');
-            activeBtn.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
 
             if (gameId === 'war' && !warState.active) {
                 initWarGame();
             }
+        }
+
+        function backToGameMenu() {
+            document.querySelectorAll('.game-panel').forEach(el => el.classList.add('hidden'));
+            document.getElementById('game-panels-wrapper').classList.add('hidden');
+            document.getElementById('game-back-btn-container').classList.add('hidden');
+            document.getElementById('game-menu-grid').classList.remove('hidden');
         }
 
         // ================= GAME 1: SUSUN KATA (10 SOAL) =================
@@ -1617,13 +1830,13 @@
                             if (player && window.submitGameScores) {
                                 window.submitGameScores([{ name: player.name, kelas: player.kelas, score: scrambleScore }], "Mini Game Fiqih: Susun Kata Shalat");
                             }
-                            alert(`🎉 Selamat! Kamu telah menyelesaikan semua 10 soal Susun Kata dengan total Skor: ${scrambleScore}!`);
+                            showModal({ title: 'Hebat!', message: `<div class='text-center'><span class='text-5xl font-bold text-teal-600 block mb-2'>${scrambleScore}</span><span class='text-sm font-medium text-slate-500'>Kamu telah menyelesaikan semua soal Susun Kata.</span></div>`, type: 'success' });
                             initScrambleGame();
                         }
                     }, 300);
                 } else {
                     setTimeout(() => {
-                        alert("❌ Susunan huruf belum tepat. Ayo coba susun kembali!");
+                        showModal({ title: 'Kurang Tepat', message: 'Susunan huruf belum tepat. Ayo coba susun kembali!', type: 'warning' });
                         resetCurrentScramble();
                     }, 300);
                 }
@@ -1701,7 +1914,7 @@
                         window.submitGameScores([{ name: player.name, kelas: player.kelas, score: 100 }], "Mini Game Fiqih: Pasangkan Istilah Shalat");
                     }
                     setTimeout(() => {
-                        alert("🎉 Sempurna! Semua 10 pasangan konsep shalat berhasil kamu pasangkan dengan benar!");
+                        showModal({ title: 'Sempurna!', message: `<div class='text-center'><span class='text-5xl font-bold text-teal-600 block mb-2'>100</span><span class='text-sm font-medium text-slate-500'>Semua 10 pasangan konsep shalat berhasil kamu pasangkan!</span></div>`, type: 'success' });
                     }, 300);
                 }
             } else {
@@ -1977,14 +2190,15 @@
                         if (player && window.submitGameScores) {
                             window.submitGameScores([{ name: player.name, kelas: player.kelas, score: tgScore }], "Mini Game Fiqih: Tebak Gambar Shalat");
                         }
-                        alert(`🎉 Luar Biasa! Kamu berhasil menyelesaikan 10 Soal Tebak Gambar Shalat dengan total Skor: ${tgScore}!`);
+                        showModal({ title: 'Luar Biasa!', message: `<div class='text-center'><span class='text-5xl font-bold text-teal-600 block mb-2'>${tgScore}</span><span class='text-sm font-medium text-slate-500'>Kamu berhasil menyelesaikan Soal Tebak Gambar!</span></div>`, type: 'success' });
                         initTebakGambarGame();
+            initKlasifikasiGame();
                     }
                 }, 1000);
             } else {
                 btn.className = "tg-opt-btn p-3.5 bg-red-500 text-white border-red-600 rounded-xl text-xs md:text-sm font-bold shadow-md flex items-center gap-2.5 animate-pulse";
                 setTimeout(() => {
-                    alert("❌ Jawabanmu belum tepat. Ayo perhatikan gambarnya dan coba lagi!");
+                    showModal({ title: 'Belum Tepat', message: 'Jawabanmu belum tepat. Ayo perhatikan gambarnya dan coba lagi!', type: 'warning' });
                     renderTebakGambarItem();
                 }, 800);
             }
@@ -2006,6 +2220,212 @@
             { q: "Hikmah utama ibadah shalat sebagaimana tercantum dalam QS. Al-Ankabut: 45 adalah...", opts: ["Mencegah dari perbuatan keji dan mungkar", "Menjadikan badan selalu kaya", "Bebas dari segala penyakit fisik", "Menggugurkan kewajiban puasa"], a: 0 }
         ];
 
+        // ================= GAME 6: KLASIFIKASI HUKUM SHALAT =================
+        const klasifikasiData = [
+            { text: "Beragama Islam", type: "Syarat Wajib" },
+            { text: "Baligh (Dewasa)", type: "Syarat Wajib" },
+            { text: "Berakal Sehat", type: "Syarat Wajib" },
+            { text: "Suci dari Haid dan Nifas", type: "Syarat Sah" },
+            { text: "Suci dari Hadats Kecil & Besar", type: "Syarat Sah" },
+            { text: "Suci Badan, Pakaian, dan Tempat", type: "Syarat Sah" },
+            { text: "Menutup Aurat", type: "Syarat Sah" },
+            { text: "Masuk Waktu Shalat", type: "Syarat Sah" },
+            { text: "Menghadap Kiblat", type: "Syarat Sah" },
+            { text: "Niat", type: "Rukun" },
+            { text: "Berdiri bagi yang mampu", type: "Rukun" },
+            { text: "Takbiratul Ihram", type: "Rukun" },
+            { text: "Membaca Surah Al-Fatihah", type: "Rukun" },
+            { text: "Ruku' dengan tuma'ninah", type: "Rukun" },
+            { text: "I'tidal dengan tuma'ninah", type: "Rukun" },
+            { text: "Sujud dua kali dengan tuma'ninah", type: "Rukun" },
+            { text: "Duduk di antara dua sujud", type: "Rukun" },
+            { text: "Duduk Tasyahud Akhir", type: "Rukun" },
+            { text: "Membaca Tasyahud Akhir", type: "Rukun" },
+            { text: "Membaca Shalawat Nabi di Tasyahud Akhir", type: "Rukun" },
+            { text: "Mengucapkan Salam Pertama", type: "Rukun" },
+            { text: "Tertib (Berurutan)", type: "Rukun" },
+            { text: "Mengangkat Tangan saat Takbir", type: "Sunnah" },
+            { text: "Membaca Doa Iftitah", type: "Sunnah" },
+            { text: "Membaca Surah Pendek setelah Al-Fatihah", type: "Sunnah" },
+            { text: "Mengucapkan Aamiin", type: "Sunnah" },
+            { text: "Salam Kedua (Menoleh ke Kiri)", type: "Sunnah" },
+            { text: "Berbicara dengan Sengaja", type: "Batal" },
+            { text: "Makan dan Minum", type: "Batal" },
+            { text: "Bergerak Berturut-turut lebih 3 kali", type: "Batal" },
+            { text: "Tertawa Terbahak-bahak", type: "Batal" },
+            { text: "Membelakangi Kiblat dengan Sengaja", type: "Batal" },
+            { text: "Terbuka Aurat dengan Sengaja", type: "Batal" }
+        ];
+
+        let currentKlasifikasiItems = [];
+        let klasifikasiScore = 0;
+        let klasifikasiCorrectCount = 0;
+        let activeKlasifikasiIndex = -1;
+
+        function initKlasifikasiGame() {
+            window.klasifikasiActivePlayers = [];
+            const count = parseInt(document.getElementById('klasifikasi-count-select').value) || 1;
+            const classVal = document.getElementById('klasifikasi-class-select').value;
+            for(let i = 0; i < count; i++) {
+                const s = document.getElementById('klasifikasi-player-'+i);
+                if(s && s.value) window.klasifikasiActivePlayers.push({ name: s.value, kelas: classVal });
+            }
+            if (window.klasifikasiActivePlayers.length !== count || !classVal) {
+                showModal({ title: 'Perhatian', message: 'Pilih kelas dan nama untuk semua pemain terlebih dahulu!', type: 'warning' });
+                return;
+            }
+            document.getElementById('klasifikasi-player-display').innerHTML = window.klasifikasiActivePlayers.map(p => `<span class="text-indigo-700 font-bold">${p.name}</span>`).join(', ') + ` <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-0.5 rounded-full ml-1 font-semibold">Kelas ${classVal}</span>`;
+
+            // Reset state
+            klasifikasiScore = 0;
+            klasifikasiCorrectCount = 0;
+            currentKlasifikasiItems.forEach(i => delete i.userAnswer);
+            document.getElementById('klasifikasi-score-display').textContent = '?';
+            document.getElementById('klasifikasi-progress-text').textContent = `0 / ${klasifikasiData.length}`;
+            document.getElementById('klasifikasi-progress-bar').style.width = `0%`;
+            
+            const submitContainer = document.getElementById('klasifikasi-submit-container');
+            if(submitContainer) submitContainer.classList.add('hidden');
+            
+            const btnSubmit = document.getElementById('btn-submit-klasifikasi');
+            if(btnSubmit) {
+                btnSubmit.disabled = false;
+                btnSubmit.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Kumpulkan Jawaban';
+                btnSubmit.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+            
+            // Shuffle data
+            currentKlasifikasiItems = [...klasifikasiData].sort(() => Math.random() - 0.5);
+            
+            renderKlasifikasiGrid();
+        }
+
+        function renderKlasifikasiGrid() {
+            const grid = document.getElementById('klasifikasi-grid');
+            grid.innerHTML = '';
+
+            currentKlasifikasiItems.forEach((item, index) => {
+                const btn = document.createElement('button');
+                btn.className = `klasifikasi-chip text-sm font-bold px-4 py-2.5 rounded-xl border-2 border-slate-200 bg-white text-slate-700 shadow-sm transition-all hover:border-indigo-400 hover:text-indigo-600 hover:shadow-md active:scale-95 flex flex-col items-center justify-center gap-1`;
+                btn.id = `klas-chip-${index}`;
+                btn.innerHTML = `
+                    <span class="text-center">${item.text}</span>
+                    <span class="text-[9px] uppercase tracking-wider text-white px-2 py-0.5 rounded-full hidden" id="klas-badge-${index}"></span>
+                `;
+                btn.onclick = () => openKlasifikasiModal(index);
+                grid.appendChild(btn);
+            });
+        }
+
+        function openKlasifikasiModal(index) {
+            const item = currentKlasifikasiItems[index];
+            if (item.solved) return; // Already answered correctly
+
+            activeKlasifikasiIndex = index;
+            document.getElementById('klasifikasi-item-text').textContent = item.text;
+            
+            // Reset modal buttons styling
+            document.querySelectorAll('.klasifikasi-opt-btn').forEach(btn => {
+                btn.className = 'klasifikasi-opt-btn bg-slate-50 hover:bg-slate-100 border-2 border-slate-200 text-slate-700 font-bold py-1.5 px-3 rounded-lg text-sm transition-all active:scale-95 hover:border-indigo-300 hover:text-indigo-600';
+            });
+
+            const modal = document.getElementById('klasifikasi-modal');
+            const content = document.getElementById('klasifikasi-modal-content');
+            
+            modal.classList.remove('hidden');
+            // Trigger reflow for transition
+            void modal.offsetWidth;
+            modal.classList.remove('opacity-0');
+            content.classList.remove('scale-95');
+        }
+
+        function closeKlasifikasiModal() {
+            const modal = document.getElementById('klasifikasi-modal');
+            const content = document.getElementById('klasifikasi-modal-content');
+            
+            modal.classList.add('opacity-0');
+            content.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                activeKlasifikasiIndex = -1;
+            }, 300); // Wait for transition
+        }
+
+        function checkKlasifikasi(selectedType) {
+            if (activeKlasifikasiIndex === -1) return;
+
+            const item = currentKlasifikasiItems[activeKlasifikasiIndex];
+            item.userAnswer = selectedType;
+            
+            const chip = document.getElementById(`klas-chip-${activeKlasifikasiIndex}`);
+            const badge = document.getElementById(`klas-badge-${activeKlasifikasiIndex}`);
+            
+            // UI Update
+            chip.classList.add('border-indigo-300', 'bg-indigo-50');
+            badge.textContent = selectedType;
+            badge.className = `text-[9px] uppercase tracking-wider text-white px-2 py-0.5 rounded-full bg-indigo-500 inline-block mt-1`;
+            badge.classList.remove('hidden');
+
+            // Count answered
+            const answeredCount = currentKlasifikasiItems.filter(i => i.userAnswer).length;
+            document.getElementById('klasifikasi-progress-text').textContent = `${answeredCount} / ${currentKlasifikasiItems.length}`;
+            const pct = (answeredCount / currentKlasifikasiItems.length) * 100;
+            document.getElementById('klasifikasi-progress-bar').style.width = `${pct}%`;
+
+            if (answeredCount === currentKlasifikasiItems.length) {
+                document.getElementById('klasifikasi-submit-container').classList.remove('hidden');
+            }
+
+            closeKlasifikasiModal();
+        }
+
+        function submitKlasifikasi() {
+            const answeredCount = currentKlasifikasiItems.filter(i => i.userAnswer).length;
+            if (answeredCount < currentKlasifikasiItems.length) {
+                return showModal({ title: 'Belum Selesai', message: 'Pilih kategori untuk seluruh item sebelum mengumpulkan!', type: 'warning' });
+            }
+
+            // Calculate score
+            let correct = 0;
+            currentKlasifikasiItems.forEach((item, index) => {
+                const chip = document.getElementById(`klas-chip-${index}`);
+                const badge = document.getElementById(`klas-badge-${index}`);
+                chip.onclick = null; // disable further clicks
+                
+                if (item.userAnswer === item.type) {
+                    correct++;
+                    chip.classList.remove('border-indigo-300', 'bg-indigo-50');
+                    chip.classList.add('border-emerald-400', 'bg-emerald-50');
+                    badge.classList.replace('bg-indigo-500', 'bg-emerald-500');
+                } else {
+                    chip.classList.remove('border-indigo-300', 'bg-indigo-50');
+                    chip.classList.add('border-rose-400', 'bg-rose-50');
+                    badge.classList.replace('bg-indigo-500', 'bg-rose-500');
+                    badge.innerHTML = `<del class="opacity-70">${item.userAnswer}</del> ${item.type}`;
+                }
+            });
+
+            const score = Math.round((correct / currentKlasifikasiItems.length) * 100);
+            document.getElementById('klasifikasi-score-display').textContent = score;
+            document.getElementById('btn-submit-klasifikasi').disabled = true;
+            document.getElementById('btn-submit-klasifikasi').innerHTML = '<i class="fa-solid fa-check"></i> Sudah Dinilai';
+            document.getElementById('btn-submit-klasifikasi').classList.add('opacity-50', 'cursor-not-allowed');
+
+            
+
+            showModal({
+                title: 'Selesai!',
+                message: `<div class="text-center"><span class="text-5xl font-bold text-teal-600 block mb-2">${score}</span><span class="text-sm font-medium text-slate-500">Kamu berhasil menjawab benar ${correct} dari ${currentKlasifikasiItems.length} item.</span></div>`,
+                type: score > 70 ? 'success' : 'warning'
+            });
+
+            const player = getActivePlayer('klasifikasi');
+            if (window.klasifikasiActivePlayers && window.submitGameScores) {
+                const arr = window.klasifikasiActivePlayers.map(p => ({ name: p.name, kelas: p.kelas, score: score }));
+                window.submitGameScores(arr, 'Mini Game Fiqih: Klasifikasi Shalat');
+            }
+        }
         let warState = {
             active: false,
             hpLeft: 100,
@@ -2261,15 +2681,6 @@
         document.addEventListener('copy', e => { e.preventDefault(); showAntiCheatBanner(d64("RGlsYXJhbmcgbWVsYWt1a2FuIENvcHkgZGF0YSE=")); });
         document.addEventListener('cut', e => { e.preventDefault(); showAntiCheatBanner(d64("RGlsYXJhbmcgbWVsYWt1a2FuIEN1dCBkYXRhIQ==")); });
         document.addEventListener('paste', e => { e.preventDefault(); showAntiCheatBanner(d64("RGlsYXJhbmcgbWVsYWt1a2FuIFBhc3RlIGRhdGEh")); });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) || (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.key === 'S' || e.key === 's' || e.key === 'C' || e.key === 'c' || e.key === 'V' || e.key === 'v' || e.key === 'X' || e.key === 'x'))) {
-                e.preventDefault(); showAntiCheatBanner(d64("UGludGFzYW4gS2V5Ym9hcmQgZGltYXRpa2FuIHVudHVrIGtlYW1hbmFuIQ=="));
-            }
-            if ((e.metaKey && e.shiftKey && (e.key === 's' || e.key === 'S')) || (e.metaKey && e.shiftKey && (e.key === '3' || e.key === '4' || e.key === '5'))) {
-                e.preventDefault(); if (window.isExamActive) { navigator.clipboard.writeText(''); handleTabViolation(d64("U2lzdGVtIG1lbmRldGVrc2kgdXBheWEgU2NyZWVuc2hvdCAvIFNuaXBwaW5nIFRvb2wh")); }
-            }
-        });
 
         document.addEventListener('keyup', (e) => {
             if (e.key === 'PrintScreen' || e.keyCode === 44) {
@@ -2614,3 +3025,8 @@
     </script>
 </body>
 </html>
+
+
+
+
+

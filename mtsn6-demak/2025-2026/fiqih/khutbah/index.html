@@ -522,15 +522,6 @@
         document.addEventListener('cut', e => { e.preventDefault(); showAntiCheatBanner(d64("RGlsYXJhbmcgbWVsYWt1a2FuIEN1dCBkYXRhIQ==")); });
         document.addEventListener('paste', e => { e.preventDefault(); showAntiCheatBanner(d64("RGlsYXJhbmcgbWVsYWt1a2FuIFBhc3RlIGRhdGEh")); });
 
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) || (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.key === 'S' || e.key === 's' || e.key === 'C' || e.key === 'c' || e.key === 'V' || e.key === 'v' || e.key === 'X' || e.key === 'x'))) {
-                e.preventDefault(); showAntiCheatBanner(d64("UGludGFzYW4gS2V5Ym9hcmQgZGltYXRpa2FuIHVudHVrIGtlYW1hbmFuIQ=="));
-            }
-            if ((e.metaKey && e.shiftKey && (e.key === 's' || e.key === 'S')) || (e.metaKey && e.shiftKey && (e.key === '3' || e.key === '4' || e.key === '5'))) {
-                e.preventDefault(); if (window.isExamActive) { navigator.clipboard.writeText(''); handleTabViolation(d64("U2lzdGVtIG1lbmRldGVrc2kgdXBheWEgU2NyZWVuc2hvdCAvIFNuaXBwaW5nIFRvb2wh")); }
-            }
-        });
-
         document.addEventListener('keyup', (e) => {
             if (e.key === 'PrintScreen' || e.keyCode === 44) {
                 if (window.isExamActive) { navigator.clipboard.writeText(''); handleTabViolation(d64("U2lzdGVtIG1lbmRldGVrc2kgdXBheWEgU2NyZWVuc2hvdCAoUHJpbnRTY3JlZW4pIQ==")); }
