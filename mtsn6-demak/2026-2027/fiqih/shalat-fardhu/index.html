@@ -1681,6 +1681,30 @@
         }
 
         
+        
+        function updateKlasifikasiDropdownOptions() {
+            const count = parseInt(document.getElementById('klasifikasi-count-select').value) || 1;
+            const selectedVals = [];
+            for(let i=0; i<count; i++) {
+                const s = document.getElementById('klasifikasi-player-'+i);
+                if (s && s.value) selectedVals.push(s.value);
+            }
+            for(let i=0; i<count; i++) {
+                const s = document.getElementById('klasifikasi-player-'+i);
+                if (!s) continue;
+                Array.from(s.options).forEach(opt => {
+                    if (opt.value === "") return;
+                    if (selectedVals.includes(opt.value) && s.value !== opt.value) {
+                        opt.disabled = true;
+                        opt.className = 'text-slate-300 bg-slate-50';
+                    } else {
+                        opt.disabled = false;
+                        opt.className = 'text-slate-800 bg-white';
+                    }
+                });
+            }
+        }
+
         function renderKlasifikasiPlayers() {
             const classVal = document.getElementById('klasifikasi-class-select').value;
             const count = parseInt(document.getElementById('klasifikasi-count-select').value) || 1;
@@ -1695,7 +1719,7 @@
                 wrapper.innerHTML = `
                     <div>
                         <label class="block text-[10px] font-bold text-indigo-200 uppercase tracking-wider mb-1">Pemain ${i+1}</label>
-                        <select id="klasifikasi-player-${i}" class="w-full bg-white/10 border border-indigo-300/30 text-white text-sm rounded-lg focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 block p-2.5 appearance-none font-semibold">
+                        <select id="klasifikasi-player-${i}" onchange="updateKlasifikasiDropdownOptions()" class="w-full bg-white/10 border border-indigo-300/30 text-white text-sm rounded-lg focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 block p-2.5 appearance-none font-semibold">
                             <option value="" class="text-slate-800">-- Pilih Nama --</option>
                         </select>
                     </div>
@@ -2274,6 +2298,11 @@
                 showModal({ title: 'Perhatian', message: 'Pilih kelas dan nama untuk semua pemain terlebih dahulu!', type: 'warning' });
                 return;
             }
+            const uniqueNames = new Set(window.klasifikasiActivePlayers.map(p => p.name));
+            if (uniqueNames.size !== window.klasifikasiActivePlayers.length) {
+                showModal({ title: 'Perhatian', message: 'Tidak boleh memilih nama siswa yang sama lebih dari satu kali dalam satu kelompok!', type: 'warning' });
+                return;
+            }
             document.getElementById('klasifikasi-player-display').innerHTML = window.klasifikasiActivePlayers.map(p => `<span class="text-indigo-700 font-bold">${p.name}</span>`).join(', ') + ` <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-0.5 rounded-full ml-1 font-semibold">Kelas ${classVal}</span>`;
 
             // Reset state
@@ -2461,6 +2490,39 @@
             }
         }
 
+        
+        function updateWarDropdownOptions() {
+            const modeCountLeft = parseInt(document.getElementById('war-mode-select-left').value) || 0;
+            const modeCountRight = parseInt(document.getElementById('war-mode-select-right').value) || 0;
+            
+            const allSelects = [];
+            for (let i = 0; i < modeCountLeft; i++) {
+                const el = document.getElementById(`war-player-left-${i}`);
+                if (el) allSelects.push(el);
+            }
+            for (let i = 0; i < modeCountRight; i++) {
+                const el = document.getElementById(`war-player-right-${i}`);
+                if (el) allSelects.push(el);
+            }
+            
+            const selectedVals = allSelects.map(s => s.value).filter(v => v);
+            
+            allSelects.forEach(s => {
+                Array.from(s.options).forEach(opt => {
+                    if (opt.value === "") return;
+                    if (selectedVals.includes(opt.value) && s.value !== opt.value) {
+                        opt.disabled = true;
+                        opt.style.color = '#cbd5e1';
+                        opt.style.backgroundColor = '#f8fafc';
+                    } else {
+                        opt.disabled = false;
+                        opt.style.color = '#1e293b';
+                        opt.style.backgroundColor = '#ffffff';
+                    }
+                });
+            });
+        }
+
         function renderWarPlayerDropdowns(containerId, className, count, side) {
             const container = document.getElementById(containerId);
             container.innerHTML = '';
@@ -2471,7 +2533,7 @@
             for (let i = 0; i < count; i++) {
                 const select = document.createElement('select');
                 select.className = `w-full border rounded-lg px-3 py-1.5 text-xs outline-none focus:ring-2 bg-white ${side === 'left' ? 'border-blue-200 focus:ring-blue-500' : 'border-red-200 focus:ring-red-500'}`;
-                select.id = `war-player-${side}-${i}`;
+                select.id = `war-player-${side}-${i}`; select.onchange = updateWarDropdownOptions;
                 
                 const defaultOpt = document.createElement('option');
                 defaultOpt.value = "";
@@ -2513,6 +2575,15 @@
             }
 
             if (!valid) {
+                errEl.textContent = 'Lengkapi semua pilihan nama pemain!';
+                errEl.classList.remove('hidden');
+                return;
+            }
+
+            const allSelectedPlayers = [...warState.playersLeft, ...warState.playersRight];
+            const uniqueWarPlayers = new Set(allSelectedPlayers);
+            if (uniqueWarPlayers.size !== allSelectedPlayers.length) {
+                errEl.textContent = 'Nama pemain tidak boleh ada yang sama (duplikat)!';
                 errEl.classList.remove('hidden');
                 return;
             }
