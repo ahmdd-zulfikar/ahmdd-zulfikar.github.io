@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kisi-Kisi Interaktif STS Genap 2026/2027 - MTsN 6 Demak</title>
+    <title>Kisi-Kisi Asesmen STS Genap 2026/2027 - Belajar Online</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti untuk Animasi Pesta -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
     <script>
         tailwind.config = {
@@ -37,126 +40,286 @@
     
     <style>
         body {
-            font-family: 'Inter', sans-serif;
             background-color: #f8fafc;
             color: #334155;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230f766e' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
-        h1, h2, h3, h4, h5, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
         
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        .pattern-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
         .badge-lots { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
         .badge-mots { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
         .badge-hots { background: #faf5ff; color: #7e22ce; border: 1px solid #e9d5ff; }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.96) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .animate-modal-pop {
+            animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center selection:bg-teal-200 selection:text-teal-900">
+<body class="font-sans antialiased selection:bg-teal-200 selection:text-teal-900 overflow-x-hidden min-h-screen flex flex-col">
 
     <!-- ================= NAVBAR ================= -->
-    <nav id="main-nav" class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-            <div class="flex items-center justify-between h-16">
-                <a href="../index.html" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-700 to-teal-500 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
-                        <i class="fa-solid fa-list-check text-lg"></i>
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Brand -->
+                <a href="../" target="_top" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <div class="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-book-open text-sm"></i>
                     </div>
-                    <div>
-                        <span class="text-[11px] font-bold text-teal-700 uppercase tracking-wider block">MTsN 6 Demak</span>
-                        <span class="text-sm md:text-base font-extrabold text-slate-800 font-heading">Kisi-Kisi Asesmen STS Genap</span>
-                    </div>
+                    <span class="font-heading font-bold text-lg tracking-wide text-slate-800">Belajar<span class="text-teal-600">Online</span></span>
                 </a>
-                
-                <div class="flex items-center gap-2 sm:gap-3">
-                    <a href="../index.html" class="px-3 py-1.5 text-xs md:text-sm font-semibold text-slate-600 hover:text-teal-700 hover:bg-teal-50 rounded-lg transition-colors flex items-center gap-1.5">
-                        <i class="fa-solid fa-house"></i>
-                        <span class="hidden sm:inline">Beranda</span>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../fiqih/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors flex items-center gap-1 py-4">
+                        Fiqih
                     </a>
-                    <a href="../nilai-siswa/" class="px-3 py-1.5 text-xs md:text-sm font-semibold text-slate-600 hover:text-teal-700 hover:bg-teal-50 rounded-lg transition-colors flex items-center gap-1.5">
-                        <i class="fa-solid fa-chart-simple"></i>
-                        <span class="hidden sm:inline">Rekap Nilai</span>
+                    <a href="../akidah-akhlak/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors flex items-center gap-1 py-4">
+                        Akidah Akhlak
                     </a>
+                    <a href="../formatif/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Uji Kompetensi
+                    </a>
+                    <a href="../nilai-siswa/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Rekap Nilai
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-slate-600 hover:text-teal-600 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full max-h-[85vh] overflow-y-auto">
+            <div class="px-2 pt-4 pb-6 space-y-1">
+                <div class="px-2 mt-1">
+                    <a href="../fiqih/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Fiqih</a>
+                </div>
+                <div class="px-2 mt-1">
+                    <a href="../akidah-akhlak/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Akidah Akhlak</a>
+                </div>
+                <div class="px-2 mt-1">
+                    <a href="../formatif/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Uji Kompetensi</a>
+                </div>
+                <div class="px-2 mt-1">
+                    <a href="../nilai-siswa/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Rekap Nilai</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- ================= HERO HEADER ================= -->
-    <header class="w-full pt-28 pb-12 bg-gradient-to-b from-teal-900 via-teal-850 to-slate-900 text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div class="container mx-auto px-4 max-w-5xl relative z-10 text-center">
-            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-teal-500/20 text-teal-200 border border-teal-400/30 mb-4 backdrop-blur-sm">
-                <i class="fa-solid fa-sparkles"></i> Sumatif Tengah Semester Genap Tahun Ajaran 2026/2027
-            </span>
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading tracking-tight mb-4 text-white">
-                Kisi-Kisi dan Bank Contoh Soal
-            </h1>
-            <p class="text-slate-300 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-                Memuat seluruh 20 Indikator Pencapaian Kompetensi Resmi sesuai dokumen kisi-kisi MTsN 6 Demak. Klik pada indikator untuk membuka 3 contoh soal beserta pembahasan.
-            </p>
-        </div>
-    </header>
-
-    <!-- ================= MAIN CONTENT ================= -->
-    <main class="w-full flex-grow container mx-auto px-4 py-8 max-w-5xl">
+    <!-- ================= MAIN CONTENT : KISI-KISI PDF DOKUMEN ================= -->
+    <main class="w-full flex-grow pt-24 pb-12 px-4 sm:px-6 lg:px-8">
         
-        <!-- Tab Selector & Search -->
-        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200 shadow-sm mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
-            <!-- Tabs -->
-            <div class="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl border border-slate-200 w-full md:w-auto">
-                <button id="tab-fikih" onclick="switchSubject('fikih')" class="flex-1 md:flex-initial px-5 py-2 text-xs sm:text-sm font-bold rounded-lg transition-all flex items-center justify-center gap-2 shadow-sm bg-white text-teal-700">
+        <!-- Controls: Tab Selector & Search -->
+        <div class="max-w-7xl mx-auto mb-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <!-- Subject Tabs -->
+            <div class="flex items-center gap-2 bg-slate-200/80 p-1.5 rounded-2xl border border-slate-300 w-full md:w-auto shadow-sm">
+                <button id="tab-btn-fikih" onclick="switchSubject('fikih')" class="flex-1 md:flex-initial px-6 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm bg-teal-700 text-white">
                     <i class="fa-solid fa-mosque"></i>
-                    <span>Fikih Kelas 7</span>
+                    <span>Fiqih Kelas 7</span>
                 </button>
-                <button id="tab-akidah" onclick="switchSubject('akidah')" class="flex-1 md:flex-initial px-5 py-2 text-xs sm:text-sm font-bold rounded-lg transition-all flex items-center justify-center gap-2 text-slate-600 hover:text-slate-800">
+                <button id="tab-btn-akidah" onclick="switchSubject('akidah')" class="flex-1 md:flex-initial px-6 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-2 text-slate-700 hover:text-teal-700 hover:bg-white/50">
                     <i class="fa-solid fa-book-quran"></i>
                     <span>Akidah Akhlak Kelas 7</span>
                 </button>
             </div>
 
-            <!-- Search -->
-            <div class="relative w-full md:w-72">
-                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                <input type="text" id="search-input" onkeyup="filterIndicators()" placeholder="Cari materi atau indikator..." class="w-full pl-9 pr-4 py-2 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all">
+            <!-- Search Bar -->
+            <div class="relative w-full md:w-80">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                <input type="text" id="kisi-search" oninput="filterTable()" placeholder="Cari materi atau indikator..." class="w-full pl-11 pr-4 py-2.5 text-xs sm:text-sm bg-white border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 shadow-sm transition-all">
             </div>
         </div>
 
-        <!-- Info Bar -->
-        <div class="mb-6 flex flex-wrap items-center justify-between gap-3 text-xs px-2">
-            <div class="flex items-center gap-2 text-slate-500 font-medium">
-                <span id="subject-badge" class="px-3 py-1 rounded-md bg-teal-50 text-teal-800 border border-teal-200 font-bold uppercase tracking-wider">
-                    Fikih Kelas 7 - Thaharah dan Shalat
-                </span>
-                <span id="indicator-count" class="text-slate-600 font-semibold">20 Indikator &bull; 60 Contoh Soal</span>
+        <!-- Official Paper Document Container Mirroring PDF Layout -->
+        <div class="max-w-7xl mx-auto bg-white shadow-2xl p-6 sm:p-10 border border-slate-300 rounded-2xl text-slate-800">
+            
+            <!-- Document Header -->
+            <div class="text-center mb-8 border-b-2 border-slate-900 pb-5">
+                <h2 class="text-lg sm:text-2xl font-bold uppercase tracking-wide font-heading text-slate-900">
+                    Kisi-Kisi Penulisan Soal Asesmen Sumatif Tengah Semester Genap
+                </h2>
+                <h3 class="text-sm sm:text-lg font-bold uppercase mt-1.5 font-heading text-slate-700">
+                    Madrasah Tsanawiyah Negeri 6 Demak Tahun Ajaran 2026/2027
+                </h3>
             </div>
-            <div class="text-slate-400 italic">
-                <i class="fa-solid fa-circle-info mr-1 text-teal-600"></i> Klik salah satu indikator untuk membuka 3 contoh soal
-            </div>
-        </div>
 
-        <!-- Indicator List Container -->
-        <div id="indicator-list" class="space-y-4">
-            <!-- Rendered by JavaScript -->
+            <!-- Metadata Table -->
+            <div class="mb-6 overflow-x-auto">
+                <table class="text-xs sm:text-sm text-slate-800 font-medium">
+                    <tbody>
+                        <tr>
+                            <td class="w-44 py-1 font-bold text-slate-700">Satuan Pendidikan</td>
+                            <td class="w-4 text-center">:</td>
+                            <td>MTs Negeri 6 Demak</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold py-1 text-slate-700">Mata Pelajaran</td>
+                            <td class="text-center">:</td>
+                            <td id="meta-mapel" class="font-bold text-teal-800">Fiqih</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold py-1 text-slate-700">Kelas dan Semester</td>
+                            <td class="text-center">:</td>
+                            <td>VII dan Genap</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold py-1 text-slate-700">Kurikulum</td>
+                            <td class="text-center">:</td>
+                            <td>Kurikulum Merdeka</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold py-1 text-slate-700">Alokasi Waktu</td>
+                            <td class="text-center">:</td>
+                            <td>90 Menit</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold py-1 text-slate-700">Jumlah Soal</td>
+                            <td class="text-center">:</td>
+                            <td>20 Butir Indikator Soal Dilengkapi 3 Simulasi Interaktif Setiap Butir</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold py-1 align-top text-slate-700">Bentuk Soal</td>
+                            <td class="text-center align-top">:</td>
+                            <td>Pilihan Ganda, Pilihan Ganda Kompleks, dan Uraian</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Petunjuk Interaktif Banner -->
+            <div class="bg-emerald-50 border-l-4 border-emerald-600 p-4 mb-6 rounded-r-xl flex items-center gap-3">
+                <i class="fa-solid fa-circle-info text-emerald-600 text-lg flex-shrink-0"></i>
+                <p class="text-xs sm:text-sm text-emerald-900 leading-relaxed font-sans">
+                    <strong>Petunjuk Interaktif:</strong> Silakan klik pada teks di kolom <strong>"INDIKATOR SOAL"</strong> yang bertanda panah hijau. Jendela pop up akan terbuka menampilkan <strong>3 contoh simulasi soal interaktif</strong> beserta pembahasannya.
+                </p>
+            </div>
+
+            <!-- Main Table Mirroring PDF -->
+            <div class="overflow-x-auto border border-slate-900 rounded-lg">
+                <table class="w-full border-collapse text-xs sm:text-sm text-slate-800">
+                    <thead class="bg-slate-100 text-slate-900 font-bold border-b border-slate-900">
+                        <tr>
+                            <th class="border-r border-slate-900 px-2.5 py-3 w-12 text-center">NO.</th>
+                            <th class="border-r border-slate-900 px-4 py-3 w-48 text-left">MATERI POKOK</th>
+                            <th class="border-r border-slate-900 px-4 py-3 text-left">INDIKATOR SOAL</th>
+                            <th class="border-r border-slate-900 px-2.5 py-3 w-28 text-center">LEVEL KOGNITIF</th>
+                            <th class="border-r border-slate-900 px-3 py-3 w-36 text-center">BENTUK SOAL</th>
+                            <th class="px-2 py-3 w-16 text-center">NOMOR SOAL</th>
+                        </tr>
+                    </thead>
+                    <tbody id="kisi-table-body">
+                        <!-- Rendered by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Document Signatures Footer -->
+            <div class="mt-12 pt-6 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center sm:items-start gap-8 text-xs sm:text-sm">
+                <div class="text-center sm:text-left">
+                    <p class="mb-1 text-slate-600">Mengetahui,</p>
+                    <p class="mb-20 font-bold text-slate-800">Kepala MTs Negeri 6 Demak</p>
+                    <p class="font-bold underline text-slate-900">Drs. H. Masrukin, M.Pd.</p>
+                    <p class="text-slate-500">NIP. 196805121995031002</p>
+                </div>
+                <div class="text-center sm:text-right">
+                    <p class="mb-1 text-slate-600">Demak, Maret 2026</p>
+                    <p class="mb-20 font-bold text-slate-800">Guru Pengampu Mata Pelajaran</p>
+                    <p class="font-bold underline text-slate-900">Ahmad Zulfikar, S.Pd.</p>
+                    <p class="text-slate-500">NIP. 199308152023211018</p>
+                </div>
+            </div>
+
         </div>
 
     </main>
 
-    <!-- ================= FOOTER ================= -->
-    <footer class="w-full bg-slate-900 border-t border-slate-800 text-slate-400 text-xs py-8 mt-16 text-center">
-        <div class="container mx-auto px-4 max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div class="flex items-center gap-2 font-semibold text-slate-300">
-                <i class="fa-solid fa-school text-teal-400"></i>
-                <span>MTsN 6 Demak &bull; Tahun Ajaran 2026/2027</span>
+    <!-- ================= POPUP MODAL CONTOH SOAL ================= -->
+    <div id="question-modal" class="fixed inset-0 z-[9999] bg-slate-950/70 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-6 transition-all duration-300">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] flex flex-col overflow-hidden border border-slate-200 animate-modal-pop">
+            
+            <!-- Modal Header -->
+            <div class="p-4 sm:p-5 bg-gradient-to-r from-teal-800 to-teal-900 text-white flex justify-between items-center border-b border-teal-700">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-teal-300 text-xl border border-white/10">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold font-heading text-base sm:text-lg text-white" id="modal-title">Simulasi Contoh Soal</h3>
+                        <p class="text-xs text-teal-200" id="modal-subtitle">Tersedia 3 variasi contoh soal interaktif</p>
+                    </div>
+                </div>
+                <button onclick="closeQuestionModal()" class="w-9 h-9 rounded-full bg-teal-950/50 hover:bg-teal-950 text-teal-200 hover:text-white flex items-center justify-center transition-colors">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
             </div>
-            <p>&copy; 2026 Belajar Online &bull; Asesmen Sumatif Tengah Semester</p>
+
+            <!-- Modal Body Scrollable -->
+            <div class="p-4 sm:p-6 overflow-y-auto space-y-6 flex-grow bg-slate-50">
+                
+                <!-- Indikator Banner Card -->
+                <div class="bg-white border-l-4 border-teal-600 p-4 rounded-r-xl shadow-sm border border-slate-200">
+                    <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block mb-1">Indikator Pencapaian Kompetensi</span>
+                    <p id="modal-indikator-text" class="text-slate-800 font-semibold text-sm sm:text-base leading-relaxed"></p>
+                    <div class="mt-3 flex flex-wrap items-center gap-2 text-xs">
+                        <span id="modal-badge-materi" class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full border border-slate-200 font-medium"></span>
+                        <span id="modal-badge-kognitif" class="px-3 py-1 rounded-full font-bold"></span>
+                        <span id="modal-badge-bentuk" class="bg-teal-50 text-teal-800 px-3 py-1 rounded-full border border-teal-200 font-bold"></span>
+                    </div>
+                </div>
+
+                <!-- Container 3 Soal -->
+                <div id="modal-questions-list" class="space-y-6">
+                    <!-- Rendered by JavaScript -->
+                </div>
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-4 bg-white border-t border-slate-200 flex justify-between items-center">
+                <span class="text-xs text-slate-500 italic">Pilihlah salah satu opsi jawaban di atas untuk menguji pemahaman</span>
+                <button onclick="closeQuestionModal()" class="px-6 py-2.5 bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs sm:text-sm rounded-xl transition-all">
+                    Tutup Modal
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-teal-950 text-teal-200 py-10 border-t border-teal-900 mt-auto w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <a href="../" target="_top" class="inline-flex items-center justify-center gap-3 mb-4 text-white hover:opacity-80 transition-opacity">
+                <i class="fa-solid fa-book-open text-xl text-teal-500"></i>
+                <span class="font-heading font-bold text-xl tracking-wide">Belajar<span class="text-teal-500">Online</span></span>
+            </a>
+            <p class="text-sm text-teal-400/80 max-w-md mx-auto mb-8">
+                Belajar Online adalah Sistem Pembelajaran Berbasis Digital untuk Memudahkan Guru dan Murid dalam Mencapai Tujuan Pembelajaran.
+            </p>
+            <div class="pt-6 border-t border-teal-900/50 text-xs text-teal-500">
+                <p>&copy; 2026 Ahmad Zulfikar, S.Pd.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- ================= JAVASCRIPT DATA & LOGIC ================= -->
+    <!-- ================= JAVASCRIPT LOGIC ================= -->
     <script>
         const dataKisiKisi = {
     "fikih": [
@@ -435,7 +598,7 @@
                         "D. Membaca niat dan membaca Al-Fatihah"
                     ],
                     "jawaban": "B",
-                    "pembahasan": "Syarat wajib shalat ada 3 utama: 1) Beragama Islam, 2) Baligh, 3) Berakal sehat."
+                    "pembahasan": "Syarat wajib shalat ada 3 utama: 1. Beragama Islam, 2. Baligh, 3. Berakal sehat."
                 },
                 {
                     "soal": "Anak kecil berusia 8 tahun yang belum baligh belum terkena kewajiban shalat secara syari'at, namun orang tuanya wajib...",
@@ -607,7 +770,7 @@
                         "D. Boleh shalat tanpa wudhu karena darurat"
                     ],
                     "jawaban": "B",
-                    "pembahasan": "Penderita daimul hadats wajib: 1) bersuci setelah masuk waktu shalat, 2) menyumbat/membalut najis, 3) berwudhu dengan niat istibahah, 4) segera shalat tanpa menunda-nunda."
+                    "pembahasan": "Penderita daimul hadats wajib: 1. bersuci setelah masuk waktu shalat, 2. menyumbat atau membalut najis, 3. berwudhu dengan niat istibahah, 4. segera shalat tanpa menunda-nunda."
                 },
                 {
                     "soal": "Bagi orang yang dalam kondisi hadats terus menerus, satu kali wudhu hanya dapat dipergunakan untuk...",
@@ -824,7 +987,7 @@
                 {
                     "soal": "Sebutkan 3 syarat sahnya bersuci menggunakan media air!",
                     "opsi": [
-                        "Kunci Jawaban: 1) Menggunakan air mutlak, 2) Tidak ada benda yang menghalangi sampainya air ke kulit/anggota wudhu, 3) Mengetahui kefardhuan/rukun bersuci."
+                        "Kunci Jawaban: 1. Menggunakan air mutlak, 2. Tidak ada benda yang menghalangi sampainya air ke kulit atau anggota wudhu, 3. Mengetahui kefardhuan atau rukun bersuci."
                     ],
                     "jawaban": "Uraian Lengkap",
                     "pembahasan": "Kriteria penilaian: Menyebutkan minimal 3 syarat sah bersuci dengan benar."
@@ -850,7 +1013,7 @@
                 {
                     "soal": "Uraikan pengertian air mutanajjis dan sebutkan dua kondisi yang menyebabkan air menjadi mutanajjis!",
                     "opsi": [
-                        "Kunci Jawaban: Air mutanajjis adalah air yang terkena atau kemasukan benda najis. Kondisinya: 1) Air kurang dari 2 qullah terkena najis, 2) Air 2 qullah atau lebih yang berubah salah satu sifatnya warna, bau, atau rasa."
+                        "Kunci Jawaban: Air mutanajjis adalah air yang terkena atau kemasukan benda najis. Kondisinya: 1. Air kurang dari 2 qullah terkena najis, 2. Air 2 qullah atau lebih yang berubah salah satu sifatnya warna, bau, atau rasa."
                     ],
                     "jawaban": "Uraian Lengkap",
                     "pembahasan": "Kriteria penilaian: Menyebutkan definisi air mutanajjis dan dua kondisi volumenya."
@@ -884,7 +1047,7 @@
                 {
                     "soal": "Sebutkan 5 rukun perbuatan fisik di dalam ibadah shalat secara berurutan!",
                     "opsi": [
-                        "Kunci Jawaban: 1) Berdiri bagi yang mampu, 2) Ruku' dengan tuma'ninah, 3) I'tidal dengan tuma'ninah, 4) Sujud dua kali dengan tuma'ninah, 5) Duduk di antara dua sujud dengan tuma'ninah."
+                        "Kunci Jawaban: 1. Berdiri bagi yang mampu, 2. Ruku' dengan tuma'ninah, 3. I'tidal dengan tuma'ninah, 4. Sujud dua kali dengan tuma'ninah, 5. Duduk di antara dua sujud dengan tuma'ninah."
                     ],
                     "jawaban": "Uraian Lengkap",
                     "pembahasan": "Kriteria penilaian: Menyebutkan 5 gerakan rukun secara berurutan dan tepat."
@@ -900,7 +1063,7 @@
                 {
                     "soal": "Jelaskan ketentuan posisi 7 anggota tubuh yang wajib menempel ke lantai saat melakukan sujud!",
                     "opsi": [
-                        "Kunci Jawaban: 1) Dahi, 2) Telapak tangan kanan, 3) Telapak tangan kiri, 4) Lutut kanan, 5) Lutut kiri, 6) Jari-jari kaki kanan, 7) Jari-jari kaki kiri."
+                        "Kunci Jawaban: 1. Dahi, 2. Telapak tangan kanan, 3. Telapak tangan kiri, 4. Lutut kanan, 5. Lutut kiri, 6. Jari-jari kaki kanan, 7. Jari-jari kaki kiri."
                     ],
                     "jawaban": "Uraian Lengkap",
                     "pembahasan": "Kriteria penilaian: Menyebutkan ketujuh anggota sujud sesuai hadits Nabi SAW."
@@ -952,7 +1115,7 @@
                 {
                     "soal": "Aisyah memakai cat kuku sintetis yang kedap air di kukunya. Kemudian ia berwudhu dan melaksanakan shalat Dzuhur. Analisislah rantai status hukum wudhu dan shalat Aisyah beserta cara memperbaikinya!",
                     "opsi": [
-                        "Kunci Jawaban: 1) Wudhu tidak sah karena kutek menghalangi air sampai ke kuku wajib wudhu, 2) Shalat Dzuhur tidak sah karena wudhunya tidak sah, 3) Cara perbaikan: Bersihkan/hilangkan kutek sampai tuntas, berwudhu ulang dengan benar, lalu mengqadha/mengulang shalat Dzuhur tersebut."
+                        "Kunci Jawaban: 1. Wudhu tidak sah karena kutek menghalangi air sampai ke kuku wajib wudhu, 2. Shalat Dzuhur tidak sah karena wudhunya tidak sah, 3. Cara perbaikan: Bersihkan atau hilangkan kutek sampai tuntas, berwudhu ulang dengan benar, lalu mengqadha atau mengulang shalat Dzuhur tersebut."
                     ],
                     "jawaban": "Uraian Lengkap",
                     "pembahasan": "Kriteria penilaian: Analisis rantai hukum wudhu -> shalat -> solusi perbaikan."
@@ -1424,7 +1587,7 @@
                         "D. Menuliskan dosa di buku harian dan bersedekah"
                     ],
                     "jawaban": "B",
-                    "pembahasan": "Imam Nawawi menjelaskan 3 syarat tobat hak Allah: 1) Berhenti dari dosa tersebut, 2) Menyesali perbuatan tersebut, 3) Bertekad bulat tidak akan mengulanginya selamanya."
+                    "pembahasan": "Imam Nawawi menjelaskan 3 syarat tobat hak Allah: 1. Berhenti dari dosa tersebut, 2. Menyesali perbuatan tersebut, 3. Bertekad bulat tidak akan mengulanginya selamanya."
                 },
                 {
                     "soal": "Kapan batas waktu penutupan pintu tobat bagi setiap individu manusia?",
@@ -1641,7 +1804,7 @@
                 {
                     "soal": "Sebutkan dan jelaskan dua pedoman utama yang menjadi landasan akidah Islam!",
                     "opsi": [
-                        "Kunci Jawaban: 1) Al-Qur'an: Kitab suci firman Allah SWT yang menjadi sumber hukum primer tertinggi, 2) As-Sunnah / Hadits: Sabda, perbuatan, dan ketetapan Nabi Muhammad SAW yang menjelaskan dan merinci kandungan Al-Qur'an."
+                        "Kunci Jawaban: 1. Al-Qur'an: Kitab suci firman Allah SWT yang menjadi sumber hukum primer tertinggi, 2. As-Sunnah atau Hadits: Sabda, perbuatan, dan ketetapan Nabi Muhammad SAW yang menjelaskan dan merinci kandungan Al-Qur'an."
                     ],
                     "jawaban": "Uraian Lengkap",
                     "pembahasan": "Kriteria penilaian: Menyebutkan Al-Qur'an dan As-Sunnah beserta penjelasannya."
@@ -1701,7 +1864,7 @@
                 {
                     "soal": "Sebutkan 3 syarat tobat nasuha secara berurutan atas dosa yang berkaitan dengan hak Allah SWT!",
                     "opsi": [
-                        "Kunci Jawaban: 1) Meninggalkan perbuatan maksiat tersebut seketika itu juga, 2) Menyesali perbuatan dosa yang telah dilakukan dengan tulus, 3) Bertekad dan berniat kuat untuk tidak mengulangi perbuatan dosa tersebut selamanya."
+                        "Kunci Jawaban: 1. Meninggalkan perbuatan maksiat tersebut seketika itu juga, 2. Menyesali perbuatan dosa yang telah dilakukan dengan tulus, 3. Bertekad dan berniat kuat untuk tidak mengulangi perbuatan dosa tersebut selamanya."
                     ],
                     "jawaban": "Uraian Lengkap",
                     "pembahasan": "Kriteria penilaian: Menyebutkan 3 syarat secara berurutan."
@@ -1777,7 +1940,7 @@
                 {
                     "soal": "Simpulkan kerugian-kerugian besar yang dialami oleh orang yang beramal dengan sifat riya' baik di dunia maupun di akhirat!",
                     "opsi": [
-                        "Kunci Jawaban: 1) Di dunia: Hati selalu lelah mencari pujian manusia, gelisah, dan diperbudak pandangan orang, 2) Di akhirat: Seluruh pahala amalnya hangus tak bersisa, mendapatkan murka Allah, dan dimasukkan ke dalam neraka sebagai orang bangkrut."
+                        "Kunci Jawaban: 1. Di dunia: Hati selalu lelah mencari pujian manusia, gelisah, dan diperbudak pandangan orang, 2. Di akhirat: Seluruh pahala amalnya hangus tak bersisa, mendapatkan murka Allah, dan dimasukkan ke dalam neraka sebagai orang bangkrut."
                     ],
                     "jawaban": "Uraian Lengkap",
                     "pembahasan": "Kriteria penilaian: Menyimpulkan kerugian duniawi dan ukhrawi."
@@ -1797,254 +1960,392 @@
 
         let currentSubject = 'fikih';
 
-        function renderIndicators(subject) {
-            if (!subject) subject = currentSubject;
-            const list = dataKisiKisi[subject] || [];
-            const container = document.getElementById('indicator-list');
-            const searchVal = document.getElementById('search-input').value.toLowerCase().trim();
-            container.innerHTML = '';
+        function switchSubject(sub) {
+            currentSubject = sub;
+            
+            const btnFikih = document.getElementById('tab-btn-fikih');
+            const btnAkidah = document.getElementById('tab-btn-akidah');
+            const metaMapel = document.getElementById('meta-mapel');
 
-            let matchedCount = 0;
+            if (sub === 'fikih') {
+                btnFikih.className = "flex-1 md:flex-initial px-6 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm bg-teal-700 text-white";
+                btnAkidah.className = "flex-1 md:flex-initial px-6 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-2 text-slate-700 hover:text-teal-700 hover:bg-white/50";
+                metaMapel.textContent = "Fiqih";
+            } else {
+                btnAkidah.className = "flex-1 md:flex-initial px-6 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm bg-teal-700 text-white";
+                btnFikih.className = "flex-1 md:flex-initial px-6 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-2 text-slate-700 hover:text-teal-700 hover:bg-white/50";
+                metaMapel.textContent = "Akidah Akhlak";
+            }
 
-            list.forEach((item, index) => {
-                const searchTarget = (item.materi + ' ' + item.submateri + ' ' + item.indikator + ' ' + (item.bentuk || '')).toLowerCase();
-                if (searchVal && !searchTarget.includes(searchVal)) return;
+            renderTable();
+        }
 
-                matchedCount++;
+        function renderTable() {
+            const tbody = document.getElementById('kisi-table-body');
+            tbody.innerHTML = '';
 
-                const card = document.createElement('div');
-                card.className = "bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all";
-                
-                const kognitif = (item.kognitif || 'LOTS').toUpperCase();
-                const bentuk = item.bentuk || (item.id.includes('es') ? 'Esai' : 'Pilihan Ganda');
-                let cogBadgeClass = "badge-lots";
-                if (kognitif.includes("MOTS")) cogBadgeClass = "badge-mots";
-                if (kognitif.includes("HOTS")) cogBadgeClass = "badge-hots";
+            const list = dataKisiKisi[currentSubject] || [];
+            const query = (document.getElementById('kisi-search')?.value || '').toLowerCase().trim();
 
-                let questionsHtml = '';
-                const isEsai = bentuk.toLowerCase().includes('esai') || item.id.includes('es');
+            const filtered = list.filter(item => {
+                if (!query) return true;
+                return item.materi.toLowerCase().includes(query) ||
+                       item.submateri.toLowerCase().includes(query) ||
+                       item.indikator.toLowerCase().includes(query) ||
+                       item.bentuk.toLowerCase().includes(query);
+            });
 
-                item.questions.forEach((q, qIndex) => {
-                    const cleanSoal = q.soal.replace(/\n/g, '<br>');
-                    const qKey = item.id + '-' + qIndex;
+            if (filtered.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="p-8 text-center text-slate-400 italic">
+                            Tidak ditemukan indikator yang cocok dengan kata kunci pencarian.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
 
-                    if (isEsai) {
-                        // Format Soal Esai: Tetap seperti sekarang dengan tombol buka kunci
-                        questionsHtml += 
-                            '<div class="bg-white rounded-xl border border-slate-200 p-4 sm:p-5 shadow-sm">' +
-                                '<div class="flex items-start gap-3 mb-3">' +
-                                    '<span class="w-6 h-6 rounded-full bg-teal-600 text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">' + (qIndex + 1) + '</span>' +
-                                    '<p class="text-xs sm:text-sm font-semibold text-slate-800 leading-relaxed flex-1">' + cleanSoal + '</p>' +
-                                '</div>' +
-                                '<div class="pl-9">' +
-                                    '<button onclick="toggleAnswer(\'' + qKey + '\')" class="text-xs font-bold text-teal-700 hover:text-teal-800 bg-teal-50 hover:bg-teal-100/80 px-3.5 py-1.5 rounded-lg border border-teal-200 transition-all flex items-center gap-1.5">' +
-                                        '<i class="fa-solid fa-key"></i>' +
-                                        '<span id="btn-text-' + qKey + '">Lihat Kunci dan Pembahasan</span>' +
-                                    '</button>' +
-                                    '<div id="ans-' + qKey + '" class="hidden mt-3 p-4 rounded-xl bg-emerald-50/80 border border-emerald-200 text-xs text-slate-700 leading-relaxed">' +
-                                        '<div class="flex items-center gap-2 mb-1.5">' +
-                                            '<span class="px-2 py-0.5 rounded bg-emerald-600 text-white font-bold text-[11px]">' + q.jawaban + '</span>' +
-                                            '<span class="font-bold text-emerald-900">Pembahasan:</span>' +
-                                        '</div>' +
-                                        '<p class="text-slate-700">' + q.pembahasan + '</p>' +
-                                    '</div>' +
-                                '</div>' +
-                            '</div>';
-                    } else {
-                        // Format Pilihan Ganda: Wajib klik salah satu opsi terlebih dahulu
-                        let opsiButtons = '';
-                        q.opsi.forEach(op => {
-                            const optLetter = op.trim().charAt(0).toUpperCase();
-                            opsiButtons += 
-                                '<button onclick="chooseOption(\'' + qKey + '\', \'' + optLetter + '\', \'' + q.jawaban + '\')" id="opt-' + qKey + '-' + optLetter + '" class="opt-btn-' + qKey + ' w-full text-left p-3 rounded-xl border border-slate-200 bg-slate-50 hover:bg-teal-50/60 hover:border-teal-300 text-xs text-slate-700 font-medium transition-all flex items-start gap-2.5 active:scale-[0.99]">' +
-                                    '<span class="w-5 h-5 rounded-md bg-white border border-slate-300 text-[11px] font-bold flex items-center justify-center text-slate-600 flex-shrink-0 mt-0.5">' + optLetter + '</span>' +
-                                    '<span class="flex-1 leading-relaxed">' + op.substring(op.indexOf('.') + 1).trim() + '</span>' +
-                                '</button>';
-                        });
+            // Sort so that all Thaharah items are grouped first, then Shalat for fikih
+            // For akidah: all Akidah Islam first, then Akhlak Terpuji
+            let sortedFiltered = [...filtered];
+            if (currentSubject === 'fikih') {
+                sortedFiltered.sort((a, b) => {
+                    const orderA = a.materi.toLowerCase().includes('thaharah') ? 1 : 2;
+                    const orderB = b.materi.toLowerCase().includes('thaharah') ? 1 : 2;
+                    return orderA - orderB;
+                });
+            } else {
+                sortedFiltered.sort((a, b) => {
+                    const orderA = a.materi.toLowerCase().includes('akidah') ? 1 : 2;
+                    const orderB = b.materi.toLowerCase().includes('akidah') ? 1 : 2;
+                    return orderA - orderB;
+                });
+            }
 
-                        questionsHtml += 
-                            '<div class="bg-white rounded-xl border border-slate-200 p-4 sm:p-5 shadow-sm">' +
-                                '<div class="flex items-start gap-3 mb-4">' +
-                                    '<span class="w-6 h-6 rounded-full bg-teal-600 text-white text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">' + (qIndex + 1) + '</span>' +
-                                    '<p class="text-xs sm:text-sm font-semibold text-slate-800 leading-relaxed flex-1">' + cleanSoal + '</p>' +
-                                '</div>' +
-                                '<div class="space-y-2 pl-9 mb-4">' + opsiButtons + '</div>' +
-                                '<div class="pl-9">' +
-                                    '<div id="hint-' + qKey + '" class="text-[11px] text-slate-400 italic flex items-center gap-1.5 py-1">' +
-                                        '<i class="fa-solid fa-hand-pointer text-teal-600"></i>' +
-                                        '<span>Silakan pilih salah satu jawaban di atas untuk melihat kunci dan pembahasan</span>' +
-                                    '</div>' +
-                                    '<div id="ans-' + qKey + '" class="hidden mt-3 p-4 rounded-xl border text-xs leading-relaxed transition-all">' +
-                                        '<div class="flex items-center gap-2 mb-2">' +
-                                            '<span id="badge-' + qKey + '" class="px-2.5 py-0.5 rounded text-white font-bold text-[11px]"></span>' +
-                                            '<span class="font-bold text-slate-800">Kunci Jawaban: ' + q.jawaban + '</span>' +
-                                        '</div>' +
-                                        '<div class="text-slate-700 border-t border-slate-200/60 pt-2">' +
-                                            '<span class="font-bold text-teal-900 block mb-1">Pembahasan:</span>' +
-                                            '<p>' + q.pembahasan + '</p>' +
-                                        '</div>' +
-                                    '</div>' +
-                                '</div>' +
-                            '</div>';
+            // Group into Thaharah & Shalat (or Akidah Islam & Akhlak Terpuji)
+            const groups = [];
+            let currentGroupName = "";
+            let currentGroupNum = 1;
+            let currentGroupItems = [];
+
+            sortedFiltered.forEach(item => {
+                let groupKey = "";
+                let groupNum = 1;
+                if (currentSubject === 'fikih') {
+                    const isThaharah = item.materi.toLowerCase().includes('thaharah');
+                    groupKey = isThaharah ? 'Thaharah' : 'Shalat';
+                    groupNum = isThaharah ? 1 : 2;
+                } else {
+                    const isAkidah = item.materi.toLowerCase().includes('akidah');
+                    groupKey = isAkidah ? 'Akidah Islam' : 'Akhlak Terpuji';
+                    groupNum = isAkidah ? 1 : 2;
+                }
+
+                if (groupKey !== currentGroupName) {
+                    if (currentGroupItems.length > 0) {
+                        groups.push({ name: currentGroupName, num: currentGroupNum, items: currentGroupItems });
                     }
+                    currentGroupName = groupKey;
+                    currentGroupNum = groupNum;
+                    currentGroupItems = [item];
+                } else {
+                    currentGroupItems.push(item);
+                }
+            });
+            if (currentGroupItems.length > 0) {
+                groups.push({ name: currentGroupName, num: currentGroupNum, items: currentGroupItems });
+            }
+
+            let globalRowIndex = 1;
+
+            groups.forEach(group => {
+                group.items.forEach((item, itemIdxInGroup) => {
+                    const tr = document.createElement('tr');
+                    tr.className = "hover:bg-slate-50 transition-colors border-b border-slate-900";
+
+                    let kognitifClass = "badge-lots";
+                    if (item.kognitif === "MOTS") kognitifClass = "badge-mots";
+                    if (item.kognitif === "HOTS") kognitifClass = "badge-hots";
+
+                    let bentukDisplay = "Pilihan Ganda";
+                    if (item.bentuk.toLowerCase().includes("kompleks")) {
+                        bentukDisplay = "Pilihan Ganda Kompleks";
+                    } else if (item.bentuk.toLowerCase().includes("esai") || item.bentuk.toLowerCase().includes("uraian")) {
+                        bentukDisplay = "Uraian";
+                    }
+
+                    let noCellHtml = '';
+                    let materiCellHtml = '';
+                    if (itemIdxInGroup === 0) {
+                        noCellHtml = `
+                            <td rowspan="${group.items.length}" class="border-r border-slate-900 px-3 py-4 text-center font-bold text-slate-800 align-top text-base sm:text-lg bg-slate-50/40">
+                                <span class="sticky top-20 block font-heading font-extrabold text-slate-900">${group.num}</span>
+                            </td>
+                        `;
+                        materiCellHtml = `
+                            <td rowspan="${group.items.length}" class="border-r border-slate-900 px-4 py-4 align-top font-bold text-slate-900 bg-slate-50/40 text-xs sm:text-sm">
+                                <div class="sticky top-20">
+                                    <span class="block font-heading font-extrabold text-teal-900 text-sm sm:text-base">${group.name}</span>
+                                    <span class="text-[11px] text-slate-500 font-medium">${group.items.length} Indikator Soal</span>
+                                </div>
+                            </td>
+                        `;
+                    }
+
+                    tr.innerHTML = `
+                        ${noCellHtml}
+                        ${materiCellHtml}
+                        <td class="border-r border-slate-900 px-4 py-3.5 align-top">
+                            <button onclick="openQuestionModal('${item.id}')" class="text-left flex flex-col items-start gap-1.5 group cursor-pointer w-full">
+                                <span class="text-[10px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded border border-teal-200 uppercase tracking-wider">
+                                    ${item.submateri}
+                                </span>
+                                <span class="font-semibold text-slate-800 group-hover:text-teal-700 group-hover:underline flex items-start gap-2 leading-snug text-xs sm:text-sm">
+                                    <span class="mt-0.5 text-xs text-teal-600 group-hover:scale-110 transition-transform flex-shrink-0">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </span>
+                                    <span>${item.indikator}</span>
+                                </span>
+                            </button>
+                        </td>
+                        <td class="border-r border-slate-900 px-2.5 py-3.5 text-center align-top">
+                            <span class="px-2.5 py-1 rounded-md text-[11px] font-extrabold inline-block ${kognitifClass}">
+                                ${item.kognitif}
+                            </span>
+                        </td>
+                        <td class="border-r border-slate-900 px-3 py-3.5 text-center align-top font-medium text-xs text-slate-700">
+                            ${bentukDisplay}
+                        </td>
+                        <td class="px-2 py-3.5 text-center align-top font-bold text-slate-900">
+                            ${globalRowIndex}
+                        </td>
+                    `;
+
+                    tbody.appendChild(tr);
+                    globalRowIndex++;
+                });
+            });
+        }
+
+        function filterTable() {
+            renderTable();
+        }
+
+        function triggerBirthdayParty() {
+            if (typeof confetti === 'function') {
+                // Main middle burst
+                confetti({
+                    particleCount: 120,
+                    spread: 90,
+                    origin: { y: 0.5 },
+                    zIndex: 100000,
+                    colors: ['#10b981', '#f59e0b', '#3b82f6', '#ec4899', '#8b5cf6', '#ef4444']
                 });
 
-                card.innerHTML = 
-                    '<div onclick="toggleIndicator(\'' + item.id + '\')" class="p-5 sm:p-6 cursor-pointer hover:bg-slate-50/60 transition-colors flex items-start justify-between gap-4">' +
-                        '<div class="flex-1">' +
-                            '<div class="flex flex-wrap items-center gap-2 mb-2">' +
-                                '<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-teal-50 text-teal-800 border border-teal-200 uppercase tracking-wider">' + bentuk + ' &bull; ' + item.materi + '</span>' +
-                                '<span class="px-2 py-0.5 rounded-md text-[10px] font-bold ' + cogBadgeClass + '">' + (item.kognitif || 'LOTS') + '</span>' +
-                                '<span class="text-xs text-slate-400 font-medium hidden sm:inline">Sub: ' + item.submateri + '</span>' +
-                            '</div>' +
-                            '<h3 class="text-sm sm:text-base font-bold text-slate-800 font-heading leading-snug">' + item.indikator + '</h3>' +
-                        '</div>' +
-                        '<div class="flex items-center gap-2 flex-shrink-0 pt-1">' +
-                            '<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-teal-50 text-teal-700 text-xs font-bold border border-teal-200">' +
-                                '<i class="fa-solid fa-list-ol"></i>' +
-                                '<span>3 Soal</span>' +
-                            '</span>' +
-                            '<div id="icon-' + item.id + '" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 transition-transform duration-200">' +
-                                '<i class="fa-solid fa-chevron-down text-xs"></i>' +
-                            '</div>' +
-                        '</div>' +
-                    '</div>' +
-                    '<div id="content-' + item.id + '" class="hidden border-t border-slate-100 bg-slate-50/50 p-5 sm:p-6 space-y-6">' +
-                        '<div class="flex items-center justify-between border-b border-slate-200 pb-3">' +
-                            '<h4 class="text-xs font-extrabold text-teal-800 uppercase tracking-wider flex items-center gap-2">' +
-                                '<i class="fa-solid fa-circle-question text-teal-600"></i> 3 Contoh Soal Untuk Indikator Ini' +
-                            '</h4>' +
-                            '<span class="text-[11px] text-slate-400 font-medium">' + bentuk + '</span>' +
-                        '</div>' +
-                        '<div class="space-y-5">' + questionsHtml + '</div>' +
-                    '</div>';
+                // Left cannon
+                setTimeout(() => {
+                    confetti({
+                        particleCount: 70,
+                        angle: 60,
+                        spread: 60,
+                        origin: { x: 0.1, y: 0.6 },
+                        zIndex: 100000,
+                        colors: ['#10b981', '#f59e0b', '#3b82f6', '#ec4899', '#8b5cf6', '#ef4444']
+                    });
+                }, 150);
 
-                container.appendChild(card);
-            });
-
-            if (matchedCount === 0) {
-                container.innerHTML = 
-                    '<div class="p-12 text-center bg-white rounded-2xl border border-slate-200 text-slate-400">' +
-                        '<i class="fa-solid fa-magnifying-glass text-3xl mb-3 opacity-40"></i>' +
-                        '<p class="text-sm font-semibold">Tidak ditemukan indikator yang sesuai dengan kata kunci.</p>' +
-                        '<p class="text-xs mt-1 text-slate-400">Coba gunakan kata kunci lain seperti thaharah, shalat, akidah, atau tobat.</p>' +
-                    '</div>';
-            }
-
-            const countLabel = document.getElementById('indicator-count');
-            const subjectLabel = document.getElementById('subject-badge');
-            if (subject === 'fikih') {
-                subjectLabel.textContent = "Fikih Kelas 7 - Thaharah dan Shalat";
-                subjectLabel.className = "px-3 py-1 rounded-md bg-teal-50 text-teal-800 border border-teal-200 font-bold uppercase tracking-wider";
-                countLabel.textContent = matchedCount + " Indikator • " + (matchedCount * 3) + " Contoh Soal";
-            } else {
-                subjectLabel.textContent = "Akidah Akhlak Kelas 7 - Akidah Islam dan Akhlak Terpuji";
-                subjectLabel.className = "px-3 py-1 rounded-md bg-amber-50 text-amber-800 border border-amber-200 font-bold uppercase tracking-wider";
-                countLabel.textContent = matchedCount + " Indikator • " + (matchedCount * 3) + " Contoh Soal";
+                // Right cannon
+                setTimeout(() => {
+                    confetti({
+                        particleCount: 70,
+                        angle: 120,
+                        spread: 60,
+                        origin: { x: 0.9, y: 0.6 },
+                        zIndex: 100000,
+                        colors: ['#10b981', '#f59e0b', '#3b82f6', '#ec4899', '#8b5cf6', '#ef4444']
+                    });
+                }, 300);
             }
         }
 
-        function toggleIndicator(id) {
-            const content = document.getElementById('content-' + id);
-            const icon = document.getElementById('icon-' + id);
-            if (!content) return;
+        function openQuestionModal(itemId) {
+            const list = dataKisiKisi[currentSubject] || [];
+            const item = list.find(x => x.id === itemId);
+            if (!item) return;
 
-            const isHidden = content.classList.contains('hidden');
-            if (isHidden) {
-                content.classList.remove('hidden');
-                icon.style.transform = 'rotate(180deg)';
-                icon.classList.add('bg-teal-600', 'text-white');
-                icon.classList.remove('bg-slate-100', 'text-slate-500');
-            } else {
-                content.classList.add('hidden');
-                icon.style.transform = 'rotate(0deg)';
-                icon.classList.remove('bg-teal-600', 'text-white');
-                icon.classList.add('bg-slate-100', 'text-slate-500');
-            }
-        }
+            document.getElementById('modal-title').textContent = `Simulasi Soal: ${item.materi}`;
+            document.getElementById('modal-subtitle').textContent = `${item.submateri} • 3 Variasi Contoh Soal`;
+            document.getElementById('modal-indikator-text').textContent = item.indikator;
+            document.getElementById('modal-badge-materi').textContent = `${item.materi} - ${item.submateri}`;
+            
+            const badgeKog = document.getElementById('modal-badge-kognitif');
+            badgeKog.textContent = item.kognitif;
+            badgeKog.className = `px-3 py-1 rounded-full font-bold ${item.kognitif === 'HOTS' ? 'badge-hots' : item.kognitif === 'MOTS' ? 'badge-mots' : 'badge-lots'}`;
 
-        
-        function chooseOption(qKey, chosenLetter, correctLetter) {
-            // Disable further clicks or update style for all options of this question
-            const allBtns = document.querySelectorAll('.opt-btn-' + qKey);
-            allBtns.forEach(btn => {
-                btn.classList.remove('bg-emerald-50', 'border-emerald-500', 'text-emerald-900', 'bg-rose-50', 'border-rose-400', 'text-rose-900');
+            document.getElementById('modal-badge-bentuk').textContent = item.bentuk;
+
+            const questionsContainer = document.getElementById('modal-questions-list');
+            questionsContainer.innerHTML = '';
+
+            const isItemEssay = item.bentuk.toLowerCase().includes('esai') || 
+                                item.bentuk.toLowerCase().includes('uraian');
+
+            item.questions.forEach((q, qIndex) => {
+                const qCard = document.createElement('div');
+                qCard.className = "bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-4";
+
+                const isEssay = isItemEssay || !q.opsi || q.opsi.length <= 1;
+
+                let optionsHtml = '';
+                let pembahasanContent = '';
+
+                if (!isEssay) {
+                    optionsHtml = `
+                        <div class="space-y-2 pt-1" id="opts-container-${qIndex}">
+                            ${q.opsi.map((opt, oIndex) => {
+                                const optLetter = String.fromCharCode(65 + oIndex);
+                                return `
+                                    <button onclick="handleAnswerClick('${item.id}', ${qIndex}, '${optLetter}', this)" class="opt-btn-${qIndex} w-full p-3.5 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-teal-50/50 hover:border-teal-400 text-left text-xs sm:text-sm font-medium text-slate-700 transition-all flex items-start gap-3">
+                                        <span class="w-6 h-6 rounded-lg bg-white border border-slate-300 font-bold text-xs flex items-center justify-center text-slate-600 flex-shrink-0 mt-0.5">${optLetter}</span>
+                                        <span class="leading-relaxed">${opt}</span>
+                                    </button>
+                                `;
+                            }).join('')}
+                        </div>
+                    `;
+                    pembahasanContent = `
+                        <span class="font-bold text-teal-900 block flex items-center gap-1.5">
+                            <i class="fa-solid fa-lightbulb text-amber-500"></i> Kunci Jawaban dan Pembahasan:
+                        </span>
+                        <p class="leading-relaxed text-slate-700 font-semibold text-teal-800">Opsi Benar: ${q.jawaban}</p>
+                        <p class="leading-relaxed text-slate-700">${q.pembahasan}</p>
+                    `;
+                } else {
+                    optionsHtml = `
+                        <div class="space-y-3 pt-1">
+                            <textarea placeholder="Tuliskan rancangan jawabanmu di sini..." class="w-full p-3 text-xs sm:text-sm border border-slate-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:outline-none bg-slate-50 min-h-[80px]"></textarea>
+                            <button onclick="revealExplanation(${qIndex})" class="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-lg transition-colors flex items-center gap-2">
+                                <i class="fa-solid fa-eye"></i> Tampilkan Kunci Jawaban dan Pembahasan
+                            </button>
+                        </div>
+                    `;
+
+                    let jawabanEsai = '';
+                    if (q.opsi && q.opsi.length > 0) {
+                        jawabanEsai = q.opsi[0].replace(/^Kunci Jawaban:\s*/i, '');
+                    }
+
+                    pembahasanContent = `
+                        <div class="space-y-2">
+                            <div>
+                                <span class="font-bold text-teal-900 block flex items-center gap-1.5 mb-1">
+                                    <i class="fa-solid fa-key text-amber-500"></i> Kunci Jawaban:
+                                </span>
+                                <p class="leading-relaxed text-slate-800 font-medium">${jawabanEsai}</p>
+                            </div>
+                            ${q.pembahasan ? `
+                            <div class="pt-2 border-t border-teal-200/60 text-slate-600">
+                                <span class="font-bold text-teal-900 block text-xs flex items-center gap-1.5 mb-1">
+                                    <i class="fa-solid fa-clipboard-check text-teal-600"></i> Kriteria Penilaian:
+                                </span>
+                                <p class="leading-relaxed text-xs">${q.pembahasan}</p>
+                            </div>
+                            ` : ''}
+                        </div>
+                    `;
+                }
+
+                qCard.innerHTML = `
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+                        <span class="text-xs font-bold text-teal-800 uppercase tracking-wider">Contoh Soal ${qIndex + 1}</span>
+                        <span class="text-[11px] text-slate-400 font-semibold">Tipe: ${isEssay ? 'Uraian' : 'Pilihan Ganda'}</span>
+                    </div>
+
+                    <p class="text-xs sm:text-sm font-semibold text-slate-800 leading-relaxed">${q.soal}</p>
+
+                    ${optionsHtml}
+
+                    <!-- Feedback Alert -->
+                    <div id="feedback-alert-${qIndex}" class="hidden"></div>
+
+                    <!-- Pembahasan Box -->
+                    <div id="pembahasan-box-${qIndex}" class="hidden p-4 rounded-xl bg-teal-50/80 border border-teal-200 text-xs sm:text-sm text-slate-700 space-y-1.5">
+                        ${pembahasanContent}
+                    </div>
+                `;
+
+                questionsContainer.appendChild(qCard);
             });
 
-            const chosenBtn = document.getElementById('opt-' + qKey + '-' + chosenLetter);
-            const correctBtn = document.getElementById('opt-' + qKey + '-' + correctLetter);
-            const ansBox = document.getElementById('ans-' + qKey);
-            const hintBox = document.getElementById('hint-' + qKey);
-            const badge = document.getElementById('badge-' + qKey);
+            const modal = document.getElementById('question-modal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
 
-            const isCorrect = chosenLetter === correctLetter;
+        function handleAnswerClick(itemId, qIndex, selectedLetter, btnEl) {
+            const list = dataKisiKisi[currentSubject] || [];
+            const item = list.find(x => x.id === itemId);
+            if (!item) return;
+
+            const q = item.questions[qIndex];
+            const isCorrect = selectedLetter === q.jawaban;
+
+            // Disable all option buttons in this question
+            const allBtns = document.querySelectorAll(`.opt-btn-${qIndex}`);
+            allBtns.forEach(b => {
+                b.disabled = true;
+                b.classList.remove('hover:bg-teal-50/50', 'hover:border-teal-400');
+            });
+
+            const feedbackEl = document.getElementById(`feedback-alert-${qIndex}`);
+            const pembahasanEl = document.getElementById(`pembahasan-box-${qIndex}`);
 
             if (isCorrect) {
-                if (chosenBtn) {
-                    chosenBtn.className = 'opt-btn-' + qKey + ' w-full text-left p-3 rounded-xl border-2 border-emerald-500 bg-emerald-50 text-emerald-900 font-bold text-xs transition-all flex items-start gap-2.5 shadow-sm';
-                    const iconSpan = chosenBtn.querySelector('span:first-child');
-                    if (iconSpan) iconSpan.className = 'w-5 h-5 rounded-md bg-emerald-600 text-white text-[11px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5';
-                }
-                ansBox.className = 'mt-3 p-4 rounded-xl bg-emerald-50/90 border border-emerald-300 text-xs leading-relaxed text-slate-700';
-                badge.className = 'px-2.5 py-0.5 rounded bg-emerald-600 text-white font-bold text-[11px]';
-                badge.textContent = 'Jawaban Anda Benar';
+                // Highlight button green
+                btnEl.className = "w-full p-3.5 rounded-xl border-2 border-emerald-500 bg-emerald-50 text-emerald-950 font-bold text-left text-xs sm:text-sm flex items-start gap-3 shadow-sm";
+                
+                // Trigger birthday celebration confetti
+                triggerBirthdayParty();
+
+                // Show celebratory alert
+                feedbackEl.innerHTML = `
+                    <div class="p-3 bg-amber-50 border-2 border-amber-300 rounded-xl text-amber-900 font-bold text-xs sm:text-sm flex items-center gap-2.5 animate-bounce">
+                        <i class="fa-solid fa-cake-candles text-amber-600 text-lg sm:text-xl"></i>
+                        <span>Hebat sekali, jawabanmu benar! Selamat atas pemahamanmu yang mantap.</span>
+                    </div>
+                `;
             } else {
-                if (chosenBtn) {
-                    chosenBtn.className = 'opt-btn-' + qKey + ' w-full text-left p-3 rounded-xl border-2 border-rose-400 bg-rose-50 text-rose-900 font-semibold text-xs transition-all flex items-start gap-2.5 shadow-sm';
-                    const iconSpan = chosenBtn.querySelector('span:first-child');
-                    if (iconSpan) iconSpan.className = 'w-5 h-5 rounded-md bg-rose-600 text-white text-[11px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5';
-                }
-                if (correctBtn) {
-                    correctBtn.className = 'opt-btn-' + qKey + ' w-full text-left p-3 rounded-xl border-2 border-emerald-500 bg-emerald-50 text-emerald-900 font-bold text-xs transition-all flex items-start gap-2.5 shadow-sm';
-                    const iconSpan = correctBtn.querySelector('span:first-child');
-                    if (iconSpan) iconSpan.className = 'w-5 h-5 rounded-md bg-emerald-600 text-white text-[11px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5';
-                }
-                ansBox.className = 'mt-3 p-4 rounded-xl bg-rose-50/80 border border-rose-200 text-xs leading-relaxed text-slate-700';
-                badge.className = 'px-2.5 py-0.5 rounded bg-rose-600 text-white font-bold text-[11px]';
-                badge.textContent = 'Jawaban Anda Kurang Tepat';
+                // Highlight button red
+                btnEl.className = "w-full p-3.5 rounded-xl border-2 border-rose-500 bg-rose-50 text-rose-950 font-bold text-left text-xs sm:text-sm flex items-start gap-3 shadow-sm";
+
+                // Show guidance alert
+                feedbackEl.innerHTML = `
+                    <div class="p-3 bg-rose-50 border border-rose-200 rounded-xl text-rose-800 text-xs sm:text-sm font-semibold flex items-center gap-2">
+                        <i class="fa-solid fa-circle-xmark text-rose-500 text-base"></i>
+                        <span>Jawabanmu belum tepat. Kunci jawaban yang benar adalah opsi ${q.jawaban}. Silakan simak pembahasannya di bawah.</span>
+                    </div>
+                `;
             }
 
-            if (hintBox) hintBox.classList.add('hidden');
-            if (ansBox) ansBox.classList.remove('hidden');
+            feedbackEl.classList.remove('hidden');
+            pembahasanEl.classList.remove('hidden');
         }
 
-        function toggleAnswer(qid) {
-            const el = document.getElementById('ans-' + qid);
-            const btnText = document.getElementById('btn-text-' + qid);
-            if (!el) return;
-
-            if (el.classList.contains('hidden')) {
-                el.classList.remove('hidden');
-                btnText.textContent = "Sembunyikan Pembahasan";
-            } else {
-                el.classList.add('hidden');
-                btnText.textContent = "Lihat Kunci & Pembahasan";
-            }
+        function revealExplanation(qIndex) {
+            const pembahasanEl = document.getElementById(`pembahasan-box-${qIndex}`);
+            if (pembahasanEl) pembahasanEl.classList.remove('hidden');
         }
 
-        function switchSubject(subject) {
-            currentSubject = subject;
-            const tabFikih = document.getElementById('tab-fikih');
-            const tabAkidah = document.getElementById('tab-akidah');
-
-            if (subject === 'fikih') {
-                tabFikih.className = "flex-1 md:flex-initial px-5 py-2 text-xs sm:text-sm font-bold rounded-lg transition-all flex items-center justify-center gap-2 shadow-sm bg-white text-teal-700";
-                tabAkidah.className = "flex-1 md:flex-initial px-5 py-2 text-xs sm:text-sm font-bold rounded-lg transition-all flex items-center justify-center gap-2 text-slate-600 hover:text-slate-800";
-            } else {
-                tabAkidah.className = "flex-1 md:flex-initial px-5 py-2 text-xs sm:text-sm font-bold rounded-lg transition-all flex items-center justify-center gap-2 shadow-sm bg-white text-amber-700";
-                tabFikih.className = "flex-1 md:flex-initial px-5 py-2 text-xs sm:text-sm font-bold rounded-lg transition-all flex items-center justify-center gap-2 text-slate-600 hover:text-slate-800";
-            }
-
-            document.getElementById('search-input').value = '';
-            renderIndicators(subject);
+        function closeQuestionModal() {
+            const modal = document.getElementById('question-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
         }
 
-        function filterIndicators() {
-            renderIndicators(currentSubject);
-        }
-
+        // Initialize on load
         document.addEventListener('DOMContentLoaded', () => {
-            renderIndicators('fikih');
+            renderTable();
         });
     </script>
 </body>

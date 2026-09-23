@@ -329,7 +329,7 @@
                 </div>
 
                 <!-- Card Simulasi Waktu (Interactive Module) -->
-                <div class="bg-gradient-to-br from-indigo-900 to-slate-900 rounded-2xl shadow-xl border border-indigo-700/50 overflow-hidden hover:shadow-indigo-900/40 transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center lg:col-span-3 sm:col-span-2 relative" onclick="document.getElementById('game-section').scrollIntoView({ behavior: 'smooth' }); setTimeout(()=>switchGame('simulasi'), 400);">
+                <div class="bg-gradient-to-br from-indigo-900 to-slate-900 rounded-2xl shadow-xl border border-indigo-700/50 overflow-hidden hover:shadow-indigo-900/40 transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center lg:col-span-3 sm:col-span-2 relative" onclick="openSimulasiModal()">
                     <!-- decorative background -->
                     <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-30 group-hover:opacity-50 transition-opacity"></div>
                     
@@ -1221,16 +1221,17 @@
                 <div id="game-klasifikasi" class="game-panel hidden flex flex-col min-h-[500px]">
                     <div class="bg-gradient-to-r from-indigo-600 to-blue-700 text-white p-6 md:p-8 rounded-2xl shadow-lg relative overflow-hidden mb-6">
                         <div class="absolute -right-6 -top-6 text-indigo-500/20 text-9xl pointer-events-none transform rotate-12"><i class="fa-solid fa-layer-group"></i></div>
-                        <div class="relative z-10">
+                        <div class="relative z-10 flex flex-col items-center text-center">
                             <span class="bg-indigo-900/30 text-indigo-100 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-sm mb-3 inline-block border border-indigo-400/30">
                                 GAME 6
                             </span>
-                            <h2 class="text-3xl md:text-4xl font-black mb-2 font-heading tracking-wide drop-shadow-md">Klasifikasi Hukum Shalat</h2>
-                            <p class="text-indigo-100 text-sm md:text-base max-w-xl font-medium leading-relaxed">
+                            <h2 class="text-3xl md:text-4xl font-black mb-2 font-heading tracking-wide drop-shadow-md text-center">Klasifikasi Hukum Shalat</h2>
+                            <p class="text-indigo-100 text-sm md:text-base max-w-2xl font-medium leading-relaxed mb-6 text-center">
                                 Klik setiap kotak di bawah ini dan tentukan apakah ia termasuk Syarat Wajib, Syarat Sah, Rukun, Sunnah, atau Hal yang Membatalkan Shalat!
                             </p>
                             
-                            <div class="mt-6 flex flex-col md:flex-row gap-4 items-center bg-indigo-900/40 p-4 rounded-xl border border-indigo-400/30 backdrop-blur-sm max-w-3xl">
+                            <!-- Kotak Input Siswa (Lebar penuh / disamakan dengan kotak putih) -->
+                            <div class="w-full bg-indigo-900/40 p-4 sm:p-6 rounded-xl border border-indigo-400/30 backdrop-blur-sm text-left">
                                 <div class="w-full flex flex-col gap-4">
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                                         <div>
@@ -1247,7 +1248,7 @@
                                         <div>
                                             <label class="block text-[10px] font-bold text-indigo-200 uppercase tracking-wider mb-1">Jumlah Pemain</label>
                                             <select id="klasifikasi-count-select" onchange="renderKlasifikasiPlayers()" class="w-full bg-white/10 border border-indigo-300/30 text-white text-sm rounded-lg focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300 block p-2.5 appearance-none font-semibold">
-                                                <option value="1" class="text-slate-800">1 Orang (Individu)</option>
+                                                <option value="1" class="text-slate-800">1 Orang Individu</option>
                                                 <option value="2" class="text-slate-800">2 Orang</option>
                                                 <option value="3" class="text-slate-800">3 Orang</option>
                                                 <option value="4" class="text-slate-800">4 Orang</option>
@@ -1268,6 +1269,8 @@
                                         <button onclick="initKlasifikasiGame()" class="w-full md:w-auto bg-white text-indigo-700 hover:bg-indigo-50 font-bold py-2.5 px-6 rounded-lg transition-transform active:scale-95 shadow-md flex items-center justify-center gap-2 whitespace-nowrap">
                                             <i class="fa-solid fa-play"></i> Mulai Game
                                         </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1444,6 +1447,71 @@
             </div>
             <div id="modal-body" class="p-5 md:p-8 overflow-y-auto">
                 Konten Modul
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= SIMULASI WAKTU SHALAT MODAL ================= -->
+    <div id="modal-simulasi" class="fixed inset-0 z-[9999] hidden flex items-center justify-center p-2 sm:p-4" style="background-color: rgba(15, 23, 42, 0.75); backdrop-filter: blur(6px);">
+        <div class="bg-slate-900 text-white rounded-2xl shadow-2xl w-full max-w-4xl h-[92vh] max-h-[750px] flex flex-col relative border border-slate-700 overflow-hidden animate-fadeIn">
+            <!-- Header -->
+            <div class="p-4 px-6 border-b border-slate-800 flex justify-between items-center bg-slate-950/80 z-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-indigo-600/30 text-indigo-400 border border-indigo-500/40 flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base sm:text-lg font-bold font-heading text-white">Simulasi Interaktif Waktu Shalat</h3>
+                        <p class="text-xs text-slate-400">Geser slider untuk melihat posisi matahari dan perubahan waktu shalat</p>
+                    </div>
+                </div>
+                <button onclick="closeSimulasiModal()" class="w-9 h-9 rounded-full bg-slate-800 border border-slate-700 text-slate-400 hover:text-white hover:bg-slate-700 flex items-center justify-center transition-colors">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Simulation Sky Area -->
+            <div class="relative flex-1 w-full overflow-hidden flex flex-col justify-between" id="sim-container">
+                <!-- Sky background -->
+                <div id="sim-sky" class="absolute inset-0 transition-colors duration-300" style="background: linear-gradient(to bottom, #020111 0%, #20124d 100%); z-index: 1;"></div>
+                
+                <!-- Stars -->
+                <div id="sim-stars" class="absolute inset-0 opacity-100 transition-opacity duration-300" style="background-image: radial-gradient(white 1px, transparent 1px); background-size: 50px 50px; z-index: 2;"></div>
+
+                <!-- Sun and Moon Container -->
+                <div id="sim-celestial-container" class="absolute inset-0 pointer-events-none" style="z-index: 3;">
+                    <div id="sim-sun" class="absolute w-16 h-16 sm:w-20 sm:h-20 bg-yellow-400 rounded-full shadow-[0_0_70px_rgba(253,224,71,1)] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-yellow-100 text-3xl sm:text-4xl" style="left: 50%; top: 50%;"><i class="fa-solid fa-sun"></i></div>
+                    
+                    <div id="sim-moon" class="absolute w-14 h-14 sm:w-16 sm:h-16 text-slate-200 text-5xl sm:text-6xl -translate-x-1/2 -translate-y-1/2" style="left: 50%; top: 50%;"><i class="fa-solid fa-moon drop-shadow-[0_0_30px_rgba(226,232,240,0.8)]"></i></div>
+                </div>
+
+                <!-- Horizon silhouette -->
+                <div class="absolute bottom-[20%] left-0 w-full h-24 sm:h-32 bg-contain bg-bottom bg-repeat-x opacity-100 pointer-events-none" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 50%22 preserveAspectRatio=%22none%22><path d=%22M0,50 L0,30 L10,30 L10,25 L15,20 L20,25 L20,30 L25,30 L25,40 L35,40 L35,15 L40,10 L45,15 L45,40 L55,40 L55,30 L60,30 L60,25 L65,20 L70,25 L70,30 L75,30 L75,45 L85,45 L85,35 L90,30 L95,35 L95,45 L100,45 L100,50 Z%22 fill=%22%230f172a%22/></svg>'); z-index: 4;"></div>
+                <div class="absolute bottom-0 left-0 w-full h-[20%] bg-[#0f172a] pointer-events-none" style="z-index: 4;"></div>
+
+                <!-- Time Display Top -->
+                <div class="relative pt-4 sm:pt-6 flex justify-center pointer-events-none z-10">
+                    <div class="bg-slate-950/60 backdrop-blur-md px-6 sm:px-8 py-2.5 sm:py-3 rounded-2xl text-white font-mono text-3xl sm:text-5xl font-bold border border-white/10 shadow-xl text-center">
+                        <div id="sim-time-display">12:00</div>
+                        <div id="sim-time-label" class="text-[10px] sm:text-xs uppercase tracking-[0.2em] mt-1 text-slate-300 font-sans">Waktu Setempat</div>
+                    </div>
+                </div>
+
+                <!-- Bottom Controls and Info Container -->
+                <div class="relative z-10 p-4 sm:p-6 space-y-3 sm:space-y-4 max-w-2xl mx-auto w-full">
+                    <!-- Info Card -->
+                    <div class="bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 shadow-2xl border border-slate-200 text-center">
+                        <h3 id="sim-prayer-name" class="text-2xl sm:text-3xl font-bold font-heading text-teal-700 mb-1 sm:mb-2">Dzuhur</h3>
+                        <p id="sim-prayer-desc" class="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">Waktu dzuhur dimulai sejak tergelincirnya matahari condong ke arah barat hingga bayangan benda sama panjang dengan benda aslinya.</p>
+                    </div>
+
+                    <!-- Slider Controller -->
+                    <div class="bg-slate-900/90 backdrop-blur-md p-3 sm:p-4 rounded-2xl border border-slate-700 flex items-center gap-3 sm:gap-4 shadow-xl">
+                        <div class="text-slate-400 text-lg sm:text-xl"><i class="fa-solid fa-moon"></i></div>
+                        <input type="range" id="sim-slider" min="0" max="24" step="0.05" value="12" class="w-full h-2.5 sm:h-3 bg-slate-700 rounded-lg appearance-none cursor-pointer" oninput="updateSimulasiTime()" style="accent-color: #14b8a6;">
+                        <div class="text-yellow-400 text-lg sm:text-xl"><i class="fa-solid fa-sun"></i></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1779,10 +1847,7 @@
             });
             document.getElementById('game-' + gameId).classList.remove('hidden');
 
-            if (gameId === 'simulasi') {
-                document.getElementById('game-simulasi').style.display = 'flex';
-                setTimeout(updateSimulasiTime, 50);
-            } else if (gameId === 'war' && !warState.active) {
+            if (gameId === 'war' && !warState.active) {
                 initWarGame();
             }
         }
@@ -2314,6 +2379,21 @@
 
         
         // ================= SIMULASI WAKTU SHALAT =================
+        function openSimulasiModal() {
+            const modal = document.getElementById('modal-simulasi');
+            if (!modal) return;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            setTimeout(updateSimulasiTime, 50);
+        }
+
+        function closeSimulasiModal() {
+            const modal = document.getElementById('modal-simulasi');
+            if (!modal) return;
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
         function updateSimulasiTime() {
             const slider = document.getElementById('sim-slider');
             if(!slider) return;
@@ -2323,36 +2403,40 @@
             const hours = Math.floor(val);
             const minutes = Math.floor((val - hours) * 60);
             const timeStr = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
-            document.getElementById('sim-time-display').textContent = timeStr;
+            const timeDisplay = document.getElementById('sim-time-display');
+            if (timeDisplay) timeDisplay.textContent = timeStr;
 
             // 2. Calculate Angle and Position
-            // We map time to an angle. Let's make 6:00 = 180 deg (left), 12:00 = 90 deg (top), 18:00 = 0 deg (right)
-            // mappedAngle = PI - ((val - 6) / 12 * PI)
             const mappedAngle = Math.PI - ((val - 6) / 12 * Math.PI); 
             
-            const container = document.getElementById('game-simulasi');
+            const container = document.getElementById('sim-container');
+            if (!container) return;
             const rect = container.getBoundingClientRect();
+            if (rect.width === 0 || rect.height === 0) return;
             
-            // Adjust radius based on screen size
-            const radiusX = rect.width > 768 ? rect.width * 0.4 : rect.width * 0.45;
-            const radiusY = rect.height * 0.4;
+            const radiusX = rect.width > 768 ? rect.width * 0.4 : rect.width * 0.44;
+            const radiusY = Math.min(rect.height * 0.48, rect.width * 0.35);
             const centerX = rect.width / 2;
-            const centerY = rect.height * 0.75; // The center of the circle is at 75% height (horizon)
+            const centerY = rect.height * 0.72;
             
             const sunX = centerX + Math.cos(mappedAngle) * radiusX;
             const sunY = centerY - Math.sin(mappedAngle) * radiusY;
             
             const sun = document.getElementById('sim-sun');
-            sun.style.left = `${sunX}px`;
-            sun.style.top = `${sunY}px`;
+            if (sun) {
+                sun.style.left = `${sunX}px`;
+                sun.style.top = `${sunY}px`;
+            }
             
             const moonAngle = mappedAngle + Math.PI;
             const moonX = centerX + Math.cos(moonAngle) * radiusX;
             const moonY = centerY - Math.sin(moonAngle) * radiusY;
             
             const moon = document.getElementById('sim-moon');
-            moon.style.left = `${moonX}px`;
-            moon.style.top = `${moonY}px`;
+            if (moon) {
+                moon.style.left = `${moonX}px`;
+                moon.style.top = `${moonY}px`;
+            }
 
             // 3. Update Sky Colors and Prayer Info
             const sky = document.getElementById('sim-sky');
@@ -2367,17 +2451,17 @@
             
             if (val >= 4 && val < 5.5) {
                 pName = "Subuh";
-                pDesc = "Waktu Subuh dimulai sejak terbitnya fajar shadiq (cahaya putih membentang di ufuk timur) hingga terbitnya matahari.";
+                pDesc = "Waktu Subuh dimulai sejak terbitnya fajar shadiq yaitu cahaya putih membentang di ufuk timur hingga terbitnya matahari.";
                 color = "linear-gradient(to bottom, #1e1b4b 0%, #4c1d95 50%, #be123c 100%)";
                 starOp = 0.3;
             } else if (val >= 5.5 && val < 11.5) {
-                pName = "Waktu Terlarang / Dhuha";
-                pDesc = "Saat matahari sedang terbit adalah waktu dilarang shalat. Setelah bayangan setinggi tombak, barulah masuk waktu Dhuha (sunnah).";
+                pName = "Waktu Terlarang dan Dhuha";
+                pDesc = "Saat matahari sedang terbit adalah waktu dilarang shalat. Setelah bayangan setinggi tombak, barulah masuk waktu Dhuha sunnah.";
                 color = "linear-gradient(to bottom, #38bdf8 0%, #bae6fd 100%)";
                 starOp = 0;
             } else if (val >= 11.5 && val < 15) {
                 pName = "Dzuhur";
-                pDesc = "Waktu Dzuhur dimulai sejak tergelincirnya matahari (condong ke barat) hingga panjang bayangan benda sama dengan bendanya.";
+                pDesc = "Waktu Dzuhur dimulai sejak tergelincirnya matahari condong ke barat hingga panjang bayangan benda sama dengan bendanya.";
                 color = "linear-gradient(to bottom, #0284c7 0%, #7dd3fc 100%)";
                 starOp = 0;
             } else if (val >= 15 && val < 17.5) {
@@ -2387,7 +2471,7 @@
                 starOp = 0;
             } else if (val >= 17.5 && val < 19) {
                 pName = "Maghrib";
-                pDesc = "Waktu Maghrib dimulai sejak matahari tenggelam sepenuhnya hingga hilangnya awan/mega merah (syafaq) di ufuk barat.";
+                pDesc = "Waktu Maghrib dimulai sejak matahari tenggelam sepenuhnya hingga hilangnya mega merah di ufuk barat.";
                 color = "linear-gradient(to bottom, #1e1b4b 0%, #9f1239 50%, #ea580c 100%)";
                 starOp = 0.2;
             } else {
@@ -2397,23 +2481,24 @@
                 starOp = 1;
             }
             
-            sky.style.background = color;
-            stars.style.opacity = starOp;
-            title.textContent = pName;
-            desc.textContent = pDesc;
-
-            // Update title color to match the theme
-            if (pName === "Isya" || pName === "Subuh" || pName === "Maghrib") {
-                title.className = "text-3xl font-bold font-heading text-indigo-800 mb-2";
-            } else if (pName === "Dzuhur" || pName === "Waktu Terlarang / Dhuha") {
-                title.className = "text-3xl font-bold font-heading text-sky-600 mb-2";
-            } else {
-                title.className = "text-3xl font-bold font-heading text-amber-600 mb-2";
+            if (sky) sky.style.background = color;
+            if (stars) stars.style.opacity = starOp;
+            if (title) {
+                title.textContent = pName;
+                if (pName === "Isya" || pName === "Subuh" || pName === "Maghrib") {
+                    title.className = "text-2xl sm:text-3xl font-bold font-heading text-indigo-800 mb-1 sm:mb-2";
+                } else if (pName === "Dzuhur" || pName === "Waktu Terlarang dan Dhuha") {
+                    title.className = "text-2xl sm:text-3xl font-bold font-heading text-sky-600 mb-1 sm:mb-2";
+                } else {
+                    title.className = "text-2xl sm:text-3xl font-bold font-heading text-amber-600 mb-1 sm:mb-2";
+                }
             }
+            if (desc) desc.textContent = pDesc;
         }
 
         window.addEventListener('resize', () => {
-            if (document.getElementById('game-simulasi') && !document.getElementById('game-simulasi').classList.contains('hidden')) {
+            const modal = document.getElementById('modal-simulasi');
+            if (modal && !modal.classList.contains('hidden')) {
                 updateSimulasiTime();
             }
         });
@@ -2867,46 +2952,7 @@
     </script>
 
     
-            <!-- ================= GAME 7: SIMULASI WAKTU SHALAT ================= -->
-            <div id="game-simulasi" class="game-panel hidden flex-col w-full h-[80vh] min-h-[600px] bg-slate-900 rounded-2xl overflow-hidden relative border border-slate-700 shadow-2xl">
-                <!-- Sky background -->
-                <div id="sim-sky" class="absolute inset-0 transition-colors duration-200" style="background: linear-gradient(to bottom, #020111 0%, #20124d 100%); z-index: 1;"></div>
-                
-                <!-- Stars -->
-                <div id="sim-stars" class="absolute inset-0 opacity-100 transition-opacity duration-200" style="background-image: radial-gradient(white 1px, transparent 1px); background-size: 50px 50px; z-index: 2;"></div>
 
-                <!-- Sun and Moon Container -->
-                <div id="sim-celestial-container" class="absolute top-0 left-0 w-full h-full pointer-events-none" style="z-index: 3;">
-                    <div id="sim-sun" class="absolute w-20 h-20 bg-yellow-400 rounded-full shadow-[0_0_80px_rgba(253,224,71,1)] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-yellow-100 text-4xl" style="left: 50%; top: 50%;"><i class="fa-solid fa-sun"></i></div>
-                    
-                    <div id="sim-moon" class="absolute w-16 h-16 text-slate-200 text-6xl -translate-x-1/2 -translate-y-1/2" style="left: 50%; top: 50%;"><i class="fa-solid fa-moon drop-shadow-[0_0_30px_rgba(226,232,240,0.8)]"></i></div>
-                </div>
-
-                <!-- Horizon -->
-                <div class="absolute bottom-[20%] left-0 w-full h-32 bg-contain bg-bottom bg-repeat-x opacity-100" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 50%22 preserveAspectRatio=%22none%22><path d=%22M0,50 L0,30 L10,30 L10,25 L15,20 L20,25 L20,30 L25,30 L25,40 L35,40 L35,15 L40,10 L45,15 L45,40 L55,40 L55,30 L60,30 L60,25 L65,20 L70,25 L70,30 L75,30 L75,45 L85,45 L85,35 L90,30 L95,35 L95,45 L100,45 L100,50 Z%22 fill=%22%230f172a%22/></svg>'); z-index: 4;"></div>
-                <div class="absolute bottom-0 left-0 w-full h-[20%] bg-[#0f172a]" style="z-index: 4;"></div>
-
-                <!-- Time Display -->
-                <div class="absolute top-6 left-0 right-0 flex justify-center pointer-events-none" style="z-index: 10;">
-                    <div class="bg-slate-900/40 backdrop-blur-md px-8 py-3 rounded-2xl text-white font-mono text-5xl font-bold border border-white/10 shadow-lg text-center">
-                        <div id="sim-time-display">12:00</div>
-                        <div id="sim-time-label" class="text-xs uppercase tracking-[0.2em] mt-1 text-slate-300 font-sans">Waktu Setempat</div>
-                    </div>
-                </div>
-
-                <!-- Info Panel -->
-                <div class="absolute bottom-24 left-1/2 -translate-x-1/2 w-[90%] max-w-lg bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-2xl border border-slate-200 text-center" style="z-index: 10;">
-                    <h3 id="sim-prayer-name" class="text-3xl font-bold font-heading text-teal-700 mb-2">Dzuhur</h3>
-                    <p id="sim-prayer-desc" class="text-sm text-slate-600 font-medium leading-relaxed">Waktu dzuhur dimulai sejak tergelincirnya matahari (condong ke arah barat) hingga bayangan benda sama panjang dengan benda aslinya.</p>
-                </div>
-
-                <!-- Slider Controller -->
-                <div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl bg-slate-800/90 backdrop-blur-md p-4 rounded-2xl border border-slate-600 flex items-center gap-4 shadow-xl" style="z-index: 10;">
-                    <div class="text-slate-400 text-xl"><i class="fa-solid fa-moon"></i></div>
-                    <input type="range" id="sim-slider" min="0" max="24" step="0.05" value="12" class="w-full h-3 bg-slate-700 rounded-lg appearance-none cursor-pointer" oninput="updateSimulasiTime()" style="accent-color: #14b8a6;">
-                    <div class="text-yellow-400 text-xl"><i class="fa-solid fa-sun"></i></div>
-                </div>
-            </div>
 
         <!-- ================= CBT EXAM & ANTI CHEAT SYSTEM ================= -->
     <script>
