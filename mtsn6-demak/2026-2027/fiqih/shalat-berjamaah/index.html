@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Fikih Kelas VII - Shalat Berjamaah</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- Master Data Siswa -->
+    <script src="../../data-siswa.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    },
+                    colors: {
+                        teal: {
+                            850: '#0f5d56',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            direction: rtl;
+            line-height: 2.2 !important;
+            word-spacing: 0.25em;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        .pattern-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.97); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.2s ease-out forwards;
+        }
+
+        .saf-box {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="selection:bg-teal-200 selection:text-teal-900 flex flex-col min-h-screen overflow-x-hidden">
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Brand -->
+                <a href="../../" target="_top" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <div class="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-book-open text-sm"></i>
+                    </div>
+                    <span class="font-heading font-bold text-lg tracking-wide text-slate-800">Belajar<span class="text-teal-600">Online</span></span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../../fiqih/" target="_top" class="text-sm font-bold text-teal-600 relative after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-0.5 after:bg-teal-600 transition-colors py-4">
+                        Fiqih
+                    </a>
+                    <a href="../../akidah-akhlak/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors py-4">
+                        Akidah Akhlak
+                    </a>
+                    <a href="../../formatif/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Uji Kompetensi
+                    </a>
+                    <a href="../../nilai-siswa/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Rekap Nilai
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-slate-600 hover:text-teal-600 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Container -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full max-h-[85vh] overflow-y-auto">
+            <div class="px-2 pt-4 pb-6 space-y-1">
+                <a href="../../fiqih/" target="_top" class="block px-3 py-3 rounded-md text-base font-bold text-teal-700 bg-teal-50 border-l-4 border-teal-600 transition-colors">Fiqih</a>
+                <a href="../../akidah-akhlak/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Akidah Akhlak</a>
+                <a href="../../formatif/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Uji Kompetensi</a>
+                <a href="../../nilai-siswa/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Rekap Nilai</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= HERO SECTION ================= -->
+    <header class="bg-teal-900 relative pt-32 pb-28 md:pb-36 overflow-hidden pattern-bg">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-teal-900/80 to-teal-950"></div>
+        <div class="container mx-auto px-4 relative z-10 max-w-4xl text-center">
+            
+            <div class="inline-flex items-center gap-2 bg-teal-800/80 border border-teal-700 text-teal-100 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-6 shadow-sm">
+                <i class="fa-solid fa-users text-amber-400"></i> Fikih Ibadah Kelas VII
+            </div>
+
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 arabic-text" dir="rtl">
+                صَلَاةُ الْجَمَاعَةِ شِعَارُ الْوَحْدَةِ وَالْأُخُوَّةِ
+            </h2>
+
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-6 text-white font-heading leading-tight">
+                Ketentuan & Tata Cara <br/>
+                <span class="text-amber-400">Shalat Berjamaah</span>
+            </h1>
+
+            <p class="text-sm md:text-base text-teal-100/90 max-w-2xl mx-auto font-light leading-relaxed mb-8 italic">
+                "Salat berjemaah lebih utama dibandingkan salat sendirian dengan kelebihan dua puluh tujuh derajat."
+                <br>
+                <span class="text-xs md:text-sm font-semibold not-italic text-amber-300">Hadis Riwayat Al-Bukhari dan Muslim dari Abdullah bin Umar</span>
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+                <a href="#materi" class="bg-amber-500 hover:bg-amber-400 text-teal-950 px-6 sm:px-7 py-3 rounded-xl font-bold transition inline-flex items-center gap-2 shadow-lg transform hover:-translate-y-0.5 text-xs sm:text-sm">
+                    <i class="fa-solid fa-book-open"></i> Pelajari Materi
+                </a>
+                <a href="#simulasi-saf" class="bg-teal-800/80 hover:bg-teal-700 border border-teal-600 text-white px-6 sm:px-7 py-3 rounded-xl font-semibold transition inline-flex items-center gap-2 shadow-sm text-xs sm:text-sm">
+                    <i class="fa-solid fa-arrows-split-up-and-left text-amber-400"></i> Simulasi Saf
+                </a>
+                <a href="#latihan" class="bg-teal-800/80 hover:bg-teal-700 border border-teal-600 text-white px-6 sm:px-7 py-3 rounded-xl font-semibold transition inline-flex items-center gap-2 shadow-sm text-xs sm:text-sm">
+                    <i class="fa-solid fa-circle-check text-emerald-400"></i> Uji Kompetensi
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow">
+
+        <!-- ================= MATERI SECTION ================= -->
+        <section id="materi" class="py-12 container mx-auto px-4 relative z-20 max-w-5xl">
+            <div class="text-center mb-10">
+                <span class="text-teal-600 font-bold tracking-wider text-xs uppercase mb-2 block">Peta Konsep</span>
+                <h2 class="text-3xl font-bold text-slate-800 font-heading">7 Modul Inti Shalat Berjamaah</h2>
+                <p class="text-slate-500 text-sm mt-2 max-w-lg mx-auto">Klik pada kartu modul untuk membaca penjelasan lengkap, dalil Al-Qur'an, hadis, dan rincian fikih shalat berjamaah.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" id="cards-container">
+                
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center" onclick="openContentModal('content-1')">
+                    <div class="w-16 h-16 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2 group-hover:text-teal-700">Hukum & Keutamaan</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Pengertian shalat berjamaah, hukum fardhu kifayah dan sunnah muakad, serta pahala dua puluh tujuh derajat.</p>
+                    <span class="w-full py-2 bg-slate-50 text-teal-700 text-xs font-semibold rounded-xl group-hover:bg-teal-50 border border-slate-100 group-hover:border-teal-200">
+                        Buka Modul &rarr;
+                    </span>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center" onclick="openContentModal('content-2')">
+                    <div class="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2 group-hover:text-indigo-700">Syarat Imam & Makmum</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Kriteria pemimpin shalat yang fasih dan baligh serta adab ketaatan makmum kepada imam.</p>
+                    <span class="w-full py-2 bg-slate-50 text-indigo-700 text-xs font-semibold rounded-xl group-hover:bg-indigo-50 border border-slate-100 group-hover:border-indigo-200">
+                        Buka Modul &rarr;
+                    </span>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center" onclick="openContentModal('content-3')">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-users-rectangle"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2 group-hover:text-blue-700">Pengaturan Saf Shalat</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Aturan posisi makmum pria, wanita, anak-anak, dan keutamaan merapatkan serta meluruskan barisan.</p>
+                    <span class="w-full py-2 bg-slate-50 text-blue-700 text-xs font-semibold rounded-xl group-hover:bg-blue-50 border border-slate-100 group-hover:border-blue-200">
+                        Buka Modul &rarr;
+                    </span>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center" onclick="openContentModal('content-4')">
+                    <div class="w-16 h-16 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-amber-500 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2 group-hover:text-amber-700">Makmum Muwafik & Masbuk</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Ketentuan makmum yang tertinggal bacaan Al-Fatihah atau tertinggal hitungan rakaat imam.</p>
+                    <span class="w-full py-2 bg-slate-50 text-amber-700 text-xs font-semibold rounded-xl group-hover:bg-amber-50 border border-slate-100 group-hover:border-amber-200">
+                        Buka Modul &rarr;
+                    </span>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center" onclick="openContentModal('content-5')">
+                    <div class="w-16 h-16 bg-rose-50 text-rose-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-rose-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2 group-hover:text-rose-700">Mengingatkan & Ganti Imam</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Cara mengingatkan imam yang lupa dengan tasbih atau tepukan serta tata cara istikhlaf saat imam berhadas.</p>
+                    <span class="w-full py-2 bg-slate-50 text-rose-700 text-xs font-semibold rounded-xl group-hover:bg-rose-50 border border-slate-100 group-hover:border-rose-200">
+                        Buka Modul &rarr;
+                    </span>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center" onclick="openContentModal('content-6')">
+                    <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2 group-hover:text-emerald-700">Syarat, Rukun & Sunnah</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Tiga belas rukun shalat, perbedaan sunnah abad dengan sujud sahwi serta amalan sunnah haiat.</p>
+                    <span class="w-full py-2 bg-slate-50 text-emerald-700 text-xs font-semibold rounded-xl group-hover:bg-emerald-50 border border-slate-100 group-hover:border-emerald-200">
+                        Buka Modul &rarr;
+                    </span>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center" onclick="openContentModal('content-7')">
+                    <div class="w-16 h-16 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-heart-circle-check"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2 group-hover:text-purple-700">Pembatal & Hikmah</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Hal-hal yang membatalkan shalat, perkara yang dimakruhkan, dan hikmah persatuan ukhuwah islamiyah.</p>
+                    <span class="w-full py-2 bg-slate-50 text-purple-700 text-xs font-semibold rounded-xl group-hover:bg-purple-50 border border-slate-100 group-hover:border-purple-200">
+                        Buka Modul &rarr;
+                    </span>
+                </div>
+
+                <!-- Card 8: Interactive Saf Simulation Banner -->
+                <div class="bg-gradient-to-br from-emerald-950 via-teal-900 to-slate-900 rounded-2xl shadow-xl border border-teal-700/50 overflow-hidden hover:shadow-teal-900/40 transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center lg:col-span-2 sm:col-span-2 relative" onclick="document.getElementById('simulasi-saf').scrollIntoView({ behavior: 'smooth' })">
+                    <div class="w-16 h-16 bg-teal-800/80 text-teal-300 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300 relative z-10 border border-teal-500/30 shadow-inner">
+                        <i class="fa-solid fa-arrows-split-up-and-left"></i>
+                    </div>
+                    <h3 class="font-bold text-white font-heading text-xl mb-2 group-hover:text-teal-200 relative z-10">Simulasi Interaktif Pengaturan Saf</h3>
+                    <p class="text-xs sm:text-sm text-teal-200/80 mb-6 leading-relaxed flex-grow max-w-lg mx-auto relative z-10">Uji formasi posisi imam dan makmum di atas sajadah virtual secara visual untuk berbagai komposisi jamaah.</p>
+                    <span class="w-full sm:w-auto px-8 py-2.5 bg-amber-500 text-teal-950 text-xs sm:text-sm font-bold rounded-xl hover:bg-amber-400 relative z-10 transition-all shadow-lg">
+                        <i class="fa-solid fa-play mr-2"></i> Buka Simulasi Saf
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- Content Templates for Modals -->
+            <template id="content-1" data-title="Hukum & Keutamaan Shalat Berjamaah" data-icon="fa-scale-balanced" data-color="teal">
+                <div class="space-y-6">
+                
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-5">
+                    <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+                        <span class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-book-open-reader"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-800 font-heading">Pengertian Shalat Berjamaah</h3>
+                            <span class="text-xs text-slate-400">Definisi bahasa dan istilah syariat Islam</span>
+                        </div>
+                    </div>
+
+                    <div class="prose max-w-none text-xs sm:text-sm text-slate-600 leading-relaxed space-y-3">
+                        <p>
+                            Secara etimologi atau bahasa, kata jemaah berasal dari bahasa Arab <span class="font-bold text-slate-800">jama'a - yajma'u</span> yang memiliki arti mengumpulkan atau bersama-sama.
+                        </p>
+                        <p>
+                            Menurut istilah ilmu fikih, shalat berjamaah adalah shalat yang dikerjakan oleh dua orang atau lebih secara bersama-sama, di mana salah seorang bertindak sebagai pemimpin gerakan shalat yang disebut <strong class="text-teal-900">imam</strong>, sedangkan yang lainnya mengikuti gerakan imam yang disebut <strong class="text-teal-900">makmum</strong>. Shalat yang dikerjakan seorang diri tanpa imam dinamakan shalat <span class="font-bold text-slate-800">munfarid</span>.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-xl bg-teal-50 border border-teal-200">
+                            <h4 class="font-bold text-teal-900 text-sm mb-1.5 flex items-center gap-2">
+                                <i class="fa-solid fa-certificate text-teal-600"></i> Hukum Sunnah Muakad
+                            </h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Pendapat mayoritas ulama menyatakan hukum shalat berjamaah adalah sunnah muakad, yaitu sunnah yang sangat dikuatkan dan dianjurkan mendekati derajat wajib bagi kaum muslimin.
+                            </p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-emerald-50 border border-emerald-200">
+                            <h4 class="font-bold text-emerald-900 text-sm mb-1.5 flex items-center gap-2">
+                                <i class="fa-solid fa-people-group text-emerald-600"></i> Hukum Fardhu Kifayah
+                            </h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Sebagian ulama berpendapat hukum shalat berjamaah adalah fardhu kifayah dalam suatu pemukiman, yaitu kewajiban syiar yang apabila telah ditegakkan oleh sebagian warga maka gugur dosa warga lainnya.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-5">
+                    <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+                        <span class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-award"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-800 font-heading">Dalil Keutamaan Dua Puluh Tujuh Derajat</h3>
+                            <span class="text-xs text-slate-400">Landasan naqli dari hadis shahih Rasulullah SAW</span>
+                        </div>
+                    </div>
+
+                    <!-- Arabic Box -->
+                    <div class="bg-slate-50 border border-slate-200 p-5 rounded-2xl text-center space-y-3">
+                        <p class="arabic-text text-xl sm:text-2xl text-slate-900 font-bold leading-loose">
+                            صَلَاةُ الْجَمَاعَةِ أَفْضَلُ مِنْ صَلَاةِ الْفَذِّ بِسَبْعٍ وَعِشْرِينَ دَرَجَةً
+                        </p>
+                        <p class="text-xs sm:text-sm font-semibold text-teal-800 italic">
+                            "Shalaatul jamaa'ati afdhalu min shalaatil fadz-dzi bisab'in wa 'isyriina darajah."
+                        </p>
+                        <div class="w-16 h-0.5 bg-slate-300 mx-auto my-2"></div>
+                        <p class="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed max-w-2xl mx-auto">
+                            Artinya: Dari Abdullah bin Umar ra bahwasanya Rasulullah SAW bersabda: "Salat berjemaah lebih utama dari salat sendirian sebanyak dua puluh tujuh derajat." Hadis Sahih Riwayat Muttafaq Alaih Al-Bukhari dan Muslim.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-900 text-xs sm:text-sm leading-relaxed flex items-start gap-3">
+                        <i class="fa-solid fa-triangle-exclamation text-rose-600 text-base mt-0.5 flex-shrink-0"></i>
+                        <div>
+                            <strong class="font-bold block mb-1">Peringatan Nabi SAW Mengenai Jamaah:</strong>
+                            Diriwayatkan dalam Sunan Abu Daud bahwa jika ada tiga orang di suatu perkampungan atau pedusunan lalu shalat berjamaah tidak didirikan di tengah mereka, niscaya setan telah menguasai dan memperdayai mereka.
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            </template>
+
+            <!-- Template 2: Syarat Imam & Makmum -->
+            <template id="content-2" data-title="Syarat Sah Menjadi Imam & Makmum" data-icon="fa-crown" data-color="indigo">
+                <div class="space-y-6">
+                
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                    <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+                        <span class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-crown"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-800 font-heading">Ketentuan & Syarat Menjadi Imam</h3>
+                            <span class="text-xs text-slate-400">Kriteria kelayakan seorang pemimpin shalat</span>
+                        </div>
+                    </div>
+
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Imam adalah pemimpin tertinggi dalam shalat yang bertanggung jawab atas kesempurnaan shalat para makmum. Oleh karena itu, syariat Islam menetapkan kriteria penting bagi orang yang menjadi imam:
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
+                        
+                        <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                            <span class="w-6 h-6 rounded-lg bg-teal-600 text-white font-bold flex items-center justify-center text-xs flex-shrink-0 mt-0.5">1</span>
+                            <div>
+                                <strong class="text-slate-800 block mb-0.5">Beragama Islam</strong>
+                                <span class="text-slate-500">Imam wajib muslim dan beriman kepada Allah SWT secara mutlak.</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                            <span class="w-6 h-6 rounded-lg bg-teal-600 text-white font-bold flex items-center justify-center text-xs flex-shrink-0 mt-0.5">2</span>
+                            <div>
+                                <strong class="text-slate-800 block mb-0.5">Mumayiz atau Baligh</strong>
+                                <span class="text-slate-500">Mampu membedakan hal baik dan buruk serta mengerti sah batal shalat.</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                            <span class="w-6 h-6 rounded-lg bg-teal-600 text-white font-bold flex items-center justify-center text-xs flex-shrink-0 mt-0.5">3</span>
+                            <div>
+                                <strong class="text-slate-800 block mb-0.5">Laki-laki</strong>
+                                <span class="text-slate-500">Wajib pria apabila makmumnya laki-laki atau campuran. Wanita hanya boleh menjadi imam bagi sesama jamaah wanita.</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                            <span class="w-6 h-6 rounded-lg bg-teal-600 text-white font-bold flex items-center justify-center text-xs flex-shrink-0 mt-0.5">4</span>
+                            <div>
+                                <strong class="text-slate-800 block mb-0.5">Berakal Sehat</strong>
+                                <span class="text-slate-500">Tidak gila atau hilang kesadaran saat memimpin jalannya shalat.</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                            <span class="w-6 h-6 rounded-lg bg-teal-600 text-white font-bold flex items-center justify-center text-xs flex-shrink-0 mt-0.5">5</span>
+                            <div>
+                                <strong class="text-slate-800 block mb-0.5">Fasih Membaca Al-Qur'an</strong>
+                                <span class="text-slate-500">Menguasai tajwid dan makharijul huruf dengan benar, terutama Surah Al-Fatihah.</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                            <span class="w-6 h-6 rounded-lg bg-teal-600 text-white font-bold flex items-center justify-center text-xs flex-shrink-0 mt-0.5">6</span>
+                            <div>
+                                <strong class="text-slate-800 block mb-0.5">Suci dari Hadas dan Najis</strong>
+                                <span class="text-slate-500">Badan, pakaian, dan tempat shalat imam wajib bersih suci sempurna.</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                            <span class="w-6 h-6 rounded-lg bg-teal-600 text-white font-bold flex items-center justify-center text-xs flex-shrink-0 mt-0.5">7</span>
+                            <div>
+                                <strong class="text-slate-800 block mb-0.5">Bebas Gangguan Kesehatan Khusus</strong>
+                                <span class="text-slate-500">Bukan penderita hadas berkepanjangan seperti beser atau diare aktif yang membatalkan wudhu.</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                            <span class="w-6 h-6 rounded-lg bg-teal-600 text-white font-bold flex items-center justify-center text-xs flex-shrink-0 mt-0.5">8</span>
+                            <div>
+                                <strong class="text-slate-800 block mb-0.5">Bebas Gangguan Artikulasi Huruf</strong>
+                                <span class="text-slate-500">Tidak mengganti lafal satu huruf ke huruf lain seperti menukar huruf sin menjadi syin.</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                            <span class="w-6 h-6 rounded-lg bg-teal-600 text-white font-bold flex items-center justify-center text-xs flex-shrink-0 mt-0.5">9</span>
+                            <div>
+                                <strong class="text-slate-800 block mb-0.5">Tidak Bermakmum pada Orang Lain</strong>
+                                <span class="text-slate-500">Imam shalat adalah pemimpin mandiri, bukan makmum dari jamaah lainnya.</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                            <span class="w-6 h-6 rounded-lg bg-teal-600 text-white font-bold flex items-center justify-center text-xs flex-shrink-0 mt-0.5">10</span>
+                            <div>
+                                <strong class="text-slate-800 block mb-0.5">Sah Menurut Mazhab Makmum</strong>
+                                <span class="text-slate-500">Shalat imam sah menurut ukuran hukum syariat yang diyakini oleh makmum.</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Catatan Fikih Tambahan -->
+                    <div class="p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs sm:text-sm space-y-1">
+                        <strong class="font-bold flex items-center gap-1.5 text-amber-950">
+                            <i class="fa-solid fa-lightbulb text-amber-600"></i> Fakta Menarik Fikih Imam Shalat:
+                        </strong>
+                        <p class="leading-relaxed text-slate-700">
+                            Orang buta diperbolehkan menjadi imam bagi makmum yang melihat. Rasulullah SAW pernah menunjuk sahabat Ibnu Ummi Maktum ra yang tunanetra untuk menjadi imam shalat di Madinah sebanyak dua kali. Selain itu, orang merdeka sah bermakmum pada hamba sahaya.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                    <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+                        <span class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-person-praying"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-800 font-heading">Ketentuan & Adab Makmum</h3>
+                            <span class="text-xs text-slate-400">Aturan kepatuhan makmum kepada imam</span>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-2.5 text-xs sm:text-sm text-slate-700">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-emerald-600 mt-1"></i>
+                            <span><strong>Berniat Mengikuti Imam:</strong> Makmum wajib menyertakan niat makmuman saat takbiratul ihram bersamaan di dalam hatinya.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-emerald-600 mt-1"></i>
+                            <span><strong>Berada di Belakang Posisi Imam:</strong> Tumit kaki makmum tidak boleh lebih maju mendahului tumit kaki imam. Posisi sejajar hukumnya makruh.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-emerald-600 mt-1"></i>
+                            <span><strong>Mengetahui Gerakan Imam:</strong> Makmum dapat melihat imam secara langsung atau melihat saf di depannya, maupun mendengar suara takbir intiqal imam.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-check text-emerald-600 mt-1"></i>
+                            <span><strong>Larangan Mendahului Gerakan:</strong> Makmum tidak boleh mendahului atau tertinggal dari imam sebanyak dua rukun fi'li tanpa alasan uzur yang syar'i.</span>
+                        </li>
+                    </ul>
+                </div>
+            </template>
+
+            <!-- Template 3: Pengaturan Saf -->
+            <template id="content-3" data-title="Formasi & Pengaturan Saf Shalat" data-icon="fa-users-rectangle" data-color="blue">
+                <div class="space-y-6">
+                
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                    <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+                        <span class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-people-line"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-800 font-heading">Tata Cara Formasi Saf Shalat Berjamaah</h3>
+                            <span class="text-xs text-slate-400">Pengaturan saf berdasarkan jumlah dan komposisi jamaah</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        
+                        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-3">
+                            <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center mx-auto text-xl font-bold">
+                                1
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-sm">Makmum 1 Orang Laki-laki</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Berdiri di sebelah kanan imam dan posisinya sedikit ke belakang, tidak sejajar penuh dengan posisi imam.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-3">
+                            <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center mx-auto text-xl font-bold">
+                                2
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-sm">Makmum 2 Orang atau Lebih</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Membentuk saf di belakang imam dengan lurus, rapat, dan menyambung barisan mulai dari tengah ke kanan dan ke kiri.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-3">
+                            <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center mx-auto text-xl font-bold">
+                                3
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-sm">Makmum Perempuan</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Saf makmum wanita berada di belakang saf laki-laki dewasa. Jika ada anak-anak pria, mereka menempati saf di antara pria dewasa dan wanita.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- Hadits Keutamaan Saf -->
+                    <div class="p-4 rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-950 text-xs sm:text-sm space-y-2">
+                        <strong class="font-bold flex items-center gap-2 text-indigo-900">
+                            <i class="fa-solid fa-scroll text-indigo-600"></i> Hadis Rasulullah SAW Tentang Keutamaan Saf:
+                        </strong>
+                        <p class="leading-relaxed text-slate-700">
+                            Diriwayatkan dari Abu Hurairah ra bahwasanya Rasulullah SAW bersabda: "Sebaik-baik saf bagi laki-laki adalah saf pertama dan yang paling buruk adalah saf terakhir. Sebaik-baik saf bagi perempuan adalah saf yang terakhir dan yang paling buruk adalah saf yang pertama." Hadis Riwayat Muslim.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 text-xs sm:text-sm">
+                        <strong class="text-teal-900 block mb-1">Siapa yang Berhak di Belakang Imam?</strong>
+                        Makmum yang memiliki pemahaman ilmu agama matang, hafal Al-Qur'an, dan memenuhi kriteria imam dianjurkan mengambil posisi tepat di belakang imam. Tujuannya agar dapat menegur ketika imam keliru bacaan atau gerakan, serta siap maju menggantikan imam apabila imam mengalami hal yang membatalkan shalat.
+                    </div>
+                </div>
+            </template>
+
+            <!-- Template 4: Makmum Muwafik & Masbuk -->
+            <template id="content-4" data-title="Ketentuan Makmum Muwafik & Masbuk" data-icon="fa-clock-rotate-left" data-color="amber">
+                <div class="space-y-6">
+                
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                    <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+                        <span class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-800 font-heading">Klasifikasi Makmum: Muwafik & Masbuk</h3>
+                            <span class="text-xs text-slate-400">Aturan hukum bagi makmum yang tepat waktu dan makmum yang tertinggal</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        
+                        <div class="p-5 rounded-2xl bg-teal-50/60 border border-teal-200 space-y-3">
+                            <div class="flex items-center gap-2 text-teal-900 font-bold text-base">
+                                <i class="fa-solid fa-user-check text-teal-600"></i> Makmum Muwafik
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                                Makmum muwafik yaitu makmum yang mendapati imam dalam posisi berdiri sebelum rukuk dan memiliki rentang waktu yang cukup untuk membaca Surah Al-Fatihah dengan tempo normal hingga tuntas sebelum imam melakukan gerakan rukuk.
+                            </p>
+                            <div class="bg-white p-3 rounded-xl border border-teal-200 text-xs text-teal-800 font-semibold">
+                                Makmum muwafik wajib menyelesaikan seluruh ayat Surah Al-Fatihah miliknya.
+                            </div>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-amber-50/60 border border-amber-200 space-y-3">
+                            <div class="flex items-center gap-2 text-amber-900 font-bold text-base">
+                                <i class="fa-solid fa-user-clock text-amber-600"></i> Makmum Masbuk
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                                Makmum masbuk yaitu makmum yang mendapati imam sedang berdiri namun tidak memiliki waktu yang cukup untuk menyelesaikan Al-Fatihah, atau mendapati imam sudah rukuk, i'tidal, sujud, atau duduk.
+                            </p>
+                            <div class="bg-white p-3 rounded-xl border border-amber-200 text-xs text-amber-800 font-semibold">
+                                Bila makmum masbuk mendapati rukuk bersama imam dengan tumakninah, terhitung 1 rakaat.
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs sm:text-sm text-slate-700">
+                        <strong class="text-slate-900 font-bold block">Adab Berangkat Menuju Shalat Berjamaah:</strong>
+                        <p class="leading-relaxed">
+                            Berjalan menuju masjid dengan tergesa-gesa atau berlari hukumnya makruh. Syariat mengajarkan untuk datang dengan langkah tenang dan khusyuk. Rasulullah SAW bersabda: "Jika kalian mendatangi shalat, maka berjalanlah dengan tenang. Apa yang kalian dapati maka kerjakanlah, dan apa yang terlewat maka sempurnakanlah." Hadis Riwayat Al-Bukhari dan Muslim dari Abu Qatadah.
+                        </p>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Template 5: Mengingatkan & Ganti Imam -->
+            <template id="content-5" data-title="Tata Cara Mengingatkan & Pergantian Imam" data-icon="fa-bell" data-color="rose">
+                <div class="space-y-6">
+                
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                    <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+                        <span class="w-10 h-10 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-bell"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-800 font-heading">Tata Cara Mengingatkan & Pergantian Imam</h3>
+                            <span class="text-xs text-slate-400">Prosedur adab saat imam lupa atau batal di tengah ibadah</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        
+                        <div class="p-5 rounded-2xl bg-indigo-50 border border-indigo-200 space-y-2">
+                            <h4 class="font-bold text-indigo-900 text-sm flex items-center gap-2">
+                                <i class="fa-solid fa-person text-indigo-600"></i> Bagi Makmum Laki-laki
+                            </h4>
+                            <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                                Mengingatkan imam yang lupa gerakan atau bacaan dengan mengucapkan kalimat tasbih yaitu <strong class="text-indigo-900">"Subhanallah"</strong> dengan niat berdzikir mengingatkan imam, dengan nada suara yang terdengar oleh imam tanpa berteriak kasar.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-purple-50 border border-purple-200 space-y-2">
+                            <h4 class="font-bold text-purple-900 text-sm flex items-center gap-2">
+                                <i class="fa-solid fa-person-dress text-purple-600"></i> Bagi Makmum Perempuan
+                            </h4>
+                            <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                                Cukup menepukkan tangan, yaitu menepukkan punggung telapak tangan kiri menggunakan bagian dalam telapak tangan kanan. Wanita tidak diperkenankan bersuara melafalkan tasbih untuk menjaga adab shalat.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-700 space-y-2">
+                        <strong class="font-bold text-slate-900 flex items-center gap-2">
+                            <i class="fa-solid fa-repeat text-teal-600"></i> Prosedur Pergantian Imam Ketika Batal:
+                        </strong>
+                        <p class="leading-relaxed">
+                            Apabila imam mengalami halangan di tengah shalat seperti berhadas atau pingsan, imam menunjuk atau menarik salah satu makmum yang berada tepat di belakangnya untuk maju ke depan melanjutkan kepemimpinan shalat.
+                        </p>
+                        <p class="text-slate-500 italic">
+                            Kisah Sahabat: Diriwayatkan dari Abu Razin bahwa sahabat Ali bin Abi Thalib ra saat shalat hidungnya mengeluarkan darah mimisan, lalu ia menarik tangan makmum di belakangnya untuk menggantikan posisinya sebagai imam, kemudian beliau keluar berwudhu.
+                        </p>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Template 6: Syarat & Rukun Salat -->
+            <template id="content-6" data-title="Syarat, Rukun & Sunnah Shalat" data-icon="fa-book-bookmark" data-color="emerald">
+                <div class="space-y-6">
+                
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                    <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+                        <span class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-list-check"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-800 font-heading">Syarat Sah, Rukun & Sunnah Salat</h3>
+                            <span class="text-xs text-slate-400">Rangkuman inti materi dari buku teks Fikih kelas VII</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        
+                        <div class="space-y-3">
+                            <h4 class="font-bold text-slate-800 text-sm border-l-4 border-teal-600 pl-3">
+                                5 Syarat Sah Shalat Fardhu
+                            </h4>
+                            <ol class="list-decimal pl-5 text-xs sm:text-sm text-slate-600 space-y-1.5 leading-relaxed">
+                                <li>Suci dari hadas besar dan hadas kecil</li>
+                                <li>Suci badan, pakaian, dan tempat dari najis</li>
+                                <li>Menutup aurat dengan pakaian yang suci, aurat laki-laki antara pusar dan lutut, aurat perempuan seluruh tubuh kecuali wajah dan dua telapak tangan</li>
+                                <li>Mengetahui pasti masuknya waktu shalat</li>
+                                <li>Menghadap kiblat</li>
+                            </ol>
+                        </div>
+
+                        <div class="space-y-3">
+                            <h4 class="font-bold text-slate-800 text-sm border-l-4 border-indigo-600 pl-3">
+                                13 Rukun Shalat Berurutan
+                            </h4>
+                            <ol class="list-decimal pl-5 text-xs sm:text-sm text-slate-600 space-y-1 leading-relaxed">
+                                <li>Niat di dalam hati</li>
+                                <li>Berdiri bagi yang mampu</li>
+                                <li>Takbiratul ihram dengan lafal Allahu Akbar</li>
+                                <li>Membaca Surah Al-Fatihah</li>
+                                <li>Rukuk disertai tumakninah</li>
+                                <li>I'tidal disertai tumakninah</li>
+                                <li>Sujud dua kali disertai tumakninah</li>
+                                <li>Duduk di antara dua sujud disertai tumakninah</li>
+                                <li>Duduk tasyahud akhir</li>
+                                <li>Membaca bacaan tasyahud akhir</li>
+                                <li>Membaca selawat atas Nabi Muhammad SAW</li>
+                                <li>Salam yang pertama</li>
+                                <li>Tertib melaksanakan seluruh rukun secara berurutan</li>
+                            </ol>
+                        </div>
+
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t border-slate-100">
+                        
+                        <div class="p-4 rounded-xl bg-amber-50 border border-amber-200">
+                            <h5 class="font-bold text-amber-900 text-xs sm:text-sm mb-2 flex items-center gap-1.5">
+                                <i class="fa-solid fa-star-half-stroke text-amber-600"></i> Sunnah Ab'ad
+                            </h5>
+                            <p class="text-xs text-slate-600 leading-relaxed mb-2">
+                                Sunnah yang apabila tertinggal disunnahkan menggantinya dengan sujud sahwi:
+                            </p>
+                            <ul class="list-disc pl-4 text-xs text-slate-600 space-y-1">
+                                <li>Duduk tasyahud awal</li>
+                                <li>Membaca bacaan tasyahud awal</li>
+                                <li>Membaca selawat atas nabi saat duduk tasyahud awal</li>
+                                <li>Membaca selawat atas keluarga nabi saat tasyahud akhir</li>
+                                <li>Membaca doa qunut shalat subuh dan witir ramadhan</li>
+                                <li>Berdiri saat membaca qunut</li>
+                                <li>Membaca selawat atas nabi saat qunut</li>
+                            </ul>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-teal-50 border border-teal-200">
+                            <h5 class="font-bold text-teal-900 text-xs sm:text-sm mb-2 flex items-center gap-1.5">
+                                <i class="fa-solid fa-star text-teal-600"></i> Sunnah Hai'at
+                            </h5>
+                            <p class="text-xs text-slate-600 leading-relaxed mb-2">
+                                Sunnah yang apabila tertinggal tidak disunnahkan melakukan sujud sahwi:
+                            </p>
+                            <ul class="list-disc pl-4 text-xs text-slate-600 space-y-1">
+                                <li>Mengangkat kedua tangan sejajar bahu saat takbir, rukuk, dan i'tidal</li>
+                                <li>Meletakkan tangan kanan di atas tangan kiri di bawah dada</li>
+                                <li>Membaca doa iftitah dan taawuz</li>
+                                <li>Membaca surah pendek setelah Al-Fatihah</li>
+                                <li>Membaca tasbih saat rukuk dan sujud</li>
+                                <li>Mengucapkan amin setelah Al-Fatihah</li>
+                                <li>Duduk iftirasy dan duduk tawaruk</li>
+                                <li>Salam yang kedua</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <!-- Pembatal & Makruh -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-xl bg-rose-50 border border-rose-200 text-xs">
+                            <strong class="font-bold text-rose-900 block mb-1">11 Hal yang Membatalkan Shalat:</strong>
+                            <p class="text-slate-600 leading-relaxed">
+                                Berbicara sengaja, gerakan banyak selain shalat, berhadas, terkena najis, terbukanya aurat, berubah niat, membelakangi kiblat, makan, minum, tertawa terbahak-bahak, murtad.
+                            </p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-100 border border-slate-200 text-xs">
+                            <strong class="font-bold text-slate-800 block mb-1">11 Hal yang Makruh dalam Shalat:</strong>
+                            <p class="text-slate-600 leading-relaxed">
+                                Menoleh tanpa hajat, menengadah ke langit, bertumpu satu kaki, meludah, membalik keras atau lirihnya suara, shalat di kuburan atau sampah, menahan buang air, mengingat makanan terhidang, membunyikan jari.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </template>
+
+            <!-- Template 7: Pembatal, Makruh & Hikmah Berjamaah -->
+            <template id="content-7" data-title="Pembatal, Makruh & Hikmah Berjamaah" data-icon="fa-heart-circle-check" data-color="purple">
+                <div class="space-y-6">
+                
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                    <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+                        <span class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center font-bold text-lg">
+                            <i class="fa-solid fa-heart"></i>
+                        </span>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-800 font-heading">Hikmah & Keutamaan Sosial Shalat Berjamaah</h3>
+                            <span class="text-xs text-slate-400">Pendidikan karakter individu dan persatuan umat Islam</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        
+                        <div class="p-5 rounded-2xl bg-teal-50/70 border border-teal-200 space-y-2">
+                            <div class="w-8 h-8 rounded-lg bg-teal-600 text-white flex items-center justify-center font-bold text-sm">
+                                1
+                            </div>
+                            <h4 class="font-bold text-teal-950 text-sm">Melatih Kedisiplinan</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Waktu shalat yang tepat mengajari kita mengatur ritme hidup dan menghargai waktu dalam seluruh urusan keseharian.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-indigo-50/70 border border-indigo-200 space-y-2">
+                            <div class="w-8 h-8 rounded-lg bg-indigo-600 text-white flex items-center justify-center font-bold text-sm">
+                                2
+                            </div>
+                            <h4 class="font-bold text-indigo-950 text-sm">Konsep Kesetaraan</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Berdiri berdampingan tanpa sekat status sosial dan harta menandakan semua manusia sejajar di hadapan Allah SWT.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200 space-y-2">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-sm">
+                                3
+                            </div>
+                            <h4 class="font-bold text-emerald-950 text-sm">Kekompakan & Taat Pemimpin</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Kepatuhan makmum pada imam melatih kedisiplinan berorganisasi dan tidak mementingkan ego pribadi di atas kepentingan bersama.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-amber-50/70 border border-amber-200 space-y-2">
+                            <div class="w-8 h-8 rounded-lg bg-amber-600 text-white flex items-center justify-center font-bold text-sm">
+                                4
+                            </div>
+                            <h4 class="font-bold text-amber-950 text-sm">Rasa Tanggung Jawab</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Mengajarkan sikap kepemimpinan yang amanah, di mana imam bertanggung jawab penuh atas jamaah yang dipimpinnya.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-rose-50/70 border border-rose-200 space-y-2">
+                            <div class="w-8 h-8 rounded-lg bg-rose-600 text-white flex items-center justify-center font-bold text-sm">
+                                5
+                            </div>
+                            <h4 class="font-bold text-rose-950 text-sm">Menjalin Silaturahmi</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Berjumpa setiap hari di masjid menguatkan rasa persaudaraan sesama muslim dan melahirkan kepedulian sosial yang nyata.
+                            </p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-sky-50/70 border border-sky-200 space-y-2">
+                            <div class="w-8 h-8 rounded-lg bg-sky-600 text-white flex items-center justify-center font-bold text-sm">
+                                6
+                            </div>
+                            <h4 class="font-bold text-sky-950 text-sm">Budaya Bersih & Sehat</h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Tuntutan suci dari hadas dan najis mendorong muslim untuk selalu menjaga higienitas fisik dan kebersihan lingkungan.
+                            </p>
+                        </div>
+
+                </div>
+            </template>
+
+        </section>
+
+        <!-- ================= SIMULASI INTERAKTIF SAF SHALAT ================= -->
+        <section id="simulasi-saf" class="py-12 bg-slate-100 border-t border-slate-200">
+            <div class="container mx-auto px-4 max-w-4xl">
+                
+                <div class="text-center mb-8">
+                    <span class="text-xs font-bold text-teal-700 uppercase tracking-wider bg-teal-50 border border-teal-200 px-3 py-1 rounded-full inline-block mb-2">
+                        Praktik Visual
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-800 font-heading">
+                        Simulasi Interaktif Pengaturan Saf
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1">
+                        Pilih skenario jamaah untuk melihat simulasi posisi imam dan makmum di atas sajadah masjid.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+                    
+                    <!-- Scenario Switcher Buttons -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                        <button onclick="changeSafScenario(1, this)" class="saf-scenario-btn active p-3 rounded-xl border border-teal-600 bg-teal-600 text-white font-bold text-xs transition text-center shadow-sm">
+                            1 Makmum Pria
+                        </button>
+                        <button onclick="changeSafScenario(2, this)" class="saf-scenario-btn p-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-bold text-xs hover:bg-teal-50 transition text-center">
+                            Banyak Makmum Pria
+                        </button>
+                        <button onclick="changeSafScenario(3, this)" class="saf-scenario-btn p-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-bold text-xs hover:bg-teal-50 transition text-center">
+                            Pria & Wanita
+                        </button>
+                        <button onclick="changeSafScenario(4, this)" class="saf-scenario-btn p-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-bold text-xs hover:bg-teal-50 transition text-center">
+                            Imam Berhadas
+                        </button>
+                    </div>
+
+                    <!-- Visual Stage Area -->
+                    <div class="bg-emerald-950 p-6 sm:p-8 rounded-2xl relative overflow-hidden min-h-[300px] flex flex-col justify-between items-center text-white border-4 border-emerald-900 shadow-inner">
+                        
+                        <!-- Kiblat Indicator -->
+                        <div class="w-full text-center border-b border-emerald-800/80 pb-2 mb-4">
+                            <span class="text-[11px] uppercase tracking-widest text-emerald-400 font-bold flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-arrow-up"></i> Arah Kiblat Menghadap Ka'bah
+                            </span>
+                        </div>
+
+                        <!-- Interactive Diagram Container -->
+                        <div id="saf-stage-diagram" class="w-full flex flex-col items-center justify-center gap-6 py-4">
+                            <!-- Dynamic Content Rendered by JS -->
+                        </div>
+
+                        <!-- Explanatory Caption -->
+                        <div id="saf-stage-caption" class="w-full bg-emerald-900/80 backdrop-blur-sm border border-emerald-700 p-3.5 rounded-xl text-center text-xs text-emerald-100 font-medium">
+                            <!-- Dynamic Content Rendered by JS -->
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= UJI KOMPETENSI INTERAKTIF ================= -->
+        <section id="latihan" class="py-14 container mx-auto px-4 max-w-4xl">
+            
+            <div class="text-center mb-8">
+                <span class="text-xs font-bold text-amber-800 uppercase tracking-wider bg-amber-50 border border-amber-200 px-3 py-1 rounded-full inline-block mb-2">
+                    Evaluasi Pemahaman
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-800 font-heading">
+                    Kuis & Uji Kompetensi Interaktif
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-500 mt-1 max-w-xl mx-auto">
+                    Kerjakan 10 butir soal latihan materi Shalat Berjamaah. Posisi opsi jawaban diacak secara dinamis pada setiap percobaan.
+                </p>
+            </div>
+
+            <!-- Form Identitas Siswa Sebelum Buka Soal -->
+            <div id="quiz-login-card" class="bg-white rounded-3xl shadow-sm border border-slate-200 p-6 sm:p-8 max-w-xl mx-auto mb-8">
+                <div class="text-center mb-6">
+                    <div class="w-14 h-14 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center mx-auto text-2xl mb-3 border border-teal-100">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 font-heading">
+                        Identitas Peserta Didik
+                    </h3>
+                    <p class="text-xs text-slate-500 mt-1">
+                        Pilih kelas dan nama kamu dari data master sebelum mulai membuka soal latihan.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                            Pilih Kelas
+                        </label>
+                        <select id="quiz-select-kelas" onchange="onClassSelected()" class="w-full p-3.5 border border-slate-300 rounded-xl bg-slate-50 text-slate-800 font-semibold text-xs sm:text-sm outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                            <option value="">-- Pilih Kelas --</option>
+                        </select>
+                    </div>
+
+                    <div id="quiz-nama-wrapper" class="hidden">
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                            Pilih Nama Siswa
+                        </label>
+                        <select id="quiz-select-nama" onchange="onStudentSelected()" class="w-full p-3.5 border border-slate-300 rounded-xl bg-slate-50 text-slate-800 font-semibold text-xs sm:text-sm outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                            <option value="">-- Pilih Nama Siswa --</option>
+                        </select>
+                    </div>
+
+                    <button id="quiz-start-btn" onclick="startStudentQuiz()" disabled class="w-full py-3.5 bg-slate-300 text-slate-500 font-bold text-xs sm:text-sm rounded-xl cursor-not-allowed transition flex items-center justify-center gap-2 shadow-sm mt-2">
+                        <span>Mulai Kerjakan Soal</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Student Identity Active Bar -->
+            <div id="quiz-student-banner" class="hidden mb-6 bg-teal-800 text-white p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-teal-700 text-teal-200 flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+                    <div>
+                        <div class="text-[11px] text-teal-300 font-bold uppercase tracking-wider">Peserta Uji Kompetensi</div>
+                        <div class="text-sm sm:text-base font-bold text-white flex items-center gap-2">
+                            <span id="quiz-active-student-name">-</span>
+                            <span class="text-xs bg-teal-600 px-2.5 py-0.5 rounded-full text-teal-100 font-semibold" id="quiz-active-student-class">-</span>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="changeStudentIdentity()" class="text-xs text-teal-200 hover:text-white underline font-semibold flex items-center gap-1.5 transition">
+                    <i class="fa-solid fa-user-pen"></i> Ganti Identitas
+                </button>
+            </div>
+
+            <!-- Quiz Questions Container -->
+            <div id="quiz-list-container" class="space-y-6 hidden">
+                <!-- Rendered by JavaScript -->
+            </div>
+
+            <!-- Final Result Box -->
+            <div id="quiz-summary-box" class="hidden mt-8 p-6 sm:p-8 bg-white border border-slate-200 rounded-3xl shadow-sm text-center space-y-4">
+                <div class="w-16 h-16 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-2xl mx-auto font-bold">
+                    <i class="fa-solid fa-trophy text-amber-500"></i>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-800 font-heading">
+                    Hasil Latihan Kamu
+                </h3>
+                <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-700 inline-block font-semibold">
+                    <span id="quiz-summary-student-info">Peserta: -</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto" id="quiz-summary-desc">
+                    Kamu telah menyelesaikan seluruh soal latihan Shalat Berjamaah.
+                </p>
+                <div class="text-4xl font-extrabold text-teal-700" id="quiz-score-display">
+                    100 / 100
+                </div>
+                <button onclick="resetAndRestartQuiz()" class="px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm rounded-xl transition inline-flex items-center gap-2 shadow-sm">
+                    <i class="fa-solid fa-rotate-right"></i> Coba Latihan Lagi
+                </button>
+            </div>
+
+        </section>
+
+
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="w-full bg-teal-950 text-teal-200 py-10 border-t border-teal-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <div class="flex items-center justify-center gap-3 mb-4 text-white">
+                <i class="fa-solid fa-book-open text-xl text-teal-500"></i>
+                <span class="font-heading font-bold text-xl tracking-wide">Belajar<span class="text-teal-500">Online</span></span>
+            </div>
+            
+            <p class="text-xs sm:text-sm text-teal-400/80 max-w-md mx-auto mb-6">
+                Belajar Online adalah Sistem Pembelajaran Berbasis Digital untuk Memudahkan Guru dan Murid dalam Mencapai Tujuan Pembelajaran.
+            </p>
+            
+            <div class="pt-6 border-t border-teal-900/50 text-xs text-teal-500">
+                <p>&copy; 2026 Ahmad Zulfikar, S.Pd. MTs Negeri 6 Demak</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= CONTENT MODAL ================= -->
+    <div id="content-modal" class="fixed inset-0 z-[9999] hidden flex items-center justify-center px-4" style="background-color: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px);">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[90vh] flex flex-col relative animate-fadeIn">
+            <div id="modal-header" class="p-5 md:p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50 rounded-t-2xl">
+                <h3 id="modal-title" class="text-lg md:text-xl font-bold font-heading text-slate-800 flex items-center gap-3">
+                    Judul Modul
+                </h3>
+                <button onclick="closeContentModal()" class="w-8 h-8 rounded-full bg-white border border-slate-200 text-slate-500 hover:text-red-500 hover:border-red-200 flex items-center justify-center transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="modal-body" class="p-5 md:p-8 overflow-y-auto space-y-6">
+                <!-- Konten Modul -->
+            </div>
+            <div class="p-4 border-t border-slate-100 flex justify-end bg-slate-50/50 rounded-b-2xl">
+                <button onclick="closeContentModal()" class="px-5 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold text-xs rounded-xl transition">
+                    Tutup Modul
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT LOGIC ================= -->
+    <script>
+        // Modal Open / Close Logic
+        function openContentModal(templateId) {
+            const template = document.getElementById(templateId);
+            if (!template) return;
+            
+            const title = template.getAttribute('data-title');
+            const icon = template.getAttribute('data-icon');
+            const color = template.getAttribute('data-color') || 'teal';
+            
+            const titleEl = document.getElementById('modal-title');
+            titleEl.innerHTML = `<i class="fa-solid ${icon} text-${color}-600"></i> <span>${title}</span>`;
+            
+            const bodyEl = document.getElementById('modal-body');
+            bodyEl.innerHTML = '';
+            bodyEl.appendChild(template.content.cloneNode(true));
+            
+            const modal = document.getElementById('content-modal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeContentModal() {
+            const modal = document.getElementById('content-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('content-modal')?.addEventListener('click', function(e) {
+            if (e.target === this) closeContentModal();
+        });
+
+        // Simulasi Saf Shalat Scenarios
+        const safScenarios = {
+            1: {
+                diagram: `
+                    <div class="flex items-start justify-center gap-6">
+                        <div class="flex flex-col items-center">
+                            <div class="w-14 h-14 rounded-2xl bg-amber-500 text-teal-950 font-bold text-xs flex flex-col items-center justify-center shadow-lg border-2 border-amber-300">
+                                <i class="fa-solid fa-user-tie text-base mb-0.5"></i>
+                                <span>IMAM</span>
+                            </div>
+                            <span class="text-[10px] text-amber-300 font-bold mt-1.5">Pemimpin</span>
+                        </div>
+                        <div class="flex flex-col items-center mt-3">
+                            <div class="w-14 h-14 rounded-2xl bg-teal-600 text-white font-bold text-xs flex flex-col items-center justify-center shadow-md border-2 border-teal-400">
+                                <i class="fa-solid fa-person text-base mb-0.5"></i>
+                                <span>MAKMUM</span>
+                            </div>
+                            <span class="text-[10px] text-teal-300 font-bold mt-1.5">1 Pria</span>
+                        </div>
+                    </div>
+                `,
+                caption: "Posisi jika makmum hanya 1 orang pria: Berdiri di sebelah kanan imam dan posisinya sedikit mundur ke belakang, tidak sejajar penuh dengan imam."
+            },
+            2: {
+                diagram: `
+                    <div class="flex flex-col items-center gap-6">
+                        <div class="flex flex-col items-center">
+                            <div class="w-14 h-14 rounded-2xl bg-amber-500 text-teal-950 font-bold text-xs flex flex-col items-center justify-center shadow-lg border-2 border-amber-300">
+                                <i class="fa-solid fa-user-tie text-base mb-0.5"></i>
+                                <span>IMAM</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-xl bg-teal-600 text-white font-bold text-[11px] flex flex-col items-center justify-center shadow">
+                                <i class="fa-solid fa-person text-xs mb-0.5"></i>
+                                <span>Makmum</span>
+                            </div>
+                            <div class="w-12 h-12 rounded-xl bg-teal-500 text-white font-bold text-[11px] flex flex-col items-center justify-center shadow border-2 border-amber-300">
+                                <i class="fa-solid fa-user-graduate text-xs mb-0.5"></i>
+                                <span>Ahli Ilmu</span>
+                            </div>
+                            <div class="w-12 h-12 rounded-xl bg-teal-600 text-white font-bold text-[11px] flex flex-col items-center justify-center shadow">
+                                <i class="fa-solid fa-person text-xs mb-0.5"></i>
+                                <span>Makmum</span>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                caption: "Posisi jika makmum 2 orang pria atau lebih: Membentuk saf lurus dan rapat tepat di belakang imam. Makmum yang berilmu berdiri tepat di belakang imam."
+            },
+            3: {
+                diagram: `
+                    <div class="flex flex-col items-center gap-5">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500 text-teal-950 font-bold text-xs flex flex-col items-center justify-center shadow border-2 border-amber-300">
+                            <i class="fa-solid fa-user-tie text-xs mb-0.5"></i>
+                            <span>IMAM</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-11 h-11 rounded-lg bg-teal-600 text-white text-[10px] font-bold flex flex-col items-center justify-center">Pria 1</div>
+                            <div class="w-11 h-11 rounded-lg bg-teal-600 text-white text-[10px] font-bold flex flex-col items-center justify-center">Pria 2</div>
+                            <div class="w-11 h-11 rounded-lg bg-teal-600 text-white text-[10px] font-bold flex flex-col items-center justify-center">Pria 3</div>
+                        </div>
+                        <div class="w-full h-px bg-emerald-800"></div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-11 h-11 rounded-lg bg-purple-600 text-white text-[10px] font-bold flex flex-col items-center justify-center">Wanita 1</div>
+                            <div class="w-11 h-11 rounded-lg bg-purple-600 text-white text-[10px] font-bold flex flex-col items-center justify-center">Wanita 2</div>
+                            <div class="w-11 h-11 rounded-lg bg-purple-600 text-white text-[10px] font-bold flex flex-col items-center justify-center">Wanita 3</div>
+                        </div>
+                    </div>
+                `,
+                caption: "Saf pria dewasa berada paling depan di belakang imam, sedangkan seluruh makmum wanita membentuk barisan saf di belakang saf pria."
+            },
+            4: {
+                diagram: `
+                    <div class="flex flex-col items-center gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-rose-600/80 text-white font-bold text-[10px] flex flex-col items-center justify-center border-2 border-rose-300 animate-pulse">
+                                <i class="fa-solid fa-circle-xmark text-sm mb-0.5"></i>
+                                <span>Batal Uzur</span>
+                            </div>
+                            <div class="text-amber-400 text-xl font-bold flex items-center gap-1">
+                                <i class="fa-solid fa-arrow-left"></i>
+                                <span class="text-xs">Maju</span>
+                            </div>
+                            <div class="w-14 h-14 rounded-2xl bg-emerald-500 text-teal-950 font-bold text-[10px] flex flex-col items-center justify-center shadow-lg border-2 border-white">
+                                <i class="fa-solid fa-user-shield text-sm mb-0.5"></i>
+                                <span>Imam Baru</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 mt-2">
+                            <div class="w-10 h-10 rounded-lg bg-teal-600 text-white text-[10px] font-bold flex items-center justify-center">Saf 1</div>
+                            <div class="w-10 h-10 rounded-lg bg-teal-600 text-white text-[10px] font-bold flex items-center justify-center">Saf 1</div>
+                            <div class="w-10 h-10 rounded-lg bg-teal-600 text-white text-[10px] font-bold flex items-center justify-center">Saf 1</div>
+                        </div>
+                    </div>
+                `,
+                caption: "Bila imam batal berhadas, imam keluar lalu menunjuk makmum di belakangnya untuk maju menggantikan imam meneruskan shalat tanpa membatalkan shalat jamaah."
+            }
+        };
+
+        function changeSafScenario(num, btnEl) {
+            document.querySelectorAll('.saf-scenario-btn').forEach(btn => {
+                btn.className = "saf-scenario-btn p-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-bold text-xs hover:bg-teal-50 transition text-center";
+            });
+            btnEl.className = "saf-scenario-btn active p-3 rounded-xl border border-teal-600 bg-teal-600 text-white font-bold text-xs transition text-center shadow-sm";
+
+            const sc = safScenarios[num];
+            if (sc) {
+                document.getElementById('saf-stage-diagram').innerHTML = sc.diagram;
+                document.getElementById('saf-stage-caption').innerHTML = sc.caption;
+            }
+        }
+
+        // Identitas Siswa State & Data Master
+        let activeStudentName = '';
+        let activeStudentClass = '';
+
+        const masterDataSiswa = {
+            "7A": [
+                "ABDULLAH MANAF",
+                "AFIQA DWI SEPTIANI",
+                "AHMAD KHOIRUL MUNAWAR",
+                "ALVIN WAHYU PRASSETYO",
+                "ANGGIKA SETYA DEWI",
+                "ANGGITA ANASTASYA",
+                "ATIKA KHANSA YUMNA",
+                "BILQIIS KHOIRUNNISA",
+                "DESYTA NOER AFIDAH",
+                "DIAH CAHYANINGSIH",
+                "EZAR DWI CAHYO",
+                "FIKRI NOAH AL ADIS",
+                "FINNA FATQIYATUR RAHMA",
+                "GITA ANINDYA PUTRI",
+                "HAFIZA KHAIRA LUBNA",
+                "HALWAH MUDHILLAH",
+                "HANANIA ZHAFIRA IMAN",
+                "JASTRA ROBERT AHMAD UTAMA",
+                "MARSYA ADELIA QISYA",
+                "MUHAMMAD AZKA HAFIDH",
+                "MUHAMMAD RASYA ADI PRAWIRA",
+                "MUHAMMAD RIZKY AKBAR SETIAWAN",
+                "NUFAH TSURAYYA",
+                "RASYA MAULANA",
+                "SALSA BAHA RIZQI",
+                "SELAMET SAIFUL SAPUTRA",
+                "SOVRIAN AZDAN AL HAFIZD",
+                "SYIFA CAHAYA SALSABILA",
+                "TALITA HASNA HUMAIRA",
+                "YOGA SATRIA WIBOWO"
+            ],
+            "7B": [
+                "ALVIN ADITYA FIRANSYAH",
+                "ALYSSA NURUL AZKHYA",
+                "ANDRIANI SEPTIA PUTRI",
+                "ANISA KARUNIA SEPTIYANI",
+                "EVA ROMDHONA FITRIYANI",
+                "FAISAL IMAMUL HAKIM",
+                "FAREL NAZRIL ILHAM",
+                "FIRDA TRI YANA",
+                "ILHAM RIFQI ALZAENUSA",
+                "ILHAM SYADDAD AL YUSRO",
+                "KHOLIFATUL MAYSAROH",
+                "LUDFI AHMAD SYAFI'I",
+                "MUHAMMAD DAFA PRASETYA",
+                "MUHAMMAD RAFA SURYA PUTRA",
+                "MUHAMMAD YUSRUL HANA",
+                "MUKHAMAD FATIKUN NIZAM",
+                "NAILA MAZIDATUS SOFIA",
+                "NAILA MIUAZARA ULFA",
+                "NAUFAL VIDI APRILIO",
+                "NAZALA RAHMATIKA ALYA",
+                "RAHMA AIRIN ZAHRA",
+                "RAISYA NANDINI MAYSABELLA",
+                "RAKA ALTHAF APRILLYO PURNOMO",
+                "REHAN SYAH MULKAFIN KISWANTO",
+                "SAFIA ERIN SETIYANTI",
+                "SALSABILA RAMADHANI",
+                "SANDRIKA MILA SARI",
+                "SHEVA GIBRAN EL HAZARD"
+            ],
+            "7C": [
+                "AFIFA NAHDA RAFANDA",
+                "AMELIA NAJWA",
+                "ANGGIKA PUTRI KRISNAWATI",
+                "ANITA FIBRIYANTI",
+                "ATIKA ZAHRA NAUFALYN",
+                "AURORA QURROTA AYUN",
+                "AZZAHRUL JANNAH",
+                "ERIC FERDINAN MAULANA",
+                "IQBAL AZAMUDIN",
+                "IQRILYA ZAHWA ALMIRA",
+                "KAYLA PUTRI FIORENTINA",
+                "MADA FAWWAS AFIQ MUNTHAHA",
+                "MARSHA NIDA FAJRIA",
+                "MAULANA ATHAYA ILYAS",
+                "MOHAMMAD RIZAL RADITYA",
+                "MUHAMMAD ABID ASSYAFA",
+                "MUHAMMAD AINUN NAZIB",
+                "MUHAMMAD BILAL DIRGANTARA",
+                "MUHAMMAD FAIZ SAFARAZ",
+                "MUHAMMAD RADITIYA ARKAN",
+                "MUHAMMAD YUSUF",
+                "NAJWA KHAIRA WILDA",
+                "QUEINARA DWI PUJIASTUTI",
+                "RASTI AULYA SHOFI",
+                "REVAND IRSYAD JAYA PRATAMA",
+                "SYAFA ARIANI ZAHRA",
+                "TRISTAN RADITYA FIRANSYAH PUTRA",
+                "VINA KARISMA",
+                "WILDAN FARIZQI PRATAMA"
+            ],
+            "7D": [
+                "ABDUL HALIM MAULANA",
+                "ABDUL QODIR",
+                "ADITYA NAUFAL DZARI ABIYYU",
+                "AFIFA AULIA PUTRI",
+                "AHMAD RIZKI ROMADHON",
+                "AJIK SATRIA WIJAYANTO",
+                "AMIRATUL BILQIS",
+                "ANDRINA KEVIN ANABEL",
+                "ARINI MIRZA KHAIRANI",
+                "FEBBY AULIA ANJANI",
+                "GISELLA LUNA KIRANA SHANUM",
+                "HANIFATUL IQLIMAH",
+                "IFANA FATIKHATUR ROHMAH",
+                "KANZA PUTRA NOR SETYAWAN",
+                "MOKHAMAD REZA",
+                "MUHAMAD RAFA AKBAR",
+                "MUHAMMAD ANDIKA DWI TAMA",
+                "MUHAMMAD DAFFA ARKHAN",
+                "MUHAMMAD DAFFA REVALDO",
+                "MUHAMMAD DIMAS SUGIHARTO",
+                "MUHAMMAD MUGHNI ALHAKIM",
+                "MUHAMMAD NAUFAL TAUFIQULHUDA",
+                "NAGITA LESTARI",
+                "NURIL FATIMAH AZZAHRA",
+                "RIFQI ALVIAN SAPUTRA",
+                "SALWA SALSABILA YUSUF",
+                "TITANIA ZAHRA SABRINA",
+                "ZAHRA ARDILA HUMAIRA",
+                "ZIYADATUR ROHMAN"
+            ],
+            "7E": [
+                "AYU PANCA WARDANI",
+                "DINA MAHA RANI",
+                "DIYAH PUSPITA SARI",
+                "FEBRI SUGIARTO",
+                "GIA WIDIYANTI",
+                "GIOVANNI DANENDRA PUTRA",
+                "HAKIMA GHAIDA AQILA",
+                "IBNU BATUSTA",
+                "INTAN VANIA ANINDITA",
+                "JANETA NAYSILA ELIYANA",
+                "MAILA SALSA BILA",
+                "MARSEL DIKA SAPUTRA",
+                "MAULANA ZADA ALFAWAZ",
+                "NOOR ABIDZA DWI ARSADY",
+                "NUR HIDAYAH",
+                "NUR MUHAMMAD RIFAUL QISAM",
+                "QAFISHA QALIYA RAMADHANI",
+                "RAMADANISH DANIAL WIJAYA",
+                "RAZIQ HANAN",
+                "REVAN TAUFIQ ANWAR",
+                "SHAKA DIANDRA SULTAN YUSUF",
+                "SHEPTI OCTAVIA",
+                "SYAFINA NABILA PUTRI",
+                "TALITA AZ ZAHRA",
+                "YAHYA ABDUL GHONI",
+                "ZERLINDA NAFISHA AYUDIA",
+                "MUHAMMAD KHOLILUL ROHMAN",
+                "NAJMA NAFI'A"
+            ]
+        };
+
+        if (typeof window !== 'undefined') {
+            window.masterDataSiswa = masterDataSiswa;
+        }
+
+        function getStudentMasterData() {
+            if (typeof window !== 'undefined' && window.masterDataSiswa) {
+                return window.masterDataSiswa;
+            }
+            if (typeof dataSiswa !== 'undefined') {
+                return dataSiswa;
+            }
+            return masterDataSiswa;
+        }
+
+        function initClassDropdown() {
+            const kelasSelect = document.getElementById('quiz-select-kelas');
+            if (!kelasSelect) return;
+            const data = getStudentMasterData();
+            kelasSelect.innerHTML = '<option value="">-- Pilih Kelas --</option>';
+            Object.keys(data).forEach(cls => {
+                const opt = document.createElement('option');
+                opt.value = cls;
+                opt.textContent = `Kelas ${cls}`;
+                kelasSelect.appendChild(opt);
+            });
+        }
+
+        function onClassSelected() {
+            const kelasSelect = document.getElementById('quiz-select-kelas');
+            const namaWrapper = document.getElementById('quiz-nama-wrapper');
+            const namaSelect = document.getElementById('quiz-select-nama');
+            const startBtn = document.getElementById('quiz-start-btn');
+            const selectedClass = kelasSelect.value;
+
+            if (!selectedClass) {
+                namaWrapper.classList.add('hidden');
+                namaSelect.innerHTML = '<option value="">-- Pilih Nama Siswa --</option>';
+                startBtn.disabled = true;
+                startBtn.className = "w-full py-3.5 bg-slate-300 text-slate-500 font-bold text-xs sm:text-sm rounded-xl cursor-not-allowed transition flex items-center justify-center gap-2 shadow-sm mt-2";
+                return;
+            }
+
+            const data = getStudentMasterData();
+            const students = data[selectedClass] || [];
+            namaSelect.innerHTML = '<option value="">-- Pilih Nama Siswa --</option>';
+            students.forEach(st => {
+                const opt = document.createElement('option');
+                opt.value = st;
+                opt.textContent = st;
+                namaSelect.appendChild(opt);
+            });
+
+            namaWrapper.classList.remove('hidden');
+            startBtn.disabled = true;
+            startBtn.className = "w-full py-3.5 bg-slate-300 text-slate-500 font-bold text-xs sm:text-sm rounded-xl cursor-not-allowed transition flex items-center justify-center gap-2 shadow-sm mt-2";
+        }
+
+        function onStudentSelected() {
+            const namaSelect = document.getElementById('quiz-select-nama');
+            const startBtn = document.getElementById('quiz-start-btn');
+            const selectedStudent = namaSelect.value;
+
+            if (selectedStudent) {
+                startBtn.disabled = false;
+                startBtn.className = "w-full py-3.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm rounded-xl cursor-pointer transition flex items-center justify-center gap-2 shadow-md mt-2";
+            } else {
+                startBtn.disabled = true;
+                startBtn.className = "w-full py-3.5 bg-slate-300 text-slate-500 font-bold text-xs sm:text-sm rounded-xl cursor-not-allowed transition flex items-center justify-center gap-2 shadow-sm mt-2";
+            }
+        }
+
+        function startStudentQuiz() {
+            const kelasSelect = document.getElementById('quiz-select-kelas');
+            const namaSelect = document.getElementById('quiz-select-nama');
+            activeStudentClass = kelasSelect.value;
+            activeStudentName = namaSelect.value;
+
+            if (!activeStudentClass || !activeStudentName) {
+                alert("Silakan pilih kelas dan nama siswa terlebih dahulu.");
+                return;
+            }
+
+            document.getElementById('quiz-login-card').classList.add('hidden');
+            document.getElementById('quiz-active-student-name').textContent = activeStudentName;
+            document.getElementById('quiz-active-student-class').textContent = `Kelas ${activeStudentClass}`;
+            document.getElementById('quiz-student-banner').classList.remove('hidden');
+
+            const container = document.getElementById('quiz-list-container');
+            container.classList.remove('hidden');
+
+            renderQuizCards();
+            document.getElementById('quiz-student-banner').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function changeStudentIdentity() {
+            document.getElementById('quiz-list-container').classList.add('hidden');
+            document.getElementById('quiz-summary-box').classList.add('hidden');
+            document.getElementById('quiz-student-banner').classList.add('hidden');
+            document.getElementById('quiz-login-card').classList.remove('hidden');
+            document.getElementById('quiz-login-card').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Initialize Saf Stage and Class List on page load
+        function setupInitialPageComponents() {
+            const sc = safScenarios[1];
+            if (sc && document.getElementById('saf-stage-diagram')) {
+                document.getElementById('saf-stage-diagram').innerHTML = sc.diagram;
+                document.getElementById('saf-stage-caption').innerHTML = sc.caption;
+            }
+            initClassDropdown();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', setupInitialPageComponents);
+        } else {
+            setupInitialPageComponents();
+        }
+
+        // ================= DATA SOAL KUIS SHALAT BERJAMAAH =================
+        const rawQuizQuestions = [
+            {
+                id: 1,
+                type: 'PG',
+                soal: "Zulkarnain sedang bermain bola di lapangan, kemudian terdengar suara azan Asar berkumandang. Sebagai seorang muslim yang taat dan memahami adab syariat, sikap yang seharusnya diambil Zulkarnain adalah...",
+                rawOptions: [
+                    "Melanjutkan permainan bola hingga selesai",
+                    "Shalat sendirian di rumah setelah selesai bermain bola",
+                    "Segera menghentikan permainan dan menuju masjid untuk melaksanakan salat berjemaah",
+                    "Menunggu azan selesai kemudian melanjutkan permainan lagi"
+                ],
+                correctIndex: 2,
+                pembahasan: "Seorang muslim yang mendengar azan dianjurkan bersegera mendatangi masjid untuk menunaikan shalat berjamaah secara tepat waktu dan menghentikan segala kesibukan duniawi."
+            },
+            {
+                id: 2,
+                type: 'PG',
+                soal: "Raihan sedang salat berjemaah di masjid. Dia mendapati imam lupa melakukan gerakan tasyahud awal pada rakaat kedua dan langsung berdiri tegak. Tindakan yang benar bagi Raihan sebagai makmum laki-laki adalah...",
+                rawOptions: [
+                    "Menyampaikan kesalahan imam dengan berbicara langsung",
+                    "Menarik ujung pakaian imam",
+                    "Diam saja membiarkan imam",
+                    "Mengucapkan tasbih yaitu kalimat Subhanallah dengan suara yang cukup terdengar oleh imam"
+                ],
+                correctIndex: 3,
+                pembahasan: "Makmum laki-laki mengingatkan imam yang lupa dengan bertasbih membaca Subhanallah. Tasyahud awal adalah sunnah ab'ad sehingga jika imam sudah berdiri tegak makmum cukup mengingatkan atau imam menggantinya dengan sujud sahwi."
+            },
+            {
+                id: 3,
+                type: 'PG',
+                soal: "Fatan dan Fityan melaksanakan shalat berjamaah berdua dengan Fatan bertindak sebagai imam. Posisi berdiri yang benar bagi Fityan sebagai makmum tunggal laki-laki adalah...",
+                rawOptions: [
+                    "Berdiri tepat lurus di belakang Fatan",
+                    "Berdiri sejajar di sebelah kiri Fatan",
+                    "Berdiri sejajar lurus di sebelah kanan Fatan",
+                    "Berdiri di sebelah kanan Fatan dengan posisi sedikit mundur ke belakang"
+                ],
+                correctIndex: 3,
+                pembahasan: "Jika makmum hanya satu orang laki-laki, posisinya berada di sebelah kanan imam dan sedikit mundur ke belakang dari tumit imam."
+            },
+            {
+                id: 4,
+                type: 'PG',
+                soal: "Saat sedang salat Asar berjemaah, tiba-tiba imam mengalami hadas sehingga menyebabkan salat imam batal. Prosedur syariat yang benar dalam situasi tersebut adalah...",
+                rawOptions: [
+                    "Salat berjamaah langsung dibubarkan dan makmum pulang",
+                    "Imam bermusyawarah terlebih dahulu dengan makmum di belakangnya",
+                    "Imam menunjuk secara acak makmum mana saja",
+                    "Makmum terdekat di belakang imam yang fasih bacaan Al-Qur'annya segera maju menggantikan imam"
+                ],
+                correctIndex: 3,
+                pembahasan: "Ketika imam berhadas di tengah shalat, makmum yang berada tepat di belakangnya yang memiliki kefasihan bacaan segera maju ke depan menggantikan imam memimpin kelanjutan rakaat."
+            },
+            {
+                id: 5,
+                type: 'PG',
+                soal: "Di antara hikmah sosial agung dari pelaksanaan salat berjemaah yang tercermin nyata dalam kehidupan bermasyarakat adalah...",
+                rawOptions: [
+                    "Masyarakat lebih suka salat sendirian agar khusyuk",
+                    "Umat Islam hanya fokus pada ibadah masing-masing tanpa peduli orang lain",
+                    "Jamaah yang rajin salat berjemaah saling mengenal dan mempererat silaturahmi",
+                    "Salat berjemaah hanya cocok dilakukan saat hari Jumat saja"
+                ],
+                correctIndex: 2,
+                pembahasan: "Shalat berjamaah melatih kepedulian sosial, keakraban antar tetangga, serta memperkuat ikatan silaturahmi umat Islam lima kali dalam sehari."
+            },
+            {
+                id: 6,
+                type: 'PGK',
+                soal: "Berdasarkan syariat Islam, di antara hikmah luhur dari pelaksanaan salat berjemaah adalah...",
+                rawOptions: [
+                    "Melatih kedisiplinan dan rasa kebersamaan sesama umat",
+                    "Bernilai pahala murni tanpa makna sosial kemasyarakatan",
+                    "Mengajarkan ketaatan dan kepatuhan terhadap arahan pemimpin",
+                    "Mengajarkan sikap individualis dan mementingkan diri sendiri"
+                ],
+                correctIndices: [0, 2],
+                pembahasan: "Hikmah shalat berjamaah mencakup penanaman disiplin waktu, persatuan umat, serta kepatuhan kepada pemimpin shalat selama tidak melanggar syariat."
+            },
+            {
+                id: 7,
+                type: 'PGK',
+                soal: "Dalam melaksanakan salat berjemaah, ketentuan-ketentuan yang wajib dipatuhi oleh seorang makmum meliputi...",
+                rawOptions: [
+                    "Makmum berniat mengikuti imam saat takbiratul ihram",
+                    "Makmum bergerak mendahului dua rukun sebelum imam bergerak",
+                    "Makmum berada pada posisi di belakang imam",
+                    "Makmum tidak perlu mengetahui perpindahan gerakan imam"
+                ],
+                correctIndices: [0, 2],
+                pembahasan: "Syarat makmum adalah berniat makmuman, posisinya berada di belakang imam, dan wajib mengikuti gerakan imam tanpa mendahuluinya."
+            },
+            {
+                id: 8,
+                type: 'PGK',
+                soal: "Amalan di dalam shalat fardhu yang tergolong ke dalam Sunnah Ab'ad yang dianjurkan sujud sahwi apabila terlewat adalah...",
+                rawOptions: [
+                    "Membaca doa tasyahud awal",
+                    "Membaca doa iftitah setelah takbiratul ihram",
+                    "Membaca doa qunut pada shalat subuh",
+                    "Membaca tasbih saat rukuk dan sujud"
+                ],
+                correctIndices: [0, 2],
+                pembahasan: "Sunnah ab'ad mencakup tasyahud awal dan doa qunut subuh. Sedangkan doa iftitah dan tasbih rukuk sujud tergolong sunnah hai'at."
+            },
+            {
+                id: 9,
+                type: 'PGK',
+                soal: "Di antara hal-hal yang tergolong ke dalam Sunnah Hai'at yang tidak memerlukan sujud sahwi bila terlewat adalah...",
+                rawOptions: [
+                    "Mengangkat kedua tangan sejajar bahu saat takbiratul ihram",
+                    "Duduk tasyahud akhir dan membaca selawat nabi",
+                    "Membaca surah pendek Al-Qur'an setelah membaca Al-Fatihah",
+                    "Membaca lafal niat di dalam hati saat takbir"
+                ],
+                correctIndices: [0, 2],
+                pembahasan: "Mengangkat tangan saat takbir dan membaca surah pendek adalah sunnah hai'at. Sedangkan tasyahud akhir dan niat di hati adalah rukun fardhu shalat."
+            },
+            {
+                id: 10,
+                type: 'PGK',
+                soal: "Kriteria utama yang wajib dipenuhi oleh seseorang agar sah bertindak sebagai imam bagi makmum laki-laki adalah...",
+                rawOptions: [
+                    "Beragama Islam dan berakal sehat",
+                    "Fasih membaca Al-Qur'an dan mengerti hukum shalat",
+                    "Memiliki kekayaan materi paling melimpah di kampungnya",
+                    "Mampu memimpin shalat meskipun sedang terkena najis"
+                ],
+                correctIndices: [0, 1],
+                pembahasan: "Imam dipilih berdasarkan pemahaman ilmu agama, kefasihan bacaan Al-Qur'an, akal sehat, dan kesucian fisik dari hadas najis, bukan berdasarkan status harta."
+            }
+        ];
+
+        // Active State of Shuffled Questions
+        let activeShuffledQuiz = [];
+        let userAnswersState = {};
+
+        function shuffleArray(arr) {
+            const copy = [...arr];
+            for (let i = copy.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copy[i], copy[j]] = [copy[j], copy[i]];
+            }
+            return copy;
+        }
+
+        function buildShuffledQuiz() {
+            activeShuffledQuiz = rawQuizQuestions.map(qItem => {
+                if (qItem.type === 'PG') {
+                    const parsed = qItem.rawOptions.map((optText, origIdx) => ({
+                        text: optText,
+                        isCorrect: origIdx === qItem.correctIndex
+                    }));
+                    const shuffled = shuffleArray(parsed);
+                    const newCorrectIdx = shuffled.findIndex(item => item.isCorrect);
+                    const newCorrectLetter = String.fromCharCode(65 + newCorrectIdx);
+                    return {
+                        ...qItem,
+                        options: shuffled,
+                        correctLetter: newCorrectLetter,
+                        correctText: shuffled[newCorrectIdx].text
+                    };
+                } else {
+                    // PGK
+                    const parsed = qItem.rawOptions.map((optText, origIdx) => ({
+                        text: optText,
+                        isCorrect: qItem.correctIndices.includes(origIdx)
+                    }));
+                    const shuffled = shuffleArray(parsed);
+                    const newCorrectLetters = shuffled
+                        .map((item, idx) => item.isCorrect ? String.fromCharCode(65 + idx) : null)
+                        .filter(l => l !== null);
+                    return {
+                        ...qItem,
+                        options: shuffled,
+                        correctLetters: newCorrectLetters
+                    };
+                }
+            });
+            userAnswersState = {};
+        }
+
+        function renderQuizCards() {
+            buildShuffledQuiz();
+            const container = document.getElementById('quiz-list-container');
+            container.innerHTML = '';
+
+            activeShuffledQuiz.forEach((q, qIdx) => {
+                const card = document.createElement('div');
+                card.className = "bg-white p-6 sm:p-7 rounded-3xl border border-slate-200 shadow-sm space-y-4";
+                card.id = `quiz-card-${qIdx}`;
+
+                const typeLabel = q.type === 'PG' ? 'Pilihan Ganda' : 'Pilihan Ganda Kompleks';
+
+                let optsHtml = '';
+                if (q.type === 'PG') {
+                    optsHtml = `
+                        <div class="grid grid-cols-1 gap-2.5 pt-1">
+                            ${q.options.map((opt, oIdx) => {
+                                const letter = String.fromCharCode(65 + oIdx);
+                                return `
+                                    <button onclick="handlePgAnswer(${qIdx}, '${letter}', this)" class="pg-opt-btn-${qIdx} w-full p-3.5 rounded-xl border border-slate-200 bg-slate-50 text-left text-xs sm:text-sm font-medium text-slate-700 hover:bg-teal-50 hover:border-teal-400 transition flex items-start gap-3">
+                                        <span class="w-6 h-6 rounded-lg bg-white border border-slate-300 font-bold text-xs flex items-center justify-center text-slate-600 flex-shrink-0 mt-0.5">${letter}</span>
+                                        <span class="leading-relaxed">${opt.text}</span>
+                                    </button>
+                                `;
+                            }).join('')}
+                        </div>
+                    `;
+                } else {
+                    // PGK Multiple Checkbox
+                    optsHtml = `
+                        <div class="grid grid-cols-1 gap-2.5 pt-1">
+                            ${q.options.map((opt, oIdx) => {
+                                const letter = String.fromCharCode(65 + oIdx);
+                                return `
+                                    <label class="pgk-label-${qIdx} flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 bg-slate-50 cursor-pointer hover:bg-teal-50 hover:border-teal-300 transition text-xs sm:text-sm font-medium text-slate-700">
+                                        <input type="checkbox" onchange="handlePgkChange(${qIdx})" value="${letter}" class="pgk-chk-${qIdx} w-4 h-4 rounded text-teal-600 focus:ring-teal-500 mt-1 cursor-pointer">
+                                        <span class="w-6 h-6 rounded-lg bg-white border border-slate-300 font-bold text-xs flex items-center justify-center text-slate-600 flex-shrink-0">${letter}</span>
+                                        <span class="leading-relaxed flex-1">${opt.text}</span>
+                                    </label>
+                                `;
+                            }).join('')}
+                            <div class="pt-2">
+                                <button onclick="checkPgkSubmission(${qIdx})" id="pgk-submit-btn-${qIdx}" class="px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-xl transition flex items-center gap-2 shadow-sm">
+                                    <i class="fa-solid fa-check"></i> Periksa Jawaban
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                        <span class="text-xs font-bold text-teal-800 uppercase tracking-wider">Soal Latihan Nomor ${qIdx + 1}</span>
+                        <span class="text-[11px] font-semibold text-slate-400 bg-slate-100 px-2.5 py-0.5 rounded-full">${typeLabel}</span>
+                    </div>
+
+                    <p class="text-xs sm:text-sm font-semibold text-slate-800 leading-relaxed">${q.soal}</p>
+
+                    ${optsHtml}
+
+                    <div id="feedback-alert-${qIdx}" class="hidden"></div>
+
+                    <div id="pembahasan-box-${qIdx}" class="hidden p-4 rounded-2xl bg-teal-50/90 border border-teal-200 text-xs sm:text-sm text-slate-700 space-y-1.5">
+                        <span class="font-bold text-teal-900 block flex items-center gap-1.5">
+                            <i class="fa-solid fa-lightbulb text-amber-500"></i> Kunci Jawaban & Pembahasan:
+                        </span>
+                        <p class="font-semibold text-teal-800" id="correct-answer-text-${qIdx}"></p>
+                        <p class="leading-relaxed text-slate-700">${q.pembahasan}</p>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+
+            document.getElementById('quiz-summary-box').classList.add('hidden');
+        }
+
+        // Trigger Birthday Party Celebration Confetti
+        function triggerCelebration() {
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 90,
+                    spread: 80,
+                    origin: { y: 0.6 },
+                    zIndex: 100000,
+                    colors: ['#0f766e', '#f59e0b', '#3b82f6', '#ec4899', '#10b981']
+                });
+            }
+        }
+
+        // Handle Pilihan Ganda Answer
+        function handlePgAnswer(qIdx, chosenLetter, btnEl) {
+            const q = activeShuffledQuiz[qIdx];
+            if (!q) return;
+
+            // Disable all buttons in this question
+            document.querySelectorAll(`.pg-opt-btn-${qIdx}`).forEach(b => {
+                b.disabled = true;
+                b.classList.remove('hover:bg-teal-50', 'hover:border-teal-400');
+            });
+
+            const isCorrect = chosenLetter === q.correctLetter;
+            userAnswersState[qIdx] = isCorrect;
+
+            const feedbackEl = document.getElementById(`feedback-alert-${qIdx}`);
+            const pembahasanEl = document.getElementById(`pembahasan-box-${qIdx}`);
+            const correctTextEl = document.getElementById(`correct-answer-text-${qIdx}`);
+
+            if (isCorrect) {
+                btnEl.className = "w-full p-3.5 rounded-xl border-2 border-emerald-500 bg-emerald-50 text-emerald-950 font-bold text-left text-xs sm:text-sm flex items-start gap-3 shadow-sm";
+                triggerCelebration();
+                feedbackEl.innerHTML = `
+                    <div class="p-3 bg-amber-50 border border-amber-300 rounded-xl text-amber-900 font-bold text-xs sm:text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-cake-candles text-amber-600 text-lg"></i>
+                        <span>Luar biasa, jawabanmu benar dan tepat!</span>
+                    </div>
+                `;
+            } else {
+                btnEl.className = "w-full p-3.5 rounded-xl border-2 border-rose-500 bg-rose-50 text-rose-950 font-bold text-left text-xs sm:text-sm flex items-start gap-3 shadow-sm";
+                feedbackEl.innerHTML = `
+                    <div class="p-3 bg-rose-50 border border-rose-200 rounded-xl text-rose-800 text-xs sm:text-sm font-semibold flex items-center gap-2">
+                        <i class="fa-solid fa-circle-xmark text-rose-500 text-base"></i>
+                        <span>Jawabanmu belum tepat. Simak pembahasan kunci jawaban di bawah ini.</span>
+                    </div>
+                `;
+            }
+
+            correctTextEl.textContent = `Opsi Benar: ${q.correctLetter}. ${q.correctText}`;
+            feedbackEl.classList.remove('hidden');
+            pembahasanEl.classList.remove('hidden');
+
+            checkAllQuestionsCompleted();
+        }
+
+        // Handle PGK Check
+        function checkPgkSubmission(qIdx) {
+            const q = activeShuffledQuiz[qIdx];
+            if (!q) return;
+
+            const checkboxes = document.querySelectorAll(`.pgk-chk-${qIdx}`);
+            const selected = [];
+            checkboxes.forEach(cb => {
+                if (cb.checked) selected.push(cb.value);
+                cb.disabled = true;
+            });
+
+            if (selected.length === 0) {
+                alert("Silakan beri tanda centang pada opsi pilihan sebelum menekan periksa.");
+                checkboxes.forEach(cb => cb.disabled = false);
+                return;
+            }
+
+            document.getElementById(`pgk-submit-btn-${qIdx}`).disabled = true;
+            document.getElementById(`pgk-submit-btn-${qIdx}`).classList.add('opacity-50', 'cursor-not-allowed');
+
+            selected.sort();
+            const correctSorted = [...q.correctLetters].sort();
+
+            const isCorrect = selected.length === correctSorted.length && selected.every((val, index) => val === correctSorted[index]);
+            userAnswersState[qIdx] = isCorrect;
+
+            const feedbackEl = document.getElementById(`feedback-alert-${qIdx}`);
+            const pembahasanEl = document.getElementById(`pembahasan-box-${qIdx}`);
+            const correctTextEl = document.getElementById(`correct-answer-text-${qIdx}`);
+
+            if (isCorrect) {
+                triggerCelebration();
+                feedbackEl.innerHTML = `
+                    <div class="p-3 bg-amber-50 border border-amber-300 rounded-xl text-amber-900 font-bold text-xs sm:text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-cake-candles text-amber-600 text-lg"></i>
+                        <span>Luar biasa, seluruh pilihan jawabanmu benar!</span>
+                    </div>
+                `;
+            } else {
+                feedbackEl.innerHTML = `
+                    <div class="p-3 bg-rose-50 border border-rose-200 rounded-xl text-rose-800 text-xs sm:text-sm font-semibold flex items-center gap-2">
+                        <i class="fa-solid fa-circle-xmark text-rose-500 text-base"></i>
+                        <span>Pilihanmu belum tepat atau belum lengkap. Simak pembahasannya di bawah ini.</span>
+                    </div>
+                `;
+            }
+
+            correctTextEl.textContent = `Opsi Benar: ${q.correctLetters.join(' dan ')}`;
+            feedbackEl.classList.remove('hidden');
+            pembahasanEl.classList.remove('hidden');
+
+            checkAllQuestionsCompleted();
+        }
+
+        function checkAllQuestionsCompleted() {
+            if (Object.keys(userAnswersState).length === activeShuffledQuiz.length) {
+                const totalCorrect = Object.values(userAnswersState).filter(Boolean).length;
+                const score = Math.round((totalCorrect / activeShuffledQuiz.length) * 100);
+
+                const summaryBox = document.getElementById('quiz-summary-box');
+                const scoreDisplay = document.getElementById('quiz-score-display');
+                const descDisplay = document.getElementById('quiz-summary-desc');
+                const studentInfoDisplay = document.getElementById('quiz-summary-student-info');
+
+                if (studentInfoDisplay) {
+                    studentInfoDisplay.textContent = `Peserta: ${activeStudentName} - Kelas ${activeStudentClass}`;
+                }
+
+                scoreDisplay.textContent = `${score} / 100`;
+                descDisplay.textContent = `Kamu menjawab ${totalCorrect} soal dengan benar dari total ${activeShuffledQuiz.length} butir pertanyaan.`;
+
+                summaryBox.classList.remove('hidden');
+                summaryBox.scrollIntoView({ behavior: 'smooth' });
+
+                if (score >= 80) triggerCelebration();
+            }
+        }
+
+        function resetAndRestartQuiz() {
+            renderQuizCards();
+            document.getElementById('quiz-summary-box').classList.add('hidden');
+            document.getElementById('quiz-student-banner').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>

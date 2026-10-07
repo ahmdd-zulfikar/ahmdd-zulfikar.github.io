@@ -162,10 +162,9 @@ const dataSiswa = {
     ]
 };
 
-// Ekspor untuk penggunaan dengan tipe ES Module (jika menggunakan type="module")
-export default dataSiswa;
-
-// Memasukkan ke objek global window (jika di-load secara tradisional dengan <script>)
 if (typeof window !== 'undefined') {
     window.masterDataSiswa = dataSiswa;
 }
+
+export default dataSiswa;
+
