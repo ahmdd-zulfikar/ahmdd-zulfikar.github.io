@@ -90,9 +90,19 @@
                         Akidah Akhlak
                     </a>
 
-                    <!-- Menu Terpilih (Active) -->
-                    <a href="../formatif/" target="_top" class="text-sm font-bold text-teal-600 relative after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-0.5 after:bg-teal-600 transition-colors">
+                    <!-- Menu Terpilih Uji Kompetensi -->
+                    <a href="../formatif/" onclick="switchExamPackage('formatif'); return false;" id="nav-formatif" class="text-sm font-bold text-teal-600 relative after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-0.5 after:bg-teal-600 transition-colors">
                         Uji Kompetensi
+                    </a>
+
+                    <!-- Menu Remedial Fikih -->
+                    <a href="../formatif/?paket=remedial-fikih" onclick="switchExamPackage('remedial-fikih'); return false;" id="nav-remedial-fikih" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Remedial Fikih
+                    </a>
+
+                    <!-- Menu Remedial Akidah -->
+                    <a href="../formatif/?paket=remedial-akidah" onclick="switchExamPackage('remedial-akidah'); return false;" id="nav-remedial-akidah" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Remedial Akidah
                     </a>
                     
                     <a href="../nilai-siswa/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
@@ -109,11 +119,9 @@
             </div>
         </div>
 
-        <!-- Mobile Menu (Hidden by default) -->
+        <!-- Mobile Menu Hidden by default -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full max-h-[85vh] overflow-y-auto">
             <div class="px-2 pt-4 pb-6 space-y-1">
-                
-
                 
                 <!-- Standalone Link Fiqih Mobile -->
                 <div class="px-2 mt-1">
@@ -125,9 +133,19 @@
                     <a href="../akidah-akhlak/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Akidah Akhlak</a>
                 </div>
 
-                <!-- Menu Terpilih Mobile (Active) -->
+                <!-- Menu Terpilih Mobile -->
                 <div class="px-2 mt-1">
-                    <a href="../formatif/" target="_top" class="block px-3 py-3 rounded-md text-base font-bold text-teal-700 bg-teal-50 border-l-4 border-teal-600 transition-colors">Uji Kompetensi</a>
+                    <a href="../formatif/" onclick="switchExamPackage('formatif'); document.getElementById('mobile-menu').classList.add('hidden'); return false;" id="mobile-nav-formatif" class="block px-3 py-3 rounded-md text-base font-bold text-teal-700 bg-teal-50 border-l-4 border-teal-600 transition-colors">Uji Kompetensi Formatif</a>
+                </div>
+
+                <!-- Menu Remedial Fikih Mobile -->
+                <div class="px-2 mt-1">
+                    <a href="../formatif/?paket=remedial-fikih" onclick="switchExamPackage('remedial-fikih'); document.getElementById('mobile-menu').classList.add('hidden'); return false;" id="mobile-nav-remedial-fikih" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Remedial Fikih STS</a>
+                </div>
+
+                <!-- Menu Remedial Akidah Mobile -->
+                <div class="px-2 mt-1">
+                    <a href="../formatif/?paket=remedial-akidah" onclick="switchExamPackage('remedial-akidah'); document.getElementById('mobile-menu').classList.add('hidden'); return false;" id="mobile-nav-remedial-akidah" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Remedial Akidah Akhlak STS</a>
                 </div>
 
                 <!-- Standalone Links Mobile -->
@@ -172,16 +190,39 @@
         </div>
 
         <div class="w-full mb-6" id="cbt-container">
+            <!-- Package Selection Switcher -->
+            <div class="w-full mb-6" id="package-selector-area">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 p-1.5 bg-slate-200/90 rounded-2xl max-w-xl mx-auto shadow-inner">
+                    <button id="tab-formatif" onclick="switchExamPackage('formatif')" class="py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-white text-teal-800 shadow-sm flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-file-lines"></i>
+                        <span>Formatif Fikih</span>
+                    </button>
+                    <button id="tab-remedial-fikih" onclick="switchExamPackage('remedial-fikih')" class="py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all text-slate-600 hover:text-slate-900 flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <span>Remedial Fikih</span>
+                    </button>
+                    <button id="tab-remedial-akidah" onclick="switchExamPackage('remedial-akidah')" class="py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all text-slate-600 hover:text-slate-900 flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-book-quran"></i>
+                        <span>Remedial Akidah</span>
+                    </button>
+                </div>
+                <div class="text-center mt-3">
+                    <span id="package-badge" class="inline-block text-[11px] font-bold text-teal-700 bg-teal-50 border border-teal-200 px-3 py-1 rounded-full uppercase tracking-wider">
+                        Paket: Uji Formatif Fikih - 20 Soal
+                    </span>
+                </div>
+            </div>
+
             <!-- State 1: Mode Selection -->
             <div id="state-mode-selection" class="w-full transition-all duration-500">
-                <h2 class="text-xl font-bold text-slate-800 mb-4 px-2 text-center">Pilih Mode Ujian</h2>
+                <h2 class="text-xl font-bold text-slate-800 mb-4 px-2 text-center" id="mode-selection-heading">Pilih Mode Ujian</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <button onclick="selectMode('mandiri')" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 text-center hover:shadow-md hover:border-teal-500 hover:bg-teal-50 transition-all flex flex-col items-center group">
                         <div class="w-16 h-16 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-user"></i>
                         </div>
                         <h3 class="font-bold text-slate-800 text-lg mb-1">Mode Mandiri</h3>
-                        <p class="text-xs text-slate-500">Satu siswa mengerjakan seluruh 20 soal secara mandiri di perangkat ini.</p>
+                        <p class="text-xs text-slate-500" id="mode-mandiri-desc">Satu siswa mengerjakan seluruh 20 soal secara mandiri di perangkat ini.</p>
                     </button>
                     
                     <button onclick="selectMode('estafet')" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 text-center hover:shadow-md hover:border-amber-500 hover:bg-amber-50 transition-all flex flex-col items-center group">
@@ -189,7 +230,7 @@
                             <i class="fa-solid fa-users-rays"></i>
                         </div>
                         <h3 class="font-bold text-slate-800 text-lg mb-1">Mode Estafet</h3>
-                        <p class="text-xs text-slate-500">20 siswa berbeda menjawab masing-masing 1 soal secara bergantian.</p>
+                        <p class="text-xs text-slate-500" id="mode-estafet-desc">20 siswa berbeda menjawab masing-masing 1 soal secara bergantian.</p>
                     </button>
                 </div>
             </div>
@@ -219,7 +260,7 @@
                     </div>
                     
                     <div id="container-estafet-limit" class="hidden">
-                        <label class="block text-sm font-bold text-slate-700 mb-2">Jumlah Siswa / Soal (Max 20)</label>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">Jumlah Siswa / Soal - Maksimal 20</label>
                         <input type="number" id="estafet-limit" min="1" max="20" value="20" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-amber-50 text-slate-700 font-medium">
                     </div>
                     
@@ -283,7 +324,7 @@
                     </div>
                     
                     <div id="estafet-breakdown" class="hidden text-left mb-6 mt-4">
-                        <h3 class="font-bold text-slate-800 mb-3 border-b pb-2">Rincian Jawaban Siswa (Estafet)</h3>
+                        <h3 class="font-bold text-slate-800 mb-3 border-b pb-2">Rincian Jawaban Siswa - Mode Estafet</h3>
                         <div class="max-h-64 overflow-y-auto space-y-2 pr-2" id="estafet-list">
                             <!-- Injected -->
                         </div>
@@ -327,9 +368,9 @@
         setInterval(updateClock, 1000);
         updateClock();
 
-        // 20 Questions Data
-        const allQuestions = [
-            { q: "Perhatikan pernyataan-pernyataan berikut!\n(1) Buang angin.\n(2) Buang air kecil.\n(3) Buang air besar.\n(4) Tidur lelap.\n(5) Hilang akal seperti mabuk.\nPernyataan-pernyataan tersebut menunjukkan ....", opts: ["hal-hal yang membatalkan wudu", "hal-hal yang membatalkan puasa", "hikmah berwudu", "cara beristinjak"], ans: 0 },
+        // Data Soal Uji Formatif
+        const formatifQuestions = [
+            { q: "Perhatikan hal-hal berikut:\n1. Buang angin\n2. Buang air kecil\n3. Buang air besar\n4. Tidur lelap\n5. Hilang akal seperti mabuk\nPernyataan tersebut menunjukkan ....", opts: ["hal-hal yang membatalkan wudu", "hal-hal yang membatalkan puasa", "hikmah berwudu", "cara beristinjak"], ans: 0 },
             { q: "Menjelang waktu Zuhur Wahyu sudah mempersiapkan diri dengan berwudu untuk melaksanakan salat Zuhur, sambil berbaring menunggu waktu salat wahyu ketiduran, maka Wahyu ....", opts: ["berhadas sedang", "berhadas berat", "berhadas kecil", "berhadas besar"], ans: 2 },
             { q: "Di bawah ini yang termasuk sunah wudu adalah ....", opts: ["niat", "tertib", "membaca basmalah sebelum berwudu", "mumayiz"], ans: 2 },
             { q: "Kotoran yang menghalangi sahnya salat sehingga wajib dihilangkan dan dibersihkan disebut ....", opts: ["hadas", "najis", "bersuci", "istinja"], ans: 1 },
@@ -337,46 +378,550 @@
             { q: "Salah satu yang membatalkan tayamum adalah ....", opts: ["semua yang membatalkan wudu", "melihat maksiat sebelum salat", "makan dan minum sebelum salat", "berselisih paham dengan teman"], ans: 0 },
             { q: "Ada orang yang hendak membersihkan najis yang menempel di tubuhnya. Kemudian ia melihat seekor anjing yang tersengal nafasnya karena kehausan, sementara waktu salat hampir habis. Akhirnya orang tersebut memutuskan untuk menggunakan air daripada memberikan minum kepada anjing. Hukum keputusan yang diambil oleh orang tersebut adalah ....", opts: ["makruh", "mubah", "haram", "sunah"], ans: 2 },
             { q: "Dua kulah dapat disetarakan dengan kurang lebih ... liter air.", opts: ["240", "250", "260", "270"], ans: 3 },
-            { q: "Perhatikan hal-hal berikut!\n(1) Air yang terjemur atau terkena panas matahari dalam botol.\n(2) Air sungai yang belum berubah warna, bau, dan rasa.\n(3) Air yang dikeluarkan dari pepohonan.\n(4) Air kelapa.\nDari hal-hal di atas air yang dapat digunakan untuk bersuci ditunjukkan pada nomor ....", opts: ["(1)", "(2)", "(3)", "(4)"], ans: 1 },
-            { q: "Perhatikan pernyataan-pernyataan berikut!\n(1) Mendidik manusia agar hidup bersih.\n(2) Menjaga kebersihan berarti menjaga diri dari penyakit.\n(3) Mempersulit dalam melakukan ibadah.\n(4) Menunjukkan status sosial.\n(5) Menjadi sarana untuk mendekatkan diri kepada Allah Swt.\nDari pernyataan-pernyataan di atas, hikmah taharah ditunjukkan oleh nomor ....", opts: ["(1), (2), (3)", "(1), (2), (5)", "(2), (3), (4)", "(3), (4), (5)"], ans: 1 },
-            { q: "Ahmad baru saja selesai bermain sepak bola di lapangan yang becek. Celana dan kakinya terkena lumpur yang bercampur dengan sedikit kotoran ayam. Ia ingin segera melaksanakan salat Asar. Tindakan yang paling tepat dilakukan Ahmad terkait pengertian taharah (bersuci) secara syariat Islam agar salatnya sah adalah ....", opts: ["langsung berwudu dan salat karena lumpur dan kotoran ayam adalah najis ringan", "membersihkan noda kotoran ayam dari celana dan kakinya terlebih dahulu dengan air mutlak kemudian berwudu", "mengganti celananya dengan yang bersih lalu bertayamum karena sulit menemukan air bersih di lapangan", "cukup mengelap kotoran tersebut dengan tisu sampai bersih lalu berwudu"], ans: 1 },
-            { q: "Setelah buang air kecil di toilet umum Rina hanya menemukan tisu kering dan tidak ada air sama sekali di bilik toiletnya. Ia tahu bahwa salat sudah masuk waktu dan ia harus segera bersuci. Tindakan bersuci yang paling sesuai dengan tuntunan syariat dalam kondisi darurat yang dialami Rina adalah ....", opts: ["tetap menunggu air tersedia meskipun harus menunda salat hingga keluar waktu", "menggunakan tisu kering (istijmar) untuk membersihkan najis semaksimal mungkin lalu segera berwudu (jika ada air untuk wudu di luar toilet) atau bertayamum jika tidak ada air sama sekali", "tetap salat tanpa bersuci karena dalam keadaan darurat (darurat taharah)", "langsung berwudu di luar toilet tanpa membersihkan kotoran terlebih dahulu"], ans: 1 },
-            { q: "Di sebuah perjalanan jauh mobil yang ditumpangi Hasan mengalami pecah ban di daerah terpencil. Saat waktu salat Magrib tiba Hasan tidak menemukan air sama sekali baik di sekitar mobil maupun di warung terdekat. Solusi terbaik bagi Hasan untuk tetap dapat menunaikan salat Magrib tepat waktu dalam kondisi tersebut adalah ....", opts: ["tetap salat Magrib tanpa bersuci (wudu atau tayamum) karena darurat", "mencari air sejauh mungkin meskipun waktu salat akan habis", "melakukan tayamum menggunakan debu atau tanah yang suci sebagai pengganti wudu", "menjamak salat Magrib dengan Isya ketika nanti menemukan air"], ans: 2 },
+            { q: "Perhatikan hal-hal berikut:\n1. Air yang terjemur atau terkena panas matahari dalam botol\n2. Air sungai yang belum berubah warna, bau, dan rasa\n3. Air yang dikeluarkan dari pepohonan\n4. Air kelapa\nDari hal-hal di atas air yang dapat digunakan untuk bersuci ditunjukkan pada nomor ....", opts: ["Nomor 1", "Nomor 2", "Nomor 3", "Nomor 4"], ans: 1 },
+            { q: "Perhatikan pernyataan berikut:\n1. Mendidik manusia agar hidup bersih\n2. Menjaga kebersihan berarti menjaga diri dari penyakit\n3. Mempersulit dalam melakukan ibadah\n4. Menunjukkan status sosial\n5. Menjadi sarana untuk mendekatkan diri kepada Allah Swt\nDari pernyataan di atas, hikmah taharah ditunjukkan oleh nomor ....", opts: ["Nomor 1, 2, 3", "Nomor 1, 2, 5", "Nomor 2, 3, 4", "Nomor 3, 4, 5"], ans: 1 },
+            { q: "Ahmad baru saja selesai bermain sepak bola di lapangan yang becek. Celana dan kakinya terkena lumpur yang bercampur dengan sedikit kotoran ayam. Ia ingin segera melaksanakan salat Asar. Tindakan yang paling tepat dilakukan Ahmad terkait pengertian taharah bersuci secara syariat Islam agar salatnya sah adalah ....", opts: ["langsung berwudu dan salat karena lumpur dan kotoran ayam adalah najis ringan", "membersihkan noda kotoran ayam dari celana dan kakinya terlebih dahulu dengan air mutlak kemudian berwudu", "mengganti celananya dengan yang bersih lalu bertayamum karena sulit menemukan air bersih di lapangan", "cukup mengelap kotoran tersebut dengan tisu sampai bersih lalu berwudu"], ans: 1 },
+            { q: "Setelah buang air kecil di toilet umum Rina hanya menemukan tisu kering dan tidak ada air sama sekali di bilik toiletnya. Ia tahu bahwa salat sudah masuk waktu dan ia harus segera bersuci. Tindakan bersuci yang paling sesuai dengan tuntunan syariat dalam kondisi darurat yang dialami Rina adalah ....", opts: ["tetap menunggu air tersedia meskipun harus menunda salat hingga keluar waktu", "menggunakan tisu kering atau istijmar untuk membersihkan najis semaksimal mungkin lalu segera berwudu jika ada air di luar bilik atau bertayamum jika tidak ada air sama sekali", "tetap salat tanpa bersuci karena dalam keadaan darurat", "langsung berwudu di luar toilet tanpa membersihkan kotoran terlebih dahulu"], ans: 1 },
+            { q: "Di sebuah perjalanan jauh mobil yang ditumpangi Hasan mengalami pecah ban di daerah terpencil. Saat waktu salat Magrib tiba Hasan tidak menemukan air sama sekali baik di sekitar mobil maupun di warung terdekat. Solusi terbaik bagi Hasan untuk tetap dapat menunaikan salat Magrib tepat waktu dalam kondisi tersebut adalah ....", opts: ["tetap salat Magrib tanpa bersuci baik wudu atau tayamum karena darurat", "mencari air sejauh mungkin meskipun waktu salat akan habis", "melakukan tayamum menggunakan debu atau tanah yang suci sebagai pengganti wudu", "menjamak salat Magrib dengan Isya ketika nanti menemukan air"], ans: 2 },
             { q: "Penggunaan benda padat seperti batu untuk beristinja diperbolehkan dengan syarat benda tersebut dapat membersihkan najis, suci, dan bukan termasuk benda yang ....", opts: ["keras", "mahal", "dimuliakan", "bekas pakai"], ans: 2 },
             { q: "Perbedaan antara air dan debu sebagai alat taharah jika dilihat dari cakupan penggunaannya adalah ....", opts: ["air digunakan untuk hadas kecil dan besar sedangkan debu hanya untuk hadas kecil", "air menghilangkan hadas dan najis sedangkan debu hanya pengganti wudu dan mandi wajib dalam kondisi tertentu", "air adalah alat bersuci yang mutlak tanpa syarat sedangkan debu adalah alat bersuci yang lebih utama", "air hanya untuk membersihkan najis sedangkan debu untuk menghilangkan hadas"], ans: 1 },
             { q: "Di sebuah daerah perkebunan, sumber air hanya berasal dari satu sumur kecil yang airnya keruh karena lumpur tetapi tidak berbau najis. Di sisi lain tersedia banyak debu kering dan suci. Dalam situasi ini alat taharah yang seharusnya didahulukan oleh penduduk setempat untuk berwudu adalah ....", opts: ["debu karena air sumur keruh dan kurang bersih", "air sumur karena air tetap lebih utama dari debu selama suci", "pilihan bebas tergantung mana yang dianggap lebih higienis", "tidak sah keduanya, harus mencari air lain yang jernih"], ans: 1 },
-            { q: "Pak Ahmad memiliki air di ember yang volumenya kurang dari dua kulah (sekitar 190 liter). Air tersebut terkena setetes air kencing kucing namun tidak menunjukkan perubahan warna, bau, maupun rasa. Berdasarkan hukum fikih status air di ember Pak Ahmad adalah ....", opts: ["suci dan menyucikan (air mutlak) karena tidak ada perubahan sifat air", "suci tetapi tidak menyucikan (air mustakmal) karena sudah bercampur dengan najis meskipun sedikit", "najis (air mutanajis) karena volumenya sedikit dan terkena najis meskipun sifatnya tidak berubah", "makruh digunakan (air musyamas) karena terkena najis di bawah sinar matahari"], ans: 2 },
-            { q: "Air musyamas (air yang dipanaskan di bawah sinar matahari dalam wadah logam) dihukumi makruh menurut sebagian ulama mazhab Syafi'i. Alasan dibalik hukum makruh ini yang menunjukkan pemikiran tingkat tinggi dalam fikih adalah ....", opts: ["khawatir air tersebut sudah bercampur dengan karat logam wadahnya", "adanya kekhawatiran dari sisi medis dapat menimbulkan penyakit kulit jika digunakan", "air yang panas mengurangi kekhusyukan dalam berwudu", "air tersebut dianggap sudah berubah sifatnya dari kemutlakannya"], ans: 1 },
-            { q: "Seorang muslim menemukan setetes darah yang sudah mengering dan tidak berbau di sajadahnya. Ia ragu apakah sajadahnya suci atau tidak. Berdasarkan klasifikasi najis 'ainiyah dan hukmiyah, status sajadah tersebut adalah ....", opts: ["najis 'ainiyah yang harus dicuci karena wujud najisnya (darah) masih ada", "najis hukmiyah karena sifat-sifat najis (bau, warna, rasa) sudah tidak tampak, sehingga cukup dibilas sekali", "suci karena darah yang mengering tidak lagi dianggap najis jika tidak ada wujudnya", "najis mutawasitah dan harus dicuci sampai diyakini bekasnya hilang"], ans: 0 },
-            { q: "Perbedaan antara hadas dan najis dalam konteks ibadah adalah ....", opts: ["hadas adalah kotoran yang terlihat sedangkan najis adalah kondisi tidak suci yang tidak terlihat", "hadas berkaitan dengan kondisi spiritual/hukum seseorang sedangkan najis berkaitan dengan kotoran fisik pada badan, pakaian, atau tempat", "hadas dapat disucikan dengan air atau tayamum sedangkan najis hanya bisa disucikan dengan air", "hadas membatalkan puasa sedangkan najis tidak"], ans: 1 }
+            { q: "Pak Ahmad memiliki air di ember yang volumenya kurang dari dua kulah sekitar 190 liter. Air tersebut terkena setetes air kencing kucing namun tidak menunjukkan perubahan warna, bau, maupun rasa. Berdasarkan hukum fikih status air di ember Pak Ahmad adalah ....", opts: ["suci dan menyucikan atau air mutlak karena tidak ada perubahan sifat air", "suci tetapi tidak menyucikan atau air mustakmal karena sudah bercampur dengan najis meskipun sedikit", "najis atau air mutanajis karena volumenya sedikit dan terkena najis meskipun sifatnya tidak berubah", "makruh digunakan atau air musyamas karena terkena najis di bawah sinar matahari"], ans: 2 },
+            { q: "Air musyamas yaitu air yang dipanaskan di bawah sinar matahari dalam wadah logam dihukumi makruh menurut sebagian ulama mazhab Syafi'i. Alasan dibalik hukum makruh ini yang menunjukkan pemikiran tingkat tinggi dalam fikih adalah ....", opts: ["khawatir air tersebut sudah bercampur dengan karat logam wadahnya", "adanya kekhawatiran dari sisi medis dapat menimbulkan penyakit kulit jika digunakan", "air yang panas mengurangi kekhusyukan dalam berwudu", "air tersebut dianggap sudah berubah sifatnya dari kemutlakannya"], ans: 1 },
+            { q: "Seorang muslim menemukan setetes darah yang sudah mengering dan tidak berbau di sajadahnya. Ia ragu apakah sajadahnya suci atau tidak. Berdasarkan klasifikasi najis 'ainiyah dan hukmiyah, status sajadah tersebut adalah ....", opts: ["najis 'ainiyah yang harus dicuci karena wujud najisnya masih ada", "najis hukmiyah karena sifat-sifat najis seperti bau, warna, rasa sudah tidak tampak sehingga cukup dibilas sekali", "suci karena darah yang mengering tidak lagi dianggap najis jika tidak ada wujudnya", "najis mutawasitah dan harus dicuci sampai diyakini bekasnya hilang"], ans: 0 },
+            { q: "Perbedaan antara hadas dan najis dalam konteks ibadah adalah ....", opts: ["hadas adalah kotoran yang terlihat sedangkan najis adalah kondisi tidak suci yang tidak terlihat", "hadas berkaitan dengan kondisi spiritual hukum seseorang sedangkan najis berkaitan dengan kotoran fisik pada badan, pakaian, atau tempat", "hadas dapat disucikan dengan air atau tayamum sedangkan najis hanya bisa disucikan dengan air", "hadas membatalkan puasa sedangkan najis tidak"], ans: 1 }
+        ];
+
+        // Data 20 Soal Remedial STS Gasal Fikih Bab I dan Bab II
+        const remedialFikihQuestions = [
+            // BAB I - Bagian A: Pilihan Ganda Tunggal
+            {
+                q: "Fadlan sedang melaksanakan tugas dinas ke tempat terpencil yang kekeringan. Ketika memasuki waktu salat Subuh, ia tidak menemukan air untuk berwudu. Hal yang harus dilakukan Fadlan ....",
+                opts: [
+                    "Menunda salat sampai mendapatkan air untuk berwudu",
+                    "Melakukan tayamum sebagai pengganti wudu",
+                    "Tidak perlu melaksanakan salat",
+                    "Melaksanakan salat tanpa bersuci"
+                ],
+                ans: 1
+            },
+            {
+                q: "Ketika berwudu, Sofia melihat temannya membuka kran terlalu besar sehingga air terus mengalir deras. Hal yang seharusnya dilakukan Sofia ....",
+                opts: [
+                    "Membiarkan saja supaya temannya tidak tersinggung",
+                    "Menutup kran lalu menjelaskan bahwa Rasulullah berwudu dengan air secukupnya",
+                    "Meminta temannya mempercepat wudu",
+                    "Menegur dengan marah supaya temannya jera"
+                ],
+                ans: 1
+            },
+            {
+                q: "Seorang anak sedang bermain bersama teman-temannya di lapangan. Di tengah-tengah permainan ia tidak sengaja menginjak kotoran ayam. Apa yang harus dilakukan anak tersebut ....",
+                opts: [
+                    "Memercikkan air karena kotoran ayam termasuk najis mukhaffafah",
+                    "Membasuhnya sebanyak tujuh kali salah satunya menggunakan tanah",
+                    "Membasuhnya dengan air hingga hilang wujud, bau, rasa, dan warnanya karena kotoran ayam termasuk najis mutawasitah",
+                    "Membersihkan kotoran ayam tersebut dengan batu tanpa menggunakan air"
+                ],
+                ans: 2
+            },
+            {
+                q: "Di madrasah, kran wudu sering dibiarkan terbuka setelah digunakan. Sebagai ketua OSIM, Ali melakukan tindakan untuk menghemat air wudu yaitu ....",
+                opts: [
+                    "Menempelkan poster ajakan hemat air",
+                    "Menegur setiap teman yang boros air tanpa memberi penjelasan",
+                    "Mengusulkan agar semua murid membawa air sendiri untuk wudu",
+                    "Menutup kran air wudu"
+                ],
+                ans: 0
+            },
+            {
+                q: "Anisa sedang berwudu, tiba-tiba air di dalam bak yang tidak terlalu besar dan isinya sedikit terkena percikan air dari tangannya. Maka hukum air tersebut ....",
+                opts: [
+                    "Tidak dapat digunakan untuk bersuci karena termasuk air mustakmal",
+                    "Dapat digunakan untuk bersuci karena tidak terkena najis",
+                    "Tidak dapat digunakan untuk bersuci karena termasuk air najis",
+                    "Dapat digunakan tetapi hukumnya makruh"
+                ],
+                ans: 0
+            },
+
+            // BAB I - Bagian B: Pilihan Ganda Kompleks
+            {
+                q: "Ketika di madrasah, mukena Riana terkena percikan air got atau parit, ia tetap ingin melaksanakan salat. Langkah yang harus dilakukan Riana adalah ....",
+                opts: [
+                    "Mencuci bagian yang terkena percikan sampai bersih",
+                    "Menyemprot bagian yang terkena percikan dengan parfum agar tidak bau",
+                    "Mengganti mukena dengan mukena yang lain",
+                    "Mengeringkan mukena tanpa dicuci"
+                ],
+                ans: [0, 2]
+            },
+            {
+                q: "Alfan ragu apakah wudunya sah. Sikap yang seharusnya ia lakukan adalah ....",
+                opts: [
+                    "Memastikan seluruh anggota wudu terkena air",
+                    "Menambah air sebanyak-banyaknya agar yakin",
+                    "Bertanya kepada guru fikih tentang cara berwudu yang benar",
+                    "Mengulang wudu beberapa kali"
+                ],
+                ans: [0, 2]
+            },
+            {
+                q: "Dalam kehidupan, menjaga kesucian dari najis juga berarti ....",
+                opts: [
+                    "Menjaga lingkungan dari sampah dan limbah kotor",
+                    "Membuang sampah dimana saja asalkan tidak di rumah",
+                    "Membiasakan diri menjaga kebersihan dimana saja",
+                    "Tidak peduli dengan kebersihan karena yang penting hati suci"
+                ],
+                ans: [0, 2]
+            },
+            {
+                q: "Najis mutawassitah adalah najis sedang. Berikut yang termasuk ke dalam najis mutawassitah adalah ....",
+                opts: [
+                    "Kotoran kambing",
+                    "Air kencing bayi perempuan",
+                    "Air liur anjing",
+                    "Air kencing bayi laki-laki di bawah usia dua tahun dan belum makan apapun selain air susu ibunya"
+                ],
+                ans: [0, 1]
+            },
+            {
+                q: "Wudu memiliki rukun tertentu. Berikut hal yang termasuk rukun wudu adalah ....",
+                opts: [
+                    "Mengusap sebagian kepala",
+                    "Mengusap kedua telinga",
+                    "Membaca niat",
+                    "Berkumur-kumur"
+                ],
+                ans: [0, 2]
+            },
+
+            // BAB II - Bagian A: Pilihan Ganda Tunggal
+            {
+                q: "Rama adalah murid yang disiplin, dia tidak pernah terlambat datang ke madrasah. Hal ini disebabkan karena Rama memahami hikmah salat yaitu ....",
+                opts: [
+                    "Mendidik kita untuk disiplin",
+                    "Mengajarkan gaya hidup sehat",
+                    "Membantu mengendalikan emosi",
+                    "Melatih fokus"
+                ],
+                ans: 0
+            },
+            {
+                q: "Laila sering mengantuk saat salat Subuh karena terlalu larut bermain game. Untuk memperbaiki ibadahnya, apa yang seharusnya dilakukan Laila ....",
+                opts: [
+                    "Mengatur waktu tidur agar bisa salat dengan khusyuk",
+                    "Tetap salat meski tidak fokus",
+                    "Meninggalkan game yang membuatnya lalai",
+                    "Mengganti salat dengan zikir sebelum tidur"
+                ],
+                ans: 0
+            },
+            {
+                q: "Alifa sedang melaksanakan salat sunah qabliyah Subuh, setelah membaca surat Al-Fatihah tiba-tiba dia mengubah niatnya menjadi salat Subuh dan melanjutkan salat hingga selesai. Maka, salat Alifa batal karena ....",
+                opts: [
+                    "Membelakangi kiblat",
+                    "Berhadas ketika salat",
+                    "Terkena najis ketika sedang salat",
+                    "Mengubah niat di tengah-tengah salat"
+                ],
+                ans: 3
+            },
+            {
+                q: "Rasulullah saw. bersabda bahwa seburuk-buruk pencuri adalah orang yang mencuri salatnya, maksudnya adalah ....",
+                opts: [
+                    "Orang yang tidak salat berjemaah",
+                    "Orang yang salat di akhir waktu",
+                    "Orang yang tidak menyempurnakan rukuk dan sujudnya",
+                    "Orang yang tidak salat"
+                ],
+                ans: 2
+            },
+            {
+                q: "Saat di madrasah, listrik padam dan suasana kelas panas, murid menjadi malas untuk melaksanakan salat Zuhur. Sikap yang harus dilakukan adalah ....",
+                opts: [
+                    "Tetap salat meski dalam kondisi kurang nyaman",
+                    "Menunda salat sampai listrik menyala",
+                    "Mengingatkan teman-teman bahwa salat tidak tergantung kenyamanan",
+                    "Menghindari salat karena suasana bising"
+                ],
+                ans: 0
+            },
+
+            // BAB II - Bagian B: Pilihan Ganda Kompleks
+            {
+                q: "Dalam kondisi banjir, warga tetap wajib melaksanakan salat fardu. Hal yang mencerminkan tanggung jawab mereka terhadap kewajiban salat adalah ....",
+                opts: [
+                    "Menjalankan salat sesuai kemampuan dan kondisi",
+                    "Menunggu banjir surut kemudian melaksanakan salat",
+                    "Menggabungkan beberapa waktu salat setelah banjir surut",
+                    "Membersihkan area pengungsian untuk dijadikan tempat salat bersama"
+                ],
+                ans: [0, 3]
+            },
+            {
+                q: "Rukun salat adalah hal-hal yang harus dipenuhi dalam pelaksanaan salat karena terkait dengan sah atau tidaknya salat. Berikut yang termasuk rukun salat adalah ....",
+                opts: [
+                    "Membaca surat Al-Fatihah",
+                    "Membaca doa Iftitah",
+                    "Membaca selawat atas Nabi Muhamad saw.",
+                    "Membaca tasbih saat rukuk"
+                ],
+                ans: [0, 2]
+            },
+            {
+                q: "Sunah salat terbagi menjadi dua yaitu sunah ab'ad dan sunah haiat. Berikut yang termasuk sunah haiat adalah ....",
+                opts: [
+                    "Membaca tasbih ketika sujud",
+                    "Membaca doa kunut",
+                    "Membaca doa Iftitah",
+                    "Membaca tasyahud awal"
+                ],
+                ans: [0, 2]
+            },
+            {
+                q: "Fuad sedang dalam perjalanan ketika masuk waktu Magrib. Ia ingin segera menunaikan salat di rest area, namun teman-temannya mengajaknya makan terlebih dahulu. Sikap terbaik Fuad yang menunjukkan tanggung jawab terhadap salat fardu adalah ....",
+                opts: [
+                    "Makan terlebih dahulu agar tidak menyinggung perasaan teman",
+                    "Menunaikan salat terlebih dahulu karena waktu Magrib singkat",
+                    "Menunda salat sampai selesai makan",
+                    "Mengajak teman salat di musala rest area setelah itu makan bersama"
+                ],
+                ans: [1, 3]
+            },
+            {
+                q: "Setiap syariat pasti ada hikmah yang menyertainya, termasuk salat. Di antara hikmah salat yaitu ....",
+                opts: [
+                    "Mendidik kita menjadi egois",
+                    "Membantu mengelola emosi",
+                    "Mewujudkan budaya hidup bersih",
+                    "Menjadikan manusia fokus pada diri sendiri"
+                ],
+                ans: [1, 2]
+            }
+        ];
+
+        // Data 20 Soal Remedial STS Gasal Akidah Akhlak Bab I dan Bab II
+        const remedialAkidahQuestions = [
+            // BAB I - Pilihan Ganda Tunggal
+            {
+                q: "Perhatikan teks berikut:\n\nPengertian akidah adalah sesuatu yang tertanam kuat di dalam lubuk jiwa dan tak dapat beralih darinya. Akidah adalah perkara yang wajib dibenarkan oleh hati dan jiwa menjadi tenteram karenanya sehingga menjadi suatu kenyataan yang teguh dan kokoh yang tidak tercampuri oleh keraguan dan kebimbangan.\n\nPerilaku yang sesuai dengan pengertian akidah tersebut adalah ....",
+                opts: [
+                    "Alif meyakini keesaan Allah Swt. dan memegang teguh akidah Islam",
+                    "Daniar mempercayai rukun iman dan percaya kekuatan gaib yang lain",
+                    "Andi meyakini akidah Islam namun terkadang ragu akan keislamannya",
+                    "Anita percaya pada Allah Swt. walau sesekali bertanya ke peramal nasib"
+                ],
+                ans: 0
+            },
+            {
+                q: "Kata bahasa Arab عقد – يعقد – عقدا memiliki arti ....",
+                opts: [
+                    "tertanam",
+                    "tenteram",
+                    "ikatan",
+                    "kokoh"
+                ],
+                ans: 2
+            },
+            {
+                q: "Perhatikan firman Allah Swt. dalam Surah Al-Baqarah ayat 285. Pokok-pokok kandungan akidah Islam berdasarkan ayat tersebut yaitu ....",
+                opts: [
+                    "iman kepada Allah Swt. dan malaikat-malaikat-Nya",
+                    "Al-Qur'an dan Hadis Nabi Muhammad saw.",
+                    "taat kepada Allah Swt. dan rasul-rasul-Nya",
+                    "iman pada hari akhir dan kadar Allah Swt."
+                ],
+                ans: 0
+            },
+            {
+                q: "Perhatikan pernyataan-pernyataan berikut:\n1. Beriman kepada Allah Swt.\n2. Percaya pada malaikat-malaikat-Nya\n3. Percaya kepada Al-Qur'an\n4. Beriman pada rasul-rasul-Nya\n\nPernyataan yang terkait dengan dasar-dasar pokok akidah Islam ditunjukkan nomor ....",
+                opts: [
+                    "1, 2, dan 3",
+                    "2, 3, dan 4",
+                    "3, 4, dan 1",
+                    "4, 1, dan 2"
+                ],
+                ans: 3
+            },
+            {
+                q: "Iman berasal dari bahasa Arab yaitu amana - yu'minu - imanan: آمن – يؤمن – إيمانا yang berarti ....",
+                opts: [
+                    "dikabulkan",
+                    "percaya",
+                    "aman",
+                    "hati"
+                ],
+                ans: 1
+            },
+
+            // BAB I - Pilihan Ganda Kompleks
+            {
+                q: "Empat kategori ihsan yaitu ihsan terhadap Allah Swt. diwujudkan dalam ibadah, ihsan terhadap diri sendiri dengan menahan amarah dan memperbanyak kebaikan, ihsan terhadap sesama manusia pada delapan objek, serta ihsan terhadap makhluk lain dengan melestarikan alam.\n\nPernyataan yang sesuai dengan wacana tersebut adalah ....",
+                opts: [
+                    "Sasaran ihsan selain ibadah mahdhah juga aktivitas manusia meliputi hubungan dengan sesama manusia dan lingkungan",
+                    "Ihsan memiliki empat kategori yaitu ihsan terhadap Allah Swt., terhadap diri sendiri, sesama manusia, dan makhluk lain",
+                    "Ihsan adalah usaha seorang mukmin untuk membaguskan amalnya serta meyakini bahwa Allah Swt. melihat saat berbuat",
+                    "Allah Swt. selalu hadir di tengah manusia sehingga mendorong umat Islam untuk berbuat ihsan"
+                ],
+                ans: [0, 1]
+            },
+            {
+                q: "Berdasarkan wacana empat kategori ihsan, pernyataan tentang ihsan kepada Allah Swt. yang tepat adalah ....",
+                opts: [
+                    "Ibadah dilakukan dengan ikhlas tanpa paksaan",
+                    "Kegiatan ibadah yang diperintahkan oleh Allah Swt.",
+                    "Ihsan pada Allah Swt. dapat dilakukan di madrasah",
+                    "Contoh ihsan pada Allah Swt. adalah salat, zakat, dan puasa"
+                ],
+                ans: [1, 3]
+            },
+            {
+                q: "Berdasarkan wacana empat kategori ihsan, pernyataan tentang ihsan terhadap diri sendiri yang tepat adalah ....",
+                opts: [
+                    "Diri sendiri adalah pribadi yang harus berbuat baik sepanjang waktu",
+                    "Menahan amarah salah satu perbuatan mulia yang harus dilakukan",
+                    "Kuantitas lebih utama dari kualitas agar mendapat pahala yang banyak",
+                    "Memperbanyak amal kebaikan salah satu contoh ihsan pada diri sendiri"
+                ],
+                ans: [1, 3]
+            },
+            {
+                q: "Berdasarkan wacana empat kategori ihsan, pernyataan tentang ihsan terhadap sesama manusia yang tepat adalah ....",
+                opts: [
+                    "Kedua orang tua harus menjadi sasaran utama berbuat baik",
+                    "Jika tidak ada orang yang miskin tidak wajib berbuat ihsan",
+                    "Anak yatim dan hamba sahaya adalah objek berbuat ihsan",
+                    "Berbuat baik pada tetangga dilakukan jika tetangga juga berbuat baik"
+                ],
+                ans: [0, 2]
+            },
+            {
+                q: "Berdasarkan wacana empat kategori ihsan, pernyataan tentang ihsan terhadap makhluk lain dan lingkungan alam yang tepat adalah ....",
+                opts: [
+                    "Tidak membuat kerusakan di muka bumi",
+                    "Menanam pohon kembali setelah menebang dan menjaga kelestarian",
+                    "Memelihara hewan buas untuk menjaga ekosistem alam",
+                    "Memanfaatkan kayu untuk perabot rumah secara berlebihan"
+                ],
+                ans: [0, 1]
+            },
+
+            // BAB II - Pilihan Ganda Tunggal
+            {
+                q: "Tobat yang dimaksudkan dalam ajaran agama Islam adalah ....",
+                opts: [
+                    "melakukan perubahan hidup",
+                    "kembali ke jalan yang benar",
+                    "mengabaikan kesalahan yang dulu",
+                    "meminta pengampunan dari ulama"
+                ],
+                ans: 1
+            },
+            {
+                q: "Perhatikan firman Allah Swt. dalam Surah An-Nisa ayat 59. Berdasarkan ayat tersebut, seorang mukmin wajib taat kepada ....",
+                opts: [
+                    "Allah Swt., ulil amri, dan ibu",
+                    "Allah Swt., rasul-Nya dan ayah",
+                    "Allah Swt., pemimpin, dan guru",
+                    "Allah Swt., rasul-Nya dan pemimpin"
+                ],
+                ans: 3
+            },
+            {
+                q: "Para nabi dan rasul bertobat bukan karena berbuat dosa, melainkan takut amal mereka tidak sempurna di hadapan Allah Swt., seperti Nabi Ibrahim dan Nabi Ismail usai membangun Ka'bah, serta Nabi Nuh saat mendoakan putranya Kan'an.\n\nPerbedaan alasan manusia biasa dengan para nabi dan rasul dalam bertobat berdasarkan narasi tersebut adalah ....",
+                opts: [
+                    "kedudukan manusia biasa dengan kedudukan rasul sangat berbeda",
+                    "manusia telah berdosa, sedangkan rasul berupaya memantaskan diri",
+                    "manusia sangat lemah, rasul dapat meminta apa pun pada Allah Swt.",
+                    "manusia tidak dapat berbuat banyak, rasul berhasil membangun Ka'bah"
+                ],
+                ans: 1
+            },
+            {
+                q: "Berdasarkan wacana tobatnya para nabi dan rasul, alasan utama seorang hamba wajib bertobat adalah ....",
+                opts: [
+                    "amalan yang terpuji bagi semua makhluk Allah Swt.",
+                    "ajaran dari Allah Swt. yang dianjurkan oleh para nabi",
+                    "perintah Allah Swt. sehingga siapa pun harus bertobat",
+                    "jika dikerjakan mendapat pahala, jika ditinggalkan berdosa"
+                ],
+                ans: 2
+            },
+            {
+                q: "Perhatikan pernyataan-pernyataan berikut:\n1. Menyalakan alarm pengingat untuk belajar sesuai jadwal\n2. Niat membantu fakir miskin semata-mata karena Allah Swt.\n3. Tadarus Al-Qur'an setiap hari meskipun hanya beberapa ayat\n4. Niat menuntut ilmu untuk mendapatkan pahala dan keutamaan\n5. Menyesali perbuatan dan meminta maaf pada orang yang telah difitnah\n\nContoh-contoh perilaku istikamah ditunjukkan nomor ....",
+                opts: [
+                    "Nomor 1 dan 2",
+                    "Nomor 1 dan 3",
+                    "Nomor 2 dan 4",
+                    "Nomor 2 dan 5"
+                ],
+                ans: 1
+            },
+
+            // BAB II - Pilihan Ganda Kompleks
+            {
+                q: "Ariana melakukan sebuah kesalahan besar dan merasa menyesal karena tidak melaksanakan salat serta memfitnah sahabatnya melakukan hal yang sama. Tindakan yang harus ia lakukan untuk memperbaiki kesalahannya adalah ....",
+                opts: [
+                    "Melakukan tobat dan memohon ampun kepada Allah Swt.",
+                    "Mengasingkan diri dari pergaulan orang lain dan keluarga",
+                    "Tidak menghiraukan kesalahan dan terus melanjutkan hidup",
+                    "Meminta maaf secara tulus kepada sahabat yang difitnahnya"
+                ],
+                ans: [0, 3]
+            },
+            {
+                q: "Mahmudin hidup di tengah lingkungan masyarakat yang beragam dan penuh godaan kemaksiatan, namun ia bertekad tetap taat kepada Allah Swt. Cara mewujudkan ketaatan kepada Allah Swt. yang tepat adalah ....",
+                opts: [
+                    "mematuhi aturan pemimpin selama tidak bertentangan dengan syariat Islam",
+                    "berniat teguh selalu menjalankan perintah Allah Swt. dan menjauhi larangan-Nya",
+                    "melaksanakan ajaran agama Islam seperti yang telah diajarkan oleh Rasulullah",
+                    "segera menjalankan kewajiban fardhu seperti salat dan puasa tanpa menunda"
+                ],
+                ans: [2, 3]
+            },
+            {
+                q: "Irfan adalah murid madrasah yang taat menjalankan perintah Allah Swt., selalu salat fardhu tepat waktu, gemar salat sunah, serta berprestasi dan berkepribadian tenang. Manfaat ketaatan yang diperoleh Irfan adalah ....",
+                opts: [
+                    "batin menjadi puas dan bahagia",
+                    "jiwa menjadi tenang dan damai",
+                    "mendapatkan kemurahan rizki yang berkah",
+                    "memperoleh kemudahan dalam menghadapi urusan hidup"
+                ],
+                ans: [0, 1]
+            },
+            {
+                q: "Meskipun istikamah merupakan amalan yang berat, seorang muslim dapat melatihnya dengan kiat yang tepat. Cara melatih dan menjaga perilaku istikamah antara lain ....",
+                opts: [
+                    "ketika beribadah berusaha selalu konsisten mengikuti aturan yang ditetapkan",
+                    "tekun dan teguh melaksanakan serta sabar atas ujian dan risiko yang dihadapi",
+                    "menyadari bahwa berperilaku istikamah mudah dilakukan setiap saat",
+                    "totalitas melaksanakan perintah Allah Swt. dan menjauhi larangan-Nya"
+                ],
+                ans: [0, 1]
+            },
+            {
+                q: "Sinta merasa kesal pada Marlina karena tidak mengucapkan terima kasih setelah ditraktir makan dan es di kantin madrasah, bahkan tidak ada teman yang memujinya. Sikap yang harus dimiliki Sinta agar mencerminkan sifat ikhlas adalah ....",
+                opts: [
+                    "Berbuat baik semata-mata mengharap rida Allah Swt. tanpa mengharap balasan pujian manusia",
+                    "Tidak mengungkit-ungkit kebaikan yang telah diberikan kepada sesama",
+                    "Menagih ucapan terima kasih kepada teman yang telah ditraktir",
+                    "Berhenti berbuat baik apabila tidak ada orang yang memujinya"
+                ],
+                ans: [0, 1]
+            }
         ];
 
         // State Management
-        let currentMode = ''; // 'mandiri' or 'estafet'
+        let activeExamPackage = 'formatif';
+        let allQuestions = [...formatifQuestions];
+        let currentMode = '';
         let currentClass = '';
         let currentUser = '';
         let currentQuestionIndex = 0;
         let sessionQuestions = [];
         
         let answers = new Array(20).fill(null); 
-        // For estafet, we need to track who answered what
-        let estafetLog = []; // { studentName: string, qIndex: number, correct: boolean }
+        let estafetLog = [];
 
         // Initialize App
         document.addEventListener('DOMContentLoaded', () => {
             initClassSelect();
             
-            // Add change listener to nama select
             document.getElementById('select-nama').addEventListener('change', (e) => {
                 currentUser = e.target.value;
                 document.getElementById('btn-mulai').disabled = !currentUser;
             });
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const paketParam = urlParams.get('paket') || window.location.hash.replace('#', '');
+            if (paketParam === 'remedial-akidah') {
+                switchExamPackage('remedial-akidah');
+            } else if (paketParam === 'remedial-fikih' || paketParam === 'remedial') {
+                switchExamPackage('remedial-fikih');
+            } else {
+                switchExamPackage('formatif');
+            }
         });
+
+        function switchExamPackage(pkg) {
+            activeExamPackage = pkg;
+            if (pkg === 'remedial-akidah') {
+                allQuestions = remedialAkidahQuestions;
+            } else if (pkg === 'remedial-fikih') {
+                allQuestions = remedialFikihQuestions;
+            } else {
+                allQuestions = formatifQuestions;
+            }
+            
+            const tabFormatif = document.getElementById('tab-formatif');
+            const tabRemedialFikih = document.getElementById('tab-remedial-fikih');
+            const tabRemedialAkidah = document.getElementById('tab-remedial-akidah');
+            const badge = document.getElementById('package-badge');
+            
+            const navFormatif = document.getElementById('nav-formatif');
+            const navRemedialFikih = document.getElementById('nav-remedial-fikih');
+            const navRemedialAkidah = document.getElementById('nav-remedial-akidah');
+
+            const mobileNavFormatif = document.getElementById('mobile-nav-formatif');
+            const mobileNavRemedialFikih = document.getElementById('mobile-nav-remedial-fikih');
+            const mobileNavRemedialAkidah = document.getElementById('mobile-nav-remedial-akidah');
+            
+            const inactiveTabClass = "py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all text-slate-600 hover:text-slate-900 flex items-center justify-center gap-1.5";
+            const activeTabClass = "py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-teal-600 text-white shadow-sm flex items-center justify-center gap-1.5";
+            
+            if (tabFormatif) tabFormatif.className = inactiveTabClass;
+            if (tabRemedialFikih) tabRemedialFikih.className = inactiveTabClass;
+            if (tabRemedialAkidah) tabRemedialAkidah.className = inactiveTabClass;
+
+            const inactiveNavClass = "text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors";
+            const activeNavClass = "text-sm font-bold text-teal-600 relative after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-0.5 after:bg-teal-600 transition-colors";
+
+            if (navFormatif) navFormatif.className = inactiveNavClass;
+            if (navRemedialFikih) navRemedialFikih.className = inactiveNavClass;
+            if (navRemedialAkidah) navRemedialAkidah.className = inactiveNavClass;
+
+            const inactiveMobileClass = "block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors";
+            const activeMobileClass = "block px-3 py-3 rounded-md text-base font-bold text-teal-700 bg-teal-50 border-l-4 border-teal-600 transition-colors";
+
+            if (mobileNavFormatif) mobileNavFormatif.className = inactiveMobileClass;
+            if (mobileNavRemedialFikih) mobileNavRemedialFikih.className = inactiveMobileClass;
+            if (mobileNavRemedialAkidah) mobileNavRemedialAkidah.className = inactiveMobileClass;
+
+            if (pkg === 'remedial-akidah') {
+                if (tabRemedialAkidah) tabRemedialAkidah.className = activeTabClass;
+                if (navRemedialAkidah) navRemedialAkidah.className = activeNavClass;
+                if (mobileNavRemedialAkidah) mobileNavRemedialAkidah.className = activeMobileClass;
+                if (badge) {
+                    badge.className = "inline-block text-[11px] font-bold text-amber-800 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full uppercase tracking-wider";
+                    badge.innerText = "Paket: Remedial STS Gasal Akidah Akhlak Kelas VII - Bab I & Bab II - Total 20 Soal";
+                }
+            } else if (pkg === 'remedial-fikih') {
+                if (tabRemedialFikih) tabRemedialFikih.className = activeTabClass;
+                if (navRemedialFikih) navRemedialFikih.className = activeNavClass;
+                if (mobileNavRemedialFikih) mobileNavRemedialFikih.className = activeMobileClass;
+                if (badge) {
+                    badge.className = "inline-block text-[11px] font-bold text-amber-800 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full uppercase tracking-wider";
+                    badge.innerText = "Paket: Remedial STS Gasal Fikih Kelas VII - Bab I & Bab II - Total 20 Soal";
+                }
+            } else {
+                if (tabFormatif) tabFormatif.className = "py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-white text-teal-800 shadow-sm flex items-center justify-center gap-1.5";
+                if (navFormatif) navFormatif.className = activeNavClass;
+                if (mobileNavFormatif) mobileNavFormatif.className = activeMobileClass;
+                if (badge) {
+                    badge.className = "inline-block text-[11px] font-bold text-teal-700 bg-teal-50 border border-teal-200 px-3 py-1 rounded-full uppercase tracking-wider";
+                    badge.innerText = "Paket: Uji Formatif Fikih - 20 Soal";
+                }
+            }
+            
+            resetToModeSelection();
+        }
 
         function initClassSelect() {
             const select = document.getElementById('select-kelas');
             if(typeof dataSiswa !== 'undefined' && select.children.length <= 1) {
-                // Clear existing just in case, but keep the default
                 select.innerHTML = '<option value="">-- Pilih Kelas --</option>';
                 Object.keys(dataSiswa).forEach(kls => {
                     select.innerHTML += `<option value="${kls}">${kls}</option>`;
@@ -425,7 +970,10 @@
                 document.getElementById('btn-mulai').innerHTML = 'Jawab Soal <i class="fa-solid fa-play ml-2"></i>';
                 document.getElementById('container-estafet-limit').classList.remove('hidden');
             } else {
-                document.getElementById('setup-title').innerText = "Persiapan Ujian Mandiri";
+                let packageTitle = 'Ujian Mandiri';
+                if (activeExamPackage === 'remedial-akidah') packageTitle = 'Remedial Akidah Akhlak';
+                else if (activeExamPackage === 'remedial-fikih') packageTitle = 'Remedial Fikih';
+                document.getElementById('setup-title').innerText = `Persiapan ${packageTitle}`;
                 document.getElementById('btn-mulai').innerHTML = 'Mulai Ujian <i class="fa-solid fa-play ml-2"></i>';
                 document.getElementById('container-estafet-limit').classList.add('hidden');
             }
@@ -433,6 +981,8 @@
 
         function resetToModeSelection() {
             document.getElementById('state-setup').classList.add('hidden');
+            document.getElementById('state-test').classList.add('hidden');
+            document.getElementById('state-result').classList.add('hidden');
             document.getElementById('state-mode-selection').classList.remove('hidden');
         }
 
@@ -464,11 +1014,16 @@
             document.getElementById('current-q-num').innerText = currentQuestionIndex + 1;
             
             if(currentMode === 'mandiri') {
-                document.getElementById('test-mode-label').innerText = "Mode Mandiri";
+                let modeLabel = 'Mode Mandiri';
+                if (activeExamPackage === 'remedial-akidah') {
+                    modeLabel = 'Remedial Akidah Mandiri';
+                } else if (activeExamPackage === 'remedial-fikih') {
+                    modeLabel = 'Remedial Fikih Mandiri';
+                }
+                document.getElementById('test-mode-label').innerText = modeLabel;
                 document.getElementById('test-student-name').innerText = currentUser;
                 document.getElementById('estafet-indicator').classList.add('hidden');
                 
-                // Show prev/next
                 document.getElementById('btn-prev').classList.toggle('hidden', currentQuestionIndex === 0);
                 
                 const btnNext = document.getElementById('btn-next');
@@ -480,12 +1035,11 @@
                     btnNext.className = "px-5 py-2.5 rounded-lg font-bold text-white bg-teal-600 hover:bg-teal-700 transition ml-auto shadow-sm";
                 }
             } else {
-                // Estafet Mode
                 document.getElementById('test-mode-label').innerText = `Kelas ${currentClass}`;
                 document.getElementById('test-student-name').innerText = currentUser;
                 document.getElementById('estafet-indicator').classList.remove('hidden');
                 
-                document.getElementById('btn-prev').classList.add('hidden'); // No going back in estafet
+                document.getElementById('btn-prev').classList.add('hidden');
                 const btnNext = document.getElementById('btn-next');
                 btnNext.innerHTML = 'Simpan & Berikan ke Teman <i class="fa-solid fa-share ml-2"></i>';
                 btnNext.className = "px-5 py-2.5 rounded-lg font-bold text-white bg-amber-500 hover:bg-amber-600 transition ml-auto shadow-sm";
@@ -496,21 +1050,42 @@
             }
             
             const qText = q.q.replace(/\n/g, '<br>');
+            const isMultiple = Array.isArray(q.ans);
             
+            const typeBadge = isMultiple 
+                ? '<div class="mb-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold border border-amber-200"><i class="fa-solid fa-list-check"></i> Pilihan Ganda Kompleks - Pilih lebih dari satu jawaban benar</div>'
+                : '<div class="mb-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-100 text-teal-800 text-xs font-bold border border-teal-200"><i class="fa-solid fa-circle-dot"></i> Pilihan Ganda - Pilih satu jawaban benar</div>';
+
             let optsHtml = '';
             const letters = ['A', 'B', 'C', 'D'];
-            q.opts.forEach((opt, idx) => {
-                const isSelected = answers[currentQuestionIndex] === idx ? 'checked' : '';
-                const bgClass = isSelected ? 'bg-teal-50 border-teal-500' : 'bg-white border-slate-200';
-                optsHtml += `
-                    <label class="flex items-start p-4 border ${bgClass} rounded-xl cursor-pointer hover:border-teal-400 transition-colors mb-3 option-label">
-                        <input type="radio" name="opt" value="${idx}" class="mt-1 mr-4 text-teal-600 focus:ring-teal-500" ${isSelected} onchange="selectOption(${idx}, this)">
-                        <span class="text-slate-700 font-medium"><b>${letters[idx]}.</b> ${opt}</span>
-                    </label>
-                `;
-            });
+            
+            if (isMultiple) {
+                const currentSelections = Array.isArray(answers[currentQuestionIndex]) ? answers[currentQuestionIndex] : [];
+                q.opts.forEach((opt, idx) => {
+                    const isChecked = currentSelections.includes(idx);
+                    const bgClass = isChecked ? 'bg-teal-50 border-teal-500' : 'bg-white border-slate-200';
+                    optsHtml += `
+                        <label class="flex items-start p-4 border ${bgClass} rounded-xl cursor-pointer hover:border-teal-400 transition-colors mb-3 option-label">
+                            <input type="checkbox" value="${idx}" class="mt-1 mr-4 w-4 h-4 text-teal-600 rounded focus:ring-teal-500 cursor-pointer" ${isChecked ? 'checked' : ''} onchange="toggleCheckboxOption(${idx}, this)">
+                            <span class="text-slate-700 font-medium"><b>${letters[idx]}.</b> ${opt}</span>
+                        </label>
+                    `;
+                });
+            } else {
+                q.opts.forEach((opt, idx) => {
+                    const isSelected = answers[currentQuestionIndex] === idx ? 'checked' : '';
+                    const bgClass = isSelected ? 'bg-teal-50 border-teal-500' : 'bg-white border-slate-200';
+                    optsHtml += `
+                        <label class="flex items-start p-4 border ${bgClass} rounded-xl cursor-pointer hover:border-teal-400 transition-colors mb-3 option-label">
+                            <input type="radio" name="opt" value="${idx}" class="mt-1 mr-4 text-teal-600 focus:ring-teal-500 cursor-pointer" ${isSelected} onchange="selectOption(${idx}, this)">
+                            <span class="text-slate-700 font-medium"><b>${letters[idx]}.</b> ${opt}</span>
+                        </label>
+                    `;
+                });
+            }
             
             document.getElementById('question-container').innerHTML = `
+                ${typeBadge}
                 <p class="font-bold text-slate-800 text-lg mb-6 leading-relaxed">${qText}</p>
                 <div>${optsHtml}</div>
             `;
@@ -518,7 +1093,6 @@
 
         function selectOption(idx, inputEl) {
             answers[currentQuestionIndex] = idx;
-            // Update UI styling for labels
             document.querySelectorAll('.option-label').forEach(lbl => {
                 lbl.classList.remove('bg-teal-50', 'border-teal-500');
                 lbl.classList.add('bg-white', 'border-slate-200');
@@ -526,6 +1100,50 @@
             const parent = inputEl.closest('label');
             parent.classList.remove('bg-white', 'border-slate-200');
             parent.classList.add('bg-teal-50', 'border-teal-500');
+        }
+
+        function toggleCheckboxOption(idx, inputEl) {
+            if (!Array.isArray(answers[currentQuestionIndex])) {
+                answers[currentQuestionIndex] = [];
+            }
+            const arr = answers[currentQuestionIndex];
+            const pos = arr.indexOf(idx);
+            if (pos > -1) {
+                arr.splice(pos, 1);
+            } else {
+                arr.push(idx);
+            }
+            const parent = inputEl.closest('label');
+            if (arr.includes(idx)) {
+                parent.classList.remove('bg-white', 'border-slate-200');
+                parent.classList.add('bg-teal-50', 'border-teal-500');
+            } else {
+                parent.classList.remove('bg-teal-50', 'border-teal-500');
+                parent.classList.add('bg-white', 'border-slate-200');
+            }
+        }
+
+        function hasAnswerSelected(index) {
+            const ans = answers[index];
+            if (ans === null || ans === undefined) return false;
+            if (Array.isArray(ans)) return ans.length > 0;
+            return true;
+        }
+
+        function isAnswerCorrect(questionIndex) {
+            const q = sessionQuestions[questionIndex];
+            const userAns = answers[questionIndex];
+            if (!q || userAns === null || userAns === undefined) return false;
+
+            if (Array.isArray(q.ans)) {
+                if (!Array.isArray(userAns)) return false;
+                if (userAns.length !== q.ans.length) return false;
+                const sortedUser = [...userAns].sort();
+                const sortedCorrect = [...q.ans].sort();
+                return sortedUser.every((val, idx) => val === sortedCorrect[idx]);
+            } else {
+                return userAns === q.ans;
+            }
         }
 
         function prevQuestion() {
@@ -536,14 +1154,13 @@
         }
 
         function nextQuestion() {
-            if (answers[currentQuestionIndex] === null && currentMode === 'estafet') {
+            if (!hasAnswerSelected(currentQuestionIndex) && currentMode === 'estafet') {
                 alert("Harap pilih jawaban terlebih dahulu sebelum melanjutkan estafet!");
                 return;
             }
             
             if (currentMode === 'estafet') {
-                // Log the estafet result for this student
-                const isCorrect = answers[currentQuestionIndex] === sessionQuestions[currentQuestionIndex].ans;
+                const isCorrect = isAnswerCorrect(currentQuestionIndex);
                 estafetLog.push({
                     studentName: currentUser,
                     qIndex: currentQuestionIndex,
@@ -552,7 +1169,6 @@
                 
                 if (currentQuestionIndex < sessionQuestions.length - 1) {
                     currentQuestionIndex++;
-                    // Return to setup for next student
                     document.getElementById('state-test').classList.add('hidden');
                     document.getElementById('state-setup').classList.remove('hidden');
                     
@@ -583,7 +1199,7 @@
             
             if (currentMode === 'mandiri') {
                 answers.forEach((ans, idx) => {
-                    if (ans === sessionQuestions[idx]?.ans) correctCount++;
+                    if (isAnswerCorrect(idx)) correctCount++;
                 });
                 score = Math.round((correctCount / sessionQuestions.length) * 100);
                 document.getElementById('result-score').innerText = score;
@@ -597,7 +1213,7 @@
                 });
                 score = Math.round((correctCount / sessionQuestions.length) * 100);
                 document.getElementById('result-score').innerText = score;
-                document.getElementById('result-subtitle').innerText = `Skor Kolektif Kelas ${currentClass} (Mode Estafet)`;
+                document.getElementById('result-subtitle').innerText = `Skor Kolektif Kelas ${currentClass} - Mode Estafet`;
                 
                 const breakdownEl = document.getElementById('estafet-breakdown');
                 const listEl = document.getElementById('estafet-list');
@@ -619,7 +1235,6 @@
                 });
                 listEl.innerHTML = listHtml;
                 
-                // For estafet, save each student's score individually based on their 1 question (0 or 100)
                 await saveEstafetScoresToFirebase();
             }
         }
@@ -630,11 +1245,17 @@
                 if(!window.firebaseAddDoc) throw new Error("Firebase modules not loaded");
                 const appId = 'belajaronline-b5512';
                 const colPath = window.firebaseCollection(window.firebaseDB, 'artifacts', appId, 'public', 'data', 'scores_2026');
+                let materiLabel = 'Uji Kompetensi Formatif 1';
+                if (activeExamPackage === 'remedial-akidah') {
+                    materiLabel = 'Remedial STS Gasal Akidah Akhlak';
+                } else if (activeExamPackage === 'remedial-fikih') {
+                    materiLabel = 'Remedial STS Gasal Fikih';
+                }
                 
                 await window.firebaseAddDoc(colPath, {
                     name: nama,
                     kelas: kelas,
-                    materi: "Uji Kompetensi Formatif 1",
+                    materi: materiLabel,
                     score: nilai,
                     timestamp: Date.now(),
                     date: new Date().toLocaleDateString('id-ID')
@@ -659,14 +1280,19 @@
                 if(!window.firebaseAddDoc) throw new Error("Firebase modules not loaded");
                 const appId = 'belajaronline-b5512';
                 const colPath = window.firebaseCollection(window.firebaseDB, 'artifacts', appId, 'public', 'data', 'scores_2026');
+                let materiLabel = 'Uji Kompetensi Formatif 1 Estafet';
+                if (activeExamPackage === 'remedial-akidah') {
+                    materiLabel = 'Remedial STS Gasal Akidah Akhlak Estafet';
+                } else if (activeExamPackage === 'remedial-fikih') {
+                    materiLabel = 'Remedial STS Gasal Fikih Estafet';
+                }
                 
-                // We'll map each estafet action and save them asynchronously
                 const promises = estafetLog.map(log => {
                     const studentScore = log.correct ? 100 : 0;
                     return window.firebaseAddDoc(colPath, {
                         name: log.studentName,
                         kelas: currentClass,
-                        materi: "Uji Kompetensi Formatif 1 (Estafet)",
+                        materi: materiLabel,
                         score: studentScore,
                         timestamp: Date.now(),
                         date: new Date().toLocaleDateString('id-ID')
