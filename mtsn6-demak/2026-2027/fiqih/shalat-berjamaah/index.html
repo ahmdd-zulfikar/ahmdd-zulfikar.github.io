@@ -670,14 +670,14 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
                             <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-3">
                                 <div
                                     class="w-12 h-12 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center mx-auto text-xl font-bold">
                                     1
                                 </div>
-                                <h4 class="font-bold text-slate-800 text-sm">Makmum 1 Orang Laki-laki</h4>
+                                <h4 class="font-bold text-slate-800 text-sm">Makmum 1 Orang Pria</h4>
                                 <p class="text-xs text-slate-600 leading-relaxed">
                                     Berdiri di sebelah kanan imam dan posisinya sedikit ke belakang, tidak sejajar penuh
                                     dengan posisi imam.
@@ -689,7 +689,18 @@
                                     class="w-12 h-12 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center mx-auto text-xl font-bold">
                                     2
                                 </div>
-                                <h4 class="font-bold text-slate-800 text-sm">Makmum 2 Orang atau Lebih</h4>
+                                <h4 class="font-bold text-slate-800 text-sm">Makmum Pria Bertambah</h4>
+                                <p class="text-xs text-slate-600 leading-relaxed">
+                                    Makmum kedua berdiri di sebelah kiri imam. Saat datang makmum ketiga atau hendak merapikan saf, kedua makmum mundur ke belakang atau imam melangkah maju, kedua cara ini sama-sama sah dalam fikih.
+                                </p>
+                            </div>
+
+                            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-3">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center mx-auto text-xl font-bold">
+                                    3
+                                </div>
+                                <h4 class="font-bold text-slate-800 text-sm">Banyak Makmum Pria</h4>
                                 <p class="text-xs text-slate-600 leading-relaxed">
                                     Membentuk saf di belakang imam dengan lurus, rapat, dan menyambung barisan mulai
                                     dari tengah ke kanan dan ke kiri.
@@ -699,12 +710,11 @@
                             <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-3">
                                 <div
                                     class="w-12 h-12 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center mx-auto text-xl font-bold">
-                                    3
+                                    4
                                 </div>
                                 <h4 class="font-bold text-slate-800 text-sm">Makmum Perempuan</h4>
                                 <p class="text-xs text-slate-600 leading-relaxed">
-                                    Saf makmum wanita berada di belakang saf laki-laki dewasa. Jika ada anak-anak pria,
-                                    mereka menempati saf di antara pria dewasa dan wanita.
+                                    Makmum wanita baik seorang diri maupun banyak posisinya selalu berada di belakang imam dan tidak boleh di samping imam. Jika ada saf pria, wanita berada di belakang saf pria.
                                 </p>
                             </div>
 
@@ -987,20 +997,28 @@
                 <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
 
                     <!-- Scenario Switcher Buttons -->
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
                         <button onclick="changeSafScenario(1, this)"
                             class="saf-scenario-btn active p-3 rounded-xl border border-teal-600 bg-teal-600 text-white font-bold text-xs transition text-center shadow-sm">
                             1 Makmum Pria
                         </button>
                         <button onclick="changeSafScenario(2, this)"
                             class="saf-scenario-btn p-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-bold text-xs hover:bg-teal-50 transition text-center">
-                            Banyak Makmum Pria
+                            Makmum Pria Tambah
                         </button>
                         <button onclick="changeSafScenario(3, this)"
                             class="saf-scenario-btn p-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-bold text-xs hover:bg-teal-50 transition text-center">
-                            Pria & Wanita
+                            Banyak Makmum Pria
                         </button>
                         <button onclick="changeSafScenario(4, this)"
+                            class="saf-scenario-btn p-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-bold text-xs hover:bg-teal-50 transition text-center">
+                            Makmum Wanita
+                        </button>
+                        <button onclick="changeSafScenario(5, this)"
+                            class="saf-scenario-btn p-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-bold text-xs hover:bg-teal-50 transition text-center">
+                            Pria & Wanita
+                        </button>
+                        <button onclick="changeSafScenario(6, this)"
                             class="saf-scenario-btn p-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-bold text-xs hover:bg-teal-50 transition text-center">
                             Imam Berhadas
                         </button>
@@ -1277,6 +1295,43 @@
             },
             2: {
                 diagram: `
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="text-[11px] font-bold text-amber-300 bg-emerald-900/90 px-3 py-1 rounded-full border border-emerald-700 flex items-center gap-1.5">
+                            <i class="fa-solid fa-arrows-left-right-to-line"></i>
+                            <span>Tahap 1: Makmum Kedua di Kiri Imam &rarr; Tahap 2: Makmum Mundur atau Imam Maju</span>
+                        </div>
+                        <div class="flex items-center justify-center gap-4 sm:gap-6 mt-1">
+                            <div class="flex flex-col items-center">
+                                <div class="w-13 h-13 rounded-2xl bg-teal-700 text-white font-bold text-xs flex flex-col items-center justify-center shadow border-2 border-teal-300 p-2">
+                                    <i class="fa-solid fa-person text-base mb-0.5"></i>
+                                    <span>Makmum 2</span>
+                                </div>
+                                <span class="text-[10px] text-teal-200 mt-1 font-semibold">Kiri Imam</span>
+                                <span class="text-[10px] text-amber-300 font-bold flex items-center gap-0.5 mt-0.5"><i class="fa-solid fa-arrow-down"></i> Mundur</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-15 h-15 rounded-2xl bg-amber-500 text-teal-950 font-bold text-xs flex flex-col items-center justify-center shadow-lg border-2 border-amber-300 p-2.5">
+                                    <i class="fa-solid fa-user-tie text-lg mb-0.5"></i>
+                                    <span>IMAM</span>
+                                </div>
+                                <span class="text-[10px] text-amber-300 font-bold mt-1">Pemimpin</span>
+                                <span class="text-[10px] text-emerald-300 font-bold flex items-center gap-0.5 mt-0.5"><i class="fa-solid fa-arrow-up"></i> Atau Maju</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-13 h-13 rounded-2xl bg-teal-600 text-white font-bold text-xs flex flex-col items-center justify-center shadow border-2 border-teal-400 p-2">
+                                    <i class="fa-solid fa-person text-base mb-0.5"></i>
+                                    <span>Makmum 1</span>
+                                </div>
+                                <span class="text-[10px] text-teal-200 mt-1 font-semibold">Kanan Imam</span>
+                                <span class="text-[10px] text-amber-300 font-bold flex items-center gap-0.5 mt-0.5"><i class="fa-solid fa-arrow-down"></i> Mundur</span>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                caption: "Saat makmum pria kedua datang, posisinya berdiri di sebelah kiri imam. Selanjutnya saat terbentuk saf atau datang makmum ketiga, kedua makmum mundur ke belakang atau imam melangkah maju ke depan, kedua cara ini sama-sama sah dan diperbolehkan dalam fikih, sehingga terbentuk barisan saf rapi di belakang imam."
+            },
+            3: {
+                diagram: `
                     <div class="flex flex-col items-center gap-6">
                         <div class="flex flex-col items-center">
                             <div class="w-14 h-14 rounded-2xl bg-amber-500 text-teal-950 font-bold text-xs flex flex-col items-center justify-center shadow-lg border-2 border-amber-300">
@@ -1302,7 +1357,39 @@
                 `,
                 caption: "Posisi jika makmum 2 orang pria atau lebih: Membentuk saf lurus dan rapat tepat di belakang imam. Makmum yang berilmu berdiri tepat di belakang imam."
             },
-            3: {
+            4: {
+                diagram: `
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="w-14 h-14 rounded-2xl bg-amber-500 text-teal-950 font-bold text-xs flex flex-col items-center justify-center shadow-lg border-2 border-amber-300">
+                            <i class="fa-solid fa-user-tie text-base mb-0.5"></i>
+                            <span>IMAM</span>
+                        </div>
+                        <span class="text-[10px] text-amber-300 font-bold">Imam Pria di Depan</span>
+                        <div class="w-48 h-px bg-emerald-800 my-1"></div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex flex-col items-center">
+                                <div class="w-13 h-13 rounded-xl bg-purple-600 text-white font-bold text-xs flex flex-col items-center justify-center shadow border-2 border-purple-300 p-2">
+                                    <i class="fa-solid fa-person-dress text-base mb-0.5"></i>
+                                    <span>Wanita 1</span>
+                                </div>
+                                <span class="text-[10px] text-purple-200 mt-1 font-semibold">Saf Belakang</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <div class="w-13 h-13 rounded-xl bg-purple-600 text-white font-bold text-xs flex flex-col items-center justify-center shadow border-2 border-purple-300 p-2">
+                                    <i class="fa-solid fa-person-dress text-base mb-0.5"></i>
+                                    <span>Wanita 2</span>
+                                </div>
+                                <span class="text-[10px] text-purple-200 mt-1 font-semibold">Saf Belakang</span>
+                            </div>
+                        </div>
+                        <div class="text-[10px] text-purple-200 bg-purple-950/80 px-3 py-1 rounded-full border border-purple-700">
+                            Makmum Wanita Sendiri Maupun Banyak Tetap di Belakang Imam
+                        </div>
+                    </div>
+                `,
+                caption: "Jika imam seorang pria dan makmumnya wanita, baik hanya 1 orang sendiri maupun banyak, posisinya selalu berada di belakang imam. Makmum wanita tidak boleh berdiri di samping imam sebagaimana makmum pria."
+            },
+            5: {
                 diagram: `
                     <div class="flex flex-col items-center gap-5">
                         <div class="w-12 h-12 rounded-xl bg-amber-500 text-teal-950 font-bold text-xs flex flex-col items-center justify-center shadow border-2 border-amber-300">
@@ -1324,7 +1411,7 @@
                 `,
                 caption: "Saf pria dewasa berada paling depan di belakang imam, sedangkan seluruh makmum wanita membentuk barisan saf di belakang saf pria."
             },
-            4: {
+            6: {
                 diagram: `
                     <div class="flex flex-col items-center gap-4">
                         <div class="flex items-center gap-4">
