@@ -6,7 +6,12 @@
     <title>Belajar Online</title>
     
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../tailwind.min.js"></script>
+    <script>
+        if (typeof tailwind === 'undefined') {
+            document.write('<script src="https://cdn.tailwindcss.com"><\/script>');
+        }
+    </script>
     
     <!-- Font Awesome untuk Ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -37,22 +42,19 @@
     
     <style>
         body {
-            background-color: #f8fafc; /* Slate 50 */
-            color: #334155; /* Slate 700 */
+            background-color: #f8fafc;
+            color: #334155;
         }
         
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
-        /* Islamic Pattern Overlay */
         .pattern-bg {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
-        /* Animations */
         .fade-in {
             animation: fadeIn 0.8s ease-out forwards;
             opacity: 0;
@@ -66,7 +68,6 @@
             to { opacity: 1; } 
         }
 
-        /* Card Hover Effects */
         .menu-card, .hover-card {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -103,7 +104,6 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <!-- Menu Terpilih (Active) -->
                     <a href="../fiqih/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
                         Fiqih
                     </a>
@@ -127,38 +127,13 @@
             </div>
         </div>
 
-        <!-- Mobile Menu (Hidden by default) -->
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full">
             <div class="px-4 pt-4 pb-6 space-y-2">
-                <!-- Menu Terpilih Mobile (Active) -->
                 <a href="../fiqih/" target="_top" class="block px-4 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-teal-50 transition-colors">Fiqih</a>
                 <a href="../akidah-akhlak/" target="_top" class="block px-4 py-3 rounded-md text-base font-bold text-teal-700 bg-teal-50 border-l-4 border-teal-600 transition-colors">Akidah Akhlak</a>
                 <a href="../formatif/" target="_top" class="block px-4 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-teal-50 transition-colors">Uji Kompetensi</a>
                 <a href="../nilai-siswa/" target="_top" class="block px-4 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-teal-50 transition-colors">Rekap Nilai</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- ================= HERO SECTION ================= -->
-            </div>
-        </div>
-
-        <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full">
-            <div class="px-4 pt-2 pb-6 space-y-1">
-                <a href="#beranda" class="block px-3 py-3 rounded-md text-base font-medium text-teal-600 bg-teal-50">Beranda</a>
-                <div class="px-3 py-2">
-                    <button onclick="document.getElementById('mobile-elearning-dropdown').classList.toggle('hidden'); this.querySelector('i.fa-chevron-down').classList.toggle('rotate-180');" class="flex justify-between items-center w-full text-left text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 mt-2 focus:outline-none">
-                        <span>E-Learning</span>
-                        <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
-                    </button>
-                    <div id="mobile-elearning-dropdown" class="hidden space-y-1 pl-2 mt-3 mb-2 border-l-2 border-slate-100 ml-1">
-                        <a href="../fiqih/" target="_top" class="block text-sm text-slate-600 py-2.5 pl-3 hover:text-teal-600 hover:bg-teal-50 rounded-r-md transition-colors"><i class="fa-solid fa-mosque w-5 text-teal-500"></i> Fiqih</a>
-                        <a href="../akidah-akhlak/" target="_top" class="block text-sm text-slate-600 py-2.5 pl-3 hover:text-blue-600 hover:bg-blue-50 rounded-r-md transition-colors"><i class="fa-solid fa-flask-vial w-5 text-blue-500"></i> Akidah Akhlak</a>
-                        <a href="../formatif/" target="_top" class="block text-sm text-slate-600 py-2.5 pl-3 hover:text-amber-600 hover:bg-amber-50 rounded-r-md transition-colors"><i class="fa-solid fa-file-pen w-5 text-amber-500"></i> Uji Kompetensi</a>
-                        <a href="../nilai-siswa/" target="_top" class="block text-sm text-slate-600 py-2.5 pl-3 hover:text-orange-600 hover:bg-orange-50 rounded-r-md transition-colors"><i class="fa-solid fa-chart-pie w-5 text-orange-500"></i> Rekap Nilai</a>
-                    </div>
-                </div>
             </div>
         </div>
     </nav>
@@ -184,7 +159,6 @@
             
             <!-- Card 1 -->
             <a href="akidah-islam/" class="cursor-pointer group fade-in delay-100 h-full block">
-
                 <div class="bg-white border border-slate-200 rounded-2xl p-6 h-full flex flex-col items-center text-center relative overflow-hidden shadow-sm hover:shadow-lg transition-all transform hover:-translate-y-1">
                     <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-5 text-2xl group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
                         <i class="fa-solid fa-book-quran"></i>
@@ -198,18 +172,18 @@
             </a>
 
             <!-- Card 2 -->
-            <div onclick="showComingSoon('Sifat-sifat Allah SWT')" class="cursor-pointer group fade-in delay-100 h-full">
+            <a href="sifat-wajib-mustahil-jaiz-allah/" class="cursor-pointer group fade-in delay-100 h-full block">
                 <div class="bg-white border border-slate-200 rounded-2xl p-6 h-full flex flex-col items-center text-center relative overflow-hidden shadow-sm hover:shadow-lg transition-all transform hover:-translate-y-1">
-                    <div class="w-14 h-14 bg-slate-200 rounded-xl flex items-center justify-center text-slate-400 mb-5 text-2xl border border-slate-300">
+                    <div class="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-5 text-2xl group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
                         <i class="fa-solid fa-cloud-sun"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-600 mb-2 font-heading">Sifat-sifat Allah SWT</h3>
-                    <p class="text-xs text-slate-400 mb-6 leading-relaxed flex-grow">Mengenal sifat wajib, mustahil, dan jaiz bagi Allah.</p>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2 font-heading group-hover:text-emerald-700 transition-colors">Sifat-Sifat Allah Swt.</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Mengenal sifat wajib, mustahil, dan jaiz bagi Allah Swt.</p>
                     <div class="mt-auto w-full">
-                        <span class="block w-full py-2.5 bg-slate-200 text-slate-500 text-[10px] uppercase tracking-widest font-bold rounded-xl border border-slate-300">Segera Hadir</span>
+                        <span class="block w-full py-2.5 bg-emerald-50 text-emerald-600 text-[10px] uppercase tracking-widest font-bold rounded-xl border border-emerald-200 group-hover:bg-emerald-600 group-hover:text-white transition-colors">Buka Materi</span>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Card 3 -->
             <a href="tobat-taat-istikamah-ikhlas/" class="cursor-pointer group fade-in delay-100 h-full block">

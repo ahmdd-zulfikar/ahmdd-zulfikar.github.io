@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Akidah Akhlak - Sifat Wajib, Mustahil, dan Jaiz bagi Allah Swt.</title>
+
+    <!-- Tailwind CSS -->
+    <script src="../../tailwind.min.js"></script>
+    <script>
+        if (typeof tailwind === 'undefined') {
+            document.write('<script src="https://cdn.tailwindcss.com"><\/script>');
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Master Data Siswa -->
+    <script type="module" src="../../data-siswa.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    },
+                    colors: {
+                        teal: {
+                            850: '#0f5d56',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        .no-select { user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; }
+        input, select, textarea { user-select: text; -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; }
+        h1, h2, h3, h4, h5, .font-heading { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            direction: rtl;
+            line-height: 2.2 !important;
+            word-spacing: 0.25em;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        .pattern-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.97); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.2s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="selection:bg-teal-200 selection:text-teal-900 flex flex-col min-h-screen overflow-x-hidden">
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Brand -->
+                <a href="../../" target="_top" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <div class="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-book-open text-sm"></i>
+                    </div>
+                    <span class="font-heading font-bold text-lg tracking-wide text-slate-800">Belajar<span class="text-teal-600">Online</span></span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../../fiqih/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors flex items-center gap-1 py-4">
+                        Fiqih
+                    </a>
+                    <a href="../../akidah-akhlak/" target="_top" class="text-sm font-bold text-teal-600 relative after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-0.5 after:bg-teal-600 transition-colors py-4">
+                        Akidah Akhlak
+                    </a>
+                    <a href="../../formatif/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Uji Kompetensi
+                    </a>
+                    <a href="../../nilai-siswa/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Rekap Nilai
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-slate-600 hover:text-teal-600 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Container -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full max-h-[85vh] overflow-y-auto">
+            <div class="px-2 pt-4 pb-6 space-y-1">
+                <a href="../../fiqih/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Fiqih</a>
+                <a href="../../akidah-akhlak/" target="_top" class="block px-3 py-3 rounded-md text-base font-bold text-teal-700 bg-teal-50 border-l-4 border-teal-600 transition-colors">Akidah Akhlak</a>
+                <a href="../../formatif/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Uji Kompetensi</a>
+                <a href="../../nilai-siswa/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Rekap Nilai</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= HERO SECTION ================= -->
+    <header class="bg-teal-900 relative pt-32 pb-28 md:pb-36 overflow-hidden pattern-bg">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-teal-900/80 to-teal-950"></div>
+        <div class="container mx-auto px-4 relative z-10 max-w-4xl text-center">
+
+            <div class="inline-flex items-center gap-2 bg-teal-800/80 border border-teal-700 text-teal-100 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-6 shadow-sm">
+                <i class="fa-solid fa-book-bookmark text-amber-400"></i> Akidah Akhlak Kelas VII
+            </div>
+
+            <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 arabic-text" dir="rtl">
+                سُبْحَانَ اللّٰهِ عَمَّا يَصِفُونَ
+            </h2>
+
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-6 text-white font-heading leading-tight">
+                Sifat Wajib, Mustahil, dan Jaiz <br />
+                <span class="text-amber-400">Bagi Allah Swt.</span>
+            </h1>
+
+            <p class="text-sm md:text-base text-teal-100/90 max-w-2xl mx-auto font-light leading-relaxed mb-8 italic">
+                Mengenal dan meyakini dua puluh sifat kesempurnaan, sifat mustahil, serta sifat jaiz Allah Swt. sebagai landasan utama keimanan seorang muslim.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+                <a href="#materi" class="bg-amber-500 hover:bg-amber-400 text-teal-950 px-6 sm:px-7 py-3 rounded-xl font-bold transition inline-flex items-center gap-2 shadow-lg transform hover:-translate-y-0.5 text-xs sm:text-sm">
+                    <i class="fa-solid fa-book-open"></i> Pelajari Materi
+                </a>
+                <a href="#tabel-sifat" class="bg-teal-800/80 hover:bg-teal-700 border border-teal-600 text-white px-6 sm:px-7 py-3 rounded-xl font-semibold transition inline-flex items-center gap-2 shadow-sm text-xs sm:text-sm">
+                    <i class="fa-solid fa-table-list text-amber-400"></i> Tabel 20 Sifat
+                </a>
+                <a href="#game-edukasi" class="bg-teal-800/80 hover:bg-teal-700 border border-teal-600 text-white px-6 sm:px-7 py-3 rounded-xl font-semibold transition inline-flex items-center gap-2 shadow-sm text-xs sm:text-sm">
+                    <i class="fa-solid fa-gamepad text-emerald-400"></i> Game Pasangan Sifat
+                </a>
+                <a href="#latihan" class="bg-teal-800/80 hover:bg-teal-700 border border-teal-600 text-white px-6 sm:px-7 py-3 rounded-xl font-semibold transition inline-flex items-center gap-2 shadow-sm text-xs sm:text-sm">
+                    <i class="fa-solid fa-file-pen text-sky-400"></i> Uji Kompetensi
+                </a>
+                <a href="sifat-wajib-mustahil-jaiz-allah.pdf" download class="bg-teal-800/80 hover:bg-teal-700 border border-teal-600 text-white px-6 sm:px-7 py-3 rounded-xl font-semibold transition inline-flex items-center gap-2 shadow-sm text-xs sm:text-sm">
+                    <i class="fa-solid fa-file-pdf text-rose-400"></i> Unduh PDF
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow">
+
+        <!-- ================= MATERI SECTION ================= -->
+        <section id="materi" class="scroll-mt-24 py-16 container mx-auto px-4 relative z-20 max-w-5xl">
+
+            <div class="text-center mb-10">
+                <span class="text-teal-600 font-bold tracking-wider text-xs uppercase mb-2 block">Peta Konsep</span>
+                <h2 class="text-3xl font-bold text-slate-800 font-heading">6 Modul Inti Sifat Allah Swt.</h2>
+                <p class="text-slate-500 text-sm mt-2 max-w-lg mx-auto">Klik pada kartu modul untuk membaca materi lengkap, tabel klasifikasi, dalil Al-Qur'an, dan bukti akal sehat.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" id="cards-container">
+
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center" onclick="openContentModal('content-1')">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2 group-hover:text-blue-700">Pengertian & Apersepsi</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Merenungi ciptaan Allah Swt. di alam semesta, keteraturan tata surya, dan hakikat iman kepada Allah.</p>
+                    <span class="w-full py-2 bg-slate-50 text-blue-700 text-xs font-semibold rounded-xl group-hover:bg-blue-50 border border-slate-100 group-hover:border-blue-200">
+                        Buka Modul &rarr;
+                    </span>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center" onclick="openContentModal('content-2')">
+                    <div class="w-16 h-16 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-book-quran"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2 group-hover:text-teal-700">Dalil Beriman</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Dalil naqli Surah An-Nisa ayat 136 serta dalil akli keteraturan alam semesta dan ciptaan Allah.</p>
+                    <span class="w-full py-2 bg-slate-50 text-teal-700 text-xs font-semibold rounded-xl group-hover:bg-teal-50 border border-slate-100 group-hover:border-teal-200">
+                        Buka Modul &rarr;
+                    </span>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center" onclick="openContentModal('content-3')">
+                    <div class="w-16 h-16 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-amber-500 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2 group-hover:text-amber-700">Konsep Wajib, Mustahil & Jaiz</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Definisi sifat wajib, sifat mustahil, serta kebebasan mutlak sifat jaiz bagi Allah Swt.</p>
+                    <span class="w-full py-2 bg-slate-50 text-amber-700 text-xs font-semibold rounded-xl group-hover:bg-amber-50 border border-slate-100 group-hover:border-amber-200">
+                        Buka Modul &rarr;
+                    </span>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center" onclick="openContentModal('content-4')">
+                    <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-list-ol"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2 group-hover:text-emerald-700">20 Sifat & Dalilnya</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Uraian 20 sifat wajib berpasangan dengan 20 sifat mustahil lengkap dengan ayat Al-Qur'an dan bukti akal.</p>
+                    <span class="w-full py-2 bg-slate-50 text-emerald-700 text-xs font-semibold rounded-xl group-hover:bg-emerald-50 border border-slate-100 group-hover:border-emerald-200">
+                        Buka Modul &rarr;
+                    </span>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center" onclick="openContentModal('content-5')">
+                    <div class="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2 group-hover:text-indigo-700">4 Kelompok Sifat</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Pembagian sifat ke dalam kategori Nafsiyah, Salbiyah, Ma'ani, dan Ma'nawiyah secara sistematis.</p>
+                    <span class="w-full py-2 bg-slate-50 text-indigo-700 text-xs font-semibold rounded-xl group-hover:bg-indigo-50 border border-slate-100 group-hover:border-indigo-200">
+                        Buka Modul &rarr;
+                    </span>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer group p-6 flex flex-col items-center text-center" onclick="openContentModal('content-6')">
+                    <div class="w-16 h-16 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-4 text-3xl group-hover:bg-purple-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 font-heading text-lg mb-2 group-hover:text-purple-700">Hikmah & Perilaku</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Hikmah keimanan, perilaku terpuji, kisah teladan kejujuran, dan kiat mencintai Allah dan Rasul-Nya.</p>
+                    <span class="w-full py-2 bg-slate-50 text-purple-700 text-xs font-semibold rounded-xl group-hover:bg-purple-50 border border-slate-100 group-hover:border-purple-200">
+                        Buka Modul &rarr;
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- Content Templates for Modals -->
+
+            <!-- Template 1 -->
+            <template id="content-1" data-title="Pengertian & Apersepsi Iman kepada Allah Swt." data-icon="fa-sun" data-color="blue">
+                <div class="space-y-6">
+                    <div class="bg-blue-50/60 p-5 rounded-2xl border border-blue-100">
+                        <h4 class="font-bold text-blue-900 text-base mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-compass text-blue-600"></i> Pantun Pemantik Belajar
+                        </h4>
+                        <div class="italic text-slate-700 text-xs sm:text-sm space-y-3 leading-relaxed">
+                            <p>
+                                Andaikan dapat kita jadwalkan <br/>
+                                Salat dijaga sesuai waktu <br/>
+                                Wahai kawanku coba sebutkan <br/>
+                                Hikmah iman pada Allah yang satu
+                            </p>
+                            <p>
+                                Naik pesawat untuk membeli gula <br/>
+                                Membeli gula sampai ke ibu kota <br/>
+                                Mengenal sifat-sifat Allah Ta'ala <br/>
+                                Makin cinta pada Allah Sang Pencipta
+                            </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-base mb-2">Apersepsi: Renungan Keindahan Ciptaan Allah</h4>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-3">
+                            Pernahkah kalian saat malam hari duduk di halaman rumah sambil memandang bintang-bintang atau rembulan? Bintang dan bulan tampak kecil dari bumi karena sangat jauh, namun sinarnya mampu menerangi kegelapan. Adanya bintang, bulan, langit, serta bumi yang serba teratur membuat akal sehat kita meyakini betapa Maha Kuasa Sang Pencipta alam semesta.
+                        </p>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                            Bahkan pada hewan kecil seperti lalat atau nyamuk, tersusun anatomi tubuh yang sangat lengkap dan sempurna: kepala, kaki, sayap, toraks, hingga abdomen. Seluruh wujud ciptaan ini adalah tanda nyata keagungan Allah Swt.
+                        </p>
+                    </div>
+
+                    <div class="p-4 bg-slate-50 border-l-4 border-teal-600 rounded-r-xl">
+                        <h5 class="font-bold text-slate-800 text-xs sm:text-sm mb-1">Pengertian Beriman kepada Allah Swt.</h5>
+                        <p class="text-slate-700 text-xs sm:text-sm leading-relaxed">
+                            Beriman kepada Allah Swt. adalah membenarkan adanya Allah Swt. dengan meyakini dan memahami bahwa Allah Swt. wajib adanya karena zat-Nya sendiri, tunggal, esa, Raja Maha Kuasa, Maha Mengetahui, Qadim dan Azali untuk selamanya, tidak ada sesuatu pun yang menyerupai-Nya.
+                        </p>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Template 2 -->
+            <template id="content-2" data-title="Dalil Beriman kepada Allah Swt." data-icon="fa-book-quran" data-color="teal">
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-teal-900 text-base mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-scroll text-teal-600"></i> Dalil Naqli: Surah An-Nisa Ayat 136
+                        </h4>
+                        <div class="bg-teal-50/70 p-5 rounded-2xl border border-teal-100 space-y-4">
+                            <p class="arabic-text text-xl sm:text-2xl text-slate-900 text-right leading-loose font-bold" dir="rtl">
+                                يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْٓا اٰمِنُوْا بِاللّٰهِ وَرَسُوْلِهٖ وَالْكِتٰبِ الَّذِيْ نَزَّلَ عَلٰى رَسُوْلِهٖ وَالْكِتٰبِ الَّذِيْٓ اَنْزَلَ مِنْ قَبْلُۗ وَمَنْ يَّكْفُرْ بِاللّٰهِ وَمَلٰۤىِٕكَتِهٖ وَكُتُبِهٖ وَرُسُلِهٖ وَالْيَوْمِ الْاٰخِرِ فَقَدْ ضَلَّ ضَلٰلًاۢ بَعِيْدًا
+                            </p>
+                            <p class="text-slate-700 text-xs sm:text-sm leading-relaxed italic border-t border-teal-200/60 pt-3">
+                                Artinya: Wahai orang-orang yang beriman, tetaplah beriman kepada Allah, Rasul-Nya Nabi Muhammad, Kitab Al-Qur'an yang diturunkan kepada Rasul-Nya, dan kitab yang Dia turunkan sebelumnya. Siapa yang kufur kepada Allah, para malaikat-Nya, kitab-kitab-Nya, para rasul-Nya, dan hari Akhir sungguh dia telah tersesat sangat jauh.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-base mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-brain text-amber-500"></i> Tiga Bukti Dalil Akli Beriman kepada Allah
+                        </h4>
+                        <div class="grid grid-cols-1 gap-3">
+                            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-700 flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-lg bg-teal-600 text-white font-bold flex items-center justify-center flex-shrink-0 text-xs">1</span>
+                                <div>
+                                    <strong class="text-slate-900 block mb-0.5">Adanya Alam Semesta</strong>
+                                    Akal sehat menetapkan bahwa setiap benda yang ada pasti memiliki pembuat. Adanya bumi, langit, dan laut membuktikan adanya Sang Pencipta Maha Agung.
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-700 flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-lg bg-teal-600 text-white font-bold flex items-center justify-center flex-shrink-0 text-xs">2</span>
+                                <div>
+                                    <strong class="text-slate-900 block mb-0.5">Keteraturan Sistem Tata Surya</strong>
+                                    Peredaran matahari, bumi, bulan, dan pergantian siang serta malam berjalan teratur tanpa benturan. Keteraturan rumit ini membuktikan adanya Zat Pengatur Maha Kuasa.
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-700 flex items-start gap-3">
+                                <span class="w-6 h-6 rounded-lg bg-teal-600 text-white font-bold flex items-center justify-center flex-shrink-0 text-xs">3</span>
+                                <div>
+                                    <strong class="text-slate-900 block mb-0.5">Kebenaran Firman dalam Al-Qur'an</strong>
+                                    Kandungan ayat Al-Qur'an yang memuat fakta alamiah dan syariat yang sempurna menjadi bukti nyata firman dari Zat Pencipta.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Template 3 -->
+            <template id="content-3" data-title="Konsep Sifat Wajib, Mustahil, dan Jaiz" data-icon="fa-scale-balanced" data-color="amber">
+                <div class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="p-5 rounded-2xl bg-teal-50 border border-teal-200 space-y-2">
+                            <span class="text-xs font-bold uppercase tracking-wider text-teal-700 bg-teal-100 px-2.5 py-0.5 rounded-full inline-block">20 Sifat</span>
+                            <h4 class="font-bold text-teal-950 text-base">Sifat Wajib</h4>
+                            <p class="text-slate-700 text-xs leading-relaxed">
+                                Sifat-sifat yang pasti dan wajib dimiliki oleh Allah Swt. sebagai kesempurnaan mutlak Zat-Nya. Sifat ini tidak dapat diserupakan dengan sifat makhluk.
+                            </p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-rose-50 border border-rose-200 space-y-2">
+                            <span class="text-xs font-bold uppercase tracking-wider text-rose-700 bg-rose-100 px-2.5 py-0.5 rounded-full inline-block">20 Sifat</span>
+                            <h4 class="font-bold text-rose-950 text-base">Sifat Mustahil</h4>
+                            <p class="text-slate-700 text-xs leading-relaxed">
+                                Sifat-sifat kebalikan dari sifat wajib yang secara akal dan dalil tidak mungkin dimiliki oleh Allah Swt. karena bertentangan dengan keagungan-Nya.
+                            </p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-amber-50 border border-amber-200 space-y-2">
+                            <span class="text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-100 px-2.5 py-0.5 rounded-full inline-block">1 Sifat</span>
+                            <h4 class="font-bold text-amber-950 text-base">Sifat Jaiz</h4>
+                            <p class="text-slate-700 text-xs leading-relaxed">
+                                Kebebasan mutlak bagi Allah Swt. untuk mengerjakan sesuatu atau tidak mengerjakannya sesuai kehendak-Nya tanpa ada paksaan maupun larangan.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                        <h4 class="font-bold text-slate-800 text-base mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-star-of-life text-amber-500"></i> Hakikat Sifat Jaiz bagi Allah Swt.
+                        </h4>
+                        <p class="arabic-text text-xl text-teal-900 font-bold mb-2 text-right" dir="rtl">
+                            فِعْلُ كُلِّ مُمْكِنٍ أَوْ تَرْكُهُ
+                        </p>
+                        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed mb-3">
+                            Artinya: Melakukan setiap hal yang mungkin atau meninggalkannya. Allah Swt. memiliki kebebasan mutlak dalam dua hal utama:
+                        </p>
+                        <ul class="text-xs sm:text-sm text-slate-700 space-y-1.5 list-disc pl-5">
+                            <li>Kebebasan untuk mencipta atau tidak mencipta sesuatu di alam semesta.</li>
+                            <li>Kebebasan untuk mengatur semua makhluk sesuai kehendak dan kebijaksanaan-Nya.</li>
+                        </ul>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Template 4 -->
+            <template id="content-4" data-title="20 Sifat Wajib dan 20 Sifat Mustahil Beserta Dalilnya" data-icon="fa-list-ol" data-color="emerald">
+                <div class="space-y-6">
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Berikut rangkuman dalil dan pembuktian akal untuk sifat-sifat Allah Swt. yang wajib diimani setiap mukmin:
+                    </p>
+
+                    <div class="space-y-4 max-h-[60vh] overflow-y-auto pr-1">
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                            <div class="flex justify-between items-center mb-1">
+                                <h5 class="font-bold text-teal-800 text-sm">1. Wujud: Ada lawan 'Adam: Tiada</h5>
+                                <span class="text-[11px] font-bold text-teal-600 bg-teal-50 px-2.5 py-0.5 rounded-full border border-teal-200">Nafsiyah</span>
+                            </div>
+                            <p class="text-xs text-slate-700 mb-1">Dalil: QS Ali Imran ayat 2</p>
+                            <p class="arabic-text text-base text-right font-bold text-slate-800" dir="rtl">اَللّٰهُ لَآ اِلٰهَ اِلَّا هُوَ الْحَيُّ الْقَيُّوْمُۗ</p>
+                            <p class="text-xs text-slate-500 mt-1">Bukti Akal: Adanya alam semesta beserta isinya. Benda di sekitar kita seperti laptop atau sepatu pasti ada pembuatnya, mustahil ada dengan sendirinya.</p>
+                        </div>
+
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                            <div class="flex justify-between items-center mb-1">
+                                <h5 class="font-bold text-teal-800 text-sm">2. Qidam: Terdahulu lawan Huduts: Baru</h5>
+                                <span class="text-[11px] font-bold text-teal-600 bg-teal-50 px-2.5 py-0.5 rounded-full border border-teal-200">Salbiyah</span>
+                            </div>
+                            <p class="text-xs text-slate-700 mb-1">Dalil: QS Al-Hadid ayat 3</p>
+                            <p class="arabic-text text-base text-right font-bold text-slate-800" dir="rtl">هُوَ الْاَوَّلُ وَالْاٰخِرُ وَالظَّاهِرُ وَالْبَاطِنُۚ وَهُوَ بِكُلِّ شَيْءٍ عَلِيْمٌ</p>
+                            <p class="text-xs text-slate-500 mt-1">Bukti Akal: Pembuat sepeda pasti ada lebih dahulu daripada sepeda ciptaannya. Allah ada mendahului seluruh ciptaan-Nya.</p>
+                        </div>
+
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                            <div class="flex justify-between items-center mb-1">
+                                <h5 class="font-bold text-teal-800 text-sm">3. Baqa: Kekal lawan Fana: Binasa</h5>
+                                <span class="text-[11px] font-bold text-teal-600 bg-teal-50 px-2.5 py-0.5 rounded-full border border-teal-200">Salbiyah</span>
+                            </div>
+                            <p class="text-xs text-slate-700 mb-1">Dalil: QS Ar-Rahman ayat 26-27</p>
+                            <p class="arabic-text text-base text-right font-bold text-slate-800" dir="rtl">كُلُّ مَنْ عَلَيْهَا فَانٍۚ وَّيَبْقٰى وَجْهُ رَبِّكَ ذُو الْجَلٰلِ وَالْاِكْرَامِۚ</p>
+                            <p class="text-xs text-slate-500 mt-1">Bukti Akal: Makhluk silih berganti mati dan rusak, sedangkan Pencipta tidak akan musnah dan kekal selamanya.</p>
+                        </div>
+
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                            <div class="flex justify-between items-center mb-1">
+                                <h5 class="font-bold text-teal-800 text-sm">4. Mukhalafatu lil hawaditsi: Berbeda dengan Makhluk lawan Mumatsalatu lil hawaditsi</h5>
+                                <span class="text-[11px] font-bold text-teal-600 bg-teal-50 px-2.5 py-0.5 rounded-full border border-teal-200">Salbiyah</span>
+                            </div>
+                            <p class="text-xs text-slate-700 mb-1">Dalil: QS Asy-Syura ayat 11</p>
+                            <p class="arabic-text text-base text-right font-bold text-slate-800" dir="rtl">لَيْسَ كَمِثْلِهٖ شَيْءٌ ۚوَهُوَ السَّمِيْعُ الْبَصِيْرُ</p>
+                            <p class="text-xs text-slate-500 mt-1">Bukti Akal: Makhluk memiliki banyak keterbatasan dan kelemahan, sedangkan Allah memiliki sifat kesempurnaan tanpa batas.</p>
+                        </div>
+
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                            <div class="flex justify-between items-center mb-1">
+                                <h5 class="font-bold text-teal-800 text-sm">5. Qiyamuhu binafsihi: Berdiri Sendiri lawan Ihtiyaju li ghairihi</h5>
+                                <span class="text-[11px] font-bold text-teal-600 bg-teal-50 px-2.5 py-0.5 rounded-full border border-teal-200">Salbiyah</span>
+                            </div>
+                            <p class="text-xs text-slate-700 mb-1">Dalil: QS Al-Ankabut ayat 6</p>
+                            <p class="arabic-text text-base text-right font-bold text-slate-800" dir="rtl">وَمَنْ جَاهَدَ فَاِنَّمَا يُجَاهِدُ لِنَفْسِهٖ ۗاِنَّ اللّٰهَ لَغَنِيٌّ عَنِ الْعٰلَمِيْنَ</p>
+                            <p class="text-xs text-slate-500 mt-1">Bukti Akal: Allah tidak membutuhkan bantuan siapapun dalam menciptakan dan memelihara seluruh jagat raya.</p>
+                        </div>
+
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                            <div class="flex justify-between items-center mb-1">
+                                <h5 class="font-bold text-teal-800 text-sm">6. Wahdaniyah: Maha Esa lawan Ta'addud: Berbilang</h5>
+                                <span class="text-[11px] font-bold text-teal-600 bg-teal-50 px-2.5 py-0.5 rounded-full border border-teal-200">Salbiyah</span>
+                            </div>
+                            <p class="text-xs text-slate-700 mb-1">Dalil: QS Al-Ikhlas ayat 1</p>
+                            <p class="arabic-text text-base text-right font-bold text-slate-800" dir="rtl">قُلْ هُوَ اللّٰهُ اَحَدٌۚ</p>
+                            <p class="text-xs text-slate-500 mt-1">Bukti Akal: Seandainya ada dua tuhan pengatur alam, niscaya kehendak keduanya akan berselisih dan alam ini binasa.</p>
+                        </div>
+
+                        <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200">
+                            <div class="flex justify-between items-center mb-1">
+                                <h5 class="font-bold text-teal-800 text-sm">7-8. Qudrah & Iradah lawan 'Ajzun & Karahah</h5>
+                                <span class="text-[11px] font-bold text-teal-600 bg-teal-50 px-2.5 py-0.5 rounded-full border border-teal-200">Ma'ani</span>
+                            </div>
+                            <p class="text-xs text-slate-700 mb-1">Dalil: QS Al-Baqarah ayat 20 dan QS Yasin ayat 82</p>
+                            <p class="arabic-text text-base text-right font-bold text-slate-800" dir="rtl">اِنَّمَآ اَمْرُهٗٓ اِذَآ اَرَادَ شَيْـًٔا اَنْ يَّقُوْلَ لَهٗ كُنْ فَيَكُوْنُ</p>
+                            <p class="text-xs text-slate-500 mt-1">Bukti Akal: Jika Allah menghendaki sesuatu, cukup berfirman jadilah maka jadilah, tidak ada yang dapat menghalangi.</p>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Template 5 -->
+            <template id="content-5" data-title="Klasifikasi 4 Kelompok Sifat Allah Swt." data-icon="fa-layer-group" data-color="indigo">
+                <div class="space-y-5">
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Para ulama membagi 20 sifat wajib dan 20 sifat mustahil bagi Allah Swt. ke dalam empat kelompok besar:
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-200 space-y-1.5">
+                            <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 bg-sky-100 text-sky-800 rounded-full">Kelompok 1</span>
+                            <h5 class="font-bold text-slate-900 text-sm sm:text-base">Sifat Nafsiyah</h5>
+                            <p class="text-xs text-slate-700 leading-relaxed">Sifat yang berhubungan langsung dengan zat Allah Swt. semata.</p>
+                            <p class="text-xs font-semibold text-sky-900">Sifat Wajib: Wujud - Ada</p>
+                            <p class="text-xs font-semibold text-rose-700">Sifat Mustahil: 'Adam - Tiada</p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 space-y-1.5">
+                            <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded-full">Kelompok 2</span>
+                            <h5 class="font-bold text-slate-900 text-sm sm:text-base">Sifat Salbiyah</h5>
+                            <p class="text-xs text-slate-700 leading-relaxed">Sifat yang meniadakan hal-hal yang tidak layak dan mustahil bagi Allah.</p>
+                            <p class="text-xs font-semibold text-emerald-900">Sifat Wajib: Qidam, Baqa, Mukhalafatu lil hawaditsi, Qiyamuhu binafsihi, Wahdaniyah</p>
+                            <p class="text-xs font-semibold text-rose-700">Sifat Mustahil: Huduts, Fana, Mumatsalatu lil hawaditsi, Ihtiyaju li ghairihi, Ta'addud</p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 space-y-1.5">
+                            <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 bg-amber-100 text-amber-800 rounded-full">Kelompok 3</span>
+                            <h5 class="font-bold text-slate-900 text-sm sm:text-base">Sifat Ma'ani</h5>
+                            <p class="text-xs text-slate-700 leading-relaxed">Sifat kesempurnaan abstrak yang melekat pada zat Allah Swt.</p>
+                            <p class="text-xs font-semibold text-amber-900">Sifat Wajib: Qudrah, Iradah, 'Ilmu, Hayah, Sama', Bashar, Kalam</p>
+                            <p class="text-xs font-semibold text-rose-700">Sifat Mustahil: 'Ajzun, Karahah, Jahlun, Mautun, Shummun, 'Umyun, Bukmun</p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-purple-50 border border-purple-200 space-y-1.5">
+                            <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 bg-purple-100 text-purple-800 rounded-full">Kelompok 4</span>
+                            <h5 class="font-bold text-slate-900 text-sm sm:text-base">Sifat Ma'nawiyah</h5>
+                            <p class="text-xs text-slate-700 leading-relaxed">Sifat yang menyertai dan tidak terpisahkan dari sifat ma'ani.</p>
+                            <p class="text-xs font-semibold text-purple-900">Sifat Wajib: Qadiran, Muridan, 'Aliman, Hayyan, Sami'an, Bashiran, Mutakalliman</p>
+                            <p class="text-xs font-semibold text-rose-700">Sifat Mustahil: 'Ajizan, Karihan, Jahilan, Mayyitan, Ashammu, A'ma, Abkamu</p>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Template 6 -->
+            <template id="content-6" data-title="Hikmah & Perilaku Beriman kepada Allah Swt." data-icon="fa-heart" data-color="purple">
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-purple-950 text-base mb-2">Enam Hikmah Beriman kepada Allah Swt.</h4>
+                        <ol class="text-xs sm:text-sm text-slate-700 space-y-1.5 list-decimal pl-5">
+                            <li>Semakin yakin akan keagungan dan kemuliaan Allah Swt.</li>
+                            <li>Memiliki akhlak dan perilaku yang mulia.</li>
+                            <li>Memiliki sikap konsisten dan istikamah dalam melaksanakan kebaikan.</li>
+                            <li>Hati menjadi tenang dan jiwa terasa damai dalam setiap keadaan.</li>
+                            <li>Memiliki sifat adil dan pandai bersyukur atas segala nikmat.</li>
+                            <li>Mampu meningkatkan rasa percaya diri dan disiplin dalam kehidupan.</li>
+                        </ol>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200">
+                        <h5 class="font-bold text-amber-950 text-xs sm:text-sm mb-1.5 flex items-center gap-2">
+                            <i class="fa-solid fa-graduation-cap text-amber-600"></i> Kisah Teladan: Kejujuran Riana
+                        </h5>
+                        <p class="text-xs text-slate-700 leading-relaxed">
+                            Saat asesmen sumatif Akidah Akhlak, teman Riana memberi isyarat contekan. Riana sempat ragu, namun segera teringat bahwa Allah Swt. memiliki sifat Sama' dan Bashar yang senantiasa mendengar dan melihat perbuatan hamba-Nya. Riana memilih mengerjakan semampunya secara jujur tanpa mencontek demi mengharap rida Allah Swt.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-base mb-2">Lima Alasan Semakin Cinta kepada Allah dan Rasul-Nya</h4>
+                        <ul class="text-xs sm:text-sm text-slate-700 space-y-1.5 list-disc pl-5">
+                            <li>Menghilangkan rasa ragu pada kekuasaan Allah Swt.</li>
+                            <li>Mengenal keagungan Allah sehingga semakin mengagumi kebesaran-Nya.</li>
+                            <li>Meningkatkan kesadaran spiritual akan pengawasan Allah dalam setiap langkah.</li>
+                            <li>Membangun kedekatan melalui ibadah yang khusyuk dan penuh kasih sayang.</li>
+                            <li>Mendorong rasa syukur atas limpahan nikmat yang tak terhitung banyaknya.</li>
+                        </ul>
+                    </div>
+                </div>
+            </template>
+
+        </section>
+
+        <!-- ================= TABEL 20 SIFAT WAJIB & MUSTAHIL ================= -->
+        <section id="tabel-sifat" class="scroll-mt-24 py-16 bg-slate-100 border-t border-slate-200">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <div class="text-center mb-8">
+                    <span class="text-xs font-bold text-teal-700 uppercase tracking-wider bg-teal-50 border border-teal-200 px-3 py-1 rounded-full inline-block mb-2">
+                        Tabel Referensi Lengkap
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-800 font-heading">
+                        Daftar 20 Sifat Wajib dan 20 Sifat Mustahil
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1 max-w-md mx-auto">
+                        Gunakan tombol filter di bawah untuk melihat rincian per kelompok sifat.
+                    </p>
+                </div>
+
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap justify-center gap-2 mb-6">
+                    <button onclick="filterSifatTable('all')" id="btn-filter-all" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-teal-600 text-white shadow-sm transition">Semua 20 Sifat</button>
+                    <button onclick="filterSifatTable('nafsiyah')" id="btn-filter-nafsiyah" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-600 hover:bg-slate-200 transition border border-slate-200">Nafsiyah</button>
+                    <button onclick="filterSifatTable('salbiyah')" id="btn-filter-salbiyah" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-600 hover:bg-slate-200 transition border border-slate-200">Salbiyah</button>
+                    <button onclick="filterSifatTable('maani')" id="btn-filter-maani" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-600 hover:bg-slate-200 transition border border-slate-200">Ma'ani</button>
+                    <button onclick="filterSifatTable('manawiyah')" id="btn-filter-manawiyah" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-600 hover:bg-slate-200 transition border border-slate-200">Ma'nawiyah</button>
+                </div>
+
+                <!-- Table Container -->
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                            <thead>
+                                <tr class="bg-teal-900 text-white font-heading text-xs uppercase tracking-wider">
+                                    <th class="py-4 px-4 text-center">No</th>
+                                    <th class="py-4 px-4">Sifat Wajib</th>
+                                    <th class="py-4 px-4">Arti Sifat Wajib</th>
+                                    <th class="py-4 px-4">Sifat Mustahil</th>
+                                    <th class="py-4 px-4">Arti Sifat Mustahil</th>
+                                    <th class="py-4 px-4 text-center">Kelompok</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sifat-table-body" class="divide-y divide-slate-100">
+                                <!-- Injected by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= MINI GAME EDUKASI: PASANGAN SIFAT ================= -->
+        <section id="game-edukasi" class="scroll-mt-24 py-16 container mx-auto px-4 max-w-4xl">
+            <div class="bg-gradient-to-br from-teal-900 via-slate-900 to-teal-950 rounded-3xl p-6 sm:p-8 text-white shadow-xl border border-teal-700/40 relative overflow-hidden">
+                <div class="text-center mb-6 relative z-10">
+                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest bg-amber-400/20 px-3 py-1 rounded-full inline-block mb-3 border border-amber-400/30">
+                        Game Edukasi Interaktif
+                    </span>
+                    <h2 id="game-title" class="text-2xl sm:text-3xl font-extrabold font-heading text-white">
+                        Tebak Pasangan Sifat Wajib & Mustahil
+                    </h2>
+                    <p id="game-desc" class="text-teal-200/80 text-xs sm:text-sm max-w-lg mx-auto mt-1 mb-5 leading-relaxed">
+                        Pilih satu sifat wajib di kolom kiri, lalu cocokkan dengan lawan sifat mustahilnya di kolom kanan.
+                    </p>
+
+                    <!-- Pilihan Mode Pencocokan Game -->
+                    <div class="flex flex-wrap items-center justify-center gap-2 max-w-xl mx-auto">
+                        <button onclick="setGameMode('wajib-mustahil')" id="btn-mode-wajib-mustahil" class="px-3.5 py-2 rounded-xl text-xs font-bold transition shadow-sm bg-amber-400 text-teal-950 flex items-center gap-1.5">
+                            <i class="fa-solid fa-arrows-split-up-and-left"></i>
+                            <span>Sifat Wajib & Mustahil</span>
+                        </button>
+                        <button onclick="setGameMode('wajib-arti')" id="btn-mode-wajib-arti" class="px-3.5 py-2 rounded-xl text-xs font-bold transition border border-teal-600 bg-teal-800/70 hover:bg-teal-700 text-teal-200 flex items-center gap-1.5">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span>Sifat Wajib & Arti</span>
+                        </button>
+                        <button onclick="setGameMode('mustahil-arti')" id="btn-mode-mustahil-arti" class="px-3.5 py-2 rounded-xl text-xs font-bold transition border border-teal-600 bg-teal-800/70 hover:bg-teal-700 text-teal-200 flex items-center gap-1.5">
+                            <i class="fa-solid fa-spell-check"></i>
+                            <span>Sifat Mustahil & Arti</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 relative z-10" id="game-arena">
+                    <div class="space-y-2">
+                        <h4 id="game-left-header" class="text-xs font-bold text-teal-300 uppercase tracking-wider mb-2 text-center">Pilih Sifat Wajib</h4>
+                        <div id="game-left-list" class="space-y-2"></div>
+                    </div>
+                    <div class="space-y-2">
+                        <h4 id="game-right-header" class="text-xs font-bold text-rose-300 uppercase tracking-wider mb-2 text-center">Pilih Lawan Mustahil</h4>
+                        <div id="game-right-list" class="space-y-2"></div>
+                    </div>
+                </div>
+
+                <div id="game-score-box" class="mt-6 pt-4 border-t border-teal-800/80 flex justify-between items-center flex-wrap gap-3 relative z-10">
+                    <div class="text-xs text-teal-200">
+                        Skor Pasangan Benar: <strong id="game-matched-count" class="text-amber-400 text-sm">0</strong> dari 5 ronde
+                    </div>
+                    <button onclick="initGameRound()" class="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-teal-950 font-bold rounded-xl text-xs transition shadow-md">
+                        Acak Soal Baru
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= UJI KOMPETENSI ================= -->
+        <section id="latihan" class="scroll-mt-24 py-16 bg-slate-100 border-t border-slate-200">
+            <div class="container mx-auto px-4 max-w-3xl">
+                <div class="text-center mb-8">
+                    <span class="text-xs font-bold text-teal-700 uppercase tracking-wider bg-teal-50 border border-teal-200 px-3 py-1 rounded-full inline-block mb-2">
+                        Uji Kompetensi
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-800 font-heading">
+                        Uji Kompetensi Sifat Wajib, Mustahil, dan Jaiz Allah Swt.
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1 max-w-md mx-auto">
+                        Pilih kelas dan nama kamu dari data siswa sebelum mengerjakan soal. Seluruh hasil pengerjaan akan langsung dikirim ke menu Rekap Nilai Guru.
+                    </p>
+                </div>
+
+                <!-- Card Identitas Peserta Didik -->
+                <div id="quiz-login-card" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm text-center space-y-5 mb-8">
+                    <div class="w-16 h-16 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center mx-auto text-2xl border border-teal-100">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-800 font-heading">Identitas Peserta Didik</h3>
+                        <p class="text-xs text-slate-500 mt-1">Pilih kelas dan nama Anda untuk memulai uji kompetensi.</p>
+                    </div>
+
+                    <div class="space-y-4 max-w-md mx-auto text-left">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Pilih Kelas</label>
+                            <select id="quiz-select-kelas" onchange="onClassSelected()" class="w-full p-3.5 border border-slate-300 rounded-xl bg-slate-50 text-slate-800 font-semibold text-xs sm:text-sm outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                                <option value="">-- Pilih Kelas --</option>
+                            </select>
+                        </div>
+
+                        <div id="quiz-nama-wrapper" class="hidden">
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Pilih Nama Siswa</label>
+                            <select id="quiz-select-nama" onchange="onStudentSelected()" class="w-full p-3.5 border border-slate-300 rounded-xl bg-slate-50 text-slate-800 font-semibold text-xs sm:text-sm outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                                <option value="">-- Pilih Nama Siswa --</option>
+                            </select>
+                        </div>
+
+                        <button id="quiz-start-btn" onclick="startStudentQuiz()" disabled class="w-full py-3.5 bg-slate-300 text-slate-500 font-bold text-xs sm:text-sm rounded-xl cursor-not-allowed transition flex items-center justify-center gap-2 shadow-sm mt-3">
+                            <span>Mulai Kerjakan Uji Kompetensi</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Banner Identitas Aktif Siswa -->
+                <div id="quiz-student-banner" class="hidden mb-6 bg-teal-800 text-white p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-teal-700 text-teal-200 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-user-check"></i>
+                        </div>
+                        <div>
+                            <div class="text-[11px] text-teal-300 font-bold uppercase tracking-wider">Peserta Uji Kompetensi</div>
+                            <div class="text-sm sm:text-base font-bold text-white flex items-center gap-2">
+                                <span id="quiz-active-student-name">-</span>
+                                <span class="text-xs bg-teal-600 px-2.5 py-0.5 rounded-full text-teal-100 font-semibold" id="quiz-active-student-class">-</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="changeStudentIdentity()" class="text-xs text-teal-200 hover:text-white underline font-semibold flex items-center gap-1.5 transition">
+                        <i class="fa-solid fa-user-pen"></i> Ganti Identitas
+                    </button>
+                </div>
+
+                <!-- Container Soal Uji Kompetensi -->
+                <div id="quiz-container" class="space-y-6 hidden"></div>
+
+                <!-- Summary Hasil Uji Kompetensi -->
+                <div id="quiz-result-summary" class="hidden mt-8 p-6 sm:p-8 bg-white rounded-3xl border border-slate-200 shadow-sm text-center space-y-4">
+                    <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl mx-auto border border-emerald-200">
+                        <i class="fa-solid fa-cloud-arrow-up text-teal-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 font-heading">Nilai Berhasil Dikirim ke Rekap Nilai</h3>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold">
+                        <span id="summary-student-name">-</span> &bull; <span id="summary-student-class">-</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed" id="quiz-result-text"></p>
+                    <div class="text-4xl sm:text-5xl font-extrabold text-teal-700 font-heading" id="quiz-score-val">100 / 100</div>
+                    <div class="flex justify-center gap-3 pt-3 flex-wrap">
+                        <a href="../../nilai-siswa/" target="_top" class="px-6 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm rounded-xl transition inline-flex items-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-table-list"></i> Buka Menu Rekap Nilai
+                        </a>
+                        <button onclick="retakeQuiz()" class="px-6 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm rounded-xl transition inline-flex items-center gap-2 border border-slate-200">
+                            <i class="fa-solid fa-rotate-right"></i> Kerjakan Ulang
+                        </button>
+                        <button onclick="changeStudentIdentity()" class="px-6 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm rounded-xl transition inline-flex items-center gap-2 border border-slate-200">
+                            <i class="fa-solid fa-user-plus"></i> Siswa Lain
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="w-full bg-teal-950 text-teal-200 py-10 border-t border-teal-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center gap-3 mb-4 text-white">
+                <i class="fa-solid fa-book-open text-xl text-teal-500"></i>
+                <span class="font-heading font-bold text-xl tracking-wide">Belajar<span class="text-teal-500">Online</span></span>
+            </div>
+            <p class="text-xs sm:text-sm text-teal-400/80 max-w-md mx-auto mb-6">
+                Belajar Online adalah Sistem Pembelajaran Berbasis Digital untuk Memudahkan Guru dan Murid dalam Mencapai Tujuan Pembelajaran.
+            </p>
+            <div class="pt-6 border-t border-teal-900/50 text-xs text-teal-500">
+                <p>&copy; 2026 Ahmad Zulfikar, S.Pd. MTs Negeri 6 Demak</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= MODAL DIALOG ================= -->
+    <div id="content-modal" class="fixed inset-0 z-[9999] hidden flex items-center justify-center px-4" style="background-color: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px);">
+        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-3xl max-h-[90vh] flex flex-col relative animate-fadeIn">
+            <div id="modal-header" class="p-5 md:p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/70 rounded-t-3xl">
+                <h3 id="modal-title" class="text-lg md:text-xl font-bold font-heading text-slate-800 flex items-center gap-3">
+                    Judul Modul
+                </h3>
+                <button onclick="closeContentModal()" class="w-8 h-8 rounded-full bg-white border border-slate-200 text-slate-500 hover:text-rose-500 hover:border-rose-200 flex items-center justify-center transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="modal-body" class="p-5 md:p-6 overflow-y-auto space-y-4 text-sm text-slate-600 flex-grow">
+                <!-- Injected Modal Content -->
+            </div>
+            <div class="p-4 border-t border-slate-100 flex justify-end bg-slate-50/50 rounded-b-3xl">
+                <button onclick="closeContentModal()" class="px-5 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold text-xs rounded-xl transition">
+                    Tutup Modul
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT LOGIC ================= -->
+    <script>
+        // Data Siswa Fallback
+        const fallbackDataSiswa = {
+            "7A": [
+                "ABDULLAH MANAF", "AFIQA DWI SEPTIANI", "AHMAD KHOIRUL MUNAWAR", "ALVIN WAHYU PRASSETYO",
+                "ANGGIKA SETYA DEWI", "ANGGITA ANASTASYA", "ATIKA KHANSA YUMNA", "BILQIIS KHOIRUNNISA",
+                "DESYTA NOER AFIDAH", "DIAH CAHYANINGSIH", "EZAR DWI CAHYO", "FIKRI NOAH AL ADIS",
+                "FINNA FATQIYATUR RAHMA", "GITA ANINDYA PUTRI", "HAFIZA KHAIRA LUBNA", "HALWAH MUDHILLAH",
+                "HANANIA ZHAFIRA IMAN", "JASTRA ROBERT AHMAD UTAMA", "MARSYA ADELIA QISYA", "MUHAMMAD AZKA HAFIDH",
+                "MUHAMMAD RASYA ADI PRAWIRA", "MUHAMMAD RIZKY AKBAR SETIAWAN", "NUFAH TSURAYYA", "RASYA MAULANA",
+                "SALSA BAHA RIZQI", "SELAMET SAIFUL SAPUTRA", "SOVRIAN AZDAN AL HAFIZD", "SYIFA CAHAYA SALSABILA",
+                "TALITA HASNA HUMAIRA", "YOGA SATRIA WIBOWO"
+            ],
+            "7B": [
+                "ALVIN ADITYA FIRANSYAH", "ALYSSA NURUL AZKHYA", "ANDRIANI SEPTIA PUTRI", "ANISA KARUNIA SEPTIYANI",
+                "EVA ROMDHONA FITRIYANI", "FAISAL IMAMUL HAKIM", "FAREL NAZRIL ILHAM", "FIRDA TRI YANA",
+                "ILHAM RIFQI ALZAENUSA", "ILHAM SYADDAD AL YUSRO", "KHOLIFATUL MAYSAROH", "LUDFI AHMAD SYAFI'I",
+                "MUHAMMAD DAFA PRASETYA", "MUHAMMAD RAFA SURYA PUTRA", "MUHAMMAD YUSRUL HANA", "MUKHAMAD FATIKUN NIZAM",
+                "NAILA MAZIDATUS SOFIA", "NAILA MIUAZARA ULFA", "NAUFAL VIDI APRILIO", "NAZALA RAHMATIKA ALYA",
+                "RAHMA AIRIN ZAHRA", "RAISYA NANDINI MAYSABELLA", "RAKA ALTHAF APRILLYO PURNOMO", "REHAN SYAH MULKAFIN KISWANTO",
+                "SAFIA ERIN SETIYANTI", "SALSABILA RAMADHANI", "SANDRIKA MILA SARI", "SHEVA GIBRAN EL HAZARD"
+            ],
+            "7C": [
+                "AFIFA NAHDA RAFANDA", "AMELIA NAJWA", "ANGGIKA PUTRI KRISNAWATI", "ANITA FIBRIYANTI",
+                "ATIKA ZAHRA NAUFALYN", "AURORA QURROTA AYUN", "AZZAHRUL JANNAH", "ERIC FERDINAN MAULANA",
+                "IQBAL AZAMUDIN", "IQRILYA ZAHWA ALMIRA", "KAYLA PUTRI FIORENTINA", "MADA FAWWAS AFIQ MUNTHAHA",
+                "MARSHA NIDA FAJRIA", "MAULANA ATHAYA ILYAS", "MOHAMMAD RIZAL RADITYA", "MUHAMMAD ABID ASSYAFA",
+                "MUHAMMAD AINUN NAZIB", "MUHAMMAD BILAL DIRGANTARA", "MUHAMMAD FAIZ SAFARAZ", "MUHAMMAD RADITIYA ARKAN",
+                "MUHAMMAD YUSUF", "NAJWA KHAIRA WILDA", "QUEINARA DWI PUJIASTUTI", "RASTI AULYA SHOFI",
+                "REVAND IRSYAD JAYA PRATAMA", "SYAFA ARIANI ZAHRA", "TRISTAN RADITYA FIRANSYAH PUTRA", "VINA KARISMA",
+                "WILDAN FARIZQI PRATAMA"
+            ],
+            "7D": [
+                "ABDUL HALIM MAULANA", "ABDUL QODIR", "ADITYA NAUFAL DZARI ABIYYU", "AFIFA AULIA PUTRI",
+                "AHMAD RIZKI ROMADHON", "AJIK SATRIA WIJAYANTO", "AMIRATUL BILQIS", "ANDRINA KEVIN ANABEL",
+                "ARINI MIRZA KHAIRANI", "FEBBY AULIA ANJANI", "GISELLA LUNA KIRANA SHANUM", "HANIFATUL IQLIMAH",
+                "IFANA FATIKHATUR ROHMAH", "KANZA PUTRA NOR SETYAWAN", "MOKHAMAD REZA", "MUHAMAD RAFA AKBAR",
+                "MUHAMMAD ANDIKA DWI TAMA", "MUHAMMAD DAFFA ARKHAN", "MUHAMMAD DAFFA REVALDO", "MUHAMMAD DIMAS SUGIHARTO",
+                "MUHAMMAD MUGHNI ALHAKIM", "MUHAMMAD NAUFAL TAUFIQULHUDA", "NAGITA LESTARI", "NURIL FATIMAH AZZAHRA",
+                "RIFQI ALVIAN SAPUTRA", "SALWA SALSABILA YUSUF", "TITANIA ZAHRA SABRINA", "ZAHRA ARDILA HUMAIRA",
+                "ZIYADATUR ROHMAN"
+            ],
+            "7E": [
+                "AYU PANCA WARDANI", "DINA MAHA RANI", "DIYAH PUSPITA SARI", "FEBRI SUGIARTO",
+                "GIA WIDIYANTI", "GIOVANNI DANENDRA PUTRA", "HAKIMA GHAIDA AQILA", "IBNU BATUSTA",
+                "INTAN VANIA ANINDITA", "JANETA NAYSILA ELIYANA", "MAILA SALSA BILA", "MARSEL DIKA SAPUTRA",
+                "MAULANA ZADA ALFAWAZ", "NOOR ABIDZA DWI ARSADY", "NUR HIDAYAH", "NUR MUHAMMAD RIFAUL QISAM",
+                "QAFISHA QALIYA RAMADHANI", "RAMADANISH DANIAL WIJAYA", "RAZIQ HANAN", "REVAN TAUFIQ ANWAR",
+                "SHAKA DIANDRA SULTAN YUSUF", "SHEPTI OCTAVIA", "SYAFINA NABILA PUTRI", "TALITA AZ ZAHRA",
+                "YAHYA ABDUL GHONI", "ZERLINDA NAFISHA AYUDIA", "MUHAMMAD KHOLILUL ROHMAN", "NAJMA NAFI'A"
+            ]
+        };
+
+        function getStudentMasterData() {
+            if (typeof window !== 'undefined' && window.masterDataSiswa) {
+                return window.masterDataSiswa;
+            }
+            if (typeof dataSiswa !== 'undefined') {
+                return dataSiswa;
+            }
+            return fallbackDataSiswa;
+        }
+
+        function initClassDropdown() {
+            const kelasSelect = document.getElementById('quiz-select-kelas');
+            if (!kelasSelect) return;
+            const data = getStudentMasterData();
+            kelasSelect.innerHTML = '<option value="">-- Pilih Kelas --</option>';
+            Object.keys(data).forEach(cls => {
+                const opt = document.createElement('option');
+                opt.value = cls;
+                opt.textContent = `Kelas ${cls}`;
+                kelasSelect.appendChild(opt);
+            });
+        }
+
+        function onClassSelected() {
+            const kelasSelect = document.getElementById('quiz-select-kelas');
+            const namaWrapper = document.getElementById('quiz-nama-wrapper');
+            const namaSelect = document.getElementById('quiz-select-nama');
+            const startBtn = document.getElementById('quiz-start-btn');
+            const selectedClass = kelasSelect.value;
+
+            if (!selectedClass) {
+                namaWrapper.classList.add('hidden');
+                namaSelect.innerHTML = '<option value="">-- Pilih Nama Siswa --</option>';
+                startBtn.disabled = true;
+                startBtn.className = "w-full py-3.5 bg-slate-300 text-slate-500 font-bold text-xs sm:text-sm rounded-xl cursor-not-allowed transition flex items-center justify-center gap-2 shadow-sm mt-3";
+                return;
+            }
+
+            const data = getStudentMasterData();
+            const students = data[selectedClass] || [];
+            namaSelect.innerHTML = '<option value="">-- Pilih Nama Siswa --</option>';
+            students.forEach(st => {
+                const opt = document.createElement('option');
+                opt.value = st;
+                opt.textContent = st;
+                namaSelect.appendChild(opt);
+            });
+
+            namaWrapper.classList.remove('hidden');
+            startBtn.disabled = true;
+            startBtn.className = "w-full py-3.5 bg-slate-300 text-slate-500 font-bold text-xs sm:text-sm rounded-xl cursor-not-allowed transition flex items-center justify-center gap-2 shadow-sm mt-3";
+        }
+
+        function onStudentSelected() {
+            const namaSelect = document.getElementById('quiz-select-nama');
+            const startBtn = document.getElementById('quiz-start-btn');
+            const selectedStudent = namaSelect.value;
+
+            if (selectedStudent) {
+                startBtn.disabled = false;
+                startBtn.className = "w-full py-3.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm rounded-xl cursor-pointer transition flex items-center justify-center gap-2 shadow-md mt-3";
+            } else {
+                startBtn.disabled = true;
+                startBtn.className = "w-full py-3.5 bg-slate-300 text-slate-500 font-bold text-xs sm:text-sm rounded-xl cursor-not-allowed transition flex items-center justify-center gap-2 shadow-sm mt-3";
+            }
+        }
+
+        let activeStudentName = '';
+        let activeStudentClass = '';
+
+        function startStudentQuiz() {
+            const kelasSelect = document.getElementById('quiz-select-kelas');
+            const namaSelect = document.getElementById('quiz-select-nama');
+            activeStudentClass = kelasSelect.value;
+            activeStudentName = namaSelect.value;
+
+            if (!activeStudentClass || !activeStudentName) {
+                alert("Silakan pilih kelas dan nama siswa terlebih dahulu.");
+                return;
+            }
+
+            document.getElementById('quiz-login-card').classList.add('hidden');
+            document.getElementById('quiz-active-student-name').textContent = activeStudentName;
+            document.getElementById('quiz-active-student-class').textContent = `Kelas ${activeStudentClass}`;
+            document.getElementById('quiz-student-banner').classList.remove('hidden');
+
+            const container = document.getElementById('quiz-container');
+            container.classList.remove('hidden');
+
+            renderQuiz();
+            document.getElementById('quiz-student-banner').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function changeStudentIdentity() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('quiz-result-summary').classList.add('hidden');
+            document.getElementById('quiz-student-banner').classList.add('hidden');
+            document.getElementById('quiz-login-card').classList.remove('hidden');
+            document.getElementById('quiz-login-card').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function retakeQuiz() {
+            document.getElementById('quiz-result-summary').classList.add('hidden');
+            document.getElementById('quiz-container').classList.remove('hidden');
+            renderQuiz();
+            document.getElementById('quiz-student-banner').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Modal Handlers
+        function openContentModal(templateId) {
+            const template = document.getElementById(templateId);
+            if (!template) return;
+
+            const title = template.getAttribute('data-title');
+            const icon = template.getAttribute('data-icon');
+            const color = template.getAttribute('data-color') || 'teal';
+
+            const titleEl = document.getElementById('modal-title');
+            titleEl.innerHTML = `<i class="fa-solid ${icon} text-${color}-600"></i> <span>${title}</span>`;
+
+            const bodyEl = document.getElementById('modal-body');
+            bodyEl.innerHTML = '';
+            bodyEl.appendChild(template.content.cloneNode(true));
+
+            const modal = document.getElementById('content-modal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContentModal() {
+            const modal = document.getElementById('content-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('content-modal')?.addEventListener('click', function(e) {
+            if (e.target === this) closeContentModal();
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeContentModal();
+        });
+
+        // Data 20 Sifat Wajib & Mustahil
+        const sifatData = [
+            { no: 1, wajib: "Wujud", artiWajib: "Ada", mustahil: "'Adam", artiMustahil: "Tiada", kelompok: "nafsiyah", labelKelompok: "Nafsiyah" },
+            { no: 2, wajib: "Qidam", artiWajib: "Terdahulu", mustahil: "Huduts", artiMustahil: "Baru", kelompok: "salbiyah", labelKelompok: "Salbiyah" },
+            { no: 3, wajib: "Baqa", artiWajib: "Kekal", mustahil: "Fana", artiMustahil: "Binasa", kelompok: "salbiyah", labelKelompok: "Salbiyah" },
+            { no: 4, wajib: "Mukhalafatu lil hawaditsi", artiWajib: "Berbeda dengan semua makhluk", mustahil: "Mumatsalatu lil hawaditsi", artiMustahil: "Menyerupai makhluk", kelompok: "salbiyah", labelKelompok: "Salbiyah" },
+            { no: 5, wajib: "Qiyamuhu binafsihi", artiWajib: "Berdiri sendiri", mustahil: "Ihtiyaju li ghairihi", artiMustahil: "Membutuhkan yang lain", kelompok: "salbiyah", labelKelompok: "Salbiyah" },
+            { no: 6, wajib: "Wahdaniyah", artiWajib: "Maha Esa", mustahil: "Ta'addud", artiMustahil: "Berbilang", kelompok: "salbiyah", labelKelompok: "Salbiyah" },
+            { no: 7, wajib: "Qudrah", artiWajib: "Kuasa", mustahil: "'Ajzun", artiMustahil: "Lemah", kelompok: "maani", labelKelompok: "Ma'ani" },
+            { no: 8, wajib: "Iradah", artiWajib: "Berkehendak", mustahil: "Karahah", artiMustahil: "Terpaksa", kelompok: "maani", labelKelompok: "Ma'ani" },
+            { no: 9, wajib: "'Ilmu", artiWajib: "Mengetahui", mustahil: "Jahlun", artiMustahil: "Bodoh", kelompok: "maani", labelKelompok: "Ma'ani" },
+            { no: 10, wajib: "Hayah", artiWajib: "Hidup", mustahil: "Mautun", artiMustahil: "Mati", kelompok: "maani", labelKelompok: "Ma'ani" },
+            { no: 11, wajib: "Sama'", artiWajib: "Mendengar", mustahil: "Shummun", artiMustahil: "Tuli", kelompok: "maani", labelKelompok: "Ma'ani" },
+            { no: 12, wajib: "Bashar", artiWajib: "Melihat", mustahil: "'Umyun", artiMustahil: "Buta", kelompok: "maani", labelKelompok: "Ma'ani" },
+            { no: 13, wajib: "Kalam", artiWajib: "Berkata-kata", mustahil: "Bukmun", artiMustahil: "Bisu", kelompok: "maani", labelKelompok: "Ma'ani" },
+            { no: 14, wajib: "Qadiran", artiWajib: "Zat Yang Maha Kuasa", mustahil: "'Ajizan", artiMustahil: "Zat yang lemah", kelompok: "manawiyah", labelKelompok: "Ma'nawiyah" },
+            { no: 15, wajib: "Muridan", artiWajib: "Zat Yang Maha Berkehendak", mustahil: "Karihan", artiMustahil: "Zat yang terpaksa", kelompok: "manawiyah", labelKelompok: "Ma'nawiyah" },
+            { no: 16, wajib: "'Aliman", artiWajib: "Zat Yang Maha Mengetahui", mustahil: "Jahilan", artiMustahil: "Zat yang sangat bodoh", kelompok: "manawiyah", labelKelompok: "Ma'nawiyah" },
+            { no: 17, wajib: "Hayyan", artiWajib: "Zat Yang Maha Hidup", mustahil: "Mayyitan", artiMustahil: "Zat yang mati", kelompok: "manawiyah", labelKelompok: "Ma'nawiyah" },
+            { no: 18, wajib: "Sami'an", artiWajib: "Zat Yang Maha Mendengar", mustahil: "Ashammu", artiMustahil: "Zat yang tuli", kelompok: "manawiyah", labelKelompok: "Ma'nawiyah" },
+            { no: 19, wajib: "Bashiran", artiWajib: "Zat Yang Maha Melihat", mustahil: "A'ma", artiMustahil: "Zat yang buta", kelompok: "manawiyah", labelKelompok: "Ma'nawiyah" },
+            { no: 20, wajib: "Mutakalliman", artiWajib: "Zat Yang Maha Berkata-kata", mustahil: "Abkamu", artiMustahil: "Zat yang bisu", kelompok: "manawiyah", labelKelompok: "Ma'nawiyah" }
+        ];
+
+        // Render Sifat Table
+        function renderSifatTable(filter = 'all') {
+            const tbody = document.getElementById('sifat-table-body');
+            tbody.innerHTML = '';
+
+            const filtered = filter === 'all' ? sifatData : sifatData.filter(s => s.kelompok === filter);
+
+            filtered.forEach(item => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50 transition-colors";
+                tr.innerHTML = `
+                    <td class="py-3 px-4 text-center font-bold text-slate-500">${item.no}</td>
+                    <td class="py-3 px-4 font-bold text-teal-800">${item.wajib}</td>
+                    <td class="py-3 px-4 text-slate-700">${item.artiWajib}</td>
+                    <td class="py-3 px-4 font-bold text-rose-700">${item.mustahil}</td>
+                    <td class="py-3 px-4 text-slate-700">${item.artiMustahil}</td>
+                    <td class="py-3 px-4 text-center">
+                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full ${getKelompokBadgeClass(item.kelompok)}">${item.labelKelompok}</span>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function getKelompokBadgeClass(kelompok) {
+            switch(kelompok) {
+                case 'nafsiyah': return 'bg-sky-100 text-sky-800 border border-sky-200';
+                case 'salbiyah': return 'bg-emerald-100 text-emerald-800 border border-emerald-200';
+                case 'maani': return 'bg-amber-100 text-amber-800 border border-amber-200';
+                case 'manawiyah': return 'bg-purple-100 text-purple-800 border border-purple-200';
+                default: return 'bg-slate-100 text-slate-700';
+            }
+        }
+
+        function filterSifatTable(cat) {
+            ['all', 'nafsiyah', 'salbiyah', 'maani', 'manawiyah'].forEach(c => {
+                const btn = document.getElementById(`btn-filter-${c}`);
+                if (c === cat) {
+                    btn.className = "px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-teal-600 text-white shadow-sm transition";
+                } else {
+                    btn.className = "px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-slate-600 hover:bg-slate-200 transition border border-slate-200";
+                }
+            });
+            renderSifatTable(cat);
+        }
+
+        // Mini Game: Pasangan Sifat & Arti
+        let currentMode = 'wajib-mustahil';
+        let selectedLeft = null;
+        let matchedCount = 0;
+        let gamePairs = [];
+
+        function setGameMode(mode) {
+            currentMode = mode;
+            ['wajib-mustahil', 'wajib-arti', 'mustahil-arti'].forEach(m => {
+                const btn = document.getElementById(`btn-mode-${m}`);
+                if (!btn) return;
+                if (m === mode) {
+                    btn.className = "px-3.5 py-2 rounded-xl text-xs font-bold transition shadow-sm bg-amber-400 text-teal-950 flex items-center gap-1.5";
+                } else {
+                    btn.className = "px-3.5 py-2 rounded-xl text-xs font-bold transition border border-teal-600 bg-teal-800/70 hover:bg-teal-700 text-teal-200 flex items-center gap-1.5";
+                }
+            });
+
+            const titleEl = document.getElementById('game-title');
+            const descEl = document.getElementById('game-desc');
+            const leftHeader = document.getElementById('game-left-header');
+            const rightHeader = document.getElementById('game-right-header');
+
+            if (mode === 'wajib-mustahil') {
+                titleEl.innerText = "Tebak Pasangan Sifat Wajib & Mustahil";
+                descEl.innerText = "Pilih satu sifat wajib di kolom kiri, lalu cocokkan dengan lawan sifat mustahilnya di kolom kanan.";
+                leftHeader.innerText = "Pilih Sifat Wajib";
+                rightHeader.innerText = "Pilih Lawan Mustahil";
+                rightHeader.className = "text-xs font-bold text-rose-300 uppercase tracking-wider mb-2 text-center";
+            } else if (mode === 'wajib-arti') {
+                titleEl.innerText = "Tebak Arti Sifat Wajib";
+                descEl.innerText = "Pilih satu sifat wajib di kolom kiri, lalu cocokkan dengan arti maknanya yang tepat di kolom kanan.";
+                leftHeader.innerText = "Pilih Sifat Wajib";
+                rightHeader.innerText = "Pilih Arti yang Tepat";
+                rightHeader.className = "text-xs font-bold text-amber-300 uppercase tracking-wider mb-2 text-center";
+            } else if (mode === 'mustahil-arti') {
+                titleEl.innerText = "Tebak Arti Sifat Mustahil";
+                descEl.innerText = "Pilih satu sifat mustahil di kolom kiri, lalu cocokkan dengan arti maknanya yang tepat di kolom kanan.";
+                leftHeader.innerText = "Pilih Sifat Mustahil";
+                rightHeader.innerText = "Pilih Arti yang Tepat";
+                rightHeader.className = "text-xs font-bold text-amber-300 uppercase tracking-wider mb-2 text-center";
+            }
+
+            initGameRound();
+        }
+
+        function initGameRound() {
+            selectedLeft = null;
+            matchedCount = 0;
+            const countEl = document.getElementById('game-matched-count');
+            if (countEl) countEl.innerText = matchedCount;
+
+            const shuffledAll = [...sifatData].sort(() => 0.5 - Math.random());
+            gamePairs = shuffledAll.slice(0, 5);
+
+            const leftListEl = document.getElementById('game-left-list');
+            const rightListEl = document.getElementById('game-right-list');
+            if (!leftListEl || !rightListEl) return;
+
+            leftListEl.innerHTML = '';
+            rightListEl.innerHTML = '';
+
+            const shuffledRight = [...gamePairs].sort(() => 0.5 - Math.random());
+
+            gamePairs.forEach(pair => {
+                const btn = document.createElement('button');
+                btn.id = `game-left-${pair.no}`;
+
+                let leftText = '';
+                let leftBadge = '';
+                let btnBg = 'bg-teal-800/80 hover:bg-teal-700 border-teal-600';
+
+                if (currentMode === 'wajib-mustahil') {
+                    leftText = pair.wajib;
+                    leftBadge = pair.artiWajib;
+                } else if (currentMode === 'wajib-arti') {
+                    leftText = pair.wajib;
+                    leftBadge = pair.labelKelompok;
+                } else if (currentMode === 'mustahil-arti') {
+                    leftText = pair.mustahil;
+                    leftBadge = pair.labelKelompok;
+                    btnBg = 'bg-rose-950/70 hover:bg-rose-900 border-rose-800/70';
+                }
+
+                btn.className = `w-full p-3 rounded-xl ${btnBg} text-white font-bold text-xs sm:text-sm text-left transition border flex justify-between items-center shadow-sm`;
+                
+                if (currentMode === 'mustahil-arti') {
+                    btn.innerHTML = `<span>${leftText}</span> <span class="text-[11px] text-rose-300 font-normal">${leftBadge}</span>`;
+                } else {
+                    btn.innerHTML = `<span>${leftText}</span> <span class="text-[11px] text-teal-300 font-normal">${leftBadge}</span>`;
+                }
+
+                btn.onclick = () => selectGameLeft(pair, btn);
+                leftListEl.appendChild(btn);
+            });
+
+            shuffledRight.forEach(pair => {
+                const btn = document.createElement('button');
+                btn.id = `game-right-${pair.no}`;
+
+                let rightHtml = '';
+                let btnBg = '';
+
+                if (currentMode === 'wajib-mustahil') {
+                    rightHtml = `<span>${pair.mustahil}</span> <span class="text-[11px] text-rose-300 font-normal">${pair.artiMustahil}</span>`;
+                    btnBg = 'bg-rose-950/60 hover:bg-rose-900/80 border-rose-800/60';
+                } else if (currentMode === 'wajib-arti') {
+                    rightHtml = `<span>${pair.artiWajib}</span> <i class="fa-solid fa-angle-right text-amber-400/60 text-xs"></i>`;
+                    btnBg = 'bg-amber-950/50 hover:bg-amber-900/70 border-amber-800/50';
+                } else if (currentMode === 'mustahil-arti') {
+                    rightHtml = `<span>${pair.artiMustahil}</span> <i class="fa-solid fa-angle-right text-amber-400/60 text-xs"></i>`;
+                    btnBg = 'bg-amber-950/50 hover:bg-amber-900/70 border-amber-800/50';
+                }
+
+                btn.className = `w-full p-3 rounded-xl ${btnBg} text-white font-bold text-xs sm:text-sm text-left transition border flex justify-between items-center shadow-sm`;
+                btn.innerHTML = rightHtml;
+                btn.onclick = () => selectGameRight(pair, btn);
+                rightListEl.appendChild(btn);
+            });
+        }
+
+        function selectGameLeft(pair, btnEl) {
+            document.querySelectorAll('#game-left-list button').forEach(b => {
+                if (!b.disabled) {
+                    b.classList.remove('ring-2', 'ring-amber-400', 'bg-amber-600');
+                }
+            });
+            selectedLeft = pair;
+            btnEl.classList.add('ring-2', 'ring-amber-400', 'bg-amber-600');
+        }
+
+        function selectGameRight(pair, btnEl) {
+            if (!selectedLeft) {
+                let alertMsg = "Pilih terlebih dahulu salah satu opsi di sebelah kiri.";
+                if (currentMode === 'wajib-mustahil' || currentMode === 'wajib-arti') {
+                    alertMsg = "Pilih terlebih dahulu salah satu sifat wajib di sebelah kiri.";
+                } else if (currentMode === 'mustahil-arti') {
+                    alertMsg = "Pilih terlebih dahulu salah satu sifat mustahil di sebelah kiri.";
+                }
+                alert(alertMsg);
+                return;
+            }
+
+            if (selectedLeft.no === pair.no) {
+                // Benar
+                const leftBtn = document.getElementById(`game-left-${selectedLeft.no}`);
+                leftBtn.disabled = true;
+                leftBtn.className = "w-full p-3 rounded-xl bg-emerald-600 text-white font-bold text-xs sm:text-sm text-left border border-emerald-400 opacity-90 cursor-default flex justify-between items-center shadow-sm";
+                
+                let leftTitle = selectedLeft.wajib;
+                if (currentMode === 'mustahil-arti') {
+                    leftTitle = selectedLeft.mustahil;
+                }
+                leftBtn.innerHTML = `<span>${leftTitle}</span> <i class="fa-solid fa-check text-white"></i>`;
+
+                btnEl.disabled = true;
+                btnEl.className = "w-full p-3 rounded-xl bg-emerald-600 text-white font-bold text-xs sm:text-sm text-left border border-emerald-400 opacity-90 cursor-default flex justify-between items-center shadow-sm";
+                
+                let rightTitle = '';
+                if (currentMode === 'wajib-mustahil') {
+                    rightTitle = pair.mustahil;
+                } else if (currentMode === 'wajib-arti') {
+                    rightTitle = pair.artiWajib;
+                } else if (currentMode === 'mustahil-arti') {
+                    rightTitle = pair.artiMustahil;
+                }
+                btnEl.innerHTML = `<span>${rightTitle}</span> <i class="fa-solid fa-check text-white"></i>`;
+
+                matchedCount++;
+                document.getElementById('game-matched-count').innerText = matchedCount;
+                selectedLeft = null;
+
+                if (matchedCount === 5) {
+                    if (typeof confetti === 'function') confetti({ particleCount: 90, spread: 80, origin: { y: 0.6 } });
+                }
+            } else {
+                // Salah
+                btnEl.classList.add('animate-pulse', 'border-rose-500');
+                setTimeout(() => {
+                    btnEl.classList.remove('animate-pulse', 'border-rose-500');
+                }, 400);
+            }
+        }
+
+        // Data Latihan Soal Uji Pemahaman dari Dokumen Madrasah
+        const quizList = [
+            {
+                soal: `Perhatikan tabel berikut:
+<div class="overflow-x-auto my-3 border border-slate-200 rounded-xl bg-slate-50">
+    <table class="w-full text-left text-xs border-collapse">
+        <thead>
+            <tr class="bg-teal-900 text-white">
+                <th class="p-2.5 text-center">No</th>
+                <th class="p-2.5">Sifat Wajib</th>
+                <th class="p-2.5">Arti</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-200">
+            <tr><td class="p-2 text-center font-bold">1</td><td class="p-2 font-semibold">Wujud</td><td class="p-2">a. Terdahulu</td></tr>
+            <tr><td class="p-2 text-center font-bold">2</td><td class="p-2 font-semibold">Qidam</td><td class="p-2">b. Berbeda dengan semua makhluk</td></tr>
+            <tr><td class="p-2 text-center font-bold">3</td><td class="p-2 font-semibold">Baqa</td><td class="p-2">c. Berdiri sendiri</td></tr>
+            <tr><td class="p-2 text-center font-bold">4</td><td class="p-2 font-semibold">Mukhalafatuhu lil hawaditsi</td><td class="p-2">d. Ada</td></tr>
+            <tr><td class="p-2 text-center font-bold">5</td><td class="p-2 font-semibold">Qiyamuhu binafsihi</td><td class="p-2">e. Kekal</td></tr>
+        </tbody>
+    </table>
+</div>
+Pasangan yang sesuai antara sifat-sifat wajib Allah Swt. dan artinya adalah ...`,
+                type: "PG",
+                options: [
+                    "4-a, 3-c, 2-b, 1-e, 5-d",
+                    "3-b, 4-c, 5-d, 2-a, 1-e",
+                    "2-c, 3-d, 4-a, 5-b, 1-e",
+                    "1-d, 2-a, 3-e, 4-b, 5-c"
+                ],
+                correctLetter: "D",
+                correctText: "1-d, 2-a, 3-e, 4-b, 5-c",
+                bahas: "Pasangan yang tepat adalah 1 Wujud artinya d Ada, 2 Qidam artinya a Terdahulu, 3 Baqa artinya e Kekal, 4 Mukhalafatuhu lil hawaditsi artinya b Berbeda dengan semua makhluk, dan 5 Qiyamuhu binafsihi artinya c Berdiri sendiri."
+            },
+            {
+                soal: "Allah Swt. memiliki sifat wajib yang berbeda dengan sifat makhluk-Nya. Yang membedakan sifat wajib Allah dengan sifat makhluk-Nya adalah sifat wajib Allah Swt. ….",
+                type: "PG",
+                options: [
+                    "sama dengan sifat makhluk-Nya",
+                    "lebih tinggi dari sifat makhluk-Nya",
+                    "lebih rendah dari sifat makhluk-Nya",
+                    "sebanding dengan sifat makhluk-Nya"
+                ],
+                correctLetter: "B",
+                correctText: "lebih tinggi dari sifat makhluk-Nya",
+                bahas: "Sifat wajib bagi Allah Swt. merupakan kesempurnaan mutlak yang jauh lebih tinggi dan suci dibanding sifat makhluk ciptaan-Nya yang penuh keterbatasan."
+            },
+            {
+                soal: `Perhatikan Surah An-Nisa ayat 136 berikut:
+<div class="arabic-text text-right text-lg sm:text-xl font-bold text-slate-800 my-3 p-3 bg-teal-50 rounded-xl border border-teal-200" dir="rtl">
+    يٰٓاَيُّهَا الَّذِيْنَ اٰمَنُوْٓا اٰمِنُوْا بِاللّٰهِ وَرَسُوْلِهٖ وَالْكِتٰبِ الَّذِيْ نَزَّلَ عَلٰى رَسُوْلِهٖ وَالْكِتٰبِ الَّذِيْٓ اَنْزَلَ مِنْ قَبْلُۗ وَمَنْ يَّكْفُرْ بِاللّٰهِ وَمَلٰۤىِٕكَتِهٖ وَكُتُبِهٖ وَرُسُلِهٖ وَالْيَوْمِ الْاٰخِرِ فَقَدْ ضَلَّ ضَلٰلًاۢ بَعِيْدًا
+</div>
+QS An-Nisa ayat 136 tersebut adalah dalil naqli tentang ….`,
+                type: "PG",
+                options: [
+                    "sifat jaiz Allah Swt.",
+                    "sifat wajib Allah Swt.",
+                    "iman kepada Allah Swt.",
+                    "sifat mustahil Allah Swt."
+                ],
+                correctLetter: "C",
+                correctText: "iman kepada Allah Swt.",
+                bahas: "Ayat ini merupakan dalil naqli pokok perintah beriman kepada Allah Swt., Rasul-Nya, Al-Qur'an dan kitab-kitab sebelumnya, malaikat, serta hari akhir."
+            },
+            {
+                soal: `Perhatikan teks berikut untuk menjawab soal nomor 4 dan 5:
+<div class="p-3.5 bg-slate-50 border-l-4 border-teal-600 rounded-r-xl text-xs sm:text-sm text-slate-700 my-2.5 leading-relaxed">
+    Sifat-sifat wajib adalah sifat-sifat yang pasti dimiliki Allah Swt. Sifat Allah Swt. wajib diyakini menggunakan akal manusia dan berdasarkan dalil naqli. Adapun sifat mustahil yaitu sifat-sifat yang bertentangan atau tidak mungkin dimiliki Allah Swt. sebab Allah Swt. Maha Kuasa sehingga sifat-sifat mustahil ini tidak sebanding dengan kekuasaan dan keagungan Allah Swt. Sementara itu, sifat jaiz adalah sifat yang mungkin bagi Allah Swt. untuk melakukan sesuatu atau tidak melakukan sesuatu sesuai dengan kehendak-Nya. Sifat kebebasan Allah Swt. untuk mengatur semua makhluk sesuai yang Dia kehendaki.
+</div>
+Pernyataan tentang sifat-sifat Allah Swt. yang sesuai teks tersebut adalah …`,
+                type: "PG",
+                options: [
+                    "Sifat mustahil adalah sifat kebebasan Allah Swt.",
+                    "Sifat wajib berjumlah genap, sedangkan sifat mustahil ganjil.",
+                    "Sifat jaiz adalah sifat kebalikan dari sifat wajib dan mustahil.",
+                    "Sifat wajib, mustahil, dan jaiz merupakan sifat-sifat Allah Swt."
+                ],
+                correctLetter: "D",
+                correctText: "Sifat wajib, mustahil, dan jaiz merupakan sifat-sifat Allah Swt.",
+                bahas: "Berdasarkan kutipan teks di atas, ketiga jenis sifat yang dipelajari yaitu sifat wajib, mustahil, dan jaiz seluruhnya merupakan sifat-sifat Allah Swt."
+            },
+            {
+                soal: "Pernyataan tentang sifat-sifat bagi Allah Swt. sesuai teks tersebut adalah …",
+                type: "PG",
+                options: [
+                    "Allah Swt. bebas memiliki sifat wajib dan sifat mustahil.",
+                    "Sifat wajib, mustahil dan jaiz juga dimiliki oleh para nabi.",
+                    "Sifat Allah Swt. yang tetap adalah sifat wajib dan sifat mustahil.",
+                    "Sifat Allah Swt. wajib diyakini menggunakan akal dan dalil naqli."
+                ],
+                correctLetter: "D",
+                correctText: "Sifat Allah Swt. wajib diyakini menggunakan akal dan dalil naqli.",
+                bahas: "Dalam naskah tertulis secara tegas bahwa Sifat Allah Swt. wajib diyakini menggunakan akal manusia dan berdasarkan dalil naqli."
+            },
+            {
+                soal: `Perhatikan teks berikut:
+<div class="p-3 bg-slate-50 border-l-4 border-amber-500 rounded-r-xl text-xs sm:text-sm text-slate-700 my-2 leading-relaxed">
+    Bukti-bukti atau alasan tentang sesuatu itu benar atau salah yang didasarkan pada Al-Qur'an, hadis, dan pertimbangan akal sehat manusia berlaku untuk perintah beriman kepada Allah Swt.
+</div>
+Contoh dalil akli tentang iman kepada Allah Swt. adalah ….
+<span class="block text-amber-700 font-bold text-xs mt-1">Pilihlah dua jawaban yang benar!</span>`,
+                type: "PGK",
+                options: [
+                    "QS An-Nisa ayat 136 dan QS Al-A'raf ayat 54",
+                    "keteraturan tata surya dan kehidupan di bumi",
+                    "Zat yang Maha Pencipta dikenal sebagai Allah Swt.",
+                    "alam dan seluruh makhluk sangat indah untuk dilihat"
+                ],
+                correctLetters: ["B", "D"],
+                correctText: "B dan D",
+                bahas: "Dalil akli bersumber dari pertimbangan akal sehat manusia dengan mengamati keteraturan tata surya dan kehidupan di bumi serta keteraturan ciptaan alam dan seluruh makhluk. Sedangkan opsi A adalah dalil naqli."
+            },
+            {
+                soal: `Sifat mustahil bagi Allah Swt. yaitu sifat yang tidak mungkin dimiliki-Nya karena bertentangan dengan sifat-sifat kesempurnaan Allah Swt.
+Contoh sifat-sifat mustahil bagi Allah Swt. adalah ….
+<span class="block text-amber-700 font-bold text-xs mt-1">Pilihlah dua jawaban yang benar!</span>`,
+                type: "PGK",
+                options: [
+                    "memiliki kelemahan",
+                    "memiliki kekuasaan",
+                    "membutuhkan yang lain",
+                    "berbeda dengan makhluk"
+                ],
+                correctLetters: ["A", "C"],
+                correctText: "A dan C",
+                bahas: "Memiliki kelemahan adalah arti sifat mustahil ajzun dan membutuhkan yang lain adalah arti sifat mustahil ihtiyaju ligairihi. Sedangkan memiliki kekuasaan qudrah dan berbeda dengan makhluk mukhalafatu lil hawaditsi merupakan sifat wajib."
+            },
+            {
+                soal: `Perhatikan teks berikut:
+<div class="p-3 bg-slate-50 border-l-4 border-teal-600 rounded-r-xl text-xs sm:text-sm text-slate-700 my-2 leading-relaxed">
+    Azizah adalah anak yatim piatu. Dia diasuh neneknya yang sudah tua. Setiap pulang sekolah Azizah menjual makanan kecil yang dibuat neneknya. Ia berjualan keliling kampung. Kalau dagangannya laku, berapa pun ia merasa senang dan memuji Allah Swt. Azizah tidak merasa malu terus menawarkan dagangannya.
+</div>
+Hikmah beriman kepada Allah sesuai teks tersebut adalah ....
+<span class="block text-amber-700 font-bold text-xs mt-1">Pilihlah dua jawaban yang benar!</span>`,
+                type: "PGK",
+                options: [
+                    "semakin yakin akan keagungan Allah Swt.",
+                    "memiliki sikap konsisten dalam kebaikan",
+                    "memiliki sifat adil dan pandai bersyukur",
+                    "mampu meningkatkan rasa percaya diri"
+                ],
+                correctLetters: ["C", "D"],
+                correctText: "C dan D",
+                bahas: "Sikap merasa senang dan memuji Allah berapapun hasil penjualan menunjukkan sifat pandai bersyukur, sedangkan tidak merasa malu menawarkan dagangan keliling kampung menunjukkan rasa percaya diri."
+            },
+            {
+                soal: `Salah satu hikmah beriman kepada Allah Swt. adalah memiliki sikap konsisten dalam melaksanakan kebaikan.
+Perilaku yang mencerminkan hikmah beriman kepada Allah Swt. tersebut adalah ....
+<span class="block text-amber-700 font-bold text-xs mt-1">Pilihlah dua jawaban yang benar!</span>`,
+                type: "PGK",
+                options: [
+                    "bersikap sabar, bersyukur, dan memiliki kasih sayang",
+                    "senantiasa mengakui Allah Swt. satu-satunya Tuhan",
+                    "melaksanakan salat, puasa, zakat, haji, dan sebagainya",
+                    "mengharapkan rida Allah Swt. dalam perbuatan dan takdir"
+                ],
+                correctLetters: ["C", "D"],
+                correctText: "C dan D",
+                bahas: "Sikap konsisten dalam kebaikan dibuktikan dengan disiplin menjalankan ibadah salat, puasa, zakat, haji serta senantiasa mengharapkan rida Allah Swt. dalam setiap amal perbuatan dan ketetapan takdir."
+            },
+            {
+                soal: `Perhatikan teks berikut:
+<div class="p-3 bg-slate-50 border-l-4 border-indigo-600 rounded-r-xl text-xs sm:text-sm text-slate-700 my-2 leading-relaxed">
+    Klasifikasi sifat-sifat mustahil Allah Swt. ada empat. Pertama sifat nafsiyah hanya satu sifat yaitu adam. Kedua, sifat salbiyah terdiri atas, Huduts, fana, Mumatsalatuhu lilhawaditsi, Ihtiyaju ligairihi, dan ta'addud. Ketiga, sifat ma'ani yaitu ajzun, Karahah, jahlun, mautun, shummun, 'umyun dan bukmun. Keempat sifat ma'nawiyah terdiri yaitu 'ajizan, karihan, jahilan, mayyitan, Ashammu, a'ma dan abkamu.
+</div>
+Pernyataan tentang sifat ma'ani yang sesuai teks tersebut adalah …
+<span class="block text-amber-700 font-bold text-xs mt-1">Pilihlah dua jawaban yang benar!</span>`,
+                type: "PGK",
+                options: [
+                    "Sifat-sifat mustahil ma'ani memiliki lima macam sifat.",
+                    "Sifat-sifat mustahil ma'ani memiliki tujuh macam sifat.",
+                    "'Ajizan, karihan, jahilan, mayyitan, Ashammu, a'ma, dan abkamu.",
+                    "'Ajzun, karahah, jahlun, mautun, shummun, 'umyun, dan bukmun."
+                ],
+                correctLetters: ["B", "D"],
+                correctText: "B dan D",
+                bahas: "Sifat mustahil kelompok ma'ani berjumlah tujuh macam sifat yaitu ajzun, karahah, jahlun, mautun, shummun, 'umyun, dan bukmun. Sedangkan opsi C adalah kelompok sifat ma'nawiyah."
+            }
+        ];
+
+        let studentAnswers = {};
+
+        function renderQuiz() {
+            studentAnswers = {};
+            document.getElementById('quiz-result-summary').classList.add('hidden');
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+
+            quizList.forEach((q, qIdx) => {
+                const card = document.createElement('div');
+                card.className = "bg-white p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4";
+                card.id = `quiz-card-${qIdx}`;
+
+                const typeBadge = q.type === 'PG' 
+                    ? '<span class="text-[10px] font-bold uppercase tracking-wider bg-teal-50 text-teal-700 border border-teal-200 px-2.5 py-0.5 rounded-full">Pilihan Ganda</span>'
+                    : '<span class="text-[10px] font-bold uppercase tracking-wider bg-amber-50 text-amber-800 border border-amber-200 px-2.5 py-0.5 rounded-full">Pilihan Ganda Kompleks</span>';
+
+                let optsHtml = '';
+                const letters = ['A', 'B', 'C', 'D'];
+
+                if (q.type === 'PG') {
+                    optsHtml = `
+                        <div class="grid grid-cols-1 gap-2 pt-1">
+                            ${q.options.map((opt, oIdx) => {
+                                const letter = letters[oIdx];
+                                return `
+                                    <button type="button" onclick="selectPgAnswer(${qIdx}, '${letter}')" id="quiz-opt-${qIdx}-${letter}" class="quiz-btn-${qIdx} w-full p-3 sm:p-3.5 rounded-2xl border border-slate-200 bg-slate-50 text-left text-xs sm:text-sm font-medium text-slate-700 hover:bg-teal-50/60 hover:border-teal-300 transition flex items-start gap-3">
+                                        <span id="quiz-badge-${qIdx}-${letter}" class="w-6 h-6 rounded-lg bg-white border border-slate-300 font-bold text-xs flex items-center justify-center text-slate-600 flex-shrink-0 mt-0.5 transition">${letter}</span>
+                                        <span class="leading-relaxed flex-1">${opt}</span>
+                                    </button>
+                                `;
+                            }).join('')}
+                        </div>
+                    `;
+                } else {
+                    optsHtml = `
+                        <div class="grid grid-cols-1 gap-2 pt-1">
+                            ${q.options.map((opt, oIdx) => {
+                                const letter = letters[oIdx];
+                                return `
+                                    <label id="pgk-label-${qIdx}-${letter}" class="flex items-start gap-3 p-3 sm:p-3.5 rounded-2xl border border-slate-200 bg-slate-50 cursor-pointer hover:bg-teal-50/60 hover:border-teal-300 transition text-xs sm:text-sm font-medium text-slate-700">
+                                        <input type="checkbox" value="${letter}" onchange="togglePgkAnswer(${qIdx})" class="pgk-chk-${qIdx} w-4 h-4 rounded text-teal-600 focus:ring-teal-500 mt-1 cursor-pointer">
+                                        <span id="pgk-badge-${qIdx}-${letter}" class="w-6 h-6 rounded-lg bg-white border border-slate-300 font-bold text-xs flex items-center justify-center text-slate-600 flex-shrink-0 transition">${letter}</span>
+                                        <span class="leading-relaxed flex-1">${opt}</span>
+                                    </label>
+                                `;
+                            }).join('')}
+                        </div>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+                        <span class="text-xs font-bold text-slate-500">Soal Nomor ${qIdx + 1}</span>
+                        ${typeBadge}
+                    </div>
+
+                    <div class="text-xs sm:text-sm font-medium text-slate-800 leading-relaxed">${q.soal}</div>
+
+                    ${optsHtml}
+                `;
+                container.appendChild(card);
+            });
+
+            // Submit Bar di bagian bawah seluruh soal
+            const submitPanel = document.createElement('div');
+            submitPanel.id = "quiz-submit-panel";
+            submitPanel.className = "bg-white p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4 mt-8";
+            submitPanel.innerHTML = `
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm">
+                    <div class="flex items-center gap-2 text-slate-700 font-semibold">
+                        <i class="fa-solid fa-list-check text-teal-600 text-base"></i>
+                        <span id="quiz-progress-text">0 dari 10 soal sudah dijawab</span>
+                    </div>
+                    <span class="text-slate-400 text-xs">Periksa kembali sebelum mengirim</span>
+                </div>
+                <button type="button" onclick="submitUjiKompetensi()" id="quiz-submit-btn" class="w-full py-3.5 sm:py-4 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm rounded-2xl shadow-md transition flex items-center justify-center gap-2.5 cursor-pointer">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>Selesai dan Kirim Jawaban ke Rekap Nilai</span>
+                </button>
+            `;
+            container.appendChild(submitPanel);
+            updateQuizProgress();
+        }
+
+        function selectPgAnswer(qIdx, letter) {
+            studentAnswers[qIdx] = letter;
+
+            const letters = ['A', 'B', 'C', 'D'];
+            letters.forEach(l => {
+                const btn = document.getElementById(`quiz-opt-${qIdx}-${l}`);
+                const badge = document.getElementById(`quiz-badge-${qIdx}-${l}`);
+                if (!btn || !badge) return;
+
+                if (l === letter) {
+                    btn.className = "quiz-btn-" + qIdx + " w-full p-3 sm:p-3.5 rounded-2xl border-2 border-teal-600 bg-teal-50 text-teal-950 font-bold text-left text-xs sm:text-sm transition flex items-start gap-3 shadow-sm";
+                    badge.className = "w-6 h-6 rounded-lg bg-teal-600 text-white border border-teal-600 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5 transition";
+                } else {
+                    btn.className = "quiz-btn-" + qIdx + " w-full p-3 sm:p-3.5 rounded-2xl border border-slate-200 bg-slate-50 text-left text-xs sm:text-sm font-medium text-slate-700 hover:bg-teal-50/60 hover:border-teal-300 transition flex items-start gap-3";
+                    badge.className = "w-6 h-6 rounded-lg bg-white border border-slate-300 font-bold text-xs flex items-center justify-center text-slate-600 flex-shrink-0 mt-0.5 transition";
+                }
+            });
+
+            updateQuizProgress();
+        }
+
+        function togglePgkAnswer(qIdx) {
+            const checkboxes = document.querySelectorAll(`.pgk-chk-${qIdx}`);
+            const selected = [];
+            checkboxes.forEach(cb => {
+                const letter = cb.value;
+                const label = document.getElementById(`pgk-label-${qIdx}-${letter}`);
+                const badge = document.getElementById(`pgk-badge-${qIdx}-${letter}`);
+                if (cb.checked) {
+                    selected.push(letter);
+                    if (label) label.className = "flex items-start gap-3 p-3 sm:p-3.5 rounded-2xl border-2 border-teal-600 bg-teal-50 cursor-pointer text-xs sm:text-sm font-bold text-teal-950 transition shadow-sm";
+                    if (badge) badge.className = "w-6 h-6 rounded-lg bg-teal-600 text-white border border-teal-600 font-bold text-xs flex items-center justify-center flex-shrink-0 transition";
+                } else {
+                    if (label) label.className = "flex items-start gap-3 p-3 sm:p-3.5 rounded-2xl border border-slate-200 bg-slate-50 cursor-pointer hover:bg-teal-50/60 hover:border-teal-300 transition text-xs sm:text-sm font-medium text-slate-700";
+                    if (badge) badge.className = "w-6 h-6 rounded-lg bg-white border border-slate-300 font-bold text-xs flex items-center justify-center text-slate-600 flex-shrink-0 transition";
+                }
+            });
+
+            studentAnswers[qIdx] = selected;
+            updateQuizProgress();
+        }
+
+        function countAnsweredQuestions() {
+            let count = 0;
+            quizList.forEach((q, idx) => {
+                if (q.type === 'PG') {
+                    if (studentAnswers[idx]) count++;
+                } else {
+                    if (Array.isArray(studentAnswers[idx]) && studentAnswers[idx].length > 0) count++;
+                }
+            });
+            return count;
+        }
+
+        function updateQuizProgress() {
+            const count = countAnsweredQuestions();
+            const textEl = document.getElementById('quiz-progress-text');
+            if (textEl) {
+                textEl.innerText = `${count} dari ${quizList.length} soal sudah dijawab`;
+            }
+        }
+
+        async function submitUjiKompetensi() {
+            if (!activeStudentName || !activeStudentClass) {
+                alert("Identitas siswa belum dipilih.");
+                return;
+            }
+
+            const answered = countAnsweredQuestions();
+            if (answered < quizList.length) {
+                let proceed = false;
+                if (typeof Swal !== 'undefined') {
+                    const res = await Swal.fire({
+                        title: "Soal Belum Lengkap",
+                        text: `Masih ada ${quizList.length - answered} butir soal yang belum dijawab. Apakah kamu yakin ingin mengirim sekarang?`,
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#0d9488",
+                        cancelButtonColor: "#94a3b8",
+                        confirmButtonText: "Tetap Kirim",
+                        cancelButtonText: "Cek Lagi"
+                    });
+                    proceed = res.isConfirmed;
+                } else {
+                    proceed = confirm(`Masih ada ${quizList.length - answered} butir soal yang belum dijawab. Apakah yakin tetap ingin mengirimkan nilai?`);
+                }
+                if (!proceed) return;
+            } else {
+                let proceed = false;
+                if (typeof Swal !== 'undefined') {
+                    const res = await Swal.fire({
+                        title: "Kirim Jawaban",
+                        text: "Apakah kamu yakin semua jawaban sudah tepat dan siap dikirim ke Rekap Nilai Guru?",
+                        icon: "question",
+                        showCancelButton: true,
+                        confirmButtonColor: "#0d9488",
+                        cancelButtonColor: "#94a3b8",
+                        confirmButtonText: "Ya, Kirim Sekarang",
+                        cancelButtonText: "Periksa Lagi"
+                    });
+                    proceed = res.isConfirmed;
+                } else {
+                    proceed = confirm("Apakah kamu yakin seluruh jawaban sudah terisi dan siap dikirim ke Rekap Nilai?");
+                }
+                if (!proceed) return;
+            }
+
+            let totalCorrect = 0;
+            const details = [];
+
+            quizList.forEach((q, idx) => {
+                let isCorrect = false;
+                if (q.type === 'PG') {
+                    isCorrect = studentAnswers[idx] === q.correctLetter;
+                } else {
+                    const userSelected = [...(studentAnswers[idx] || [])].sort();
+                    const correctSorted = [...q.correctLetters].sort();
+                    isCorrect = userSelected.length === correctSorted.length && userSelected.every((val, i) => val === correctSorted[i]);
+                }
+                if (isCorrect) totalCorrect++;
+                details.push(isCorrect);
+            });
+
+            const finalScore = Math.round((totalCorrect / quizList.length) * 100);
+
+            if (typeof Swal !== 'undefined') {
+                Swal.fire({
+                    title: "Mengirim Nilai",
+                    text: "Mohon tunggu, jawaban sedang disimpan ke Rekap Nilai...",
+                    allowOutsideClick: false,
+                    didOpen: () => Swal.showLoading()
+                });
+            }
+
+            const GAS_URL = "https://script.google.com/macros/s/AKfycbwJ5xTkkYn8CuWU2cax8NdlkKXCMn5uCOy_68FaVJxXvFhFw9qu6ihCl4hvan7FpZ5niA/exec";
+            const appId = 'belajaronline-b5512';
+            const colPath = `artifacts/${appId}/public/data/scores_2026`;
+
+            const payload = {
+                name: activeStudentName.toUpperCase().trim(),
+                kelas: activeStudentClass,
+                score: parseInt(finalScore),
+                materi: "Akidah Akhlak: Sifat Wajib, Mustahil, Jaiz Allah",
+                type: "Uji Kompetensi",
+                details: details,
+                date: new Date().toLocaleDateString('id-ID'),
+                timestamp: Date.now(),
+                uid: "anonymous-user"
+            };
+
+            try {
+                const res = await fetch(GAS_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "text/plain" },
+                    body: JSON.stringify({ action: "addDoc", path: colPath, data: payload })
+                });
+                const result = await res.json();
+                if (result.status !== "success") throw new Error(result.message || "Gagal menyimpan");
+            } catch (err) {
+                console.warn("Gagal terhubung ke GAS, simpan ke memori lokal:", err);
+                try {
+                    const localKey = 'offline_scores_2026';
+                    const list = JSON.parse(localStorage.getItem(localKey) || '[]');
+                    list.push(payload);
+                    localStorage.setItem(localKey, JSON.stringify(list));
+                } catch(e) {}
+            }
+
+            if (typeof Swal !== 'undefined') {
+                Swal.close();
+            }
+
+            document.getElementById('quiz-container').classList.add('hidden');
+
+            const summaryBox = document.getElementById('quiz-result-summary');
+            const scoreDisplay = document.getElementById('quiz-score-val');
+            const descDisplay = document.getElementById('quiz-result-text');
+            const nameDisplay = document.getElementById('summary-student-name');
+            const classDisplay = document.getElementById('summary-student-class');
+
+            if (nameDisplay) nameDisplay.innerText = activeStudentName;
+            if (classDisplay) classDisplay.innerText = `Kelas ${activeStudentClass}`;
+            if (scoreDisplay) scoreDisplay.innerText = `${finalScore} / 100`;
+            if (descDisplay) {
+                descDisplay.innerText = `Alhamdulillah, Ananda ${activeStudentName} dari Kelas ${activeStudentClass} berhasil menyelesaikan Uji Kompetensi. Nilai dan rekapan jawaban telah terkirim ke database Rekap Nilai Guru.`;
+            }
+
+            summaryBox.classList.remove('hidden');
+            summaryBox.scrollIntoView({ behavior: 'smooth' });
+
+            if (finalScore >= 75 && typeof confetti === 'function') {
+                confetti({ particleCount: 100, spread: 80, origin: { y: 0.6 } });
+            }
+        }
+
+        // Initialize on DOM load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSifatTable('all');
+            initClassDropdown();
+            initGameRound();
+        });
+    </script>
+</body>
+</html>

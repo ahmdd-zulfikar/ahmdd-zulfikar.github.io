@@ -91,20 +91,10 @@
                     </a>
 
                     <!-- Menu Terpilih Uji Kompetensi -->
-                    <a href="../formatif/" onclick="switchExamPackage('formatif'); return false;" id="nav-formatif" class="text-sm font-bold text-teal-600 relative after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-0.5 after:bg-teal-600 transition-colors">
+                    <a href="../formatif/" target="_top" id="nav-formatif" class="text-sm font-bold text-teal-600 relative after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-0.5 after:bg-teal-600 transition-colors py-4">
                         Uji Kompetensi
                     </a>
 
-                    <!-- Menu Remedial Fikih -->
-                    <a href="../formatif/?paket=remedial-fikih" onclick="switchExamPackage('remedial-fikih'); return false;" id="nav-remedial-fikih" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
-                        Remedial Fikih
-                    </a>
-
-                    <!-- Menu Remedial Akidah -->
-                    <a href="../formatif/?paket=remedial-akidah" onclick="switchExamPackage('remedial-akidah'); return false;" id="nav-remedial-akidah" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
-                        Remedial Akidah
-                    </a>
-                    
                     <a href="../nilai-siswa/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
                         Rekap Nilai
                     </a>
@@ -122,7 +112,6 @@
         <!-- Mobile Menu Hidden by default -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full max-h-[85vh] overflow-y-auto">
             <div class="px-2 pt-4 pb-6 space-y-1">
-                
                 <!-- Standalone Link Fiqih Mobile -->
                 <div class="px-2 mt-1">
                     <a href="../fiqih/" target="_top" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Fiqih</a>
@@ -135,17 +124,7 @@
 
                 <!-- Menu Terpilih Mobile -->
                 <div class="px-2 mt-1">
-                    <a href="../formatif/" onclick="switchExamPackage('formatif'); document.getElementById('mobile-menu').classList.add('hidden'); return false;" id="mobile-nav-formatif" class="block px-3 py-3 rounded-md text-base font-bold text-teal-700 bg-teal-50 border-l-4 border-teal-600 transition-colors">Uji Kompetensi Formatif</a>
-                </div>
-
-                <!-- Menu Remedial Fikih Mobile -->
-                <div class="px-2 mt-1">
-                    <a href="../formatif/?paket=remedial-fikih" onclick="switchExamPackage('remedial-fikih'); document.getElementById('mobile-menu').classList.add('hidden'); return false;" id="mobile-nav-remedial-fikih" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Remedial Fikih STS</a>
-                </div>
-
-                <!-- Menu Remedial Akidah Mobile -->
-                <div class="px-2 mt-1">
-                    <a href="../formatif/?paket=remedial-akidah" onclick="switchExamPackage('remedial-akidah'); document.getElementById('mobile-menu').classList.add('hidden'); return false;" id="mobile-nav-remedial-akidah" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Remedial Akidah Akhlak STS</a>
+                    <a href="../formatif/" target="_top" id="mobile-nav-formatif" class="block px-3 py-3 rounded-md text-base font-bold text-teal-700 bg-teal-50 border-l-4 border-teal-600 transition-colors">Uji Kompetensi</a>
                 </div>
 
                 <!-- Standalone Links Mobile -->
@@ -189,7 +168,33 @@
             </div>
         </div>
 
-        <div class="w-full mb-6" id="cbt-container">
+        <!-- Card Belum Tersedia -->
+        <div id="card-belum-tersedia" class="w-full bg-white rounded-3xl shadow-sm border border-slate-200 p-8 sm:p-12 text-center my-4 transition-all">
+            <div class="w-20 h-20 rounded-3xl bg-amber-50 text-amber-500 flex items-center justify-center text-3xl mx-auto mb-6 shadow-inner border border-amber-100">
+                <i class="fa-solid fa-hourglass-half"></i>
+            </div>
+            <span class="inline-block text-xs font-bold text-amber-700 bg-amber-100/80 border border-amber-200 px-3.5 py-1 rounded-full uppercase tracking-wider mb-4">
+                Uji Kompetensi
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-800 font-heading mb-3">
+                Belum Tersedia
+            </h2>
+            <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-md mx-auto mb-8">
+                Menu Uji Kompetensi pada halaman ini sedang dalam penyesuaian dan belum tersedia. Silakan kerjakan latihan soal atau uji kompetensi langsung pada masing-masing modul materi Fiqih dan Akidah Akhlak.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+                <a href="../fiqih/" target="_top" class="w-full sm:w-auto flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm shadow-sm transition-all hover:scale-[1.02]">
+                    <i class="fa-solid fa-mosque"></i>
+                    <span>Materi Fiqih</span>
+                </a>
+                <a href="../akidah-akhlak/" target="_top" class="w-full sm:w-auto flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm border border-slate-200 transition-all hover:scale-[1.02]">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Materi Akidah Akhlak</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="w-full mb-6 hidden" id="cbt-container">
             <!-- Package Selection Switcher -->
             <div class="w-full mb-6" id="package-selector-area">
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 p-1.5 bg-slate-200/90 rounded-2xl max-w-xl mx-auto shadow-inner">
@@ -980,6 +985,8 @@
         }
 
         function resetToModeSelection() {
+            const cbtEl = document.getElementById('cbt-container');
+            if (cbtEl) cbtEl.classList.add('hidden');
             document.getElementById('state-setup').classList.add('hidden');
             document.getElementById('state-test').classList.add('hidden');
             document.getElementById('state-result').classList.add('hidden');
