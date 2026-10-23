@@ -102,6 +102,438 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
     </style>
+    <style id="warm-clay-theme">
+    /* ==========================================================================
+       GREEN & BLUE PASTEL CLAYMORPHISM THEME - BELAJAR ONLINE
+       ========================================================================== */
+    :root {
+        --clay-bg: #F3F8F6;
+        --clay-bg-alt: #E7F1EE;
+        --clay-surface: #FFFFFF;
+        --clay-mint: #DFF3EA;
+        --clay-mint-accent: #2E9688;
+        --clay-mint-dark: #1F786C;
+        --clay-sage: #D6EAE2;
+        --clay-sky: #DFEEFC;
+        --clay-sky-accent: #3B82F6;
+        --clay-aqua: #DCF3F5;
+        --clay-aqua-accent: #2596A8;
+        --clay-indigo: #E3E9FC;
+        --clay-indigo-accent: #5472E8;
+        --clay-text-dark: #18312E;
+        --clay-text-muted: #4A6460;
+    }
+
+    body {
+        background-color: var(--clay-bg) !important;
+        color: var(--clay-text-dark) !important;
+        background-image: radial-gradient(#D1E3DD 1px, transparent 1px) !important;
+        background-size: 24px 24px !important;
+    }
+
+    ::selection {
+        background-color: #C8E9DD !important;
+        color: #18312E !important;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #E8F2EE !important;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #B3CFC6 !important;
+        border-radius: 9999px !important;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #94B9AD !important;
+    }
+
+    /* Section Backgrounds */
+    .bg-slate-50 {
+        background-color: #F3F8F6 !important;
+    }
+    .bg-slate-100 {
+        background-color: #E7F1EE !important;
+    }
+    section.bg-white {
+        background-color: #F8FCFA !important;
+    }
+    .border-slate-200, .border-slate-100 {
+        border-color: #DCECE6 !important;
+    }
+
+    /* Typography */
+    .text-slate-800, .text-slate-900 {
+        color: #18312E !important;
+    }
+    .text-slate-700 {
+        color: #2A4743 !important;
+    }
+    .text-slate-600, .text-slate-500 {
+        color: #4A6460 !important;
+    }
+
+    /* ================= NAVBAR - SOFT SAGE MINT CLAY ================= */
+    nav {
+        background: rgba(214, 234, 226, 0.94) !important;
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.88) !important;
+        box-shadow: 0 8px 24px -6px rgba(70, 120, 110, 0.14), inset 0 1px 2px rgba(255, 255, 255, 0.88) !important;
+    }
+    nav a > div.bg-teal-600,
+    nav .w-8.h-8.bg-teal-600 {
+        background: linear-gradient(145deg, #2E9688 0%, #1F786C 100%) !important;
+        color: #FFFFFF !important;
+        border-radius: 0.75rem !important;
+        box-shadow: 0 4px 10px rgba(31, 120, 108, 0.32), inset 0 1px 2px rgba(255, 255, 255, 0.5) !important;
+    }
+    nav span.font-heading {
+        color: #18312E !important;
+    }
+    nav span.font-heading span.text-teal-600 {
+        color: #2563EB !important;
+    }
+    nav .hidden.md\:flex > a,
+    nav .hidden.md\:flex > div > button {
+        color: #2D4C47 !important;
+        font-weight: 600 !important;
+        padding: 0.45rem 0.95rem !important;
+        border-radius: 0.9rem !important;
+        transition: all 0.25s ease !important;
+    }
+    nav .hidden.md\:flex > a:hover,
+    nav .hidden.md\:flex > div > button:hover {
+        background: rgba(255, 255, 255, 0.6) !important;
+        color: #1F786C !important;
+    }
+    nav .hidden.md\:flex > a.text-teal-600,
+    nav .hidden.md\:flex > a.font-bold {
+        background: #FFFFFF !important;
+        color: #18312E !important;
+        padding: 0.45rem 1.1rem !important;
+        border-radius: 0.95rem !important;
+        box-shadow: 0 6px 14px -3px rgba(70, 120, 110, 0.16), inset 0 2px 3px #FFFFFF !important;
+    }
+    nav .hidden.md\:flex > a.after\:bg-teal-600::after,
+    nav .hidden.md\:flex > a::after {
+        display: none !important;
+    }
+    #mobile-menu {
+        background: #EBF5F1 !important;
+        border-top: 2px solid #FFFFFF !important;
+    }
+    #mobile-menu a.bg-teal-50 {
+        background: #FFFFFF !important;
+        color: #1F786C !important;
+        border-left-color: #2E9688 !important;
+        box-shadow: 0 4px 12px rgba(70, 120, 110, 0.1) !important;
+    }
+
+    /* ================= HERO BANNER - MINT & SKY BLUE PASTEL CLAY ================= */
+    header.bg-teal-900,
+    header.bg-gradient-to-br,
+    section#beranda.bg-teal-900,
+    main > section.bg-teal-900 {
+        background: linear-gradient(135deg, #DCF2E9 0%, #D2EDF2 50%, #CFE5FA 100%) !important;
+        border-bottom: 3px solid rgba(255, 255, 255, 0.88) !important;
+        box-shadow: 0 14px 32px -8px rgba(65, 130, 145, 0.18), inset 0 2px 6px rgba(255, 255, 255, 0.85) !important;
+    }
+    header > div.absolute.inset-0,
+    section#beranda > div.absolute.inset-0,
+    main > section.bg-teal-900 > div.absolute.inset-0 {
+        background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.6) 0%, rgba(210, 237, 242, 0.25) 60%, transparent 100%) !important;
+    }
+    header h1, header h2, header h3,
+    section#beranda h1, section#beranda h2,
+    main > section.bg-teal-900 h1 {
+        color: #18312E !important;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) !important;
+    }
+    header h1 span, header h2 span, header h3.text-amber-400,
+    section#beranda h1 span.text-teal-400,
+    main > section.bg-teal-900 h1 span {
+        color: #1D63B8 !important;
+    }
+    header p, header p span,
+    section#beranda p,
+    main > section.bg-teal-900 p {
+        color: #385854 !important;
+    }
+    header .rounded-full.bg-teal-800\/80,
+    header .rounded-full.bg-teal-800,
+    header span.rounded-full,
+    header div.rounded-full,
+    main > section.bg-teal-900 .rounded-full.glass-effect {
+        background: #FFFFFF !important;
+        color: #1F786C !important;
+        border: 1.5px solid #FFFFFF !important;
+        box-shadow: 0 4px 12px rgba(65, 130, 120, 0.14), inset 0 1px 2px #FFFFFF !important;
+        font-weight: 700 !important;
+    }
+    header .rounded-full i,
+    main > section.bg-teal-900 .rounded-full i {
+        color: #2563EB !important;
+    }
+    /* Hero Buttons */
+    header a.bg-amber-500,
+    header button.bg-amber-500 {
+        background: linear-gradient(180deg, #2E9688 0%, #1F786C 100%) !important;
+        color: #FFFFFF !important;
+        border: 1.5px solid rgba(255, 255, 255, 0.55) !important;
+        border-radius: 1rem !important;
+        box-shadow: 0 8px 18px -4px rgba(31, 120, 108, 0.4), inset 0 2px 3px rgba(255, 255, 255, 0.45) !important;
+    }
+    header a.bg-amber-500:hover,
+    header button.bg-amber-500:hover {
+        background: linear-gradient(180deg, #268578 0%, #18665B 100%) !important;
+        transform: translateY(-2px) !important;
+    }
+    header a.bg-teal-800\/80,
+    header a.bg-teal-800,
+    header button.bg-teal-800\/80 {
+        background: #FFFFFF !important;
+        color: #1E3A36 !important;
+        border: 1.5px solid #FFFFFF !important;
+        border-radius: 1rem !important;
+        box-shadow: 0 8px 18px -4px rgba(70, 125, 140, 0.18), inset 0 2px 3px #FFFFFF !important;
+        font-weight: 700 !important;
+    }
+    header a.bg-teal-800\/80:hover,
+    header a.bg-teal-800:hover {
+        background: #F8FCFA !important;
+        transform: translateY(-2px) !important;
+    }
+    header a.bg-teal-800\/80 i,
+    header a.bg-teal-800 i {
+        color: #2563EB !important;
+    }
+
+    /* ================= WHITE CLAY SURFACES & CONTAINERS ================= */
+    main .bg-white.rounded-2xl,
+    main .bg-white.rounded-3xl,
+    main .bg-white.rounded-xl {
+        background-color: #FFFFFF !important;
+        border: 2px solid #E1EFEA !important;
+        box-shadow: 0 12px 28px -6px rgba(80, 130, 120, 0.12), 0 4px 10px -2px rgba(80, 130, 120, 0.06), inset 0 2px 4px rgba(255, 255, 255, 0.9) !important;
+    }
+
+    /* ================= 4-COLOR GREEN & BLUE PASTEL CLAY CARDS ================= */
+    #cards-container > div h3,
+    #modul .grid > * > div h3,
+    #fitur-digital .grid > div h3 {
+        color: #18312E !important;
+    }
+    #cards-container > div p,
+    #modul .grid > * > div p,
+    #fitur-digital .grid > div p {
+        color: #3F5E5A !important;
+    }
+    #modul .grid > * > div .rounded-bl-full {
+        background: rgba(255, 255, 255, 0.45) !important;
+    }
+
+    /* Card 1: Soft Emerald Mint */
+    #cards-container > div:nth-child(4n+1),
+    #modul .grid > :nth-child(4n+1) > div,
+    #fitur-digital .grid > div:nth-child(4n+1),
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+1),
+    .space-y-4 > a:nth-child(4n+1) > .menu-card {
+        background: linear-gradient(145deg, #DFF3EA 0%, #CDE9DC 100%) !important;
+        border: 2px solid rgba(255, 255, 255, 0.88) !important;
+        border-radius: 1.5rem !important;
+        box-shadow: 0 12px 26px -6px rgba(85, 160, 135, 0.2), 0 4px 10px -2px rgba(85, 160, 135, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.88) !important;
+    }
+    #cards-container > div:nth-child(4n+1) .w-16.h-16,
+    #modul .grid > :nth-child(4n+1) > div .w-14.h-14,
+    #fitur-digital .grid > div:nth-child(4n+1) > div.w-20,
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+1) > div:first-child {
+        background: linear-gradient(145deg, #389E7F 0%, #288266 100%) !important;
+        color: #FFFFFF !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        box-shadow: 0 6px 14px rgba(40, 130, 102, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.45) !important;
+    }
+    #cards-container > div:nth-child(4n+1) span.w-full,
+    #modul .grid > :nth-child(4n+1) span.w-full {
+        background: #FFFFFF !important;
+        color: #236E56 !important;
+        border-color: #FFFFFF !important;
+        box-shadow: 0 4px 10px rgba(85, 160, 135, 0.16) !important;
+    }
+
+    /* Card 2: Soft Sky Blue */
+    #cards-container > div:nth-child(4n+2),
+    #modul .grid > :nth-child(4n+2) > div,
+    #fitur-digital .grid > div:nth-child(4n+2),
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+2),
+    .space-y-4 > a:nth-child(4n+2) > .menu-card {
+        background: linear-gradient(145deg, #DFEEFC 0%, #CCE2F8 100%) !important;
+        border: 2px solid rgba(255, 255, 255, 0.88) !important;
+        border-radius: 1.5rem !important;
+        box-shadow: 0 12px 26px -6px rgba(90, 145, 205, 0.2), 0 4px 10px -2px rgba(90, 145, 205, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.88) !important;
+    }
+    #cards-container > div:nth-child(4n+2) .w-16.h-16,
+    #modul .grid > :nth-child(4n+2) > div .w-14.h-14,
+    #fitur-digital .grid > div:nth-child(4n+2) > div.w-20,
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+2) > div:first-child {
+        background: linear-gradient(145deg, #4A90E2 0%, #3576C4 100%) !important;
+        color: #FFFFFF !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        box-shadow: 0 6px 14px rgba(53, 118, 196, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.45) !important;
+    }
+    #cards-container > div:nth-child(4n+2) span.w-full,
+    #modul .grid > :nth-child(4n+2) span.w-full {
+        background: #FFFFFF !important;
+        color: #2B62A6 !important;
+        border-color: #FFFFFF !important;
+        box-shadow: 0 4px 10px rgba(90, 145, 205, 0.16) !important;
+    }
+
+    /* Card 3: Soft Aqua Cyan */
+    #cards-container > div:nth-child(4n+3),
+    #modul .grid > :nth-child(4n+3) > div,
+    #fitur-digital .grid > div:nth-child(4n+3),
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+3),
+    .space-y-4 > a:nth-child(4n+3) > .menu-card {
+        background: linear-gradient(145deg, #DCF3F5 0%, #C7E8EC 100%) !important;
+        border: 2px solid rgba(255, 255, 255, 0.88) !important;
+        border-radius: 1.5rem !important;
+        box-shadow: 0 12px 26px -6px rgba(80, 160, 175, 0.2), 0 4px 10px -2px rgba(80, 160, 175, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.88) !important;
+    }
+    #cards-container > div:nth-child(4n+3) .w-16.h-16,
+    #modul .grid > :nth-child(4n+3) > div .w-14.h-14,
+    #fitur-digital .grid > div:nth-child(4n+3) > div.w-20,
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+3) > div:first-child {
+        background: linear-gradient(145deg, #2FA4B5 0%, #218696 100%) !important;
+        color: #FFFFFF !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        box-shadow: 0 6px 14px rgba(33, 134, 150, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.45) !important;
+    }
+    #cards-container > div:nth-child(4n+3) span.w-full,
+    #modul .grid > :nth-child(4n+3) span.w-full {
+        background: #FFFFFF !important;
+        color: #1D6F7D !important;
+        border-color: #FFFFFF !important;
+        box-shadow: 0 4px 10px rgba(80, 160, 175, 0.16) !important;
+    }
+
+    /* Card 4: Soft Periwinkle Cobalt Blue */
+    #cards-container > div:nth-child(4n+4),
+    #modul .grid > :nth-child(4n+4) > div,
+    #fitur-digital .grid > div:nth-child(4n+4),
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+4),
+    .space-y-4 > a:nth-child(4n+4) > .menu-card {
+        background: linear-gradient(145deg, #E3E9FC 0%, #D2DCF9 100%) !important;
+        border: 2px solid rgba(255, 255, 255, 0.88) !important;
+        border-radius: 1.5rem !important;
+        box-shadow: 0 12px 26px -6px rgba(100, 125, 205, 0.2), 0 4px 10px -2px rgba(100, 125, 205, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.88) !important;
+    }
+    #cards-container > div:nth-child(4n+4) .w-16.h-16,
+    #modul .grid > :nth-child(4n+4) > div .w-14.h-14,
+    #fitur-digital .grid > div:nth-child(4n+4) > div.w-20,
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+4) > div:first-child {
+        background: linear-gradient(145deg, #5C7CFA 0%, #4463DD 100%) !important;
+        color: #FFFFFF !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        box-shadow: 0 6px 14px rgba(68, 99, 221, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.45) !important;
+    }
+    #cards-container > div:nth-child(4n+4) span.w-full,
+    #modul .grid > :nth-child(4n+4) span.w-full {
+        background: #FFFFFF !important;
+        color: #3B56C4 !important;
+        border-color: #FFFFFF !important;
+        box-shadow: 0 4px 10px rgba(100, 125, 205, 0.16) !important;
+    }
+
+    /* Primary Action Buttons & Active States */
+    button.bg-teal-600,
+    a.bg-teal-600,
+    button.bg-amber-500,
+    .saf-scenario-btn.active,
+    .tf-filter-btn.bg-teal-600 {
+        background: linear-gradient(180deg, #2E9688 0%, #1F786C 100%) !important;
+        border-color: #1B685E !important;
+        color: #FFFFFF !important;
+        box-shadow: 0 6px 14px -2px rgba(31, 120, 108, 0.35), inset 0 1.5px 2px rgba(255, 255, 255, 0.45) !important;
+    }
+    button.bg-teal-600:hover,
+    a.bg-teal-600:hover,
+    button.bg-amber-500:hover {
+        background: linear-gradient(180deg, #268578 0%, #18665B 100%) !important;
+    }
+
+    /* Badges & Soft Accents */
+    .bg-teal-50 {
+        background-color: #DFF3EA !important;
+    }
+    .border-teal-100, .border-teal-200 {
+        border-color: #BFE3D4 !important;
+    }
+    .text-teal-600, .text-teal-700, .text-teal-800 {
+        color: #1F786C !important;
+    }
+    .bg-amber-50 {
+        background-color: #DFEEFC !important;
+    }
+    .border-amber-200, .border-amber-100 {
+        border-color: #BZD9F7 !important;
+        border-color: #BDD9F7 !important;
+    }
+    .text-amber-700, .text-amber-800 {
+        color: #2563A8 !important;
+    }
+
+    /* Dark Containers inside Main */
+    .bg-emerald-950 {
+        background: linear-gradient(145deg, #1E564F 0%, #15403B 100%) !important;
+        border-color: #2E736A !important;
+        box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.2), 0 10px 24px -6px rgba(25, 75, 68, 0.25) !important;
+    }
+    .bg-teal-800,
+    .from-teal-900,
+    .from-teal-600.to-teal-800 {
+        background: linear-gradient(135deg, #267872 0%, #1D5E69 100%) !important;
+        border-color: #3B8E88 !important;
+    }
+    thead tr.bg-teal-900 {
+        background: linear-gradient(90deg, #2E8B82 0%, #256E85 100%) !important;
+    }
+
+    /* Content Modal */
+    #modal-header {
+        background: linear-gradient(135deg, #DCF2E9 0%, #D4E9FA 100%) !important;
+        border-bottom: 2px solid #FFFFFF !important;
+    }
+    #modal-body {
+        background-color: #F3F8F6 !important;
+    }
+
+    /* ================= FOOTER - SOFT SAGE MINT CLAY ================= */
+    footer.bg-teal-950,
+    footer {
+        background: linear-gradient(180deg, #D6EAE2 0%, #C7DFD6 100%) !important;
+        color: #2F4F4A !important;
+        border-top: 3px solid rgba(255, 255, 255, 0.88) !important;
+        box-shadow: inset 0 3px 6px rgba(255, 255, 255, 0.78) !important;
+    }
+    footer a.text-white,
+    footer .text-white,
+    footer span.font-heading {
+        color: #18312E !important;
+    }
+    footer .text-teal-500,
+    footer .text-teal-400 {
+        color: #2563EB !important;
+    }
+    footer p,
+    footer .text-teal-400\/80,
+    footer .text-teal-200 {
+        color: #3D5C57 !important;
+    }
+    footer .border-teal-900\/50,
+    footer .border-teal-900 {
+        border-color: rgba(47, 79, 74, 0.15) !important;
+    }
+</style>
 </head>
 
 <body class="selection:bg-teal-200 selection:text-teal-900 flex flex-col min-h-screen overflow-x-hidden">
@@ -199,6 +631,10 @@
                 <a href="#simulasi-saf"
                     class="bg-teal-800/80 hover:bg-teal-700 border border-teal-600 text-white px-6 sm:px-7 py-3 rounded-xl font-semibold transition inline-flex items-center gap-2 shadow-sm text-xs sm:text-sm">
                     <i class="fa-solid fa-arrows-split-up-and-left text-amber-400"></i> Simulasi Saf
+                </a>
+                <a href="#kuis-benar-salah"
+                    class="bg-teal-800/80 hover:bg-teal-700 border border-teal-600 text-white px-6 sm:px-7 py-3 rounded-xl font-semibold transition inline-flex items-center gap-2 shadow-sm text-xs sm:text-sm">
+                    <i class="fa-solid fa-bolt text-amber-400"></i> Kuis Benar Salah
                 </a>
                 <a href="#latihan"
                     class="bg-teal-800/80 hover:bg-teal-700 border border-teal-600 text-white px-6 sm:px-7 py-3 rounded-xl font-semibold transition inline-flex items-center gap-2 shadow-sm text-xs sm:text-sm">
@@ -1054,6 +1490,115 @@
             </div>
         </section>
 
+        <!-- ================= KUIS INTERAKTIF BENAR SALAH ================= -->
+        <section id="kuis-benar-salah" class="scroll-mt-24 py-14 bg-white border-t border-slate-200">
+            <div class="container mx-auto px-4 max-w-5xl">
+
+                <div class="text-center mb-8">
+                    <span
+                        class="text-xs font-bold text-amber-700 uppercase tracking-wider bg-amber-50 border border-amber-200 px-3.5 py-1 rounded-full inline-block mb-2">
+                        <i class="fa-solid fa-bolt text-amber-500 mr-1"></i> Latihan Mandiri Interaktif
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-800 font-heading">
+                        Kuis Interaktif Benar atau Salah
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1 max-w-2xl mx-auto">
+                        Uji ketangkasan pemahamanmu mengenai ketentuan makmum masbuq, makmum muwafiq, posisi saf makmum,
+                        cara mengingatkan imam, serta cara menggantikan imam sebelum mengerjakan Uji Kompetensi.
+                    </p>
+                </div>
+
+                <!-- Control Panel: Filter Topik & Statistik Skor -->
+                <div class="bg-slate-50 rounded-3xl p-4 sm:p-6 border border-slate-200 shadow-sm mb-8 space-y-4">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                        <!-- Filter Buttons -->
+                        <div class="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                            <button onclick="filterTrueFalseQuiz('all')" id="tf-filter-all"
+                                class="tf-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition shadow-sm bg-teal-600 text-white flex items-center gap-1.5">
+                                <i class="fa-solid fa-layer-group"></i>
+                                <span>Semua Topik</span>
+                            </button>
+                            <button onclick="filterTrueFalseQuiz('masbuq')" id="tf-filter-masbuq"
+                                class="tf-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition border border-slate-200 bg-white text-slate-700 hover:bg-teal-50 hover:text-teal-700 flex items-center gap-1.5">
+                                <i class="fa-solid fa-user-clock text-amber-500"></i>
+                                <span>Makmum Masbuq</span>
+                            </button>
+                            <button onclick="filterTrueFalseQuiz('muwafiq')" id="tf-filter-muwafiq"
+                                class="tf-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition border border-slate-200 bg-white text-slate-700 hover:bg-teal-50 hover:text-teal-700 flex items-center gap-1.5">
+                                <i class="fa-solid fa-user-check text-teal-600"></i>
+                                <span>Makmum Muwafiq</span>
+                            </button>
+                            <button onclick="filterTrueFalseQuiz('saf')" id="tf-filter-saf"
+                                class="tf-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition border border-slate-200 bg-white text-slate-700 hover:bg-teal-50 hover:text-teal-700 flex items-center gap-1.5">
+                                <i class="fa-solid fa-people-line text-indigo-600"></i>
+                                <span>Posisi Saf Makmum</span>
+                            </button>
+                            <button onclick="filterTrueFalseQuiz('ingatkan')" id="tf-filter-ingatkan"
+                                class="tf-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition border border-slate-200 bg-white text-slate-700 hover:bg-teal-50 hover:text-teal-700 flex items-center gap-1.5">
+                                <i class="fa-solid fa-bell text-rose-500"></i>
+                                <span>Mengingatkan Imam</span>
+                            </button>
+                            <button onclick="filterTrueFalseQuiz('ganti')" id="tf-filter-ganti"
+                                class="tf-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition border border-slate-200 bg-white text-slate-700 hover:bg-teal-50 hover:text-teal-700 flex items-center gap-1.5">
+                                <i class="fa-solid fa-repeat text-purple-600"></i>
+                                <span>Menggantikan Imam</span>
+                            </button>
+                        </div>
+
+                        <!-- Score & Reset Bar -->
+                        <div class="flex items-center gap-3 flex-wrap justify-center">
+                            <div class="bg-white px-3.5 py-2 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 flex items-center gap-2 shadow-sm">
+                                <span class="text-slate-400">Terjawab:</span>
+                                <span id="tf-answered-count" class="text-teal-700">0</span>
+                                <span class="text-slate-300">/</span>
+                                <span id="tf-total-count" class="text-slate-600">20</span>
+                            </div>
+                            <div class="bg-emerald-50 px-3.5 py-2 rounded-xl border border-emerald-200 text-xs font-bold text-emerald-800 flex items-center gap-2 shadow-sm">
+                                <i class="fa-solid fa-star text-amber-500"></i>
+                                <span>Benar:</span>
+                                <span id="tf-correct-count" class="text-emerald-700 text-sm">0</span>
+                            </div>
+                            <button onclick="resetTrueFalseQuiz()"
+                                class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-teal-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-solid fa-rotate-right"></i>
+                                <span>Acak Ulang</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                        <div id="tf-progress-bar" class="bg-teal-600 h-full transition-all duration-300" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Grid Kartu Pernyataan Benar Salah -->
+                <div id="tf-cards-container" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <!-- Dynamic True/False Cards Rendered by JS -->
+                </div>
+
+                <!-- Summary Box Saat Semua Terjawab -->
+                <div id="tf-summary-box"
+                    class="hidden mt-8 bg-gradient-to-br from-teal-900 to-emerald-950 text-white p-6 sm:p-8 rounded-3xl text-center shadow-xl border border-teal-700">
+                    <div class="w-16 h-16 bg-amber-400/20 text-amber-400 rounded-2xl flex items-center justify-center mx-auto text-3xl mb-3 border border-amber-400/30">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-extrabold font-heading mb-1">
+                        Kuis Benar Salah Selesai!
+                    </h3>
+                    <p id="tf-summary-text" class="text-xs sm:text-sm text-teal-100 max-w-md mx-auto mb-5">
+                        Kamu telah menyelesaikan seluruh pernyataan pada kuis interaktif ini.
+                    </p>
+                    <button onclick="resetTrueFalseQuiz()"
+                        class="px-6 py-3 bg-amber-500 hover:bg-amber-400 text-teal-950 font-bold text-xs sm:text-sm rounded-xl transition inline-flex items-center gap-2 shadow-md">
+                        <i class="fa-solid fa-shuffle"></i>
+                        <span>Mainkan Lagi & Acak Soal</span>
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
         <!-- ================= UJI KOMPETENSI INTERAKTIF ================= -->
         <section id="latihan" class="py-14 container mx-auto px-4 max-w-4xl">
 
@@ -1715,6 +2260,366 @@
             document.getElementById('quiz-login-card').scrollIntoView({ behavior: 'smooth' });
         }
 
+        // ================= LOGIKA KUIS INTERAKTIF BENAR SALAH =================
+        const trueFalseQuestions = [
+            {
+                id: 1,
+                category: 'muwafiq',
+                categoryLabel: 'Makmum Muwafiq',
+                statement: "Makmum muwafiq adalah makmum yang mendapati imam sedang berdiri dan memiliki waktu yang cukup untuk membaca Surah Al-Fatihah secara sempurna sebelum imam rukuk.",
+                answer: true,
+                explanation: "Pernyataan ini benar. Makmum muwafiq mengikuti salat bersama imam sejak awal berdirinya imam sehingga memiliki waktu cukup menuntaskan bacaan Surah Al-Fatihah."
+            },
+            {
+                id: 2,
+                category: 'muwafiq',
+                categoryLabel: 'Makmum Muwafiq',
+                statement: "Seorang makmum muwafiq diperbolehkan meninggalkan bacaan Surah Al-Fatihah secara sengaja karena seluruh bacaannya sudah ditanggung oleh imam.",
+                answer: false,
+                explanation: "Pernyataan ini salah. Makmum muwafiq tetap wajib menyelesaikan sendiri bacaan Surah Al-Fatihah miliknya hingga tuntas."
+            },
+            {
+                id: 3,
+                category: 'muwafiq',
+                categoryLabel: 'Makmum Muwafiq',
+                statement: "Apabila imam sudah bergerak rukuk sedangkan makmum muwafiq belum selesai membaca Al-Fatihah karena bacaannya lambat secara alami, makmum muwafiq diberi keringanan tertinggal dari imam hingga maksimal tiga rukun panjang untuk menyempurnakan Al-Fatihah.",
+                answer: true,
+                explanation: "Pernyataan ini benar. Dalam fikih Syafii, makmum muwafiq yang belum selesai membaca Al-Fatihah wajib menyelesaikannya dan mendapat toleransi tertinggal hingga tiga rukun panjang."
+            },
+            {
+                id: 4,
+                category: 'muwafiq',
+                categoryLabel: 'Makmum Muwafiq',
+                statement: "Makmum yang baru datang dan langsung takbiratul ihram tepat ketika imam sedang bangun dari rukuk menuju iktidal disebut sebagai makmum muwafiq.",
+                answer: false,
+                explanation: "Pernyataan ini salah. Makmum yang mendapati imam sudah rukuk atau sudah iktidal tergolong sebagai makmum masbuq, bukan makmum muwafiq."
+            },
+            {
+                id: 5,
+                category: 'masbuq',
+                categoryLabel: 'Makmum Masbuq',
+                statement: "Makmum masbuq yang sempat takbiratul ihram lalu langsung ikut rukuk bersama imam dengan tumakninah sebelum imam bangkit iktidal, maka ia terhitung mendapatkan satu rakaat tersebut.",
+                answer: true,
+                explanation: "Pernyataan ini benar. Batas mendapatkan rakaat bagi makmum masbuq adalah sempat rukuk bersama imam dengan tumakninah."
+            },
+            {
+                id: 6,
+                category: 'masbuq',
+                categoryLabel: 'Makmum Masbuq',
+                statement: "Jika makmum masbuq mendapati imam sedang sujud, maka makmum tersebut harus menunggu berdiri diam sampai imam bangkit ke rakaat berikutnya baru kemudian takbiratul ihram.",
+                answer: false,
+                explanation: "Pernyataan ini salah. Makmum masbuq disunnahkan langsung takbiratul ihram dan segera mengikuti posisi gerakan imam saat itu juga meskipun rakaat tersebut belum dihitung."
+            },
+            {
+                id: 7,
+                category: 'masbuq',
+                categoryLabel: 'Makmum Masbuq',
+                statement: "Makmum masbuq yang baru bergabung saat imam sudah berada pada posisi iktidal tidak mendapatkan hitungan rakaat tersebut dan wajib menambah rakaat yang tertinggal setelah imam mengucapkan salam.",
+                answer: true,
+                explanation: "Pernyataan ini benar. Karena tidak mendapati rukuk bersama imam, maka rakaat itu tidak terhitung sehingga makmum wajib berdiri lagi menambah kekurangan rakaatnya seusai imam salam."
+            },
+            {
+                id: 8,
+                category: 'masbuq',
+                categoryLabel: 'Makmum Masbuq',
+                statement: "Bagi makmum masbuq yang tidak cukup waktu membaca Surah Al-Fatihah karena imam keburu rukuk, maka sisa bacaan Al-Fatihah ditanggung oleh imam dan makmum langsung ikut rukuk bersama imam.",
+                answer: true,
+                explanation: "Pernyataan ini benar. Makmum masbuq membaca Al-Fatihah sedapatnya saja, dan ketika imam rukuk maka makmum masbuq langsung rukuk mengikuti imam."
+            },
+            {
+                id: 9,
+                category: 'saf',
+                categoryLabel: 'Posisi Saf Makmum',
+                statement: "Apabila salat berjemaah hanya diikuti oleh satu orang makmum pria dewasa bersama imam pria, maka makmum tersebut berdiri di sebelah kanan imam dengan posisi sedikit mundur ke belakang.",
+                answer: true,
+                explanation: "Pernyataan ini benar. Satu makmum pria berdiri di sebelah kanan imam dengan posisi tumit sedikit lebih mundur dari posisi imam."
+            },
+            {
+                id: 10,
+                category: 'saf',
+                categoryLabel: 'Posisi Saf Makmum',
+                statement: "Ketika datang makmum pria kedua dalam salat berjemaah, makmum kedua berdiri di sebelah kiri imam, lalu saat merapikan saf atau datang makmum ketiga, kedua makmum mundur ke belakang atau imam melangkah maju ke depan.",
+                answer: true,
+                explanation: "Pernyataan ini benar. Makmum kedua mengambil posisi di kiri imam, kemudian kedua makmum mundur atau imam maju ke depan sehingga terbentuk saf di belakang imam."
+            },
+            {
+                id: 11,
+                category: 'saf',
+                categoryLabel: 'Posisi Saf Makmum',
+                statement: "Apabila seorang imam pria melaksanakan salat berjemaah dengan satu orang makmum wanita saja, maka makmum wanita tersebut berdiri tepat di sebelah kanan imam seperti halnya makmum pria.",
+                answer: false,
+                explanation: "Pernyataan ini salah. Makmum wanita baik seorang diri maupun berjumlah banyak wajib berdiri di belakang imam pria, tidak diperbolehkan berdiri di samping imam."
+            },
+            {
+                id: 12,
+                category: 'saf',
+                categoryLabel: 'Posisi Saf Makmum',
+                statement: "Dalam salat berjemaah yang diikuti oleh jemaah laki-laki dewasa dan perempuan, barisan saf perempuan ditempatkan di barisan paling belakang setelah barisan saf laki-laki.",
+                answer: true,
+                explanation: "Pernyataan ini benar. Saf laki-laki dewasa berada di barisan terdepan tepat di belakang imam, sedangkan saf perempuan berada di barisan paling belakang."
+            },
+            {
+                id: 13,
+                category: 'ingatkan',
+                categoryLabel: 'Mengingatkan Imam',
+                statement: "Apabila imam lupa gerakan dalam salat berjemaah, makmum laki-laki cara mengingatkannya adalah dengan mengucapkan kalimat tasbih Subhanallah.",
+                answer: true,
+                explanation: "Pernyataan ini benar. Sesuai tuntunan sunnah, makmum laki-laki mengingatkan imam yang lupa dengan melafalkan kalimat tasbih Subhanallah."
+            },
+            {
+                id: 14,
+                category: 'ingatkan',
+                categoryLabel: 'Mengingatkan Imam',
+                statement: "Makmum perempuan yang hendak mengingatkan imam karena lupa gerakan salat disyariatkan dengan cara berteriak mengucapkan kalimat Subhanallah secara keras.",
+                answer: false,
+                explanation: "Pernyataan ini salah. Makmum perempuan mengingatkan imam dengan cara menepukkan bagian dalam telapak tangan kanan ke punggung telapak tangan kiri, bukan dengan bersuara."
+            },
+            {
+                id: 15,
+                category: 'ingatkan',
+                categoryLabel: 'Mengingatkan Imam',
+                statement: "Cara menepukkan tangan bagi makmum perempuan saat mengingatkan imam yang lupa adalah menepukkan bagian dalam telapak tangan kanan pada punggung telapak tangan kiri.",
+                answer: true,
+                explanation: "Pernyataan ini benar. Tepukan tangan bagi makmum perempuan dilakukan dengan menepukkan telapak tangan kanan bagian dalam ke punggung tangan kiri."
+            },
+            {
+                id: 16,
+                category: 'ingatkan',
+                categoryLabel: 'Mengingatkan Imam',
+                statement: "Saat mengucapkan Subhanallah untuk mengingatkan imam yang lupa, makmum laki-laki dianjurkan berniat berzikir sekaligus memberi tahu imam agar salatnya tetap sah.",
+                answer: true,
+                explanation: "Pernyataan ini benar. Dalam fikih, makmum berniat zikir saat melafalkan tasbih Subhanallah supaya tidak membatalkan salat."
+            },
+            {
+                id: 17,
+                category: 'ganti',
+                categoryLabel: 'Menggantikan Imam',
+                statement: "Apabila imam batal karena berhadas di tengah pelaksanaan salat berjemaah, maka seluruh makmum di belakangnya otomatis ikut batal salatnya dan wajib mengulang dari awal.",
+                answer: false,
+                explanation: "Pernyataan ini salah. Salat jemaah tidak batal, melainkan dilakukan istikhlaf yaitu pergantian imam oleh salah satu makmum di belakangnya untuk melanjutkan salat."
+            },
+            {
+                id: 18,
+                category: 'ganti',
+                categoryLabel: 'Menggantikan Imam',
+                statement: "Prosedur pergantian imam atau istikhlaf dilakukan dengan cara imam yang batal memberi isyarat atau menarik salah seorang makmum tepat di belakangnya untuk maju menggantikan posisi imam.",
+                answer: true,
+                explanation: "Pernyataan ini benar. Imam yang berhadas keluar dari salat setelah menunjuk makmum di belakangnya agar maju meneruskan kepemimpinan salat."
+            },
+            {
+                id: 19,
+                category: 'ganti',
+                categoryLabel: 'Menggantikan Imam',
+                statement: "Makmum yang maju menggantikan imam yang batal harus mengulangi salat berjemaah dari rakaat pertama kembali meskipun sebelumnya sudah mendapat dua rakaat.",
+                answer: false,
+                explanation: "Pernyataan ini salah. Imam pengganti cukup melanjutkan sisa rakaat salat yang sedang berjalan hingga selesai tanpa mengulang dari rakaat pertama."
+            },
+            {
+                id: 20,
+                category: 'ganti',
+                categoryLabel: 'Menggantikan Imam',
+                statement: "Makmum yang menempati posisi tepat di belakang imam diutamakan orang yang fasih bacaannya dan paham fikih salat agar siap maju menggantikan imam apabila imam berhalangan atau batal.",
+                answer: true,
+                explanation: "Pernyataan ini benar. Orang yang berilmu dan fasih ditempatkan tepat di belakang imam agar mudah mengingatkan atau menggantikan imam saat terjadi uzur."
+            }
+        ];
+
+        let activeTrueFalseFilter = 'all';
+        let activeTrueFalseItems = [];
+        let userTrueFalseAnswers = {};
+
+        function getCategoryBadgeStyle(category) {
+            if (category === 'masbuq') {
+                return 'bg-amber-50 text-amber-800 border-amber-200';
+            }
+            if (category === 'muwafiq') {
+                return 'bg-teal-50 text-teal-800 border-teal-200';
+            }
+            if (category === 'ingatkan') {
+                return 'bg-rose-50 text-rose-800 border-rose-200';
+            }
+            if (category === 'ganti') {
+                return 'bg-purple-50 text-purple-800 border-purple-200';
+            }
+            return 'bg-indigo-50 text-indigo-800 border-indigo-200';
+        }
+
+        function initTrueFalseQuiz() {
+            const filtered = activeTrueFalseFilter === 'all'
+                ? [...trueFalseQuestions]
+                : trueFalseQuestions.filter(item => item.category === activeTrueFalseFilter);
+
+            const copy = [...filtered];
+            for (let i = copy.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copy[i], copy[j]] = [copy[j], copy[i]];
+            }
+            activeTrueFalseItems = copy;
+            userTrueFalseAnswers = {};
+            renderTrueFalseCards();
+            updateTrueFalseStats();
+        }
+
+        function filterTrueFalseQuiz(category) {
+            activeTrueFalseFilter = category;
+            const filterIds = {
+                all: 'tf-filter-all',
+                masbuq: 'tf-filter-masbuq',
+                muwafiq: 'tf-filter-muwafiq',
+                saf: 'tf-filter-saf',
+                ingatkan: 'tf-filter-ingatkan',
+                ganti: 'tf-filter-ganti'
+            };
+            Object.entries(filterIds).forEach(([key, elId]) => {
+                const btn = document.getElementById(elId);
+                if (!btn) return;
+                if (key === category) {
+                    btn.className = "tf-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition shadow-sm bg-teal-600 text-white flex items-center gap-1.5";
+                } else {
+                    btn.className = "tf-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition border border-slate-200 bg-white text-slate-700 hover:bg-teal-50 hover:text-teal-700 flex items-center gap-1.5";
+                }
+            });
+            initTrueFalseQuiz();
+        }
+
+        function resetTrueFalseQuiz() {
+            initTrueFalseQuiz();
+        }
+
+        function renderTrueFalseCards() {
+            const container = document.getElementById('tf-cards-container');
+            if (!container) return;
+
+            container.innerHTML = activeTrueFalseItems.map((item, idx) => {
+                const badgeClass = getCategoryBadgeStyle(item.category);
+                return `
+                    <div id="tf-card-${item.id}" class="bg-slate-50 rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm flex flex-col justify-between transition-all duration-300">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-3">
+                                <span class="text-xs font-extrabold text-slate-400 uppercase tracking-wider">Pernyataan ${idx + 1}</span>
+                                <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${badgeClass}">
+                                    ${item.categoryLabel}
+                                </span>
+                            </div>
+                            <p class="text-xs sm:text-sm font-semibold text-slate-800 leading-relaxed mb-5">
+                                "${item.statement}"
+                            </p>
+                        </div>
+
+                        <div>
+                            <div class="grid grid-cols-2 gap-3" id="tf-btn-group-${item.id}">
+                                <button onclick="answerTrueFalse(${item.id}, true)" id="tf-btn-true-${item.id}"
+                                    class="py-2.5 px-4 rounded-xl border border-slate-200 bg-white hover:bg-emerald-50 hover:border-emerald-300 text-slate-700 hover:text-emerald-800 font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-sm">
+                                    <i class="fa-solid fa-circle-check text-emerald-500"></i>
+                                    <span>Benar</span>
+                                </button>
+                                <button onclick="answerTrueFalse(${item.id}, false)" id="tf-btn-false-${item.id}"
+                                    class="py-2.5 px-4 rounded-xl border border-slate-200 bg-white hover:bg-rose-50 hover:border-rose-300 text-slate-700 hover:text-rose-800 font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-sm">
+                                    <i class="fa-solid fa-circle-xmark text-rose-500"></i>
+                                    <span>Salah</span>
+                                </button>
+                            </div>
+
+                            <div id="tf-feedback-${item.id}" class="hidden mt-4 p-3.5 rounded-xl text-xs leading-relaxed border"></div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            const summaryBox = document.getElementById('tf-summary-box');
+            if (summaryBox) summaryBox.classList.add('hidden');
+        }
+
+        function answerTrueFalse(id, userChoice) {
+            if (userTrueFalseAnswers.hasOwnProperty(id)) return;
+
+            const item = activeTrueFalseItems.find(q => q.id === id);
+            if (!item) return;
+
+            const isCorrect = userChoice === item.answer;
+            userTrueFalseAnswers[id] = isCorrect;
+
+            const card = document.getElementById(`tf-card-${id}`);
+            const btnTrue = document.getElementById(`tf-btn-true-${id}`);
+            const btnFalse = document.getElementById(`tf-btn-false-${id}`);
+            const feedback = document.getElementById(`tf-feedback-${id}`);
+
+            if (btnTrue && btnFalse) {
+                btnTrue.disabled = true;
+                btnFalse.disabled = true;
+                btnTrue.classList.add('cursor-not-allowed', 'opacity-60');
+                btnFalse.classList.add('cursor-not-allowed', 'opacity-60');
+
+                const chosenBtn = userChoice ? btnTrue : btnFalse;
+                chosenBtn.classList.remove('opacity-60', 'bg-white', 'text-slate-700', 'border-slate-200');
+                if (isCorrect) {
+                    chosenBtn.classList.add('bg-emerald-600', 'text-white', 'border-emerald-600');
+                    const icon = chosenBtn.querySelector('i');
+                    if (icon) icon.className = 'fa-solid fa-circle-check text-white';
+                } else {
+                    chosenBtn.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
+                    const icon = chosenBtn.querySelector('i');
+                    if (icon) icon.className = 'fa-solid fa-circle-xmark text-white';
+                }
+            }
+
+            if (card) {
+                card.classList.remove('bg-slate-50', 'border-slate-200');
+                if (isCorrect) {
+                    card.classList.add('bg-emerald-50/40', 'border-emerald-300');
+                } else {
+                    card.classList.add('bg-rose-50/40', 'border-rose-300');
+                }
+            }
+
+            if (feedback) {
+                feedback.classList.remove('hidden');
+                if (isCorrect) {
+                    feedback.className = "mt-4 p-3.5 rounded-xl text-xs leading-relaxed border bg-emerald-50 border-emerald-200 text-emerald-900";
+                    feedback.innerHTML = `<strong class="font-bold block mb-1 text-emerald-800"><i class="fa-solid fa-check mr-1"></i> Jawaban Kamu Tepat!</strong>${item.explanation}`;
+                } else {
+                    feedback.className = "mt-4 p-3.5 rounded-xl text-xs leading-relaxed border bg-rose-50 border-rose-200 text-rose-900";
+                    feedback.innerHTML = `<strong class="font-bold block mb-1 text-rose-800"><i class="fa-solid fa-xmark mr-1"></i> Jawaban Kamu Kurang Tepat!</strong>${item.explanation}`;
+                }
+            }
+
+            updateTrueFalseStats();
+        }
+
+        function updateTrueFalseStats() {
+            const total = activeTrueFalseItems.length;
+            const answered = Object.keys(userTrueFalseAnswers).length;
+            const correct = Object.values(userTrueFalseAnswers).filter(Boolean).length;
+
+            const answeredEl = document.getElementById('tf-answered-count');
+            const totalEl = document.getElementById('tf-total-count');
+            const correctEl = document.getElementById('tf-correct-count');
+            const progressBar = document.getElementById('tf-progress-bar');
+
+            if (answeredEl) answeredEl.textContent = answered;
+            if (totalEl) totalEl.textContent = total;
+            if (correctEl) correctEl.textContent = correct;
+            if (progressBar) {
+                const pct = total > 0 ? Math.round((answered / total) * 100) : 0;
+                progressBar.style.width = `${pct}%`;
+            }
+
+            if (total > 0 && answered === total) {
+                const summaryBox = document.getElementById('tf-summary-box');
+                const summaryText = document.getElementById('tf-summary-text');
+                const scorePct = Math.round((correct / total) * 100);
+                if (summaryText) {
+                    summaryText.textContent = `Kamu berhasil menjawab benar ${correct} dari ${total} pernyataan dengan perolehan skor ${scorePct}.`;
+                }
+                if (summaryBox) {
+                    summaryBox.classList.remove('hidden');
+                }
+                if (scorePct >= 80 && typeof triggerCelebration === 'function') {
+                    triggerCelebration();
+                }
+            }
+        }
+
         // Initialize Saf Stage and Class List on page load
         function setupInitialPageComponents() {
             const sc = safScenarios[1];
@@ -1722,6 +2627,7 @@
                 document.getElementById('saf-stage-diagram').innerHTML = sc.diagram;
                 document.getElementById('saf-stage-caption').innerHTML = sc.caption;
             }
+            initTrueFalseQuiz();
             initClassDropdown();
         }
 

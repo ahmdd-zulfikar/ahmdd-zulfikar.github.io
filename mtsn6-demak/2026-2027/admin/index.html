@@ -27,6 +27,438 @@
         .custom-scroll::-webkit-scrollbar-track { background: transparent; }
         .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
     </style>
+    <style id="warm-clay-theme">
+    /* ==========================================================================
+       GREEN & BLUE PASTEL CLAYMORPHISM THEME - BELAJAR ONLINE
+       ========================================================================== */
+    :root {
+        --clay-bg: #F3F8F6;
+        --clay-bg-alt: #E7F1EE;
+        --clay-surface: #FFFFFF;
+        --clay-mint: #DFF3EA;
+        --clay-mint-accent: #2E9688;
+        --clay-mint-dark: #1F786C;
+        --clay-sage: #D6EAE2;
+        --clay-sky: #DFEEFC;
+        --clay-sky-accent: #3B82F6;
+        --clay-aqua: #DCF3F5;
+        --clay-aqua-accent: #2596A8;
+        --clay-indigo: #E3E9FC;
+        --clay-indigo-accent: #5472E8;
+        --clay-text-dark: #18312E;
+        --clay-text-muted: #4A6460;
+    }
+
+    body {
+        background-color: var(--clay-bg) !important;
+        color: var(--clay-text-dark) !important;
+        background-image: radial-gradient(#D1E3DD 1px, transparent 1px) !important;
+        background-size: 24px 24px !important;
+    }
+
+    ::selection {
+        background-color: #C8E9DD !important;
+        color: #18312E !important;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #E8F2EE !important;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #B3CFC6 !important;
+        border-radius: 9999px !important;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #94B9AD !important;
+    }
+
+    /* Section Backgrounds */
+    .bg-slate-50 {
+        background-color: #F3F8F6 !important;
+    }
+    .bg-slate-100 {
+        background-color: #E7F1EE !important;
+    }
+    section.bg-white {
+        background-color: #F8FCFA !important;
+    }
+    .border-slate-200, .border-slate-100 {
+        border-color: #DCECE6 !important;
+    }
+
+    /* Typography */
+    .text-slate-800, .text-slate-900 {
+        color: #18312E !important;
+    }
+    .text-slate-700 {
+        color: #2A4743 !important;
+    }
+    .text-slate-600, .text-slate-500 {
+        color: #4A6460 !important;
+    }
+
+    /* ================= NAVBAR - SOFT SAGE MINT CLAY ================= */
+    nav {
+        background: rgba(214, 234, 226, 0.94) !important;
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.88) !important;
+        box-shadow: 0 8px 24px -6px rgba(70, 120, 110, 0.14), inset 0 1px 2px rgba(255, 255, 255, 0.88) !important;
+    }
+    nav a > div.bg-teal-600,
+    nav .w-8.h-8.bg-teal-600 {
+        background: linear-gradient(145deg, #2E9688 0%, #1F786C 100%) !important;
+        color: #FFFFFF !important;
+        border-radius: 0.75rem !important;
+        box-shadow: 0 4px 10px rgba(31, 120, 108, 0.32), inset 0 1px 2px rgba(255, 255, 255, 0.5) !important;
+    }
+    nav span.font-heading {
+        color: #18312E !important;
+    }
+    nav span.font-heading span.text-teal-600 {
+        color: #2563EB !important;
+    }
+    nav .hidden.md\:flex > a,
+    nav .hidden.md\:flex > div > button {
+        color: #2D4C47 !important;
+        font-weight: 600 !important;
+        padding: 0.45rem 0.95rem !important;
+        border-radius: 0.9rem !important;
+        transition: all 0.25s ease !important;
+    }
+    nav .hidden.md\:flex > a:hover,
+    nav .hidden.md\:flex > div > button:hover {
+        background: rgba(255, 255, 255, 0.6) !important;
+        color: #1F786C !important;
+    }
+    nav .hidden.md\:flex > a.text-teal-600,
+    nav .hidden.md\:flex > a.font-bold {
+        background: #FFFFFF !important;
+        color: #18312E !important;
+        padding: 0.45rem 1.1rem !important;
+        border-radius: 0.95rem !important;
+        box-shadow: 0 6px 14px -3px rgba(70, 120, 110, 0.16), inset 0 2px 3px #FFFFFF !important;
+    }
+    nav .hidden.md\:flex > a.after\:bg-teal-600::after,
+    nav .hidden.md\:flex > a::after {
+        display: none !important;
+    }
+    #mobile-menu {
+        background: #EBF5F1 !important;
+        border-top: 2px solid #FFFFFF !important;
+    }
+    #mobile-menu a.bg-teal-50 {
+        background: #FFFFFF !important;
+        color: #1F786C !important;
+        border-left-color: #2E9688 !important;
+        box-shadow: 0 4px 12px rgba(70, 120, 110, 0.1) !important;
+    }
+
+    /* ================= HERO BANNER - MINT & SKY BLUE PASTEL CLAY ================= */
+    header.bg-teal-900,
+    header.bg-gradient-to-br,
+    section#beranda.bg-teal-900,
+    main > section.bg-teal-900 {
+        background: linear-gradient(135deg, #DCF2E9 0%, #D2EDF2 50%, #CFE5FA 100%) !important;
+        border-bottom: 3px solid rgba(255, 255, 255, 0.88) !important;
+        box-shadow: 0 14px 32px -8px rgba(65, 130, 145, 0.18), inset 0 2px 6px rgba(255, 255, 255, 0.85) !important;
+    }
+    header > div.absolute.inset-0,
+    section#beranda > div.absolute.inset-0,
+    main > section.bg-teal-900 > div.absolute.inset-0 {
+        background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.6) 0%, rgba(210, 237, 242, 0.25) 60%, transparent 100%) !important;
+    }
+    header h1, header h2, header h3,
+    section#beranda h1, section#beranda h2,
+    main > section.bg-teal-900 h1 {
+        color: #18312E !important;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) !important;
+    }
+    header h1 span, header h2 span, header h3.text-amber-400,
+    section#beranda h1 span.text-teal-400,
+    main > section.bg-teal-900 h1 span {
+        color: #1D63B8 !important;
+    }
+    header p, header p span,
+    section#beranda p,
+    main > section.bg-teal-900 p {
+        color: #385854 !important;
+    }
+    header .rounded-full.bg-teal-800\/80,
+    header .rounded-full.bg-teal-800,
+    header span.rounded-full,
+    header div.rounded-full,
+    main > section.bg-teal-900 .rounded-full.glass-effect {
+        background: #FFFFFF !important;
+        color: #1F786C !important;
+        border: 1.5px solid #FFFFFF !important;
+        box-shadow: 0 4px 12px rgba(65, 130, 120, 0.14), inset 0 1px 2px #FFFFFF !important;
+        font-weight: 700 !important;
+    }
+    header .rounded-full i,
+    main > section.bg-teal-900 .rounded-full i {
+        color: #2563EB !important;
+    }
+    /* Hero Buttons */
+    header a.bg-amber-500,
+    header button.bg-amber-500 {
+        background: linear-gradient(180deg, #2E9688 0%, #1F786C 100%) !important;
+        color: #FFFFFF !important;
+        border: 1.5px solid rgba(255, 255, 255, 0.55) !important;
+        border-radius: 1rem !important;
+        box-shadow: 0 8px 18px -4px rgba(31, 120, 108, 0.4), inset 0 2px 3px rgba(255, 255, 255, 0.45) !important;
+    }
+    header a.bg-amber-500:hover,
+    header button.bg-amber-500:hover {
+        background: linear-gradient(180deg, #268578 0%, #18665B 100%) !important;
+        transform: translateY(-2px) !important;
+    }
+    header a.bg-teal-800\/80,
+    header a.bg-teal-800,
+    header button.bg-teal-800\/80 {
+        background: #FFFFFF !important;
+        color: #1E3A36 !important;
+        border: 1.5px solid #FFFFFF !important;
+        border-radius: 1rem !important;
+        box-shadow: 0 8px 18px -4px rgba(70, 125, 140, 0.18), inset 0 2px 3px #FFFFFF !important;
+        font-weight: 700 !important;
+    }
+    header a.bg-teal-800\/80:hover,
+    header a.bg-teal-800:hover {
+        background: #F8FCFA !important;
+        transform: translateY(-2px) !important;
+    }
+    header a.bg-teal-800\/80 i,
+    header a.bg-teal-800 i {
+        color: #2563EB !important;
+    }
+
+    /* ================= WHITE CLAY SURFACES & CONTAINERS ================= */
+    main .bg-white.rounded-2xl,
+    main .bg-white.rounded-3xl,
+    main .bg-white.rounded-xl {
+        background-color: #FFFFFF !important;
+        border: 2px solid #E1EFEA !important;
+        box-shadow: 0 12px 28px -6px rgba(80, 130, 120, 0.12), 0 4px 10px -2px rgba(80, 130, 120, 0.06), inset 0 2px 4px rgba(255, 255, 255, 0.9) !important;
+    }
+
+    /* ================= 4-COLOR GREEN & BLUE PASTEL CLAY CARDS ================= */
+    #cards-container > div h3,
+    #modul .grid > * > div h3,
+    #fitur-digital .grid > div h3 {
+        color: #18312E !important;
+    }
+    #cards-container > div p,
+    #modul .grid > * > div p,
+    #fitur-digital .grid > div p {
+        color: #3F5E5A !important;
+    }
+    #modul .grid > * > div .rounded-bl-full {
+        background: rgba(255, 255, 255, 0.45) !important;
+    }
+
+    /* Card 1: Soft Emerald Mint */
+    #cards-container > div:nth-child(4n+1),
+    #modul .grid > :nth-child(4n+1) > div,
+    #fitur-digital .grid > div:nth-child(4n+1),
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+1),
+    .space-y-4 > a:nth-child(4n+1) > .menu-card {
+        background: linear-gradient(145deg, #DFF3EA 0%, #CDE9DC 100%) !important;
+        border: 2px solid rgba(255, 255, 255, 0.88) !important;
+        border-radius: 1.5rem !important;
+        box-shadow: 0 12px 26px -6px rgba(85, 160, 135, 0.2), 0 4px 10px -2px rgba(85, 160, 135, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.88) !important;
+    }
+    #cards-container > div:nth-child(4n+1) .w-16.h-16,
+    #modul .grid > :nth-child(4n+1) > div .w-14.h-14,
+    #fitur-digital .grid > div:nth-child(4n+1) > div.w-20,
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+1) > div:first-child {
+        background: linear-gradient(145deg, #389E7F 0%, #288266 100%) !important;
+        color: #FFFFFF !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        box-shadow: 0 6px 14px rgba(40, 130, 102, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.45) !important;
+    }
+    #cards-container > div:nth-child(4n+1) span.w-full,
+    #modul .grid > :nth-child(4n+1) span.w-full {
+        background: #FFFFFF !important;
+        color: #236E56 !important;
+        border-color: #FFFFFF !important;
+        box-shadow: 0 4px 10px rgba(85, 160, 135, 0.16) !important;
+    }
+
+    /* Card 2: Soft Sky Blue */
+    #cards-container > div:nth-child(4n+2),
+    #modul .grid > :nth-child(4n+2) > div,
+    #fitur-digital .grid > div:nth-child(4n+2),
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+2),
+    .space-y-4 > a:nth-child(4n+2) > .menu-card {
+        background: linear-gradient(145deg, #DFEEFC 0%, #CCE2F8 100%) !important;
+        border: 2px solid rgba(255, 255, 255, 0.88) !important;
+        border-radius: 1.5rem !important;
+        box-shadow: 0 12px 26px -6px rgba(90, 145, 205, 0.2), 0 4px 10px -2px rgba(90, 145, 205, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.88) !important;
+    }
+    #cards-container > div:nth-child(4n+2) .w-16.h-16,
+    #modul .grid > :nth-child(4n+2) > div .w-14.h-14,
+    #fitur-digital .grid > div:nth-child(4n+2) > div.w-20,
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+2) > div:first-child {
+        background: linear-gradient(145deg, #4A90E2 0%, #3576C4 100%) !important;
+        color: #FFFFFF !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        box-shadow: 0 6px 14px rgba(53, 118, 196, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.45) !important;
+    }
+    #cards-container > div:nth-child(4n+2) span.w-full,
+    #modul .grid > :nth-child(4n+2) span.w-full {
+        background: #FFFFFF !important;
+        color: #2B62A6 !important;
+        border-color: #FFFFFF !important;
+        box-shadow: 0 4px 10px rgba(90, 145, 205, 0.16) !important;
+    }
+
+    /* Card 3: Soft Aqua Cyan */
+    #cards-container > div:nth-child(4n+3),
+    #modul .grid > :nth-child(4n+3) > div,
+    #fitur-digital .grid > div:nth-child(4n+3),
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+3),
+    .space-y-4 > a:nth-child(4n+3) > .menu-card {
+        background: linear-gradient(145deg, #DCF3F5 0%, #C7E8EC 100%) !important;
+        border: 2px solid rgba(255, 255, 255, 0.88) !important;
+        border-radius: 1.5rem !important;
+        box-shadow: 0 12px 26px -6px rgba(80, 160, 175, 0.2), 0 4px 10px -2px rgba(80, 160, 175, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.88) !important;
+    }
+    #cards-container > div:nth-child(4n+3) .w-16.h-16,
+    #modul .grid > :nth-child(4n+3) > div .w-14.h-14,
+    #fitur-digital .grid > div:nth-child(4n+3) > div.w-20,
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+3) > div:first-child {
+        background: linear-gradient(145deg, #2FA4B5 0%, #218696 100%) !important;
+        color: #FFFFFF !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        box-shadow: 0 6px 14px rgba(33, 134, 150, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.45) !important;
+    }
+    #cards-container > div:nth-child(4n+3) span.w-full,
+    #modul .grid > :nth-child(4n+3) span.w-full {
+        background: #FFFFFF !important;
+        color: #1D6F7D !important;
+        border-color: #FFFFFF !important;
+        box-shadow: 0 4px 10px rgba(80, 160, 175, 0.16) !important;
+    }
+
+    /* Card 4: Soft Periwinkle Cobalt Blue */
+    #cards-container > div:nth-child(4n+4),
+    #modul .grid > :nth-child(4n+4) > div,
+    #fitur-digital .grid > div:nth-child(4n+4),
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+4),
+    .space-y-4 > a:nth-child(4n+4) > .menu-card {
+        background: linear-gradient(145deg, #E3E9FC 0%, #D2DCF9 100%) !important;
+        border: 2px solid rgba(255, 255, 255, 0.88) !important;
+        border-radius: 1.5rem !important;
+        box-shadow: 0 12px 26px -6px rgba(100, 125, 205, 0.2), 0 4px 10px -2px rgba(100, 125, 205, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.88) !important;
+    }
+    #cards-container > div:nth-child(4n+4) .w-16.h-16,
+    #modul .grid > :nth-child(4n+4) > div .w-14.h-14,
+    #fitur-digital .grid > div:nth-child(4n+4) > div.w-20,
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+4) > div:first-child {
+        background: linear-gradient(145deg, #5C7CFA 0%, #4463DD 100%) !important;
+        color: #FFFFFF !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        box-shadow: 0 6px 14px rgba(68, 99, 221, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.45) !important;
+    }
+    #cards-container > div:nth-child(4n+4) span.w-full,
+    #modul .grid > :nth-child(4n+4) span.w-full {
+        background: #FFFFFF !important;
+        color: #3B56C4 !important;
+        border-color: #FFFFFF !important;
+        box-shadow: 0 4px 10px rgba(100, 125, 205, 0.16) !important;
+    }
+
+    /* Primary Action Buttons & Active States */
+    button.bg-teal-600,
+    a.bg-teal-600,
+    button.bg-amber-500,
+    .saf-scenario-btn.active,
+    .tf-filter-btn.bg-teal-600 {
+        background: linear-gradient(180deg, #2E9688 0%, #1F786C 100%) !important;
+        border-color: #1B685E !important;
+        color: #FFFFFF !important;
+        box-shadow: 0 6px 14px -2px rgba(31, 120, 108, 0.35), inset 0 1.5px 2px rgba(255, 255, 255, 0.45) !important;
+    }
+    button.bg-teal-600:hover,
+    a.bg-teal-600:hover,
+    button.bg-amber-500:hover {
+        background: linear-gradient(180deg, #268578 0%, #18665B 100%) !important;
+    }
+
+    /* Badges & Soft Accents */
+    .bg-teal-50 {
+        background-color: #DFF3EA !important;
+    }
+    .border-teal-100, .border-teal-200 {
+        border-color: #BFE3D4 !important;
+    }
+    .text-teal-600, .text-teal-700, .text-teal-800 {
+        color: #1F786C !important;
+    }
+    .bg-amber-50 {
+        background-color: #DFEEFC !important;
+    }
+    .border-amber-200, .border-amber-100 {
+        border-color: #BZD9F7 !important;
+        border-color: #BDD9F7 !important;
+    }
+    .text-amber-700, .text-amber-800 {
+        color: #2563A8 !important;
+    }
+
+    /* Dark Containers inside Main */
+    .bg-emerald-950 {
+        background: linear-gradient(145deg, #1E564F 0%, #15403B 100%) !important;
+        border-color: #2E736A !important;
+        box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.2), 0 10px 24px -6px rgba(25, 75, 68, 0.25) !important;
+    }
+    .bg-teal-800,
+    .from-teal-900,
+    .from-teal-600.to-teal-800 {
+        background: linear-gradient(135deg, #267872 0%, #1D5E69 100%) !important;
+        border-color: #3B8E88 !important;
+    }
+    thead tr.bg-teal-900 {
+        background: linear-gradient(90deg, #2E8B82 0%, #256E85 100%) !important;
+    }
+
+    /* Content Modal */
+    #modal-header {
+        background: linear-gradient(135deg, #DCF2E9 0%, #D4E9FA 100%) !important;
+        border-bottom: 2px solid #FFFFFF !important;
+    }
+    #modal-body {
+        background-color: #F3F8F6 !important;
+    }
+
+    /* ================= FOOTER - SOFT SAGE MINT CLAY ================= */
+    footer.bg-teal-950,
+    footer {
+        background: linear-gradient(180deg, #D6EAE2 0%, #C7DFD6 100%) !important;
+        color: #2F4F4A !important;
+        border-top: 3px solid rgba(255, 255, 255, 0.88) !important;
+        box-shadow: inset 0 3px 6px rgba(255, 255, 255, 0.78) !important;
+    }
+    footer a.text-white,
+    footer .text-white,
+    footer span.font-heading {
+        color: #18312E !important;
+    }
+    footer .text-teal-500,
+    footer .text-teal-400 {
+        color: #2563EB !important;
+    }
+    footer p,
+    footer .text-teal-400\/80,
+    footer .text-teal-200 {
+        color: #3D5C57 !important;
+    }
+    footer .border-teal-900\/50,
+    footer .border-teal-900 {
+        border-color: rgba(47, 79, 74, 0.15) !important;
+    }
+</style>
 </head>
 <body class="font-sans antialiased selection:bg-teal-200 selection:text-teal-900 flex flex-col min-h-screen">
 
