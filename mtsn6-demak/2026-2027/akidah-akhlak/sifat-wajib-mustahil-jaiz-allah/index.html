@@ -1051,12 +1051,82 @@
                     <h2 id="game-title" class="text-2xl sm:text-3xl font-extrabold font-heading text-white">
                         Tebak Pasangan Sifat Wajib & Mustahil
                     </h2>
-                    <p id="game-desc" class="text-teal-200/80 text-xs sm:text-sm max-w-lg mx-auto mt-1 mb-5 leading-relaxed">
+                    <p id="game-desc" class="text-teal-200/80 text-xs sm:text-sm max-w-lg mx-auto mt-1 leading-relaxed">
                         Pilih satu sifat wajib di kolom kiri, lalu cocokkan dengan lawan sifat mustahilnya di kolom kanan.
                     </p>
+                </div>
+
+                <!-- Card Identitas Siswa Sebelum Bermain -->
+                <div id="game-login-card" class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-lg text-center space-y-5 max-w-lg mx-auto relative z-10 text-slate-800">
+                    <div class="w-14 h-14 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center mx-auto text-2xl border border-teal-100">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-800 font-heading">Identitas Pemain</h3>
+                        <p class="text-xs text-slate-500 mt-1">Pilih jumlah siswa 1 sampai 5 orang, kelas, serta nama siswa sebelum mulai mengerjakan game.</p>
+                    </div>
+
+                    <div class="space-y-4 text-left">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Jumlah Siswa</label>
+                                <select id="game-player-count" onchange="renderGamePlayerSelects()" class="w-full p-3.5 border border-slate-300 rounded-xl bg-slate-50 text-slate-800 font-semibold text-xs sm:text-sm outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                                    <option value="1">1 Siswa</option>
+                                    <option value="2">2 Siswa</option>
+                                    <option value="3">3 Siswa</option>
+                                    <option value="4">4 Siswa</option>
+                                    <option value="5">5 Siswa</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Pilih Kelas</label>
+                                <select id="game-select-kelas" onchange="renderGamePlayerSelects()" class="w-full p-3.5 border border-slate-300 rounded-xl bg-slate-50 text-slate-800 font-semibold text-xs sm:text-sm outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                                    <option value="">-- Pilih Kelas --</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="game-nama-wrapper" class="hidden space-y-2.5">
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Pilih Nama Siswa</label>
+                            <div id="game-players-list" class="space-y-2.5"></div>
+                        </div>
+
+                        <div id="game-login-error" class="hidden text-rose-600 text-xs font-bold bg-rose-50 p-2.5 rounded-xl border border-rose-200 text-center">
+                            Pastikan semua nama siswa sudah dipilih dan tidak ada nama yang ganda.
+                        </div>
+
+                        <button id="game-start-btn" onclick="startStudentGame()" disabled class="w-full py-3.5 bg-slate-300 text-slate-500 font-bold text-xs sm:text-sm rounded-xl cursor-not-allowed transition flex items-center justify-center gap-2 shadow-sm mt-3">
+                            <span>Mulai Kerjakan Game</span>
+                            <i class="fa-solid fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Area Permainan Setelah Pilih Nama & Kelas -->
+                <div id="game-play-wrapper" class="hidden relative z-10">
+                    <!-- Banner Identitas Pemain Aktif -->
+                    <div id="game-student-banner" class="mb-6 bg-teal-950/60 border border-teal-600/50 text-white p-3.5 sm:p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
+                        <div class="flex items-start sm:items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-teal-700/80 text-amber-300 flex items-center justify-center text-lg border border-teal-500/40 shrink-0">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div class="text-center sm:text-left">
+                                <div class="flex items-center justify-center sm:justify-start gap-2 mb-1">
+                                    <span class="text-[10px] text-teal-200 font-bold uppercase tracking-wider">Pemain Aktif</span>
+                                    <span class="text-[11px] bg-amber-400 text-teal-950 px-2.5 py-0.5 rounded-full font-extrabold" id="game-active-student-class">-</span>
+                                </div>
+                                <div class="flex items-center justify-center sm:justify-start gap-1.5 flex-wrap" id="game-active-student-name">
+                                    -
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="changeGameStudentIdentity()" class="text-xs text-teal-100 hover:text-white bg-teal-800/80 hover:bg-teal-700 border border-teal-600 px-3.5 py-2 rounded-xl font-bold flex items-center gap-1.5 transition shrink-0">
+                            <i class="fa-solid fa-user-pen"></i> Ganti Siswa
+                        </button>
+                    </div>
 
                     <!-- Pilihan Mode Pencocokan Game -->
-                    <div class="flex flex-wrap items-center justify-center gap-2 max-w-xl mx-auto">
+                    <div class="flex flex-wrap items-center justify-center gap-2 max-w-xl mx-auto mb-6">
                         <button onclick="setGameMode('wajib-mustahil')" id="btn-mode-wajib-mustahil" class="px-3.5 py-2 rounded-xl text-xs font-bold transition shadow-sm bg-amber-400 text-teal-950 flex items-center gap-1.5">
                             <i class="fa-solid fa-arrows-split-up-and-left"></i>
                             <span>Sifat Wajib & Mustahil</span>
@@ -1070,26 +1140,56 @@
                             <span>Sifat Mustahil & Arti</span>
                         </button>
                     </div>
-                </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 relative z-10" id="game-arena">
-                    <div class="space-y-2">
-                        <h4 id="game-left-header" class="text-xs font-bold text-teal-300 uppercase tracking-wider mb-2 text-center">Pilih Sifat Wajib</h4>
-                        <div id="game-left-list" class="space-y-2"></div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6" id="game-arena">
+                        <div class="space-y-2">
+                            <h4 id="game-left-header" class="text-xs font-bold text-teal-300 uppercase tracking-wider mb-2 text-center">Pilih Sifat Wajib</h4>
+                            <div id="game-left-list" class="space-y-2"></div>
+                        </div>
+                        <div class="space-y-2">
+                            <h4 id="game-right-header" class="text-xs font-bold text-rose-300 uppercase tracking-wider mb-2 text-center">Pilih Lawan Mustahil</h4>
+                            <div id="game-right-list" class="space-y-2"></div>
+                        </div>
                     </div>
-                    <div class="space-y-2">
-                        <h4 id="game-right-header" class="text-xs font-bold text-rose-300 uppercase tracking-wider mb-2 text-center">Pilih Lawan Mustahil</h4>
-                        <div id="game-right-list" class="space-y-2"></div>
-                    </div>
-                </div>
 
-                <div id="game-score-box" class="mt-6 pt-4 border-t border-teal-800/80 flex justify-between items-center flex-wrap gap-3 relative z-10">
-                    <div class="text-xs text-teal-200">
-                        Skor Pasangan Benar: <strong id="game-matched-count" class="text-amber-400 text-sm">0</strong> dari 5 ronde
+                    <div id="game-score-box" class="mt-6 pt-4 border-t border-teal-800/80 flex justify-between items-center flex-wrap gap-3">
+                        <div class="flex items-center gap-4 flex-wrap text-xs text-teal-200">
+                            <span>Pasangan Benar: <strong id="game-matched-count" class="text-amber-400 text-sm">0</strong> dari 5</span>
+                            <span class="px-3 py-1 rounded-full bg-teal-950/70 border border-teal-600/60 text-white font-bold">
+                                Skor: <strong id="game-live-score" class="text-amber-400 text-sm">0</strong> / 100
+                            </span>
+                        </div>
+                        <button onclick="initGameRound()" class="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-teal-950 font-bold rounded-xl text-xs transition shadow-md">
+                            Acak Soal Baru
+                        </button>
                     </div>
-                    <button onclick="initGameRound()" class="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-teal-950 font-bold rounded-xl text-xs transition shadow-md">
-                        Acak Soal Baru
-                    </button>
+
+                    <!-- Ringkasan Nilai Game Terkirim ke Rekap Nilai -->
+                    <div id="game-result-summary" class="hidden mt-6 p-6 bg-white text-slate-800 rounded-3xl border border-slate-200 shadow-lg text-center space-y-3">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mx-auto border border-emerald-200">
+                            <i class="fa-solid fa-cloud-arrow-up text-teal-600"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-extrabold text-slate-800 font-heading" id="game-summary-status">
+                            Nilai Game Berhasil Dikirim ke Rekap Nilai
+                        </h3>
+                        <p class="text-xs text-slate-500 max-w-md mx-auto" id="game-summary-desc">
+                            Seluruh pasangan berhasil dicocokkan dan nilai siswa telah disimpan ke Rekap Nilai Guru.
+                        </p>
+                        <div class="text-3xl sm:text-4xl font-extrabold text-teal-700 font-heading" id="game-final-score-val">
+                            100 / 100
+                        </div>
+                        <div class="flex justify-center gap-2.5 pt-2 flex-wrap">
+                            <a href="../../nilai-siswa/" target="_top" class="px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs rounded-xl transition inline-flex items-center gap-2 shadow-sm">
+                                <i class="fa-solid fa-table-list"></i> Buka Rekap Nilai
+                            </a>
+                            <button onclick="initGameRound()" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition inline-flex items-center gap-2 border border-slate-200">
+                                <i class="fa-solid fa-rotate-right"></i> Main Lagi
+                            </button>
+                            <button onclick="changeGameStudentIdentity()" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs rounded-xl transition inline-flex items-center gap-2 border border-slate-200">
+                                <i class="fa-solid fa-user-plus"></i> Ganti Siswa
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1294,16 +1394,143 @@
         }
 
         function initClassDropdown() {
-            const kelasSelect = document.getElementById('quiz-select-kelas');
-            if (!kelasSelect) return;
             const data = getStudentMasterData();
-            kelasSelect.innerHTML = '<option value="">-- Pilih Kelas --</option>';
-            Object.keys(data).forEach(cls => {
-                const opt = document.createElement('option');
-                opt.value = cls;
-                opt.textContent = `Kelas ${cls}`;
-                kelasSelect.appendChild(opt);
+            ['quiz-select-kelas', 'game-select-kelas'].forEach(selectId => {
+                const selectEl = document.getElementById(selectId);
+                if (!selectEl) return;
+                selectEl.innerHTML = '<option value="">-- Pilih Kelas --</option>';
+                Object.keys(data).forEach(cls => {
+                    const opt = document.createElement('option');
+                    opt.value = cls;
+                    opt.textContent = `Kelas ${cls}`;
+                    selectEl.appendChild(opt);
+                });
             });
+        }
+
+        let gameActiveStudents = [];
+        let gameActiveStudentClass = '';
+
+        function renderGamePlayerSelects() {
+            const countSelect = document.getElementById('game-player-count');
+            const kelasSelect = document.getElementById('game-select-kelas');
+            const namaWrapper = document.getElementById('game-nama-wrapper');
+            const playersList = document.getElementById('game-players-list');
+            const startBtn = document.getElementById('game-start-btn');
+            const errorEl = document.getElementById('game-login-error');
+
+            const playerCount = parseInt(countSelect.value || '1', 10);
+            const selectedClass = kelasSelect.value;
+
+            if (errorEl) errorEl.classList.add('hidden');
+
+            if (!selectedClass) {
+                namaWrapper.classList.add('hidden');
+                playersList.innerHTML = '';
+                startBtn.disabled = true;
+                startBtn.className = "w-full py-3.5 bg-slate-300 text-slate-500 font-bold text-xs sm:text-sm rounded-xl cursor-not-allowed transition flex items-center justify-center gap-2 shadow-sm mt-3";
+                return;
+            }
+
+            const data = getStudentMasterData();
+            const students = data[selectedClass] || [];
+            playersList.innerHTML = '';
+
+            for (let i = 1; i <= playerCount; i++) {
+                const row = document.createElement('div');
+                row.className = "flex items-center gap-2";
+
+                const badge = document.createElement('span');
+                badge.className = "w-8 h-8 rounded-xl bg-teal-50 text-teal-700 border border-teal-200 font-extrabold text-xs flex items-center justify-center shrink-0";
+                badge.textContent = i;
+
+                const select = document.createElement('select');
+                select.id = `game-select-nama-${i}`;
+                select.className = "game-player-select w-full p-3 border border-slate-300 rounded-xl bg-slate-50 text-slate-800 font-semibold text-xs sm:text-sm outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition";
+                select.onchange = validateGamePlayers;
+
+                const defaultOpt = document.createElement('option');
+                defaultOpt.value = "";
+                defaultOpt.textContent = `-- Pilih Siswa ${i} --`;
+                select.appendChild(defaultOpt);
+
+                students.forEach(st => {
+                    const opt = document.createElement('option');
+                    opt.value = st;
+                    opt.textContent = st;
+                    select.appendChild(opt);
+                });
+
+                row.appendChild(badge);
+                row.appendChild(select);
+                playersList.appendChild(row);
+            }
+
+            namaWrapper.classList.remove('hidden');
+            validateGamePlayers();
+        }
+
+        function validateGamePlayers() {
+            const selects = Array.from(document.querySelectorAll('.game-player-select'));
+            const startBtn = document.getElementById('game-start-btn');
+            const errorEl = document.getElementById('game-login-error');
+
+            const chosen = selects.map(s => s.value).filter(Boolean);
+            const allFilled = selects.length > 0 && chosen.length === selects.length;
+            const uniqueChosen = new Set(chosen);
+            const hasDuplicate = chosen.length !== uniqueChosen.size;
+
+            // Update option disabled states to prevent selecting the same student twice
+            selects.forEach(sel => {
+                const currentVal = sel.value;
+                Array.from(sel.options).forEach(opt => {
+                    if (!opt.value) return;
+                    opt.disabled = opt.value !== currentVal && chosen.includes(opt.value);
+                });
+            });
+
+            if (hasDuplicate && errorEl) {
+                errorEl.classList.remove('hidden');
+            } else if (errorEl) {
+                errorEl.classList.add('hidden');
+            }
+
+            if (allFilled && !hasDuplicate) {
+                startBtn.disabled = false;
+                startBtn.className = "w-full py-3.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm rounded-xl cursor-pointer transition flex items-center justify-center gap-2 shadow-md mt-3";
+            } else {
+                startBtn.disabled = true;
+                startBtn.className = "w-full py-3.5 bg-slate-300 text-slate-500 font-bold text-xs sm:text-sm rounded-xl cursor-not-allowed transition flex items-center justify-center gap-2 shadow-sm mt-3";
+            }
+        }
+
+        function startStudentGame() {
+            const kelasSelect = document.getElementById('game-select-kelas');
+            const selects = Array.from(document.querySelectorAll('.game-player-select'));
+            gameActiveStudentClass = kelasSelect.value;
+            gameActiveStudents = selects.map(s => s.value).filter(Boolean);
+
+            if (!gameActiveStudentClass || gameActiveStudents.length === 0 || gameActiveStudents.length !== selects.length) {
+                alert("Silakan lengkapi pilihan kelas dan seluruh nama siswa terlebih dahulu.");
+                return;
+            }
+
+            document.getElementById('game-login-card').classList.add('hidden');
+            const nameContainer = document.getElementById('game-active-student-name');
+            nameContainer.innerHTML = gameActiveStudents.map((name, idx) =>
+                `<span class="inline-flex items-center gap-1.5 text-xs font-bold bg-teal-800/90 border border-teal-500/50 text-white px-2.5 py-1 rounded-lg"><span class="w-4 h-4 rounded-full bg-amber-400 text-teal-950 text-[10px] font-extrabold flex items-center justify-center">${idx + 1}</span>${name}</span>`
+            ).join('');
+            document.getElementById('game-active-student-class').textContent = `Kelas ${gameActiveStudentClass} • ${gameActiveStudents.length} Siswa`;
+            document.getElementById('game-play-wrapper').classList.remove('hidden');
+
+            initGameRound();
+            document.getElementById('game-edukasi').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function changeGameStudentIdentity() {
+            document.getElementById('game-play-wrapper').classList.add('hidden');
+            document.getElementById('game-login-card').classList.remove('hidden');
+            document.getElementById('game-edukasi').scrollIntoView({ behavior: 'smooth' });
         }
 
         function onClassSelected() {
@@ -1500,7 +1727,15 @@
         let currentMode = 'wajib-mustahil';
         let selectedLeft = null;
         let matchedCount = 0;
+        let gameMistakes = 0;
+        let gamePairMistakes = {};
         let gamePairs = [];
+
+        function getCurrentGameLiveScore() {
+            if (matchedCount === 0) return 0;
+            const raw = (matchedCount * 20) - (gameMistakes * 5);
+            return Math.max(matchedCount * 4, Math.min(100, raw));
+        }
 
         function setGameMode(mode) {
             currentMode = mode;
@@ -1545,8 +1780,15 @@
         function initGameRound() {
             selectedLeft = null;
             matchedCount = 0;
+            gameMistakes = 0;
+            gamePairMistakes = {};
+
             const countEl = document.getElementById('game-matched-count');
             if (countEl) countEl.innerText = matchedCount;
+            const liveScoreEl = document.getElementById('game-live-score');
+            if (liveScoreEl) liveScoreEl.innerText = 0;
+            const summaryEl = document.getElementById('game-result-summary');
+            if (summaryEl) summaryEl.classList.add('hidden');
 
             const shuffledAll = [...sifatData].sort(() => 0.5 - Math.random());
             gamePairs = shuffledAll.slice(0, 5);
@@ -1666,17 +1908,93 @@
 
                 matchedCount++;
                 document.getElementById('game-matched-count').innerText = matchedCount;
+                const liveScoreEl = document.getElementById('game-live-score');
+                if (liveScoreEl) liveScoreEl.innerText = getCurrentGameLiveScore();
                 selectedLeft = null;
 
                 if (matchedCount === 5) {
                     if (typeof confetti === 'function') confetti({ particleCount: 90, spread: 80, origin: { y: 0.6 } });
+                    submitGameScoreToRekap();
                 }
             } else {
                 // Salah
+                gameMistakes++;
+                gamePairMistakes[selectedLeft.no] = true;
+                const liveScoreEl = document.getElementById('game-live-score');
+                if (liveScoreEl) liveScoreEl.innerText = getCurrentGameLiveScore();
+
                 btnEl.classList.add('animate-pulse', 'border-rose-500');
                 setTimeout(() => {
                     btnEl.classList.remove('animate-pulse', 'border-rose-500');
                 }, 400);
+            }
+        }
+
+        async function submitGameScoreToRekap() {
+            const finalScore = getCurrentGameLiveScore();
+            const details = gamePairs.map(p => !gamePairMistakes[p.no]);
+
+            let modeLabel = "Pasangan Sifat Wajib & Mustahil";
+            if (currentMode === 'wajib-arti') {
+                modeLabel = "Tebak Arti Sifat Wajib";
+            } else if (currentMode === 'mustahil-arti') {
+                modeLabel = "Tebak Arti Sifat Mustahil";
+            }
+
+            const materiLabel = `Game Edukasi: ${modeLabel}`;
+            const summaryEl = document.getElementById('game-result-summary');
+            const statusEl = document.getElementById('game-summary-status');
+            const descEl = document.getElementById('game-summary-desc');
+            const scoreValEl = document.getElementById('game-final-score-val');
+
+            if (scoreValEl) scoreValEl.innerText = `${finalScore} / 100`;
+            if (statusEl) statusEl.innerText = "Mengirim Nilai ke Rekap Nilai...";
+            if (descEl) descEl.innerText = `Menyimpan skor ${finalScore} untuk ${gameActiveStudents.join(', ')} Kelas ${gameActiveStudentClass}...`;
+            if (summaryEl) {
+                summaryEl.classList.remove('hidden');
+                summaryEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            if (!gameActiveStudentClass || gameActiveStudents.length === 0) return;
+
+            const GAS_URL = "https://script.google.com/macros/s/AKfycbwJ5xTkkYn8CuWU2cax8NdlkKXCMn5uCOy_68FaVJxXvFhFw9qu6ihCl4hvan7FpZ5niA/exec";
+            const appId = 'belajaronline-b5512';
+            const colPath = `artifacts/${appId}/public/data/scores_2026`;
+
+            for (const studentName of gameActiveStudents) {
+                const payload = {
+                    name: studentName.toUpperCase().trim(),
+                    kelas: gameActiveStudentClass,
+                    score: parseInt(finalScore, 10),
+                    materi: materiLabel,
+                    type: "Game Edukasi",
+                    details: details,
+                    date: new Date().toLocaleDateString('id-ID'),
+                    timestamp: Date.now(),
+                    uid: "anonymous-user"
+                };
+
+                try {
+                    const res = await fetch(GAS_URL, {
+                        method: "POST",
+                        headers: { "Content-Type": "text/plain" },
+                        body: JSON.stringify({ action: "addDoc", path: colPath, data: payload })
+                    });
+                    const result = await res.json();
+                    if (result.status !== "success") throw new Error(result.message || "Gagal menyimpan");
+                } catch (err) {
+                    try {
+                        const localKey = 'offline_scores_2026';
+                        const list = JSON.parse(localStorage.getItem(localKey) || '[]');
+                        list.push(payload);
+                        localStorage.setItem(localKey, JSON.stringify(list));
+                    } catch (e) {}
+                }
+            }
+
+            if (statusEl) statusEl.innerText = "Nilai Game Berhasil Dikirim ke Rekap Nilai";
+            if (descEl) {
+                descEl.innerText = `Skor ${finalScore} / 100 pada mode ${modeLabel} untuk ${gameActiveStudents.join(', ')} Kelas ${gameActiveStudentClass} telah tersimpan di Rekap Nilai Guru.`;
             }
         }
 
