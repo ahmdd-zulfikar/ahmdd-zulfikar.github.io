@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendidikan Pancasila - Belajar Online</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="../tailwind.min.js"></script>
+    <script>
+        if (typeof tailwind === 'undefined') {
+            document.write('<script src="https://cdn.tailwindcss.com"><\/script>');
+        }
+    </script>
+    
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    },
+                    colors: {
+                        teal: {
+                            850: '#0f5d56',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+        }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        .pattern-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+
+        @keyframes fadeIn { 
+            to { opacity: 1; } 
+        }
+
+        .menu-card, .hover-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .menu-card:hover, .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-backdrop {
+            background-color: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(4px);
+            animation: fadeInModal 0.2s ease-out;
+        }
+        .modal-content {
+            animation: fadeInModal 0.3s ease-out forwards;
+        }
+
+        @keyframes fadeInModal { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+    <style id="warm-clay-theme">
+    /* ==========================================================================
+       GREEN & BLUE PASTEL CLAYMORPHISM THEME - BELAJAR ONLINE
+       ========================================================================== */
+    :root {
+        --clay-bg: #F3F8F6;
+        --clay-bg-alt: #E7F1EE;
+        --clay-surface: #FFFFFF;
+        --clay-mint: #DFF3EA;
+        --clay-mint-accent: #2E9688;
+        --clay-mint-dark: #1F786C;
+        --clay-sage: #D6EAE2;
+        --clay-sky: #DFEEFC;
+        --clay-sky-accent: #3B82F6;
+        --clay-aqua: #DCF3F5;
+        --clay-aqua-accent: #2596A8;
+        --clay-indigo: #E3E9FC;
+        --clay-indigo-accent: #5472E8;
+        --clay-text-dark: #18312E;
+        --clay-text-muted: #4A6460;
+    }
+
+    body {
+        background-color: var(--clay-bg) !important;
+        color: var(--clay-text-dark) !important;
+        background-image: radial-gradient(#D1E3DD 1px, transparent 1px) !important;
+        background-size: 24px 24px !important;
+    }
+
+    ::selection {
+        background-color: #C8E9DD !important;
+        color: #18312E !important;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #E8F2EE !important;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #B3CFC6 !important;
+        border-radius: 9999px !important;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #94B9AD !important;
+    }
+
+    /* Section Backgrounds */
+    .bg-slate-50 {
+        background-color: #F3F8F6 !important;
+    }
+    .bg-slate-100 {
+        background-color: #E7F1EE !important;
+    }
+    section.bg-white {
+        background-color: #F8FCFA !important;
+    }
+    .border-slate-200, .border-slate-100 {
+        border-color: #DCECE6 !important;
+    }
+
+    /* Typography */
+    .text-slate-800, .text-slate-900 {
+        color: #18312E !important;
+    }
+    .text-slate-700 {
+        color: #2A4743 !important;
+    }
+    .text-slate-600, .text-slate-500 {
+        color: #4A6460 !important;
+    }
+
+    /* ================= NAVBAR - SOFT SAGE MINT CLAY ================= */
+    nav {
+        background: rgba(214, 234, 226, 0.94) !important;
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.88) !important;
+        box-shadow: 0 8px 24px -6px rgba(70, 120, 110, 0.14), inset 0 1px 2px rgba(255, 255, 255, 0.88) !important;
+    }
+    nav a > div.bg-teal-600,
+    nav .w-8.h-8.bg-teal-600 {
+        background: linear-gradient(145deg, #2E9688 0%, #1F786C 100%) !important;
+        color: #FFFFFF !important;
+        border-radius: 0.75rem !important;
+        box-shadow: 0 4px 10px rgba(31, 120, 108, 0.32), inset 0 1px 2px rgba(255, 255, 255, 0.5) !important;
+    }
+    nav span.font-heading {
+        color: #18312E !important;
+    }
+    nav span.font-heading span.text-teal-600 {
+        color: #2563EB !important;
+    }
+    nav .hidden.md\:flex > a,
+    nav .hidden.md\:flex > div > button {
+        color: #2D4C47 !important;
+        font-weight: 600 !important;
+        padding: 0.45rem 0.95rem !important;
+        border-radius: 0.9rem !important;
+        transition: all 0.25s ease !important;
+    }
+    nav .hidden.md\:flex > a:hover,
+    nav .hidden.md\:flex > div > button:hover {
+        background: rgba(255, 255, 255, 0.6) !important;
+        color: #1F786C !important;
+    }
+    nav .hidden.md\:flex > a.text-teal-600,
+    nav .hidden.md\:flex > a.font-bold {
+        background: #FFFFFF !important;
+        color: #18312E !important;
+        padding: 0.45rem 1.1rem !important;
+        border-radius: 0.95rem !important;
+        box-shadow: 0 6px 14px -3px rgba(70, 120, 110, 0.16), inset 0 2px 3px #FFFFFF !important;
+    }
+    nav .hidden.md\:flex > a.after\:bg-teal-600::after,
+    nav .hidden.md\:flex > a::after {
+        display: none !important;
+    }
+    #mobile-menu {
+        background: #EBF5F1 !important;
+        border-top: 2px solid #FFFFFF !important;
+    }
+    #mobile-menu a.bg-teal-50 {
+        background: #FFFFFF !important;
+        color: #1F786C !important;
+        border-left-color: #2E9688 !important;
+        box-shadow: 0 4px 12px rgba(70, 120, 110, 0.1) !important;
+    }
+
+    /* ================= HERO BANNER - MINT & SKY BLUE PASTEL CLAY ================= */
+    header.bg-teal-900,
+    header.bg-gradient-to-br,
+    section#beranda.bg-teal-900,
+    main > section.bg-teal-900 {
+        background: linear-gradient(135deg, #DCF2E9 0%, #D2EDF2 50%, #CFE5FA 100%) !important;
+        border-bottom: 3px solid rgba(255, 255, 255, 0.88) !important;
+        box-shadow: 0 14px 32px -8px rgba(65, 130, 145, 0.18), inset 0 2px 6px rgba(255, 255, 255, 0.85) !important;
+    }
+    header > div.absolute.inset-0,
+    section#beranda > div.absolute.inset-0,
+    main > section.bg-teal-900 > div.absolute.inset-0 {
+        background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.6) 0%, rgba(210, 237, 242, 0.25) 60%, transparent 100%) !important;
+    }
+    header h1, header h2, header h3,
+    section#beranda h1, section#beranda h2,
+    main > section.bg-teal-900 h1 {
+        color: #18312E !important;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) !important;
+    }
+    header h1 span, header h2 span, header h3.text-amber-400,
+    section#beranda h1 span.text-teal-400,
+    main > section.bg-teal-900 h1 span {
+        color: #1D63B8 !important;
+    }
+    header p, header p span,
+    section#beranda p,
+    main > section.bg-teal-900 p {
+        color: #385854 !important;
+    }
+    header .rounded-full.bg-teal-800\/80,
+    header .rounded-full.bg-teal-800,
+    header span.rounded-full,
+    header div.rounded-full,
+    main > section.bg-teal-900 .rounded-full.glass-effect {
+        background: #FFFFFF !important;
+        color: #1F786C !important;
+        border: 1.5px solid #FFFFFF !important;
+        box-shadow: 0 4px 12px rgba(65, 130, 120, 0.14), inset 0 1px 2px #FFFFFF !important;
+        font-weight: 700 !important;
+    }
+    header .rounded-full i,
+    main > section.bg-teal-900 .rounded-full i {
+        color: #2563EB !important;
+    }
+    /* Hero Buttons */
+    header a.bg-amber-500,
+    header button.bg-amber-500 {
+        background: linear-gradient(180deg, #2E9688 0%, #1F786C 100%) !important;
+        color: #FFFFFF !important;
+        border: 1.5px solid rgba(255, 255, 255, 0.55) !important;
+        border-radius: 1rem !important;
+        box-shadow: 0 8px 18px -4px rgba(31, 120, 108, 0.4), inset 0 2px 3px rgba(255, 255, 255, 0.45) !important;
+    }
+    header a.bg-amber-500:hover,
+    header button.bg-amber-500:hover {
+        background: linear-gradient(180deg, #268578 0%, #18665B 100%) !important;
+        transform: translateY(-2px) !important;
+    }
+    header a.bg-teal-800\/80,
+    header a.bg-teal-800,
+    header button.bg-teal-800\/80 {
+        background: #FFFFFF !important;
+        color: #1E3A36 !important;
+        border: 1.5px solid #FFFFFF !important;
+        border-radius: 1rem !important;
+        box-shadow: 0 8px 18px -4px rgba(70, 125, 140, 0.18), inset 0 2px 3px #FFFFFF !important;
+        font-weight: 700 !important;
+    }
+    header a.bg-teal-800\/80:hover,
+    header a.bg-teal-800:hover {
+        background: #F8FCFA !important;
+        transform: translateY(-2px) !important;
+    }
+    header a.bg-teal-800\/80 i,
+    header a.bg-teal-800 i {
+        color: #2563EB !important;
+    }
+
+    /* ================= WHITE CLAY SURFACES & CONTAINERS ================= */
+    main .bg-white.rounded-2xl,
+    main .bg-white.rounded-3xl,
+    main .bg-white.rounded-xl {
+        background-color: #FFFFFF !important;
+        border: 2px solid #E1EFEA !important;
+        box-shadow: 0 12px 28px -6px rgba(80, 130, 120, 0.12), 0 4px 10px -2px rgba(80, 130, 120, 0.06), inset 0 2px 4px rgba(255, 255, 255, 0.9) !important;
+    }
+
+    /* ================= 4-COLOR GREEN & BLUE PASTEL CLAY CARDS ================= */
+    #cards-container > div h3,
+    #modul .grid > * > div h3,
+    #fitur-digital .grid > div h3 {
+        color: #18312E !important;
+    }
+    #cards-container > div p,
+    #modul .grid > * > div p,
+    #fitur-digital .grid > div p {
+        color: #3F5E5A !important;
+    }
+    #modul .grid > * > div .rounded-bl-full {
+        background: rgba(255, 255, 255, 0.45) !important;
+    }
+
+    /* Card 1: Soft Emerald Mint */
+    #cards-container > div:nth-child(4n+1),
+    #modul .grid > :nth-child(4n+1) > div,
+    #fitur-digital .grid > div:nth-child(4n+1),
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+1),
+    .space-y-4 > a:nth-child(4n+1) > .menu-card {
+        background: linear-gradient(145deg, #DFF3EA 0%, #CDE9DC 100%) !important;
+        border: 2px solid rgba(255, 255, 255, 0.88) !important;
+        border-radius: 1.5rem !important;
+        box-shadow: 0 12px 26px -6px rgba(85, 160, 135, 0.2), 0 4px 10px -2px rgba(85, 160, 135, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.88) !important;
+    }
+    #cards-container > div:nth-child(4n+1) .w-16.h-16,
+    #modul .grid > :nth-child(4n+1) > div .w-14.h-14,
+    #fitur-digital .grid > div:nth-child(4n+1) > div.w-20,
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+1) > div:first-child {
+        background: linear-gradient(145deg, #389E7F 0%, #288266 100%) !important;
+        color: #FFFFFF !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        box-shadow: 0 6px 14px rgba(40, 130, 102, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.45) !important;
+    }
+    #cards-container > div:nth-child(4n+1) span.w-full,
+    #modul .grid > :nth-child(4n+1) span.w-full {
+        background: #FFFFFF !important;
+        color: #236E56 !important;
+        border-color: #FFFFFF !important;
+        box-shadow: 0 4px 10px rgba(85, 160, 135, 0.16) !important;
+    }
+
+    /* Card 2: Soft Sky Blue */
+    #cards-container > div:nth-child(4n+2),
+    #modul .grid > :nth-child(4n+2) > div,
+    #fitur-digital .grid > div:nth-child(4n+2),
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+2),
+    .space-y-4 > a:nth-child(4n+2) > .menu-card {
+        background: linear-gradient(145deg, #DFEEFC 0%, #CCE2F8 100%) !important;
+        border: 2px solid rgba(255, 255, 255, 0.88) !important;
+        border-radius: 1.5rem !important;
+        box-shadow: 0 12px 26px -6px rgba(90, 145, 205, 0.2), 0 4px 10px -2px rgba(90, 145, 205, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.88) !important;
+    }
+    #cards-container > div:nth-child(4n+2) .w-16.h-16,
+    #modul .grid > :nth-child(4n+2) > div .w-14.h-14,
+    #fitur-digital .grid > div:nth-child(4n+2) > div.w-20,
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+2) > div:first-child {
+        background: linear-gradient(145deg, #4A90E2 0%, #3576C4 100%) !important;
+        color: #FFFFFF !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        box-shadow: 0 6px 14px rgba(53, 118, 196, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.45) !important;
+    }
+    #cards-container > div:nth-child(4n+2) span.w-full,
+    #modul .grid > :nth-child(4n+2) span.w-full {
+        background: #FFFFFF !important;
+        color: #2B62A6 !important;
+        border-color: #FFFFFF !important;
+        box-shadow: 0 4px 10px rgba(90, 145, 205, 0.16) !important;
+    }
+
+    /* Card 3: Soft Aqua Cyan */
+    #cards-container > div:nth-child(4n+3),
+    #modul .grid > :nth-child(4n+3) > div,
+    #fitur-digital .grid > div:nth-child(4n+3),
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+3),
+    .space-y-4 > a:nth-child(4n+3) > .menu-card {
+        background: linear-gradient(145deg, #DCF3F5 0%, #C7E8EC 100%) !important;
+        border: 2px solid rgba(255, 255, 255, 0.88) !important;
+        border-radius: 1.5rem !important;
+        box-shadow: 0 12px 26px -6px rgba(80, 160, 175, 0.2), 0 4px 10px -2px rgba(80, 160, 175, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.88) !important;
+    }
+    #cards-container > div:nth-child(4n+3) .w-16.h-16,
+    #modul .grid > :nth-child(4n+3) > div .w-14.h-14,
+    #fitur-digital .grid > div:nth-child(4n+3) > div.w-20,
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+3) > div:first-child {
+        background: linear-gradient(145deg, #2FA4B5 0%, #218696 100%) !important;
+        color: #FFFFFF !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        box-shadow: 0 6px 14px rgba(33, 134, 150, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.45) !important;
+    }
+    #cards-container > div:nth-child(4n+3) span.w-full,
+    #modul .grid > :nth-child(4n+3) span.w-full {
+        background: #FFFFFF !important;
+        color: #1D6F7D !important;
+        border-color: #FFFFFF !important;
+        box-shadow: 0 4px 10px rgba(80, 160, 175, 0.16) !important;
+    }
+
+    /* Card 4: Soft Periwinkle Cobalt Blue */
+    #cards-container > div:nth-child(4n+4),
+    #modul .grid > :nth-child(4n+4) > div,
+    #fitur-digital .grid > div:nth-child(4n+4),
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+4),
+    .space-y-4 > a:nth-child(4n+4) > .menu-card {
+        background: linear-gradient(145deg, #E3E9FC 0%, #D2DCF9 100%) !important;
+        border: 2px solid rgba(255, 255, 255, 0.88) !important;
+        border-radius: 1.5rem !important;
+        box-shadow: 0 12px 26px -6px rgba(100, 125, 205, 0.2), 0 4px 10px -2px rgba(100, 125, 205, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.88) !important;
+    }
+    #cards-container > div:nth-child(4n+4) .w-16.h-16,
+    #modul .grid > :nth-child(4n+4) > div .w-14.h-14,
+    #fitur-digital .grid > div:nth-child(4n+4) > div.w-20,
+    main > .grid.md\:grid-cols-3 > div:nth-child(4n+4) > div:first-child {
+        background: linear-gradient(145deg, #5C7CFA 0%, #4463DD 100%) !important;
+        color: #FFFFFF !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        box-shadow: 0 6px 14px rgba(68, 99, 221, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.45) !important;
+    }
+    #cards-container > div:nth-child(4n+4) span.w-full,
+    #modul .grid > :nth-child(4n+4) span.w-full {
+        background: #FFFFFF !important;
+        color: #3B56C4 !important;
+        border-color: #FFFFFF !important;
+        box-shadow: 0 4px 10px rgba(100, 125, 205, 0.16) !important;
+    }
+
+    /* Primary Action Buttons & Active States */
+    button.bg-teal-600,
+    a.bg-teal-600,
+    button.bg-amber-500,
+    .saf-scenario-btn.active,
+    .tf-filter-btn.bg-teal-600 {
+        background: linear-gradient(180deg, #2E9688 0%, #1F786C 100%) !important;
+        border-color: #1B685E !important;
+        color: #FFFFFF !important;
+        box-shadow: 0 6px 14px -2px rgba(31, 120, 108, 0.35), inset 0 1.5px 2px rgba(255, 255, 255, 0.45) !important;
+    }
+    button.bg-teal-600:hover,
+    a.bg-teal-600:hover,
+    button.bg-amber-500:hover {
+        background: linear-gradient(180deg, #268578 0%, #18665B 100%) !important;
+    }
+
+    /* Badges & Soft Accents */
+    .bg-teal-50 {
+        background-color: #DFF3EA !important;
+    }
+    .border-teal-100, .border-teal-200 {
+        border-color: #BFE3D4 !important;
+    }
+    .text-teal-600, .text-teal-700, .text-teal-800 {
+        color: #1F786C !important;
+    }
+    .bg-amber-50 {
+        background-color: #DFEEFC !important;
+    }
+    .border-amber-200, .border-amber-100 {
+        border-color: #BDD9F7 !important;
+    }
+    .text-amber-700, .text-amber-800 {
+        color: #2563A8 !important;
+    }
+
+    /* Dark Containers inside Main */
+    .bg-emerald-950 {
+        background: linear-gradient(145deg, #1E564F 0%, #15403B 100%) !important;
+        border-color: #2E736A !important;
+        box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.2), 0 10px 24px -6px rgba(25, 75, 68, 0.25) !important;
+    }
+    .bg-teal-800,
+    .from-teal-900,
+    .from-teal-600.to-teal-800 {
+        background: linear-gradient(135deg, #267872 0%, #1D5E69 100%) !important;
+        border-color: #3B8E88 !important;
+    }
+    thead tr.bg-teal-900 {
+        background: linear-gradient(90deg, #2E8B82 0%, #256E85 100%) !important;
+    }
+
+    /* Content Modal */
+    #modal-header {
+        background: linear-gradient(135deg, #DCF2E9 0%, #D4E9FA 100%) !important;
+        border-bottom: 2px solid #FFFFFF !important;
+    }
+    #modal-body {
+        background-color: #F3F8F6 !important;
+    }
+
+    /* ================= FOOTER - SOFT SAGE MINT CLAY ================= */
+    footer.bg-teal-950,
+    footer {
+        background: linear-gradient(180deg, #D6EAE2 0%, #C7DFD6 100%) !important;
+        color: #2F4F4A !important;
+        border-top: 3px solid rgba(255, 255, 255, 0.88) !important;
+        box-shadow: inset 0 3px 6px rgba(255, 255, 255, 0.78) !important;
+    }
+    footer a.text-white,
+    footer .text-white,
+    footer span.font-heading {
+        color: #18312E !important;
+    }
+    footer .text-teal-500,
+    footer .text-teal-400 {
+        color: #2563EB !important;
+    }
+    footer p,
+    footer .text-teal-400\/80,
+    footer .text-teal-200 {
+        color: #3D5C57 !important;
+    }
+    footer .border-teal-900\/50,
+    footer .border-teal-900 {
+        border-color: rgba(47, 79, 74, 0.15) !important;
+    }
+</style>
+</head>
+<body class="font-sans antialiased selection:bg-teal-200 selection:text-teal-900 overflow-x-hidden flex flex-col min-h-screen">
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-200/50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Brand -->
+                <a href="../" target="_top" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <div class="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-book-open text-sm"></i>
+                    </div>
+                    <span class="font-heading font-bold text-lg tracking-wide text-slate-800">Belajar<span class="text-teal-600">Online</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../fiqih/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Fiqih
+                    </a>
+                    <a href="../akidah-akhlak/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Akidah Akhlak
+                    </a>
+                    <a href="../pendidikan-pancasila/" target="_top" class="text-sm font-bold text-teal-600 relative after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-full after:h-0.5 after:bg-teal-600 transition-colors">
+                        Pendidikan Pancasila
+                    </a>
+                    <a href="../formatif/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Uji Kompetensi
+                    </a>
+                    <a href="../nilai-siswa/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Rekap Nilai
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-slate-600 hover:text-teal-600 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 shadow-lg absolute w-full">
+            <div class="px-4 pt-4 pb-6 space-y-2">
+                <a href="../fiqih/" target="_top" class="block px-4 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-teal-50 transition-colors">Fiqih</a>
+                <a href="../akidah-akhlak/" target="_top" class="block px-4 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-teal-50 transition-colors">Akidah Akhlak</a>
+                <a href="../pendidikan-pancasila/" target="_top" class="block px-4 py-3 rounded-md text-base font-bold text-teal-700 bg-teal-50 border-l-4 border-teal-600 transition-colors">Pendidikan Pancasila</a>
+                <a href="../formatif/" target="_top" class="block px-4 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-teal-50 transition-colors">Uji Kompetensi</a>
+                <a href="../nilai-siswa/" target="_top" class="block px-4 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-teal-50 transition-colors">Rekap Nilai</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= HEADER / TOP SECTION ================= -->
+    <header class="w-full bg-teal-900 relative pt-32 pb-24 overflow-hidden pattern-bg">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-teal-900/90"></div>
+        <div class="container mx-auto px-6 relative z-10 max-w-4xl text-center fade-in">
+            <span class="inline-flex items-center gap-2 bg-teal-800/80 border border-teal-700 text-teal-100 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase mb-6 shadow-sm">
+                <i class="fa-solid fa-book-bookmark text-amber-400"></i> Materi Pembelajaran
+            </span>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4 font-heading tracking-tight">Pendidikan Pancasila</h2>
+            <h3 class="text-xl md:text-2xl font-bold text-amber-400 mb-4 font-heading">Modul Pembelajaran Kewarganegaraan &amp; Demokrasi</h3>
+            <p class="text-teal-100/90 text-sm md:text-base max-w-lg mx-auto leading-relaxed font-light mb-2">
+                Pahami nilai-nilai Pancasila, konstitusi negara, hak dan kewajiban warga negara, serta demokrasi Indonesia secara interaktif. Silakan pilih topik materi di bawah ini untuk memulai.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content: Topic Grid -->
+    <main id="modul" class="flex-grow w-full max-w-5xl px-6 pb-16 -mt-10 mx-auto relative z-20">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Card 1: Kemerdekaan Berpendapat -->
+            <a href="kemerdekaan-berpendapat/" class="cursor-pointer group fade-in delay-100 h-full block">
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 h-full flex flex-col items-center text-center relative overflow-hidden shadow-sm hover:shadow-lg transition-all transform hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center mb-5 text-2xl group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2 font-heading group-hover:text-teal-700 transition-colors">Kemerdekaan Berpendapat</h3>
+                    <p class="text-xs text-slate-500 mb-6 leading-relaxed flex-grow">Kemerdekaan berpendapat warga negara pada era keterbukaan informasi, landasan hukum, bentuk penyampaian, dan etika bermedia sosial.</p>
+                    <div class="mt-auto w-full">
+                        <span class="block w-full py-2.5 bg-teal-50 text-teal-600 text-[10px] uppercase tracking-widest font-bold rounded-xl border border-teal-200 group-hover:bg-teal-600 group-hover:text-white transition-colors">Buka Materi</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 2 -->
+            <div onclick="showComingSoon('Hubungan Pancasila dengan UUD NRI Tahun 1945, Bhinneka Tunggal Ika, dan NKRI')" class="cursor-pointer group fade-in delay-100 h-full">
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 h-full flex flex-col items-center text-center relative overflow-hidden shadow-sm hover:shadow-lg transition-all transform hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-slate-200 rounded-xl flex items-center justify-center text-slate-400 mb-5 text-2xl border border-slate-300">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-600 mb-2 font-heading">Hubungan Pancasila &amp; UUD 1945</h3>
+                    <p class="text-xs text-slate-400 mb-6 leading-relaxed flex-grow">Semangat Pancasila dalam kehidupan bernegara serta keterkaitannya dengan UUD NRI Tahun 1945, Bhinneka Tunggal Ika, dan NKRI.</p>
+                    <div class="mt-auto w-full">
+                        <span class="block w-full py-2.5 bg-slate-200 text-slate-500 text-[10px] uppercase tracking-widest font-bold rounded-xl border border-slate-300">Segera Hadir</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div onclick="showComingSoon('Hak dan Kewajiban Warga Negara')" class="cursor-pointer group fade-in delay-100 h-full">
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 h-full flex flex-col items-center text-center relative overflow-hidden shadow-sm hover:shadow-lg transition-all transform hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-slate-200 rounded-xl flex items-center justify-center text-slate-400 mb-5 text-2xl border border-slate-300">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-600 mb-2 font-heading">Hak &amp; Kewajiban Warga Negara</h3>
+                    <p class="text-xs text-slate-400 mb-6 leading-relaxed flex-grow">Pelaksanaan hak dan kewajiban secara seimbang serta penghormatan terhadap hak dan kewajiban warga negara.</p>
+                    <div class="mt-auto w-full">
+                        <span class="block w-full py-2.5 bg-slate-200 text-slate-500 text-[10px] uppercase tracking-widest font-bold rounded-xl border border-slate-300">Segera Hadir</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div onclick="showComingSoon('Menjaga dan Melestarikan Tradisi, Kearifan Lokal, serta Budaya')" class="cursor-pointer group fade-in delay-200 h-full">
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 h-full flex flex-col items-center text-center relative overflow-hidden shadow-sm hover:shadow-lg transition-all transform hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-slate-200 rounded-xl flex items-center justify-center text-slate-400 mb-5 text-2xl border border-slate-300">
+                        <i class="fa-solid fa-landmark"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-600 mb-2 font-heading">Tradisi &amp; Kearifan Lokal</h3>
+                    <p class="text-xs text-slate-400 mb-6 leading-relaxed flex-grow">Menjaga dan melestarikan tradisi, kearifan lokal, serta budaya nasional dalam masyarakat global.</p>
+                    <div class="mt-auto w-full">
+                        <span class="block w-full py-2.5 bg-slate-200 text-slate-500 text-[10px] uppercase tracking-widest font-bold rounded-xl border border-slate-300">Segera Hadir</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div onclick="showComingSoon('Menjaga Keutuhan Wilayah Negara Kesatuan Republik Indonesia')" class="cursor-pointer group fade-in delay-200 h-full">
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 h-full flex flex-col items-center text-center relative overflow-hidden shadow-sm hover:shadow-lg transition-all transform hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-slate-200 rounded-xl flex items-center justify-center text-slate-400 mb-5 text-2xl border border-slate-300">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-600 mb-2 font-heading">Menjaga Keutuhan Wilayah NKRI</h3>
+                    <p class="text-xs text-slate-400 mb-6 leading-relaxed flex-grow">Komitmen mempertahankan keutuhan wilayah Negara Kesatuan Republik Indonesia dan peran aktif peserta didik.</p>
+                    <div class="mt-auto w-full">
+                        <span class="block w-full py-2.5 bg-slate-200 text-slate-500 text-[10px] uppercase tracking-widest font-bold rounded-xl border border-slate-300">Segera Hadir</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div onclick="showComingSoon('Bhinneka Tunggal Ika dan Harmoni Keberagaman')" class="cursor-pointer group fade-in delay-200 h-full">
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 h-full flex flex-col items-center text-center relative overflow-hidden shadow-sm hover:shadow-lg transition-all transform hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-slate-200 rounded-xl flex items-center justify-center text-slate-400 mb-5 text-2xl border border-slate-300">
+                        <i class="fa-solid fa-people-group"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-600 mb-2 font-heading">Harmoni Keberagaman</h3>
+                    <p class="text-xs text-slate-400 mb-6 leading-relaxed flex-grow">Merawat keberagaman suku, agama, ras, dan antargolongan dalam bingkai persatuan Indonesia.</p>
+                    <div class="mt-auto w-full">
+                        <span class="block w-full py-2.5 bg-slate-200 text-slate-500 text-[10px] uppercase tracking-widest font-bold rounded-xl border border-slate-300">Segera Hadir</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="w-full bg-teal-950 text-teal-200 py-10 border-t border-teal-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <div class="flex items-center justify-center gap-3 mb-4 text-white">
+                <i class="fa-solid fa-book-open text-xl text-teal-500"></i>
+                <span class="font-heading font-bold text-xl tracking-wide">Belajar<span class="text-teal-500">Online</span></span>
+            </div>
+            <p class="text-sm text-teal-400/80 max-w-md mx-auto mb-8">
+                Belajar Online adalah Sistem Pembelajaran Berbasis Digital untuk Memudahkan Guru dan Murid dalam Mencapai Tujuan Pembelajaran.
+            </p>
+            
+            <div class="pt-6 border-t border-teal-900/50 text-xs text-teal-500">
+                <p>&copy; 2026 Ahmad Zulfikar, S.Pd.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Coming Soon Modal -->
+    <div id="comingSoonModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center modal-backdrop px-4">
+        <div class="bg-white rounded-2xl shadow-xl p-8 max-w-sm w-full modal-content border border-slate-100 text-center relative">
+            <div class="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400 text-2xl">
+                <i class="fas fa-clock"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-2 font-heading">Belum Tersedia</h3>
+            <p class="text-slate-500 mb-6 text-sm leading-relaxed">
+                Materi <span id="modalTopic" class="font-bold text-teal-600">Topik</span> sedang dalam tahap penyusunan.
+            </p>
+            <button onclick="closeModal('comingSoonModal')" class="w-full bg-teal-600 text-white py-3 rounded-xl hover:bg-teal-700 transition duration-200 font-medium text-sm shadow-sm">
+                Mengerti
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        const comingSoonModal = document.getElementById('comingSoonModal');
+        const modalTopic = document.getElementById('modalTopic');
+
+        function showComingSoon(topicName) {
+            modalTopic.textContent = topicName;
+            comingSoonModal.classList.remove('hidden');
+        }
+
+        window.onclick = function(event) {
+            if (event.target === comingSoonModal) closeModal('comingSoonModal');
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal('comingSoonModal');
+            }
+        });
+    </script>
+</body>
+</html>
