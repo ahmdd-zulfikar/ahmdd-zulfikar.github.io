@@ -594,6 +594,9 @@
                 <a href="../../akidah-akhlak/" target="_top"
                     class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Akidah
                     Akhlak</a>
+                <a href="../../pendidikan-pancasila/" target="_top"
+                    class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Pendidikan
+                    Pancasila</a>
                 <a href="../../formatif/" target="_top"
                     class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:text-teal-600 hover:bg-slate-50 transition-colors">Uji
                     Kompetensi</a>
@@ -1511,92 +1514,208 @@
                     </p>
                 </div>
 
-                <!-- Control Panel: Filter Topik & Statistik Skor -->
-                <div class="bg-slate-50 rounded-3xl p-4 sm:p-6 border border-slate-200 shadow-sm mb-8 space-y-4">
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                        <!-- Filter Buttons -->
-                        <div class="flex flex-wrap items-center justify-center md:justify-start gap-2">
-                            <button onclick="filterTrueFalseQuiz('all')" id="tf-filter-all"
-                                class="tf-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition shadow-sm bg-teal-600 text-white flex items-center gap-1.5">
-                                <i class="fa-solid fa-layer-group"></i>
-                                <span>Semua Topik</span>
-                            </button>
-                            <button onclick="filterTrueFalseQuiz('masbuq')" id="tf-filter-masbuq"
-                                class="tf-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition border border-slate-200 bg-white text-slate-700 hover:bg-teal-50 hover:text-teal-700 flex items-center gap-1.5">
-                                <i class="fa-solid fa-user-clock text-amber-500"></i>
-                                <span>Makmum Masbuq</span>
-                            </button>
-                            <button onclick="filterTrueFalseQuiz('muwafiq')" id="tf-filter-muwafiq"
-                                class="tf-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition border border-slate-200 bg-white text-slate-700 hover:bg-teal-50 hover:text-teal-700 flex items-center gap-1.5">
-                                <i class="fa-solid fa-user-check text-teal-600"></i>
-                                <span>Makmum Muwafiq</span>
-                            </button>
-                            <button onclick="filterTrueFalseQuiz('saf')" id="tf-filter-saf"
-                                class="tf-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition border border-slate-200 bg-white text-slate-700 hover:bg-teal-50 hover:text-teal-700 flex items-center gap-1.5">
-                                <i class="fa-solid fa-people-line text-indigo-600"></i>
-                                <span>Posisi Saf Makmum</span>
-                            </button>
-                            <button onclick="filterTrueFalseQuiz('ingatkan')" id="tf-filter-ingatkan"
-                                class="tf-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition border border-slate-200 bg-white text-slate-700 hover:bg-teal-50 hover:text-teal-700 flex items-center gap-1.5">
-                                <i class="fa-solid fa-bell text-rose-500"></i>
-                                <span>Mengingatkan Imam</span>
-                            </button>
-                            <button onclick="filterTrueFalseQuiz('ganti')" id="tf-filter-ganti"
-                                class="tf-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition border border-slate-200 bg-white text-slate-700 hover:bg-teal-50 hover:text-teal-700 flex items-center gap-1.5">
-                                <i class="fa-solid fa-repeat text-purple-600"></i>
-                                <span>Menggantikan Imam</span>
-                            </button>
+                <!-- Card Identitas Siswa Kelas VII Sebelum Mengerjakan Kuis Benar Salah -->
+                <div id="tf-login-card"
+                    class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm text-center space-y-5 max-w-xl mx-auto mb-8">
+                    <div
+                        class="w-14 h-14 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center mx-auto text-2xl border border-teal-100">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-800 font-heading">
+                            Identitas Peserta Kuis Benar atau Salah
+                        </h3>
+                        <p class="text-xs text-slate-500 mt-1">
+                            Pilih jumlah siswa (1 sampai 5 orang), kelas VII, serta nama siswa sebelum mulai mengerjakan Kuis Interaktif Benar atau Salah.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 text-left">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                                    Jumlah Siswa
+                                </label>
+                                <select id="tf-player-count" onchange="renderTfPlayerSelects()"
+                                    class="w-full p-3.5 border border-slate-300 rounded-xl bg-slate-50 text-slate-800 font-semibold text-xs sm:text-sm outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                                    <option value="1">1 Siswa</option>
+                                    <option value="2">2 Siswa</option>
+                                    <option value="3">3 Siswa</option>
+                                    <option value="4">4 Siswa</option>
+                                    <option value="5">5 Siswa</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                                    Pilih Kelas (Kelas VII)
+                                </label>
+                                <select id="tf-select-kelas" onchange="renderTfPlayerSelects()"
+                                    class="w-full p-3.5 border border-slate-300 rounded-xl bg-slate-50 text-slate-800 font-semibold text-xs sm:text-sm outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition">
+                                    <option value="">-- Pilih Kelas --</option>
+                                </select>
+                            </div>
                         </div>
 
-                        <!-- Score & Reset Bar -->
-                        <div class="flex items-center gap-3 flex-wrap justify-center">
-                            <div class="bg-white px-3.5 py-2 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 flex items-center gap-2 shadow-sm">
-                                <span class="text-slate-400">Terjawab:</span>
-                                <span id="tf-answered-count" class="text-teal-700">0</span>
-                                <span class="text-slate-300">/</span>
-                                <span id="tf-total-count" class="text-slate-600">20</span>
+                        <div id="tf-nama-wrapper" class="hidden space-y-2.5">
+                            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider">
+                                Pilih Nama Siswa
+                            </label>
+                            <div id="tf-players-list" class="space-y-2.5"></div>
+                        </div>
+
+                        <div id="tf-login-error"
+                            class="hidden text-rose-600 text-xs font-bold bg-rose-50 p-2.5 rounded-xl border border-rose-200 text-center">
+                            Pastikan semua nama siswa sudah dipilih dan tidak ada nama yang ganda.
+                        </div>
+
+                        <button id="tf-start-btn" onclick="startTfStudentQuiz()" disabled
+                            class="w-full py-3.5 bg-slate-300 text-slate-500 font-bold text-xs sm:text-sm rounded-xl cursor-not-allowed transition flex items-center justify-center gap-2 shadow-sm mt-3">
+                            <span>Mulai Kerjakan Kuis Benar Salah</span>
+                            <i class="fa-solid fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Area Pengerjaan Kuis Benar Salah Setelah Pilih Kelas & Nama Siswa -->
+                <div id="tf-play-wrapper" class="hidden">
+
+                    <!-- Banner Identitas Siswa Aktif -->
+                    <div id="tf-student-banner"
+                        class="mb-6 bg-teal-800 text-white p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
+                        <div class="flex items-start sm:items-center gap-3">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-teal-700 text-teal-200 flex items-center justify-center text-lg shrink-0">
+                                <i class="fa-solid fa-users"></i>
                             </div>
-                            <div class="bg-emerald-50 px-3.5 py-2 rounded-xl border border-emerald-200 text-xs font-bold text-emerald-800 flex items-center gap-2 shadow-sm">
-                                <i class="fa-solid fa-star text-amber-500"></i>
-                                <span>Benar:</span>
-                                <span id="tf-correct-count" class="text-emerald-700 text-sm">0</span>
+                            <div class="text-center sm:text-left">
+                                <div class="flex items-center justify-center sm:justify-start gap-2 mb-1">
+                                    <span class="text-[11px] text-teal-200 font-bold uppercase tracking-wider">Peserta Kuis Benar Salah</span>
+                                    <span class="text-[11px] bg-teal-600 text-white px-2.5 py-0.5 rounded-full font-bold"
+                                        id="tf-active-student-class">-</span>
+                                </div>
+                                <div class="flex items-center justify-center sm:justify-start gap-1.5 flex-wrap"
+                                    id="tf-active-student-name">
+                                    -
+                                </div>
                             </div>
+                        </div>
+                        <button onclick="changeTfStudentIdentity()"
+                            class="text-xs text-teal-100 hover:text-white bg-teal-700/80 hover:bg-teal-700 border border-teal-500/50 px-3.5 py-2 rounded-xl font-bold flex items-center gap-1.5 transition shrink-0">
+                            <i class="fa-solid fa-user-pen"></i> Ganti Siswa
+                        </button>
+                    </div>
+
+                    <!-- Control Panel: Filter Topik & Statistik Skor -->
+                    <div class="bg-slate-50 rounded-3xl p-4 sm:p-6 border border-slate-200 shadow-sm mb-8 space-y-4">
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                            <!-- Filter Buttons -->
+                            <div class="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                                <button onclick="filterTrueFalseQuiz('all')" id="tf-filter-all"
+                                    class="tf-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition shadow-sm bg-teal-600 text-white flex items-center gap-1.5">
+                                    <i class="fa-solid fa-layer-group"></i>
+                                    <span>Semua Topik</span>
+                                </button>
+                                <button onclick="filterTrueFalseQuiz('masbuq')" id="tf-filter-masbuq"
+                                    class="tf-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition border border-slate-200 bg-white text-slate-700 hover:bg-teal-50 hover:text-teal-700 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-user-clock text-amber-500"></i>
+                                    <span>Makmum Masbuq</span>
+                                </button>
+                                <button onclick="filterTrueFalseQuiz('muwafiq')" id="tf-filter-muwafiq"
+                                    class="tf-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition border border-slate-200 bg-white text-slate-700 hover:bg-teal-50 hover:text-teal-700 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-user-check text-teal-600"></i>
+                                    <span>Makmum Muwafiq</span>
+                                </button>
+                                <button onclick="filterTrueFalseQuiz('saf')" id="tf-filter-saf"
+                                    class="tf-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition border border-slate-200 bg-white text-slate-700 hover:bg-teal-50 hover:text-teal-700 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-people-line text-indigo-600"></i>
+                                    <span>Posisi Saf Makmum</span>
+                                </button>
+                                <button onclick="filterTrueFalseQuiz('ingatkan')" id="tf-filter-ingatkan"
+                                    class="tf-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition border border-slate-200 bg-white text-slate-700 hover:bg-teal-50 hover:text-teal-700 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-bell text-rose-500"></i>
+                                    <span>Mengingatkan Imam</span>
+                                </button>
+                                <button onclick="filterTrueFalseQuiz('ganti')" id="tf-filter-ganti"
+                                    class="tf-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition border border-slate-200 bg-white text-slate-700 hover:bg-teal-50 hover:text-teal-700 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-repeat text-purple-600"></i>
+                                    <span>Menggantikan Imam</span>
+                                </button>
+                            </div>
+
+                            <!-- Score & Reset Bar -->
+                            <div class="flex items-center gap-3 flex-wrap justify-center">
+                                <div class="bg-white px-3.5 py-2 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 flex items-center gap-2 shadow-sm">
+                                    <span class="text-slate-400">Terjawab:</span>
+                                    <span id="tf-answered-count" class="text-teal-700">0</span>
+                                    <span class="text-slate-300">/</span>
+                                    <span id="tf-total-count" class="text-slate-600">20</span>
+                                </div>
+                                <div class="bg-emerald-50 px-3.5 py-2 rounded-xl border border-emerald-200 text-xs font-bold text-emerald-800 flex items-center gap-2 shadow-sm">
+                                    <i class="fa-solid fa-star text-amber-500"></i>
+                                    <span>Benar:</span>
+                                    <span id="tf-correct-count" class="text-emerald-700 text-sm">0</span>
+                                </div>
+                                <div class="bg-teal-50 px-3.5 py-2 rounded-xl border border-teal-200 text-xs font-bold text-teal-800 flex items-center gap-1.5 shadow-sm">
+                                    <span>Skor:</span>
+                                    <span id="tf-live-score" class="text-teal-700 text-sm">0</span>
+                                    <span class="text-slate-400">/ 100</span>
+                                </div>
+                                <button onclick="resetTrueFalseQuiz()"
+                                    class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-teal-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+                                    <i class="fa-solid fa-rotate-right"></i>
+                                    <span>Acak Ulang</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                            <div id="tf-progress-bar" class="bg-teal-600 h-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Grid Kartu Pernyataan Benar Salah -->
+                    <div id="tf-cards-container" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <!-- Dynamic True/False Cards Rendered by JS -->
+                    </div>
+
+                    <!-- Summary Box Saat Semua Terjawab -->
+                    <div id="tf-summary-box"
+                        class="hidden mt-8 bg-white border border-slate-200 p-6 sm:p-8 rounded-3xl text-center shadow-sm space-y-4">
+                        <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-3xl border border-emerald-200">
+                            <i class="fa-solid fa-cloud-arrow-up text-teal-600"></i>
+                        </div>
+                        <h3 id="tf-summary-title" class="text-xl sm:text-2xl font-extrabold font-heading text-slate-800">
+                            Nilai Kuis Berhasil Dikirim ke Rekap Nilai!
+                        </h3>
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold">
+                            <span id="tf-summary-student-info">Peserta: -</span>
+                        </div>
+                        <p id="tf-summary-text" class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+                            Kamu telah menyelesaikan seluruh pernyataan pada kuis interaktif ini.
+                        </p>
+                        <div class="text-4xl sm:text-5xl font-extrabold text-teal-700 font-heading" id="tf-final-score-val">
+                            100 / 100
+                        </div>
+                        <div class="flex justify-center gap-3 pt-2 flex-wrap">
+                            <a href="../../nilai-siswa/" target="_top"
+                                class="px-6 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm rounded-xl transition inline-flex items-center gap-2 shadow-sm">
+                                <i class="fa-solid fa-table-list"></i>
+                                <span>Buka Rekap Nilai</span>
+                            </a>
                             <button onclick="resetTrueFalseQuiz()"
-                                class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-teal-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-                                <i class="fa-solid fa-rotate-right"></i>
-                                <span>Acak Ulang</span>
+                                class="px-6 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm rounded-xl transition inline-flex items-center gap-2 border border-slate-200">
+                                <i class="fa-solid fa-shuffle"></i>
+                                <span>Mainkan Lagi & Acak Soal</span>
+                            </button>
+                            <button onclick="changeTfStudentIdentity()"
+                                class="px-6 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm rounded-xl transition inline-flex items-center gap-2 border border-slate-200">
+                                <i class="fa-solid fa-user-plus"></i>
+                                <span>Ganti Siswa</span>
                             </button>
                         </div>
                     </div>
 
-                    <!-- Progress Bar -->
-                    <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
-                        <div id="tf-progress-bar" class="bg-teal-600 h-full transition-all duration-300" style="width: 0%"></div>
-                    </div>
-                </div>
-
-                <!-- Grid Kartu Pernyataan Benar Salah -->
-                <div id="tf-cards-container" class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <!-- Dynamic True/False Cards Rendered by JS -->
-                </div>
-
-                <!-- Summary Box Saat Semua Terjawab -->
-                <div id="tf-summary-box"
-                    class="hidden mt-8 bg-gradient-to-br from-teal-900 to-emerald-950 text-white p-6 sm:p-8 rounded-3xl text-center shadow-xl border border-teal-700">
-                    <div class="w-16 h-16 bg-amber-400/20 text-amber-400 rounded-2xl flex items-center justify-center mx-auto text-3xl mb-3 border border-amber-400/30">
-                        <i class="fa-solid fa-award"></i>
-                    </div>
-                    <h3 class="text-xl sm:text-2xl font-extrabold font-heading mb-1">
-                        Kuis Benar Salah Selesai!
-                    </h3>
-                    <p id="tf-summary-text" class="text-xs sm:text-sm text-teal-100 max-w-md mx-auto mb-5">
-                        Kamu telah menyelesaikan seluruh pernyataan pada kuis interaktif ini.
-                    </p>
-                    <button onclick="resetTrueFalseQuiz()"
-                        class="px-6 py-3 bg-amber-500 hover:bg-amber-400 text-teal-950 font-bold text-xs sm:text-sm rounded-xl transition inline-flex items-center gap-2 shadow-md">
-                        <i class="fa-solid fa-shuffle"></i>
-                        <span>Mainkan Lagi & Acak Soal</span>
-                    </button>
                 </div>
 
             </div>
@@ -2176,16 +2295,157 @@
         }
 
         function initClassDropdown() {
-            const kelasSelect = document.getElementById('quiz-select-kelas');
-            if (!kelasSelect) return;
             const data = getStudentMasterData();
-            kelasSelect.innerHTML = '<option value="">-- Pilih Kelas --</option>';
-            Object.keys(data).forEach(cls => {
-                const opt = document.createElement('option');
-                opt.value = cls;
-                opt.textContent = `Kelas ${cls}`;
-                kelasSelect.appendChild(opt);
+            const classKeys = Object.keys(data);
+
+            const kelasSelect = document.getElementById('quiz-select-kelas');
+            if (kelasSelect) {
+                kelasSelect.innerHTML = '<option value="">-- Pilih Kelas --</option>';
+                classKeys.forEach(cls => {
+                    const opt = document.createElement('option');
+                    opt.value = cls;
+                    opt.textContent = `Kelas ${cls}`;
+                    kelasSelect.appendChild(opt);
+                });
+            }
+
+            const tfKelasSelect = document.getElementById('tf-select-kelas');
+            if (tfKelasSelect) {
+                tfKelasSelect.innerHTML = '<option value="">-- Pilih Kelas --</option>';
+                classKeys.forEach(cls => {
+                    const opt = document.createElement('option');
+                    opt.value = cls;
+                    opt.textContent = `Kelas ${cls}`;
+                    tfKelasSelect.appendChild(opt);
+                });
+            }
+        }
+
+        // Identitas Siswa untuk Kuis Interaktif Benar atau Salah (Kelas VII)
+        let tfActiveStudents = [];
+        let tfActiveStudentClass = '';
+
+        function renderTfPlayerSelects() {
+            const countSelect = document.getElementById('tf-player-count');
+            const kelasSelect = document.getElementById('tf-select-kelas');
+            const namaWrapper = document.getElementById('tf-nama-wrapper');
+            const playersList = document.getElementById('tf-players-list');
+            const startBtn = document.getElementById('tf-start-btn');
+            const errorEl = document.getElementById('tf-login-error');
+
+            if (!countSelect || !kelasSelect || !namaWrapper || !playersList || !startBtn) return;
+
+            const playerCount = parseInt(countSelect.value || '1', 10);
+            const selectedClass = kelasSelect.value;
+
+            if (errorEl) errorEl.classList.add('hidden');
+
+            if (!selectedClass) {
+                namaWrapper.classList.add('hidden');
+                playersList.innerHTML = '';
+                startBtn.disabled = true;
+                startBtn.className = "w-full py-3.5 bg-slate-300 text-slate-500 font-bold text-xs sm:text-sm rounded-xl cursor-not-allowed transition flex items-center justify-center gap-2 shadow-sm mt-3";
+                return;
+            }
+
+            const data = getStudentMasterData();
+            const students = data[selectedClass] || [];
+            playersList.innerHTML = '';
+
+            for (let i = 1; i <= playerCount; i++) {
+                const row = document.createElement('div');
+                row.className = "flex items-center gap-2";
+
+                const badge = document.createElement('span');
+                badge.className = "w-8 h-8 rounded-xl bg-teal-50 text-teal-700 border border-teal-200 font-extrabold text-xs flex items-center justify-center shrink-0";
+                badge.textContent = i;
+
+                const select = document.createElement('select');
+                select.id = `tf-select-nama-${i}`;
+                select.className = "tf-player-select w-full p-3 border border-slate-300 rounded-xl bg-slate-50 text-slate-800 font-semibold text-xs sm:text-sm outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition";
+                select.onchange = validateTfPlayers;
+
+                const defaultOpt = document.createElement('option');
+                defaultOpt.value = "";
+                defaultOpt.textContent = `-- Pilih Siswa ${i} --`;
+                select.appendChild(defaultOpt);
+
+                students.forEach(st => {
+                    const opt = document.createElement('option');
+                    opt.value = st;
+                    opt.textContent = st;
+                    select.appendChild(opt);
+                });
+
+                row.appendChild(badge);
+                row.appendChild(select);
+                playersList.appendChild(row);
+            }
+
+            namaWrapper.classList.remove('hidden');
+            validateTfPlayers();
+        }
+
+        function validateTfPlayers() {
+            const selects = Array.from(document.querySelectorAll('.tf-player-select'));
+            const startBtn = document.getElementById('tf-start-btn');
+            const errorEl = document.getElementById('tf-login-error');
+
+            const chosen = selects.map(s => s.value).filter(Boolean);
+            const allFilled = selects.length > 0 && chosen.length === selects.length;
+            const uniqueChosen = new Set(chosen);
+            const hasDuplicate = chosen.length !== uniqueChosen.size;
+
+            selects.forEach(sel => {
+                const currentVal = sel.value;
+                Array.from(sel.options).forEach(opt => {
+                    if (!opt.value) return;
+                    opt.disabled = opt.value !== currentVal && chosen.includes(opt.value);
+                });
             });
+
+            if (hasDuplicate && errorEl) {
+                errorEl.classList.remove('hidden');
+            } else if (errorEl) {
+                errorEl.classList.add('hidden');
+            }
+
+            if (allFilled && !hasDuplicate) {
+                startBtn.disabled = false;
+                startBtn.className = "w-full py-3.5 bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs sm:text-sm rounded-xl cursor-pointer transition flex items-center justify-center gap-2 shadow-md mt-3";
+            } else {
+                startBtn.disabled = true;
+                startBtn.className = "w-full py-3.5 bg-slate-300 text-slate-500 font-bold text-xs sm:text-sm rounded-xl cursor-not-allowed transition flex items-center justify-center gap-2 shadow-sm mt-3";
+            }
+        }
+
+        function startTfStudentQuiz() {
+            const kelasSelect = document.getElementById('tf-select-kelas');
+            const selects = Array.from(document.querySelectorAll('.tf-player-select'));
+            tfActiveStudentClass = kelasSelect.value;
+            tfActiveStudents = selects.map(s => s.value).filter(Boolean);
+
+            if (!tfActiveStudentClass || tfActiveStudents.length === 0 || tfActiveStudents.length !== selects.length) {
+                alert("Silakan lengkapi pilihan kelas dan seluruh nama siswa terlebih dahulu.");
+                return;
+            }
+
+            document.getElementById('tf-login-card').classList.add('hidden');
+            const nameContainer = document.getElementById('tf-active-student-name');
+            nameContainer.innerHTML = tfActiveStudents.map((name, idx) =>
+                `<span class="inline-flex items-center gap-1.5 text-xs font-bold bg-teal-900/60 border border-teal-500/40 text-white px-2.5 py-1 rounded-lg"><span class="w-4 h-4 rounded-full bg-white text-teal-800 text-[10px] font-extrabold flex items-center justify-center">${idx + 1}</span>${name}</span>`
+            ).join('');
+            document.getElementById('tf-active-student-class').textContent = `Kelas ${tfActiveStudentClass} • ${tfActiveStudents.length} Siswa`;
+            document.getElementById('tf-play-wrapper').classList.remove('hidden');
+
+            initTrueFalseQuiz();
+            document.getElementById('kuis-benar-salah').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function changeTfStudentIdentity() {
+            document.getElementById('tf-play-wrapper').classList.add('hidden');
+            document.getElementById('tf-login-card').classList.remove('hidden');
+            document.getElementById('kuis-benar-salah').scrollIntoView({ behavior: 'smooth' });
         }
 
         function onClassSelected() {
@@ -2593,33 +2853,111 @@
             const total = activeTrueFalseItems.length;
             const answered = Object.keys(userTrueFalseAnswers).length;
             const correct = Object.values(userTrueFalseAnswers).filter(Boolean).length;
+            const scorePct = total > 0 ? Math.round((correct / total) * 100) : 0;
 
             const answeredEl = document.getElementById('tf-answered-count');
             const totalEl = document.getElementById('tf-total-count');
             const correctEl = document.getElementById('tf-correct-count');
+            const liveScoreEl = document.getElementById('tf-live-score');
             const progressBar = document.getElementById('tf-progress-bar');
 
             if (answeredEl) answeredEl.textContent = answered;
             if (totalEl) totalEl.textContent = total;
             if (correctEl) correctEl.textContent = correct;
+            if (liveScoreEl) liveScoreEl.textContent = scorePct;
             if (progressBar) {
                 const pct = total > 0 ? Math.round((answered / total) * 100) : 0;
                 progressBar.style.width = `${pct}%`;
             }
 
             if (total > 0 && answered === total) {
-                const summaryBox = document.getElementById('tf-summary-box');
-                const summaryText = document.getElementById('tf-summary-text');
-                const scorePct = Math.round((correct / total) * 100);
-                if (summaryText) {
-                    summaryText.textContent = `Kamu berhasil menjawab benar ${correct} dari ${total} pernyataan dengan perolehan skor ${scorePct}.`;
-                }
-                if (summaryBox) {
-                    summaryBox.classList.remove('hidden');
-                }
                 if (scorePct >= 80 && typeof triggerCelebration === 'function') {
                     triggerCelebration();
                 }
+                submitTfScoreToRekap(scorePct, correct, total);
+            }
+        }
+
+        async function submitTfScoreToRekap(finalScore, correctCount, totalCount) {
+            const filterLabels = {
+                all: 'Semua Topik',
+                masbuq: 'Makmum Masbuq',
+                muwafiq: 'Makmum Muwafiq',
+                saf: 'Posisi Saf Makmum',
+                ingatkan: 'Mengingatkan Imam',
+                ganti: 'Menggantikan Imam'
+            };
+            const topicLabel = filterLabels[activeTrueFalseFilter] || 'Semua Topik';
+            const materiLabel = `Kuis Benar Salah: Shalat Berjamaah (${topicLabel})`;
+            const details = activeTrueFalseItems.map(item => Boolean(userTrueFalseAnswers[item.id]));
+
+            const summaryBox = document.getElementById('tf-summary-box');
+            const summaryTitle = document.getElementById('tf-summary-title');
+            const summaryText = document.getElementById('tf-summary-text');
+            const studentInfoEl = document.getElementById('tf-summary-student-info');
+            const finalScoreEl = document.getElementById('tf-final-score-val');
+
+            if (finalScoreEl) finalScoreEl.textContent = `${finalScore} / 100`;
+            if (studentInfoEl) {
+                studentInfoEl.textContent = tfActiveStudents.length > 0
+                    ? `Peserta: ${tfActiveStudents.join(', ')} • Kelas ${tfActiveStudentClass}`
+                    : 'Peserta Kuis Benar Salah';
+            }
+            if (summaryTitle) summaryTitle.textContent = "Mengirim Nilai ke Rekap Nilai...";
+            if (summaryText) {
+                summaryText.textContent = `Berhasil menjawab benar ${correctCount} dari ${totalCount} pernyataan. Sedang menyimpan skor ${finalScore} ke Rekap Nilai...`;
+            }
+            if (summaryBox) {
+                summaryBox.classList.remove('hidden');
+                summaryBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            if (!tfActiveStudentClass || tfActiveStudents.length === 0) {
+                if (summaryTitle) summaryTitle.textContent = "Kuis Benar Salah Selesai!";
+                if (summaryText) {
+                    summaryText.textContent = `Kamu berhasil menjawab benar ${correctCount} dari ${totalCount} pernyataan dengan perolehan skor ${finalScore} / 100.`;
+                }
+                return;
+            }
+
+            const GAS_URL = "https://script.google.com/macros/s/AKfycbwJ5xTkkYn8CuWU2cax8NdlkKXCMn5uCOy_68FaVJxXvFhFw9qu6ihCl4hvan7FpZ5niA/exec";
+            const appId = 'belajaronline-b5512';
+            const colPath = `artifacts/${appId}/public/data/scores_2026`;
+
+            for (const studentName of tfActiveStudents) {
+                const payload = {
+                    name: studentName.toUpperCase().trim(),
+                    kelas: tfActiveStudentClass,
+                    score: parseInt(finalScore, 10),
+                    materi: materiLabel,
+                    type: "Kuis Interaktif",
+                    details: details,
+                    date: new Date().toLocaleDateString('id-ID'),
+                    timestamp: Date.now(),
+                    uid: "anonymous-user"
+                };
+
+                try {
+                    const res = await fetch(GAS_URL, {
+                        method: "POST",
+                        headers: { "Content-Type": "text/plain" },
+                        body: JSON.stringify({ action: "addDoc", path: colPath, data: payload })
+                    });
+                    const result = await res.json();
+                    if (result.status !== "success") throw new Error(result.message || "Gagal menyimpan");
+                } catch (err) {
+                    try {
+                        const localKey = 'offline_scores_2026';
+                        const list = JSON.parse(localStorage.getItem(localKey) || '[]');
+                        list.push(payload);
+                        localStorage.setItem(localKey, JSON.stringify(list));
+                    } catch (e) { }
+                }
+            }
+
+            if (summaryTitle) summaryTitle.textContent = "Nilai Kuis Berhasil Dikirim ke Rekap Nilai!";
+            if (summaryText) {
+                summaryText.textContent = `Alhamdulillah, ${tfActiveStudents.join(', ')} (Kelas ${tfActiveStudentClass}) berhasil menjawab benar ${correctCount} dari ${totalCount} pernyataan pada topik ${topicLabel} dan nilai telah tersimpan di Rekap Nilai Guru.`;
             }
         }
 
