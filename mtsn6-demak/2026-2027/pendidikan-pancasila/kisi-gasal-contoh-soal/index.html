@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisi-Kisi & Latihan Soal Interaktif ASAS Gasal 2026/2027 - Pendidikan Pancasila Kelas 9 | MTs Negeri 6 Demak</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="../../tailwind.min.js"></script>
+    <script>
+        if (typeof tailwind === 'undefined') {
+            document.write('<script src="https://cdn.tailwindcss.com"><\/script>');
+        }
+    </script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    },
+                    colors: {
+                        teal: {
+                            850: '#0f5d56',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+        }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        .pattern-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        .clay-card {
+            background: #FFFFFF;
+            border: 1.5px solid rgba(46, 150, 136, 0.18);
+            border-radius: 1.25rem;
+            box-shadow: 0 10px 25px -5px rgba(24, 49, 46, 0.06), 0 4px 10px -2px rgba(24, 49, 46, 0.03);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .clay-card:hover {
+            border-color: rgba(46, 150, 136, 0.4);
+            box-shadow: 0 14px 30px -6px rgba(24, 49, 46, 0.1);
+        }
+
+        .btn-clay-primary {
+            background: linear-gradient(145deg, #2E9688 0%, #1F786C 100%);
+            color: #FFFFFF;
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 12px rgba(31, 120, 108, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .btn-clay-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(31, 120, 108, 0.35);
+        }
+
+        .btn-clay-secondary {
+            background: #FFFFFF;
+            color: #18312E;
+            border: 1.5px solid rgba(46, 150, 136, 0.25);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.2s ease;
+        }
+
+        .btn-clay-secondary:hover {
+            background: #F3F8F6;
+            border-color: #2E9688;
+        }
+
+        .badge-clay {
+            background: #DFF3EA;
+            color: #1F786C;
+            border: 1px solid rgba(46, 150, 136, 0.3);
+        }
+    </style>
+    
+    <style id="warm-clay-theme">
+        :root {
+            --clay-bg: #F3F8F6;
+            --clay-bg-alt: #E7F1EE;
+            --clay-surface: #FFFFFF;
+            --clay-mint: #DFF3EA;
+            --clay-mint-accent: #2E9688;
+            --clay-mint-dark: #1F786C;
+            --clay-sky: #DFEEFC;
+            --clay-sky-accent: #3B82F6;
+            --clay-text-dark: #18312E;
+            --clay-text-muted: #4A6460;
+        }
+
+        body {
+            background-color: var(--clay-bg) !important;
+            color: var(--clay-text-dark) !important;
+            background-image: radial-gradient(#D1E3DD 1px, transparent 1px) !important;
+            background-size: 24px 24px !important;
+        }
+
+        nav {
+            background: rgba(214, 234, 226, 0.88) !important;
+            backdrop-filter: blur(14px) !important;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.85) !important;
+            box-shadow: 0 8px 24px -4px rgba(47, 79, 74, 0.12) !important;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-teal-200 selection:text-teal-900 overflow-x-hidden flex flex-col min-h-screen">
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Brand / Logo -->
+                <a href="../" target="_top" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <div class="w-9 h-9 rounded-xl bg-teal-600 flex items-center justify-center text-white shadow-sm">
+                        <i class="fa-solid fa-book-open text-base"></i>
+                    </div>
+                    <span class="font-heading font-bold text-lg tracking-wide text-slate-800">Belajar<span class="text-teal-600">Online</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="../../" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Beranda
+                    </a>
+                    <a href="../../fiqih/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Fiqih
+                    </a>
+                    <a href="../../akidah-akhlak/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Akidah Akhlak
+                    </a>
+                    <a href="../" target="_top" class="text-sm font-bold text-teal-700 bg-white px-3 py-1.5 rounded-xl border border-teal-300 shadow-sm flex items-center gap-1.5">
+                        <i class="fa-solid fa-shield-halved text-teal-600"></i> Pendidikan Pancasila
+                    </a>
+                    <a href="../../formatif/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Uji Kompetensi
+                    </a>
+                    <a href="../../nilai-siswa/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Rekap Nilai
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-slate-600 hover:text-teal-600 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-slate-200/60 shadow-lg absolute w-full px-4 pt-3 pb-5 space-y-2">
+            <a href="../../" target="_top" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50">Beranda</a>
+            <a href="../../fiqih/" target="_top" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50">Fiqih</a>
+            <a href="../../akidah-akhlak/" target="_top" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50">Akidah Akhlak</a>
+            <a href="../" target="_top" class="block px-3 py-2 rounded-xl text-sm font-bold text-teal-800 bg-teal-50 border border-teal-200">Pendidikan Pancasila</a>
+            <a href="../../formatif/" target="_top" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50">Uji Kompetensi</a>
+            <a href="../../nilai-siswa/" target="_top" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50">Rekap Nilai</a>
+        </div>
+    </nav>
+
+    <!-- ================= HERO HEADER ================= -->
+    <header class="w-full bg-teal-900 relative pt-28 pb-20 sm:pt-32 sm:pb-24 overflow-hidden pattern-bg">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-teal-900/80 to-teal-950"></div>
+        <div class="container mx-auto px-4 relative z-10 max-w-5xl text-center">
+            
+            <!-- Breadcrumb Navigation -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 text-teal-800 text-xs font-semibold mb-5 shadow-sm border border-white">
+                <a href="../" class="hover:underline flex items-center gap-1.5">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali ke Modul Pancasila
+                </a>
+                <span>&bull;</span>
+                <span class="text-teal-600">Kelas IX Gasal</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 font-heading tracking-tight leading-tight">
+                Kisi-Kisi &amp; Latihan Soal Interaktif<br/>
+                <span class="text-amber-400">ASAS Gasal 2026/2027</span>
+            </h1>
+
+            <p class="text-teal-100/90 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-6 font-medium">
+                Panduan resmi Asesmen Sumatif Akhir Semester (ASAS) Mata Pelajaran <strong>Pendidikan Pancasila Kelas IX</strong>.
+                Setiap indikator dilengkapi dengan <strong>2 contoh soal interaktif</strong>, simulasi pengerjaan, kunci jawaban, dan pembahasan pedagogis lengkap!
+            </p>
+
+            <!-- Metadata Badges -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs font-semibold text-teal-900">
+                <span class="px-3.5 py-1.5 rounded-full bg-white/95 border border-white shadow-sm flex items-center gap-1.5">
+                    <i class="fa-solid fa-school text-teal-600"></i> MTs Negeri 6 Demak
+                </span>
+                <span class="px-3.5 py-1.5 rounded-full bg-white/95 border border-white shadow-sm flex items-center gap-1.5">
+                    <i class="fa-solid fa-chalkboard-user text-blue-600"></i> Penyusun: <strong>Hj. Umi Suryati, S.Pd</strong>
+                </span>
+                <span class="px-3.5 py-1.5 rounded-full bg-white/95 border border-white shadow-sm flex items-center gap-1.5">
+                    <i class="fa-solid fa-compass-drafting text-amber-600"></i> Kurikulum Merdeka / Deep Learning
+                </span>
+                <span class="px-3.5 py-1.5 rounded-full bg-white/95 border border-white shadow-sm flex items-center gap-1.5">
+                    <i class="fa-solid fa-list-check text-emerald-600"></i> <strong>35 Indikator &bull; 70 Soal Latihan</strong>
+                </span>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- ================= MAIN CONTENT & DASHBOARD ================= -->
+    <main class="flex-grow w-full max-w-6xl mx-auto px-4 sm:px-6 -mt-10 sm:-mt-12 relative z-20 pb-20">
+
+        <!-- DASHBOARD SUMMARY & PROGRESS CARD -->
+        <div class="clay-card p-5 sm:p-7 mb-8 bg-white/95 backdrop-blur-md">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+                <!-- Stat 1 -->
+                <div class="p-3.5 sm:p-4 rounded-2xl bg-teal-50/80 border border-teal-100 flex items-center gap-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-teal-600 text-white flex items-center justify-center text-lg sm:text-xl shrink-0 shadow-sm">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <div>
+                        <div class="text-lg sm:text-2xl font-extrabold text-teal-900 leading-none">35</div>
+                        <div class="text-[11px] sm:text-xs text-teal-700 font-medium mt-1">Indikator Asesmen</div>
+                    </div>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="p-3.5 sm:p-4 rounded-2xl bg-blue-50/80 border border-blue-100 flex items-center gap-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center text-lg sm:text-xl shrink-0 shadow-sm">
+                        <i class="fa-solid fa-cube"></i>
+                    </div>
+                    <div>
+                        <div class="text-lg sm:text-2xl font-extrabold text-blue-900 leading-none">70</div>
+                        <div class="text-[11px] sm:text-xs text-blue-700 font-medium mt-1">Contoh Soal Interaktif</div>
+                    </div>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="p-3.5 sm:p-4 rounded-2xl bg-amber-50/80 border border-amber-100 flex items-center gap-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center text-lg sm:text-xl shrink-0 shadow-sm">
+                        <i class="fa-solid fa-shapes"></i>
+                    </div>
+                    <div>
+                        <div class="text-lg sm:text-2xl font-extrabold text-amber-900 leading-none">20 / 10 / 5</div>
+                        <div class="text-[11px] sm:text-xs text-amber-700 font-medium mt-1">PG / PGK / Essay</div>
+                    </div>
+                </div>
+
+                <!-- Stat 4 -->
+                <div class="p-3.5 sm:p-4 rounded-2xl bg-emerald-50/80 border border-emerald-100 flex items-center gap-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-lg sm:text-xl shrink-0 shadow-sm">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <div>
+                        <div id="stat-solved-count" class="text-lg sm:text-2xl font-extrabold text-emerald-900 leading-none">0 / 70</div>
+                        <div class="text-[11px] sm:text-xs text-emerald-700 font-medium mt-1">Latihan Selesai</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="space-y-1.5 mb-2">
+                <div class="flex justify-between items-center text-xs font-semibold text-slate-700">
+                    <span class="flex items-center gap-1.5">
+                        <i class="fa-solid fa-bars-progress text-teal-600"></i> Progres Belajar Mandiri:
+                    </span>
+                    <span id="progress-percent" class="text-teal-700 font-bold">0% Selesai</span>
+                </div>
+                <div class="w-full h-3 bg-slate-100 rounded-full overflow-hidden border border-slate-200/80">
+                    <div id="progress-bar-fill" class="h-full bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full transition-all duration-500 w-0"></div>
+                </div>
+            </div>
+
+            <!-- Quick Action Toolbar -->
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-100 mt-4 text-xs font-semibold">
+                <div class="flex flex-wrap items-center gap-2">
+                    <button onclick="expandAllIndicators()" class="btn-clay-secondary px-3.5 py-2 rounded-xl flex items-center gap-1.5 hover:bg-teal-50">
+                        <i class="fa-solid fa-angles-down text-teal-600"></i> Buka Semua Soal
+                    </button>
+                    <button onclick="collapseAllIndicators()" class="btn-clay-secondary px-3.5 py-2 rounded-xl flex items-center gap-1.5 hover:bg-teal-50">
+                        <i class="fa-solid fa-angles-up text-teal-600"></i> Tutup Semua Soal
+                    </button>
+                    <button onclick="openTableModal()" class="btn-clay-secondary px-3.5 py-2 rounded-xl flex items-center gap-1.5 text-blue-700 border-blue-200 hover:bg-blue-50">
+                        <i class="fa-solid fa-table-list text-blue-600"></i> Tabel Kisi-Kisi Resmi
+                    </button>
+                </div>
+                <button onclick="resetAllProgress()" class="text-slate-500 hover:text-rose-600 flex items-center gap-1.5 transition-colors">
+                    <i class="fa-solid fa-rotate-left"></i> Reset Progres Latihan
+                </button>
+            </div>
+        </div>
+
+        <!-- SEARCH & FILTER TOOLBAR -->
+        <div class="clay-card p-4 sm:p-5 mb-8 bg-white/90">
+            <!-- Search Input -->
+            <div class="relative mb-4">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                <input type="text" id="kisi-search" placeholder="Cari indikator, nomor soal, pasal, materi, atau kata kunci..."
+                    oninput="filterIndicators()"
+                    class="w-full pl-11 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-slate-50/50">
+            </div>
+
+            <!-- Filter Categories -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <!-- Bab Tabs -->
+                <div class="flex flex-wrap gap-1.5 sm:gap-2 text-xs font-semibold">
+                    <button onclick="setBabFilter('all')" id="tab-bab-all" class="filter-bab-btn active px-3.5 py-1.5 rounded-xl bg-teal-600 text-white shadow-sm">
+                        Semua Bab (35)
+                    </button>
+                    <button onclick="setBabFilter('1')" id="tab-bab-1" class="filter-bab-btn px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200">
+                        Bab I: Hubungan Pancasila &amp; UUD (12)
+                    </button>
+                    <button onclick="setBabFilter('2')" id="tab-bab-2" class="filter-bab-btn px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200">
+                        Bab II: Hak &amp; Kewajiban (12)
+                    </button>
+                    <button onclick="setBabFilter('3')" id="tab-bab-3" class="filter-bab-btn px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200">
+                        Bab III: Kemerdekaan Berpendapat (11)
+                    </button>
+                </div>
+
+                <!-- Secondary Filters: Bentuk & Bobot -->
+                <div class="flex items-center gap-2 text-xs">
+                    <select id="filter-bentuk" onchange="filterIndicators()" class="px-2.5 py-1.5 rounded-xl border border-slate-200 bg-white text-slate-700 font-medium focus:ring-2 focus:ring-teal-500">
+                        <option value="all">Semua Bentuk Soal</option>
+                        <option value="PGT">PG Tunggal (20)</option>
+                        <option value="PGK">PG Kompleks (10)</option>
+                        <option value="Essay">Essay / Uraian (5)</option>
+                    </select>
+
+                    <select id="filter-bobot" onchange="filterIndicators()" class="px-2.5 py-1.5 rounded-xl border border-slate-200 bg-white text-slate-700 font-medium focus:ring-2 focus:ring-teal-500">
+                        <option value="all">Semua Tingkat</option>
+                        <option value="Mudah">Mudah</option>
+                        <option value="Sedang">Sedang</option>
+                        <option value="Sukar">Sukar</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Filter Status Bar -->
+            <div id="filter-status-text" class="text-xs text-slate-500 mt-3 pt-3 border-t border-slate-100 font-medium">
+                Menampilkan 35 dari 35 Indikator Asesmen
+            </div>
+        </div>
+
+        <!-- INDICATORS & QUESTIONS CONTAINER -->
+        <div id="indicators-container" class="space-y-6">
+            <!-- Dynamic Cards generated by JavaScript -->
+        </div>
+
+        <!-- No Results Fallback -->
+        <div id="no-results" class="hidden text-center py-16 clay-card">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center text-2xl">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-700 mb-1">Tidak Ditemukan Indikator</h3>
+            <p class="text-sm text-slate-500">Coba ubah kata kunci pencarian atau sesuaikan pilihan filter di atas.</p>
+            <button onclick="resetFilters()" class="mt-4 px-4 py-2 bg-teal-600 text-white text-xs font-bold rounded-xl shadow-sm hover:bg-teal-700">
+                Reset Filter
+            </button>
+        </div>
+
+    </main>
+
+    <!-- ================= MODAL: TABEL KISI-KISI RESMI ================= -->
+    <div id="table-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm p-4 sm:p-6 flex items-center justify-center">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-5xl w-full max-h-[90vh] flex flex-col overflow-hidden border border-slate-200">
+            <!-- Modal Header -->
+            <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/70">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-teal-600 text-white flex items-center justify-center text-sm">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-800 text-base font-heading">Matriks Kisi-Kisi ASAS Gasal 2026/2027</h3>
+                        <p class="text-xs text-slate-500">Pendidikan Pancasila Kelas IX &bull; MTs Negeri Demak</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="window.print()" class="px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-100 text-xs font-semibold text-slate-700 flex items-center gap-1.5">
+                        <i class="fa-solid fa-print"></i> Cetak
+                    </button>
+                    <button onclick="closeTableModal()" class="w-8 h-8 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center text-base">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal Body (Table) -->
+            <div class="p-6 overflow-y-auto flex-grow text-xs">
+                <div class="mb-4 text-center">
+                    <div class="font-bold text-sm uppercase">KISI-KISI ASESMEN SUMATIF AKHIR SEMESTER (ASAS) GASAL</div>
+                    <div class="text-xs text-slate-600">MADRASAH TSANAWIYAH NEGERI DEMAK TAHUN AJARAN 2026/2027</div>
+                    <div class="text-[11px] text-slate-500 mt-1">Penyusun: Hj. UMI SURYATI, S.Pd (NIP. 197407252005012002)</div>
+                </div>
+
+                <div class="overflow-x-auto border border-slate-200 rounded-xl">
+                    <table class="w-full border-collapse text-left">
+                        <thead>
+                            <tr class="bg-teal-900 text-white font-semibold text-[11px]">
+                                <th class="p-2.5 border-r border-teal-800 text-center w-10">No</th>
+                                <th class="p-2.5 border-r border-teal-800 w-24">Bentuk</th>
+                                <th class="p-2.5 border-r border-teal-800 text-center w-14">No Soal</th>
+                                <th class="p-2.5 border-r border-teal-800">Indikator Asesmen</th>
+                                <th class="p-2.5 border-r border-teal-800 w-28">Materi / Bab</th>
+                                <th class="p-2.5 border-r border-teal-800 text-center w-16">Level</th>
+                                <th class="p-2.5 text-center w-16">Bobot</th>
+                            </tr>
+                        </thead>
+                        <tbody id="modal-table-body" class="divide-y divide-slate-200">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="px-6 py-3 border-t border-slate-100 bg-slate-50 text-right">
+                <button onclick="closeTableModal()" class="px-4 py-2 rounded-xl bg-teal-600 text-white font-bold text-xs hover:bg-teal-700">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-teal-950 text-teal-200 py-12 border-t border-teal-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <a href="../" target="_top" class="inline-flex items-center justify-center gap-3 text-white hover:opacity-80 transition-opacity">
+                <div class="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center text-white">
+                    <i class="fa-solid fa-book-open text-sm"></i>
+                </div>
+                <span class="font-heading font-bold text-xl tracking-wide">Belajar<span class="text-teal-400">Online</span></span>
+            </a>
+
+            <p class="text-xs sm:text-sm text-teal-400/80 max-w-lg mx-auto">
+                Portal Belajar Online &bull; Asesmen Sumatif Akhir Semester (ASAS) Pendidikan Pancasila Kelas IX MTs Negeri 6 Demak.
+            </p>
+
+            <div class="pt-6 border-t border-teal-900/50 text-xs text-teal-500 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <p>&copy; 2026 Ahmad Zulfikar, S.Pd. &bull; Penyusun Kisi-Kisi: Hj. Umi Suryati, S.Pd &bull; MTs Negeri 6 Demak</p>
+                <div class="flex items-center gap-4 text-xs text-teal-400">
+                    <a href="../" class="hover:underline">Modul Pancasila</a>
+                    <span>&bull;</span>
+                    <a href="../../fiqih/" class="hover:underline">Fiqih</a>
+                    <span>&bull;</span>
+                    <a href="../../akidah-akhlak/" class="hover:underline">Akidah Akhlak</a>
+                    <span>&bull;</span>
+                    <a href="../../formatif/" class="hover:underline">Uji Kompetensi</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT APP LOGIC ================= -->
+    <script>
+        // Main dataset of 35 indicators and 70 interactive questions
+        const KISI_DATA = [{"no_ind": 1, "elemen": "Pancasila", "cp": "Murid mampu;\nmengidentifikasi hubungan Pancasila dengan\t\tUUD NRI Tahun 1945, Bhinneka Tunggal\t\t\tIka, dan\tNegara Kesatuan Republik\nIndonesia.", "atp": "Mengidentifi kasi hubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan Negara Kesatuan Republik Indonesia.", "bab": "BAB I.\nHubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan\tNegara Kesatuan Republik Indonesia.", "indikator": "Disajikan pernyataan, Murid mampu mengidentifikasi  semangat sila pertama dilingkungan madrasah dengan penuh cinta.", "bentuk": "PGT", "no_soal": 1, "level": "1.1", "bobot": "Mudah", "questions": [{"id": "q1_1", "type": "pg", "stimulus": "Setiap pagi sebelum kegiatan belajar mengajar dimulai, siswa dan guru di MTs Negeri 6 Demak selalu melaksanakan shalat dhuha berjamaah dan tadarus Al-Qur'an di masjid madrasah. Seluruh warga madrasah mengikutinya dengan penuh keikhlasan, rasa syukur, serta saling menghargai teman yang sedang berhalangan.", "question": "Berdasarkan stimulus tersebut, perilaku warga madrasah mencerminkan pengamalan Pancasila, khususnya sila pertama yang dilandasi oleh semangat...", "options": ["Ketakwaan kepada Tuhan Yang Maha Esa dan cinta kasih terhadap sesama", "Ketaatan semata karena takut mendapat sanksi dari pihak madrasah", "Keinginan untuk menunjukkan keunggulan ibadah di hadapan orang lain", "Kebanggaan kelompok untuk bersaing dengan sekolah-sekolah lain"], "correct": 0, "explanation": "Sila pertama 'Ketuhanan Yang Maha Esa' di lingkungan madrasah diwujudkan melalui ibadah ikhlas, rasa syukur, dan cinta kasih terhadap sesama makhluk ciptaan Tuhan tanpa paksaan maupun pamrih."}, {"id": "q1_2", "type": "pg", "stimulus": "Dalam rangka kegiatan 'Jumat Berkah Berbagi Cinta', siswa MTs mengumpulkan infak sukarela untuk membantu warga di sekitar lingkungan madrasah yang tertimpa musibah banjir. Pengumpulan infak ini diawali dengan doa bersama memohon keselamatan kepada Allah SWT.", "question": "Sikap siswa dalam kegiatan Jumat Berkah tersebut menunjukkan keterkaitan antara sila pertama dengan nilai cinta kasih yang diwujudkan dalam bentuk...", "options": ["Kepedulian sosial yang berlandaskan rasa iman dan takwa kepada Tuhan Yang Maha Esa", "Kewajiban administratif yang harus dipenuhi oleh setiap peserta didik", "Aktivitas formalitas guna meningkatkan akreditasi madrasah di mata masyarakat", "Tuntutan kurikulum semata tanpa perlu adanya penghayatan spiritual"], "correct": 0, "explanation": "Nilai Ketuhanan Yang Maha Esa (Sila ke-1) menjadi fondasi moral bagi cinta kasih dan kepedulian sosial, di mana membantu sesama yang tertimpa musibah adalah wujud nyata ketakwaan kepada Sang Pencipta."}]}, {"no_ind": 2, "elemen": "Pancasila", "cp": "Murid mampu;\nmengidentifikasi hubungan Pancasila dengan\t\tUUD NRI Tahun 1945, Bhinneka Tunggal\t\t\tIka, dan\tNegara Kesatuan Republik\nIndonesia.", "atp": "Mengidentifi kasi hubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan Negara Kesatuan Republik Indonesia.", "bab": "BAB I.\nHubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan\tNegara Kesatuan Republik Indonesia.", "indikator": "Disajikan tabel tentang nilai-nilai yang terkandung dalam sila Pancasila. Murid  mampu mengidentifikasi nilai-nilai Pancasila yang sesuai sila kedua Pancasila.", "bentuk": "PGK", "no_soal": 21, "level": "1.2", "bobot": "Sedang", "questions": [{"id": "q2_1", "type": "pgk", "stimulus": "Perhatikan tabel nilai-nilai Pancasila berikut:\n| No | Nilai-Nilai Sikap |\n|---|---|\n| 1 | Mengakui persamaan derajat, hak, dan kewajiban asasi setiap manusia |\n| 2 | Mengembangkan sikap saling mencintai sesama manusia dan tenggang rasa |\n| 3 | Mengutamakan kepentingan bangsa dan negara di atas kepentingan pribadi |\n| 4 | Gemar melakukan kegiatan kemanusiaan dan membela kebenaran/keadilan |\n| 5 | Menghormati keputusan musyawarah yang telah disepakati bersama |", "question": "Berdasarkan tabel tersebut, manakah pernyataan yang paling tepat mencerminkan nilai-nilai luhur yang terkandung dalam Sila Kedua Pancasila? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Pernyataan No. 1: Mengakui persamaan derajat, hak, dan kewajiban asasi", "Pernyataan No. 2: Mengembangkan sikap saling mencintai dan tenggang rasa", "Pernyataan No. 3: Mengutamakan kepentingan bangsa di atas pribadi", "Pernyataan No. 4: Gemar melakukan kegiatan kemanusiaan dan membela keadilan", "Pernyataan No. 5: Menghormati keputusan musyawarah bersama"], "correct": [0, 1, 3], "explanation": "Nilai Sila Kedua 'Kemanusiaan yang Adil dan Beradab' meliputi: mengakui persamaan derajat (No. 1), saling mencintai sesama & tenggang rasa (No. 2), serta gemar kegiatan kemanusiaan & membela kebenaran/keadilan (No. 4). Adapun No. 3 adalah pengamalan Sila ke-3, dan No. 5 adalah pengamalan Sila ke-4."}, {"id": "q2_2", "type": "pgk", "stimulus": "Di kelas 9, seorang murid bernama Zaidan melihat temannya diejek oleh beberapa anak karena seragamnya sobek dan berasal dari keluarga kurang mampu. Zaidan segera membela temannya dan melaporkan kejadian tersebut kepada guru BK dengan santun.", "question": "Sikap yang ditunjukkan oleh Zaidan selaras dengan butir-butir pengamalan Sila Kedua Pancasila, yaitu... (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Berani membela kebenaran dan keadilan bagi mereka yang tertindas", "Menjunjung tinggi harkat dan martabat sesama manusia", "Tidak bersikap semena-mena terhadap orang lain", "Memaksakan kehendak pribadi kepada seluruh teman di kelas"], "correct": [0, 1, 2], "explanation": "Membela teman yang diejek, menghormati martabatnya, serta menolak perundungan (bullying) adalah wujud nyata penerapan Sila Kedua (Kemanusiaan yang Adil dan Beradab). Memaksakan kehendak bertentangan dengan nilai Pancasila."}]}, {"no_ind": 3, "elemen": "Pancasila", "cp": "Murid mampu;\nmengidentifikasi hubungan Pancasila dengan\t\tUUD NRI Tahun 1945, Bhinneka Tunggal\t\t\tIka, dan\tNegara Kesatuan Republik\nIndonesia.", "atp": "Mengidentifi kasi hubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan Negara Kesatuan Republik Indonesia.", "bab": "BAB I.\nHubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan\tNegara Kesatuan Republik Indonesia.", "indikator": "Disajikan pernyataan, Murid mampu mengidentifikasi contoh sikap yang sesuai dengan nilai-nilai Pancasila dilingkungan sekolah.", "bentuk": "PGK", "no_soal": 22, "level": "1.3", "bobot": "Sukar", "questions": [{"id": "q3_1", "type": "pgk", "stimulus": "Lingkungan madrasah/sekolah merupakan miniatur kehidupan berbangsa dan bernegara. Berbagai kegiatan diadakan untuk menumbuhkan karakter profil pelajar berjiwa Pancasila.", "question": "Manakah di antara kegiatan berikut yang merupakan contoh sikap selaras dengan nilai-nilai Pancasila di lingkungan sekolah? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Melaksanakan musyawarah untuk menentukan ketua kelas dan jadwal piket kebersihan", "Bekerja sama dalam piket kelas dan menjaga kebersihan madrasah tanpa membedakan teman", "Menolak berteman dengan siswa yang berbeda suku bangsa atau daerah asal", "Menghargai teman yang sedang beribadah sesuai keyakinan atau melaksanakan amalan sunnah", "Mencontek jawaban teman saat asesmen demi solidaritas antarsiswa"], "correct": [0, 1, 3], "explanation": "Musyawarah mufakat (Sila ke-4), kerja sama kebersihan tanpa diskriminasi (Sila ke-3 & ke-5), serta menghargai ibadah teman (Sila ke-1) adalah contoh pengamalan Pancasila yang benar di sekolah. Menolak berteman dan mencontek bertentangan dengan Pancasila."}, {"id": "q3_2", "type": "pgk", "stimulus": "Organisasi Siswa Intra Sekolah (OSIS) MTs Negeri 6 Demak menyelenggarakan pemilihan ketua OSIS secara langsung, umum, bebas, rahasia, jujur, dan adil. Seluruh calon ketua memaparkan visi misinya dan menerima hasil pemungutan suara dengan lapang dada.", "question": "Pilihlah pernyataan yang benar mengenai pengamalan nilai-nilai Pancasila dalam kegiatan pemilihan OSIS tersebut! (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Mencerminkan nilai demokrasi perwakilan dan musyawarah mufakat pada Sila Keempat", "Menumbuhkan sikap sportivitas dan persatuan antarsiswa sesuai Sila Ketiga", "Menjamin keadilan bagi setiap siswa untuk memberikan hak suaranya sesuai Sila Kelima", "Mewajibkan siswa memilih calon yang berasal dari satu daerah asal yang sama"], "correct": [0, 1, 2], "explanation": "Pemilihan OSIS secara demokratis dan adil mencerminkan Sila ke-4 (demokrasi), Sila ke-3 (persatuan di atas kompetisi), dan Sila ke-5 (keadilan bagi pemilih). Membatasi pilihan berdasarkan daerah asal adalah primordialisme yang dilarang."}]}, {"no_ind": 4, "elemen": "Pancasila", "cp": "Murid mampu;\nmengidentifikasi hubungan Pancasila dengan\t\tUUD NRI Tahun 1945, Bhinneka Tunggal\t\t\tIka, dan\tNegara Kesatuan Republik\nIndonesia.", "atp": "Mengidentifi kasi hubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan Negara Kesatuan Republik Indonesia.", "bab": "BAB I.\nHubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan\tNegara Kesatuan Republik Indonesia.", "indikator": "Disajikan pernyataan tentang pendapatnya Jimly Asshiddiqie tentang keterkaitan erat Pancasila dan UUD NRI Tahun 1945,Murid mampu menganalisis hubungan Pancasila dan UUD NRI Tahun 1945", "bentuk": "PGT", "no_soal": 2, "level": "1.2", "bobot": "Sedang", "questions": [{"id": "q4_1", "type": "pg", "stimulus": "Prof. Jimly Asshiddiqie, S.H. menyatakan bahwa 'Pancasila merupakan norma dasar negara (staatsfundamentalnorm) yang menjiwai seluruh pasal dan materi muatan dalam UUD NRI Tahun 1945. Pembukaan UUD 1945 dan Batang Tubuh merupakan satu kesatuan tak terpisahkan, di mana nilai-nilai Pancasila dijabarkan menjadi pasal-pasal konstitusi.'", "question": "Berdasarkan pandangan Prof. Jimly Asshiddiqie tersebut, hubungan antara Pancasila dan UUD NRI Tahun 1945 dapat disimpulkan bahwa...", "options": ["Pancasila berkedudukan sebagai sumber dari segala sumber hukum dan pokok kaidah negara yang fundamental bagi pasal-pasal UUD NRI 1945", "UUD NRI Tahun 1945 memiliki kedudukan hukum yang lebih tinggi sehingga sewaktu-waktu dapat mengubah isi Pancasila", "Pancasila dan UUD NRI 1945 berdiri sendiri-sendiri tanpa ada ikatan hierarkis dalam tata urutan peraturan perundang-undangan", "Pasal-pasal dalam UUD NRI Tahun 1945 hanya memuat aturan teknis tanpa perlu merujuk pada nilai-nilai dasar Pancasila"], "correct": 0, "explanation": "Jimly Asshiddiqie menegaskan kedudukan Pancasila sebagai norma dasar (grundnorm/staatsfundamentalnorm) yang menjiwai setiap pasal dalam UUD NRI 1945. Karena itu, pasal-pasal UUD 1945 adalah penjabaran formal dari lima sila Pancasila."}, {"id": "q4_2", "type": "pg", "stimulus": "Dalam sistem ketatanegaraan Indonesia, Pembukaan UUD NRI Tahun 1945 memuat dasar filsafat negara (Pancasila). Sedangkan pasal-pasal UUD NRI Tahun 1945 berfungsi sebagai norma hukum tertulis tertinggi dalam penyelenggaraan negara.", "question": "Jika sebuah rancangan undang-undang atau pasal dalam undang-undang bertentangan dengan prinsip keadilan sosial Pancasila yang diatur dalam Pasal 33 dan 34 UUD 1945, maka langkah konstitusional yang benar adalah...", "options": ["Mengajukan uji materi (judicial review) ke Mahkamah Konstitusi untuk dibatalkan", "Membiarkan undang-undang tersebut tetap berlaku demi stabilitas ekonomi penguasa", "Mengganti isi naskah Pembukaan UUD NRI Tahun 1945 agar sesuai undang-undang", "Melakukan boikot total terhadap seluruh aparatur pemerintah pusat dan daerah"], "correct": 0, "explanation": "Karena Pancasila menjiwai pasal-pasal UUD 1945 sebagai hukum dasar tertinggi, setiap undang-undang yang bertentangan dengan konstitusi dapat diuji materi dan dibatalkan oleh Mahkamah Konstitusi (MK)."}]}, {"no_ind": 5, "elemen": "Pancasila", "cp": "Murid mampu;\nmengidentifikasi hubungan Pancasila dengan\t\tUUD NRI Tahun 1945, Bhinneka Tunggal\t\t\tIka, dan\tNegara Kesatuan Republik\nIndonesia.", "atp": "Mengidentifi kasi hubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan Negara Kesatuan Republik Indonesia.", "bab": "BAB I.\nHubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan\tNegara Kesatuan Republik Indonesia.", "indikator": "Disajikan pernyataan tentang hubungan Pancasila dengan Bhinneka Tunggal Ika ,Murid mampu menganalisis semangat Pancasila dengan Bhinneka Tunggal Ika dalam keberagaman di Indonesia.", "bentuk": "PGT", "no_soal": 3, "level": "1.3", "bobot": "Sukar", "questions": [{"id": "q5_1", "type": "pg", "stimulus": "Indonesia memiliki lebih dari 17.000 pulau, 1.300 suku bangsa, dan ratusan bahasa daerah serta penganut agama/kepercayaan yang beragam. Keberagaman yang luar biasa ini dipersatukan oleh semboyan Bhinneka Tunggal Ika yang berakar kuat pada nilai-nilai Pancasila, khususnya Sila Ketiga 'Persatuan Indonesia'.", "question": "Berdasarkan stimulus tersebut, bagaimana semangat Pancasila berinteraksi dengan semboyan Bhinneka Tunggal Ika dalam menjaga keutuhan NKRI?", "options": ["Pancasila menjadi payung ideologis bersama yang merangkul keberagaman tanpa menghilangkan identitas khas suku dan daerah", "Bhinneka Tunggal Ika mengharuskan seluruh suku melebur dan menghapus bahasa daerah demi satu identitas seragam", "Pancasila hanya diperuntukkan bagi kelompok mayoritas guna memimpin kelompok minoritas di Indonesia", "Keberagaman dipandang sebagai hambatan utama pembangunan sehingga adat istiadat perlu dibatasi secara ketat"], "correct": 0, "explanation": "Pancasila dan Bhinneka Tunggal Ika bekerja selaras: Pancasila sebagai ideologi pemersatu (common platform), sedangkan Bhinneka Tunggal Ika menjaga agar keberagaman suku, agama, dan budaya tetap hidup harmonis dalam satu ikatan NKRI."}, {"id": "q5_2", "type": "pg", "stimulus": "Di era digital dan media sosial saat ini, sering muncul narasi provokatif, hoaks bertema SARA (Suku, Agama, Ras, dan Antargolongan), serta ujaran kebencian yang berpotensi memecah belah persaudaraan sebangsa.", "question": "Sikap seorang pelajar madrasah yang berpedoman pada semangat Pancasila dan Bhinneka Tunggal Ika ketika menerima pesan provokatif SARA di grup media sosial adalah...", "options": ["Melakukan verifikasi fakta (tabayyun), tidak menyebarluaskannya, dan mengedukasi dengan pesan persatuan", "Langsung meneruskan pesan tersebut ke semua kontak agar menjadi viral dan diketahui banyak orang", "Membalas dengan komentar yang menghina suku atau kelompok lain yang disebutkan dalam pesan", "Keluar dari grup dan memusuhi teman yang berbeda pandangan politik atau latar belakang"], "correct": 0, "explanation": "Semangat Bhinneka Tunggal Ika yang bernafaskan Pancasila menuntut setiap warga negara untuk menjaga persaudaraan, bersikap tabayyun (cek fakta), serta menangkal konten pemecah belah bangsa."}]}, {"no_ind": 6, "elemen": "Pancasila", "cp": "Murid mampu;\nmengidentifikasi hubungan Pancasila dengan\t\tUUD NRI Tahun 1945, Bhinneka Tunggal\t\t\tIka, dan\tNegara Kesatuan Republik\nIndonesia.", "atp": "Mengidentifi kasi hubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan Negara Kesatuan Republik Indonesia.", "bab": "BAB I.\nHubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan\tNegara Kesatuan Republik Indonesia.", "indikator": "Disajikan tabel isi alenia pembukaan UUD NRI Tahun 1945, Murid mampu mengidentifikasi hubungan Pancasila dan NKRI melalui alenia keempat Pembukaan UUD NRI Tahun 1945", "bentuk": "PGT", "no_soal": 4, "level": "1.3", "bobot": "Sukar", "questions": [{"id": "q6_1", "type": "pg", "stimulus": "Perhatikan kutipan alinea Pembukaan UUD NRI Tahun 1945 berikut:\n'...maka disusunlah Kemerdekaan Kebangsaan Indonesia itu dalam suatu Undang-Undang Dasar Negara Indonesia, yang terbentuk dalam suatu susunan Negara Republik Indonesia yang berkedaulatan rakyat dengan berdasar kepada: Ketuhanan Yang Maha Esa, Kemanusiaan yang adil dan beradab, Persatuan Indonesia, dan Kerakyatan yang dipimpin oleh hikmat kebijaksanaan dalam permusyawaratan/perwakilan, serta dengan mewujudkan suatu Keadilan sosial bagi seluruh rakyat Indonesia.'", "question": "Berdasarkan kutipan alinea keempat tersebut, hubungan fundamental antara Pancasila dan Negara Kesatuan Republik Indonesia (NKRI) adalah...", "options": ["Pancasila ditetapkan sebagai dasar filsafat negara yang menjiwai bentuk negara Republik Indonesia dan tujuan nasional", "Pancasila berkedudukan di bawah undang-undang dasar dan dapat diganti melalui pemilu legislatif", "NKRI didirikan tanpa memerlukan landasan ideologi tertulis melainkan kesepakatan lisan para menteri", "Pancasila hanya mengatur urusan peradilan pidana, bukan urusan bentuk dan kedaulatan negara"], "correct": 0, "explanation": "Alinea keempat Pembukaan UUD 1945 secara eksplisit memuat lima sila Pancasila sebagai dasar filsafat negara yang mendasari pembentukan susunan Negara Republik Indonesia yang berkedaulatan rakyat serta tujuan nasionalnya."}, {"id": "q6_2", "type": "pg", "stimulus": "Perhatikan tabel perbandingan isi alinea Pembukaan UUD NRI Tahun 1945:\n- Alinea I: Hak kemerdekaan segala bangsa dan penolakan penjajahan.\n- Alinea II: Perjuangan pergerakan kemerdekaan mengantarkan rakyat ke depan pintu gerbang kemerdekaan.\n- Alinea III: Kemerdekaan atas berkat rahmat Allah Yang Maha Kuasa dan dorongan luhur.\n- Alinea IV: Tujuan negara, UUD, bentuk negara Republik, dan rumusan lima sila Pancasila.", "question": "Mengapa Alinea Keempat disebut sebagai landasan operasional dan konstitusional berdirinya NKRI?", "options": ["Karena memuat landasan hukum bernegara, tujuan nasional, kedaulatan rakyat, dan dasar negara Pancasila", "Karena alinea keempat merupakan bagian yang paling panjang dibandingkan alinea lainnya", "Karena alinea keempat disusun setelah Proklamasi Kemerdekaan oleh tentara sekutu", "Karena hanya alinea keempat yang boleh dibaca saat upacara bendera hari Senin"], "correct": 0, "explanation": "Alinea IV mengandung empat unsur vital pembentukan negara: tujuan negara (melindungi, memajukan, mencerdaskan, ikut ketertiban dunia), penyusunan UUD, asas politik negara (Republik berkedaulatan rakyat), dan asas falsafah negara (Pancasila)."}]}, {"no_ind": 7, "elemen": "Pancasila", "cp": "Murid mampu;\nmengidentifikasi hubungan Pancasila dengan\t\tUUD NRI Tahun 1945, Bhinneka Tunggal\t\t\tIka, dan\tNegara Kesatuan Republik\nIndonesia.", "atp": "Mengidentifi kasi hubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan Negara Kesatuan Republik Indonesia.", "bab": "BAB I.\nHubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan\tNegara Kesatuan Republik Indonesia.", "indikator": "Disajikan pernyataan tentang tujuan negara dan pokok-pokok pikiran dalam pembukaan UUD NRI Tahun 1945, Murid mampu mengidentifikasi pokok-pokok pikiran yang mencerminkan nilai-nilai Pancasila.", "bentuk": "PGT", "no_soal": 5, "level": "1.2", "bobot": "Sedang", "questions": [{"id": "q7_1", "type": "pg", "stimulus": "Pembukaan UUD NRI Tahun 1945 memiliki empat pokok pikiran yang merupakan pancaran dari nilai-nilai Pancasila. Pokok pikiran ketiga menegaskan bahwa 'Negara yang berkedaulatan rakyat, berdasarkan atas kerakyatan dan permusyawaratan/perwakilan.'", "question": "Pokok pikiran ketiga Pembukaan UUD NRI Tahun 1945 merupakan pancaran langsung dari Sila Pancasila, yaitu...", "options": ["Sila Keempat: Kerakyatan yang dipimpin oleh hikmat kebijaksanaan dalam permusyawaratan/perwakilan", "Sila Kesatu: Ketuhanan Yang Maha Esa", "Sila Kedua: Kemanusiaan yang adil dan beradab", "Sila Kelima: Keadilan sosial bagi seluruh rakyat Indonesia"], "correct": 0, "explanation": "Pokok pikiran ketiga secara tegas menyatakan sistem kedaulatan rakyat atas dasar kerakyatan dan permusyawaratan/perwakilan, yang merupakan perwujudan dari Sila Keempat Pancasila."}, {"id": "q7_2", "type": "pg", "stimulus": "Dalam rapat pemilihan pengurus kelas 9 MTs, dua orang siswa memiliki pandangan berbeda mengenai program wisata edukasi. Wali kelas mengajak seluruh siswa mendiskusikannya dengan kepala dingin, mendengarkan argumen masing-masing, lalu mengambil keputusan yang disepakati bersama.", "question": "Tindakan wali kelas dan para siswa tersebut merupakan penerapan praktis dari Pokok Pikiran Ketiga Pembukaan UUD 1945, karena...", "options": ["Menjunjung tinggi prinsip permusyawaratan untuk mencapai mufakat dalam pengambilan keputusan", "Menentukan pemenang keputusan berdasarkan siapa siswa yang memiliki nilai rapor tertinggi", "Menyerahkan seluruh keputusan kelas kepada pihak luar madrasah agar tidak ada perselisihan", "Mengabaikan pendapat siswa minoritas demi kepentingan kepengurusan kelas"], "correct": 0, "explanation": "Pokok pikiran ketiga menghendaki penyelesaian persoalan bersama melalui musyawarah mufakat yang dipimpin oleh hikmat kebijaksanaan, bukan pemaksaan kehendak atau voting sepihak."}]}, {"no_ind": 8, "elemen": "Pancasila", "cp": "Murid mampu;\nmengidentifikasi hubungan Pancasila dengan\t\tUUD NRI Tahun 1945, Bhinneka Tunggal\t\t\tIka, dan\tNegara Kesatuan Republik\nIndonesia.", "atp": "Mengidentifi kasi hubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan Negara Kesatuan Republik Indonesia.", "bab": "BAB I.\nHubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan\tNegara Kesatuan Republik Indonesia.", "indikator": "Disajikan tabel tentang pasal-pasal UUD NRI Tahun 1945 yang merujuk pada Pancasila,Murid mampu mengidentifikasi pasal-pasal tersebut yang menginspirasi dari Pancasila.", "bentuk": "PGT", "no_soal": 6, "level": "1.3", "bobot": "Sukar", "questions": [{"id": "q8_1", "type": "pg", "stimulus": "Perhatikan tabel keterkaitan pasal-pasal dalam UUD NRI Tahun 1945 dengan sila-sila Pancasila berikut:\n| No | Pasal UUD NRI 1945 | Materi Muatan |\n|---|---|---|\n| 1 | Pasal 27 ayat (1) | Persamaan kedudukan di dalam hukum dan pemerintahan |\n| 2 | Pasal 29 ayat (1) & (2) | Negara berdasar Ketuhanan YME & Jaminan kebebasan beragama |\n| 3 | Pasal 33 ayat (1) & (3) | Perekonomian disusun berdasar asas kekeluargaan & kemakmuran rakyat |\n| 4 | Pasal 31 ayat (1) | Hak setiap warga negara mendapat pendidikan |", "question": "Pasal 29 UUD NRI Tahun 1945 pada tabel di atas merupakan penjabaran yuridis yang secara langsung merujuk pada pengamalan sila...", "options": ["Sila Pertama: Ketuhanan Yang Maha Esa", "Sila Kedua: Kemanusiaan yang adil dan beradab", "Sila Ketiga: Persatuan Indonesia", "Sila Keempat: Kerakyatan yang dipimpin oleh hikmat kebijaksanaan"], "correct": 0, "explanation": "Pasal 29 ayat (1) menyatakan 'Negara berdasar atas Ketuhanan Yang Maha Esa' dan ayat (2) menjamin kemerdekaan tiap-tiap penduduk memeluk agama dan beribadat, yang merupakan penjabaran langsung Sila Pertama Pancasila."}, {"id": "q8_2", "type": "pg", "stimulus": "Pasal 29 ayat (2) UUD NRI Tahun 1945 menyatakan: 'Negara menjamin kemerdekaan tiap-tiap penduduk untuk memeluk agamanya masing-masing dan untuk beribadat menurut agamanya dan kepercayaannya itu.'", "question": "Konsekuensi hukum dan sosial dari pasal tersebut bagi seluruh rakyat Indonesia yang berpancasila adalah...", "options": ["Pemerintah dan masyarakat wajib saling menghormati dan memberi rasa aman bagi setiap pemeluk agama dalam menjalankan ibadahnya", "Setiap warga negara diperbolehkan untuk memaksakan agamanya kepada pemeluk agama lain", "Hanya pemeluk agama tertentu yang mendapatkan hak perlindungan hukum dari aparat kepolisian", "Warga negara berhak melarang pendirian rumah ibadah kelompok lain di lingkungan tempat tinggalnya"], "correct": 0, "explanation": "Jaminan konstitusi dalam Pasal 29 ayat (2) melahirkan kewajiban bagi negara dan seluruh warga masyarakat untuk menjamin kebebasan, toleransi, dan keamanan ibadah setiap pemeluk agama tanpa diskriminasi."}]}, {"no_ind": 9, "elemen": "Pancasila", "cp": "Murid mampu;\nmengidentifikasi hubungan Pancasila dengan\t\tUUD NRI Tahun 1945, Bhinneka Tunggal\t\t\tIka, dan\tNegara Kesatuan Republik\nIndonesia.", "atp": "Mengidentifi kasi hubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan Negara Kesatuan Republik Indonesia.", "bab": "BAB I.\nHubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan\tNegara Kesatuan Republik Indonesia.", "indikator": "Disajikan tabel tentang nilai-nilai yang terkandung dalam sila-sila Pancasila , Murid mampu menentukan nilai Kemanusiaan yang adil dan beradab pada tabel tersebut.", "bentuk": "PGT", "no_soal": 7, "level": "1.1", "bobot": "Mudah", "questions": [{"id": "q9_1", "type": "pg", "stimulus": "Perhatikan tabel sikap hidup sehari-hari berikut:\n| No | Perilaku Siswa |\n|---|---|\n| 1 | Menghormati pendapat teman saat diskusi kelompok meskipun berbeda sudut pandang |\n| 2 | Mengutamakan musyawarah mufakat saat menentukan pembagian giliran upacara |\n| 3 | Melaksanakan keputusan hasil rapat kelas dengan penuh tanggung jawab |\n| 4 | Memaksakan usulan pribadinya harus disetujui karena merasa dirinya ketua kelas |", "question": "Berdasarkan tabel tersebut, contoh perilaku yang mencerminkan nilai luhur Sila Keempat Pancasila ditunjukkan oleh nomor...", "options": ["1, 2, dan 3", "1, 2, dan 4", "2, 3, dan 4", "1, 3, dan 4"], "correct": 0, "explanation": "Sila Keempat mengamanatkan penghormatan pendapat (1), musyawarah mufakat (2), dan tanggung jawab melaksanakan keputusan (3). Sikap nomor 4 (memaksakan kehendak) adalah larangan dalam pengamalan Sila Keempat."}, {"id": "q9_2", "type": "pg", "stimulus": "Dalam pembagian tugas bazar madrasah, kelas 9A menggelar forum terbuka. Setiap anggota diberi kesempatan berbicara. Setelah terjadi mufakat, seluruh siswa bekerja bersama tanpa ada yang merasa dikucilkan.", "question": "Ciri utama dari penerapan Sila Keempat Pancasila dalam peristiwa musyawarah tersebut adalah...", "options": ["Adanya penghargaan terhadap martabat individu dan keputusan diambil atas dasar kebijaksanaan akal sehat", "Keputusan mutlak berada di tangan siswa yang menyumbang dana paling besar", "Musyawarah ditutup segera tanpa mendengar masukan dari anggota kelas perempuan", "Hasil rapat hanya mengikat mereka yang setuju saat pemungutan suara"], "correct": 0, "explanation": "Nilai Sila Keempat menekankan hikmat kebijaksanaan, persamaan hak bicara bagi semua anggota, dan kebulatan mufakat yang mengikat seluruh peserta musyawarah."}]}, {"no_ind": 10, "elemen": "Pancasila", "cp": "Murid mampu;\nmengidentifikasi hubungan Pancasila dengan\t\tUUD NRI Tahun 1945, Bhinneka Tunggal\t\t\tIka, dan\tNegara Kesatuan Republik\nIndonesia.", "atp": "Mengidentifi kasi hubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan Negara Kesatuan Republik Indonesia.", "bab": "BAB I.\nHubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan\tNegara Kesatuan Republik Indonesia.", "indikator": "Disajikan gambar tentang festival budaya daerah, Murid mampu mengidentifikasi gambar tersebut merupakan prilaku menghormati  budaya daerah lain.", "bentuk": "PGT", "no_soal": 8, "level": "1.3", "bobot": "Sukar", "questions": [{"id": "q10_1", "type": "pg", "stimulus": "Pada peringatan Hari Kemerdekaan RI di madrasah, diselenggarakan karnaval budaya nusantara. Para siswa mengenakan pakaian adat dari berbagai provinsi seperti Sabang sampai Merauke, menampilkan tarian Saman, Reog Ponorogo, hingga tari Sajojo dengan penuh kebanggaan dan keceriaan.", "question": "Berdasarkan ilustrasi festival budaya tersebut, pesan moral yang ingin ditanamkan dalam bingkai Bhinneka Tunggal Ika adalah...", "options": ["Keanekaragaman budaya merupakan kekayaan bangsa yang harus dihargai, dilestarikan, dan mempererat persatuan Indonesia", "Setiap siswa harus membuktikan bahwa pakaian adat sukunya jauh lebih unggul dari suku lainnya", "Kegiatan pelestarian budaya tradisional hanya memboroskan waktu dan biaya pembelajaran di sekolah", "Budaya lokal daerah perlahan harus digantikan oleh budaya global modern agar madrasah dinilai maju"], "correct": 0, "explanation": "Festival budaya daerah menumbuhkan rasa cinta tanah air, penghargaan terhadap kekayaan tradisi Nusantara, dan memperteguh persatuan di tengah kebhinekaan suku dan adat."}, {"id": "q10_2", "type": "pg", "stimulus": "Di tengah serbuan budaya asing melalui platform media sosial seperti TikTok dan Instagram, siswa kelas 9 MTs membuat konten video kreatif yang memperkenalkan batik khas Demak dan kuliner tradisional dengan sentuhan musik modern.", "question": "Aksi kreatif siswa madrasah tersebut mencerminkan komitmen terhadap nilai Bhinneka Tunggal Ika dalam bentuk...", "options": ["Pelestarian dan promosi kearifan lokal secara adaptif dan berdaya saing di era globalisasi", "Sikap menutup diri dari perkembangan teknologi digital modern", "Keengganan menerima keragaman budaya dari daerah lain di Indonesia", "Tuntutan ekonomi semata untuk mencari keuntungan materi pribadi"], "correct": 0, "explanation": "Melestarikan dan mempromosikan budaya lokal melalui media digital modern adalah wujud nyata generasi muda dalam merawat warisan Bhinneka Tunggal Ika agar tetap relevan dan dibanggakan."}]}, {"no_ind": 11, "elemen": "Pancasila", "cp": "Murid mampu;\nmengidentifikasi hubungan Pancasila dengan\t\tUUD NRI Tahun 1945, Bhinneka Tunggal\t\t\tIka, dan\tNegara Kesatuan Republik\nIndonesia.", "atp": "Mengidentifi kasi hubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan Negara Kesatuan Republik Indonesia.", "bab": "BAB I.\nHubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan\tNegara Kesatuan Republik Indonesia.", "indikator": "Disajikan pernyataan ,Murid mampu mendeskripsikan hubungan antara Pancasila dengan UUD NRI Tahun 1945", "bentuk": "Essay", "no_soal": 31, "level": "1.1", "bobot": "Mudah", "questions": [{"id": "q11_1", "type": "essay", "stimulus": "Pancasila tercantum dalam Pembukaan UUD NRI Tahun 1945 alinea keempat. Para ahli hukum tata negara menyebut Pancasila sebagai 'staatsfundamentalnorm' (norma fundamental negara) dan sumber dari segala sumber hukum di Indonesia.", "question": "Jelaskan secara terperinci bagaimana hubungan hierarkis dan keterkaitan materi antara Pancasila dengan UUD NRI Tahun 1945!", "keywords": ["norma dasar", "staatsfundamentalnorm", "pembukaan", "batang tubuh", "pasal-pasal", "sumber hukum", "penjabaran"], "model_answer": "1. Kedudukan Norma: Pancasila adalah norma dasar (grundnorm/staatsfundamentalnorm) dan sumber dari segala sumber hukum negara. \n2. Hubungan Formal: Pancasila tercantum secara sah dan mengikat dalam Pembukaan UUD NRI Tahun 1945 alinea keempat. Pembukaan tidak dapat diubah karena mengubah Pembukaan sama dengan membubarkan NKRI.\n3. Hubungan Material: Seluruh pasal-pasal dalam Batang Tubuh UUD NRI Tahun 1945 merupakan penjabaran kongkret dari nilai-nilai lima sila Pancasila. Tidak boleh ada satu pun pasal atau undang-undang yang bertentangan dengan Pancasila.", "rubric": "Skor 100: Menyebutkan kedudukan Pancasila sebagai norma dasar/sumber hukum, menjelaskan keterkaitan Pembukaan dan pasal Batang Tubuh, serta asas tidak boleh bertentangan. Skor 75: Menjelaskan 2 aspek. Skor 50: Menjelaskan 1 aspek secara umum."}, {"id": "q11_2", "type": "essay", "stimulus": "Dalam sejarah ketatanegaraan Indonesia, UUD NRI Tahun 1945 telah mengalami empat kali amendemen (1999-2002). Namun, MPR bersepakat bulat untuk TIDAK mengubah naskah Pembukaan UUD NRI Tahun 1945 yang memuat Pancasila.", "question": "Mengapa MPR sepakat untuk tidak mengubah naskah Pembukaan UUD NRI Tahun 1945? Jelaskan konsekuensi hukum dan historisnya!", "keywords": ["kesepakatan mpr", "tidak mengubah pembukaan", "membubarkan negara", "dasar negara", "tujuan negara", "proklamasi"], "model_answer": "MPR sepakat tidak mengubah Pembukaan UUD NRI Tahun 1945 karena Pembukaan memuat dasar filsafat negara (Pancasila), cita-cita luhur kemerdekaan, dan tujuan berdirinya NKRI yang merupakan satu kesatuan dengan Proklamasi 17 Agustus 1945. Secara hukum ketatanegaraan, mengubah Pembukaan UUD 1945 sama hakikatnya dengan membubarkan Negara Kesatuan Republik Indonesia.", "rubric": "Skor 100: Menguraikan alasan filosofis (Pancasila & cita-cita Proklamasi) dan konsekuensi yuridis (membubarkan negara). Skor 70: Menguraikan salah satu alasan dengan logis. Skor 40: Penjelasan singkat."}]}, {"no_ind": 12, "elemen": "Pancasila", "cp": "Murid mampu;\nmengidentifikasi hubungan Pancasila dengan\t\tUUD NRI Tahun 1945, Bhinneka Tunggal\t\t\tIka, dan\tNegara Kesatuan Republik\nIndonesia.", "atp": "Mengidentifi kasi hubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan Negara Kesatuan Republik Indonesia.", "bab": "BAB I.\nHubungan Pancasila dengan UUD NRI Tahun 1945,\nBhinneka Tunggal Ika, dan\tNegara Kesatuan Republik Indonesia.", "indikator": "Disajikan Illustrasi dari sebuah artikel tentang pemuda katolik di Bali bagikan 5 ribu takjil di Gianyar hingga Denpasar, Murid mampu mendeskripsikan arti pentingnya Bhinneka Tunggal Ika", "bentuk": "Essay", "no_soal": 32, "level": "1.2", "bobot": "Sedang", "questions": [{"id": "q12_1", "type": "essay", "stimulus": "Sebuah artikel berita memberitakan: 'Menjelang waktu berbuka puasa di bulan Ramadhan, puluhan pemuda Katolik dan pecalang di Denpasar, Bali, bergotong-royong membagikan 5.000 paket takjil gratis kepada umat Muslim dan para pengendara jalan raya. Aksi ini disambut hangat dengan senyuman dan ucapan terima kasih dari warga.'", "question": "Analisislah nilai-nilai Pancasila yang tercermin dalam peristiwa pembagian takjil oleh pemuda Katolik di Bali tersebut, serta jelaskan dampaknya bagi kerukunan nasional!", "keywords": ["sila pertama", "sila kedua", "sila ketiga", "toleransi", "gotong royong", "persaudaraan sebangsa", "kerukunan"], "model_answer": "1. Nilai Sila Pertama: Menunjukkan sikap saling menghormati antarumat beragama dan memuliakan bulan suci umat lain.\n2. Nilai Sila Kedua: Mencerminkan cinta kasih sesama manusia melalui tindakan nyata kepedulian berbagi makanan.\n3. Nilai Sila Ketiga: Mempererat persatuan dan kesatuan bangsa di tengah kemajemukan (Bhinneka Tunggal Ika).\nDampaknya: Memperkuat integrasi sosial, mengikis prasangka dan intoleransi, serta menjadi teladan harmoni kehidupan berbangsa.", "rubric": "Skor 100: Menganalisis minimal 3 sila Pancasila yang relevan dan menguraikan dampaknya bagi kerukunan nasional secara mendalam. Skor 75: Menganalisis 2 sila. Skor 50: Menganalisis 1 sila."}, {"id": "q12_2", "type": "essay", "stimulus": "Keberagaman agama di Indonesia merupakan keniscayaan. Praktik toleransi seperti saling menjaga keamanan saat perayaan hari besar keagamaan sering terlihat di berbagai pelosok nusantara.", "question": "Berikan 2 contoh konkret tindakan toleransi antarumat beragama yang dapat diterapkan oleh siswa di lingkungan madrasah dan tempat tinggal!", "keywords": ["menghormati ibadah", "tidak mengganggu", "membantu tanpa pamrih", "bertutur kata santun", "menjaga ketenangan"], "model_answer": "Contoh 1 (Lingkungan Madrasah/Sekolah): Menghormati teman atau tamu yang berbeda keyakinan, tidak mencela ajaran agamanya, serta tidak memaksakan keyakinan sendiri kepada orang lain.\nContoh 2 (Lingkungan Tempat Tinggal): Menjaga ketenangan dan tidak membuat kebisingan saat pemeluk agama lain sedang beribadah di rumah ibadah dekat rumah, serta mengucapkan salam hangat dan bergotong royong membersihkan fasilitas umum tanpa membedakan agama.", "rubric": "Skor 100: Memberikan 2 contoh konkret, logis, dan aplikatif disertai penjelasan singkat. Skor 60: Hanya 1 contoh konkret."}]}, {"no_ind": 13, "elemen": "UUD NRI\nTahun 1945", "cp": "Murid mampu;\nmenerapkan hak\tdan\nkewajiban\nsebagai warga\nnegara.", "atp": "Menerapkan hak dan kewajiban warga\tnegara sesuai UUD\t NRI Tahun 1945.", "bab": "BAB II.\nHak dan kewajiban warga Negara.", "indikator": "Disajikan pernyataan tentang OSIS di madrasah sebagai wadah organisasi untuk pengalaman berorganisasi, Murid mampu menganalisis hak anggota osis tersebut sesuai pasal 28 ayat (3) UUD NRI Tahun 1945 .", "bentuk": "PGT", "no_soal": 9, "level": "1.1", "bobot": "Mudah", "questions": [{"id": "q13_1", "type": "pg", "stimulus": "Organisasi Siswa Intra Sekolah (OSIS) di MTs Negeri 6 Demak menjadi sarana bagi siswa untuk belajar memimpin, berdemokrasi, merancang program kegiatan sosial, dan menyampaikan aspirasi siswa kepada kepala madrasah.", "question": "Ditinjau dari pemenuhan hak asasi peserta didik, keikutsertaan siswa dalam organisasi OSIS merupakan wujud pemenuhan...", "options": ["Hak untuk berserikat, berkumpul, dan mengeluarkan pendapat secara bertanggung jawab", "Hak mutlak untuk mengkritik guru tanpa memperhatikan norma kesopanan", "Kewajiban utama menggantikan tugas-tugas administratif dewan guru", "Hak untuk dibebaskan dari seluruh kegiatan ulangan dan asesmen madrasah"], "correct": 0, "explanation": "OSIS adalah wadah konstitusional di sekolah yang menjamin hak peserta didik untuk berorganisasi (berserikat dan berkumpul) serta menyampaikan aspirasi secara konstruktif sesuai amanat Pasal 28 UUD 1945."}, {"id": "q13_2", "type": "pg", "stimulus": "Sebagai pengurus OSIS seksi bidang ketakwaan, Farhan bertugas mengoordinasikan jadwal adzan dan imam shalat zhuhur berjamaah di musholla madrasah. Farhan menjalankan amanah ini dengan penuh dedikasi.", "question": "Peran Farhan dalam kepengurusan OSIS tersebut mencerminkan keseimbangan antara...", "options": ["Hak berorganisasi dan kewajiban mengemban tanggung jawab pelayanan kepada sesama warga madrasah", "Hak menjadi populer dan kewajiban menuntut fasilitas pribadi dari madrasah", "Kewajiban mengikuti aturan madrasah dengan mengorbankan kewajiban belajar di kelas", "Hak memerintah siswa lain tanpa perlu memberi contoh keteladanan"], "correct": 0, "explanation": "Berorganisasi memberikan hak berserikat dan berkembang, yang diimbangi dengan kewajiban memegang teguh amanah, melayani siswa lain, dan menjaga kedisiplinan diri."}]}, {"no_ind": 14, "elemen": "UUD NRI\nTahun 1945", "cp": "Murid mampu;\nmenerapkan hak\tdan\nkewajiban\nsebagai warga\nnegara.", "atp": "Menerapkan hak dan kewajiban warga\tnegara sesuai UUD\t NRI Tahun 1945.", "bab": "BAB II.\nHak dan kewajiban warga Negara.", "indikator": "Disajikan cerita singkat tentang Nabila sebagai siswa yang ikut anggota eskul Paskibra, Murid mampu mengidentifikasi jenis hak yang di peroleh Nabila sebagai anggota eskul Paskibra.", "bentuk": "PGT", "no_soal": 10, "level": "1.2", "bobot": "Sedang", "questions": [{"id": "q14_1", "type": "pg", "stimulus": "Nabila adalah siswi kelas 9 yang aktif menjadi anggota ekstrakurikuler Pasukan Pengibar Bendera (Paskibra) madrasah. Setiap hari Selasa dan Kamis sore, Nabila rajin berlatih baris-berbaris di bawah terik matahari demi mempersiapkan upacara peringatan Hari Kemerdekaan RI.", "question": "Sikap dan kedisiplinan yang ditunjukkan Nabila dalam Paskibra merupakan wujud nyata pelaksanaan...", "options": ["Kewajiban bela negara bagi seorang pelajar melalui pembinaan kedisiplinan dan cinta tanah air", "Penyaluran hobi fisik semata agar mendapatkan pujian dari teman sekelas", "Beban paksaan dari madrasah yang tidak berkaitan dengan nilai-nilai kewarganegaraan", "Tuntutan mencari poin kelulusan tanpa perlu adanya rasa nasionalisme"], "correct": 0, "explanation": "Bagi pelajar, keikutsertaan dalam Paskibra, Pramuka, dan kegiatan kepanduan merupakan perwujudan bela negara non-fisik (Pasal 27 ayat 3 UUD 1945) dalam menanamkan disiplin, patriotisme, dan cinta tanah air."}, {"id": "q14_2", "type": "pg", "stimulus": "Saat upacara bendera, Nabila bertugas sebagai pembawa bendera Merah Putih. Ia melangkah tegap, khidmat, dan menjaga agar bendera tidak menyentuh tanah hingga berkibar sempurna di ujung tiang tertinggi.", "question": "Perilaku Nabila yang menjaga kesucian bendera Merah Putih merupakan bentuk penghormatan terhadap...", "options": ["Simbol kedaulatan dan kehormatan Negara Kesatuan Republik Indonesia", "Peraturan tata tertib internal seragam madrasah saja", "Perintah komandan upacara secara mekanis", "Aksesoris seremonial yang tidak memiliki makna filosofis"], "correct": 0, "explanation": "Bendera Merah Putih adalah lambang kedaulatan negara yang diatur dalam Pasal 35 UUD NRI Tahun 1945 dan UU No. 24 Tahun 2009. Menjaganya dengan khidmat adalah wujud penghormatan warga negara kepada bangsanya."}]}, {"no_ind": 15, "elemen": "UUD NRI\nTahun 1945", "cp": "Murid mampu;\nmenerapkan hak\tdan\nkewajiban\nsebagai warga\nnegara.", "atp": "Menerapkan hak dan kewajiban warga\tnegara sesuai UUD\t NRI Tahun 1945.", "bab": "BAB II.\nHak dan kewajiban warga Negara.", "indikator": "Disajikan pernyataan pengertian hak menurut Prof. Notonegoro, Murid mampu mengidentifikasi Pengertian hak menurut pendapat Prof. Notonegoro.", "bentuk": "PGT", "no_soal": 11, "level": "1.2", "bobot": "Sedang", "questions": [{"id": "q15_1", "type": "pg", "stimulus": "Prof. Notonagoro, salah satu tokoh filsafat hukum Indonesia, merumuskan definisi hak: 'Hak adalah kuasa untuk menerima atau melakukan suatu yang semestinya diterima atau dilakukan melulu oleh pihak tertentu dan tidak dapat oleh pihak lain manapun juga yang pada prinsipnya dapat dituntut secara paksa olehnya.'", "question": "Berdasarkan rumusan Prof. Notonagoro tersebut, ciri mendasar dari hak asasi adalah...", "options": ["Merupakan wewenang atau kuasa sah yang melekat pada individu untuk menerima atau menuntut sesuatu sesuai aturan", "Kewajiban mutlak untuk menuruti kehendak penguasa tanpa boleh meminta keadilan", "Sesuatu yang baru boleh dimiliki seseorang setelah ia membayar sejumlah pajak kepada kas negara", "Izin sementara yang sewaktu-waktu dapat dihapus tanpa dasar hukum yang jelas"], "correct": 0, "explanation": "Prof. Notonagoro mendefinisikan hak sebagai 'kuasa untuk menerima atau melakukan sesuatu' yang sah dan dapat dipertahankan atau dituntut secara hukum."}, {"id": "q15_2", "type": "pg", "stimulus": "Dalam konsep Prof. Notonagoro, hak dan kewajiban tidak dapat dipisahkan (korelatif). Di mana ada hak yang dimiliki oleh seseorang, di situ pula timbul kewajiban pada orang lain.", "question": "Contoh hubungan korelatif hak dan kewajiban menurut pandangan tersebut di lingkungan madrasah adalah...", "options": ["Hak siswa mendapatkan penjelasan materi pelajaran melahirkan kewajiban siswa memperhatikan guru yang sedang mengajar", "Hak siswa menikmati jam istirahat melahirkan kewajiban siswa merusak fasilitas madrasah", "Hak guru memberikan nilai melahirkan kewajiban siswa memprotes tanpa alasan yang jelas", "Hak memakai fasilitas laboratorium melahirkan kewajiban untuk membawanya pulang ke rumah"], "correct": 0, "explanation": "Hubungan korelatif bermakna hak seseorang untuk memperoleh ilmu didampingi dengan kewajiban menghormati guru dan menyimak penjelasan secara tertib."}]}, {"no_ind": 16, "elemen": "UUD NRI\nTahun 1945", "cp": "Murid mampu;\nmenerapkan hak\tdan\nkewajiban\nsebagai warga\nnegara.", "atp": "Menerapkan hak dan kewajiban warga\tnegara sesuai UUD\t NRI Tahun 1945.", "bab": "BAB II.\nHak dan kewajiban warga Negara.", "indikator": "Disajikan tabel tentang alasan hak dan kewajiban harus seimbang, Murid mampu mengidentifikasi alasan pelakasanaan hak dan kewajiban harus seimbang.", "bentuk": "PGT", "no_soal": 12, "level": "1.3", "bobot": "Sukar", "questions": [{"id": "q16_1", "type": "pg", "stimulus": "Perhatikan tabel sebab-akibat pelaksanaan hak dan kewajiban berikut:\n| Kondisi | Dampak Sosial Yang Ditimbulkan |\n|---|---|\n| Hanya menuntut hak tanpa menjalankan kewajiban | Timbul ketidakadilan, kekacauan, anarki, dan perselisihan antarsesama |\n| Melaksanakan kewajiban tanpa pemenuhan hak | Terjadi penindasan, ketidakpuasan rakyat, dan pelanggaran harkat kemanusiaan |\n| Hak dan kewajiban dilaksanakan seimbang | Tercipta keharmonisan, keadilan sosial, ketertiban, dan kedamaian bernegara |", "question": "Berdasarkan tabel tersebut, mengapa pelaksanaan hak dan kewajiban harus berjalan secara seimbang?", "options": ["Karena keseimbangan keduanya adalah prasyarat mutlak terwujudnya keadilan, ketertiban sosial, dan kedamaian hidup bersama", "Karena pemerintah hanya akan memberikan subsidi kepada warga yang tidak pernah menuntut haknya", "Karena menuntut hak lebih penting dibandingkan mematuhi peraturan perundang-undangan", "Agar seseorang dapat menghindari seluruh sanksi hukum tanpa perlu bertanggung jawab"], "correct": 0, "explanation": "Keseimbangan hak dan kewajiban mutlak diperlukan agar hak individu terlindungi tanpa melanggar hak orang lain, sehingga ketertiban dan keadilan sosial terwujud."}, {"id": "q16_2", "type": "pg", "stimulus": "Di sebuah perempatan jalan, seorang pengendara sepeda motor menerobos lampu merah dengan alasan sedang terburu-buru menghadiri acara keluarga. Tindakannya mengakibatkan tabrakan dengan pengendara lain.", "question": "Kasus pelanggaran lalu lintas tersebut membuktikan bahwa mengabaikan kewajiban demi kepentingan pribadi akan berakibat pada...", "options": ["Terganggunya hak hidup dan keselamatan orang lain serta hilangnya ketertiban umum", "Meningkatnya rasa kepedulian antarpengendara di jalan raya", "Terjaminnya kebebasan berkendara tanpa batasan aturan hukum", "Pengakuan bahwa hak individu berada di atas keselamatan masyarakat umum"], "correct": 0, "explanation": "Menerobos lampu merah adalah pengingkaran kewajiban mematuhi rambu lalu lintas yang secara fatal merampas hak orang lain untuk mendapatkan keselamatan di jalan raya."}]}, {"no_ind": 17, "elemen": "UUD NRI\nTahun 1945", "cp": "Murid mampu;\nmenerapkan hak\tdan\nkewajiban\nsebagai warga\nnegara.", "atp": "Menerapkan hak dan kewajiban warga\tnegara sesuai UUD\t NRI Tahun 1945.", "bab": "BAB II.\nHak dan kewajiban warga Negara.", "indikator": "Disajikan pernyataan tentang menjaga keseimbangan antara hak dan kewajiban , Murid mampu menentukan langkah-langkah yang perlu diambil agar dapat menjaga keseimbangan antara hak dan kewajiban.", "bentuk": "PGT", "no_soal": 13, "level": "1.3", "bobot": "Sukar", "questions": [{"id": "q17_1", "type": "pg", "stimulus": "Ahmad sangat menyukai musik dan bermain gitar di kamarnya. Namun, tetangganya yang sudah lanjut usia sedang sakit dan membutuhkan suasana tenang untuk beristirahat. Ahmad memutuskan untuk memakai earphone atau menunda bermain gitar.", "question": "Tindakan Ahmad tersebut merupakan contoh nyata menjaga keseimbangan antara hak dan kewajiban karena...", "options": ["Ahmad menikmati hak rekreasinya tanpa mengabaikan kewajiban moral menghormati hak istirahat tetangga", "Ahmad merasa takut dimarahi oleh pengurus RT setempat", "Ahmad tidak memiliki kebebasan sama sekali untuk berekspresi di rumahnya sendiri", "Ahmad dipaksa menyerahkan alat musiknya kepada tetangga yang sakit"], "correct": 0, "explanation": "Keseimbangan hak dan kewajiban diwujudkan ketika kita menikmati hak pribadi dengan penuh tenggang rasa dan membatasi diri agar tidak mengganggu hak dan ketenteraman orang lain."}, {"id": "q17_2", "type": "pg", "stimulus": "Dalam kerja kelompok mata pelajaran Pendidikan Pancasila, kelompok Siti terdiri dari 4 siswa. Siti dan Rina membagi tugas sama rata agar seluruh anggota berkontribusi menyusun laporan dan membuat poster.", "question": "Sikap Siti dan Rina mencerminkan penerapan asas keseimbangan hak dan kewajiban dalam bentuk...", "options": ["Pemberian beban tugas yang proporsional sehingga setiap anggota berhak mendapatkan nilai yang adil", "Pembebasan tugas bagi teman yang mengaku malas agar suasana kelompok tetap damai", "Pengerjaan tugas seluruhnya oleh ketua kelompok sedangkan anggota lainnya tinggal menunggu hasil", "Penuntutan nilai sempurna kepada guru tanpa adanya bukti kerja sama kelompok"], "correct": 0, "explanation": "Dalam kelompok belajar, hak mendapatkan nilai yang baik harus diimbangi dengan kewajiban berpartisipasi dan berkontribusi secara proporsional."}]}, {"no_ind": 18, "elemen": "UUD NRI\nTahun 1945", "cp": "Murid mampu;\nmenerapkan hak\tdan\nkewajiban\nsebagai warga\nnegara.", "atp": "Menerapkan hak dan kewajiban warga\tnegara sesuai UUD\t NRI Tahun 1945.", "bab": "BAB II.\nHak dan kewajiban warga Negara.", "indikator": "Disajikan pernyataan, tentang upaya penanganan pelanggaran hak dan kewajiban di Indonesia, Murid mampu mengidentifikasi upaya yang dapat dilakukan untuk mencegah terjadinya pelanggaran hak dan kewajiban warga negara.", "bentuk": "PGT", "no_soal": 14, "level": "1.2", "bobot": "Sedang", "questions": [{"id": "q18_1", "type": "pg", "stimulus": "Pemerintah bersama lembaga negara melakukan berbagai langkah untuk mengatasi maraknya kasus pelanggaran hak asasi dan pengingkaran kewajiban warga negara. Upaya pencegahan (preventif) dilakukan melalui pendidikan kewarganegaraan di sekolah dan sosialisasi nilai-nilai hukum.", "question": "Berikut ini yang merupakan contoh upaya preventif pemerintah dalam menangani pelanggaran hak dan pengingkaran kewajiban adalah...", "options": ["Memasukkan pendidikan antikorupsi dan HAM ke dalam kurikulum madrasah serta sekolah umum", "Menjatuhkan vonis hukuman penjara bagi pelaku tindak pidana korupsi di pengadilan", "Membubarkan unjuk rasa anarkis dengan menyemprotkan gas air mata oleh aparat kepolisian", "Menyita aset kekayaan milik terpidana penipuan investasi ilegal"], "correct": 0, "explanation": "Upaya preventif adalah langkah pencegahan sebelum pelanggaran terjadi, seperti edukasi, penanaman karakter moral, dan sosialisasi hukum. Vonis dan penindakan fisik termasuk upaya represif (penindakan)."}, {"id": "q18_2", "type": "pg", "stimulus": "Komisi Pemilihan Umum (KPU) dan Bawaslu membuka kanal aduan masyarakat jika ada warga yang kehilangan hak pilihnya dalam daftar pemilih tetap (DPT) saat pemilihan umum.", "question": "Kanal aduan yang disediakan oleh penyelenggara pemilu tersebut bertujuan untuk menjamin...", "options": ["Hak konstitusional setiap warga negara yang memenuhi syarat untuk menggunakan hak suaranya dalam pemilu", "Kewajiban warga untuk memilih partai penguasa yang sedang memerintah", "Keistimewaan bagi pejabat negara untuk memilih lebih dari satu kali", "Penghapusan hak pilih bagi warga masyarakat di daerah terpencil"], "correct": 0, "explanation": "Kanal aduan DPT berfungsi memastikan hak pilih warga negara terlindungi dan terpenuhi secara adil tanpa ada yang terdiskriminasi."}]}, {"no_ind": 19, "elemen": "UUD NRI\nTahun 1945", "cp": "Murid mampu;\nmenerapkan hak\tdan\nkewajiban\nsebagai warga\nnegara.", "atp": "Menerapkan hak dan kewajiban warga\tnegara sesuai UUD\t NRI Tahun 1945.", "bab": "BAB II.\nHak dan kewajiban warga Negara.", "indikator": "Disajikan pernyataan,tentang kewajiban, Murid mampu mendeskripsikan pengertian kewajiban secara umum.", "bentuk": "PGK", "no_soal": 23, "level": "1.2", "bobot": "Sedang", "questions": [{"id": "q19_1", "type": "pgk", "stimulus": "Dalam ilmu kewarganegaraan, kewajiban diartikan sebagai sesuatu yang harus dilakukan atau ditunaikan oleh seseorang dengan penuh tanggung jawab.", "question": "Pilihlah pernyataan-pernyataan yang benar mengenai pengertian dan karakteristik kewajiban secara umum! (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Kewajiban merupakan beban atau tugas yang mengikat seseorang berdasarkan norma hukum, moral, atau agama", "Pelaksanaan kewajiban menuntut adanya kesadaran moral dan tanggung jawab pribadi", "Pengabaian kewajiban secara hukum dapat menimbulkan sanksi atau konsekuensi yuridis", "Kewajiban hanya berlaku bagi warga negara miskin, sedangkan warga kaya bebas dari kewajiban", "Kewajiban ada untuk membatasi kesewenang-wenangan dan menjaga ketertiban hidup bermasyarakat"], "correct": [0, 1, 2, 4], "explanation": "Kewajiban mengikat setiap orang (No. 1), menuntut tanggung jawab (No. 2), ada sanksi jika diabaikan (No. 3), dan menjaga ketertiban (No. 5). Pernyataan No. 4 salah besar karena kewajiban berlaku bagi seluruh warga negara tanpa memandang status sosial."}, {"id": "q19_2", "type": "pgk", "stimulus": "Kewajiban warga negara dapat berupa kewajiban mutlak kepada Tuhan, kewajiban publik terhadap negara, dan kewajiban sosial terhadap sesama anggota masyarakat.", "question": "Manakah di antara tindakan berikut yang tergolong sebagai kewajiban publik seorang warga negara terhadap bangsa dan negara? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Membayar pajak tepat waktu sesuai dengan ketentuan perundang-undangan (Pasal 23A)", "Turut serta dalam upaya pembelaan negara dan menjaga keamanan lingkungan (Pasal 27 ayat 3)", "Menaati rambu-rambu lalu lintas dan aturan hukum yang berlaku (Pasal 27 ayat 1)", "Menuntut gaji tinggi kepada perusahaan swasta tempatnya bekerja"], "correct": [0, 1, 2], "explanation": "Membayar pajak, membela negara, dan menaati hukum adalah kewajiban publik warga negara yang diatur secara tegas dalam UUD 1945. Menuntut gaji adalah hak pekerja dalam hukum perdata/ketenagakerjaan."}]}, {"no_ind": 20, "elemen": "UUD NRI\nTahun 1945", "cp": "Murid mampu;\nmenerapkan hak\tdan\nkewajiban\nsebagai warga\nnegara.", "atp": "Menerapkan hak dan kewajiban warga\tnegara sesuai UUD\t NRI Tahun 1945.", "bab": "BAB II.\nHak dan kewajiban warga Negara.", "indikator": "Disajikan tabel tentang contoh hak dan kewajiban , Murid mampu menentukan contoh hak dan kewajiban dilingkungan masyarakat.", "bentuk": "PGK", "no_soal": 24, "level": "1.3", "bobot": "Sukar", "questions": [{"id": "q20_1", "type": "pgk", "stimulus": "Perhatikan tabel kehidupan di lingkungan masyarakat desa/kelurahan berikut:\n| No | Aktivitas Warga |\n|---|---|\n| A | Mendapatkan pelayanan administrasi KTP dan surat pengantar dari pihak RT/RW |\n| B | Mengikuti kegiatan kerja bakti membersihkan saluran air dan pos ronda |\n| C | Menikmati lingkungan tempat tinggal yang bersih, aman, dan nyaman |\n| D | Membayar iuran kebersihan dan keamanan lingkungan secara tertib |\n| E | Menjaga ketertiban dan tidak membunyikan musik keras di malam hari |", "question": "Berdasarkan tabel tersebut, manakah yang merupakan contoh KEWAJIBAN warga di lingkungan masyarakat? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Poin B: Mengikuti kegiatan kerja bakti membersihkan saluran air", "Poin D: Membayar iuran kebersihan dan keamanan lingkungan", "Poin E: Menjaga ketertiban dan tidak membunyikan musik keras di malam hari", "Poin A: Mendapatkan pelayanan administrasi KTP", "Poin C: Menikmati lingkungan tempat tinggal yang bersih dan aman"], "correct": [0, 1, 2], "explanation": "Poin B, D, dan E merupakan kewajiban warga masyarakat untuk menjaga kelestarian, keamanan, dan ketertiban bersama. Sedangkan Poin A dan C adalah HAK warga."}, {"id": "q20_2", "type": "pgk", "stimulus": "Warga di RW 04 Demak sepakat mengadakan ronda siskamling malam secara bergiliran untuk mengantisipasi pencurian sepeda motor yang marak terjadi.", "question": "Manakah pernyataan yang paling tepat mengenai hak dan kewajiban warga terkait kegiatan siskamling tersebut? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Setiap warga berkewajiban menjaga keamanan lingkungan sesuai jadwal ronda yang disepakati", "Setiap warga berhak memperoleh perlindungan dan rasa aman di rumahnya masing-masing", "Warga yang sedang sakit atau berhalangan dapat digantikan atau berkontribusi dalam bentuk logistik", "Hanya warga pendatang baru yang diwajibkan bertugas ronda setiap malam"], "correct": [0, 1, 2], "explanation": "Keamanan lingkungan adalah tanggung jawab bersama (kewajiban) demi terwujudnya rasa aman (hak) bagi seluruh warga secara adil tanpa diskriminasi."}]}, {"no_ind": 21, "elemen": "UUD NRI\nTahun 1945", "cp": "Murid mampu;\nmenerapkan hak\tdan\nkewajiban\nsebagai warga\nnegara.", "atp": "Menerapkan hak dan kewajiban warga\tnegara sesuai UUD\t NRI Tahun 1945.", "bab": "BAB II.\nHak dan kewajiban warga Negara.", "indikator": "Disajikan gambar siswa yang sedang belajar di madrsah, Murid mampu mengidentifikasi hak dan kewajiban berdasarkan gambar tersebut.", "bentuk": "PGK", "no_soal": 25, "level": "1.2", "bobot": "Sedang", "questions": [{"id": "q21_1", "type": "pgk", "stimulus": "Di ruang kelas 9 MTs Negeri 6 Demak, para siswa sedang tekun menyimak pemaparan guru menggunakan proyektor digital. Fasilitas kelas lengkap: ruangan ber-AC, papan tulis bersih, dan buku paket kurikulum merdeka tersedia di atas meja masing-masing.", "question": "Berdasarkan gambaran suasana belajar di madrasah tersebut, manakah yang merupakan HAK yang telah diterima oleh siswa? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Hak mendapatkan pengajaran dan bimbingan ilmu dari guru secara profesional", "Hak menggunakan fasilitas sarana dan prasarana belajar madrasah yang layak", "Hak diperlakukan secara adil tanpa diskriminasi oleh pihak madrasah", "Hak untuk bebas bolos jam pelajaran sesuka hati siswa"], "correct": [0, 1, 2], "explanation": "Mendapatkan pengajaran bermutu, sarana belajar layak, dan perlakuan adil adalah hak asasi peserta didik di sekolah. Membolos melanggar tata tertib dan bukan merupakan hak."}, {"id": "q21_2", "type": "pgk", "stimulus": "Sebagai timbal balik atas hak-hak belajar yang telah dipenuhi madrasah, siswa memiliki sejumlah kewajiban yang harus dilaksanakan dengan penuh kesungguhan.", "question": "Manakah tindakan siswa yang mencerminkan pemenuhan KEWAJIBAN di kelas saat proses pembelajaran berlangsung? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Memperhatikan penjelasan guru dan mencatat poin-poin materi yang penting", "Menjaga kebersihan meja, kursi, proyektor, dan tidak mencoret-coret dinding kelas", "Mengerjakan tugas asesmen formatif yang diberikan dengan jujur dan tepat waktu", "Bermain game di ponsel saat guru sedang menjelaskan materi di depan kelas"], "correct": [0, 1, 2], "explanation": "Menyimak pelajaran, merawat fasilitas kelas, dan mengerjakan tugas tepat waktu adalah kewajiban utama siswa di madrasah. Bermain game saat pembelajaran merupakan pengingkaran kewajiban."}]}, {"no_ind": 22, "elemen": "UUD NRI\nTahun 1945", "cp": "Murid mampu;\nmenerapkan hak\tdan\nkewajiban\nsebagai warga\nnegara.", "atp": "Menerapkan hak dan kewajiban warga\tnegara sesuai UUD\t NRI Tahun 1945.", "bab": "BAB II.\nHak dan kewajiban warga Negara.", "indikator": "Disajikan pernyataan,Murid mampu mengidentifikasi kewajiban warga negara Indonesia secara umum.", "bentuk": "PGK", "no_soal": 26, "level": "1.1", "bobot": "Mudah", "questions": [{"id": "q22_1", "type": "pgk", "stimulus": "Undang-Undang Dasar Negara Republik Indonesia Tahun 1945 secara tegas mengatur kewajiban-kewajiban dasar yang harus dipatuhi oleh setiap warga negara Indonesia.", "question": "Pilihlah pasal-pasal UUD NRI Tahun 1945 yang memuat kewajiban warga negara beserta bunyi ketentuannya yang benar! (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Pasal 27 ayat (1): Wajib menjunjung hukum dan pemerintahan itu dengan tidak ada kecualinya", "Pasal 27 ayat (3): Wajib ikut serta dalam upaya pembelaan negara", "Pasal 28J ayat (1): Wajib menghormati hak asasi manusia orang lain dalam tertib berkehidupan", "Pasal 31 ayat (2): Wajib mengikuti pendidikan dasar dan pemerintah wajib membiayainya", "Pasal 29 ayat (2): Wajib memeluk agama yang sama dengan pemimpin daerahnya"], "correct": [0, 1, 2, 3], "explanation": "Pasal 27 (1), 27 (3), 28J (1), dan 31 (2) merupakan pasal konstitusi yang secara eksplisit memuat kewajiban warga negara. Pilihan terakhir salah karena Pasal 29 (2) menjamin kemerdekaan tiap penduduk memeluk agamanya masing-masing."}, {"id": "q22_2", "type": "pgk", "stimulus": "Pemerintah membangun jalan tol, jembatan, gedung sekolah madrasah, dan puskesmas menggunakan dana Anggaran Pendapatan dan Belanja Negara (APBN) yang mayoritas bersumber dari pajak rakyat.", "question": "Berdasarkan Pasal 23A UUD NRI Tahun 1945, mengapa membayar pajak merupakan kewajiban konstitusional setiap warga negara yang telah memenuhi syarat? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Karena pajak digunakan untuk membiayai pembangunan fasilitas umum dan subsidi sosial", "Karena kepatuhan membayar pajak menopang kemandirian fiskal dan kedaulatan negara", "Sebagai wujud gotong royong warga negara dalam mensejahterakan seluruh rakyat", "Hanya untuk memperkaya rekening pribadi para pejabat kementerian keuangan"], "correct": [0, 1, 2], "explanation": "Pasal 23A UUD 1945 menegaskan pajak bersifat memaksa untuk keperluan negara bagi sebesar-besarnya kemakmuran rakyat, membiayai fasilitas publik, dan mewujudkan keadilan sosial."}]}, {"no_ind": 23, "elemen": "UUD NRI\nTahun 1945", "cp": "Murid mampu;\nmenerapkan hak\tdan\nkewajiban\nsebagai warga\nnegara.", "atp": "Menerapkan hak dan kewajiban warga\tnegara sesuai UUD\t NRI Tahun 1945.", "bab": "BAB II.\nHak dan kewajiban warga Negara.", "indikator": "Disajikan pernyataan, Murid mampu mengidentifikasi lembaga penegakan hukum sebagai upaya pemenuhan hak dan kewajiban warga negara Indonesia.", "bentuk": "PGK", "no_soal": 27, "level": "1.2", "bobot": "Sedang", "questions": [{"id": "q23_1", "type": "pgk", "stimulus": "Negara Indonesia adalah negara hukum (rechtsstaat). Dalam menjamin perlindungan hak dan penegakan kewajiban warga negara, negara membentuk berbagai lembaga penegak hukum yang memiliki wewenang masing-masing.", "question": "Pilihlah pasangan lembaga penegak hukum dan wewenangnya yang tepat dalam sistem peradilan Indonesia! (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Kepolisian RI (Polri): Bertugas memelihara kamtibmas, menegakkan hukum, serta melindungi dan mengayomi masyarakat", "Kejaksaan RI: Bertindak sebagai penuntut umum dalam perkara pidana dan pelaksana putusan pengadilan", "Kehakiman (Mahkamah Agung & Badan Peradilan): Berwenang mengadili, memutus perkara, dan menegakkan keadilan secara independen", "Komisi Pemberantasan Korupsi (KPK): Melakukan penyelidikan, penyidikan, dan penuntutan khusus tindak pidana korupsi", "Dinas Pendidikan: Menjatuhkan vonis kurungan penjara kepada siswa yang membolos sekolah"], "correct": [0, 1, 2, 3], "explanation": "Polri, Kejaksaan, Pengadilan/MA, dan KPK adalah lembaga penegak hukum resmi yang sah. Dinas Pendidikan adalah lembaga eksekutif pelayanan pendidikan dan tidak memiliki kewenangan yudisial memvonis pidana."}, {"id": "q23_2", "type": "pgk", "stimulus": "Selain lembaga peradilan umum, Indonesia memiliki lembaga negara independen yang berfungsi mengawasi pemenuhan hak asasi manusia dan pelayanan publik bagi warga negara.", "question": "Manakah di antara lembaga independen berikut yang berwenang menerima aduan masyarakat terkait dugaan pelanggaran HAM dan maladministrasi layanan publik? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Komisi Nasional Hak Asasi Manusia (Komnas HAM)", "Ombudsman Republik Indonesia", "Komisi Perlindungan Anak Indonesia (KPAI)", "Bursa Efek Indonesia"], "correct": [0, 1, 2], "explanation": "Komnas HAM mengawasi penegakan HAM, Ombudsman mengawasi pelayanan publik pemerintah, dan KPAI mengawasi perlindungan hak anak. Bursa Efek Indonesia adalah pengelola pasar modal dan transaksi saham."}]}, {"no_ind": 24, "elemen": "UUD NRI\nTahun 1945", "cp": "Murid mampu;\nmenerapkan hak\tdan\nkewajiban\nsebagai warga\nnegara.", "atp": "Menerapkan hak dan kewajiban warga\tnegara sesuai UUD\t NRI Tahun 1945.", "bab": "BAB II.\nHak dan kewajiban warga Negara.", "indikator": "Disajikan pernyataan, Murid mampu memberikan alas an mengapa pelaksanaan hak dan kewajiban harus seimbang", "bentuk": "Essay", "no_soal": 33, "level": "1.2", "bobot": "Sedang", "questions": [{"id": "q24_1", "type": "essay", "stimulus": "Sering kita jumpai sebagian warga masyarakat menuntut pemerintah segera memperbaiki jalan yang rusak, meminta bantuan sosial tunai, dan menuntut fasilitas umum gratis. Namun di sisi lain, mereka enggan membayar pajak kendaraan, membuang sampah di sungai, dan merusak fasilitas taman kota.", "question": "Berikan 3 alasan mendasar mengapa pelaksanaan hak dan kewajiban warga negara harus berjalan secara seimbang!", "keywords": ["keadilan", "ketertiban", "tidak egois", "menghormati orang lain", "keberlanjutan pembangunan", "harmoni"], "model_answer": "1. Mencegah Kekacauan dan Konflik Sosial: Jika setiap orang hanya menuntut haknya tanpa menjalankan kewajiban, akan terjadi anarki, benturan kepentingan, dan saling merugikan antarwarga.\n2. Menjamin Terwujudnya Keadilan Sosial: Hak seseorang dibatasi oleh hak orang lain. Keseimbangan memastikan bahwa kebebasan yang dinikmati seseorang tidak merampas hak orang lain.\n3. Menjaga Keberlanjutan Pembangunan Bangsa: Fasilitas publik dan pelayanan negara hanya bisa terwujud jika warga negara memenuhi kewajibannya (seperti taat hukum, membayar pajak, dan menjaga ketertiban).", "rubric": "Skor 100: Menjelaskan 3 alasan mendalam mencakup aspek ketertiban, keadilan sosial, dan keberlanjutan pembangunan. Skor 70: Menjelaskan 2 alasan. Skor 40: Menjelaskan 1 alasan umum."}, {"id": "q24_2", "type": "essay", "stimulus": "Dalam kehidupan bernegara, hubungan antara warga negara dan negara dibangun atas dasar kontrak sosial dan konstitusi, di mana terdapat timbal balik berupa hak dan kewajiban.", "question": "Jelaskan apa dampak negatif yang akan timbul terhadap kehidupan bermasyarakat jika warga negara HANYA menuntut haknya saja!", "keywords": ["anarki", "kegagalan sistem", "negara bangkrut", "ketimpangan", "pelanggaran hak orang lain", "egoise sektoral"], "model_answer": "Dampak negatif jika warga hanya menuntut hak: 1) Terjadi kebangkrutan fasilitas publik dan kegagalan pelayanan negara karena tidak ada warga yang mau berkontribusi membayar pajak dan memelihara aturan; 2) Muncul sikap egois dan perpecahan karena masing-masing pihak merasa berhak diutamakan; 3) Hukum dan ketertiban runtuh (anarki) karena tidak ada yang merasa wajib mematuhi norma.", "rubric": "Skor 100: Menguraikan minimal 3 dampak negatif sistemik yang logis dan runtut. Skor 70: Menguraikan 2 dampak. Skor 40: Menguraikan 1 dampak."}]}, {"no_ind": 25, "elemen": "UUD NRI\nTahun 1945", "cp": "Murid mampu;\nmempraktikkan kemerdekaan berpendapat sebagai\twarga", "atp": "Mempraktikan kemerdekaan berpendapat sebagai warga negara\tdalam\nera", "bab": "BAB\tIII.\nKemerdekaan berpendapat sebagai warga negara pada era", "indikator": "Disajikan pernyataan, Murid mampu mendeskripsikan makna kemerdekaan berpendapat warga negara", "bentuk": "PGT", "no_soal": 15, "level": "1.1", "bobot": "Mudah", "questions": [{"id": "q25_1", "type": "pg", "stimulus": "Pasal 1 angka 1 Undang-Undang Nomor 9 Tahun 1998 mendefinisikan kemerdekaan menyampaikan pendapat sebagai hak setiap warga negara untuk mengeluarkan pikiran dengan lisan, tulisan, dan sebagainya secara bebas dan bertanggung jawab sesuai dengan ketentuan peraturan perundang-undangan yang berlaku.", "question": "Berdasarkan pengertian undang-undang tersebut, makna frasa 'bebas dan bertanggung jawab' adalah...", "options": ["Bebas mengekspresikan gagasan dan aspirasi, namun tetap wajib menghormati hak orang lain, norma moral, serta menaati hukum", "Bebas tanpa batas apa pun sehingga siapa pun boleh menyebarkan fitnah dan makian di ruang publik", "Hanya boleh berbicara jika telah disetujui secara tertulis oleh aparat kepolisian dan pejabat setempat", "Bebas bersuara khusus bagi mereka yang memiliki kekayaan dan pengaruh di media massa"], "correct": 0, "explanation": "Prinsip 'bebas dan bertanggung jawab' bermakna warga bebas menyampaikan pikiran, namun kebebasan tersebut dibatasi oleh kewajiban menghormati hak asasi orang lain, moralitas, ketertiban umum, dan aturan hukum."}, {"id": "q25_2", "type": "pg", "stimulus": "Dalam forum musyawarah OSIS MTs, seorang siswa bernama Fandi menyampaikan kritik tajam namun santun terhadap program kebersihan madrasah yang dinilai kurang efektif, serta menyertakan usulan solusi tempat sampah terpilah.", "question": "Sikap Fandi dalam forum musyawarah tersebut mencerminkan hakikat kemerdekaan berpendapat yang...", "options": ["Konstruktif dan bertanggung jawab karena didasarkan pada data dan menawarkan solusi perbaikan", "Destruktif karena berani menyalahkan program yang telah disusun oleh ketua OSIS", "Melanggar etika karena peserta didik dilarang menyampaikan kritik di lingkungan sekolah", "Pasif karena hanya menunggu keputusan dari dewan guru pendamping"], "correct": 0, "explanation": "Kemerdekaan berpendapat yang sehat adalah kritik yang konstruktif (membangun), disampaikan dengan bahasa santun, objektif, dan menawarkan gagasan solusi demi kebaikan bersama."}]}, {"no_ind": 26, "elemen": "UUD NRI\nTahun 1945", "cp": "Murid mampu;\nmempraktikkan kemerdekaan berpendapat sebagai\twarga", "atp": "Mempraktikan kemerdekaan berpendapat sebagai warga negara\tdalam\nera", "bab": "BAB\tIII.\nKemerdekaan berpendapat sebagai warga negara pada era", "indikator": "Disajikan tabel tentang jaminan kemerdekaan berpendapat di Indonesia, Murid mampu menentukan jaminan kebebasan berserikat, berkumpul,mengeluarkan pendapat yang bertanggung jawab.", "bentuk": "PGT", "no_soal": 16, "level": "1.3", "bobot": "Sukar", "questions": [{"id": "q26_1", "type": "pg", "stimulus": "Perhatikan tabel instrumen hukum jaminan kemerdekaan berpendapat di Indonesia berikut:\n| No | Peraturan Perundang-undangan | Jaminan Yang Diatur |\n|---|---|---|\n| 1 | Pasal 28 UUD NRI 1945 | Kemerdekaan berserikat dan berkumpul, mengeluarkan pikiran dengan lisan dan tulisan |\n| 2 | Pasal 28E ayat (3) UUD NRI 1945 | Setiap orang berhak atas kebebasan berserikat, berkumpul, dan mengeluarkan pendapat |\n| 3 | UU No. 9 Tahun 1998 | Tata cara penyampaian pendapat di muka umum secara bertanggung jawab |\n| 4 | UU No. 14 Tahun 2008 | Jaminan keterbukaan informasi publik dan hak masyarakat mengakses informasi |", "question": "Berdasarkan tabel tersebut, pasal dalam UUD NRI Tahun 1945 hasil amendemen yang secara spesifik menegaskan bahwa 'Setiap orang berhak atas kebebasan berserikat, berkumpul, dan mengeluarkan pendapat' adalah...", "options": ["Pasal 28E ayat (3)", "Pasal 27 ayat (1)", "Pasal 29 ayat (2)", "Pasal 33 ayat (1)"], "correct": 0, "explanation": "Pasal 28E ayat (3) UUD NRI Tahun 1945 secara tegas menyatakan hak setiap orang atas kebebasan berserikat, berkumpul, dan mengeluarkan pendapat sebagai bagian dari hak asasi manusia."}, {"id": "q26_2", "type": "pg", "stimulus": "Pasal 28J ayat (2) UUD NRI Tahun 1945 menyatakan bahwa dalam menjalankan hak dan kebebasannya, setiap orang wajib tunduk kepada pembatasan yang ditetapkan dengan undang-undang dengan maksud semata-mata untuk menjamin pengakuan serta penghormatan atas hak dan kebebasan orang lain.", "question": "Makna pembatasan undang-undang dalam Pasal 28J ayat (2) tersebut bertujuan untuk...", "options": ["Mencegah terjadinya anarki, ujaran kebencian, fitnah, dan pelanggaran hak asasi sesama warga negara", "Menghilangkan sama sekali hak warga negara untuk menyampaikan aspirasinya", "Melindungi penguasa dari segala bentuk kritik masyarakat yang membangun", "Membatasi kebebasan pers agar tidak menyiarkan informasi fakta di masyarakat"], "correct": 0, "explanation": "Pasal 28J ayat (2) adalah klausul pembatasan (limitation clause) untuk menjaga agar kebebasan seseorang tidak melanggar kebebasan orang lain dan tidak merusak tatanan moral, nilai agama, keamanan, dan ketertiban umum."}]}, {"no_ind": 27, "elemen": "UUD NRI\nTahun 1945", "cp": "negara dalam era keterbukaan informasi.", "atp": "keterbukaan informasi.", "bab": "keterbukaan informasi.", "indikator": "Disajikan gambar tentang bentuk penyampaian pendapat dimuka umum , Murid mampu mengidentifikasi bentuk penyampaian pendapat berdasarkan gambar tersebut.", "bentuk": "PGT", "no_soal": 17, "level": "1.1", "bobot": "Mudah", "questions": [{"id": "q27_1", "type": "pg", "stimulus": "Sekelompok warga dan aktivis lingkungan mengadakan aksi berkumpul di alun-alun kota dengan membawa spanduk pelestarian alam, menyampaikan pidato terbuka di atas mobil komando tanpa melakukan arak-arakan berjalan kaki, untuk menyuarakan penolakan pencemaran sungai.", "question": "Berdasarkan Pasal 9 ayat (1) UU No. 9 Tahun 1998, bentuk penyampaian pendapat di muka umum yang dilakukan oleh aktivis lingkungan tersebut dikategorikan sebagai...", "options": ["Mimbar bebas atau rapat umum di tempat terbuka", "Pawai keliling kota", "Kerusuhan massa tanpa izin", "Penyampaian pendapat secara tertutup rahasia"], "correct": 0, "explanation": "Menurut Pasal 9 ayat (1) UU 9/1998, bentuk penyampaian pendapat di muka umum ada 4: Unjuk rasa/demonstrasi, Pawai, Rapat umum, dan Mimbar bebas. Berkumpul dan berorasi di satu tempat terbuka tanpa arak-arakan adalah mimbar bebas / rapat umum."}, {"id": "q27_2", "type": "pg", "stimulus": "Ratusan mahasiswa melakukan kegiatan berjalan kaki secara teratur bersama-sama menyusuri jalan protokol kota dari titik kumpul kampus menuju gedung DPRD sambil membawa poster aspirasi dan bernyanyi lagu kebangsaan.", "question": "Bentuk penyampaian pendapat di muka umum dengan cara arak-arakan di jalan umum secara teratur tersebut disebut...", "options": ["Pawai", "Mimbar bebas", "Rapat umum tertutup", "Debat parlemen"], "correct": 0, "explanation": "Pawai didefinisikan sebagai cara penyampaian pendapat di muka umum yang dilakukan oleh orang banyak dengan arak-arakan di jalan umum secara tertib."}]}, {"no_ind": 28, "elemen": "UUD NRI\nTahun 1945", "cp": "negara dalam era keterbukaan informasi.", "atp": "keterbukaan informasi.", "bab": "keterbukaan informasi.", "indikator": "Disajikan tabel tentang bentuk penyampaian pendapat secara tulisan, Murid mampu mengidentifikasi bentuk – bentuk penyampaian pendapat secara tulisan", "bentuk": "PGT", "no_soal": 18, "level": "1.3", "bobot": "Sukar", "questions": [{"id": "q28_1", "type": "pg", "stimulus": "Perhatikan tabel ragam bentuk penyampaian pendapat berikut:\n| No | Media / Saluran Penyampaian |\n|---|---|\n| 1 | Menulis surat pembaca atau artikel opini di harian surat kabar atau media online |\n| 2 | Membuat petisi publik digital yang ditandatangani ribuan warga untuk diajukan ke DPR |\n| 3 | Membentangkan spanduk, baliho, dan poster di lokasi yang diizinkan perda |\n| 4 | Berorasi menggunakan pengeras suara di depan gedung kantor bupati |", "question": "Berdasarkan tabel tersebut, bentuk penyampaian pendapat SECARA TULISAN ditunjukkan oleh nomor...", "options": ["1, 2, dan 3", "1, 2, dan 4", "2, 3, dan 4", "1, 3, dan 4"], "correct": 0, "explanation": "Bentuk tulisan meliputi artikel opini/surat pembaca (1), petisi tertulis/digital (2), serta spanduk/poster (3). Orasi dengan pengeras suara (4) adalah penyampaian pendapat secara lisan."}, {"id": "q28_2", "type": "pg", "stimulus": "Di era digital, penyampaian pendapat secara tulisan marak dilakukan melalui media sosial seperti Twitter (X), Threads, atau blog pribadi.", "question": "Syarat utama agar penyampaian pendapat tertulis di media sosial tidak melanggar ketentuan hukum (UU ITE) adalah...", "options": ["Berbasis fakta yang dapat dipertanggungjawabkan, santun, tidak memuat fitnah, pencemaran nama baik, atau hasutan SARA", "Menggunakan akun palsu (anonim) agar identitas penulis tidak terlacak oleh pihak kepolisian", "Menyerang pribadi lawan bicara secara kasar agar lawan merasa takut dan menyerah", "Menyebarkan potongan video hoaks yang diedit agar memicu amarah warganet"], "correct": 0, "explanation": "Kebebasan berpendapat secara tulisan di media elektronik wajib mematuhi UU ITE, yaitu berbasis data/fakta valid, tidak menyebarkan hoaks, tidak menyerang kehormatan pribadi, dan tidak memicu kebencian bernuansa SARA."}]}, {"no_ind": 29, "elemen": "UUD NRI\nTahun 1945", "cp": "negara dalam era keterbukaan informasi.", "atp": "keterbukaan informasi.", "bab": "keterbukaan informasi.", "indikator": "Disajikan pernyataan , Murid mampu mendeskripsikan arti informasi publik.", "bentuk": "PGT", "no_soal": 19, "level": "1.2", "bobot": "Sedang", "questions": [{"id": "q29_1", "type": "pg", "stimulus": "Berdasarkan Pasal 1 angka 2 Undang-Undang Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik (KIP), informasi publik didefinisikan sebagai informasi yang dihasilkan, disimpan, dikelola, dikirim, dan/atau diterima oleh suatu badan publik yang berkaitan dengan penyelenggara dan penyelenggaraan negara serta informasi lain yang berkaitan dengan kepentingan publik.", "question": "Contoh dokumen yang tergolong sebagai informasi publik yang berhak diakses secara transparan oleh masyarakat adalah...", "options": ["Laporan realisasi Anggaran Pendapatan dan Belanja Daerah (APBD) dan rekap bantuan sosial", "Rencana strategi rahasia operasi militer komando pertahanan negara", "Catatan riwayat rekam medis pribadi pasien di rumah sakit", "Kode sandi brankas penyimpanan uang bank sentral"], "correct": 0, "explanation": "Informasi publik mencakup anggaran belanja daerah, laporan pengadaan barang pemerintah, dan data bantuan sosial. Rahasia intelijen pertahanan, data medis pribadi, dan kode sandi perbankan adalah informasi yang dikecualikan (rahasia)."}, {"id": "q29_2", "type": "pg", "stimulus": "Seorang jurnalis madrasah ingin mengetahui alokasi dana Bantuan Operasional Sekolah (BOS) di madrasahnya untuk keperluan penulisan mading madrasah.", "question": "Sesuai prinsip keterbukaan informasi publik, sikap pengelola madrasah yang benar adalah...", "options": ["Menyediakan rincian ringkasan penggunaan dana BOS di papan pengumuman secara transparan dan akuntabel", "Mengancam mengeluarkan siswa jurnalis karena dianggap terlalu ingin tahu urusan madrasah", "Menolak memberikan informasi apa pun dengan alasan seluruh urusan madrasah bersifat rahasia negara", "Memungut biaya jutaan rupiah jika siswa ingin melihat laporan keuangan madrasah"], "correct": 0, "explanation": "Madrasah negeri adalah badan publik yang wajib transparan dan akuntabel dalam mengelola dana BOS, sehingga ringkasan penggunaannya merupakan informasi terbuka bagi warga madrasah."}]}, {"no_ind": 30, "elemen": "UUD NRI\nTahun 1945", "cp": "negara dalam era keterbukaan informasi.", "atp": "keterbukaan informasi.", "bab": "keterbukaan informasi.", "indikator": "Disajikan tabel tentang tata cara mengemukakan pendapat secara benar, Murid mampu mengidentifikasi cara mengemukakan pendapat secara benar.", "bentuk": "PGT", "no_soal": 20, "level": "1.2", "bobot": "Sedang", "questions": [{"id": "q30_1", "type": "pg", "stimulus": "Perhatikan tabel tata cara penyampaian pendapat di muka umum menurut UU No. 9 Tahun 1998:\n| No | Langkah Prosedur |\n|---|---|\n| 1 | Menyampaikan surat pemberitahuan tertulis kepada aparat Kepolisian setempat |\n| 2 | Pemberitahuan disampaikan selambat-lambatnya 3 x 24 jam sebelum kegiatan dilaksanakan |\n| 3 | Surat memuat maksud tujuan, rute/lokasi, penanggung jawab, dan alat peraga |\n| 4 | Melakukan penutupan total jalur jalan tol antarkota tanpa izin pihak berwajib |", "question": "Berdasarkan tabel tersebut, tata cara prosedural yang benar dalam menyampaikan pendapat di muka umum ditunjukkan oleh nomor...", "options": ["1, 2, dan 3", "1, 2, dan 4", "2, 3, dan 4", "1, 3, dan 4"], "correct": 0, "explanation": "Prosedur resmi menurut UU 9/1998 adalah memberikan surat pemberitahuan tertulis kepada polisi (1), diajukan minimal 3 x 24 jam sebelumnya (2), dan memuat data lengkap penanggung jawab serta rute (3). Menutup jalan tol (4) dilarang oleh undang-undang."}, {"id": "q30_2", "type": "pg", "stimulus": "Dalam rapat dewan galang Pramuka di madrasah, Dito tidak sependapat dengan lokasi perkemahan yang dipilih oleh panitia. Dito ingin menyampaikan argumennya.", "question": "Tata cara mengemukakan pendapat yang santun dan beradab yang harus dilakukan Dito adalah...", "options": ["Mengacungkan tangan terlebih dahulu, meminta izin pimpinan sidang, lalu berbicara dengan bahasa santun berdasar data", "Langsung memotong pembicaraan panitia dengan suara keras agar didengar peserta lain", "Membanting meja rapat dan mengancam akan keluar dari keanggotaan Pramuka", "Membisiki teman di sampingnya untuk bersama-sama membuat gaduh ruangan rapat"], "correct": 0, "explanation": "Etika mengemukakan pendapat di forum formal adalah mengangkat tangan, menunggu izin pimpinan sidang, dan menyampaikan sanggahan atau usulan secara santun, rasional, dan bertanggung jawab."}]}, {"no_ind": 31, "elemen": "UUD NRI\nTahun 1945", "cp": "negara dalam era keterbukaan informasi.", "atp": "keterbukaan informasi.", "bab": "keterbukaan informasi.", "indikator": "Disajikan tabel, Murid mampu menentukan kewajiban-kewajiban warga negara dalam menyampaikan pendapat dimuka umum berdasarkan Pasal 6 UU No. 9 tahun 1998.", "bentuk": "PGK", "no_soal": 28, "level": "1.2", "bobot": "Sedang", "questions": [{"id": "q31_1", "type": "pgk", "stimulus": "Pasal 6 Undang-Undang Nomor 9 Tahun 1998 mengatur tentang kewajiban dan tanggung jawab warga negara dalam menyampaikan pendapat di muka umum.", "question": "Pilihlah poin-poin yang merupakan kewajiban warga negara saat menyampaikan pendapat di muka umum berdasarkan Pasal 6 UU No. 9 Tahun 1998! (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Menghormati hak-hak dan kebebasan orang lain", "Menghormati aturan-aturan moral yang diakui umum", "Menaati hukum dan ketentuan peraturan perundang-undangan yang berlaku", "Menjaga dan menghormati keamanan dan ketertiban umum", "Menjaga keutuhan persatuan dan kesatuan bangsa", "Merusak fasilitas halte bus dan pagar kantor pemerintahan"], "correct": [0, 1, 2, 3, 4], "explanation": "Pasal 6 UU No. 9/1998 merinci 5 kewajiban: menghormati hak orang lain, menghormati moralitas umum, menaati hukum, menjaga keamanan & ketertiban umum, serta menjaga persatuan bangsa. Merusak fasilitas adalah tindak pidana vandalisme."}, {"id": "q31_2", "type": "pgk", "stimulus": "Sebuah aksi damai menuntut perlindungan pekerja pabrik berlangsung di depan gedung wali kota. Sepanjang aksi, peserta memunguti sampah botol air mineral dan tidak menghalangi pintu masuk ambulans rumah sakit.", "question": "Tindakan peserta aksi tersebut menunjukkan pemenuhan kewajiban Pasal 6 UU No. 9 Tahun 1998 dalam hal... (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Menghormati hak orang lain (pasien ambulans) untuk memperoleh pertolongan medis segera", "Menjaga kebersihan dan ketertiban fasilitas umum di sekitar lokasi penyampaian pendapat", "Menaati aturan moral dan etika kepedulian lingkungan", "Membiarkan sampah berserakan agar petugas kebersihan mendapatkan pekerjaan tambahan"], "correct": [0, 1, 2], "explanation": "Memberi jalan ambulans dan membersihkan sampah mencerminkan ketaatan terhadap kewajiban menghormati hak orang lain, menjaga moralitas, serta ketertiban umum."}]}, {"no_ind": 32, "elemen": "UUD NRI\nTahun 1945", "cp": "negara dalam era keterbukaan informasi.", "atp": "keterbukaan informasi.", "bab": "keterbukaan informasi.", "indikator": "Disajikan gambar contoh penyampaian pendapat  melalui tulisan dalam surat kabar    ( Opini ), Murid mampu mengidentifikasi bentuk dan tata cara penyampaian pendapat dimuka umum berdasarkan UU No. 9 tahun 1998.", "bentuk": "PGK", "no_soal": 29, "level": "1.3", "bobot": "Sukar", "questions": [{"id": "q32_1", "type": "pgk", "stimulus": "Menulis artikel opini di media massa (koran cetak atau portal berita daring) merupakan salah satu cara intelektual untuk menyalurkan kritik dan masukan kepada pemerintah serta mengedukasi masyarakat luas.", "question": "Kaidah dan etika apa sajakah yang wajib dipatuhi oleh seorang penulis artikel opini di media massa? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Menyajikan fakta dan data yang akurat dari sumber-sumber kredibel", "Menggunakan bahasa Indonesia yang baik, lugas, dan santun serta tidak menghina martabat pribadi seseorang", "Fokus pada substansi masalah kebijakan publik dan menawarkan alternatif solusi yang konstruktif", "Menyebarkan tuduhan palsu tanpa bukti demi menjatuhkan reputasi calon pejabat", "Menghormati hak jawab dan hak koreksi apabila terdapat kekeliruan data dalam tulisan"], "correct": [0, 1, 2, 4], "explanation": "Penulisan opini diatur oleh kode etik jurnalistik dan hukum: harus berbasis fakta (No. 1), santun (No. 2), solutif (No. 3), dan menghormati hak koreksi (No. 5). Tuduhan palsu tanpa bukti melanggar hukum pencemaran nama baik."}, {"id": "q32_2", "type": "pgk", "stimulus": "Siswa MTs bernama Laila menulis artikel opini di majalah dinding (mading) dan web sekolah berjudul 'Menjaga Kejujuran dalam Asesmen Digital Madrasah'.", "question": "Manakah manfaat positif dari penyampaian pendapat melalui tulisan artikel opini yang dibuat oleh Laila? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Melatih daya nalar kritis dan kemampuan literasi menulis siswa", "Menyebarkan gagasan moral yang menginspirasi teman-teman madrasah untuk berintegritas", "Menyediakan ruang dialog edukatif yang sehat antara siswa dan guru", "Membuat gaduh sekolah dengan fitnah yang tidak berdasar"], "correct": [0, 1, 2], "explanation": "Menulis opini melatih literasi nalar kritis, menyebarkan nilai integritas, dan membangun budaya dialektika yang bermartabat di lingkungan madrasah."}]}, {"no_ind": 33, "elemen": "UUD NRI\nTahun 1945", "cp": "negara dalam era keterbukaan informasi.", "atp": "keterbukaan informasi.", "bab": "keterbukaan informasi.", "indikator": "Disajikan tabel, Murid mampu mengidentifikasi tempat-tempat terlarang untuk penyampaian pendapat berdasarkan UU No. 9 tahun 1998.", "bentuk": "PGK", "no_soal": 30, "level": "1.2", "bobot": "Sedang", "questions": [{"id": "q33_1", "type": "pgk", "stimulus": "Pasal 9 ayat (2) Undang-Undang Nomor 9 Tahun 1998 secara tegas menetapkan lokasi-lokasi tertentu sebagai tempat terlarang untuk kegiatan penyampaian pendapat di muka umum guna menjamin keamanan negara dan kepentingan publik vital.", "question": "Pilihlah lokasi-lokasi yang TERLARANG untuk tempat penyampaian pendapat di muka umum menurut UU No. 9 Tahun 1998! (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Lingkungan Istana Kepresidenan dan tempat ibadah", "Instalasi militer dan rumah sakit", "Pelabuhan udara (bandara) atau pelabuhan laut", "Stasiun kereta api dan terminal angkutan darat serta objek vital nasional", "Gedung DPR/DPRD atau kantor pemerintahan daerah pada area yang ditentukan", "Lapangan terbuka atau alun-alun kota yang telah mendapat izin"], "correct": [0, 1, 2, 3], "explanation": "Menurut Pasal 9 ayat (2) UU 9/1998, tempat terlarang adalah: lingkungan istana kepresidenan, tempat ibadah, instalasi militer, rumah sakit, bandara, pelabuhan, stasiun KA, terminal angkutan, dan objek vital nasional (radius 150 meter). Halaman gedung DPR dan alun-alun diperbolehkan selama tertib."}, {"id": "q33_2", "type": "pgk", "stimulus": "Pemerintah melarang unjuk rasa di lingkungan rumah sakit dan bandara internasional.", "question": "Alasan mendasar mengapa rumah sakit dan bandara dilarang menjadi tempat demonstrasi menurut undang-undang adalah... (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Rumah sakit membutuhkan ketenangan tinggi demi pemulihan dan keselamatan nyawa pasien gawat darurat", "Bandara merupakan objek vital keselamatan penerbangan transportasi publik internasional", "Demonstrasi di rumah sakit berisiko menghambat akses ambulans dan tenaga medis", "Karena pemerintah ingin membungkam suara aspirasi rakyat di mana pun berada"], "correct": [0, 1, 2], "explanation": "Larangan unjuk rasa di rumah sakit dan bandara murni dilandasi alasan keselamatan nyawa pasien (hak hidup) dan keamanan penerbangan publik vital, bukan untuk membungkam aspirasi."}]}, {"no_ind": 34, "elemen": "UUD NRI\nTahun 1945", "cp": "negara dalam era keterbukaan informasi.", "atp": "keterbukaan informasi.", "bab": "keterbukaan informasi.", "indikator": "Disajikan pernyataan, Murid mampu menyebutkan 3 dampak positif kebebasan berpendapat.", "bentuk": "Essay", "no_soal": 34, "level": "1.3", "bobot": "Sukar", "questions": [{"id": "q34_1", "type": "essay", "stimulus": "Kebebasan berpendapat merupakan salah satu pilar utama negara demokrasi. Tanpa adanya kebebasan berpendapat yang bertanggung jawab, kehidupan bernegara akan menjadi otoriter dan aspirasi rakyat tidak akan terdengar oleh para pemimpin.", "question": "Sebutkan dan jelaskan 3 dampak positif dari pelaksanaan kemerdekaan berpendapat yang bertanggung jawab bagi kehidupan berbangsa dan bernegara di Indonesia!", "keywords": ["kontrol sosial", "pencegahan kesewenang-wenangan", "kebijakan publik lebih baik", "inovasi dan kreativitas", "partisipasi rakyat", "demokrasi sehat"], "model_answer": "1. Mencegah Kesewenang-wenangan Pemerintah (Kontrol Sosial): Kritik dan aspirasi masyarakat menjadi sarana pengawasan (check and balances) agar penguasa tetap amanah dan taat konstitusi.\n2. Menghasilkan Kebijakan Publik yang Lebih Berkualitas: Masukan dari berbagai kalangan masyarakat (pakar, akademisi, rakyat kecil) membantu pemerintah merumuskan undang-undang yang tepat sasaran.\n3. Menumbuhkan Partisipasi dan Kedewasaan Berdemokrasi: Rakyat merasa dihargai suaranya sehingga kepedulian warga terhadap kemajuan bangsa meningkat, serta kreativitas dan inovasi masyarakat dapat berkembang bebas.", "rubric": "Skor 100: Menjelaskan 3 dampak positif secara logis, komprehensif, dan mendalam. Skor 70: Menjelaskan 2 dampak positif. Skor 40: Menjelaskan 1 dampak positif."}, {"id": "q34_2", "type": "essay", "stimulus": "Di lingkungan madrasah, kepala madrasah membuka kotak saran dan forum dialog terbuka antara pengurus kelas dengan para dewan guru.", "question": "Jelaskan bagaimana keterbukaan berpendapat di lingkungan madrasah dapat meningkatkan kualitas pembelajaran dan kenyamanan para siswa!", "keywords": ["suasana dialogis", "evaluasi pembelajaran", "guru mendengar siswa", "kenyamanan belajar", "rasa dihargai"], "model_answer": "1. Siswa Berani Menyampaikan Kendala Belajar: Guru dapat mengetahui materi apa yang sulit dipahami dan metode pembelajaran yang lebih disukai murid.\n2. Peningkatan Fasilitas dan Layanan: Pihak madrasah dapat merespons fasilitas yang rusak (seperti AC, proyektor, kran air) berdasarkan laporan siswa.\n3. Membangun Budaya Kritis dan Santun: Siswa terlatih sejak dini untuk berani berpendapat dengan santun, menghargai pandangan orang lain, dan memiliki rasa kepemilikan terhadap madrasahnya.", "rubric": "Skor 100: Menjelaskan 3 aspek konkret di lingkungan madrasah. Skor 70: Menjelaskan 2 aspek. Skor 40: Menjelaskan 1 aspek."}]}, {"no_ind": 35, "elemen": "UUD NRI\nTahun 1945", "cp": "negara dalam era keterbukaan informasi.", "atp": "keterbukaan informasi.", "bab": "keterbukaan informasi.", "indikator": "Disajikan pernyataan, Murid mampu mengidentifikasi 3 tujuan pengaturan keterbukaan informasi publik dalam UU.", "bentuk": "Essay", "no_soal": 35, "level": "1.3", "bobot": "Sukar", "questions": [{"id": "q35_1", "type": "essay", "stimulus": "Undang-Undang Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik (UU KIP) lahir sebagai wujud reformasi tata kelola pemerintahan yang transparan dan akuntabel di Indonesia.", "question": "Jelaskan 3 tujuan utama pengaturan keterbukaan informasi publik sebagaimana tercantum dalam Undang-Undang Keterbukaan Informasi Publik!", "keywords": ["hak warga mengakses informasi", "partisipasi publik", "tata kelola baik", "good governance", "pencegahan korupsi", "penyelenggaraan transparan"], "model_answer": "1. Menjamin Hak Warga Negara: Menjamin hak asasi setiap warga negara untuk mengetahui rencana pembuatan kebijakan publik, program pembangunan, serta proses pengambilan keputusan publik.\n2. Mewujudkan Penyelenggaraan Negara yang Baik (Good Governance): Mendorong keterbukaan, akuntabilitas, transparansi, dan efisiensi birokrasi sehingga dapat mencegah tindak pidana korupsi, kolusi, dan nepotisme (KKN).\n3. Meningkatkan Partisipasi Aktif Masyarakat: Mengikutsertakan masyarakat dalam proses pengawasan kebijakan publik agar program pemerintah benar-benar dirasakan manfaatnya oleh rakyat.", "rubric": "Skor 100: Menyebutkan dan menjelaskan 3 tujuan sesuai Pasal 3 UU No. 14/2008 secara tepat. Skor 70: Menjelaskan 2 tujuan. Skor 40: Menjelaskan 1 tujuan secara umum."}, {"id": "q35_2", "type": "essay", "stimulus": "Salah satu prinsip keterbukaan informasi publik adalah bahwa 'setiap informasi publik bersifat terbuka dan dapat diakses oleh setiap pengguna informasi publik, kecuali informasi publik yang dikecualikan (rahasia)'.", "question": "Mengapa ada informasi yang dikecualikan (bersifat rahasia) dalam UU KIP? Berikan 2 contoh informasi yang tidak boleh dipublikasikan secara bebas ke masyarakat luas!", "keywords": ["informasi dikecualikan", "rahasia negara", "ketahanan nasional", "hak pribadi", "persaingan usaha", "rahasia medis"], "model_answer": "Alasan Pengecualian: Informasi tertentu harus dirahasiakan karena apabila dibuka dapat membahayakan kedaulatan negara, mengganggu ketahanan pertahanan militer, merusak hubungan diplomatik luar negeri, atau merugikan hak privasi pribadi warga negara.\nContoh Informasi Rahasia:\n1. Rahasia Pertahanan dan Intelijen Negara: Peta strategi penempatan pangkalan rudal militer, strategi operasi anti-terorisme, dan sandi komunikasi kenegaraan.\n2. Data Pribadi Warga Negara: Rekam medis riwayat penyakit pasien di rumah sakit, rincian nomor rekening tabungan pribadi di bank, dan nomor PIN/kata sandi digital.", "rubric": "Skor 100: Menjelaskan alasan filosofis/hukum dan memberikan 2 contoh konkret informasi rahasia. Skor 70: Menjelaskan alasan dan 1 contoh. Skor 40: Menjelaskan secara singkat."}]}];
+
+        // State management
+        let currentBabFilter = 'all';
+        let expandedCards = new Set();
+        let userProgress = {}; // format: { q_id: { answered: bool, correct: bool, selected: any } }
+
+        // Load progress from localStorage
+        function loadProgress() {
+            try {
+                const saved = localStorage.getItem('asas_pancasila_progress_2026');
+                if (saved) {
+                    userProgress = JSON.parse(saved);
+                }
+            } catch (e) {
+                console.error("Failed to load progress", e);
+            }
+            updateProgressStats();
+        }
+
+        function saveProgress() {
+            try {
+                localStorage.setItem('asas_pancasila_progress_2026', JSON.stringify(userProgress));
+            } catch (e) {
+                console.error("Failed to save progress", e);
+            }
+            updateProgressStats();
+        }
+
+        function updateProgressStats() {
+            const totalQuestions = 70;
+            const solvedCount = Object.keys(userProgress).length;
+            const percent = Math.min(100, Math.round((solvedCount / totalQuestions) * 100));
+
+            const statCountElem = document.getElementById('stat-solved-count');
+            if (statCountElem) statCountElem.innerText = `${solvedCount} / ${totalQuestions}`;
+
+            const percentElem = document.getElementById('progress-percent');
+            if (percentElem) percentElem.innerText = `${percent}% Selesai (${solvedCount} Soal)`;
+
+            const barFill = document.getElementById('progress-bar-fill');
+            if (barFill) barFill.style.width = `${percent}%`;
+        }
+
+        function resetAllProgress() {
+            if (confirm("Apakah Anda yakin ingin mereset seluruh hasil latihan soal interaktif?")) {
+                userProgress = {};
+                localStorage.removeItem('asas_pancasila_progress_2026');
+                renderIndicators();
+                updateProgressStats();
+            }
+        }
+
+        // Render Indicators
+        function renderIndicators() {
+            const container = document.getElementById('indicators-container');
+            if (!container) return;
+
+            const searchQuery = document.getElementById('kisi-search').value.toLowerCase().trim();
+            const bentukFilter = document.getElementById('filter-bentuk').value;
+            const bobotFilter = document.getElementById('filter-bobot').value;
+
+            let visibleCount = 0;
+            let html = '';
+
+            KISI_DATA.forEach((item, index) => {
+                // Determine Bab
+                let babNum = '1';
+                if (item.no_ind >= 13 && item.no_ind <= 24) babNum = '2';
+                else if (item.no_ind >= 25) babNum = '3';
+
+                // Check Bab filter
+                if (currentBabFilter !== 'all' && currentBabFilter !== babNum) {
+                    return;
+                }
+
+                // Check Bentuk filter
+                if (bentukFilter !== 'all' && item.bentuk !== bentukFilter) {
+                    return;
+                }
+
+                // Check Bobot filter
+                if (bobotFilter !== 'all' && item.bobot !== bobotFilter) {
+                    return;
+                }
+
+                // Check Search Query
+                if (searchQuery) {
+                    const fullText = `${item.no_ind} ${item.no_soal} ${item.indikator} ${item.materi || item.bab} ${item.cp} ${item.atp} ${item.bentuk} ${item.bobot}`.toLowerCase();
+                    if (!fullText.includes(searchQuery)) {
+                        return;
+                    }
+                }
+
+                visibleCount++;
+                const isExpanded = expandedCards.has(item.no_ind);
+
+                // Bab badge style
+                let babLabel = 'BAB I';
+                let babColor = 'bg-teal-50 text-teal-800 border-teal-200';
+                if (babNum === '2') {
+                    babLabel = 'BAB II';
+                    babColor = 'bg-blue-50 text-blue-800 border-blue-200';
+                } else if (babNum === '3') {
+                    babLabel = 'BAB III';
+                    babColor = 'bg-amber-50 text-amber-800 border-amber-200';
+                }
+
+                // Bobot style
+                let bobotColor = 'bg-emerald-50 text-emerald-700 border-emerald-200';
+                if (item.bobot === 'Sedang') bobotColor = 'bg-amber-50 text-amber-700 border-amber-200';
+                if (item.bobot === 'Sukar') bobotColor = 'bg-rose-50 text-rose-700 border-rose-200';
+
+                // Bentuk Soal style
+                let bentukLabel = item.bentuk;
+                let bentukBadge = 'bg-slate-100 text-slate-700';
+                if (item.bentuk === 'PGT') {
+                    bentukLabel = 'Pilihan Ganda Tunggal';
+                    bentukBadge = 'bg-teal-100/70 text-teal-800 border border-teal-200';
+                } else if (item.bentuk === 'PGK') {
+                    bentukLabel = 'Pilihan Ganda Kompleks';
+                    bentukBadge = 'bg-blue-100/70 text-blue-800 border border-blue-200';
+                } else if (item.bentuk === 'Essay') {
+                    bentukLabel = 'Uraian / Essay HOTS';
+                    bentukBadge = 'bg-purple-100/70 text-purple-800 border border-purple-200';
+                }
+
+                // Check how many questions solved in this indicator
+                const q1Id = item.questions[0]?.id;
+                const q2Id = item.questions[1]?.id;
+                const q1Solved = userProgress[q1Id]?.answered;
+                const q2Solved = userProgress[q2Id]?.answered;
+
+                let indicatorBadgeStatus = '';
+                if (q1Solved && q2Solved) {
+                    indicatorBadgeStatus = '<span class="px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-800 text-[11px] font-bold flex items-center gap-1"><i class="fa-solid fa-check-double"></i> 2 Soal Selesai</span>';
+                } else if (q1Solved || q2Solved) {
+                    indicatorBadgeStatus = '<span class="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-800 text-[11px] font-bold flex items-center gap-1"><i class="fa-solid fa-hourglass-half"></i> 1 Soal Selesai</span>';
+                } else {
+                    indicatorBadgeStatus = '<span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-[11px] font-medium flex items-center gap-1"><i class="fa-regular fa-circle"></i> 2 Soal Siap Latihan</span>';
+                }
+
+                html += `
+                <div class="clay-card overflow-hidden transition-all duration-300 hover:border-teal-400" id="ind-card-${item.no_ind}">
+                    <!-- Indicator Card Header -->
+                    <div class="p-5 sm:p-6 cursor-pointer select-none" onclick="toggleIndicator(${item.no_ind})">
+                        <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+                            <div class="flex flex-wrap items-center gap-2">
+                                <span class="px-3 py-1 rounded-xl bg-teal-800 text-white font-extrabold text-xs tracking-wider shadow-sm">
+                                    #${String(item.no_ind).padStart(2, '0')}
+                                </span>
+                                <span class="px-2.5 py-1 rounded-lg text-xs font-bold border ${babColor}">
+                                    ${babLabel}
+                                </span>
+                                <span class="px-2.5 py-1 rounded-lg text-xs font-semibold ${bentukBadge}">
+                                    ${bentukLabel} (No. ${item.no_soal})
+                                </span>
+                                <span class="px-2.5 py-1 rounded-lg text-xs font-semibold border ${bobotColor}">
+                                    Tingkat: ${item.bobot}
+                                </span>
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                ${indicatorBadgeStatus}
+                                <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 transition-transform duration-300 ${isExpanded ? 'rotate-180 bg-teal-100 text-teal-700' : ''}">
+                                    <i class="fa-solid fa-chevron-down text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Indicator Statement -->
+                        <div class="text-sm sm:text-base font-bold text-slate-800 leading-snug mb-2 font-heading">
+                            ${item.indikator}
+                        </div>
+
+                        <!-- Bab / Materi preview -->
+                        <div class="text-xs text-slate-500 flex items-center gap-2 font-medium">
+                            <i class="fa-solid fa-book-bookmark text-teal-600"></i>
+                            <span>${item.bab || item.materi}</span>
+                        </div>
+                    </div>
+
+                    <!-- Expandable Questions Drawer -->
+                    <div id="drawer-${item.no_ind}" class="${isExpanded ? '' : 'hidden'} border-t border-slate-100 bg-gradient-to-b from-slate-50/70 to-teal-50/30 p-4 sm:p-6">
+                        
+                        <!-- Pedagogical Details Accordion -->
+                        <div class="mb-5 p-3.5 rounded-xl bg-white border border-slate-200/80 text-xs text-slate-600 shadow-2xs">
+                            <details class="group">
+                                <summary class="cursor-pointer font-bold text-teal-800 flex items-center justify-between list-none">
+                                    <span class="flex items-center gap-2">
+                                        <i class="fa-solid fa-circle-info text-teal-600"></i>
+                                        <span>Rincian Kurikulum (Elemen, CP, &amp; Alur Tujuan Pembelajaran)</span>
+                                    </span>
+                                    <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                                </summary>
+                                <div class="mt-2.5 pt-2.5 border-t border-slate-100 space-y-1.5 text-slate-600 text-[11px] sm:text-xs">
+                                    <div><strong>Elemen:</strong> ${item.elemen || 'Pancasila & UUD NRI 1945'}</div>
+                                    <div><strong>Capaian Pembelajaran (CP):</strong> ${item.cp}</div>
+                                    <div><strong>Alur Tujuan Pembelajaran (ATP):</strong> ${item.atp}</div>
+                                    <div><strong>Level Kognitif:</strong> ${item.level} (${item.bobot}) &bull; <strong>Bentuk Asesmen:</strong> ${item.bentuk}</div>
+                                </div>
+                            </details>
+                        </div>
+
+                        <!-- Questions Header -->
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-teal-500 animate-pulse"></span>
+                                <h4 class="font-heading font-extrabold text-sm sm:text-base text-slate-800">
+                                    Simulasi 2 Contoh Soal Interaktif
+                                </h4>
+                            </div>
+                            <span class="text-xs text-slate-500 font-medium">Model Soal ASAS 2026/2027</span>
+                        </div>
+
+                        <!-- 2 Questions Grid / Stack -->
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                            ${renderQuestionCard(item.questions[0], 1, item.no_ind)}
+                            ${renderQuestionCard(item.questions[1], 2, item.no_ind)}
+                        </div>
+
+                    </div>
+                </div>
+                `;
+            });
+
+            container.innerHTML = html;
+
+            // Update status text
+            const statusElem = document.getElementById('filter-status-text');
+            if (statusElem) {
+                statusElem.innerText = `Menampilkan ${visibleCount} dari ${KISI_DATA.length} Indikator Asesmen`;
+            }
+
+            const noResults = document.getElementById('no-results');
+            if (noResults) {
+                if (visibleCount === 0) noResults.classList.remove('hidden');
+                else noResults.classList.add('hidden');
+            }
+        }
+
+        // Render Single Question Card
+        function renderQuestionCard(q, qIndex, indNum) {
+            if (!q) return '<div class="p-4 bg-white rounded-xl text-xs text-slate-400">Soal belum dimuat</div>';
+
+            const userState = userProgress[q.id] || {};
+            const isAnswered = userState.answered;
+
+            let badgeHtml = '';
+            if (q.type === 'pg') {
+                badgeHtml = '<span class="px-2 py-0.5 rounded-md bg-teal-100 text-teal-800 text-[10px] font-bold">Pilihan Ganda</span>';
+            } else if (q.type === 'pgk') {
+                badgeHtml = '<span class="px-2 py-0.5 rounded-md bg-blue-100 text-blue-800 text-[10px] font-bold">Pilihan Ganda Kompleks (Centang)</span>';
+            } else {
+                badgeHtml = '<span class="px-2 py-0.5 rounded-md bg-purple-100 text-purple-800 text-[10px] font-bold">Uraian / Essay</span>';
+            }
+
+            let contentHtml = '';
+
+            // 1. PGT Rendering
+            if (q.type === 'pg') {
+                contentHtml = `
+                    <div class="space-y-2.5 my-4">
+                        ${q.options.map((opt, oIdx) => {
+                            let optClass = "p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 hover:border-teal-400 cursor-pointer flex items-start gap-3 transition-all text-xs sm:text-sm";
+                            let iconHtml = `<span class="w-6 h-6 rounded-lg bg-slate-100 text-slate-700 font-bold flex items-center justify-center shrink-0 text-xs">${String.fromCharCode(65 + oIdx)}</span>`;
+                            
+                            if (isAnswered) {
+                                if (oIdx === q.correct) {
+                                    optClass = "p-3 rounded-xl border-2 border-emerald-500 bg-emerald-50/80 text-emerald-950 flex items-start gap-3 text-xs sm:text-sm shadow-xs";
+                                    iconHtml = `<span class="w-6 h-6 rounded-lg bg-emerald-600 text-white font-bold flex items-center justify-center shrink-0 text-xs"><i class="fa-solid fa-check"></i></span>`;
+                                } else if (userState.selected === oIdx) {
+                                    optClass = "p-3 rounded-xl border-2 border-rose-400 bg-rose-50/80 text-rose-950 flex items-start gap-3 text-xs sm:text-sm";
+                                    iconHtml = `<span class="w-6 h-6 rounded-lg bg-rose-600 text-white font-bold flex items-center justify-center shrink-0 text-xs"><i class="fa-solid fa-xmark"></i></span>`;
+                                } else {
+                                    optClass = "p-3 rounded-xl border border-slate-200 bg-slate-50/60 opacity-60 flex items-start gap-3 text-xs sm:text-sm";
+                                }
+                            }
+
+                            const clickHandler = isAnswered ? '' : `onclick="answerPG('${q.id}', ${oIdx}, ${q.correct})"`;
+                            return `
+                                <div class="${optClass}" ${clickHandler}>
+                                    ${iconHtml}
+                                    <div class="leading-relaxed font-medium flex-grow">${opt}</div>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                `;
+            }
+
+            // 2. PGK Rendering (Checkbox)
+            else if (q.type === 'pgk') {
+                const selectedArr = userState.selected || [];
+                contentHtml = `
+                    <div class="space-y-2 my-4" id="pgk-container-${q.id}">
+                        ${q.options.map((opt, oIdx) => {
+                            const isChecked = selectedArr.includes(oIdx);
+                            let optClass = "p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer flex items-start gap-3 transition-all text-xs sm:text-sm";
+                            
+                            if (isAnswered) {
+                                const isCorrectAnswer = q.correct.includes(oIdx);
+                                if (isCorrectAnswer) {
+                                    optClass = "p-3 rounded-xl border-2 border-emerald-500 bg-emerald-50/80 text-emerald-950 flex items-start gap-3 text-xs sm:text-sm font-semibold";
+                                } else if (isChecked && !isCorrectAnswer) {
+                                    optClass = "p-3 rounded-xl border-2 border-rose-400 bg-rose-50/80 text-rose-950 flex items-start gap-3 text-xs sm:text-sm";
+                                } else {
+                                    optClass = "p-3 rounded-xl border border-slate-200 bg-slate-50/60 opacity-60 flex items-start gap-3 text-xs sm:text-sm";
+                                }
+                            }
+
+                            return `
+                                <label class="${optClass}">
+                                    <input type="checkbox" name="pgk_${q.id}" value="${oIdx}" ${isChecked ? 'checked' : ''} ${isAnswered ? 'disabled' : ''}
+                                        class="mt-0.5 rounded text-teal-600 focus:ring-teal-500 h-4 w-4 shrink-0">
+                                    <div class="leading-relaxed font-medium flex-grow">${opt}</div>
+                                </label>
+                            `;
+                        }).join('')}
+                    </div>
+                    ${!isAnswered ? `
+                        <div class="mt-3">
+                            <button onclick="checkPGK('${q.id}')" class="btn-clay-primary px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check"></i> Periksa Jawaban Pilihan Ganda Kompleks
+                            </button>
+                        </div>
+                    ` : ''}
+                `;
+            }
+
+            // 3. Essay Rendering
+            else if (q.type === 'essay') {
+                const textVal = userState.textAnswer || '';
+                contentHtml = `
+                    <div class="my-4">
+                        <textarea id="essay-input-${q.id}" rows="3" placeholder="Ketikkan jawaban uraian Anda di sini untuk latihan mandiri..."
+                            ${isAnswered ? 'readonly' : ''}
+                            class="w-full p-3 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-teal-500 bg-white">${textVal}</textarea>
+                        
+                        ${!isAnswered ? `
+                            <button onclick="submitEssay('${q.id}')" class="mt-2.5 btn-clay-primary px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+                                <i class="fa-solid fa-eye"></i> Periksa &amp; Buka Kunci Jawaban Lengkap
+                            </button>
+                        ` : ''}
+                    </div>
+                `;
+            }
+
+            // Explanation container
+            let explanationHtml = '';
+            if (isAnswered) {
+                let expTitle = "Pembahasan Pedagogis:";
+                let expBg = "bg-emerald-50 border-emerald-200 text-emerald-950";
+                let expIcon = '<i class="fa-solid fa-circle-check text-emerald-600"></i>';
+
+                if (q.type === 'essay') {
+                    expTitle = "Kunci Jawaban & Panduan Rubrik:";
+                    expBg = "bg-purple-50 border-purple-200 text-purple-950";
+                    expIcon = '<i class="fa-solid fa-graduation-cap text-purple-600"></i>';
+                } else if (userState.correct === false) {
+                    expTitle = "Pembahasan & Solusi:";
+                    expBg = "bg-amber-50 border-amber-200 text-amber-950";
+                    expIcon = '<i class="fa-solid fa-lightbulb text-amber-600"></i>';
+                }
+
+                explanationHtml = `
+                    <div class="mt-4 p-4 rounded-xl border ${expBg} text-xs leading-relaxed fade-in">
+                        <div class="font-bold flex items-center justify-between mb-2 pb-1.5 border-b border-black/10">
+                            <span class="flex items-center gap-1.5">${expIcon} ${expTitle}</span>
+                            <button onclick="resetSingleQuestion('${q.id}')" class="text-[11px] underline text-slate-600 hover:text-black">
+                                <i class="fa-solid fa-rotate-left"></i> Coba Lagi
+                            </button>
+                        </div>
+                        
+                        ${q.type === 'essay' ? `
+                            <div class="space-y-2">
+                                <div><strong>Model Jawaban Resmi:</strong><br/><span class="whitespace-pre-line text-slate-700">${q.model_answer}</span></div>
+                                <div class="pt-2 border-t border-purple-200/80"><strong>Kata Kunci Penilaian:</strong> ${q.keywords.map(k => `<span class="inline-block px-2 py-0.5 m-0.5 rounded bg-white text-purple-800 border border-purple-200 text-[10px] font-semibold">${k}</span>`).join('')}</div>
+                                <div class="pt-1 text-[11px] text-slate-500 italic">${q.rubric}</div>
+                            </div>
+                        ` : `
+                            <div>${q.explanation}</div>
+                        `}
+                    </div>
+                `;
+            }
+
+            return `
+                <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <!-- Header Question -->
+                        <div class="flex items-center justify-between pb-2.5 mb-3 border-b border-slate-100">
+                            <span class="font-bold text-xs text-slate-700 flex items-center gap-1.5">
+                                <i class="fa-solid fa-pencil text-teal-600"></i> Contoh Soal ${qIndex}
+                            </span>
+                            ${badgeHtml}
+                        </div>
+
+                        <!-- Stimulus Box -->
+                        ${q.stimulus ? `
+                            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-xs text-slate-700 mb-3 leading-relaxed whitespace-pre-line font-medium">
+                                <span class="font-bold text-teal-800 uppercase tracking-wider block mb-1 text-[10px]">
+                                    <i class="fa-solid fa-quote-left mr-1"></i> Stimulus / Kasus:
+                                </span>
+                                ${q.stimulus}
+                            </div>
+                        ` : ''}
+
+                        <!-- Question Prompt -->
+                        <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-2 font-heading">
+                            ${q.question}
+                        </div>
+
+                        <!-- Options or Input -->
+                        ${contentHtml}
+                    </div>
+
+                    <!-- Explanation -->
+                    ${explanationHtml}
+                </div>
+            `;
+        }
+
+        // Interactivity Handlers
+        function toggleIndicator(indNum) {
+            if (expandedCards.has(indNum)) {
+                expandedCards.delete(indNum);
+            } else {
+                expandedCards.add(indNum);
+            }
+            renderIndicators();
+        }
+
+        function expandAllIndicators() {
+            KISI_DATA.forEach(item => expandedCards.add(item.no_ind));
+            renderIndicators();
+        }
+
+        function collapseAllIndicators() {
+            expandedCards.clear();
+            renderIndicators();
+        }
+
+        function answerPG(qId, selectedIdx, correctIdx) {
+            const isCorrect = selectedIdx === correctIdx;
+            userProgress[qId] = {
+                answered: true,
+                correct: isCorrect,
+                selected: selectedIdx
+            };
+            saveProgress();
+            renderIndicators();
+        }
+
+        function checkPGK(qId) {
+            const checkboxes = document.querySelectorAll(`input[name="pgk_${qId}"]:checked`);
+            if (checkboxes.length === 0) {
+                alert("Silakan centang minimal satu pilihan jawaban sebelum memeriksa!");
+                return;
+            }
+
+            const selected = Array.from(checkboxes).map(cb => parseInt(cb.value));
+            
+            // Find question
+            let foundQ = null;
+            for (let ind of KISI_DATA) {
+                for (let q of ind.questions) {
+                    if (q.id === qId) { foundQ = q; break; }
+                }
+                if (foundQ) break;
+            }
+
+            if (!foundQ) return;
+
+            // Check if correct
+            const correctSet = new Set(foundQ.correct);
+            const userSet = new Set(selected);
+            const isPerfect = (correctSet.size === userSet.size) && [...correctSet].every(x => userSet.has(x));
+
+            userProgress[qId] = {
+                answered: true,
+                correct: isPerfect,
+                selected: selected
+            };
+            saveProgress();
+            renderIndicators();
+        }
+
+        function submitEssay(qId) {
+            const textarea = document.getElementById(`essay-input-${qId}`);
+            const answerText = textarea ? textarea.value.trim() : '';
+            
+            userProgress[qId] = {
+                answered: true,
+                correct: true, // Marked as self-evaluated
+                textAnswer: answerText
+            };
+            saveProgress();
+            renderIndicators();
+        }
+
+        function resetSingleQuestion(qId) {
+            delete userProgress[qId];
+            saveProgress();
+            renderIndicators();
+        }
+
+        // Filter Handlers
+        function setBabFilter(bab) {
+            currentBabFilter = bab;
+            document.querySelectorAll('.filter-bab-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-teal-600', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-slate-100', 'text-slate-700');
+            });
+
+            const activeBtn = document.getElementById(`tab-bab-${bab}`);
+            if (activeBtn) {
+                activeBtn.classList.add('active', 'bg-teal-600', 'text-white', 'shadow-sm');
+                activeBtn.classList.remove('bg-slate-100', 'text-slate-700');
+            }
+
+            renderIndicators();
+        }
+
+        function filterIndicators() {
+            renderIndicators();
+        }
+
+        function resetFilters() {
+            document.getElementById('kisi-search').value = '';
+            document.getElementById('filter-bentuk').value = 'all';
+            document.getElementById('filter-bobot').value = 'all';
+            setBabFilter('all');
+        }
+
+        // Modal Table Handlers
+        function openTableModal() {
+            const tbody = document.getElementById('modal-table-body');
+            if (tbody) {
+                let rowsHtml = '';
+                KISI_DATA.forEach(item => {
+                    rowsHtml += `
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="p-2.5 border-r border-slate-200 text-center font-bold text-teal-800">${item.no_ind}</td>
+                            <td class="p-2.5 border-r border-slate-200 font-semibold">${item.bentuk}</td>
+                            <td class="p-2.5 border-r border-slate-200 text-center font-bold">${item.no_soal}</td>
+                            <td class="p-2.5 border-r border-slate-200">${item.indikator}</td>
+                            <td class="p-2.5 border-r border-slate-200 text-[11px] text-slate-600">${item.materi || item.bab}</td>
+                            <td class="p-2.5 border-r border-slate-200 text-center">${item.level}</td>
+                            <td class="p-2.5 text-center font-semibold text-slate-700">${item.bobot}</td>
+                        </tr>
+                    `;
+                });
+                tbody.innerHTML = rowsHtml;
+            }
+            document.getElementById('table-modal').classList.remove('hidden');
+        }
+
+        function closeTableModal() {
+            document.getElementById('table-modal').classList.add('hidden');
+        }
+
+        // Init on DOM loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProgress();
+            renderIndicators();
+        });
+    </script>
+</body>
+</html>
