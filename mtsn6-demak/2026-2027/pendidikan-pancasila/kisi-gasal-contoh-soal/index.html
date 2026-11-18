@@ -315,6 +315,9 @@
                     <button onclick="openTableModal()" class="btn-clay-secondary px-3.5 py-2 rounded-xl flex items-center gap-1.5 text-blue-700 border-blue-200 hover:bg-blue-50">
                         <i class="fa-solid fa-table-list text-blue-600"></i> Tabel Kisi-Kisi Resmi
                     </button>
+                    <span class="px-3 py-1.5 rounded-xl bg-teal-50 border border-teal-200 text-teal-800 flex items-center gap-1.5 font-medium">
+                        <i class="fa-solid fa-shuffle text-teal-600"></i> Kunci Jawaban Acak Otomatis (per Refresh)
+                    </span>
                 </div>
                 <button onclick="resetAllProgress()" class="text-slate-500 hover:text-rose-600 flex items-center gap-1.5 transition-colors">
                     <i class="fa-solid fa-rotate-left"></i> Reset Progres Latihan
@@ -491,7 +494,54 @@
         // State management
         let currentBabFilter = 'all';
         let expandedCards = new Set();
-        let userProgress = {}; // format: { q_id: { answered: bool, correct: bool, selected: any } }
+        let userProgress = {}; // format: { q_id: { answered: bool, correct: bool, selected: any, selectedText: string } }
+
+        // Helper: Find a question by its ID
+        function findQuestion(qId) {
+            for (let ind of KISI_DATA) {
+                if (Array.isArray(ind.questions)) {
+                    for (let q of ind.questions) {
+                        if (q.id === qId) return q;
+                    }
+                }
+            }
+            return null;
+        }
+
+        // Helper: Shuffle an array in-place using Fisher-Yates algorithm
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Helper: Shuffle question options and update correct indices (specifically for PGT and PGK, Essay is untouched)
+        function shuffleQuestionOptions(q) {
+            if (!q || !Array.isArray(q.options) || q.options.length < 2) return;
+
+            if (q.type === 'pg') {
+                const correctText = q.options[q.correct];
+                shuffleArray(q.options);
+                q.correct = q.options.indexOf(correctText);
+            } else if (q.type === 'pgk' && Array.isArray(q.correct)) {
+                const correctTexts = q.correct.map(idx => q.options[idx]);
+                shuffleArray(q.options);
+                q.correct = correctTexts.map(text => q.options.indexOf(text)).sort((a, b) => a - b);
+            }
+        }
+
+        // Helper: Shuffle all PGT and PGK questions across all indicators
+        function shuffleAllQuestions() {
+            KISI_DATA.forEach(ind => {
+                if (Array.isArray(ind.questions)) {
+                    ind.questions.forEach(q => {
+                        shuffleQuestionOptions(q);
+                    });
+                }
+            });
+        }
 
         // Load progress from localStorage
         function loadProgress() {
@@ -534,6 +584,7 @@
             if (confirm("Apakah Anda yakin ingin mereset seluruh hasil latihan soal interaktif?")) {
                 userProgress = {};
                 localStorage.removeItem('asas_pancasila_progress_2026');
+                shuffleAllQuestions();
                 renderIndicators();
                 updateProgressStats();
             }
@@ -727,6 +778,106 @@
             }
         }
 
+        // Helper to format stimulus (markdown tables, bullet points, paragraphs) into rich HTML
+        function formatStimulusContent(rawText) {
+            if (!rawText) return '';
+
+            const lines = rawText.split('\n');
+            let resultHtml = [];
+            let tableBuffer = [];
+            let inTable = false;
+
+            function flushTable() {
+                if (tableBuffer.length === 0) return;
+                
+                const headerLine = tableBuffer[0];
+                const headerCells = headerLine.split('|')
+                    .map(c => c.trim())
+                    .filter((c, idx, arr) => idx > 0 && idx < arr.length - 1);
+
+                let thead = `<thead><tr class="bg-teal-900 text-white font-bold text-[11px] sm:text-xs tracking-wide">`;
+                headerCells.forEach((h, hIdx) => {
+                    const isShort = h.toLowerCase() === 'no' || h.toLowerCase() === 'kondisi';
+                    const alignClass = isShort ? 'text-center w-12 sm:w-16' : 'text-left';
+                    thead += `<th class="px-3 py-2.5 border-r border-teal-800 last:border-r-0 ${alignClass}">${h}</th>`;
+                });
+                thead += `</tr></thead>`;
+
+                let tbody = `<tbody class="divide-y divide-slate-100 bg-white text-slate-800 text-xs">`;
+                // skip row 0 (headers) and row 1 (separator)
+                for (let rIdx = 2; rIdx < tableBuffer.length; rIdx++) {
+                    const rowLine = tableBuffer[rIdx];
+                    const cells = rowLine.split('|')
+                        .map(c => c.trim())
+                        .filter((c, idx, arr) => idx > 0 && idx < arr.length - 1);
+                    
+                    if (cells.length > 0) {
+                        const trBg = rIdx % 2 === 0 ? 'bg-white' : 'bg-slate-50/70';
+                        tbody += `<tr class="${trBg} hover:bg-teal-50/60 transition-colors">`;
+                        cells.forEach((cellText, cIdx) => {
+                            const isFirstCol = cIdx === 0 && (cellText.length <= 3 || !isNaN(cellText));
+                            const alignClass = isFirstCol ? 'text-center font-bold text-teal-800' : 'leading-relaxed font-medium';
+                            tbody += `<td class="px-3 py-2.5 border-r border-slate-100 last:border-r-0 ${alignClass}">${cellText}</td>`;
+                        });
+                        tbody += `</tr>`;
+                    }
+                }
+                tbody += `</tbody>`;
+
+                resultHtml.push(`
+                    <div class="my-2.5 overflow-x-auto rounded-xl border border-teal-200/90 shadow-2xs bg-white">
+                        <table class="w-full text-left border-collapse">
+                            ${thead}
+                            ${tbody}
+                        </table>
+                    </div>
+                `);
+
+                tableBuffer = [];
+                inTable = false;
+            }
+
+            let textBuffer = [];
+            function flushText() {
+                if (textBuffer.length > 0) {
+                    resultHtml.push(`<p class="leading-relaxed mb-2 font-medium">${textBuffer.join('<br/>')}</p>`);
+                    textBuffer = [];
+                }
+            }
+
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+
+                if (line.startsWith('|') && line.endsWith('|')) {
+                    flushText();
+                    inTable = true;
+                    tableBuffer.push(line);
+                } else {
+                    if (inTable) {
+                        flushTable();
+                    }
+                    if (line.startsWith('- ')) {
+                        flushText();
+                        resultHtml.push(`
+                            <div class="flex items-start gap-2 py-1 pl-1">
+                                <span class="w-2 h-2 rounded-full bg-teal-600 mt-1.5 shrink-0 shadow-2xs"></span>
+                                <span class="text-xs text-slate-800 leading-relaxed font-medium">${line.substring(2)}</span>
+                            </div>
+                        `);
+                    } else if (line) {
+                        textBuffer.push(line);
+                    } else {
+                        flushText();
+                    }
+                }
+            }
+
+            if (inTable) flushTable();
+            flushText();
+
+            return resultHtml.join('');
+        }
+
         // Render Single Question Card
         function renderQuestionCard(q, qIndex, indNum) {
             if (!q) return '<div class="p-4 bg-white rounded-xl text-xs text-slate-400">Soal belum dimuat</div>';
@@ -754,10 +905,11 @@
                             let iconHtml = `<span class="w-6 h-6 rounded-lg bg-slate-100 text-slate-700 font-bold flex items-center justify-center shrink-0 text-xs">${String.fromCharCode(65 + oIdx)}</span>`;
                             
                             if (isAnswered) {
+                                const isUserChoice = (userState.selectedText === opt) || (userState.selected === oIdx && !userState.selectedText);
                                 if (oIdx === q.correct) {
                                     optClass = "p-3 rounded-xl border-2 border-emerald-500 bg-emerald-50/80 text-emerald-950 flex items-start gap-3 text-xs sm:text-sm shadow-xs";
                                     iconHtml = `<span class="w-6 h-6 rounded-lg bg-emerald-600 text-white font-bold flex items-center justify-center shrink-0 text-xs"><i class="fa-solid fa-check"></i></span>`;
-                                } else if (userState.selected === oIdx) {
+                                } else if (isUserChoice) {
                                     optClass = "p-3 rounded-xl border-2 border-rose-400 bg-rose-50/80 text-rose-950 flex items-start gap-3 text-xs sm:text-sm";
                                     iconHtml = `<span class="w-6 h-6 rounded-lg bg-rose-600 text-white font-bold flex items-center justify-center shrink-0 text-xs"><i class="fa-solid fa-xmark"></i></span>`;
                                 } else {
@@ -779,11 +931,14 @@
 
             // 2. PGK Rendering (Checkbox)
             else if (q.type === 'pgk') {
-                const selectedArr = userState.selected || [];
+                const selectedTexts = userState.selectedTexts || [];
+                const selectedIndices = userState.selected || [];
                 contentHtml = `
                     <div class="space-y-2 my-4" id="pgk-container-${q.id}">
                         ${q.options.map((opt, oIdx) => {
-                            const isChecked = selectedArr.includes(oIdx);
+                            const isChecked = isAnswered 
+                                ? (selectedTexts.length > 0 ? selectedTexts.includes(opt) : selectedIndices.includes(oIdx))
+                                : false;
                             let optClass = "p-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 cursor-pointer flex items-start gap-3 transition-all text-xs sm:text-sm";
                             
                             if (isAnswered) {
@@ -886,11 +1041,11 @@
 
                         <!-- Stimulus Box -->
                         ${q.stimulus ? `
-                            <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-xs text-slate-700 mb-3 leading-relaxed whitespace-pre-line font-medium">
-                                <span class="font-bold text-teal-800 uppercase tracking-wider block mb-1 text-[10px]">
-                                    <i class="fa-solid fa-quote-left mr-1"></i> Stimulus / Kasus:
+                            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 text-xs text-slate-700 mb-3.5 leading-relaxed font-medium">
+                                <span class="font-bold text-teal-800 uppercase tracking-wider flex items-center gap-1.5 mb-2 text-[10px]">
+                                    <i class="fa-solid fa-quote-left"></i> Stimulus / Kasus:
                                 </span>
-                                ${q.stimulus}
+                                ${formatStimulusContent(q.stimulus)}
                             </div>
                         ` : ''}
 
@@ -930,10 +1085,14 @@
         }
 
         function answerPG(qId, selectedIdx, correctIdx) {
+            const q = findQuestion(qId);
             const isCorrect = selectedIdx === correctIdx;
+            const selectedText = q ? q.options[selectedIdx] : '';
+
             userProgress[qId] = {
                 answered: true,
                 correct: isCorrect,
+                selectedText: selectedText,
                 selected: selectedIdx
             };
             saveProgress();
@@ -947,28 +1106,22 @@
                 return;
             }
 
-            const selected = Array.from(checkboxes).map(cb => parseInt(cb.value));
-            
-            // Find question
-            let foundQ = null;
-            for (let ind of KISI_DATA) {
-                for (let q of ind.questions) {
-                    if (q.id === qId) { foundQ = q; break; }
-                }
-                if (foundQ) break;
-            }
+            const selectedIndices = Array.from(checkboxes).map(cb => parseInt(cb.value));
+            const q = findQuestion(qId);
+            if (!q) return;
 
-            if (!foundQ) return;
+            const selectedTexts = selectedIndices.map(idx => q.options[idx]);
 
             // Check if correct
-            const correctSet = new Set(foundQ.correct);
-            const userSet = new Set(selected);
+            const correctSet = new Set(q.correct);
+            const userSet = new Set(selectedIndices);
             const isPerfect = (correctSet.size === userSet.size) && [...correctSet].every(x => userSet.has(x));
 
             userProgress[qId] = {
                 answered: true,
                 correct: isPerfect,
-                selected: selected
+                selectedTexts: selectedTexts,
+                selected: selectedIndices
             };
             saveProgress();
             renderIndicators();
@@ -990,6 +1143,13 @@
         function resetSingleQuestion(qId) {
             delete userProgress[qId];
             saveProgress();
+
+            // Re-shuffle this specific question so the student gets a fresh random option order
+            const q = findQuestion(qId);
+            if (q) {
+                shuffleQuestionOptions(q);
+            }
+
             renderIndicators();
         }
 
@@ -1050,6 +1210,7 @@
 
         // Init on DOM loaded
         document.addEventListener('DOMContentLoaded', () => {
+            shuffleAllQuestions(); // Automatically shuffles all PGT & PGK options on every page load / refresh
             loadProgress();
             renderIndicators();
         });
