@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisi-Kisi &amp; Latihan Soal Interaktif ASAS Gasal 2026/2027 - Akidah Akhlak Kelas 7 | MTs Negeri 6 Demak</title>
+
+    <!-- Tailwind CSS -->
+    <script src="../../tailwind.min.js"></script>
+    <script>
+        if (typeof tailwind === 'undefined') {
+            document.write('<script src="https://cdn.tailwindcss.com"><\/script>');
+        }
+    </script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    },
+                    colors: {
+                        teal: {
+                            850: '#0f5d56',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+        }
+
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        .pattern-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .fade-in {
+            animation: fadeIn 0.45s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .clay-card {
+            background: #FFFFFF;
+            border: 1.5px solid rgba(46, 150, 136, 0.18);
+            border-radius: 1.25rem;
+            box-shadow: 0 10px 25px -5px rgba(24, 49, 46, 0.06), 0 4px 10px -2px rgba(24, 49, 46, 0.03);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .clay-card:hover {
+            border-color: rgba(46, 150, 136, 0.4);
+            box-shadow: 0 14px 30px -6px rgba(24, 49, 46, 0.1);
+        }
+
+        .btn-clay-primary {
+            background: linear-gradient(145deg, #2E9688 0%, #1F786C 100%);
+            color: #FFFFFF;
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 12px rgba(31, 120, 108, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .btn-clay-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(31, 120, 108, 0.35);
+        }
+
+        .btn-clay-secondary {
+            background: #FFFFFF;
+            color: #18312E;
+            border: 1.5px solid rgba(46, 150, 136, 0.25);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.2s ease;
+        }
+
+        .btn-clay-secondary:hover {
+            background: #F3F8F6;
+            border-color: #2E9688;
+        }
+
+        .font-arabic {
+            font-family: 'Amiri', serif;
+            direction: rtl;
+            text-align: right;
+            line-height: 2.15;
+        }
+
+        @keyframes modalPop {
+            from {
+                opacity: 0;
+                transform: scale(0.96) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .animate-modal-pop {
+            animation: modalPop 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Official Kisi-Kisi Table Styling */
+        .kisi-table th,
+        .kisi-table td {
+            border: 1px solid #334155;
+        }
+
+        .kisi-indicator-cell {
+            transition: background-color 0.18s ease;
+        }
+
+        .kisi-indicator-cell:hover {
+            background-color: #f0fdfa;
+        }
+
+        @media print {
+            nav, header, footer, #controls-bar, #petunjuk-banner, #question-modal, .no-print {
+                display: none !important;
+            }
+            body {
+                background: #ffffff !important;
+                background-image: none !important;
+                color: #000000 !important;
+            }
+            main {
+                margin: 0 !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+            #kisi-document {
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                border-radius: 0 !important;
+            }
+            .kisi-table {
+                font-size: 10px !important;
+            }
+        }
+    </style>
+
+    <style id="warm-clay-theme">
+        :root {
+            --clay-bg: #F3F8F6;
+            --clay-bg-alt: #E7F1EE;
+            --clay-surface: #FFFFFF;
+            --clay-mint: #DFF3EA;
+            --clay-mint-accent: #2E9688;
+            --clay-mint-dark: #1F786C;
+            --clay-sky: #DFEEFC;
+            --clay-sky-accent: #3B82F6;
+            --clay-text-dark: #18312E;
+            --clay-text-muted: #4A6460;
+        }
+
+        body {
+            background-color: var(--clay-bg) !important;
+            color: var(--clay-text-dark) !important;
+            background-image: radial-gradient(#D1E3DD 1px, transparent 1px) !important;
+            background-size: 24px 24px !important;
+        }
+
+        nav {
+            background: rgba(214, 234, 226, 0.88) !important;
+            backdrop-filter: blur(14px) !important;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.85) !important;
+            box-shadow: 0 8px 24px -4px rgba(47, 79, 74, 0.12) !important;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-teal-200 selection:text-teal-900 overflow-x-hidden flex flex-col min-h-screen">
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Brand / Logo -->
+                <a href="../" target="_top" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <div class="w-9 h-9 rounded-xl bg-teal-600 flex items-center justify-center text-white shadow-sm">
+                        <i class="fa-solid fa-book-open text-base"></i>
+                    </div>
+                    <span class="font-heading font-bold text-lg tracking-wide text-slate-800">Belajar<span class="text-teal-600">Online</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="../../" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Beranda
+                    </a>
+                    <a href="../../fiqih/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Fiqih
+                    </a>
+                    <a href="../" target="_top" class="text-sm font-bold text-teal-700 bg-white px-3 py-1.5 rounded-xl border border-teal-300 shadow-sm flex items-center gap-1.5">
+                        <i class="fa-solid fa-heart-pulse text-teal-600"></i> Akidah Akhlak
+                    </a>
+                    <a href="../../pendidikan-pancasila/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Pendidikan Pancasila
+                    </a>
+                    <a href="../../formatif/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Uji Kompetensi
+                    </a>
+                    <a href="../../nilai-siswa/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Rekap Nilai
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-slate-600 hover:text-teal-600 focus:outline-none p-2" aria-label="Menu">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-slate-200/60 shadow-lg absolute w-full px-4 pt-3 pb-5 space-y-2">
+            <a href="../../" target="_top" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50">Beranda</a>
+            <a href="../../fiqih/" target="_top" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50">Fiqih</a>
+            <a href="../" target="_top" class="block px-3 py-2 rounded-xl text-sm font-bold text-teal-800 bg-teal-50 border border-teal-200">Akidah Akhlak</a>
+            <a href="../../pendidikan-pancasila/" target="_top" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50">Pendidikan Pancasila</a>
+            <a href="../../formatif/" target="_top" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50">Uji Kompetensi</a>
+            <a href="../../nilai-siswa/" target="_top" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50">Rekap Nilai</a>
+        </div>
+    </nav>
+
+    <!-- ================= HERO HEADER ================= -->
+    <header class="w-full bg-teal-900 relative pt-24 pb-16 sm:pt-28 sm:pb-20 overflow-hidden pattern-bg">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-teal-900/80 to-teal-950"></div>
+        <div class="container mx-auto px-4 relative z-10 max-w-5xl text-center">
+
+            <!-- Breadcrumb Navigation -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 text-teal-800 text-xs font-semibold mb-4 shadow-sm border border-white">
+                <a href="../" class="hover:underline flex items-center gap-1.5">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali ke Modul Akidah Akhlak
+                </a>
+                <span>&bull;</span>
+                <span class="text-teal-600">Kelas VII Gasal</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-2xl sm:text-4xl font-extrabold text-white mb-3 font-heading tracking-tight leading-tight">
+                Kisi-Kisi &amp; Contoh Soal Interaktif <span class="text-amber-400">ASAS Gasal 2026/2027</span>
+            </h1>
+
+            <p class="text-teal-100/90 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed mb-5 font-medium">
+                Tabel kisi-kisi resmi <strong>Akidah Akhlak Kelas VII</strong>. Klik salah satu <strong>Indikator Soal</strong> di dalam tabel untuk memunculkan pop-up <strong>2 contoh soal interaktif</strong> beserta kunci jawaban &amp; pembahasannya.
+            </p>
+
+            <!-- Metadata Badges -->
+            <div class="flex flex-wrap items-center justify-center gap-2 text-xs font-semibold text-teal-900">
+                <span class="px-3 py-1.5 rounded-full bg-white/95 border border-white shadow-sm flex items-center gap-1.5">
+                    <i class="fa-solid fa-school text-teal-600"></i> MTs Negeri 6 Demak
+                </span>
+                <span class="px-3 py-1.5 rounded-full bg-white/95 border border-white shadow-sm flex items-center gap-1.5">
+                    <i class="fa-solid fa-chalkboard-user text-blue-600"></i> Penyusun: <strong>Nur Afni Ulfah, S.Pd.I</strong>
+                </span>
+                <span class="px-3 py-1.5 rounded-full bg-white/95 border border-white shadow-sm flex items-center gap-1.5">
+                    <i class="fa-solid fa-list-check text-emerald-600"></i> <strong>35 Indikator &bull; 70 Soal Latihan</strong>
+                </span>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- ================= MAIN CONTENT : FORMAT TABEL KISI-KISI ================= -->
+    <main class="flex-grow w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 -mt-8 sm:-mt-10 relative z-20 pb-20">
+
+        <!-- CONTROLS, FILTER & PROGRESS BAR -->
+        <div id="controls-bar" class="clay-card p-4 sm:p-5 mb-6 bg-white/95 backdrop-blur-md">
+            <!-- Top Row: Progress & Action Buttons -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 mb-4 border-b border-slate-100">
+                <!-- Progress Summary -->
+                <div class="flex-grow max-w-xl">
+                    <div class="flex justify-between items-center text-xs font-semibold text-slate-700 mb-1.5">
+                        <span class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-circle-check text-emerald-600"></i> Progres Latihan Mandiri:
+                            <strong id="stat-solved-count" class="text-teal-800">0 / 70</strong>
+                        </span>
+                        <span id="progress-percent" class="text-teal-700 font-bold">0% Selesai</span>
+                    </div>
+                    <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden border border-slate-200/80">
+                        <div id="progress-bar-fill" class="h-full bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full transition-all duration-500 w-0"></div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap items-center gap-2 text-xs font-semibold">
+                    <span class="px-2.5 py-1.5 rounded-xl bg-teal-50 border border-teal-200 text-teal-800 flex items-center gap-1.5 font-medium">
+                        <i class="fa-solid fa-shuffle text-teal-600"></i> Opsi Acak Otomatis
+                    </span>
+                    <button onclick="window.print()" class="btn-clay-secondary px-3 py-1.5 rounded-xl flex items-center gap-1.5 hover:bg-teal-50">
+                        <i class="fa-solid fa-print text-teal-600"></i> Cetak Kisi-Kisi
+                    </button>
+                    <button onclick="resetAllProgress()" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-white text-slate-500 hover:text-rose-600 hover:border-rose-200 hover:bg-rose-50 flex items-center gap-1.5 transition-colors">
+                        <i class="fa-solid fa-rotate-left"></i> Reset Progres
+                    </button>
+                </div>
+            </div>
+
+            <!-- Search & Filters Row -->
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+                <!-- Search Input -->
+                <div class="relative flex-grow max-w-md">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <input type="text" id="kisi-search" placeholder="Cari indikator, nomor soal, sifat Allah, istiqamah, Sulaiman..."
+                        oninput="filterIndicators()"
+                        class="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-slate-50/70">
+                </div>
+
+                <!-- CP Tabs & Dropdowns -->
+                <div class="flex flex-wrap items-center gap-2 text-xs font-semibold">
+                    <button onclick="setCpFilter('all')" id="tab-cp-all" class="filter-cp-btn active px-3 py-1.5 rounded-xl bg-teal-600 text-white shadow-sm transition-colors">
+                        Semua (35)
+                    </button>
+                    <button onclick="setCpFilter('1')" id="tab-cp-1" class="filter-cp-btn px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">
+                        CP 1: Akidah (8)
+                    </button>
+                    <button onclick="setCpFilter('2')" id="tab-cp-2" class="filter-cp-btn px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">
+                        CP 2: Sifat Allah (10)
+                    </button>
+                    <button onclick="setCpFilter('3')" id="tab-cp-3" class="filter-cp-btn px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">
+                        CP 3: Akhlak (9)
+                    </button>
+                    <button onclick="setCpFilter('4')" id="tab-cp-4" class="filter-cp-btn px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">
+                        CP 4: Adab Shalat (6)
+                    </button>
+                    <button onclick="setCpFilter('5')" id="tab-cp-5" class="filter-cp-btn px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">
+                        CP 5: Nabi Sulaiman (2)
+                    </button>
+
+                    <select id="filter-bentuk" onchange="filterIndicators()" class="px-2.5 py-1.5 rounded-xl border border-slate-200 bg-white text-slate-700 font-medium focus:ring-2 focus:ring-teal-500">
+                        <option value="all">Semua Bentuk</option>
+                        <option value="PG">PG</option>
+                        <option value="PGK">PGK</option>
+                        <option value="Essay">Essay</option>
+                    </select>
+
+                    <select id="filter-bobot" onchange="filterIndicators()" class="px-2.5 py-1.5 rounded-xl border border-slate-200 bg-white text-slate-700 font-medium focus:ring-2 focus:ring-teal-500">
+                        <option value="all">Semua Level</option>
+                        <option value="Mudah">L1 (Mudah)</option>
+                        <option value="Sedang">L2 (Sedang)</option>
+                        <option value="Sukar">L3 (Sukar)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Filter Status Bar -->
+            <div class="flex items-center justify-between text-xs text-slate-500 mt-3 pt-2.5 border-t border-slate-100 font-medium">
+                <span id="filter-status-text">Menampilkan 35 dari 35 Indikator Asesmen</span>
+                <button id="btn-reset-filter" onclick="resetFilters()" class="hidden text-teal-700 hover:underline font-semibold">
+                    <i class="fa-solid fa-filter-circle-xmark"></i> Reset Filter
+                </button>
+            </div>
+        </div>
+
+        <!-- OFFICIAL KISI-KISI PAPER DOCUMENT -->
+        <div id="kisi-document" class="bg-white shadow-xl p-5 sm:p-8 lg:p-10 border border-slate-300 rounded-2xl text-slate-800">
+
+            <!-- Document Kop / Header -->
+            <div class="text-center mb-6 border-b-[3px] border-double border-slate-800 pb-4">
+                <h2 class="text-base sm:text-xl font-extrabold uppercase tracking-wide font-heading text-slate-900">
+                    Kisi-Kisi Penulisan Soal Asesmen Sumatif Akhir Semester (ASAS) Gasal
+                </h2>
+                <h3 class="text-xs sm:text-base font-bold uppercase mt-1 font-heading text-slate-700">
+                    Madrasah Tsanawiyah Negeri 6 Demak Tahun Pelajaran 2026/2027
+                </h3>
+            </div>
+
+            <!-- Official Metadata Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1 mb-6 text-xs sm:text-sm text-slate-800">
+                <table class="w-full">
+                    <tbody>
+                        <tr>
+                            <td class="w-36 sm:w-40 py-1 font-bold text-slate-700 align-top">Satuan Pendidikan</td>
+                            <td class="w-4 py-1 text-center align-top">:</td>
+                            <td class="py-1 font-medium">MTs Negeri 6 Demak</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1 font-bold text-slate-700 align-top">Mata Pelajaran</td>
+                            <td class="py-1 text-center align-top">:</td>
+                            <td class="py-1 font-bold text-teal-800">Akidah Akhlak</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1 font-bold text-slate-700 align-top">Kelas / Semester</td>
+                            <td class="py-1 text-center align-top">:</td>
+                            <td class="py-1 font-medium">VII (Tujuh) / 1 (Gasal)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1 font-bold text-slate-700 align-top">Kurikulum</td>
+                            <td class="py-1 text-center align-top">:</td>
+                            <td class="py-1 font-medium">Kurikulum Merdeka</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="w-full">
+                    <tbody>
+                        <tr>
+                            <td class="w-36 sm:w-40 py-1 font-bold text-slate-700 align-top">Tahun Pelajaran</td>
+                            <td class="w-4 py-1 text-center align-top">:</td>
+                            <td class="py-1 font-medium">2026 / 2027</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1 font-bold text-slate-700 align-top">Jumlah Soal</td>
+                            <td class="py-1 text-center align-top">:</td>
+                            <td class="py-1 font-medium">35 Butir (PG, PGK, &amp; Essay)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1 font-bold text-slate-700 align-top">Bentuk Soal</td>
+                            <td class="py-1 text-center align-top">:</td>
+                            <td class="py-1 font-medium">20 PG, 10 PGK, dan 5 Essay</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1 font-bold text-slate-700 align-top">Penyusun</td>
+                            <td class="py-1 text-center align-top">:</td>
+                            <td class="py-1 font-medium">Nur Afni Ulfah, S.Pd.I</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Interactive Instructions Banner -->
+            <div id="petunjuk-banner" class="bg-teal-50/90 border-l-4 border-teal-600 p-3.5 sm:p-4 mb-6 rounded-r-xl flex items-start sm:items-center gap-3">
+                <i class="fa-solid fa-hand-pointer text-teal-600 text-base sm:text-lg shrink-0 mt-0.5 sm:mt-0"></i>
+                <p class="text-xs sm:text-sm text-teal-950 leading-relaxed">
+                    <strong>Petunjuk Interaktif:</strong> Klik salah satu teks pada kolom <strong>"INDIKATOR SOAL"</strong> yang bertanda ikon <i class="fa-solid fa-arrow-up-right-from-square text-teal-600 mx-0.5"></i> untuk membuka <strong>pop-up 2 contoh soal interaktif</strong> lengkap dengan dalil Al-Qur'an, simulasi pengerjaan, kunci jawaban, dan pembahasan.
+                </p>
+            </div>
+
+            <!-- Main Official Kisi-Kisi Table -->
+            <div class="overflow-x-auto rounded-lg border border-slate-700">
+                <table class="kisi-table w-full border-collapse text-xs sm:text-[13px] text-slate-800 min-w-[780px]">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-900 font-bold uppercase text-[11px] sm:text-xs tracking-wide">
+                            <th class="px-2 py-3 w-11 text-center">No.</th>
+                            <th class="px-3 py-3 w-56 text-left">Capaian Pembelajaran (CP)</th>
+                            <th class="px-3 py-3 w-44 text-left">Materi Pokok</th>
+                            <th class="px-3.5 py-3 text-left">Indikator Soal <span class="normal-case font-medium text-teal-700 no-print">(Klik untuk Contoh Soal)</span></th>
+                            <th class="px-2 py-3 w-24 text-center">Level / Bobot</th>
+                            <th class="px-2.5 py-3 w-24 text-center">Bentuk Soal</th>
+                            <th class="px-2 py-3 w-16 text-center">No. Soal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="kisi-table-body">
+                        <!-- Dynamically rendered by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Empty Filter State -->
+            <div id="no-results" class="hidden text-center py-12 px-4 border border-t-0 border-slate-300 rounded-b-lg bg-slate-50/50">
+                <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <h3 class="text-base font-bold text-slate-700 mb-1">Tidak Ditemukan Indikator</h3>
+                <p class="text-xs sm:text-sm text-slate-500">Coba ubah kata kunci pencarian atau sesuaikan pilihan filter di atas.</p>
+                <button onclick="resetFilters()" class="mt-4 px-4 py-2 bg-teal-600 text-white text-xs font-bold rounded-xl shadow-sm hover:bg-teal-700 transition-colors">
+                    Reset Filter
+                </button>
+            </div>
+
+            <!-- Signature Block & Legend (Classic Kisi-Kisi Footer) -->
+            <div class="mt-10 pt-6 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center sm:items-start gap-8 text-xs sm:text-sm text-slate-700">
+                <div class="text-center sm:text-left space-y-2">
+                    <div>
+                        <p class="text-slate-500 text-xs font-semibold">Keterangan Level Kognitif:</p>
+                        <ul class="mt-1 space-y-0.5 text-xs text-slate-600">
+                            <li><strong>L1</strong> (C1&ndash;C2) = Pemahaman / Pengetahuan (Mudah)</li>
+                            <li><strong>L2</strong> (C3) = Aplikasi (Sedang)</li>
+                            <li><strong>L3</strong> (C4&ndash;C6) = Penalaran (Sukar)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="text-slate-500 text-xs font-semibold">Keterangan Bentuk Soal:</p>
+                        <p class="text-xs text-slate-600"><strong>PG</strong> = Pilihan Ganda &bull; <strong>PGK</strong> = Pilihan Ganda Kompleks &bull; <strong>Essay</strong> = Uraian / Isian</p>
+                    </div>
+                </div>
+                <div class="text-center sm:text-right">
+                    <p class="mb-0.5 text-slate-600">Mranggen, Oktober 2026</p>
+                    <p class="mb-14 font-bold text-slate-800">Penyusun,</p>
+                    <p class="font-bold underline text-slate-900">Nur Afni Ulfah, S.Pd.I</p>
+                    <p class="text-xs text-slate-500">NIP. 198010012007102005</p>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- ================= POPUP MODAL CONTOH SOAL ================= -->
+    <div id="question-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" onclick="handleModalBackdropClick(event)" class="hidden fixed inset-0 z-[9999] bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-2.5 sm:p-5">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[92vh] flex flex-col overflow-hidden border border-slate-200 animate-modal-pop" onclick="event.stopPropagation()">
+
+            <!-- Modal Header -->
+            <div class="px-4 sm:px-6 py-4 bg-gradient-to-r from-teal-800 to-teal-900 text-white flex items-center justify-between gap-3 shrink-0 border-b border-teal-700">
+                <div class="flex items-center gap-3 min-w-0">
+                    <div id="modal-ind-badge" class="w-10 h-10 rounded-xl bg-white/15 border border-white/25 text-amber-300 font-extrabold flex items-center justify-center text-sm shrink-0 font-heading">
+                        #01
+                    </div>
+                    <div class="min-w-0">
+                        <div class="flex flex-wrap items-center gap-1.5 mb-0.5">
+                            <span id="modal-badge-bentuk" class="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-amber-400 text-teal-950">PG</span>
+                            <span id="modal-badge-nosoal" class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-white/15 text-white border border-white/20">No. Soal 1</span>
+                            <span id="modal-badge-level" class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-teal-950/50 text-teal-200">Level L1 &bull; Mudah</span>
+                        </div>
+                        <h3 id="modal-title" class="font-bold font-heading text-sm sm:text-base text-white truncate">Simulasi 2 Contoh Soal Interaktif</h3>
+                    </div>
+                </div>
+                <button onclick="closeQuestionModal()" aria-label="Tutup Pop-up"
+                    class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-teal-100 hover:text-white flex items-center justify-center transition-colors shrink-0">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body (Scrollable) -->
+            <div id="modal-scroll-body" class="p-4 sm:p-6 overflow-y-auto flex-grow bg-slate-50/90 space-y-5">
+
+                <!-- Indikator Banner -->
+                <div class="bg-white border-l-4 border-teal-600 p-4 rounded-r-xl shadow-xs border border-slate-200">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+                        <span class="text-[10px] font-extrabold uppercase tracking-wider text-teal-700 flex items-center gap-1.5">
+                            <i class="fa-solid fa-bullseye"></i> Indikator Soal
+                        </span>
+                        <span id="modal-badge-cp" class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-teal-50 text-teal-800 border border-teal-200"></span>
+                    </div>
+                    <p id="modal-indikator-text" class="text-slate-800 font-bold text-sm sm:text-base leading-snug font-heading"></p>
+
+                    <!-- Collapsible Kurikulum Details -->
+                    <details class="mt-3 pt-2.5 border-t border-slate-100 group text-xs">
+                        <summary class="cursor-pointer font-semibold text-slate-600 hover:text-teal-700 flex items-center justify-between list-none select-none">
+                            <span class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-circle-info text-teal-600"></i>
+                                <span>Lihat Rincian Kurikulum (Elemen, Materi, IPK, &amp; CP)</span>
+                            </span>
+                            <i class="fa-solid fa-chevron-down text-slate-400 text-[10px] group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div id="modal-kurikulum-detail" class="mt-2.5 space-y-1.5 text-slate-600 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200/70">
+                            <!-- Filled dynamically -->
+                        </div>
+                    </details>
+                </div>
+
+                <!-- 2 Questions Container -->
+                <div id="modal-questions-list" class="space-y-5">
+                    <!-- Rendered dynamically -->
+                </div>
+
+            </div>
+
+            <!-- Modal Footer with Prev / Next Navigation -->
+            <div class="px-4 sm:px-6 py-3.5 bg-white border-t border-slate-200 flex flex-wrap items-center justify-between gap-2 shrink-0">
+                <div class="flex items-center gap-2">
+                    <button id="modal-prev-btn" onclick="navigateModal(-1)"
+                        class="px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-teal-50 hover:border-teal-300 text-slate-700 hover:text-teal-800 text-xs font-bold flex items-center gap-1.5 transition-colors disabled:opacity-40 disabled:cursor-not-allowed">
+                        <i class="fa-solid fa-chevron-left text-[10px]"></i> Sebelumnya
+                    </button>
+                    <button id="modal-next-btn" onclick="navigateModal(1)"
+                        class="px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-teal-50 hover:border-teal-300 text-slate-700 hover:text-teal-800 text-xs font-bold flex items-center gap-1.5 transition-colors disabled:opacity-40 disabled:cursor-not-allowed">
+                        Berikutnya <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </button>
+                </div>
+                <button onclick="closeQuestionModal()"
+                    class="px-5 py-2 rounded-xl bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs transition-colors">
+                    Tutup Pop-up
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-teal-950 text-teal-200 py-12 border-t border-teal-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <a href="../" target="_top" class="inline-flex items-center justify-center gap-3 text-white hover:opacity-80 transition-opacity">
+                <div class="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center text-white">
+                    <i class="fa-solid fa-book-open text-sm"></i>
+                </div>
+                <span class="font-heading font-bold text-xl tracking-wide">Belajar<span class="text-teal-400">Online</span></span>
+            </a>
+
+            <p class="text-xs sm:text-sm text-teal-400/80 max-w-lg mx-auto">
+                Portal Belajar Online &bull; Asesmen Sumatif Akhir Semester (ASAS) Akidah Akhlak Kelas VII MTs Negeri 6 Demak.
+            </p>
+
+            <div class="pt-6 border-t border-teal-900/50 text-xs text-teal-500 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <p>&copy; 2026 Ahmad Zulfikar, S.Pd. &bull; Penyusun Kisi-Kisi: Nur Afni Ulfah, S.Pd.I &bull; MTs Negeri 6 Demak</p>
+                <div class="flex items-center gap-4 text-xs text-teal-400">
+                    <a href="../" class="hover:underline">Modul Akidah Akhlak</a>
+                    <span>&bull;</span>
+                    <a href="../../fiqih/" class="hover:underline">Fiqih</a>
+                    <span>&bull;</span>
+                    <a href="../../pendidikan-pancasila/" class="hover:underline">Pendidikan Pancasila</a>
+                    <span>&bull;</span>
+                    <a href="../../formatif/" class="hover:underline">Uji Kompetensi</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT APP LOGIC ================= -->
+    <script>
+        // DATA KISI-KISI & SOAL INTERAKTIF RESMI AKIDAH AKHLAK KELAS 7 GASAL
+        const KISI_DATA = [{"no_ind":1,"cpNum":"1","elemen":"Akidah Islam","cp":"7.1 Peserta didik mampu menganalisis akidah Islam (iman, Islam, dan ihsan) yang benar sesuai pemahaman ulama ahlussunnah wal jama'ah sebagai landasan dan motivasi beraktivitas dalam kehidupan sehari-hari, sehingga semua yang dilakukan bernilai ibadah dan berdimensi ukhrawi.","materi":"Pengertian Akidah Islam","ipk":"Menjelaskan pengertian akidah Islam","indikator":"Disajikan narasi, peserta didik dapat mendefinisikan arti akidah menurut bahasa (etimologi).","level":"L1","bobot":"Mudah","bentuk":"PG","no_soal":1,"questions":[{"id":"aa1_1","type":"pg","stimulus":"Dalam pelajaran Akidah Akhlak kelas VII, guru menjelaskan bahwa kata 'akidah' berasal dari bahasa Arab ('aqada - ya'qidu - 'aqdan / 'aqidatan). Istilah ini diibaratkan seperti tali simpul yang diikat dengan sangat erat agar tidak mudah terlepas diterpa angin keraguan.","question":"Berdasarkan narasi tersebut, arti kata 'akidah' menurut bahasa (etimologi) yang paling tepat adalah...","options":["Ikatan, sangkutan, atau perjanjian yang kokoh dan kuat","Kebiasaan turun-temurun yang berlaku di suatu masyarakat","Tata cara pelaksanaan ibadah lahiriah sehari-hari","Peraturan tertulis yang disusun oleh pemimpin negara"],"correct":0,"explanation":"Secara bahasa (etimologi), kata akidah berasal dari bahasa Arab 'aqada-ya'qidu-'aqdan yang berarti ikatan, sangkutan, simpul, atau perjanjian yang kokoh. Artinya keyakinan dalam hati yang terikat kuat sehingga tidak mudah goyah."},{"id":"aa1_2","type":"pg","stimulus":"Seorang muslim yang berakidah lurus memegang teguh keimanannya kepada Allah Swt. bagaikan akar pohon besar yang menghujam kuat ke dalam bumi. Hati dan pikirannya terikat mantap pada kebenaran Islam tanpa sedikit pun keraguan.","question":"Makna bahasa (etimologi) dari kata 'aqidah yang tercermin dalam perumpamaan tersebut adalah...","options":["Simpul atau ikatan yang kokoh dalam hati","Ucapan lisan yang diucapkan berulang kali","Gerakan tubuh dalam menjalankan ritual ibadah","Pengetahuan umum tentang sejarah peradaban"],"correct":0,"explanation":"Secara etimologis, akidah bermakna ikatan atau simpul yang kuat. Karena keyakinan seorang mukmin terikat erat di dalam lubuk hatinya, maka keyakinan tersebut disebut akidah."}]},{"no_ind":2,"cpNum":"1","elemen":"Akidah Islam","cp":"7.1 Peserta didik mampu menganalisis akidah Islam (iman, Islam, dan ihsan) yang benar sesuai pemahaman ulama ahlussunnah wal jama'ah sebagai landasan dan motivasi beraktivitas dalam kehidupan sehari-hari, sehingga semua yang dilakukan bernilai ibadah dan berdimensi ukhrawi.","materi":"Pengertian Akidah Islam","ipk":"Menjelaskan pengertian akidah Islam","indikator":"Disajikan narasi, peserta didik dapat menjelaskan pengertian akidah Islam.","level":"L2","bobot":"Sedang","bentuk":"Essay","no_soal":31,"questions":[{"id":"aa2_1","type":"essay","stimulus":"Akidah Islam merupakan fondasi utama dalam kehidupan seorang muslim, layaknya pondasi sebuah bangunan. Jika pondasinya kuat, maka seluruh amal ibadah dan akhlak yang dibangun di atasnya akan kokoh dan bernilai ibadah di sisi Allah Swt.","question":"Jelaskan pengertian akidah Islam secara istilah (terminologi) lengkap dengan pokok-pokok keyakinan yang tercakup di dalamnya!","keywords":["keyakinan","hati","tanpa keraguan","rukun iman","Allah","Al-Qur'an","Hadits"],"model_answer":"Secara istilah (terminologi), akidah Islam adalah pokok-pokok kepercayaan atau keyakinan yang wajib diyakini kebenarannya oleh setiap muslim dengan sepenuh hati, tanpa ada sedikit pun keraguan, yang bersumber dari Al-Qur'an dan Hadits.\n\nPokok-pokok keyakinan dalam akidah Islam terangkum dalam Rukun Iman yang enam, yaitu iman kepada Allah Swt., malaikat-malaikat-Nya, kitab-kitab-Nya, rasul-rasul-Nya, hari akhir, serta qadha dan qadar.","rubric":"Skor 100: Menjelaskan definisi istilah secara utuh (keyakinan hati tanpa ragu bersumber Al-Qur'an/Hadits) dan menyebutkan pokok rukun iman. Skor 70: Menjelaskan definisi istilah dengan benar namun kurang lengkap pokoknya. Skor 40: Jawaban masih terlalu singkat."},{"id":"aa2_2","type":"essay","stimulus":"Di tengah derasnya arus informasi modern, banyak remaja muslim yang mudah terpengaruh paham menyimpang karena belum memahami hakikat akidah Islam secara benar sesuai pemahaman Ahlussunnah wal Jama'ah.","question":"Jelaskan pengertian akidah Islam dan sebutkan mengapa akidah disebut sebagai fondasi utama ajaran Islam!","keywords":["kepercayaan","keyakinan","pondasi","diterimanya amal","tauhid","ibadah"],"model_answer":"Akidah Islam adalah keyakinan hati yang kokoh dan pasti tentang kebenaran ajaran Islam (khususnya keesaan Allah Swt. dan enam rukun iman) berdasarkan dalil Al-Qur'an dan As-Sunnah.\n\nAkidah disebut fondasi utama ajaran Islam karena:\n1. Menjadi syarat pokok diterimanya seluruh amal ibadah di sisi Allah Swt.\n2. Menentukan arah, tujuan hidup, dan kemurnian niat seorang muslim dalam beraktivitas.\n3. Menjadi benteng diri dari perbuatan syirik dan paham yang menyesatkan.","rubric":"Skor 100: Menjelaskan pengertian akidah Islam secara jelas disertai minimal 2 alasan mengapa menjadi fondasi utama. Skor 70: Menjelaskan pengertian dan 1 alasan. Skor 40: Hanya menjelaskan salah satu bagian."}]},{"no_ind":3,"cpNum":"1","elemen":"Akidah Islam","cp":"7.1 Peserta didik mampu menganalisis akidah Islam (iman, Islam, dan ihsan) yang benar sesuai pemahaman ulama ahlussunnah wal jama'ah sebagai landasan dan motivasi beraktivitas dalam kehidupan sehari-hari, sehingga semua yang dilakukan bernilai ibadah dan berdimensi ukhrawi.","materi":"Dasar Hukum Akidah Islam","ipk":"Menunjukkan dalil tentang akidah Islam","indikator":"Disajikan potongan ayat QS. Al-Ikhlas, peserta didik dapat mengartikan ayat tersebut dengan benar.","level":"L3","bobot":"Sukar","bentuk":"PG","no_soal":2,"questions":[{"id":"aa3_1","type":"pg","stimulus":"Perhatikan potongan ayat dari QS. Al-Ikhlas berikut:\n\nلَمْ يَلِدْ وَلَمْ يُولَدْ ۝ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ","question":"Arti yang paling tepat dari potongan ayat QS. Al-Ikhlas tersebut adalah...","options":["Dia tidak beranak dan tidak pula diperanakkan, dan tidak ada sesuatu yang setara dengan Dia","Katakanlah (Muhammad), Dialah Allah Yang Maha Esa, Allah tempat meminta segala sesuatu","Segala puji bagi Allah, Tuhan seluruh alam, Yang Maha Pengasih lagi Maha Penyayang","Hanya kepada Engkaulah kami menyembah dan hanya kepada Engkaulah kami mohon pertolongan"],"correct":0,"explanation":"QS. Al-Ikhlas ayat 3–4 berbunyi 'Lam yalid wa lam yulad, wa lam yakul lahu kufuwan ahad', yang artinya: '(Allah) tidak beranak dan tidak pula diperanakkan, dan tidak ada sesuatu yang setara dengan Dia.' Ayat ini menjadi dalil pokok kemurnian tauhid."},{"id":"aa3_2","type":"pg","stimulus":"Perhatikan potongan QS. Al-Ikhlas ayat 1–2 berikut:\n\nقُلْ هُوَ اللَّهُ أَحَدٌ ۝ اللَّهُ الصَّمَدُ","question":"Terjemahan yang benar untuk lafal 'اللَّهُ الصَّمَدُ' pada ayat kedua tersebut adalah...","options":["Allah tempat meminta segala sesuatu (bergantung segala makhluk)","Allah Yang Maha Esa tidak ada sekutu bagi-Nya","Allah tidak beranak dan tidak pula diperanakkan","Tidak ada sesuatu pun yang menyerupai dan setara dengan-Nya"],"correct":0,"explanation":"Lafal 'Allahu Ash-Shamad' (QS. Al-Ikhlas: 2) berarti 'Allah tempat meminta segala sesuatu' atau tempat bergantung seluruh makhluk. Ini menegaskan bahwa hanya kepada Allah seorang muslim berdoa dan bersandar."}]},{"no_ind":4,"cpNum":"1","elemen":"Akidah Islam","cp":"7.1 Peserta didik mampu menganalisis akidah Islam (iman, Islam, dan ihsan) yang benar sesuai pemahaman ulama ahlussunnah wal jama'ah sebagai landasan dan motivasi beraktivitas dalam kehidupan sehari-hari, sehingga semua yang dilakukan bernilai ibadah dan berdimensi ukhrawi.","materi":"Dasar Hukum Akidah Islam","ipk":"Menyimpulkan kandungan Q.S. An-Nahl ayat 36","indikator":"Disajikan Q.S. An-Nahl ayat 36, peserta didik dapat menganalisis kandungan ayat tersebut.","level":"L3","bobot":"Sukar","bentuk":"PG","no_soal":3,"questions":[{"id":"aa4_1","type":"pg","stimulus":"Perhatikan firman Allah Swt. dalam QS. An-Nahl ayat 36 berikut:\n\nوَلَقَدْ بَعَثْنَا فِي كُلِّ أُمَّةٍ رَسُولًا أَنِ اعْبُدُوا اللَّهَ وَاجْتَنِبُوا الطَّاغُوتَ\n\nArtinya: \"Dan sungguh, Kami telah mengutus seorang rasul untuk setiap umat (untuk menyerukan), 'Sembahlah Allah, dan jauhilah thaghut'...\"","question":"Berdasarkan QS. An-Nahl ayat 36 tersebut, kesimpulan kandungan pokok ajaran yang dibawa oleh seluruh rasul Allah adalah...","options":["Perintah mengesakan serta menyembah Allah Swt. semata dan menjauhi segala bentuk kemusyrikan (thaghut)","Perintah mengumpulkan harta benda sebanyak-banyaknya untuk kemakmuran umat","Kewajiban membangun kerajaan besar di setiap negeri yang didatangi rasul","Larangan berinteraksi sosial dengan umat yang berbeda bahasa dan suku"],"correct":0,"explanation":"QS. An-Nahl ayat 36 menegaskan bahwa misi utama seluruh nabi dan rasul sejak Nabi Adam hingga Nabi Muhammad Saw. adalah menegakkan akidah tauhid: menyembah Allah Swt. semata (u'budullah) dan menjauhi thaghut (segala sesembahan selain Allah dan kesesatan)."},{"id":"aa4_2","type":"pg","stimulus":"Perhatikan potongan QS. An-Nahl ayat 36:\n\nأَنِ اعْبُدُوا اللَّهَ وَاجْتَنِبُوا الطَّاغُوتَ\n\nDalam kehidupan masyarakat, terkadang masih ditemukan sebagian orang yang percaya pada jimat penangkal sial atau meminta pertolongan kepada dukun agar usahanya laris.","question":"Apabila dikaitkan dengan kandungan QS. An-Nahl ayat 36, perilaku mempercayai jimat dan dukun tersebut bertentangan dengan perintah...","options":["Menjauhi thaghut dan memurnikan penyembahan hanya kepada Allah Swt.","Menghormati adat istiadat para leluhur di setiap daerah","Berusaha mencari rezeki dengan cara berdagang","Menjalin kerja sama ekonomi dengan masyarakat sekitar"],"correct":0,"explanation":"Mempercayai jimat atau meminta pertolongan gaib kepada dukun termasuk bentuk penyimpangan akidah (syirik/mengikuti thaghut) yang secara tegas dilarang dalam QS. An-Nahl ayat 36 ('wajtanibut-thaghut')."}]},{"no_ind":5,"cpNum":"1","elemen":"Akidah Islam","cp":"7.1 Peserta didik mampu menganalisis akidah Islam (iman, Islam, dan ihsan) yang benar sesuai pemahaman ulama ahlussunnah wal jama'ah sebagai landasan dan motivasi beraktivitas dalam kehidupan sehari-hari, sehingga semua yang dilakukan bernilai ibadah dan berdimensi ukhrawi.","materi":"Tujuan Mempelajari Akidah Islam","ipk":"Menjelaskan manfaat mempelajari akidah Islam","indikator":"Disajikan pernyataan, peserta didik dapat mengidentifikasi tujuan pokok mempelajari akidah Islam.","level":"L2","bobot":"Sedang","bentuk":"PGK","no_soal":21,"questions":[{"id":"aa5_1","type":"pgk","stimulus":"Mempelajari akidah Islam di madrasah tidak hanya bertujuan untuk memperoleh nilai ujian yang tinggi, melainkan untuk membentuk keimanan yang mantap sebagai pedoman hidup di dunia dan akhirat.","question":"Manakah di antara pernyataan berikut yang merupakan tujuan pokok mempelajari akidah Islam? (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Memupuk dan mengembangkan dasar ketuhanan yang ada sejak lahir (fitrah tauhid)","Memelihara manusia dari kesyirikan dan pengaruh paham yang menyesatkan","Menghindarkan diri dari kehidupan taklid buta tanpa dasar dalil yang benar","Mendapatkan pujian dan kedudukan terhormat di hadapan masyarakat","Menjadikan diri merasa paling benar sehingga merendahkan orang lain"],"correct":[0,1,2],"explanation":"Tujuan pokok mempelajari akidah Islam antara lain: memupuk fitrah ketuhanan, menghindarkan diri dari kemusyrikan dan kesesatan, membebaskan akal dari taklid buta, serta menenangkan jiwa. Mencari pujian (riya') dan merendahkan orang lain bertentangan dengan akidah Islam."},{"id":"aa5_2","type":"pgk","stimulus":"Seorang siswa MTs yang memahami akidah Islam dengan baik akan memiliki ketenangan batin, tidak mudah putus asa saat menghadapi ujian hidup, dan selalu ikhlas dalam beribadah.","question":"Pilihlah pernyataan yang tepat mengenai manfaat dan tujuan mempelajari akidah Islam dalam kehidupan sehari-hari! (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Memperoleh petunjuk hidup yang benar sesuai keridhaan Allah Swt.","Menumbuhkan rasa tenang dan tawakal ketika menghadapi cobaan hidup","Menjaga kemurnian niat agar setiap aktivitas bernilai ibadah","Membebaskan seseorang dari kewajiban melaksanakan shalat lima waktu"],"correct":[0,1,2],"explanation":"Akidah Islam memberi petunjuk hidup yang lurus, ketenangan jiwa, serta memurnikan niat ibadah. Akidah yang benar justru mendorong ketaatan beribadah, bukan menggugurkan kewajiban syariat."}]},{"no_ind":6,"cpNum":"1","elemen":"Akidah Islam","cp":"7.1 Peserta didik mampu menganalisis akidah Islam (iman, Islam, dan ihsan) yang benar sesuai pemahaman ulama ahlussunnah wal jama'ah sebagai landasan dan motivasi beraktivitas dalam kehidupan sehari-hari, sehingga semua yang dilakukan bernilai ibadah dan berdimensi ukhrawi.","materi":"Hubungan antara Iman, Islam, dan Ihsan","ipk":"Menjelaskan pengertian iman, Islam, dan ihsan","indikator":"Disajikan narasi, peserta didik dapat mengidentifikasi makna keyakinan dalam hati, ucapan, dan perbuatan.","level":"L1","bobot":"Mudah","bentuk":"PG","no_soal":4,"questions":[{"id":"aa6_1","type":"pg","stimulus":"Dalam ajaran Islam, seseorang tidak cukup hanya mengakui keesaan Allah secara lisan semata, tetapi keyakinan itu harus tertanam kokoh di dalam hati, diikrarkan dengan lisan, serta dibuktikan melalui amal perbuatan nyata dengan anggota badan.","question":"Pengertian yang menggambarkan 'membenarkan dengan hati, mengucapkan dengan lisan, dan mengamalkan dengan perbuatan' adalah definisi dari...","options":["Iman","Ihsan","Tawadhu'","Qana'ah"],"correct":0,"explanation":"Menurut ulama Ahlussunnah wal Jama'ah, pengertian Iman adalah 'tashdiqun bil qalbi, wa iqrarun bil lisani, wa 'amalun bil arkan' — yaitu meyakini/membenarkan dalam hati, mengikrarkan dengan lisan, dan mengamalkan dengan anggota badan."},{"id":"aa6_2","type":"pg","stimulus":"Perhatikan tiga unsur pokok agama Islam yang dijelaskan dalam Hadits Jibril:\n(1) Meyakini dalam hati, mengikrarkan dengan lisan, dan membuktikan dengan perbuatan.\n(2) Tunduk dan patuh menjalankan syariat seperti syahadat, shalat, zakat, puasa, dan haji.\n(3) Beribadah kepada Allah seolah-olah melihat-Nya, atau yakin bahwa Allah selalu melihat kita.","question":"Secara berurutan, ketiga unsur pokok tersebut adalah pengertian dari...","options":["Iman, Islam, dan Ihsan","Islam, Ihsan, dan Iman","Ihsan, Iman, dan Islam","Iman, Ihsan, dan Islam"],"correct":0,"explanation":"Berdasarkan Hadits Jibril riwayat Imam Muslim: (1) Iman adalah keyakinan hati, ucapan lisan, dan pembuktian amal; (2) Islam adalah ketundukan lahiriah melalui lima rukun Islam; (3) Ihsan adalah kesempurnaan ibadah dengan merasa diawasi Allah Swt. (muraqabah)."}]},{"no_ind":7,"cpNum":"1","elemen":"Akidah Islam","cp":"7.1 Peserta didik mampu menganalisis akidah Islam (iman, Islam, dan ihsan) yang benar sesuai pemahaman ulama ahlussunnah wal jama'ah sebagai landasan dan motivasi beraktivitas dalam kehidupan sehari-hari, sehingga semua yang dilakukan bernilai ibadah dan berdimensi ukhrawi.","materi":"Hubungan antara Iman, Islam, dan Ihsan","ipk":"Menjelaskan hubungan antara iman, Islam, dan ihsan","indikator":"Disajikan narasi, peserta didik dapat menganalisis hubungan iman, Islam, dan ihsan.","level":"L3","bobot":"Sukar","bentuk":"PG","no_soal":5,"questions":[{"id":"aa7_1","type":"pg","stimulus":"Salma selalu mendirikan shalat lima waktu tepat waktu (Islam). Ia melakukannya karena hatinya yakin sepenuhnya kepada Allah Swt. (Iman), dan saat shalat ia berusaha khusyuk karena merasa seolah-olah sedang berhadapan langsung dan dilihat oleh Allah Swt. (Ihsan).","question":"Berdasarkan ilustrasi perilaku Salma tersebut, analisis yang paling tepat mengenai hubungan antara iman, Islam, dan ihsan adalah...","options":["Ketiganya merupakan satu kesatuan utuh yang saling menguatkan dan tidak dapat dipisahkan untuk mencapai kesempurnaan beragama","Seseorang cukup memiliki ihsan saja tanpa perlu menjalankan rukun Islam yang bersifat lahiriah","Iman dan Islam saling bertentangan karena iman bersifat batin sedangkan Islam bersifat lahir","Ihsan hanya berlaku bagi para ulama besar, sedangkan siswa cukup mengamalkan Islam saja"],"correct":0,"explanation":"Iman, Islam, dan Ihsan adalah satu kesatuan trilogi ajaran Islam yang tak terpisahkan. Iman adalah akar/pondasi keyakinan, Islam adalah wujud ketaatan lahiriah, dan Ihsan adalah kualitas/kesempurnaan dalam mengamalkan keduanya."},{"id":"aa7_2","type":"pg","stimulus":"Para ulama mengibaratkan hubungan Iman, Islam, dan Ihsan seperti sebuah pohon mangga. Iman adalah akarnya yang menghujam ke tanah, Islam adalah batang dan dahannya yang tampak kokoh, sedangkan Ihsan adalah buahnya yang manis dan bermanfaat.","question":"Makna dari perumpamaan bahwa 'Iman tanpa Islam ibarat akar tanpa batang, dan Islam tanpa Ihsan ibarat pohon tanpa buah' adalah...","options":["Keyakinan hati harus diwujudkan dalam ketaatan ibadah lahiriah dan disempurnakan dengan keikhlasan serta kesadaran diawasi Allah","Seseorang boleh memilih salah satu saja di antara iman, Islam, atau ihsan sesuai kemampuannya","Amal ibadah lahiriah tetap sempurna nilainya meskipun dilakukan tanpa dasar keimanan","Ibadah seseorang hanya dinilai dari banyaknya gerakan fisik tanpa memperhatikan kekhusyukan"],"correct":0,"explanation":"Perumpamaan pohon menegaskan keterpaduan ketiga dimensi: keyakinan batin (iman) harus melahirkan amal syariat (Islam), dan amal tersebut mencapai derajat terbaik bila dilandasi kesadaran muraqabah (ihsan)."}]},{"no_ind":8,"cpNum":"1","elemen":"Akidah Islam","cp":"7.1 Peserta didik mampu menganalisis akidah Islam (iman, Islam, dan ihsan) yang benar sesuai pemahaman ulama ahlussunnah wal jama'ah sebagai landasan dan motivasi beraktivitas dalam kehidupan sehari-hari, sehingga semua yang dilakukan bernilai ibadah dan berdimensi ukhrawi.","materi":"Perilaku Orang yang Berakidah Islam","ipk":"Menentukan perilaku yang sesuai dengan nilai-nilai akidah Islam","indikator":"Disajikan pernyataan, peserta didik dapat menentukan perilaku yang sesuai dengan nilai-nilai akidah Islam.","level":"L3","bobot":"Sukar","bentuk":"PGK","no_soal":22,"questions":[{"id":"aa8_1","type":"pgk","stimulus":"Keimanan yang tertanam kuat dalam hati seorang pelajar madrasah akan tercermin secara otomatis dalam ucapan, sikap, dan tindakannya di sekolah maupun di rumah.","question":"Manakah di antara perilaku berikut yang mencerminkan pribadi yang berpegang teguh pada nilai-nilai akidah Islam? (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Tetap jujur mengerjakan soal ujian meskipun pengawas sedang tidak melihat","Berdoa dan bertawakal kepada Allah Swt. setelah berusaha belajar sungguh-sungguh","Menolak ajakan teman untuk datang ke peramal nasib sebelum mengikuti lomba","Menggantungkan keberhasilan ujian semata-mata pada pensil bertuah pemberian orang pintar","Hanya rajin beribadah ketika dilihat oleh guru dan orang tua"],"correct":[0,1,2],"explanation":"Perilaku orang berakidah Islam meliputi: bersikap jujur karena yakin Allah Maha Melihat, berikhtiar lalu bertawakal kepada Allah, dan menjauhi perbuatan syirik seperti peramal/jimat. Mempercayai benda bertuah adalah syirik, sedangkan beribadah demi dilihat manusia adalah riya'."},{"id":"aa8_2","type":"pgk","stimulus":"Perhatikan sikap beberapa siswa kelas VII dalam menghadapi musibah banjir yang melanda desa mereka:\n- Rafi bersabar, berdoa memohon pertolongan Allah, serta ikut membantu tetangga yang mengungsi.\n- Nisa menyalahkan takdir Allah dan marah-marah sepanjang hari.\n- Hana meyakini setiap ujian memiliki hikmah dan tetap melaksanakan shalat di pengungsian.\n- Dika memberikan sesajen di sungai agar banjir segera surut.","question":"Berdasarkan peristiwa tersebut, perilaku yang sesuai dengan nilai-nilai akidah Islam yang lurus ditunjukkan oleh... (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Rafi yang bersabar, berdoa kepada Allah, dan membantu sesama","Hana yang berhusnuzan kepada takdir Allah dan menjaga shalatnya","Nisa yang memprotes takdir Allah dengan kemarahan","Dika yang memberikan sesajen ke sungai agar banjir surut"],"correct":[0,1],"explanation":"Rafi dan Hana menunjukkan akidah yang kuat: sabar, tawakal, tetap beribadah, dan peduli sesama. Menyalahkan takdir (Nisa) bertentangan dengan iman kepada qadha & qadar, sedangkan memberikan sesajen ke sungai (Dika) termasuk syirik."}]},{"no_ind":9,"cpNum":"2","elemen":"Sifat-Sifat Allah Swt.","cp":"7.2 Peserta didik mampu menganalisis sifat wajib, mustahil, dan jaiz bagi Allah Swt. dan rasul-Nya (Aqaid Khamsin) yang benar sesuai pemahaman ulama ahlussunnah wal jama'ah sebagai landasan dan motivasi beraktivitas dalam kehidupan sehari-hari, sehingga semua yang dilakukan bernilai ibadah dan berdimensi ukhrawi.","materi":"Sifat Wajib, Mustahil, dan Jaiz bagi Allah","ipk":"Menjelaskan pengertian sifat wajib bagi Allah","indikator":"Disajikan narasi, peserta didik dapat menjelaskan pengertian sifat wajib bagi Allah yang nafsiyah.","level":"L1","bobot":"Mudah","bentuk":"PG","no_soal":6,"questions":[{"id":"aa9_1","type":"pg","stimulus":"Dalam kajian ilmu tauhid Ahlussunnah wal Jama'ah, sifat wajib bagi Allah yang berjumlah 20 dikelompokkan menjadi empat bagian: Nafsiyah, Salbiyah, Ma'ani, dan Ma'nawiyah. Salah satu kelompok hanya memiliki satu sifat saja, yaitu Wujud.","question":"Pengertian sifat Nafsiyah bagi Allah Swt. yang paling tepat adalah...","options":["Sifat yang berhubungan langsung dengan Dzat Allah Swt. sendiri untuk menegaskan keberadaan-Nya","Sifat yang meniadakan segala kekurangan dan ketidaklayakan pada Dzat Allah Swt.","Sifat abstrak yang ada pada Dzat Allah yang menambah kesempurnaan-Nya","Sifat yang merupakan akibat atau kelaziman dari sifat Ma'ani"],"correct":0,"explanation":"Sifat Nafsiyah adalah sifat yang berhubungan langsung dengan Dzat Allah Swt. sendiri dan menjadi penegas keberadaan Dzat-Nya, yaitu sifat Wujud (Ada)."},{"id":"aa9_2","type":"pg","stimulus":"Sifat Wujud merupakan satu-satunya sifat yang termasuk kategori Nafsiyah. Keberadaan alam semesta beserta segala keteraturannya menjadi bukti nyata bahwa Sang Pencipta pasti Ada dengan sendirinya.","question":"Mengapa sifat Wujud dikategorikan sebagai sifat Nafsiyah bagi Allah Swt.?","options":["Karena sifat Wujud melekat langsung pada Dzat Allah sendiri dan tidak dapat dipisahkan dari Dzat-Nya","Karena sifat Wujud berfungsi menolak sifat-sifat makhluk pada diri Allah","Karena sifat Wujud membutuhkan sebab dari luar agar Allah bisa ada","Karena sifat Wujud hanya tampak pada saat hari kiamat tiba"],"correct":0,"explanation":"Disebut Nafsiyah (dari kata 'nafs' = diri/dzat) karena sifat Wujud merujuk langsung kepada Dzat Allah sendiri; keberadaan Allah tidak membutuhkan sebab atau perantara apa pun."}]},{"no_ind":10,"cpNum":"2","elemen":"Sifat-Sifat Allah Swt.","cp":"7.2 Peserta didik mampu menganalisis sifat wajib, mustahil, dan jaiz bagi Allah Swt. dan rasul-Nya (Aqaid Khamsin) yang benar sesuai pemahaman ulama ahlussunnah wal jama'ah sebagai landasan dan motivasi beraktivitas dalam kehidupan sehari-hari, sehingga semua yang dilakukan bernilai ibadah dan berdimensi ukhrawi.","materi":"Sifat Wajib, Mustahil, dan Jaiz bagi Allah","ipk":"Menentukan pengertian sifat wajib bagi Allah yang nafsiyah, salbiyah, ma'ani, dan maknawiyah","indikator":"Disajikan narasi, peserta didik dapat menentukan pengertian sifat wajib bagi Allah yang salbiyah.","level":"L3","bobot":"Sukar","bentuk":"PG","no_soal":7,"questions":[{"id":"aa10_1","type":"pg","stimulus":"Sifat Qidam (terdahulu), Baqa' (kekal), Mukhalafatu lil hawaditsi (berbeda dengan makhluk), Qiyamuhu binafsihi (berdiri sendiri), dan Wahdaniyah (Esa) termasuk dalam kelompok sifat Salbiyah bagi Allah Swt.","question":"Berdasarkan kelima sifat tersebut, pengertian sifat Salbiyah yang paling tepat adalah...","options":["Sifat yang menolak atau meniadakan segala sifat kekurangan yang tidak layak bagi kesempurnaan Allah Swt.","Sifat yang hanya dimiliki oleh para nabi dan rasul ketika menerima wahyu","Sifat yang menjelaskan keberadaan Dzat Allah secara tunggal tanpa sifat lainnya","Sifat yang menunjukkan kebebasan Allah untuk berbuat atau tidak berbuat sesuatu"],"correct":0,"explanation":"Sifat Salbiyah berasal dari kata 'salbun' (menolak/meniadakan). Artinya sifat-sifat yang menolak atau meniadakan segala sifat kekurangan dan keserupaan dengan makhluk yang tidak pantas bagi keagungan Allah Swt."},{"id":"aa10_2","type":"pg","stimulus":"Manusia memiliki awal kelahiran, akan mengalami kematian, membutuhkan bantuan orang lain, dan jumlahnya banyak. Sebaliknya, Allah Swt. mustahil memiliki permulaan, mustahil binasa, mustahil membutuhkan makhluk, dan mustahil berbilang.","question":"Kelompok sifat wajib Allah yang secara khusus berfungsi meniadakan sifat-sifat kelemahan makhluk tersebut adalah...","options":["Sifat Salbiyah","Sifat Nafsiyah","Sifat Ma'ani","Sifat Ma'nawiyah"],"correct":0,"explanation":"Sifat Salbiyah (Qidam, Baqa', Mukhalafatu lil hawaditsi, Qiyamuhu binafsihi, dan Wahdaniyah) berfungsi menolak/meniadakan segala sifat kekurangan yang ada pada makhluk agar kemahaagungan Allah tetap suci."}]},{"no_ind":11,"cpNum":"2","elemen":"Sifat-Sifat Allah Swt.","cp":"7.2 Peserta didik mampu menganalisis sifat wajib, mustahil, dan jaiz bagi Allah Swt. dan rasul-Nya (Aqaid Khamsin) yang benar sesuai pemahaman ulama ahlussunnah wal jama'ah sebagai landasan dan motivasi beraktivitas dalam kehidupan sehari-hari, sehingga semua yang dilakukan bernilai ibadah dan berdimensi ukhrawi.","materi":"Sifat Wajib Ma'ani Allah","ipk":"Mengidentifikasi sifat wajib bagi Allah yang nafsiyah, salbiyah, ma'ani, dan maknawiyah","indikator":"Disajikan ilustrasi fenomena alam, peserta didik dapat mengaitkannya dengan sifat wajib Allah Qudrat (Kuasa) dan Iradat (Kehendak).","level":"L3","bobot":"Sukar","bentuk":"PGK","no_soal":23,"questions":[{"id":"aa11_1","type":"pgk","stimulus":"Perhatikan fenomena alam berikut: Matahari, bumi, bulan, dan jutaan bintang beredar di orbitnya masing-masing dengan sangat presisi tanpa pernah bertabrakan. Di bumi pula, Allah menentukan ada musim hujan dan kemarau, ada yang lahir laki-laki dan perempuan, serta gunung-gunung menjulang kokoh tanpa ada satu pun kekuatan makhluk yang sanggup menandingi-Nya.","question":"Berdasarkan ilustrasi fenomena alam tersebut, pernyataan manakah yang tepat mengaitkannya dengan sifat wajib Allah Qudrat dan Iradat? (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Kemampuan Allah menciptakan dan menggerakkan planet-planet raksasa tanpa batas menunjukkan sifat Qudrat (Maha Kuasa)","Penentuan variasi ciptaan seperti jenis kelamin, rupa, dan pergantian musim menunjukkan sifat Iradat (Maha Berkehendak)","Semua peristiwa alam terjadi atas kuasa dan kehendak Allah semata tanpa paksaan dari pihak mana pun","Keteraturan orbit planet terjadi secara kebetulan semata tanpa campur tangan Sang Pencipta","Kekuasaan Allah dalam mengatur alam semesta dibatasi oleh kemampuan teknologi manusia"],"correct":[0,1,2],"explanation":"Qudrat berarti Allah Maha Kuasa menciptakan dan mengatur alam semesta tanpa kelemahan sedikit pun. Iradat berarti Allah Maha Berkehendak menentukan segala sesuatu sesuai kehendak-Nya sendiri tanpa ada yang mampu memaksa-Nya."},{"id":"aa11_2","type":"pgk","stimulus":"Sebuah tanah tandus yang lama dilanda kekeringan tiba-tiba diguyur hujan deras atas izin Allah. Dalam beberapa pekan, benih-benih yang terkubur tumbuh subur menjadi ladang hijau yang menghidupi warga sekitar.","question":"Bagaimana keterkaitan peristiwa alam tersebut dengan sifat Qudrat dan Iradat Allah Swt.? (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Allah Maha Kuasa (Qudrat) menghidupkan kembali tanah yang mati melalui turunnya hujan","Waktu, lokasi, dan banyaknya hujan yang turun sepenuhnya berada di bawah kehendak (Iradat) Allah Swt.","Manusia hanya dapat berikhtiar dan berdoa, sementara keputusan akhir ada pada kuasa dan kehendak Allah","Hujan turun semata-mata karena kehendak awan tanpa ada pengaturan dari Allah Swt."],"correct":[0,1,2],"explanation":"Menghidupkan tanah tandus menjadi subur adalah bukti nyata Qudrat (kekuasaan mutlak) dan Iradat (kehendak bebas dan sempurna) Allah Swt. atas seluruh ciptaan-Nya."}]},{"no_ind":12,"cpNum":"2","elemen":"Sifat-Sifat Allah Swt.","cp":"7.2 Peserta didik mampu menganalisis sifat wajib, mustahil, dan jaiz bagi Allah Swt. dan rasul-Nya (Aqaid Khamsin) yang benar sesuai pemahaman ulama ahlussunnah wal jama'ah sebagai landasan dan motivasi beraktivitas dalam kehidupan sehari-hari, sehingga semua yang dilakukan bernilai ibadah dan berdimensi ukhrawi.","materi":"Sifat Wajib Ma'ani Allah","ipk":"Menganalisis bukti kebesaran sifat wajib Allah","indikator":"Disajikan ilustrasi/pernyataan sifat Allah Wujud atau Qidam, peserta didik dapat menganalisis bukti kebesaran sifat wajib tersebut.","level":"L3","bobot":"Sukar","bentuk":"PGK","no_soal":24,"questions":[{"id":"aa12_1","type":"pgk","stimulus":"Seorang guru membawa sebuah jam dinding ke kelas lalu bertanya: 'Mungkinkah jam dinding yang rapi ini muncul tiba-tiba tanpa ada pabrik atau perancangnya?' Para siswa serentak menjawab tidak mungkin. Kemudian guru mengajak siswa merenungi alam semesta yang jauh lebih rumit dan teratur daripada jam dinding.","question":"Dari ilustrasi tersebut, manakah kesimpulan analisis yang tepat sebagai bukti kebesaran sifat Wujud dan Qidam Allah Swt.? (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Adanya alam semesta yang sangat teratur merupakan dalil aqli (bukti akal) yang pasti akan sifat Wujud (Ada) Allah Swt.","Karena alam semesta adalah ciptaan yang baru (hadits), maka Sang Pencipta pasti telah ada lebih dahulu tanpa permulaan (Qidam)","Mustahil sesuatu yang baru dan teratur seperti jagat raya menciptakan dirinya sendiri dari ketiadaan","Allah Swt. baru ada setelah langit dan bumi selesai terbentuk","Keberadaan Allah Swt. bergantung pada pengakuan dan pemikiran manusia"],"correct":[0,1,2],"explanation":"Keteraturan alam semesta adalah dalil aqli paling kuat atas sifat Wujud (Allah pasti Ada) sekaligus Qidam (Allah Maha Terdahulu sebelum seluruh ciptaan-Nya ada, tanpa permulaan)."},{"id":"aa12_2","type":"pgk","stimulus":"Dalam QS. Al-Hadid ayat 3 ditegaskan bahwa Allah adalah Al-Awwal (Yang Awal) dan Al-Akhir (Yang Akhir). Semua makhluk mulai dari manusia, hewan, hingga galaksi memiliki titik awal penciptaan, sedangkan Allah tidak berawal.","question":"Pernyataan manakah yang merupakan bukti kebesaran sifat Qidam Allah Swt.? (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Keberadaan Allah Swt. tidak didahului oleh ketiadaan ('adam)","Allah Swt. adalah Pencipta waktu dan ruang sehingga tidak terikat oleh usia","Mustahil Allah bersifat Huduts (baru) karena yang baru pasti membutuhkan pencipta lain","Allah memiliki permulaan keberadaan yang sama tuanya dengan matahari"],"correct":[0,1,2],"explanation":"Sifat Qidam membuktikan kebesaran Allah sebagai Al-Awwal: ada tanpa permulaan, tidak didahului ketiadaan, dan tidak terikat ruang maupun waktu. Sebaliknya, yang baru (huduts) bersifat lemah karena butuh pencipta."}]},{"no_ind":13,"cpNum":"2","elemen":"Sifat-Sifat Allah Swt.","cp":"7.2 Peserta didik mampu menganalisis sifat wajib, mustahil, dan jaiz bagi Allah Swt. dan rasul-Nya (Aqaid Khamsin) yang benar sesuai pemahaman ulama ahlussunnah wal jama'ah sebagai landasan dan motivasi beraktivitas dalam kehidupan sehari-hari, sehingga semua yang dilakukan bernilai ibadah dan berdimensi ukhrawi.","materi":"Sifat Wajib Ma'ani Allah","ipk":"Menyebutkan sifat wajib bagi Allah yang nafsiyah, salbiyah, ma'ani, dan maknawiyah","indikator":"Disajikan sebuah narasi, peserta didik dapat menyebutkan sifat wajib bagi Allah yang ma'ani.","level":"L2","bobot":"Sedang","bentuk":"Essay","no_soal":32,"questions":[{"id":"aa13_1","type":"essay","stimulus":"Dalam pelajaran Akidah Akhlak mengenai Aqaid Khamsin, kita mempelajari sifat wajib bagi Allah Swt. yang terbagi menjadi Nafsiyah, Salbiyah, Ma'ani, dan Ma'nawiyah. Sifat Ma'ani merupakan sifat-sifat abstrak (makna) yang melekat sempurna pada Dzat Allah Swt.","question":"Sebutkan secara lengkap 7 sifat wajib bagi Allah Swt. yang termasuk kelompok Ma'ani beserta artinya! (Sertakan pula pasangan sifat Ma'nawiyah-nya jika kamu ketahui!)","keywords":["Qudrat","Iradat","Ilmu","Hayat","Sama'","Bashar","Kalam"],"model_answer":"Tujuh sifat wajib bagi Allah Swt. yang termasuk kelompok Ma'ani beserta artinya adalah:\n1. Qudrat (Berkuasa) — pasangan Ma'nawiyah: Qadiran (Maha Kuasa)\n2. Iradat (Berkehendak) — pasangan Ma'nawiyah: Muridan (Maha Berkehendak)\n3. 'Ilmu (Mengetahui) — pasangan Ma'nawiyah: 'Aliman (Maha Mengetahui)\n4. Hayat (Hidup) — pasangan Ma'nawiyah: Hayyan (Maha Hidup)\n5. Sama' (Mendengar) — pasangan Ma'nawiyah: Sami'an (Maha Mendengar)\n6. Bashar (Melihat) — pasangan Ma'nawiyah: Bashiran (Maha Melihat)\n7. Kalam (Berfirman) — pasangan Ma'nawiyah: Mutakalliman (Maha Berfirman)","rubric":"Skor 100: Menyebutkan seluruh 7 sifat Ma'ani (Qudrat, Iradat, Ilmu, Hayat, Sama', Bashar, Kalam) beserta artinya secara tepat. Skor 70: Menyebutkan 4–6 sifat dengan benar. Skor 40: Menyebutkan 1–3 sifat."},{"id":"aa13_2","type":"essay","stimulus":"Seorang muslim yang mengenal sifat-sifat Ma'ani Allah akan menyadari bahwa Allah Maha Mendengar setiap doa, Maha Melihat setiap perbuatan tersembunyi, Maha Mengetahui isi hati, dan Maha Kuasa atas segala sesuatu.","question":"Sebutkan seluruh sifat wajib Ma'ani bagi Allah Swt. beserta arti dan contoh pengamalan salah satunya dalam kehidupan sehari-hari!","keywords":["Qudrat","Iradat","Ilmu","Hayat","Sama'","Bashar","Kalam"],"model_answer":"Sifat wajib Ma'ani bagi Allah Swt. berjumlah 7, yaitu:\n1. Qudrat = Kuasa\n2. Iradat = Berkehendak\n3. 'Ilmu = Mengetahui\n4. Hayat = Hidup\n5. Sama' = Mendengar\n6. Bashar = Melihat\n7. Kalam = Berfirman\n\nContoh pengamalan: Meyakini sifat Bashar (Maha Melihat) dan Sama' (Maha Mendengar) mendorong siswa untuk selalu berkata jujur, tidak menyontek saat ujian, dan menjaga lisan dari kata-kata kotor meskipun tidak ada guru yang mengawasi.","rubric":"Skor 100: Menyebutkan 7 sifat Ma'ani beserta artinya dan 1 contoh pengamalan relevan. Skor 75: Menyebutkan 5–6 sifat atau belum menyertakan contoh pengamalan. Skor 50: Menyebutkan kurang dari 5 sifat."}]},{"no_ind":14,"cpNum":"2","elemen":"Sifat-Sifat Allah Swt.","cp":"7.2 Peserta didik mampu menganalisis sifat wajib, mustahil, dan jaiz bagi Allah Swt. dan rasul-Nya (Aqaid Khamsin) yang benar sesuai pemahaman ulama ahlussunnah wal jama'ah sebagai landasan dan motivasi beraktivitas dalam kehidupan sehari-hari, sehingga semua yang dilakukan bernilai ibadah dan berdimensi ukhrawi.","materi":"Sifat Mustahil Allah","ipk":"Menyebutkan sifat mustahil bagi Allah yang nafsiyah, salbiyah, ma'ani, dan maknawiyah","indikator":"Disajikan narasi, peserta didik dapat menyebutkan sifat mustahil bagi Allah yang ma'ani.","level":"L2","bobot":"Sedang","bentuk":"PG","no_soal":8,"questions":[{"id":"aa14_1","type":"pg","stimulus":"Setiap sifat wajib bagi Allah memiliki lawan yang disebut sifat mustahil, yaitu sifat kekurangan yang tidak mungkin dimiliki oleh Allah Swt. Sifat wajib Ma'ani meliputi Qudrat, Iradat, 'Ilmu, Hayat, Sama', Bashar, dan Kalam.","question":"Di antara pilihan berikut, kelompok yang seluruhnya merupakan sifat mustahil bagi Allah kategori Ma'ani adalah...","options":["'Ajzun (lemah), Karahah (terpaksa), Jahlun (bodoh), dan Mautun (mati)","'Adam (tiada), Huduts (baru), Fana' (binasa), dan Ta'addud (berbilang)","'Ajizan (yang lemah), Karihan (yang terpaksa), dan Jahilan (yang bodoh)","Wujud (ada), Qidam (terdahulu), Baqa' (kekal), dan Wahdaniyah (Esa)"],"correct":0,"explanation":"Tujuh sifat mustahil Ma'ani (lawan sifat wajib Ma'ani) adalah: 'Ajzun (lemah), Karahah (terpaksa), Jahlun (bodoh), Mautun (mati), Shamamun (tuli), 'Umyun (buta), dan Bukmun (bisu)."},{"id":"aa14_2","type":"pg","stimulus":"Allah Swt. memiliki sifat wajib Ma'ani berupa Sama' (Mendengar), Bashar (Melihat), dan Kalam (Berfirman). Oleh karena itu, mustahil bagi Allah bersifat tuli, buta, atau bisu.","question":"Sifat mustahil Ma'ani bagi Allah yang merupakan lawan dari sifat Sama', Bashar, dan Kalam secara berurutan adalah...","options":["Shamamun (tuli), 'Umyun (buta), dan Bukmun (bisu)","Ashamma (yang tuli), A'ma (yang buta), dan Abkama (yang bisu)","Huduts (baru), Fana' (rusak), dan Ta'addud (berbilang)","'Ajzun (lemah), Karahah (terpaksa), dan Jahlun (bodoh)"],"correct":0,"explanation":"Lawan Ma'ani untuk Sama', Bashar, dan Kalam adalah Shamamun (tuli), 'Umyun (buta), dan Bukmun (bisu). Adapun Ashamma, A'ma, dan Abkama adalah kelompok sifat mustahil Ma'nawiyah."}]},{"no_ind":15,"cpNum":"2","elemen":"Sifat-Sifat Allah Swt.","cp":"7.2 Peserta didik mampu menganalisis sifat wajib, mustahil, dan jaiz bagi Allah Swt. dan rasul-Nya (Aqaid Khamsin) yang benar sesuai pemahaman ulama ahlussunnah wal jama'ah sebagai landasan dan motivasi beraktivitas dalam kehidupan sehari-hari, sehingga semua yang dilakukan bernilai ibadah dan berdimensi ukhrawi.","materi":"Sifat Mustahil Allah","ipk":"Mengidentifikasi sifat mustahil bagi Allah yang nafsiyah, salbiyah, ma'ani, dan maknawiyah","indikator":"Disajikan tabel, peserta didik dapat mengidentifikasi sifat mustahil bagi Allah yang maknawiyah.","level":"L3","bobot":"Sukar","bentuk":"PGK","no_soal":25,"questions":[{"id":"aa15_1","type":"pgk","stimulus":"Perhatikan tabel sifat mustahil bagi Allah Swt. berikut:\n| No | Sifat Mustahil | Arti |\n|---|---|---|\n| 1 | 'Ajizan (عَاجِزًا) | Dzat yang lemah |\n| 2 | Huduts (حُدُوثٌ) | Baru / ada permulaannya |\n| 3 | Jahilan (جَاهِلًا) | Dzat yang bodoh |\n| 4 | Fana' (فَنَاءٌ) | Rusak / binasa |\n| 5 | Abkama (أَبْكَمَ) | Dzat yang bisu |","question":"Berdasarkan tabel tersebut, manakah yang termasuk kelompok sifat mustahil bagi Allah kategori Ma'nawiyah? (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Nomor 1: 'Ajizan (Dzat yang lemah)","Nomor 3: Jahilan (Dzat yang bodoh)","Nomor 5: Abkama (Dzat yang bisu)","Nomor 2: Huduts (Baru)","Nomor 4: Fana' (Rusak/binasa)"],"correct":[0,1,2],"explanation":"Sifat mustahil Ma'nawiyah merupakan lawan dari sifat wajib Ma'nawiyah (yang menunjukkan keadaan Dzat), yaitu: 'Ajizan (yang lemah), Karihan (yang terpaksa), Jahilan (yang bodoh), Mayyitan (yang mati), Ashamma (yang tuli), A'ma (yang buta), dan Abkama (yang bisu). Sedangkan Huduts dan Fana' adalah sifat mustahil Salbiyah."},{"id":"aa15_2","type":"pgk","stimulus":"Perhatikan tabel pasangan sifat mustahil Allah berikut:\n| No | Nama Sifat | Kategori |\n|---|---|---|\n| 1 | Karihan (Dzat yang terpaksa) | ? |\n| 2 | Mayyitan (Dzat yang mati) | ? |\n| 3 | Ashamma (Dzat yang tuli) | ? |\n| 4 | 'Adam (Tidak ada) | ? |\n| 5 | Ta'addud (Berbilang) | ? |","question":"Dari tabel di atas, sifat mustahil yang termasuk kategori Ma'nawiyah ditunjukkan oleh nomor... (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Nomor 1: Karihan (Dzat yang terpaksa)","Nomor 2: Mayyitan (Dzat yang mati)","Nomor 3: Ashamma (Dzat yang tuli)","Nomor 4: 'Adam (Tidak ada)","Nomor 5: Ta'addud (Berbilang)"],"correct":[0,1,2],"explanation":"Karihan (lawan Muridan), Mayyitan (lawan Hayyan), dan Ashamma (lawan Sami'an) termasuk sifat mustahil Ma'nawiyah. Sementara 'Adam adalah mustahil Nafsiyah dan Ta'addud adalah mustahil Salbiyah."}]},{"no_ind":16,"cpNum":"2","elemen":"Sifat-Sifat Allah Swt.","cp":"7.2 Peserta didik mampu menganalisis sifat wajib, mustahil, dan jaiz bagi Allah Swt. dan rasul-Nya (Aqaid Khamsin) yang benar sesuai pemahaman ulama ahlussunnah wal jama'ah sebagai landasan dan motivasi beraktivitas dalam kehidupan sehari-hari, sehingga semua yang dilakukan bernilai ibadah dan berdimensi ukhrawi.","materi":"Sifat Jaiz Allah","ipk":"Menjelaskan pengertian sifat jaiz Allah","indikator":"Disajikan narasi, peserta didik dapat menjelaskan pengertian sifat jaiz Allah.","level":"L2","bobot":"Sedang","bentuk":"PG","no_soal":9,"questions":[{"id":"aa16_1","type":"pg","stimulus":"Selain sifat wajib dan sifat mustahil, Allah Swt. memiliki satu sifat jaiz yang dikenal dalam ungkapan bahasa Arab: 'Fi'lu kulli mumkinin au tarkuhu' (فِعْلُ كُلِّ مُمْكِنٍ أَوْ تَرْكُهُ).","question":"Pengertian sifat jaiz bagi Allah Swt. berdasarkan ungkapan tersebut adalah...","options":["Kebebasan mutlak Allah Swt. untuk berbuat sesuatu yang mungkin terjadi atau tidak berbuat sesuatu sesuai kehendak-Nya tanpa ada paksaan","Kewajiban Allah Swt. untuk selalu mengabulkan seluruh permintaan manusia sesuai waktu yang ditentukan manusia","Sifat yang mustahil dimiliki Allah karena menunjukkan adanya kelemahan","Ketentuan alam yang memaksa Allah untuk menciptakan makhluk secara berulang-ulang"],"correct":0,"explanation":"Sifat jaiz bagi Allah hanya satu, yaitu 'Fi'lu kulli mumkinin au tarkuhu' — kebebasan Allah Swt. untuk melakukan/menciptakan segala sesuatu yang mungkin atau meninggalkannya, semata-mata atas kehendak-Nya tanpa ada siapa pun yang berhak memaksa-Nya."},{"id":"aa16_2","type":"pg","stimulus":"Dalam kehidupan sehari-hari, kita melihat Allah Swt. menciptakan sebagian manusia berkulit putih dan sebagian sawo matang, ada yang ditakdirkan menjadi kaya dan ada yang sederhana, serta ada yang sehat dan ada yang diuji dengan sakit.","question":"Kenyataan tersebut membuktikan makna sifat jaiz bagi Allah Swt., yaitu...","options":["Allah bebas menciptakan atau tidak menciptakan segala sesuatu sesuai kehendak dan kebijaksanaan-Nya","Allah tidak mengetahui keadaan makhluk-Nya di muka bumi","Manusia berhak menentukan sendiri takdir penciptaannya sebelum lahir","Allah terikat oleh hukum sebab-akibat buatan manusia"],"correct":0,"explanation":"Keberagaman nasib, rupa, dan rezeki makhluk adalah perwujudan sifat jaiz Allah Swt.: Allah bebas sepenuhnya menentukan apa yang Dia kehendaki tanpa dapat diintervensi oleh makhluk."}]},{"no_ind":17,"cpNum":"2","elemen":"Sifat-Sifat Allah Swt.","cp":"7.2 Peserta didik mampu menganalisis sifat wajib, mustahil, dan jaiz bagi Allah Swt. dan rasul-Nya (Aqaid Khamsin) yang benar sesuai pemahaman ulama ahlussunnah wal jama'ah sebagai landasan dan motivasi beraktivitas dalam kehidupan sehari-hari, sehingga semua yang dilakukan bernilai ibadah dan berdimensi ukhrawi.","materi":"Sifat Jaiz Allah","ipk":"Menunjukkan dalil tentang sifat jaiz Allah","indikator":"Disajikan Q.S. Al-Qashash ayat 68, siswa dapat menyimpulkan dalil sifat jaiz Allah Swt. dari fenomena kehidupan sehari-hari.","level":"L3","bobot":"Sukar","bentuk":"PG","no_soal":10,"questions":[{"id":"aa17_1","type":"pg","stimulus":"Perhatikan firman Allah Swt. dalam QS. Al-Qashash ayat 68 berikut:\n\nوَرَبُّكَ يَخْلُقُ مَا يَشَاءُ وَيَخْتَارُ ۗ مَا كَانَ لَهُمُ الْخِيَرَةُ ۚ سُبْحَانَ اللَّهِ وَتَعَالَىٰ عَمَّا يُشْرِكُونَ\n\nArtinya: \"Dan Tuhanmu menciptakan dan memilih apa yang Dia kehendaki. Bagi mereka (manusia) tidak ada pilihan. Mahasuci Allah dan Mahatinggi Dia dari apa yang mereka persekutukan.\"","question":"Apabila dikaitkan dengan fenomena kehidupan sehari-hari, kesimpulan yang paling tepat dari dalil sifat jaiz Allah dalam QS. Al-Qashash ayat 68 tersebut adalah...","options":["Allah bebas menentukan hasil akhir atas ikhtiar manusia, seperti mengangkat derajat seseorang atau mengujinya, tanpa ada yang bisa memaksa-Nya","Manusia boleh memilih sendiri orang tua, tempat lahir, dan waktu kematiannya","Keberhasilan hidup seseorang sepenuhnya ditentukan oleh kekuatan fisik tanpa campur tangan Allah","Allah wajib menjadikan semua orang kaya raya agar tidak ada perbedaan di dunia"],"correct":0,"explanation":"QS. Al-Qashash ayat 68 adalah dalil naqli sifat jaiz Allah Swt. Ayat ini menegaskan bahwa Allah Maha Berkehendak menciptakan dan memilih apa saja yang Dia kehendaki, sehingga manusia wajib berikhtiar lalu ridha menerima ketetapan Allah."},{"id":"aa17_2","type":"pg","stimulus":"Perhatikan QS. Al-Qashash ayat 68:\n\nوَرَبُّكَ يَخْلُقُ مَا يَشَاءُ وَيَخْتَارُ ۗ مَا كَانَ لَهُمُ الْخِيَرَةُ\n\nAhmad telah berlatih keras untuk lomba pidato tingkat kabupaten, namun ia meraih juara kedua. Alih-alih marah atau putus asa, Ahmad bersyukur dan menjadikannya motivasi untuk berlatih lebih baik lagi.","question":"Sikap Ahmad tersebut merupakan pengamalan nyata dari pemahaman QS. Al-Qashash ayat 68 karena ia meyakini bahwa...","options":["Keputusan terbaik sepenuhnya menjadi hak prerogatif dan kehendak bebas (sifat jaiz) Allah Swt.","Lomba tersebut tidak penting sehingga tidak perlu diikuti dengan sungguh-sungguh","Doa tidak memiliki pengaruh apa pun terhadap hasil perlombaan","Juara pertama pasti dicurangi oleh juri perlombaan"],"correct":0,"explanation":"Memahami sifat jaiz Allah (QS. Al-Qashash: 68) membuat seorang mukmin berlapang dada dan berhusnuzan kepada ketetapan Allah setelah berusaha maksimal, karena Allah Maha Mengetahui pilihan terbaik bagi hamba-Nya."}]},{"no_ind":18,"cpNum":"2","elemen":"Sifat-Sifat Allah Swt.","cp":"7.2 Peserta didik mampu menganalisis sifat wajib, mustahil, dan jaiz bagi Allah Swt. dan rasul-Nya (Aqaid Khamsin) yang benar sesuai pemahaman ulama ahlussunnah wal jama'ah sebagai landasan dan motivasi beraktivitas dalam kehidupan sehari-hari, sehingga semua yang dilakukan bernilai ibadah dan berdimensi ukhrawi.","materi":"Sifat Jaiz Allah","ipk":"Menunjukkan ciri-ciri orang yang beriman terhadap sifat-sifat Allah","indikator":"Disajikan pernyataan, peserta didik dapat menunjukkan ciri-ciri orang yang beriman terhadap sifat-sifat Allah dalam kehidupan sehari-hari.","level":"L3","bobot":"Sukar","bentuk":"PGK","no_soal":11,"questions":[{"id":"aa18_1","type":"pgk","stimulus":"Iman terhadap 20 sifat wajib, 20 sifat mustahil, dan 1 sifat jaiz bagi Allah Swt. bukan sekadar hafalan di lisan, melainkan harus membentuk karakter mulia seorang muslim dalam kehidupan sehari-hari.","question":"Manakah di antara pernyataan berikut yang menunjukkan ciri-ciri orang yang benar-benar beriman kepada sifat-sifat Allah Swt.? (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Senantiasa berhati-hati dalam bersikap dan berbicara karena yakin Allah Maha Melihat (Bashar) dan Maha Mendengar (Sama')","Tidak bersikap sombong atas kepandaian atau harta karena sadar hanya Allah Yang Maha Kuasa (Qudrat) dan Maha Mengetahui ('Ilmu)","Berserah diri (tawakal) serta menerima hasil ikhtiar dengan lapang dada sebagai wujud iman pada sifat Jaiz dan Iradat Allah","Merasa bebas berbuat curang saat sendirian karena tidak ada kamera CCTV di ruangan","Menyombongkan keturunan dan kekayaan karena merasa kekal hidup di dunia"],"correct":[0,1,2],"explanation":"Orang yang beriman kepada sifat-sifat Allah memiliki sikap muraqabah (hati-hati karena diawasi Allah), tawadhu' (tidak sombong karena sadar kelemahan diri), dan tawakal/ridha atas ketetapan Allah. Berbuat curang saat sepi dan sombong bertentangan dengan iman pada sifat Allah."},{"id":"aa18_2","type":"pgk","stimulus":"Di madrasah, pengurus koperasi kejujuran menyediakan kotak uang tanpa penjaga. Para siswa dipersilakan mengambil jajanan dan memasukkan uang pembayaran sendiri secara jujur.","question":"Siswa yang jujur membayar di koperasi kejujuran tersebut mencerminkan ciri keimanan terhadap sifat wajib Allah, khususnya... (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Sifat Bashar (Allah Maha Melihat segala perbuatan tersembunyi)","Sifat 'Ilmu (Allah Maha Mengetahui sekecil apa pun perbuatan dan niat manusia)","Sifat Qudrat (Allah Maha Kuasa membalas setiap amal baik maupun buruk)","Sifat Fana' (rusak dan binasa)"],"correct":[0,1,2],"explanation":"Kejujuran meski tanpa pengawasan manusia adalah buah iman kepada sifat Bashar (Maha Melihat), 'Ilmu (Maha Mengetahui), dan Qudrat (Maha Kuasa). Adapun Fana' adalah sifat mustahil bagi Allah."}]},{"no_ind":19,"cpNum":"3","elemen":"Akhlak Terpuji","cp":"7.3 Peserta didik mampu memahami dan membiasakan akhlak terpuji taat, taubat, istiqamah, dan ikhlas sebagai manifestasi akhlak yang merupakan buah dari ilmu sehingga terbentuk kesalehan individu dan sosial, untuk mewujudkan pribadi yang unggul dan mampu bersaing di era global.","materi":"Taubat, Taat, Istiqamah, dan Ikhlas","ipk":"Menjelaskan pengertian sifat ikhlas, taat, istiqamah, dan taubat","indikator":"Disajikan narasi, peserta didik dapat menjelaskan pengertian istiqamah.","level":"L2","bobot":"Sedang","bentuk":"PG","no_soal":12,"questions":[{"id":"aa19_1","type":"pg","stimulus":"Setiap hari sejak kelas VII awal, Farhan membiasakan diri shalat dhuha, membaca Al-Qur'an satu halaman setelah Maghrib, dan belajar sebelum tidur. Meskipun terkadang lelah atau diajak teman bermain game hingga larut, ia tetap teguh menjaga kebiasaan baiknya tersebut.","question":"Sikap konsisten dan teguh pendirian dalam kebaikan seperti yang dilakukan Farhan adalah pengertian dari sifat...","options":["Istiqamah (teguh pendirian dan konsisten di jalan ketaatan kepada Allah Swt.)","Taubat (menyesali dosa dan berjanji tidak mengulanginya)","Tawadhu' (rendah hati di hadapan sesama manusia)","Qana'ah (merasa cukup atas rezeki yang diberikan Allah)"],"correct":0,"explanation":"Secara bahasa, istiqamah berasal dari kata 'istaqama' yang berarti tegak lurus. Secara istilah, istiqamah adalah sikap teguh pendirian, konsisten, dan terus-menerus dalam menjalankan perintah Allah Swt. serta menjauhi larangan-Nya meskipun menghadapi berbagai godaan."},{"id":"aa19_2","type":"pg","stimulus":"Rasulullah Saw. pernah ditanya oleh sahabat Sufyan bin Abdillah r.a. tentang satu pesan Islam yang paling ringkas dan menyeluruh. Beliau bersabda: 'Qul amantu billah tsummastaqim' (Katakanlah: Aku beriman kepada Allah, kemudian beristiqamahlah!).","question":"Makna istilah 'istiqamah' berdasarkan pesan Rasulullah Saw. tersebut adalah...","options":["Tetap teguh berpegang pada keimanan dan konsisten menjalankan ketaatan secara berkesinambungan","Melaksanakan ibadah dengan sangat semangat hanya pada bulan Ramadhan saja","Mengikuti pendapat terbanyak meskipun bertentangan dengan ajaran agama","Beribadah secara berlebihan satu hari lalu meninggalkannya pada hari berikutnya"],"correct":0,"explanation":"Istiqamah berarti teguh pendirian dalam tauhid dan konsisten (kontinu) dalam menjalankan ketaatan kepada Allah Swt. Rasulullah Saw. menegaskan amal yang paling dicintai Allah adalah yang dilakukan secara rutin meskipun sedikit."}]},{"no_ind":20,"cpNum":"3","elemen":"Akhlak Terpuji","cp":"7.3 Peserta didik mampu memahami dan membiasakan akhlak terpuji taat, taubat, istiqamah, dan ikhlas sebagai manifestasi akhlak yang merupakan buah dari ilmu sehingga terbentuk kesalehan individu dan sosial, untuk mewujudkan pribadi yang unggul dan mampu bersaing di era global.","materi":"Taubat, Taat, Istiqamah, dan Ikhlas","ipk":"Menunjukkan contoh sifat ikhlas, taat, istiqamah, dan taubat","indikator":"Disajikan narasi, peserta didik dapat menunjukkan sifat taat.","level":"L3","bobot":"Sukar","bentuk":"PG","no_soal":13,"questions":[{"id":"aa20_1","type":"pg","stimulus":"Ketika azan Ashar berkumandang, Raka sedang asyik bermain sepak bola bersama teman-temannya di lapangan. Ia segera menghentikan permainan, mengambil air wudhu, dan melaksanakan shalat Ashar berjamaah di masjid. Setelah pulang, ia langsung membantu ibunya mengangkat jemuran sesuai pesan ibunya sebelum berangkat.","question":"Perilaku Raka yang segera melaksanakan shalat saat azan dan mematuhi pesan ibunya merupakan contoh nyata dari sifat...","options":["Taat kepada Allah Swt. dan berbakti kepada orang tua","Riya' agar dipuji sebagai anak paling shalih di kampungnya","Sum'ah supaya teman-temannya mendengar kehebatannya","Takabur karena merasa lebih rajin daripada teman lainnya"],"correct":0,"explanation":"Taat berarti tunduk dan patuh menjalankan perintah Allah Swt., Rasul-Nya, serta perintah orang tua/pemimpin selama dalam kebaikan. Segera shalat saat azan dan menuruti pesan baik ibu adalah teladan sifat taat."},{"id":"aa20_2","type":"pg","stimulus":"Perhatikan empat perilaku pelajar MTs berikut:\n1) Budi memakai seragam rapi dan hadir tepat waktu sesuai tata tertib madrasah.\n2) Riko mematuhi ajakan temannya untuk membolos demi solidaritas.\n3) Zahra melaksanakan puasa Ramadhan dengan sungguh-sungguh meski tidak diawasi orang tuanya.\n4) Dodi menunda-nunda shalat Zhuhur sampai waktunya hampir habis.","question":"Contoh perilaku yang paling tepat menunjukkan sifat taat sesuai ajaran Islam ditunjukkan oleh...","options":["Budi dan Zahra","Budi dan Riko","Zahra dan Dodi","Riko dan Dodi"],"correct":0,"explanation":"Taat mencakup kepatuhan kepada perintah Allah (Zahra berpuasa dengan penuh kesadaran) dan kepatuhan kepada aturan/pemimpin dalam hal kebaikan (Budi mematuhi tata tertib madrasah). Tidak ada ketaatan dalam kemaksiatan seperti membolos."}]},{"no_ind":21,"cpNum":"3","elemen":"Akhlak Terpuji","cp":"7.3 Peserta didik mampu memahami dan membiasakan akhlak terpuji taat, taubat, istiqamah, dan ikhlas sebagai manifestasi akhlak yang merupakan buah dari ilmu sehingga terbentuk kesalehan individu dan sosial, untuk mewujudkan pribadi yang unggul dan mampu bersaing di era global.","materi":"Taubat, Taat, Istiqamah, dan Ikhlas","ipk":"Menunjukkan sifat ikhlas","indikator":"Disajikan pernyataan, peserta didik dapat menunjukkan sifat ikhlas.","level":"L3","bobot":"Sukar","bentuk":"PG","no_soal":14,"questions":[{"id":"aa21_1","type":"pg","stimulus":"Perhatikan pernyataan-pernyataan berikut:\n(1) Menyumbangkan uang saku ke kotak infak masjid tanpa menuliskan nama dan tidak menceritakannya kepada siapa pun.\n(2) Membantu guru membawakan buku dengan harapan diberi nilai tambahan di rapor.\n(3) Membersihkan kelas dengan tulus karena Allah meskipun tidak sedang jadwal piket dan tidak ada yang memuji.\n(4) Mengunggah foto sedekah di media sosial semata-mata agar disebut dermawan.","question":"Pernyataan yang paling tepat menunjukkan pengamalan sifat ikhlas adalah nomor...","options":["(1) dan (3)","(1) dan (2)","(2) dan (4)","(3) dan (4)"],"correct":0,"explanation":"Ikhlas adalah memurnikan niat beramal semata-mata mengharap ridha Allah Swt., tanpa pamrih pujian, balasan duniawi, atau pengakuan manusia. Nomor (1) dan (3) mencerminkan keikhlasan murni, sedangkan (2) dan (4) mengandung pamrih/riya'."},{"id":"aa21_2","type":"pg","stimulus":"Aisyah rajin membantu temannya yang kesulitan memahami pelajaran matematika. Ketika temannya mendapatkan nilai lebih tinggi darinya dan lupa mengucapkan terima kasih, Aisyah tetap tersenyum dan tidak merasa kecewa sedikit pun.","question":"Mengapa sikap Aisyah tersebut menjadi ciri kuat dari sifat ikhlas?","options":["Karena ia berbuat baik semata-mata mengharap ridha Allah, bukan mengharap balasan atau ucapan terima kasih manusia","Karena ia tidak peduli terhadap hasil nilai ujiannya sendiri","Karena ia merasa terpaksa membantu teman sebangkunya","Karena ia ingin menyaingi nilai teman-temannya di kelas"],"correct":0,"explanation":"Salah satu tanda utama orang yang ikhlas adalah tetap tenang dan tidak kecewa ketika kebaikannya tidak dipuji atau tidak dibalas oleh manusia, sebab tujuannya hanyalah keridhaan Allah Swt."}]},{"no_ind":22,"cpNum":"3","elemen":"Akhlak Terpuji","cp":"7.3 Peserta didik mampu memahami dan membiasakan akhlak terpuji taat, taubat, istiqamah, dan ikhlas sebagai manifestasi akhlak yang merupakan buah dari ilmu sehingga terbentuk kesalehan individu dan sosial, untuk mewujudkan pribadi yang unggul dan mampu bersaing di era global.","materi":"Dalil Sifat Ikhlas, Taat, Istiqamah, dan Taubat","ipk":"Memilih tindakan yang paling mencerminkan pengamalan dari QS. Hud ayat 112 tentang perintah istiqamah","indikator":"Disajikan ilustrasi narasi kehidupan sehari-hari remaja, peserta didik dapat memilih tindakan yang paling mencerminkan pengamalan dari QS. Hud ayat 112 tentang perintah istiqamah.","level":"L2","bobot":"Sedang","bentuk":"PG","no_soal":15,"questions":[{"id":"aa22_1","type":"pg","stimulus":"Perhatikan firman Allah Swt. dalam QS. Hud ayat 112:\n\nفَاسْتَقِمْ كَمَا أُمِرْتَ وَمَنْ تَابَ مَعَكَ وَلَا تَطْغَوْا ۚ إِنَّهُ بِمَا تَعْمَلُونَ بَصِيرٌ\n\nArtinya: \"Maka tetaplah engkau (Muhammad) di jalan yang benar (istiqamah) sebagaimana telah diperintahkan kepadamu dan (juga) orang yang bertobat bersamamu, dan janganlah kamu melampaui batas. Sungguh, Dia Maha Melihat apa yang kamu kerjakan.\"\n\nIlustrasi: Di lingkungan pergaulan remaja saat ini, banyak teman sebaya yang sering meninggalkan shalat saat asyik nongkrong di kafe atau bermain ponsel berjam-jam.","question":"Berdasarkan QS. Hud ayat 112 tersebut, tindakan remaja muslim yang paling mencerminkan pengamalan perintah istiqamah adalah...","options":["Tetap menjaga shalat lima waktu tepat waktu dan tidak melampaui batas dalam bergaul meski diajak teman mengabaikannya","Ikut meninggalkan shalat sementara waktu agar tidak dianggap kaku oleh teman sepergaulan","Beribadah sepanjang malam sampai jatuh sakit dan melalaikan kewajiban belajar di sekolah","Memarahi teman-teman di tempat umum dengan kata-kata kasar"],"correct":0,"explanation":"QS. Hud ayat 112 memerintahkan dua hal penting: (1) tetap teguh di jalan lurus (istiqamah) sesuai perintah Allah, dan (2) tidak melampaui batas (wala tathghau). Menjaga shalat tepat waktu di tengah godaan pergaulan dan tetap seimbang adalah wujud pengamalannya."},{"id":"aa22_2","type":"pg","stimulus":"Nadia baru saja bertobat dan bertekad memperbaiki ibadahnya setelah sebelumnya sering menunda shalat dan kurang disiplin belajar. Namun, pada pekan kedua ia mulai merasa malas dan tergoda kembali begadang menonton media sosial.","question":"Tindakan Nadia yang paling selaras dengan tuntunan QS. Hud ayat 112 ('Fastaqim kama umirta wa man taba ma'aka') adalah...","options":["Menguatkan tekad, membatasi waktu layar ponsel, dan menjaga rutinitas shalat serta belajar secara konsisten setiap hari","Berhenti berusaha karena merasa dirinya memang tidak mampu berubah","Menunggu tahun depan saja untuk memulai kebiasaan baik dari awal lagi","Mengisolasi diri total dan menolak berteman dengan siapa pun di madrasah"],"correct":0,"explanation":"QS. Hud ayat 112 menegaskan bahwa setelah bertaubat, seseorang harus terus menjaga keistiqamahan tanpa melampaui batas. Mengatur waktu ponsel dan mempertahankan rutinitas kebaikan adalah langkah nyata istiqamah remaja."}]},{"no_ind":23,"cpNum":"3","elemen":"Akhlak Terpuji","cp":"7.3 Peserta didik mampu memahami dan membiasakan akhlak terpuji taat, taubat, istiqamah, dan ikhlas sebagai manifestasi akhlak yang merupakan buah dari ilmu sehingga terbentuk kesalehan individu dan sosial, untuk mewujudkan pribadi yang unggul dan mampu bersaing di era global.","materi":"Dalil Sifat Ikhlas, Taat, Istiqamah, dan Taubat","ipk":"Menyimpulkan kandungan Q.S. An-Nisa ayat 59","indikator":"Disajikan Q.S. An-Nisa ayat 59, peserta didik dapat menyimpulkan kepada siapa sajakah kita taat.","level":"L2","bobot":"Sedang","bentuk":"PGK","no_soal":26,"questions":[{"id":"aa23_1","type":"pgk","stimulus":"Perhatikan firman Allah Swt. dalam QS. An-Nisa ayat 59 berikut:\n\nيَا أَيُّهَا الَّذِينَ آمَنُوا أَطِيعُوا اللَّهَ وَأَطِيعُوا الرَّسُولَ وَأُولِي الْأَمْرِ مِنْكُمْ\n\nArtinya: \"Wahai orang-orang yang beriman! Taatilah Allah dan taatilah Rasul (Muhammad), dan Ulil Amri (pemegang kekuasaan) di antara kamu...\"","question":"Berdasarkan kandungan QS. An-Nisa ayat 59 tersebut, kepada siapa sajakah seorang mukmin diperintahkan untuk taat? (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Taat secara mutlak kepada Allah Swt. dengan menjalankan seluruh perintah dan menjauhi larangan-Nya","Taat secara mutlak kepada Rasulullah Saw. dengan mengikuti sunnah dan ajarannya","Taat kepada Ulil Amri (pemimpin, pemerintah, guru, atau orang tua) selama perintahnya tidak bertentangan dengan syariat Islam","Taat kepada ajakan teman untuk berbuat maksiat demi menjaga kekompakan","Taat kepada pemimpin meskipun ia memerintahkan perbuatan syirik dan kezaliman"],"correct":[0,1,2],"explanation":"QS. An-Nisa ayat 59 memerintahkan tiga urutan ketaatan: (1) Taat mutlak kepada Allah Swt., (2) Taat mutlak kepada Rasulullah Saw., dan (3) Taat kepada Ulil Amri (pemegang otoritas/pemimpin) selama tidak memerintahkan kemaksiatan kepada Allah dan Rasul-Nya."},{"id":"aa23_2","type":"pgk","stimulus":"Perhatikan kembali potongan QS. An-Nisa ayat 59:\n\nأَطِيعُوا اللَّهَ وَأَطِيعُوا الرَّسُولَ وَأُولِي الْأَمْرِ مِنْكُمْ\n\nDalam lingkungan madrasah dan masyarakat, konsep 'Ulil Amri' mencakup pemimpin yang membawa kemaslahatan bersama.","question":"Manakah di antara pernyataan berikut yang merupakan kesimpulan tepat tentang ketaatan menurut QS. An-Nisa ayat 59? (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Ketaatan kepada Allah dan Rasul-Nya bersifat mutlak tanpa syarat","Ketaatan kepada Ulil Amri (seperti kepala madrasah, guru, dan pemerintah) bersifat bersyarat, yakni hanya dalam kebaikan","Jika terjadi perselisihan pendapat, seorang mukmin diperintahkan mengembalikannya kepada Al-Qur'an dan As-Sunnah","Perintah Ulil Amri lebih tinggi kedudukannya daripada hukum Al-Qur'an"],"correct":[0,1,2],"explanation":"Dalam QS. An-Nisa ayat 59, kata 'athi'u' (taatilah) diulang untuk Allah dan Rasul, namun tidak diulang untuk Ulil Amri. Ini menunjukkan ketaatan kepada Ulil Amri mengikuti syarat kesesuaian dengan Al-Qur'an dan Sunnah."}]},{"no_ind":24,"cpNum":"3","elemen":"Akhlak Terpuji","cp":"7.3 Peserta didik mampu memahami dan membiasakan akhlak terpuji taat, taubat, istiqamah, dan ikhlas sebagai manifestasi akhlak yang merupakan buah dari ilmu sehingga terbentuk kesalehan individu dan sosial, untuk mewujudkan pribadi yang unggul dan mampu bersaing di era global.","materi":"Dalil Sifat Ikhlas, Taat, Istiqamah, dan Taubat","ipk":"Menganalisis kandungan Q.S. Al-An'am ayat 162","indikator":"Disajikan sebuah ilustrasi kasus/fenomena sosial, peserta didik dapat menganalisis penyimpangan perilaku yang bertentangan dengan esensi Q.S. Al-An'am ayat 162.","level":"L3","bobot":"Sukar","bentuk":"Essay","no_soal":33,"questions":[{"id":"aa24_1","type":"essay","stimulus":"Perhatikan firman Allah Swt. dalam QS. Al-An'am ayat 162:\n\nقُلْ إِنَّ صَلَاتِي وَنُسُكِي وَمَحْيَايَ وَمَمَاتِي لِلَّهِ رَبِّ الْعَالَمِينَ\n\nArtinya: \"Katakanlah (Muhammad), 'Sesungguhnya shalatku, ibadahku, hidupku, dan matiku hanyalah untuk Allah, Tuhan seluruh alam.'\"\n\nFenomena Sosial: Saat ini banyak ditemukan perilaku sebagian orang yang rajin beramal sosial atau beribadah hanya ketika direkam kamera untuk konten media sosial demi meraih banyak 'likes', pujian netizen, dan popularitas semata. Bahkan ketika tidak ada kamera, mereka enggan membantu sesama.","question":"Analisislah penyimpangan perilaku dalam fenomena sosial tersebut jika ditinjau dari esensi QS. Al-An'am ayat 162, serta jelaskan bagaimana seharusnya sikap seorang muslim yang benar!","keywords":["ikhlas","riya'","sum'ah","pujian","ridha Allah","niat","ibadah"],"model_answer":"Analisis Penyimpangan:\n1. Esensi QS. Al-An'am ayat 162 mengajarkan keikhlasan total, yakni mempersembahkan seluruh shalat, ibadah, hidup, dan mati semata-mata karena Allah Swt.\n2. Beribadah atau bersedekah demi kamera, likes, dan pujian netizen merupakan penyimpangan berupa sifat riya' (ingin dilihat) dan sum'ah (ingin didengar/dipuji), yang dapat menghapus pahala amal.\n\nSikap Muslim yang Seharusnya:\n1. Meluruskan niat sebelum beramal semata-mata mengharap ridha Allah Swt.\n2. Tetap konsisten beribadah dan membantu sesama baik saat dilihat orang lain maupun saat sendirian.\n3. Jika perlu mendokumentasikan kegiatan sosial untuk syiar/laporan, tetap menjaga hati agar tidak sombong atau haus pujian.","rubric":"Skor 100: Mengaitkan esensi ikhlas QS. Al-An'am: 162, mengidentifikasi penyimpangan (riya'/sum'ah), dan memberikan solusi sikap yang tepat. Skor 70: Menjelaskan penyimpangan namun analisis ayat atau solusi kurang lengkap. Skor 40: Jawaban terlalu umum."},{"id":"aa24_2","type":"essay","stimulus":"QS. Al-An'am ayat 162 menegaskan bahwa shalat, ibadah, hidup, dan mati seorang mukmin sepenuhnya dipersembahkan untuk Allah Swt.\n\nKasus: Di sebuah desa, sebagian warga mengadakan upacara penyembelihan hewan yang ditujukan sebagai persembahan untuk penunggu laut agar terhindar dari malapetaka, bukan diniatkan ibadah kepada Allah Swt.","question":"Analisislah mengapa praktik dalam kasus tersebut menyimpang secara mendasar dari kandungan QS. Al-An'am ayat 162, dan sebutkan 2 langkah pelurusan perilaku yang sesuai ajaran Islam!","keywords":["syirik","ikhlas","ibadah","nusuki","Allah","tauhid","sedekah"],"model_answer":"Analisis Penyimpangan:\n1. Lafal 'wa nusuki' dalam QS. Al-An'am ayat 162 mencakup ibadah dan sembelihan yang hanya boleh dipersembahkan kepada Allah Swt.\n2. Menyembelih hewan sebagai persembahan kepada selain Allah (penunggu laut) merupakan penyimpangan akidah berupa syirik akbar yang bertentangan langsung dengan tauhid dan keikhlasan.\n\nLangkah Pelurusan:\n1. Mengganti niat syukuran hasil laut/bumi murni sebagai sedekah dan rasa syukur kepada Allah Swt., lalu membagikan makanannya kepada fakir miskin dan warga.\n2. Memberikan edukasi keagamaan secara santun dan bijaksana agar masyarakat hanya memohon perlindungan kepada Allah Swt.","rubric":"Skor 100: Mengidentifikasi penyimpangan syirik terkait lafal ibadah/sembelihan (QS. Al-An'am: 162) dan memberi 2 langkah pelurusan tepat. Skor 70: Analisis benar tetapi hanya 1 langkah pelurusan. Skor 40: Jawaban kurang mengaitkan dengan ayat."}]},{"no_ind":25,"cpNum":"3","elemen":"Akhlak Terpuji","cp":"7.3 Peserta didik mampu memahami dan membiasakan akhlak terpuji taat, taubat, istiqamah, dan ikhlas sebagai manifestasi akhlak yang merupakan buah dari ilmu sehingga terbentuk kesalehan individu dan sosial, untuk mewujudkan pribadi yang unggul dan mampu bersaing di era global.","materi":"Dampak Positif Sifat Ikhlas, Taat, Istiqamah, dan Taubat","ipk":"Menyebutkan dampak positif sifat ikhlas, taat, istiqamah, dan taubat","indikator":"Disajikan Q.S. An-Nisa ayat 13, siswa dapat menentukan keterkaitan antara dalil dengan dampak positif taat dari fenomena sehari-hari.","level":"L3","bobot":"Sukar","bentuk":"PG","no_soal":16,"questions":[{"id":"aa25_1","type":"pg","stimulus":"Perhatikan firman Allah Swt. dalam QS. An-Nisa ayat 13 berikut:\n\nتِلْكَ حُدُودُ اللَّهِ ۚ وَمَنْ يُطِعِ اللَّهَ وَرَسُولَهُ يُدْخِلْهُ جَنَّاتٍ تَجْرِي مِنْ تَحْتِهَا الْأَنْهَارُ خَالِدِينَ فِيهَا ۚ وَذَٰلِكَ الْفَوْزُ الْعَظِيمُ\n\nArtinya: \"Itulah batas-batas (hukum) Allah. Barang siapa taat kepada Allah dan Rasul-Nya, Dia akan memasukkannya ke dalam surga-surga yang mengalir di bawahnya sungai-sungai, mereka kekal di dalamnya. Dan itulah kemenangan yang agung.\"","question":"Berdasarkan QS. An-Nisa ayat 13 tersebut, keterkaitan paling tepat antara ketaatan seorang muslim dalam fenomena sehari-hari dengan dampak positifnya adalah...","options":["Mematuhi batas-batas hukum Allah dalam keseharian mendatangkan ketenangan batin di dunia dan jaminan surga sebagai kemenangan agung di akhirat","Ketaatan kepada aturan Allah hanya bermanfaat untuk memperoleh pujian dari masyarakat sekitar","Orang yang taat tidak akan pernah mengalami ujian atau kesulitan hidup di dunia","Batas-batas hukum Allah hanya berlaku pada zaman Nabi sehingga tidak relevan bagi pelajar saat ini"],"correct":0,"explanation":"QS. An-Nisa ayat 13 menjanjikan bahwa siapa pun yang menjaga batas hukum Allah (hududullah) dan taat kepada Allah serta Rasul-Nya akan memperoleh kemenangan agung (al-fauzul 'azhim), yakni ketenteraman hidup di dunia dan surga kekal di akhirat."},{"id":"aa25_2","type":"pg","stimulus":"Hendra selalu menjaga batas-batas pergaulan sesuai ajaran Islam, rajin shalat, jujur dalam muamalah, dan taat pada nasihat baik orang tua. Hidupnya terasa damai, dipercaya banyak orang, dan ia selalu berharap meraih janji Allah dalam QS. An-Nisa ayat 13.","question":"Dampak positif sifat taat yang tercermin dalam kehidupan Hendra sekaligus selaras dengan QS. An-Nisa ayat 13 adalah...","options":["Memperoleh keberkahan hidup, kepercayaan sosial di dunia, serta meraih ridha dan surga Allah di akhirat","Bebas melanggar peraturan sekolah karena sudah rajin beribadah","Mendapatkan kekayaan instan tanpa perlu bekerja dan belajar","Terbebas dari kewajiban menghormati guru dan sesama teman"],"correct":0,"explanation":"Sifat taat membawa dampak positif ganda: secara duniawi menghadirkan ketenangan jiwa, kedisiplinan, dan kepercayaan orang lain; secara ukhrawi meraih ridha Allah dan surga-Nya sebagaimana ditegaskan dalam QS. An-Nisa ayat 13."}]},{"no_ind":26,"cpNum":"3","elemen":"Akhlak Terpuji","cp":"7.3 Peserta didik mampu memahami dan membiasakan akhlak terpuji taat, taubat, istiqamah, dan ikhlas sebagai manifestasi akhlak yang merupakan buah dari ilmu sehingga terbentuk kesalehan individu dan sosial, untuk mewujudkan pribadi yang unggul dan mampu bersaing di era global.","materi":"Dampak Positif Sifat Ikhlas, Taat, Istiqamah, dan Taubat","ipk":"Mengklasifikasikan syarat-syarat taubat","indikator":"Disajikan pernyataan, siswa dapat mengklasifikasikan syarat-syarat taubat menurut Imam Nawawi.","level":"L3","bobot":"Sukar","bentuk":"PGK","no_soal":27,"questions":[{"id":"aa26_1","type":"pgk","stimulus":"Imam Nawawi dalam kitab Riyadush Shalihin menjelaskan bahwa taubat nasuha memiliki syarat-syarat yang wajib dipenuhi agar taubat diterima oleh Allah Swt., baik dosa yang berkaitan dengan hak Allah maupun hak sesama manusia.","question":"Manakah di antara pernyataan berikut yang termasuk syarat-syarat taubat menurut Imam Nawawi? (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Menghentikan atau meninggalkan perbuatan maksiat/dosa tersebut seketika itu juga","Menyesali dengan tulus atas perbuatan dosa yang telah dilakukan","Bertekad kuat (berazam) tidak akan mengulangi perbuatan dosa itu untuk selamanya","Meminta maaf dan mengembalikan hak jika dosa tersebut berhubungan dengan sesama manusia","Mengumumkan seluruh aib dan dosa masa lalu kepada semua orang di media sosial"],"correct":[0,1,2,3],"explanation":"Menurut Imam Nawawi, syarat taubat atas dosa kepada Allah ada 3: (1) berhenti dari maksiat, (2) menyesali perbuatan dosa, dan (3) bertekad kuat tidak mengulanginya lagi. Jika dosa menyangkut hak manusia (seperti mencuri/menyakiti), ditambah syarat ke-4: meminta maaf dan mengembalikan haknya. Menyebarkan aib sendiri tidak diperintahkan dalam Islam."},{"id":"aa26_2","type":"pgk","stimulus":"Rizal pernah mengambil buku milik temannya tanpa izin. Setelah menyadari kesalahannya, ia berniat melakukan taubat nasuha sesuai syarat yang dijelaskan Imam Nawawi.","question":"Langkah-langkah yang wajib dilakukan Rizal agar taubatnya sah menurut klasifikasi Imam Nawawi adalah... (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Menyesali perbuatan mengambil barang tanpa izin dan beristighfar kepada Allah","Bertekad kuat tidak akan pernah mengambil hak orang lain lagi","Mengembalikan buku tersebut kepada temannya dan meminta maaf secara tulus","Cukup mengucapkan istighfar di dalam hati saja tanpa mengembalikan buku temannya"],"correct":[0,1,2],"explanation":"Karena mengambil buku tanpa izin berkaitan dengan hak sesama manusia (haqqul adami), maka menurut Imam Nawawi selain menyesal, berhenti, dan berazam tidak mengulangi, Rizal wajib mengembalikan buku tersebut dan meminta maaf kepada pemiliknya."}]},{"no_ind":27,"cpNum":"3","elemen":"Akhlak Terpuji","cp":"7.3 Peserta didik mampu memahami dan membiasakan akhlak terpuji taat, taubat, istiqamah, dan ikhlas sebagai manifestasi akhlak yang merupakan buah dari ilmu sehingga terbentuk kesalehan individu dan sosial, untuk mewujudkan pribadi yang unggul dan mampu bersaing di era global.","materi":"Dampak Positif Sifat Ikhlas, Taat, Istiqamah, dan Taubat","ipk":"Mengklasifikasikan dampak positif sifat istiqamah","indikator":"Disajikan pernyataan, siswa dapat mengklasifikasikan dampak positif sifat istiqamah.","level":"L3","bobot":"Sukar","bentuk":"PG","no_soal":17,"questions":[{"id":"aa27_1","type":"pg","stimulus":"Perhatikan pernyataan berikut:\n(1) Hati menjadi tenang, jauh dari rasa takut dan sedih yang berlebihan (QS. Fushshilat: 30).\n(2) Mudah terpengaruh tren negatif pergaulan agar diterima lingkungan.\n(3) Mendatangkan kesuksesan dalam belajar dan ibadah karena dikerjakan secara konsisten.\n(4) Diberikan kelapangan rezeki serta pertolongan dan perlindungan malaikat atas izin Allah.\n(5) Cepat merasa puas sehingga berhenti belajar hal baru.","question":"Pernyataan yang merupakan klasifikasi dampak positif sifat istiqamah ditunjukkan oleh nomor...","options":["(1), (3), dan (4)","(1), (2), dan (3)","(2), (4), dan (5)","(3), (4), dan (5)"],"correct":0,"explanation":"Dampak positif sifat istiqamah antara lain: dijauhkan dari rasa takut dan sedih (QS. Fushshilat: 30), meraih kesuksesan melalui ketekunan, mendapat pertolongan Allah dan kelapangan hidup, serta memiliki prinsip hidup yang kokoh."},{"id":"aa27_2","type":"pg","stimulus":"Dalam QS. Fushshilat ayat 30 Allah berfirman bahwa orang-orang yang berkata 'Tuhan kami adalah Allah' kemudian beristiqamah, maka malaikat akan turun kepada mereka membawa kabar gembira agar tidak merasa takut dan tidak bersedih hati.","question":"Berdasarkan ayat tersebut, dampak psikologis dan spiritual utama dari sifat istiqamah bagi seorang pelajar adalah...","options":["Memiliki ketenangan jiwa, optimisme menghadapi masa depan, dan harapan meraih surga Allah","Menjadi mudah cemas ketika melihat keberhasilan teman-temannya","Merasa sombong karena amal ibadahnya lebih rutin dari orang lain","Mengabaikan usaha duniawi karena sudah yakin pasti berhasil"],"correct":0,"explanation":"Istiqamah melahirkan ketenangan batin (tidak mudah takut/sedih), sikap optimis, ketangguhan mental dalam belajar dan beribadah, serta kabar gembira surga di akhirat."}]},{"no_ind":28,"cpNum":"4","elemen":"Adab Shalat dan Dzikir","cp":"7.4 Peserta didik dapat menganalisis dan membiasakan adab shalat dan zikir dalam kehidupan sehari-hari sehingga terbentuk pribadi yang cerdas, berkarakter, dan dapat menyesuaikan diri dengan lingkungan.","materi":"Adab dan Fadhilah Shalat dan Dzikir","ipk":"Menjelaskan pengertian adab shalat","indikator":"Disajikan narasi, peserta didik dapat menjelaskan pengertian shalat menurut istilah.","level":"L2","bobot":"Sedang","bentuk":"PG","no_soal":18,"questions":[{"id":"aa28_1","type":"pg","stimulus":"Secara bahasa, kata 'shalat' berarti doa atau memohon kebaikan. Namun dalam syariat Islam, shalat memiliki pengertian khusus (istilah) yang mencakup bacaan dan gerakan yang telah dicontohkan oleh Rasulullah Saw.","question":"Pengertian shalat menurut istilah syariat Islam yang paling tepat adalah...","options":["Ibadah yang terdiri atas ucapan dan perbuatan tertentu yang diawali dengan takbiratul ihram dan diakhiri dengan salam sesuai syarat dan rukunnya","Segala bentuk doa yang diucapkan dalam hati kapan saja tanpa gerakan tertentu","Kegiatan berkumpul di masjid untuk mendengarkan ceramah keagamaan","Mengingat Allah dengan melafalkan kalimat tasbih, tahmid, dan takbir semata"],"correct":0,"explanation":"Secara istilah fiqih dan akhlak, shalat adalah serangkaian ucapan dan perbuatan tertentu yang dimulai dengan takbiratul ihram dan diakhiri dengan salam, disertai niat serta syarat dan rukun tertentu."},{"id":"aa28_2","type":"pg","stimulus":"Shalat merupakan tiang agama dan sarana komunikasi langsung antara seorang hamba dengan Allah Swt. Agar shalat bernilai sempurna, pelaksanaannya harus memenuhi syarat, rukun, serta adab-adab yang diajarkan Rasulullah Saw.","question":"Ciri utama yang membedakan definisi shalat secara istilah dengan ibadah doa biasa adalah...","options":["Tersusun dari perkataan dan gerakan khusus yang diawali takbiratul ihram dan diakhiri salam","Hanya boleh dilakukan oleh orang dewasa yang sudah menunaikan haji","Tidak memerlukan kesucian badan, pakaian, dan tempat dari najis","Boleh dilakukan dengan gerakan bebas sesuai keinginan masing-masing"],"correct":0,"explanation":"Secara istilah, shalat memiliki aturan baku (tauqifi) berupa perkataan dan perbuatan tertentu yang dibuka dengan takbiratul ihram dan ditutup dengan salam, serta mensyaratkan kesucian dan kekhusyukan."}]},{"no_ind":29,"cpNum":"4","elemen":"Adab Shalat dan Dzikir","cp":"7.4 Peserta didik dapat menganalisis dan membiasakan adab shalat dan zikir dalam kehidupan sehari-hari sehingga terbentuk pribadi yang cerdas, berkarakter, dan dapat menyesuaikan diri dengan lingkungan.","materi":"Adab dan Fadhilah Shalat dan Dzikir","ipk":"Mengklasifikasi penerapan adab shalat","indikator":"Disajikan tabel, siswa dapat mengklasifikasi penerapan adab shalat.","level":"L2","bobot":"Sedang","bentuk":"PGK","no_soal":28,"questions":[{"id":"aa29_1","type":"pgk","stimulus":"Perhatikan tabel sikap saat melaksanakan shalat berikut:\n| No | Perilaku Saat Shalat |\n|---|---|\n| 1 | Mengenakan pakaian yang suci, bersih, rapi, dan menutup aurat dengan sempurna |\n| 2 | Menjaga pandangan tertuju ke tempat sujud dan berusaha khusyuk menghayati bacaan |\n| 3 | Melakukan gerakan shalat dengan sangat tergesa-gesa tanpa tuma'ninah |\n| 4 | Menyingkirkan hal-hal yang mengganggu konsentrasi (seperti mematikan/mensenyapkan dering ponsel) |\n| 5 | Menoleh ke kanan dan ke kiri memperhatikan teman di samping saat berdiri |","question":"Berdasarkan tabel tersebut, perilaku yang termasuk penerapan adab shalat yang benar ditunjukkan oleh nomor... (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Nomor 1: Mengenakan pakaian suci, bersih, rapi, dan menutup aurat","Nomor 2: Memandang ke tempat sujud dan khusyuk menghayati bacaan","Nomor 4: Mensenyapkan ponsel agar tidak mengganggu kekhusyukan","Nomor 3: Tergesa-gesa tanpa tuma'ninah","Nomor 5: Menoleh ke kanan dan ke kiri saat shalat"],"correct":[0,1,2],"explanation":"Adab-adab shalat meliputi: berpakaian suci, rapi, dan menutup aurat; khusyuk dan memandang tempat sujud; tuma'ninah; serta menjauhkan pengganggu konsentrasi (seperti suara ponsel). Tergesa-gesa dan menoleh-noleh merusak adab dan kekhusyukan shalat."},{"id":"aa29_2","type":"pgk","stimulus":"Perhatikan tabel persiapan dan pelaksanaan shalat berikut:\n| No | Tindakan |\n|---|---|\n| 1 | Menyempurnakan wudhu dengan tenang sebelum menghadap Allah |\n| 2 | Menjaga tuma'ninah (tenang sejenak) pada setiap gerakan rukuk, i'tidal, dan sujud |\n| 3 | Shalat sambil menahan buang air besar/kecil padahal waktu shalat masih panjang |\n| 4 | Merendahkan hati dan merasa sedang bermunajat di hadapan Allah Swt. |","question":"Dari tabel di atas, manakah yang tergolong penerapan adab shalat yang baik? (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Nomor 1: Menyempurnakan wudhu dengan tenang","Nomor 2: Menjaga tuma'ninah di setiap gerakan shalat","Nomor 4: Merendahkan hati dan menghadirkan kesadaran bermunajat kepada Allah","Nomor 3: Shalat sambil menahan buang air padahal waktu masih lapang"],"correct":[0,1,2],"explanation":"Menyempurnakan wudhu, tuma'ninah, dan menghadirkan hati saat bermunajat adalah adab utama dalam shalat. Menahan buang air saat shalat (padahal waktu masih luas) dimakruhkan karena mengganggu kekhusyukan."}]},{"no_ind":30,"cpNum":"4","elemen":"Adab Shalat dan Dzikir","cp":"7.4 Peserta didik dapat menganalisis dan membiasakan adab shalat dan zikir dalam kehidupan sehari-hari sehingga terbentuk pribadi yang cerdas, berkarakter, dan dapat menyesuaikan diri dengan lingkungan.","materi":"Adab dan Fadhilah Shalat dan Dzikir","ipk":"Menjelaskan pengertian adab dzikir","indikator":"Disajikan narasi, peserta didik dapat menjelaskan pengertian dzikir.","level":"L1","bobot":"Mudah","bentuk":"PG","no_soal":19,"questions":[{"id":"aa30_1","type":"pg","stimulus":"Seusai melaksanakan shalat fardhu, para siswa MTs tidak langsung berdiri meninggalkan masjid. Mereka duduk tenang sambil melafalkan istighfar, tasbih (Subhanallah), tahmid (Alhamdulillah), dan takbir (Allahu Akbar) dengan penuh penghayatan.","question":"Berdasarkan narasi tersebut, pengertian dzikir menurut bahasa dan istilah yang paling tepat adalah...","options":["Mengingat dan menyebut nama Allah Swt. dengan hati dan lisan untuk mendekatkan diri kepada-Nya","Membaca cerita-cerita sejarah untuk mengisi waktu luang","Menahan lapar dan haus sejak terbit fajar hingga terbenam matahari","Mengeluarkan sebagian harta kepada golongan yang berhak menerimanya"],"correct":0,"explanation":"Secara bahasa, dzikir (dzikrun) berarti mengingat atau menyebut. Secara istilah, dzikir adalah mengingat, menyebut, dan mengagungkan Allah Swt. baik melalui hati (dzikir qalbi), lisan (dzikir lisani), maupun perbuatan (dzikir fi'li) guna mendekatkan diri kepada-Nya."},{"id":"aa30_2","type":"pg","stimulus":"Dalam QS. Ar-Ra'd ayat 28 Allah berfirman: 'Alaa bidzikrillahi tathma'innul qulub' (Ingatlah, hanya dengan mengingat Allah hati menjadi tenteram).","question":"Hakikat dari amalan dzikir yang membawa ketenteraman hati sebagaimana dimaksud ayat tersebut adalah...","options":["Senantiasa menghadirkan kesadaran akan kebesaran Allah dalam hati dan membasahi lisan dengan kalimat thayyibah","Berteriak sekeras-kerasnya agar orang di luar masjid mendengar suara kita","Melafalkan bacaan secepat mungkin tanpa memikirkan maknanya sedikit pun","Hanya mengingat Allah ketika sedang menghadapi musibah berat saja"],"correct":0,"explanation":"Hakikat dzikir adalah menghadirkan Allah dalam ingatan hati sekaligus melafalkan kalimat thayyibah (tasbih, tahmid, tahlil, takbir, istighfar) dengan penuh penghayatan kapan saja, baik saat lapang maupun sempit."}]},{"no_ind":31,"cpNum":"4","elemen":"Adab Shalat dan Dzikir","cp":"7.4 Peserta didik dapat menganalisis dan membiasakan adab shalat dan zikir dalam kehidupan sehari-hari sehingga terbentuk pribadi yang cerdas, berkarakter, dan dapat menyesuaikan diri dengan lingkungan.","materi":"Adab dan Fadhilah Shalat dan Dzikir","ipk":"Mengidentifikasi dalil tentang adab-adab shalat","indikator":"Disajikan Q.S. Al-Mu'minun ayat 2, peserta didik dapat mengidentifikasi adab shalat.","level":"L3","bobot":"Sukar","bentuk":"PG","no_soal":20,"questions":[{"id":"aa31_1","type":"pg","stimulus":"Perhatikan firman Allah Swt. dalam QS. Al-Mu'minun ayat 1–2 berikut:\n\nقَدْ أَفْلَحَ الْمُؤْمِنُونَ ۝ الَّذِينَ هُمْ فِي صَلَاتِهِمْ خَاشِعُونَ\n\nArtinya: \"Sungguh beruntung orang-orang yang beriman, (yaitu) orang-orang yang khusyuk dalam shalatnya.\"","question":"Adab utama dalam melaksanakan shalat yang secara tegas ditekankan oleh QS. Al-Mu'minun ayat 2 tersebut adalah...","options":["Khusyuk, yaitu menenangkan hati, merendahkan diri, dan memusatkan pikiran hanya kepada Allah saat shalat","Memakai pakaian baru dan paling mahal setiap kali hendak shalat","Memanjangkan suara bacaan shalat sekeras mungkin agar terdengar orang lain","Menyelesaikan shalat dalam waktu sesingkat mungkin agar cepat beraktivitas"],"correct":0,"explanation":"QS. Al-Mu'minun ayat 2 ('alladzina hum fi shalatihim khasya'un') menegaskan bahwa adab paling utama dan ruh dari ibadah shalat adalah kekhusyukan, yaitu ketenangan anggota badan dan fokusnya hati menghadap Allah Swt."},{"id":"aa31_2","type":"pg","stimulus":"Perhatikan kembali QS. Al-Mu'minun ayat 2:\n\nالَّذِينَ هُمْ فِي صَلَاتِهِمْ خَاشِعُونَ\n\nSeseorang dikatakan meraih keberuntungan (aflaha) apabila shalatnya disertai kekhusyukan.","question":"Cara praktis seorang siswa untuk mewujudkan adab khusyuk sebagaimana diperintahkan QS. Al-Mu'minun ayat 2 adalah...","options":["Memahami makna bacaan shalat, memandang tempat sujud, dan tidak memikirkan urusan permainan saat shalat","Memikirkan rencana bermain setelah salam agar tidak lupa","Melihat jam dinding berulang kali untuk menghitung lama shalat imam","Berbisik kepada teman di sebelah ketika bacaan imam pelan"],"correct":0,"explanation":"Kekhusyukan (QS. Al-Mu'minun: 2) dapat dilatih dengan memahami arti bacaan shalat, memandang tempat sujud, tuma'ninah, serta mengesampingkan pikiran duniawi selama shalat berlangsung."}]},{"no_ind":32,"cpNum":"4","elemen":"Adab Shalat dan Dzikir","cp":"7.4 Peserta didik dapat menganalisis dan membiasakan adab shalat dan zikir dalam kehidupan sehari-hari sehingga terbentuk pribadi yang cerdas, berkarakter, dan dapat menyesuaikan diri dengan lingkungan.","materi":"Adab dan Fadhilah Shalat dan Dzikir","ipk":"Mengklasifikasi penerapan adab dzikir","indikator":"Disajikan tabel, siswa dapat mengklasifikasi penerapan adab dzikir.","level":"L2","bobot":"Sedang","bentuk":"PGK","no_soal":29,"questions":[{"id":"aa32_1","type":"pgk","stimulus":"Perhatikan tabel sikap saat berdzikir berikut:\n| No | Perilaku Saat Berdzikir |\n|---|---|\n| 1 | Merendahkan hati (tawadhu'), tenang, dan penuh penghayatan terhadap makna lafal dzikir |\n| 2 | Menggunakan suara lembut dan tidak berteriak-teriak sehingga mengganggu orang lain yang sedang shalat |\n| 3 | Memilih tempat yang suci dan bersih, serta diutamakan menghadap kiblat jika memungkinkan |\n| 4 | Bercanda dan tertawa bersama teman di sela-sela membaca kalimat thayyibah |\n| 5 | Berdzikir dengan niat agar dianggap paling alim oleh jamaah masjid |","question":"Berdasarkan tabel tersebut, manakah yang termasuk penerapan adab dzikir yang sesuai tuntunan Islam? (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Nomor 1: Merendahkan hati, tenang, dan menghayati makna dzikir","Nomor 2: Bersuara lembut dan tidak mengganggu jamaah lain yang masih shalat","Nomor 3: Memilih tempat yang suci, bersih, dan diutamakan menghadap kiblat","Nomor 4: Bercanda dan tertawa di sela-sela berdzikir","Nomor 5: Berdzikir agar dipuji paling alim oleh jamaah"],"correct":[0,1,2],"explanation":"Adab berdzikir (sesuai QS. Al-A'raf: 205 dan tuntunan Nabi) antara lain: ikhlas, merendahkan diri dan khusyuk, bersuara lembut tanpa mengganggu orang lain, serta berada di tempat yang suci/bersih. Bercanda dan riya' merusak adab berdzikir."},{"id":"aa32_2","type":"pgk","stimulus":"Perhatikan tabel kebiasaan berdzikir berikut:\n| No | Kebiasaan |\n|---|---|\n| 1 | Ikhlas mengharap ridha Allah semata dalam setiap lantunan dzikir |\n| 2 | Mengucapkan lafal dzikir dengan fasih, tenang, dan tidak terburu-buru |\n| 3 | Melakukan dzikir di dalam kamar mandi/toilet saat buang hajat |\n| 4 | Mengawali dan mengakhiri doa setelah dzikir dengan pujian kepada Allah serta shalawat Nabi |","question":"Kebiasaan yang mencerminkan penerapan adab dzikir dan doa yang benar ditunjukkan oleh nomor... (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Nomor 1: Ikhlas mengharap ridha Allah semata","Nomor 2: Melafalkan dzikir dengan fasih, tenang, dan tidak terburu-buru","Nomor 4: Mengawali dan mengakhiri doa dengan hamdalah dan shalawat","Nomor 3: Melafalkan dzikir dengan lisan di dalam toilet saat buang hajat"],"correct":[0,1,2],"explanation":"Ikhlas, melafalkan dengan tenang/fasih, serta mengawali doa dengan pujian dan shalawat adalah adab dzikir dan doa yang mulia. Melafalkan dzikir dengan lisan di dalam kamar mandi saat buang hajat dimakruhkan/dilarang demi menjaga kesucian nama Allah."}]},{"no_ind":33,"cpNum":"4","elemen":"Adab Shalat dan Dzikir","cp":"7.4 Peserta didik dapat menganalisis dan membiasakan adab shalat dan zikir dalam kehidupan sehari-hari sehingga terbentuk pribadi yang cerdas, berkarakter, dan dapat menyesuaikan diri dengan lingkungan.","materi":"Adab dan Fadhilah Shalat dan Dzikir","ipk":"Menunjukkan hikmah orang yang melakukan adab shalat","indikator":"Disajikan deskripsi tentang kondisi seseorang usai melaksanakan shalat fardhu, peserta didik dapat menguraikan hikmah pelaksanaan zikir dan adab berdoa dengan benar.","level":"L3","bobot":"Sukar","bentuk":"Essay","no_soal":34,"questions":[{"id":"aa33_1","type":"essay","stimulus":"Usai melaksanakan shalat fardhu Maghrib berjamaah di masjid, Pak Hasan tidak tergesa-gesa pulang. Ia duduk dengan tenang, beristighfar, bertasbih, bertahmid, dan bertakbir dengan khusyuk, lalu menengadahkan kedua tangannya untuk berdoa memohon ampunan, kesehatan, dan keberkahan bagi keluarganya dengan suara lirih penuh harap.","question":"Berdasarkan deskripsi tersebut, uraikan minimal 4 hikmah melaksanakan dzikir dan berdoa dengan adab yang benar setelah shalat fardhu!","keywords":["tenang","tenteram","dekat dengan Allah","ampunan","dikabulkan","terhindar","syukur","ikhlas"],"model_answer":"Hikmah melaksanakan dzikir dan berdoa dengan adab yang benar setelah shalat fardhu antara lain:\n1. Menenangkan dan menenteramkan hati dari kegelisahan duniawi (QS. Ar-Ra'd: 28).\n2. Mendekatkan diri kepada Allah Swt. dan menguatkan ikatan keimanan.\n3. Menjadi sebab diampuninya dosa-dosa serta dikabulkannya doa karena dipanjatkan pada waktu mustajab (usai shalat wajib) dengan adab yang baik.\n4. Melatih sifat rendah hati (tawadhu'), syukur, dan tawakal bahwa manusia selalu membutuhkan pertolongan Allah.\n5. Menjaga diri dari bisikan setan dan perbuatan keji serta munkar.","rubric":"Skor 100: Menguraikan minimal 4 hikmah dzikir dan adab berdoa dengan jelas dan tepat. Skor 75: Menguraikan 3 hikmah dengan benar. Skor 50: Menguraikan 1–2 hikmah."},{"id":"aa33_2","type":"essay","stimulus":"Selesai melaksanakan shalat Isya di rumah, Fira merasa gelisah karena besok ia akan menghadapi Asesmen Sumatif Akhir Semester. Ia pun duduk sejenak di atas sajadahnya, melantunkan dzikir dengan tenang, lalu berdoa memohon kemudahan dan keberkahan ilmu kepada Allah Swt.","question":"Jelaskan hikmah yang dirasakan Fira dari kebiasaan berdzikir dan berdoa usai shalat fardhu, serta sebutkan 3 adab penting saat berdoa kepada Allah Swt.!","keywords":["tenang","optimis","tawakal","hamdalah","shalawat","khusyuk","yakin","kiblat"],"model_answer":"Hikmah yang dirasakan Fira:\n1. Hati menjadi lebih tenang, cemas berkurang, dan pikiran lebih fokus menghadapi asesmen.\n2. Tumbuh rasa tawakal dan optimisme karena merasa didampingi dan ditolong Allah Swt.\n3. Mendapat pahala ibadah dan menyempurnakan kekurangan dalam shalat.\n\nTiga Adab Penting Saat Berdoa:\n1. Mengawali doa dengan memuji Allah (hamdalah) dan membaca shalawat kepada Nabi Muhammad Saw.\n2. Berdoa dengan hati yang khusyuk, merendahkan diri, suara lembut, dan penuh keyakinan akan dikabulkan.\n3. Dalam keadaan suci, menghadap kiblat, serta mengangkat kedua tangan.","rubric":"Skor 100: Menjelaskan hikmah secara jelas dan menyebutkan 3 adab berdoa yang benar. Skor 75: Menjelaskan hikmah dan 2 adab berdoa. Skor 50: Hanya menjawab salah satu bagian."}]},{"no_ind":34,"cpNum":"5","elemen":"Kisah Keteladanan","cp":"7.5 Peserta didik mampu menganalisis dan meneladani kisah Nabi Sulaiman a.s. sebagai inspirasi dalam menghadapi tantangan kehidupan masa kini dan masa yang akan datang.","materi":"Kisah Nabi Sulaiman a.s.","ipk":"Menunjukkan kisah Nabi Sulaiman a.s. dan umatnya","indikator":"Disajikan pernyataan, peserta didik dapat menunjukkan kisah Nabi Sulaiman a.s.","level":"L2","bobot":"Sedang","bentuk":"PGK","no_soal":30,"questions":[{"id":"aa34_1","type":"pgk","stimulus":"Nabi Sulaiman a.s. adalah putra Nabi Dawud a.s. yang dianugerahi Allah Swt. kenabian sekaligus kerajaan paling megah sepanjang sejarah manusia. Meski bergelimang kekuasaan, beliau tetap rendah hati, adil, dan gemar bersyukur kepada Allah Swt.","question":"Manakah di antara pernyataan berikut yang benar mengenai kisah Nabi Sulaiman a.s. dan keteladanannya? (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Beliau mengirim surat dakwah kepada Ratu Balqis (penguasa Negeri Saba') agar menyembah Allah Swt. melalui perantara burung Hud-hud","Ketika mendengar seekor semut memperingatkan kawannya agar masuk sarang supaya tidak terinjak pasukannya, Nabi Sulaiman tersenyum dan bersyukur kepada Allah","Meski memiliki kerajaan sangat megah, beliau selalu mengakui bahwa semua kekuasaan adalah karunia dan ujian dari Allah Swt. (Hadza min fadhli Rabbi)","Nabi Sulaiman membangun perahu besar di atas bukit untuk menyelamatkan umatnya dari banjir bandang","Nabi Sulaiman membelah Laut Merah menggunakan tongkatnya saat dikejar pasukan Fir'aun"],"correct":[0,1,2],"explanation":"Kisah autentik Nabi Sulaiman a.s. dalam Al-Qur'an (QS. An-Naml) meliputi: dakwah kepada Ratu Balqis melalui burung Hud-hud, memahami percakapan semut di lembah semut lalu bersyukur, serta selalu tawadhu' ('hadza min fadhli Rabbi'). Membuat perahu besar adalah kisah Nabi Nuh a.s., dan membelah Laut Merah adalah mukjizat Nabi Musa a.s."},{"id":"aa34_2","type":"pgk","stimulus":"Perhatikan pernyataan tentang kisah para nabi berikut:\n1. Memimpin kerajaan besar Bani Israil meneruskan kepemimpinan ayahnya, Nabi Dawud a.s.\n2. Berdialog dengan Ratu Balqis hingga akhirnya Ratu Balqis dan rakyat Saba' beriman kepada Allah Swt.\n3. Mengawasi pembangunan Baitul Maqdis dengan penuh kedisiplinan.\n4. Ditelan ikan besar (Nun) ketika meninggalkan kaumnya di negeri Ninawa.","question":"Pernyataan yang tepat menggambarkan kisah Nabi Sulaiman a.s. adalah nomor... (Pilihlah LEBIH DARI SATU jawaban yang benar!)","options":["Nomor 1: Meneruskan kerajaan dan kenabian ayahnya, Nabi Dawud a.s.","Nomor 2: Berdakwah secara bijaksana hingga Ratu Balqis masuk Islam","Nomor 3: Memimpin pembangunan Baitul Maqdis","Nomor 4: Ditelan ikan besar di negeri Ninawa"],"correct":[0,1,2],"explanation":"Nomor 1, 2, dan 3 adalah bagian dari kisah Nabi Sulaiman a.s. Adapun peristiwa ditelan ikan besar (Nun) adalah kisah Nabi Yunus a.s."}]},{"no_ind":35,"cpNum":"5","elemen":"Kisah Keteladanan","cp":"7.5 Peserta didik mampu menganalisis dan meneladani kisah Nabi Sulaiman a.s. sebagai inspirasi dalam menghadapi tantangan kehidupan masa kini dan masa yang akan datang.","materi":"Kisah Nabi Sulaiman a.s.","ipk":"Menyebutkan kejadian luar biasa Nabi Sulaiman a.s.","indikator":"Disajikan narasi, peserta didik dapat menyebutkan kejadian luar biasa (mukjizat) Nabi Sulaiman a.s.","level":"L1","bobot":"Mudah","bentuk":"Essay","no_soal":35,"questions":[{"id":"aa35_1","type":"essay","stimulus":"Sebagai bukti kerasulannya, Allah Swt. mengaruniakan berbagai kejadian luar biasa (mukjizat) kepada Nabi Sulaiman a.s. yang tidak pernah diberikan kepada raja atau manusia lain sesudahnya.","question":"Sebutkan minimal 4 kejadian luar biasa (mukjizat) yang dianugerahkan Allah Swt. kepada Nabi Sulaiman a.s.!","keywords":["bahasa binatang","angin","jin","tembaga","singgasana","semut","burung"],"model_answer":"Kejadian luar biasa (mukjizat) yang dianugerahkan Allah Swt. kepada Nabi Sulaiman a.s. antara lain:\n1. Mampu memahami dan berbicara dengan bahasa binatang (seperti burung Hud-hud dan semut).\n2. Dapat menundukkan dan mengendalikan angin untuk menempuh perjalanan sangat jauh dalam waktu singkat.\n3. Menundukkan bangsa jin dan setan untuk bekerja membangun istana, gedung-gedung, dan menyelam mencari mutiara.\n4. Allah mengalirkan cairan tembaga baginya sebagai bahan pembuatan berbagai bangunan dan peralatan.\n5. Memindahkan singgasana Ratu Balqis dari Negeri Saba' ke istananya dalam sekejap mata atas izin Allah Swt.","rubric":"Skor 100: Menyebutkan minimal 4 mukjizat Nabi Sulaiman a.s. secara tepat. Skor 75: Menyebutkan 3 mukjizat dengan benar. Skor 50: Menyebutkan 1–2 mukjizat."},{"id":"aa35_2","type":"essay","stimulus":"Kisah mukjizat Nabi Sulaiman a.s. diabadikan dalam Al-Qur'an, antara lain pada Surah An-Naml dan Surah Saba'. Semua keistimewaan tersebut justru membuat Nabi Sulaiman a.s. semakin bersyukur dan tawadhu' kepada Allah Swt.","question":"Sebutkan 3 mukjizat Nabi Sulaiman a.s. beserta 2 sifat teladan yang dapat kita terapkan dalam kehidupan pelajar sehari-hari!","keywords":["binatang","angin","jin","syukur","tawadhu","rendah hati","adil","bijaksana"],"model_answer":"Tiga Mukjizat Nabi Sulaiman a.s.:\n1. Memahami bahasa binatang (burung, semut, dan hewan lainnya).\n2. Menundukkan angin sesuai perintah Allah.\n3. Menundukkan bangsa jin untuk membantu pembangunan dan pekerjaan berat.\n\nDua Sifat Teladan untuk Pelajar:\n1. Rendah hati (tawadhu') dan selalu bersyukur saat meraih prestasi atau kelebihan, tidak sombong.\n2. Bersikap adil, bijaksana dalam mengambil keputusan, serta menyayangi sesama makhluk termasuk hewan dan lingkungan.","rubric":"Skor 100: Menyebutkan 3 mukjizat dan 2 keteladanan relevan secara tepat. Skor 75: Menyebutkan 2–3 mukjizat dan 1 keteladanan. Skor 50: Hanya menjawab salah satu bagian."}]}];
+
+        // State management
+        let currentCpFilter = 'all';
+        let activeModalIndNum = null;
+        let orderedFilteredIndicators = [];
+        let userProgress = {};
+
+        const CP_BADGE_MAP = {
+            '1': { badge: 'CP 7.1 • Akidah Islam', color: 'bg-teal-50 text-teal-800 border-teal-200' },
+            '2': { badge: 'CP 7.2 • Sifat-Sifat Allah', color: 'bg-blue-50 text-blue-800 border-blue-200' },
+            '3': { badge: 'CP 7.3 • Akhlak Terpuji', color: 'bg-amber-50 text-amber-800 border-amber-200' },
+            '4': { badge: 'CP 7.4 • Adab Shalat & Dzikir', color: 'bg-purple-50 text-purple-800 border-purple-200' },
+            '5': { badge: 'CP 7.5 • Kisah Nabi Sulaiman', color: 'bg-emerald-50 text-emerald-800 border-emerald-200' }
+        };
+
+        // Subtle Web Audio feedback
+        let audioCtx = null;
+        function playSound(type) {
+            try {
+                if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                if (type === 'correct') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(523.25, now);
+                    osc.frequency.exponentialRampToValueAtTime(783.99, now + 0.14);
+                    gain.gain.setValueAtTime(0.14, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                } else if (type === 'wrong') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(329.63, now);
+                    osc.frequency.exponentialRampToValueAtTime(261.63, now + 0.18);
+                    gain.gain.setValueAtTime(0.16, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                }
+            } catch (e) {}
+        }
+
+        function findQuestion(qId) {
+            for (let ind of KISI_DATA) {
+                if (Array.isArray(ind.questions)) {
+                    for (let q of ind.questions) {
+                        if (q.id === qId) return q;
+                    }
+                }
+            }
+            return null;
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function shuffleQuestionOptions(q) {
+            if (!q || !Array.isArray(q.options) || q.options.length < 2) return;
+            if (q.type === 'pg') {
+                const correctText = q.options[q.correct];
+                shuffleArray(q.options);
+                q.correct = q.options.indexOf(correctText);
+            } else if (q.type === 'pgk' && Array.isArray(q.correct)) {
+                const correctTexts = q.correct.map(idx => q.options[idx]);
+                shuffleArray(q.options);
+                q.correct = correctTexts.map(text => q.options.indexOf(text)).sort((a, b) => a - b);
+            }
+        }
+
+        function shuffleAllQuestions() {
+            KISI_DATA.forEach(ind => {
+                if (Array.isArray(ind.questions)) {
+                    ind.questions.forEach(q => shuffleQuestionOptions(q));
+                }
+            });
+        }
+
+        function loadProgress() {
+            try {
+                const saved = localStorage.getItem('asas_akidah_progress_2026');
+                if (saved) userProgress = JSON.parse(saved);
+            } catch (e) {
+                console.error("Failed to load progress", e);
+            }
+            updateProgressStats();
+        }
+
+        function saveProgress() {
+            try {
+                localStorage.setItem('asas_akidah_progress_2026', JSON.stringify(userProgress));
+            } catch (e) {
+                console.error("Failed to save progress", e);
+            }
+            updateProgressStats();
+        }
+
+        function updateProgressStats() {
+            const totalQuestions = 70;
+            const solvedCount = Object.keys(userProgress).length;
+            const percent = Math.min(100, Math.round((solvedCount / totalQuestions) * 100));
+
+            const statCountElem = document.getElementById('stat-solved-count');
+            if (statCountElem) statCountElem.innerText = `${solvedCount} / ${totalQuestions}`;
+
+            const percentElem = document.getElementById('progress-percent');
+            if (percentElem) percentElem.innerText = `${percent}% Selesai (${solvedCount} Soal)`;
+
+            const barFill = document.getElementById('progress-bar-fill');
+            if (barFill) barFill.style.width = `${percent}%`;
+        }
+
+        function resetAllProgress() {
+            if (confirm("Apakah Anda yakin ingin mereset seluruh hasil latihan soal interaktif?")) {
+                userProgress = {};
+                localStorage.removeItem('asas_akidah_progress_2026');
+                shuffleAllQuestions();
+                renderTable();
+                if (activeModalIndNum !== null) {
+                    renderModalContent(false);
+                }
+                updateProgressStats();
+            }
+        }
+
+        // Compute filtered indicators grouped cleanly by CP (1..5), preserving official kisi-kisi row order
+        function getFilteredGroups() {
+            const searchQuery = (document.getElementById('kisi-search')?.value || '').toLowerCase().trim();
+            const bentukFilter = document.getElementById('filter-bentuk')?.value || 'all';
+            const bobotFilter = document.getElementById('filter-bobot')?.value || 'all';
+
+            const filtered = KISI_DATA.filter(item => {
+                if (currentCpFilter !== 'all' && currentCpFilter !== item.cpNum) return false;
+                if (bentukFilter !== 'all' && item.bentuk !== bentukFilter) return false;
+                if (bobotFilter !== 'all' && item.bobot !== bobotFilter) return false;
+
+                if (searchQuery) {
+                    const fullText = `${item.no_ind} ${item.no_soal} ${item.indikator} ${item.materi} ${item.ipk} ${item.elemen} ${item.cp} ${item.bentuk} ${item.bobot} ${item.level}`.toLowerCase();
+                    if (!fullText.includes(searchQuery)) return false;
+                }
+                return true;
+            });
+
+            const groups = [];
+            filtered.forEach(item => {
+                const last = groups[groups.length - 1];
+                if (last && last.cpNum === item.cpNum) {
+                    last.items.push(item);
+                } else {
+                    groups.push({ cpNum: item.cpNum, cp: item.cp, elemen: item.elemen, items: [item] });
+                }
+            });
+            return groups;
+        }
+
+        // Render Official Kisi-Kisi Table with CP-based Rowspan Grouping
+        function renderTable() {
+            const tbody = document.getElementById('kisi-table-body');
+            if (!tbody) return;
+
+            const groups = getFilteredGroups();
+            orderedFilteredIndicators = groups.flatMap(g => g.items);
+
+            let html = '';
+
+            groups.forEach(group => {
+                const rowCount = group.items.length;
+                const cpMeta = CP_BADGE_MAP[group.cpNum] || { badge: 'CP ' + group.cpNum, color: 'bg-teal-50 text-teal-800 border-teal-200' };
+
+                group.items.forEach((item, idxInGroup) => {
+                    // Bobot badge
+                    let bobotClass = 'bg-emerald-50 text-emerald-700 border-emerald-200';
+                    if (item.bobot === 'Sedang') bobotClass = 'bg-amber-50 text-amber-700 border-amber-200';
+                    else if (item.bobot === 'Sukar') bobotClass = 'bg-rose-50 text-rose-700 border-rose-200';
+
+                    // Bentuk badge
+                    let bentukShort = item.bentuk;
+                    let bentukSub = 'Pilihan Ganda';
+                    let bentukClass = 'bg-teal-50 text-teal-800 border-teal-200';
+                    if (item.bentuk === 'PGK') {
+                        bentukSub = 'PG Kompleks';
+                        bentukClass = 'bg-blue-50 text-blue-800 border-blue-200';
+                    } else if (item.bentuk === 'Essay') {
+                        bentukSub = 'Uraian / Isian';
+                        bentukClass = 'bg-purple-50 text-purple-800 border-purple-200';
+                    }
+
+                    // Progress badge inside indicator cell
+                    const q1Solved = userProgress[item.questions[0]?.id]?.answered;
+                    const q2Solved = userProgress[item.questions[1]?.id]?.answered;
+                    const solvedInRow = (q1Solved ? 1 : 0) + (q2Solved ? 1 : 0);
+
+                    let statusPill = '';
+                    if (solvedInRow === 2) {
+                        statusPill = `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 text-[10px] font-bold border border-emerald-200"><i class="fa-solid fa-check-double"></i> 2/2 Selesai &bull; Lihat Soal</span>`;
+                    } else if (solvedInRow === 1) {
+                        statusPill = `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-100 text-amber-800 text-[10px] font-bold border border-amber-200"><i class="fa-solid fa-hourglass-half"></i> 1/2 Selesai &bull; Lanjutkan</span>`;
+                    } else {
+                        statusPill = `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-teal-50 text-teal-700 text-[10px] font-semibold border border-teal-200/80 group-hover:bg-teal-600 group-hover:text-white group-hover:border-teal-600 transition-colors"><i class="fa-solid fa-up-right-from-square text-[9px]"></i> Buka 2 Contoh Soal</span>`;
+                    }
+
+                    const mergedCols = idxInGroup === 0 ? `
+                        <td rowspan="${rowCount}" class="px-2 py-3 text-center align-top font-bold text-slate-800 bg-slate-50/40">
+                            <div class="sticky top-20 print:static">
+                                ${group.cpNum}
+                            </div>
+                        </td>
+                        <td rowspan="${rowCount}" class="px-3 py-3 align-top bg-slate-50/60 text-[11px] sm:text-xs leading-relaxed">
+                            <div class="sticky top-20 print:static">
+                                <span class="inline-block px-2 py-0.5 rounded-md border font-bold text-[10px] mb-2 ${cpMeta.color}">
+                                    ${group.elemen}
+                                </span>
+                                <div class="text-slate-600">${group.cp}</div>
+                            </div>
+                        </td>
+                    ` : '';
+
+                    html += `
+                        <tr class="bg-white">
+                            ${mergedCols}
+                            <td class="px-3 py-3 align-top bg-white text-xs leading-snug">
+                                <div class="font-semibold text-slate-800">${item.materi}</div>
+                                <div class="text-[11px] text-slate-500 mt-1 leading-snug">${item.ipk}</div>
+                            </td>
+                            <td class="kisi-indicator-cell px-3.5 py-3 align-top cursor-pointer group" onclick="openQuestionModal(${item.no_ind})" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQuestionModal(${item.no_ind});}">
+                                <div class="flex items-start gap-2">
+                                    <span class="mt-0.5 text-teal-600 text-xs shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform no-print">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </span>
+                                    <div class="space-y-1.5">
+                                        <div class="font-semibold text-slate-800 group-hover:text-teal-700 group-hover:underline leading-snug">
+                                            ${item.indikator}
+                                        </div>
+                                        <div class="no-print">
+                                            ${statusPill}
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-2 py-3 text-center align-top">
+                                <div class="font-bold text-slate-800 text-xs mb-1">${item.level}</div>
+                                <span class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold border ${bobotClass}">
+                                    ${item.bobot}
+                                </span>
+                            </td>
+                            <td class="px-2 py-3 text-center align-top">
+                                <span class="inline-block px-2 py-0.5 rounded-md text-[11px] font-bold border ${bentukClass}">
+                                    ${bentukShort}
+                                </span>
+                                <div class="text-[10px] text-slate-500 mt-1 font-medium">${bentukSub}</div>
+                            </td>
+                            <td class="px-2 py-3 text-center align-top font-extrabold text-slate-900 text-sm">
+                                ${item.no_soal}
+                            </td>
+                        </tr>
+                    `;
+                });
+            });
+
+            tbody.innerHTML = html;
+
+            const statusElem = document.getElementById('filter-status-text');
+            if (statusElem) {
+                statusElem.innerText = `Menampilkan ${orderedFilteredIndicators.length} dari ${KISI_DATA.length} Indikator Asesmen`;
+            }
+
+            const hasActiveFilter = currentCpFilter !== 'all'
+                || (document.getElementById('filter-bentuk')?.value || 'all') !== 'all'
+                || (document.getElementById('filter-bobot')?.value || 'all') !== 'all'
+                || (document.getElementById('kisi-search')?.value || '').trim() !== '';
+
+            const resetBtn = document.getElementById('btn-reset-filter');
+            if (resetBtn) {
+                if (hasActiveFilter) resetBtn.classList.remove('hidden');
+                else resetBtn.classList.add('hidden');
+            }
+
+            const noResults = document.getElementById('no-results');
+            if (noResults) {
+                if (orderedFilteredIndicators.length === 0) noResults.classList.remove('hidden');
+                else noResults.classList.add('hidden');
+            }
+        }
+
+        // Format stimulus: markdown tables, Arabic verses/hadits, bullet points, paragraphs
+        function formatStimulusContent(rawText) {
+            if (!rawText) return '';
+
+            const lines = rawText.split('\n');
+            let resultHtml = [];
+            let tableBuffer = [];
+            let inTable = false;
+
+            function flushTable() {
+                if (tableBuffer.length === 0) return;
+
+                const headerLine = tableBuffer[0];
+                const headerCells = headerLine.split('|')
+                    .map(c => c.trim())
+                    .filter((c, idx, arr) => idx > 0 && idx < arr.length - 1);
+
+                let thead = `<thead><tr class="bg-teal-900 text-white font-bold text-[11px] sm:text-xs tracking-wide">`;
+                headerCells.forEach((h) => {
+                    const isShort = h.toLowerCase() === 'no' || h.toLowerCase() === 'kategori';
+                    const alignClass = isShort ? 'text-center w-12 sm:w-20' : 'text-left';
+                    thead += `<th class="px-3 py-2.5 border-r border-teal-800 last:border-r-0 ${alignClass}">${h}</th>`;
+                });
+                thead += `</tr></thead>`;
+
+                let tbody = `<tbody class="divide-y divide-slate-100 bg-white text-slate-800 text-xs">`;
+                for (let rIdx = 2; rIdx < tableBuffer.length; rIdx++) {
+                    const rowLine = tableBuffer[rIdx];
+                    const cells = rowLine.split('|')
+                        .map(c => c.trim())
+                        .filter((c, idx, arr) => idx > 0 && idx < arr.length - 1);
+
+                    if (cells.length > 0) {
+                        const trBg = rIdx % 2 === 0 ? 'bg-white' : 'bg-slate-50/70';
+                        tbody += `<tr class="${trBg} hover:bg-teal-50/60 transition-colors">`;
+                        cells.forEach((cellText, cIdx) => {
+                            const isFirstCol = cIdx === 0 && (cellText.length <= 3 || !isNaN(cellText));
+                            const alignClass = isFirstCol ? 'text-center font-bold text-teal-800' : 'leading-relaxed font-medium';
+                            tbody += `<td class="px-3 py-2.5 border-r border-slate-100 last:border-r-0 ${alignClass}">${cellText}</td>`;
+                        });
+                        tbody += `</tr>`;
+                    }
+                }
+                tbody += `</tbody>`;
+
+                resultHtml.push(`
+                    <div class="my-2.5 overflow-x-auto rounded-xl border border-teal-200/90 shadow-2xs bg-white">
+                        <table class="w-full text-left border-collapse">
+                            ${thead}
+                            ${tbody}
+                        </table>
+                    </div>
+                `);
+
+                tableBuffer = [];
+                inTable = false;
+            }
+
+            let textBuffer = [];
+            function flushText() {
+                if (textBuffer.length > 0) {
+                    resultHtml.push(`<p class="leading-relaxed mb-2 font-medium">${textBuffer.join('<br/>')}</p>`);
+                    textBuffer = [];
+                }
+            }
+
+            const arabicRegex = /[\u0600-\u06FF]/;
+
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+
+                if (line.startsWith('|') && line.endsWith('|')) {
+                    flushText();
+                    inTable = true;
+                    tableBuffer.push(line);
+                } else {
+                    if (inTable) {
+                        flushTable();
+                    }
+                    if (line && arabicRegex.test(line) && !line.startsWith('Artinya:') && !line.includes('(')) {
+                        flushText();
+                        resultHtml.push(`
+                            <div class="font-arabic text-lg sm:text-xl text-teal-950 bg-teal-50/70 px-4 py-3 rounded-xl border border-teal-200/70 my-2.5">
+                                ${line}
+                            </div>
+                        `);
+                    } else if (line.startsWith('- ')) {
+                        flushText();
+                        resultHtml.push(`
+                            <div class="flex items-start gap-2 py-1 pl-1">
+                                <span class="w-2 h-2 rounded-full bg-teal-600 mt-1.5 shrink-0 shadow-2xs"></span>
+                                <span class="text-xs text-slate-800 leading-relaxed font-medium">${line.substring(2)}</span>
+                            </div>
+                        `);
+                    } else if (line) {
+                        textBuffer.push(line);
+                    } else {
+                        flushText();
+                    }
+                }
+            }
+
+            if (inTable) flushTable();
+            flushText();
+
+            return resultHtml.join('');
+        }
+
+        // Render Single Interactive Question Card inside Pop-up Modal
+        function renderQuestionCard(q, qIndex) {
+            if (!q) return '<div class="p-4 bg-white rounded-xl text-xs text-slate-400">Soal belum dimuat</div>';
+
+            const userState = userProgress[q.id] || {};
+            const isAnswered = userState.answered;
+
+            let badgeHtml = '';
+            if (q.type === 'pg') {
+                badgeHtml = '<span class="px-2.5 py-0.5 rounded-md bg-teal-100 text-teal-800 text-[10px] font-bold">Pilihan Ganda</span>';
+            } else if (q.type === 'pgk') {
+                badgeHtml = '<span class="px-2.5 py-0.5 rounded-md bg-blue-100 text-blue-800 text-[10px] font-bold">Pilihan Ganda Kompleks (Centang)</span>';
+            } else {
+                badgeHtml = '<span class="px-2.5 py-0.5 rounded-md bg-purple-100 text-purple-800 text-[10px] font-bold">Uraian / Essay</span>';
+            }
+
+            let contentHtml = '';
+
+            // 1. PG Rendering
+            if (q.type === 'pg') {
+                contentHtml = `
+                    <div class="space-y-2.5 my-4">
+                        ${q.options.map((opt, oIdx) => {
+                            let optClass = "p-3 rounded-xl border border-slate-200 bg-white hover:bg-teal-50/50 hover:border-teal-400 cursor-pointer flex items-start gap-3 transition-all text-xs sm:text-sm";
+                            let iconHtml = `<span class="w-6 h-6 rounded-lg bg-slate-100 text-slate-700 font-bold flex items-center justify-center shrink-0 text-xs">${String.fromCharCode(65 + oIdx)}</span>`;
+
+                            if (isAnswered) {
+                                const isUserChoice = (userState.selectedText === opt) || (userState.selected === oIdx && !userState.selectedText);
+                                if (oIdx === q.correct) {
+                                    optClass = "p-3 rounded-xl border-2 border-emerald-500 bg-emerald-50/80 text-emerald-950 flex items-start gap-3 text-xs sm:text-sm shadow-xs";
+                                    iconHtml = `<span class="w-6 h-6 rounded-lg bg-emerald-600 text-white font-bold flex items-center justify-center shrink-0 text-xs"><i class="fa-solid fa-check"></i></span>`;
+                                } else if (isUserChoice) {
+                                    optClass = "p-3 rounded-xl border-2 border-rose-400 bg-rose-50/80 text-rose-950 flex items-start gap-3 text-xs sm:text-sm";
+                                    iconHtml = `<span class="w-6 h-6 rounded-lg bg-rose-600 text-white font-bold flex items-center justify-center shrink-0 text-xs"><i class="fa-solid fa-xmark"></i></span>`;
+                                } else {
+                                    optClass = "p-3 rounded-xl border border-slate-200 bg-slate-50/60 opacity-60 flex items-start gap-3 text-xs sm:text-sm";
+                                }
+                            }
+
+                            const clickHandler = isAnswered ? '' : `onclick="answerPG('${q.id}', ${oIdx}, ${q.correct})"`;
+                            return `
+                                <div class="${optClass}" ${clickHandler}>
+                                    ${iconHtml}
+                                    <div class="leading-relaxed font-medium flex-grow">${opt}</div>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                `;
+            }
+
+            // 2. PGK Rendering (Checkbox)
+            else if (q.type === 'pgk') {
+                const selectedTexts = userState.selectedTexts || [];
+                const selectedIndices = userState.selected || [];
+                contentHtml = `
+                    <div class="space-y-2 my-4" id="pgk-container-${q.id}">
+                        ${q.options.map((opt, oIdx) => {
+                            const isChecked = isAnswered
+                                ? (selectedTexts.length > 0 ? selectedTexts.includes(opt) : selectedIndices.includes(oIdx))
+                                : false;
+                            let optClass = "p-3 rounded-xl border border-slate-200 bg-white hover:bg-teal-50/50 hover:border-teal-400 cursor-pointer flex items-start gap-3 transition-all text-xs sm:text-sm";
+
+                            if (isAnswered) {
+                                const isCorrectAnswer = q.correct.includes(oIdx);
+                                if (isCorrectAnswer) {
+                                    optClass = "p-3 rounded-xl border-2 border-emerald-500 bg-emerald-50/80 text-emerald-950 flex items-start gap-3 text-xs sm:text-sm font-semibold";
+                                } else if (isChecked && !isCorrectAnswer) {
+                                    optClass = "p-3 rounded-xl border-2 border-rose-400 bg-rose-50/80 text-rose-950 flex items-start gap-3 text-xs sm:text-sm";
+                                } else {
+                                    optClass = "p-3 rounded-xl border border-slate-200 bg-slate-50/60 opacity-60 flex items-start gap-3 text-xs sm:text-sm";
+                                }
+                            }
+
+                            return `
+                                <label class="${optClass}">
+                                    <input type="checkbox" name="pgk_${q.id}" value="${oIdx}" ${isChecked ? 'checked' : ''} ${isAnswered ? 'disabled' : ''}
+                                        class="mt-0.5 rounded text-teal-600 focus:ring-teal-500 h-4 w-4 shrink-0">
+                                    <div class="leading-relaxed font-medium flex-grow">${opt}</div>
+                                </label>
+                            `;
+                        }).join('')}
+                    </div>
+                    ${!isAnswered ? `
+                        <div class="mt-3">
+                            <button onclick="checkPGK('${q.id}')" class="btn-clay-primary px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check"></i> Periksa Jawaban Pilihan Ganda Kompleks
+                            </button>
+                        </div>
+                    ` : ''}
+                `;
+            }
+
+            // 3. Essay Rendering
+            else if (q.type === 'essay') {
+                const textVal = userState.textAnswer || '';
+                contentHtml = `
+                    <div class="my-4">
+                        <textarea id="essay-input-${q.id}" rows="3" placeholder="Ketikkan jawaban uraian Anda di sini untuk latihan mandiri..."
+                            ${isAnswered ? 'readonly' : ''}
+                            class="w-full p-3 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-teal-500 bg-white">${textVal}</textarea>
+
+                        ${!isAnswered ? `
+                            <button onclick="submitEssay('${q.id}')" class="mt-2.5 btn-clay-primary px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+                                <i class="fa-solid fa-eye"></i> Periksa &amp; Buka Kunci Jawaban Lengkap
+                            </button>
+                        ` : ''}
+                    </div>
+                `;
+            }
+
+            // Explanation container
+            let explanationHtml = '';
+            if (isAnswered) {
+                let expTitle = "Jawaban Tepat! Pembahasan:";
+                let expBg = "bg-emerald-50 border-emerald-200 text-emerald-950";
+                let expIcon = '<i class="fa-solid fa-circle-check text-emerald-600"></i>';
+
+                if (q.type === 'essay') {
+                    expTitle = "Kunci Jawaban & Panduan Rubrik:";
+                    expBg = "bg-purple-50 border-purple-200 text-purple-950";
+                    expIcon = '<i class="fa-solid fa-graduation-cap text-purple-600"></i>';
+                } else if (userState.correct === false) {
+                    expTitle = "Belum Tepat — Pembahasan & Solusi:";
+                    expBg = "bg-amber-50 border-amber-200 text-amber-950";
+                    expIcon = '<i class="fa-solid fa-lightbulb text-amber-600"></i>';
+                }
+
+                explanationHtml = `
+                    <div class="mt-4 p-4 rounded-xl border ${expBg} text-xs leading-relaxed fade-in">
+                        <div class="font-bold flex items-center justify-between mb-2 pb-1.5 border-b border-black/10">
+                            <span class="flex items-center gap-1.5">${expIcon} ${expTitle}</span>
+                            <button onclick="resetSingleQuestion('${q.id}')" class="text-[11px] underline text-slate-600 hover:text-black">
+                                <i class="fa-solid fa-rotate-left"></i> Coba Lagi
+                            </button>
+                        </div>
+
+                        ${q.type === 'essay' ? `
+                            <div class="space-y-2">
+                                <div><strong>Model Jawaban Resmi:</strong><br/><span class="whitespace-pre-line text-slate-700">${q.model_answer || ''}</span></div>
+                                ${Array.isArray(q.keywords) && q.keywords.length > 0 ? `
+                                    <div class="pt-2 border-t border-purple-200/80"><strong>Kata Kunci Penilaian:</strong> ${q.keywords.map(k => `<span class="inline-block px-2 py-0.5 m-0.5 rounded bg-white text-purple-800 border border-purple-200 text-[10px] font-semibold">${k}</span>`).join('')}</div>
+                                ` : ''}
+                                ${q.rubric ? `<div class="pt-1 text-[11px] text-slate-500 italic">${q.rubric}</div>` : ''}
+                            </div>
+                        ` : `
+                            <div>${q.explanation || ''}</div>
+                        `}
+                    </div>
+                `;
+            }
+
+            return `
+                <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200 shadow-xs">
+                    <!-- Header Question -->
+                    <div class="flex items-center justify-between pb-2.5 mb-3 border-b border-slate-100">
+                        <span class="font-bold text-xs sm:text-sm text-teal-800 flex items-center gap-1.5 font-heading">
+                            <i class="fa-solid fa-pencil text-teal-600"></i> Contoh Soal ${qIndex}
+                        </span>
+                        ${badgeHtml}
+                    </div>
+
+                    <!-- Stimulus Box -->
+                    ${q.stimulus ? `
+                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 text-xs text-slate-700 mb-3.5 leading-relaxed font-medium">
+                            <span class="font-bold text-teal-800 uppercase tracking-wider flex items-center gap-1.5 mb-2 text-[10px]">
+                                <i class="fa-solid fa-quote-left"></i> Stimulus / Kasus:
+                            </span>
+                            ${formatStimulusContent(q.stimulus)}
+                        </div>
+                    ` : ''}
+
+                    <!-- Question Prompt -->
+                    <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-2 font-heading">
+                        ${q.question}
+                    </div>
+
+                    <!-- Options or Input -->
+                    ${contentHtml}
+
+                    <!-- Explanation -->
+                    ${explanationHtml}
+                </div>
+            `;
+        }
+
+        // ================= POPUP MODAL CONTOH SOAL HANDLERS =================
+        function openQuestionModal(noInd) {
+            activeModalIndNum = noInd;
+            renderModalContent(false);
+
+            const modal = document.getElementById('question-modal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function renderModalContent(preserveScroll) {
+            if (activeModalIndNum === null) return;
+            const item = KISI_DATA.find(x => x.no_ind === activeModalIndNum);
+            if (!item) return;
+
+            const scrollBody = document.getElementById('modal-scroll-body');
+            const prevScrollTop = scrollBody ? scrollBody.scrollTop : 0;
+
+            const cpMeta = CP_BADGE_MAP[item.cpNum] || { badge: 'CP ' + item.cpNum };
+
+            let bentukLabel = 'Pilihan Ganda (PG)';
+            if (item.bentuk === 'PGK') bentukLabel = 'Pilihan Ganda Kompleks (PGK)';
+            else if (item.bentuk === 'Essay') bentukLabel = 'Uraian / Essay';
+
+            document.getElementById('modal-ind-badge').innerText = `#${String(item.no_soal).padStart(2, '0')}`;
+            document.getElementById('modal-badge-bentuk').innerText = item.bentuk;
+            document.getElementById('modal-badge-nosoal').innerText = `No. Soal ${item.no_soal}`;
+            document.getElementById('modal-badge-level').innerText = `Level ${item.level} • ${item.bobot}`;
+            document.getElementById('modal-title').innerText = `${item.materi} — 2 Contoh Soal`;
+            document.getElementById('modal-badge-cp').innerText = cpMeta.badge;
+            document.getElementById('modal-indikator-text').innerText = item.indikator;
+
+            document.getElementById('modal-kurikulum-detail').innerHTML = `
+                <div><strong>Elemen:</strong> ${item.elemen}</div>
+                <div><strong>Materi Pokok:</strong> ${item.materi}</div>
+                <div><strong>IPK:</strong> ${item.ipk}</div>
+                <div><strong>Capaian Pembelajaran (CP):</strong> ${item.cp}</div>
+                <div><strong>Level Kognitif / Bobot:</strong> ${item.level} (${item.bobot}) &bull; <strong>Bentuk:</strong> ${bentukLabel} (No. Soal ${item.no_soal})</div>
+            `;
+
+            const listEl = document.getElementById('modal-questions-list');
+            if (listEl) {
+                listEl.innerHTML = item.questions.map((q, idx) => renderQuestionCard(q, idx + 1)).join('');
+            }
+
+            const navList = orderedFilteredIndicators.length > 0 ? orderedFilteredIndicators : KISI_DATA;
+            const currentPos = navList.findIndex(x => x.no_ind === activeModalIndNum);
+            const prevBtn = document.getElementById('modal-prev-btn');
+            const nextBtn = document.getElementById('modal-next-btn');
+            if (prevBtn) prevBtn.disabled = currentPos <= 0;
+            if (nextBtn) nextBtn.disabled = currentPos === -1 || currentPos >= navList.length - 1;
+
+            if (scrollBody) {
+                scrollBody.scrollTop = preserveScroll ? prevScrollTop : 0;
+            }
+        }
+
+        function navigateModal(direction) {
+            if (activeModalIndNum === null) return;
+            const navList = orderedFilteredIndicators.length > 0 ? orderedFilteredIndicators : KISI_DATA;
+            const currentPos = navList.findIndex(x => x.no_ind === activeModalIndNum);
+            const nextPos = currentPos + direction;
+            if (nextPos >= 0 && nextPos < navList.length) {
+                activeModalIndNum = navList[nextPos].no_ind;
+                renderModalContent(false);
+            }
+        }
+
+        function closeQuestionModal() {
+            const modal = document.getElementById('question-modal');
+            if (modal) modal.classList.add('hidden');
+            activeModalIndNum = null;
+            document.body.style.overflow = '';
+        }
+
+        function handleModalBackdropClick(event) {
+            if (event.target && event.target.id === 'question-modal') {
+                closeQuestionModal();
+            }
+        }
+
+        // ================= QUESTION INTERACTIVITY HANDLERS =================
+        function answerPG(qId, selectedIdx, correctIdx) {
+            const q = findQuestion(qId);
+            const isCorrect = selectedIdx === correctIdx;
+            const selectedText = q ? q.options[selectedIdx] : '';
+
+            userProgress[qId] = {
+                answered: true,
+                correct: isCorrect,
+                selectedText: selectedText,
+                selected: selectedIdx
+            };
+            playSound(isCorrect ? 'correct' : 'wrong');
+            saveProgress();
+            renderTable();
+            renderModalContent(true);
+        }
+
+        function checkPGK(qId) {
+            const checkboxes = document.querySelectorAll(`input[name="pgk_${qId}"]:checked`);
+            if (checkboxes.length === 0) {
+                alert("Silakan centang minimal satu pilihan jawaban sebelum memeriksa!");
+                return;
+            }
+
+            const selectedIndices = Array.from(checkboxes).map(cb => parseInt(cb.value));
+            const q = findQuestion(qId);
+            if (!q) return;
+
+            const selectedTexts = selectedIndices.map(idx => q.options[idx]);
+
+            const correctSet = new Set(q.correct);
+            const userSet = new Set(selectedIndices);
+            const isPerfect = (correctSet.size === userSet.size) && [...correctSet].every(x => userSet.has(x));
+
+            userProgress[qId] = {
+                answered: true,
+                correct: isPerfect,
+                selectedTexts: selectedTexts,
+                selected: selectedIndices
+            };
+            playSound(isPerfect ? 'correct' : 'wrong');
+            saveProgress();
+            renderTable();
+            renderModalContent(true);
+        }
+
+        function submitEssay(qId) {
+            const textarea = document.getElementById(`essay-input-${qId}`);
+            const answerText = textarea ? textarea.value.trim() : '';
+
+            userProgress[qId] = {
+                answered: true,
+                correct: true,
+                textAnswer: answerText
+            };
+            playSound('correct');
+            saveProgress();
+            renderTable();
+            renderModalContent(true);
+        }
+
+        function resetSingleQuestion(qId) {
+            delete userProgress[qId];
+            saveProgress();
+
+            const q = findQuestion(qId);
+            if (q) {
+                shuffleQuestionOptions(q);
+            }
+
+            renderTable();
+            renderModalContent(true);
+        }
+
+        // ================= FILTER HANDLERS =================
+        function setCpFilter(cp) {
+            currentCpFilter = cp;
+            document.querySelectorAll('.filter-cp-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-teal-600', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
+            });
+
+            const activeBtn = document.getElementById(`tab-cp-${cp}`);
+            if (activeBtn) {
+                activeBtn.classList.add('active', 'bg-teal-600', 'text-white', 'shadow-sm');
+                activeBtn.classList.remove('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
+            }
+
+            renderTable();
+        }
+
+        function filterIndicators() {
+            renderTable();
+        }
+
+        function resetFilters() {
+            document.getElementById('kisi-search').value = '';
+            document.getElementById('filter-bentuk').value = 'all';
+            document.getElementById('filter-bobot').value = 'all';
+            setCpFilter('all');
+        }
+
+        // Keyboard shortcuts for Modal
+        document.addEventListener('keydown', (e) => {
+            if (activeModalIndNum === null) return;
+            if (e.key === 'Escape') {
+                closeQuestionModal();
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                const tag = (document.activeElement?.tagName || '').toLowerCase();
+                if (tag === 'textarea' || tag === 'input') return;
+                navigateModal(e.key === 'ArrowLeft' ? -1 : 1);
+            }
+        });
+
+        // Init on DOM loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            shuffleAllQuestions();
+            loadProgress();
+            renderTable();
+        });
+    </script>
+</body>
+</html>
