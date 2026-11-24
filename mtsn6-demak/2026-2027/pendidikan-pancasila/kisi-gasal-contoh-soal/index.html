@@ -1373,13 +1373,13 @@
             currentBabFilter = bab;
             document.querySelectorAll('.filter-bab-btn').forEach(btn => {
                 btn.classList.remove('active', 'bg-teal-600', 'text-white', 'shadow-sm');
-                btn.classList.add('bg-slate-100', 'text-slate-700');
+                btn.classList.add('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
             });
 
             const activeBtn = document.getElementById(`tab-bab-${bab}`);
             if (activeBtn) {
                 activeBtn.classList.add('active', 'bg-teal-600', 'text-white', 'shadow-sm');
-                activeBtn.classList.remove('bg-slate-100', 'text-slate-700');
+                activeBtn.classList.remove('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
             }
 
             renderTable();

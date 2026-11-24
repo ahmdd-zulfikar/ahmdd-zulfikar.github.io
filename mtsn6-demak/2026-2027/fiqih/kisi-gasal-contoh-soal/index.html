@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisi-Kisi &amp; Latihan Soal Interaktif ASAS Gasal 2026/2027 - Fiqih Kelas 7 | MTs Negeri 6 Demak</title>
+
+    <!-- Tailwind CSS -->
+    <script src="../../tailwind.min.js"></script>
+    <script>
+        if (typeof tailwind === 'undefined') {
+            document.write('<script src="https://cdn.tailwindcss.com"><\/script>');
+        }
+    </script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    },
+                    colors: {
+                        teal: {
+                            850: '#0f5d56',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+        }
+
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        .pattern-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .fade-in {
+            animation: fadeIn 0.45s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .clay-card {
+            background: #FFFFFF;
+            border: 1.5px solid rgba(46, 150, 136, 0.18);
+            border-radius: 1.25rem;
+            box-shadow: 0 10px 25px -5px rgba(24, 49, 46, 0.06), 0 4px 10px -2px rgba(24, 49, 46, 0.03);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .clay-card:hover {
+            border-color: rgba(46, 150, 136, 0.4);
+            box-shadow: 0 14px 30px -6px rgba(24, 49, 46, 0.1);
+        }
+
+        .btn-clay-primary {
+            background: linear-gradient(145deg, #2E9688 0%, #1F786C 100%);
+            color: #FFFFFF;
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 12px rgba(31, 120, 108, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .btn-clay-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(31, 120, 108, 0.35);
+        }
+
+        .btn-clay-secondary {
+            background: #FFFFFF;
+            color: #18312E;
+            border: 1.5px solid rgba(46, 150, 136, 0.25);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.2s ease;
+        }
+
+        .btn-clay-secondary:hover {
+            background: #F3F8F6;
+            border-color: #2E9688;
+        }
+
+        .font-arabic {
+            font-family: 'Amiri', serif;
+            direction: rtl;
+            text-align: right;
+            line-height: 2.15;
+        }
+
+        @keyframes modalPop {
+            from {
+                opacity: 0;
+                transform: scale(0.96) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .animate-modal-pop {
+            animation: modalPop 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Official Kisi-Kisi Table Styling */
+        .kisi-table th,
+        .kisi-table td {
+            border: 1px solid #334155;
+        }
+
+        .kisi-indicator-cell {
+            transition: background-color 0.18s ease;
+        }
+
+        .kisi-indicator-cell:hover {
+            background-color: #f0fdfa;
+        }
+
+        @media print {
+            nav, header, footer, #controls-bar, #petunjuk-banner, #question-modal, .no-print {
+                display: none !important;
+            }
+            body {
+                background: #ffffff !important;
+                background-image: none !important;
+                color: #000000 !important;
+            }
+            main {
+                margin: 0 !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+            #kisi-document {
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                border-radius: 0 !important;
+            }
+            .kisi-table {
+                font-size: 10px !important;
+            }
+        }
+    </style>
+
+    <style id="warm-clay-theme">
+        :root {
+            --clay-bg: #F3F8F6;
+            --clay-bg-alt: #E7F1EE;
+            --clay-surface: #FFFFFF;
+            --clay-mint: #DFF3EA;
+            --clay-mint-accent: #2E9688;
+            --clay-mint-dark: #1F786C;
+            --clay-sky: #DFEEFC;
+            --clay-sky-accent: #3B82F6;
+            --clay-text-dark: #18312E;
+            --clay-text-muted: #4A6460;
+        }
+
+        body {
+            background-color: var(--clay-bg) !important;
+            color: var(--clay-text-dark) !important;
+            background-image: radial-gradient(#D1E3DD 1px, transparent 1px) !important;
+            background-size: 24px 24px !important;
+        }
+
+        nav {
+            background: rgba(214, 234, 226, 0.88) !important;
+            backdrop-filter: blur(14px) !important;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.85) !important;
+            box-shadow: 0 8px 24px -4px rgba(47, 79, 74, 0.12) !important;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-teal-200 selection:text-teal-900 overflow-x-hidden flex flex-col min-h-screen">
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Brand / Logo -->
+                <a href="../" target="_top" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                    <div class="w-9 h-9 rounded-xl bg-teal-600 flex items-center justify-center text-white shadow-sm">
+                        <i class="fa-solid fa-book-open text-base"></i>
+                    </div>
+                    <span class="font-heading font-bold text-lg tracking-wide text-slate-800">Belajar<span class="text-teal-600">Online</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="../../" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Beranda
+                    </a>
+                    <a href="../" target="_top" class="text-sm font-bold text-teal-700 bg-white px-3 py-1.5 rounded-xl border border-teal-300 shadow-sm flex items-center gap-1.5">
+                        <i class="fa-solid fa-book-quran text-teal-600"></i> Fiqih
+                    </a>
+                    <a href="../../akidah-akhlak/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Akidah Akhlak
+                    </a>
+                    <a href="../../pendidikan-pancasila/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Pendidikan Pancasila
+                    </a>
+                    <a href="../../formatif/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Uji Kompetensi
+                    </a>
+                    <a href="../../nilai-siswa/" target="_top" class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors">
+                        Rekap Nilai
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-slate-600 hover:text-teal-600 focus:outline-none p-2" aria-label="Menu">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-slate-200/60 shadow-lg absolute w-full px-4 pt-3 pb-5 space-y-2">
+            <a href="../../" target="_top" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50">Beranda</a>
+            <a href="../" target="_top" class="block px-3 py-2 rounded-xl text-sm font-bold text-teal-800 bg-teal-50 border border-teal-200">Fiqih</a>
+            <a href="../../akidah-akhlak/" target="_top" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50">Akidah Akhlak</a>
+            <a href="../../pendidikan-pancasila/" target="_top" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50">Pendidikan Pancasila</a>
+            <a href="../../formatif/" target="_top" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50">Uji Kompetensi</a>
+            <a href="../../nilai-siswa/" target="_top" class="block px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-teal-50">Rekap Nilai</a>
+        </div>
+    </nav>
+
+    <!-- ================= HERO HEADER ================= -->
+    <header class="w-full bg-teal-900 relative pt-24 pb-16 sm:pt-28 sm:pb-20 overflow-hidden pattern-bg">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-teal-900/80 to-teal-950"></div>
+        <div class="container mx-auto px-4 relative z-10 max-w-5xl text-center">
+
+            <!-- Breadcrumb Navigation -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 text-teal-800 text-xs font-semibold mb-4 shadow-sm border border-white">
+                <a href="../" class="hover:underline flex items-center gap-1.5">
+                    <i class="fa-solid fa-arrow-left"></i> Kembali ke Modul Fiqih
+                </a>
+                <span>&bull;</span>
+                <span class="text-teal-600">Kelas VII Gasal</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-2xl sm:text-4xl font-extrabold text-white mb-3 font-heading tracking-tight leading-tight">
+                Kisi-Kisi &amp; Contoh Soal Interaktif <span class="text-amber-400">ASAS Gasal 2026/2027</span>
+            </h1>
+
+            <p class="text-teal-100/90 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed mb-5 font-medium">
+                Tabel kisi-kisi resmi <strong>Fiqih Kelas VII</strong>. Klik salah satu <strong>Indikator Soal</strong> di dalam tabel untuk memunculkan pop-up <strong>2 contoh soal interaktif</strong> beserta kunci jawaban &amp; pembahasan syar'i lengkap.
+            </p>
+
+            <!-- Metadata Badges -->
+            <div class="flex flex-wrap items-center justify-center gap-2 text-xs font-semibold text-teal-900">
+                <span class="px-3 py-1.5 rounded-full bg-white/95 border border-white shadow-sm flex items-center gap-1.5">
+                    <i class="fa-solid fa-school text-teal-600"></i> MTs Negeri 6 Demak
+                </span>
+                <span class="px-3 py-1.5 rounded-full bg-white/95 border border-white shadow-sm flex items-center gap-1.5">
+                    <i class="fa-solid fa-chalkboard-user text-blue-600"></i> Penyusun: <strong>Arina Zakiyyah Yazid, S.Pd.I.</strong>
+                </span>
+                <span class="px-3 py-1.5 rounded-full bg-white/95 border border-white shadow-sm flex items-center gap-1.5">
+                    <i class="fa-solid fa-list-check text-emerald-600"></i> <strong>35 Indikator &bull; 70 Soal Latihan</strong>
+                </span>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- ================= MAIN CONTENT : FORMAT TABEL KISI-KISI ================= -->
+    <main class="flex-grow w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 -mt-8 sm:-mt-10 relative z-20 pb-20">
+
+        <!-- CONTROLS, FILTER & PROGRESS BAR -->
+        <div id="controls-bar" class="clay-card p-4 sm:p-5 mb-6 bg-white/95 backdrop-blur-md">
+            <!-- Top Row: Progress & Action Buttons -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 mb-4 border-b border-slate-100">
+                <!-- Progress Summary -->
+                <div class="flex-grow max-w-xl">
+                    <div class="flex justify-between items-center text-xs font-semibold text-slate-700 mb-1.5">
+                        <span class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-circle-check text-emerald-600"></i> Progres Latihan Mandiri:
+                            <strong id="stat-solved-count" class="text-teal-800">0 / 70</strong>
+                        </span>
+                        <span id="progress-percent" class="text-teal-700 font-bold">0% Selesai</span>
+                    </div>
+                    <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden border border-slate-200/80">
+                        <div id="progress-bar-fill" class="h-full bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full transition-all duration-500 w-0"></div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap items-center gap-2 text-xs font-semibold">
+                    <span class="px-2.5 py-1.5 rounded-xl bg-teal-50 border border-teal-200 text-teal-800 flex items-center gap-1.5 font-medium">
+                        <i class="fa-solid fa-shuffle text-teal-600"></i> Opsi Acak Otomatis
+                    </span>
+                    <button onclick="window.print()" class="btn-clay-secondary px-3 py-1.5 rounded-xl flex items-center gap-1.5 hover:bg-teal-50">
+                        <i class="fa-solid fa-print text-teal-600"></i> Cetak Kisi-Kisi
+                    </button>
+                    <button onclick="resetAllProgress()" class="px-3 py-1.5 rounded-xl border border-slate-200 bg-white text-slate-500 hover:text-rose-600 hover:border-rose-200 hover:bg-rose-50 flex items-center gap-1.5 transition-colors">
+                        <i class="fa-solid fa-rotate-left"></i> Reset Progres
+                    </button>
+                </div>
+            </div>
+
+            <!-- Search & Filters Row -->
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+                <!-- Search Input -->
+                <div class="relative flex-grow max-w-md">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <input type="text" id="kisi-search" placeholder="Cari indikator, nomor soal, thaharah, shalat, dzikir..."
+                        oninput="filterIndicators()"
+                        class="w-full pl-10 pr-4 py-2 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 bg-slate-50/70">
+                </div>
+
+                <!-- CP Tabs & Dropdowns -->
+                <div class="flex flex-wrap items-center gap-2 text-xs font-semibold">
+                    <button onclick="setCpFilter('all')" id="tab-cp-all" class="filter-cp-btn active px-3 py-1.5 rounded-xl bg-teal-600 text-white shadow-sm transition-colors">
+                        Semua (35)
+                    </button>
+                    <button onclick="setCpFilter('1')" id="tab-cp-1" class="filter-cp-btn px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">
+                        CP 1: Bersuci (12)
+                    </button>
+                    <button onclick="setCpFilter('2')" id="tab-cp-2" class="filter-cp-btn px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">
+                        CP 2: Shalat Fardlu (9)
+                    </button>
+                    <button onclick="setCpFilter('3')" id="tab-cp-3" class="filter-cp-btn px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">
+                        CP 3: Berjamaah (10)
+                    </button>
+                    <button onclick="setCpFilter('4')" id="tab-cp-4" class="filter-cp-btn px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">
+                        CP 4: Dzikir &amp; Do'a (4)
+                    </button>
+
+                    <select id="filter-bentuk" onchange="filterIndicators()" class="px-2.5 py-1.5 rounded-xl border border-slate-200 bg-white text-slate-700 font-medium focus:ring-2 focus:ring-teal-500">
+                        <option value="all">Semua Bentuk</option>
+                        <option value="PG">PG (20)</option>
+                        <option value="PGK">PGK (10)</option>
+                        <option value="Uraian">Uraian (5)</option>
+                    </select>
+
+                    <select id="filter-bobot" onchange="filterIndicators()" class="px-2.5 py-1.5 rounded-xl border border-slate-200 bg-white text-slate-700 font-medium focus:ring-2 focus:ring-teal-500">
+                        <option value="all">Semua Tingkat</option>
+                        <option value="Sedang">Sedang</option>
+                        <option value="Sukar">Sukar</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Filter Status Bar -->
+            <div class="flex items-center justify-between text-xs text-slate-500 mt-3 pt-2.5 border-t border-slate-100 font-medium">
+                <span id="filter-status-text">Menampilkan 35 dari 35 Indikator Asesmen</span>
+                <button id="btn-reset-filter" onclick="resetFilters()" class="hidden text-teal-700 hover:underline font-semibold">
+                    <i class="fa-solid fa-filter-circle-xmark"></i> Reset Filter
+                </button>
+            </div>
+        </div>
+
+        <!-- OFFICIAL KISI-KISI PAPER DOCUMENT -->
+        <div id="kisi-document" class="bg-white shadow-xl p-5 sm:p-8 lg:p-10 border border-slate-300 rounded-2xl text-slate-800">
+
+            <!-- Document Kop / Header -->
+            <div class="text-center mb-6 border-b-[3px] border-double border-slate-800 pb-4">
+                <h2 class="text-base sm:text-xl font-extrabold uppercase tracking-wide font-heading text-slate-900">
+                    Kisi-Kisi Penulisan Soal Asesmen Sumatif Akhir Semester (ASAS) Gasal
+                </h2>
+                <h3 class="text-xs sm:text-base font-bold uppercase mt-1 font-heading text-slate-700">
+                    Madrasah Tsanawiyah Negeri 6 Demak Tahun Ajaran 2026/2027
+                </h3>
+            </div>
+
+            <!-- Official Metadata Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1 mb-6 text-xs sm:text-sm text-slate-800">
+                <table class="w-full">
+                    <tbody>
+                        <tr>
+                            <td class="w-36 sm:w-40 py-1 font-bold text-slate-700 align-top">Satuan Pendidikan</td>
+                            <td class="w-4 py-1 text-center align-top">:</td>
+                            <td class="py-1 font-medium">MTs Negeri 6 Demak</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1 font-bold text-slate-700 align-top">Mata Pelajaran</td>
+                            <td class="py-1 text-center align-top">:</td>
+                            <td class="py-1 font-bold text-teal-800">Fiqih</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1 font-bold text-slate-700 align-top">Kelas / Semester</td>
+                            <td class="py-1 text-center align-top">:</td>
+                            <td class="py-1 font-medium">VII (Tujuh) / Gasal</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1 font-bold text-slate-700 align-top">Kurikulum</td>
+                            <td class="py-1 text-center align-top">:</td>
+                            <td class="py-1 font-medium">Kurikulum Merdeka</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="w-full">
+                    <tbody>
+                        <tr>
+                            <td class="w-36 sm:w-40 py-1 font-bold text-slate-700 align-top">Tahun Ajaran</td>
+                            <td class="w-4 py-1 text-center align-top">:</td>
+                            <td class="py-1 font-medium">2026 / 2027</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1 font-bold text-slate-700 align-top">Jumlah Soal</td>
+                            <td class="py-1 text-center align-top">:</td>
+                            <td class="py-1 font-medium">35 Butir (20 PG, 10 PGK, 5 Uraian)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1 font-bold text-slate-700 align-top">Bentuk Soal</td>
+                            <td class="py-1 text-center align-top">:</td>
+                            <td class="py-1 font-medium">Pilihan Ganda, PG Kompleks, &amp; Uraian</td>
+                        </tr>
+                        <tr>
+                            <td class="py-1 font-bold text-slate-700 align-top">Penyusun</td>
+                            <td class="py-1 text-center align-top">:</td>
+                            <td class="py-1 font-medium">Arina Zakiyyah Yazid, S.Pd.I.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Interactive Instructions Banner -->
+            <div id="petunjuk-banner" class="bg-teal-50/90 border-l-4 border-teal-600 p-3.5 sm:p-4 mb-6 rounded-r-xl flex items-start sm:items-center gap-3">
+                <i class="fa-solid fa-hand-pointer text-teal-600 text-base sm:text-lg shrink-0 mt-0.5 sm:mt-0"></i>
+                <p class="text-xs sm:text-sm text-teal-950 leading-relaxed">
+                    <strong>Petunjuk Interaktif:</strong> Klik salah satu teks pada kolom <strong>"INDIKATOR SOAL"</strong> yang bertanda ikon <i class="fa-solid fa-arrow-up-right-from-square text-teal-600 mx-0.5"></i> untuk membuka <strong>pop-up 2 contoh soal interaktif</strong> lengkap dengan simulasi pengerjaan, kunci jawaban, dan pembahasan syar'i.
+                </p>
+            </div>
+
+            <!-- Main Official Kisi-Kisi Table -->
+            <div class="overflow-x-auto rounded-lg border border-slate-700">
+                <table class="kisi-table w-full border-collapse text-xs sm:text-[13px] text-slate-800 min-w-[780px]">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-900 font-bold uppercase text-[11px] sm:text-xs tracking-wide">
+                            <th class="px-2 py-3 w-11 text-center">No.</th>
+                            <th class="px-3 py-3 w-56 text-left">Elemen &amp; CP</th>
+                            <th class="px-3 py-3 w-44 text-left">Materi Pokok</th>
+                            <th class="px-3.5 py-3 text-left">Indikator Soal <span class="normal-case font-medium text-teal-700 no-print">(Klik untuk Contoh Soal)</span></th>
+                            <th class="px-2 py-3 w-24 text-center">Level / Bobot</th>
+                            <th class="px-2.5 py-3 w-24 text-center">Bentuk Soal</th>
+                            <th class="px-2 py-3 w-16 text-center">No. Soal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="kisi-table-body">
+                        <!-- Dynamically rendered by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Empty Filter State -->
+            <div id="no-results" class="hidden text-center py-12 px-4 border border-t-0 border-slate-300 rounded-b-lg bg-slate-50/50">
+                <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <h3 class="text-base font-bold text-slate-700 mb-1">Tidak Ditemukan Indikator</h3>
+                <p class="text-xs sm:text-sm text-slate-500">Coba ubah kata kunci pencarian atau sesuaikan pilihan filter di atas.</p>
+                <button onclick="resetFilters()" class="mt-4 px-4 py-2 bg-teal-600 text-white text-xs font-bold rounded-xl shadow-sm hover:bg-teal-700 transition-colors">
+                    Reset Filter
+                </button>
+            </div>
+
+            <!-- Signature Block (Classic Kisi-Kisi Footer) -->
+            <div class="mt-10 pt-6 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center sm:items-start gap-8 text-xs sm:text-sm text-slate-700">
+                <div class="text-center sm:text-left">
+                    <p class="text-slate-500 text-xs font-semibold">Keterangan Bentuk Soal:</p>
+                    <ul class="mt-1 space-y-0.5 text-xs text-slate-600">
+                        <li><strong>PG</strong> = Pilihan Ganda Biasa (No. 1 &ndash; 20)</li>
+                        <li><strong>PGK</strong> = Pilihan Ganda Kompleks (No. 21 &ndash; 30)</li>
+                        <li><strong>Uraian</strong> = Soal Uraian / Esai (No. 31 &ndash; 35)</li>
+                    </ul>
+                </div>
+                <div class="text-center sm:text-right">
+                    <p class="mb-0.5 text-slate-600">Demak, Tahun Ajaran 2026/2027</p>
+                    <p class="mb-14 font-bold text-slate-800">Penyusun Kisi-Kisi,</p>
+                    <p class="font-bold underline text-slate-900">Arina Zakiyyah Yazid, S.Pd.I.</p>
+                    <p class="text-xs text-slate-500">MTs Negeri 3 Demak</p>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- ================= POPUP MODAL CONTOH SOAL ================= -->
+    <div id="question-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" onclick="handleModalBackdropClick(event)" class="hidden fixed inset-0 z-[9999] bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-2.5 sm:p-5">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[92vh] flex flex-col overflow-hidden border border-slate-200 animate-modal-pop" onclick="event.stopPropagation()">
+
+            <!-- Modal Header -->
+            <div class="px-4 sm:px-6 py-4 bg-gradient-to-r from-teal-800 to-teal-900 text-white flex items-center justify-between gap-3 shrink-0 border-b border-teal-700">
+                <div class="flex items-center gap-3 min-w-0">
+                    <div id="modal-ind-badge" class="w-10 h-10 rounded-xl bg-white/15 border border-white/25 text-amber-300 font-extrabold flex items-center justify-center text-sm shrink-0 font-heading">
+                        #01
+                    </div>
+                    <div class="min-w-0">
+                        <div class="flex flex-wrap items-center gap-1.5 mb-0.5">
+                            <span id="modal-badge-bentuk" class="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-amber-400 text-teal-950">PG</span>
+                            <span id="modal-badge-nosoal" class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-white/15 text-white border border-white/20">No. Soal 1</span>
+                            <span id="modal-badge-level" class="px-2 py-0.5 rounded-md text-[10px] font-bold bg-teal-950/50 text-teal-200">Level C2 &bull; Sedang</span>
+                        </div>
+                        <h3 id="modal-title" class="font-bold font-heading text-sm sm:text-base text-white truncate">Simulasi 2 Contoh Soal Interaktif</h3>
+                    </div>
+                </div>
+                <button onclick="closeQuestionModal()" aria-label="Tutup Pop-up"
+                    class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-teal-100 hover:text-white flex items-center justify-center transition-colors shrink-0">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body (Scrollable) -->
+            <div id="modal-scroll-body" class="p-4 sm:p-6 overflow-y-auto flex-grow bg-slate-50/90 space-y-5">
+
+                <!-- Indikator Banner -->
+                <div class="bg-white border-l-4 border-teal-600 p-4 rounded-r-xl shadow-xs border border-slate-200">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+                        <span class="text-[10px] font-extrabold uppercase tracking-wider text-teal-700 flex items-center gap-1.5">
+                            <i class="fa-solid fa-bullseye"></i> Indikator Soal
+                        </span>
+                        <span id="modal-badge-cp" class="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-teal-50 text-teal-800 border border-teal-200"></span>
+                    </div>
+                    <p id="modal-indikator-text" class="text-slate-800 font-bold text-sm sm:text-base leading-snug font-heading"></p>
+
+                    <!-- Collapsible Kurikulum Details -->
+                    <details class="mt-3 pt-2.5 border-t border-slate-100 group text-xs">
+                        <summary class="cursor-pointer font-semibold text-slate-600 hover:text-teal-700 flex items-center justify-between list-none select-none">
+                            <span class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-circle-info text-teal-600"></i>
+                                <span>Lihat Rincian Kurikulum (Elemen, Materi Pokok, &amp; CP)</span>
+                            </span>
+                            <i class="fa-solid fa-chevron-down text-slate-400 text-[10px] group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div id="modal-kurikulum-detail" class="mt-2.5 space-y-1.5 text-slate-600 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200/70">
+                            <!-- Filled dynamically -->
+                        </div>
+                    </details>
+                </div>
+
+                <!-- 2 Questions Container -->
+                <div id="modal-questions-list" class="space-y-5">
+                    <!-- Rendered dynamically -->
+                </div>
+
+            </div>
+
+            <!-- Modal Footer with Prev / Next Navigation -->
+            <div class="px-4 sm:px-6 py-3.5 bg-white border-t border-slate-200 flex flex-wrap items-center justify-between gap-2 shrink-0">
+                <div class="flex items-center gap-2">
+                    <button id="modal-prev-btn" onclick="navigateModal(-1)"
+                        class="px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-teal-50 hover:border-teal-300 text-slate-700 hover:text-teal-800 text-xs font-bold flex items-center gap-1.5 transition-colors disabled:opacity-40 disabled:cursor-not-allowed">
+                        <i class="fa-solid fa-chevron-left text-[10px]"></i> Sebelumnya
+                    </button>
+                    <button id="modal-next-btn" onclick="navigateModal(1)"
+                        class="px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-teal-50 hover:border-teal-300 text-slate-700 hover:text-teal-800 text-xs font-bold flex items-center gap-1.5 transition-colors disabled:opacity-40 disabled:cursor-not-allowed">
+                        Berikutnya <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </button>
+                </div>
+                <button onclick="closeQuestionModal()"
+                    class="px-5 py-2 rounded-xl bg-slate-800 hover:bg-slate-900 text-white font-bold text-xs transition-colors">
+                    Tutup Pop-up
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-teal-950 text-teal-200 py-12 border-t border-teal-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <a href="../" target="_top" class="inline-flex items-center justify-center gap-3 text-white hover:opacity-80 transition-opacity">
+                <div class="w-8 h-8 rounded-lg bg-teal-600 flex items-center justify-center text-white">
+                    <i class="fa-solid fa-book-open text-sm"></i>
+                </div>
+                <span class="font-heading font-bold text-xl tracking-wide">Belajar<span class="text-teal-400">Online</span></span>
+            </a>
+
+            <p class="text-xs sm:text-sm text-teal-400/80 max-w-lg mx-auto">
+                Portal Belajar Online &bull; Asesmen Sumatif Akhir Semester (ASAS) Fiqih Kelas VII MTs Negeri 6 Demak.
+            </p>
+
+            <div class="pt-6 border-t border-teal-900/50 text-xs text-teal-500 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <p>&copy; 2026 Ahmad Zulfikar, S.Pd. &bull; Penyusun Kisi-Kisi: Arina Zakiyyah Yazid, S.Pd.I. &bull; MTs Negeri 6 Demak</p>
+                <div class="flex items-center gap-4 text-xs text-teal-400">
+                    <a href="../" class="hover:underline">Modul Fiqih</a>
+                    <span>&bull;</span>
+                    <a href="../../akidah-akhlak/" class="hover:underline">Akidah Akhlak</a>
+                    <span>&bull;</span>
+                    <a href="../../pendidikan-pancasila/" class="hover:underline">Pendidikan Pancasila</a>
+                    <span>&bull;</span>
+                    <a href="../../formatif/" class="hover:underline">Uji Kompetensi</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT APP LOGIC ================= -->
+    <script>
+        // DATA KISI-KISI & SOAL INTERAKTIF RESMI FIQIH KELAS 7 GASAL
+        const KISI_DATA = [{"no_ind": 1, "elemen": "Tata Cara Bersuci dari Hadast dan Najis", "cp": "Memahami tata cara beribadah yang baik dan benar melalui kajian naqli dan aqli yang meliputi thaharah dari hadas dan najis, berbagai macam salat dan rukhshohnya.", "materi": "Ketentuan Thaharah", "indikator": "Disajikan pernyataan, peserta didik mampu memahami ketentuan Thaharah", "bentuk": "PG", "no_soal": 1, "level": "C2", "bobot": "Sedang", "questions": [{"id": "q1_1", "type": "pg", "stimulus": "Thaharah merupakan salah satu ajaran pokok dalam syariat Islam yang menjadi kunci utama diterimanya ibadah shalat. Rasulullah SAW menegaskan bahwa kesucian lahiriah dan batiniah adalah cerminan keimanan seorang muslim.", "question": "Secara istilah syariat Islam (fiqih), pengertian thaharah yang paling tepat adalah...", "options": ["Menghilangkan hadas atau membersihkan najis dari badan, pakaian, dan tempat shalat sesuai ketentuan syariat", "Mandi menggunakan air wangi dan sabun antiseptik sebelum keluar rumah", "Membersihkan badan dan pakaian agar terlihat rapi dan elok di hadapan manusia", "Menahan diri dari hal-hal yang membatalkan puasa sejak terbit fajar hingga terbenam matahari"], "correct": 0, "explanation": "Secara bahasa, thaharah berarti bersih atau suci. Sedangkan secara istilah syariat Islam, thaharah adalah bersuci dari hadas (dengan wudhu, mandi, atau tayamum) dan membersihkan najis dari tubuh, pakaian, serta tempat shalat dengan tata cara yang diatur syariat Islam."}, {"id": "q1_2", "type": "pg", "stimulus": "Perhatikan pernyataan berikut:\n(1) Mengangkat hadas kecil dengan berwudhu.\n(2) Menghilangkan hadas besar dengan mandi wajib.\n(3) Menyemprotkan parfum mewah agar badan harum semata.\n(4) Membersihkan badan, pakaian, dan tempat dari najis sebelum shalat.", "question": "Berdasarkan pernyataan tersebut, tindakan yang secara sah memenuhi ketentuan hakikat thaharah dalam syariat Islam ditunjukkan oleh nomor...", "options": ["(1), (2), dan (4)", "(1), (2), dan (3)", "(2), (3), dan (4)", "(1), (3), dan (4)"], "correct": 0, "explanation": "Ketentuan pokok thaharah dalam syariat meliputi dua hal utama: bersuci dari hadas (kecil dengan wudhu/tayamum, besar dengan mandi janabah/tayamum) dan bersuci dari najis (membersihkan badan, pakaian, dan tempat shalat). Penggunaan parfum semata tanpa bersuci bukan bagian dari hakikat thaharah syar'i."}]}, {"no_ind": 2, "elemen": "Tata Cara Bersuci dari Hadast dan Najis", "cp": "Memahami tata cara beribadah yang baik dan benar melalui kajian naqli dan aqli yang meliputi thaharah dari hadas dan najis.", "materi": "Alat Bersuci Selain Air (Istinja')", "indikator": "Disajikan peristiwa, peserta didik dapat menentukan benda selain air untuk bersuci", "bentuk": "PG", "no_soal": 2, "level": "C2", "bobot": "Sedang", "questions": [{"id": "q2_1", "type": "pg", "stimulus": "Rasyid sedang mendaki gunung dan hendak buang hajat kecil. Di sekitar lokasi perkemahan, air yang tersedia sangat terbatas dan hanya cukup untuk minum. Rasyid memutuskan untuk melakukan istinja' menggunakan benda padat.", "question": "Benda padat yang memenuhi syarat syar'i untuk digunakan istinja' pengganti air oleh Rasyid adalah...", "options": ["Batu yang suci, kering, kesat, dan memiliki minimal 3 sisi pembersih", "Tulang binatang yang kering dan halus", "Roti atau biskuit kering bekal perjalanan", "Kaca jendela yang licin dan berkilap"], "correct": 0, "explanation": "Syarat benda padat untuk istinja' adalah: suci, padat dan kesat (dapat menyerap/mengangkat kotoran), tidak dihormati/dimuliakan (bukan makanan, bukan kertas bertuliskan ayat/ilmu), serta bukan tulang atau kotoran kering (karena merupakan makanan jin sebagaimana hadits Nabi SAW)."}, {"id": "q2_2", "type": "pg", "stimulus": "Seorang musafir terpaksa beristinja' tanpa air di sebuah hutan. Di dekatnya terdapat beberapa benda: pecahan genting kering, kertas tisu kering, tulang belulang rusa, dan lembaran daun talas yang licin berlilin.", "question": "Di antara benda-benda tersebut, benda yang dilarang digunakan untuk istinja' karena merupakan makanan bangsa jin menurut hadits Rasulullah SAW adalah...", "options": ["Tulang belulang", "Pecahan genting kering", "Kertas tisu kering", "Batu kerikil"], "correct": 0, "explanation": "Rasulullah SAW melarang beristinja' menggunakan tulang dan kotoran binatang kering (tahi kering), sebagaimana sabda beliau: 'Janganlah kalian beristinja' dengan kotoran dan tulang, karena keduanya merupakan makanan saudara kalian dari bangsa jin' (HR. Muslim)."}]}, {"no_ind": 3, "elemen": "Tata Cara Bersuci dari Hadast dan Najis", "cp": "Memahami tata cara beribadah yang baik dan benar melalui kajian naqli dan aqli yang meliputi thaharah dari hadas dan najis.", "materi": "Macam-Macam Hadast", "indikator": "Disajikan peristiwa, peserta didik dapat menentukan macam-macam hadast", "bentuk": "PG", "no_soal": 3, "level": "C3", "bobot": "Sedang", "questions": [{"id": "q3_1", "type": "pg", "stimulus": "Pada hari Minggu, Salman tertidur pulas dalam posisi berbaring di sofa ruang tamu sehingga tidak sadar akan keadaan sekitarnya. Sementara itu kakaknya, Maryam, baru saja bersih dari darah haid yang berlangsung selama enam hari.", "question": "Berdasarkan peristiwa tersebut, status hadas yang dialami oleh Salman dan Maryam secara berturut-turut adalah...", "options": ["Salman berhadas kecil, sedangkan Maryam berhadas besar", "Salman berhadas besar, sedangkan Maryam berhadas kecil", "Keduanya berhadas kecil karena terjadi saat berada di rumah", "Keduanya berhadas besar dan wajib mandi bersamaan"], "correct": 0, "explanation": "Tidur pulas dalam keadaan berbaring/tidak menetapkan pantat di lantai membatalkan wudhu sehingga menyebabkan hadas kecil. Sedangkan selesainya masa darah haid menyebabkan hadas besar yang mewajibkan mandi janabah (mandi besar)."}, {"id": "q3_2", "type": "pg", "stimulus": "Perhatikan kondisi empat siswa berikut:\n1. Farhan buang air kecil di toilet madrasah.\n2. Lathifah mengalami nifas setelah melahirkan.\n3. Yusuf terbangun dari tidur dan mengalami mimpi basah (ihtilam).\n4. Zahra bersentuhan kulit dengan teman laki-laki sebangku yang bukan mahram tanpa penghalang.", "question": "Siswa yang mengalami hadas besar dan wajib melakukan mandi janabah ditunjukkan oleh nomor...", "options": ["2 dan 3", "1 dan 4", "1 dan 3", "2 dan 4"], "correct": 0, "explanation": "Hadas besar disebabkan oleh: keluarnya air mani (mimpi basah), hubungan suami istri, haid, nifas, wiladah (melahirkan), dan kematian. Oleh karena itu Lathifah (nifas) dan Yusuf (mimpi basah) berhadas besar. Sedangkan Farhan dan Zahra hanya berhadas kecil."}]}, {"no_ind": 4, "elemen": "Tata Cara Bersuci dari Hadast dan Najis", "cp": "Memahami tata cara beribadah yang baik dan benar melalui kajian naqli dan aqli yang meliputi thaharah dari hadas dan najis.", "materi": "Pembagian Jenis Air (Thahir Ghairu Muthahhir)", "indikator": "Disajikan tabel jenis-jenis air, peserta didik dapat menentukan air thahir ghoiru muthahir", "bentuk": "PG", "no_soal": 4, "level": "C3", "bobot": "Sukar", "questions": [{"id": "q4_1", "type": "pg", "stimulus": "Perhatikan tabel jenis-jenis air berikut:\n\n| No | Nama Air | Keterangan |\n|---|---|---|\n| 1 | Air hujan murni | Ditampung langsung dari langit di ember bersih |\n| 2 | Air teh manis hangat | Air matang yang dicampur daun teh dan gula |\n| 3 | Air kelapa muda | Berasal langsung dari buah kelapa segar |\n| 4 | Air sisa wudhu < 2 qullah | Telah menetes dari basuhan rukun wudhu |\n| 5 | Air sumur kemasukan kotoran ayam | Berubah warna menjadi keruh dan berbau busuk |", "question": "Berdasarkan tabel tersebut, air yang berstatus suci pada zatnya namun tidak dapat digunakan untuk menyucikan hadas maupun najis (Thahir Ghairu Muthahhir) ditunjukkan oleh nomor...", "options": ["2, 3, dan 4", "1, 2, dan 3", "1, 4, dan 5", "3, 4, dan 5"], "correct": 0, "explanation": "Air thahir ghairu muthahhir (suci tidak menyucikan) mencakup: (a) Air mutaghayyir: air suci yang berubah sifatnya (rasa/warna/bau) karena bercampur benda suci seperti air teh, kopi, sirup, atau air perasan buah seperti air kelapa; (b) Air musta'mal: air sedikit (kurang 2 qullah) yang telah digunakan untuk membasuh hadas wajib. Air hujan adalah thahir muthahhir (suci menyucikan), sedangkan air berubah najis adalah air mutanajjis."}, {"id": "q4_2", "type": "pg", "stimulus": "Di dapur madrasah tersedia segelas air sirup melon, semangkok air tajin beras rebus, dan sebotol air sumur alami. Ibu kantin menjelaskan bahwa air sirup dan air tajin halal dan suci untuk diminum.", "question": "Hukum menggunakan air sirup melon dan air tajin tersebut untuk berwudhu adalah...", "options": ["Tidak sah, karena air tersebut suci tetapi tidak dapat menyucikan (thahir ghairu muthahhir)", "Sah dan berpahala, karena rasanya manis dan bersih", "Makruh, karena sebaiknya air manis diminum saja", "Haram mutlak, karena termasuk perbuatan menajiskan air"], "correct": 0, "explanation": "Air yang telah dicampur dengan benda suci lain sehingga nama aslinya berubah (bukan lagi air mutlak murni) hukumnya adalah suci zatnya (boleh diminum), namun tidak sah digunakan untuk bersuci mengangkat hadas maupun najis (thahir ghairu muthahhir)."}]}, {"no_ind": 5, "elemen": "Tata Cara Bersuci dari Hadast dan Najis", "cp": "Memahami tata cara beribadah yang baik dan benar melalui kajian naqli dan aqli yang meliputi thaharah dari hadas dan najis.", "materi": "Pembagian Najis Mutawassithah", "indikator": "Disajikan pernyataan, peserta didik menentukan jenis-jenis najis mutawasithah", "bentuk": "PG", "no_soal": 5, "level": "C2", "bobot": "Sedang", "questions": [{"id": "q5_1", "type": "pg", "stimulus": "Najis Mutawassithah (najis sedang) dalam ilmu fiqih terbagi menjadi dua macam, yaitu Najis 'Ainiyyah dan Najis Hukmiyyah. Keduanya memiliki karakteristik dan cara pensucian yang berbeda.", "question": "Pernyataan yang tepat mengenai ciri utama dari Najis Mutawassithah Hukmiyyah adalah...", "options": ["Najis yang diyakini keberadaannya pada suatu benda, namun wujud fisik, rasa, bau, dan warnanya sudah tidak tampak", "Najis yang masih sangat jelas terlihat warna merahnya dan tercium bau anyirnya", "Najis dari air kencing bayi laki-laki berusia di bawah dua tahun yang hanya meminum ASI", "Najis berat yang berasal dari air liur dan kotoran anjing atau babi"], "correct": 0, "explanation": "Najis Mutawassithah terbagi dua: (1) 'Ainiyyah: masih memiliki sifat nyata (ada wujud fisik, warna, bau, atau rasa); (2) Hukmiyyah: secara hukum dihukumi ada najis (misal terkena percikan kencing yang sudah kering), namun sifat fisiknya (warna, bau, rasa) sudah tidak tampak lagi. Pensucian hukmiyyah cukup dengan mengalirkan air mutlak di atas tempat tersebut."}, {"id": "q5_2", "type": "pg", "stimulus": "Baju seragam Fajar terkena tumpahan kuah darah ayam potong saat berjalan di pasar. Bekas darah tersebut berwarna merah kecokelatan, berbau amis, dan meninggalkan noda tebal pada kain bajunya.", "question": "Berdasarkan sifat fisiknya, jenis najis yang menempel pada seragam Fajar adalah...", "options": ["Najis Mutawassithah 'Ainiyyah", "Najis Mutawassithah Hukmiyyah", "Najis Mukhaffafah", "Najis Mughalazhah"], "correct": 0, "explanation": "Darah termasuk najis mutawassithah. Karena sifat fisiknya masih terlihat jelas wujudnya, warnanya merah, dan tercium bau amisnya, maka najis tersebut dikategorikan sebagai Najis Mutawassithah 'Ainiyyah."}]}, {"no_ind": 6, "elemen": "Tata Cara Bersuci dari Hadast dan Najis", "cp": "Memahami tata cara beribadah yang baik dan benar melalui kajian naqli dan aqli yang meliputi thaharah dari hadas dan najis.", "materi": "Tata Cara Bersuci dari Najis Mughalazhah", "indikator": "Disajikan hadits, peserta didik menentukan tata cara bersuci dari najis mughaladzah", "bentuk": "PG", "no_soal": 6, "level": "C2", "bobot": "Sedang", "questions": [{"id": "q6_1", "type": "pg", "stimulus": "Perhatikan hadits riwayat Imam Muslim berikut:\n\nطَهُورُ إِنَاءِ أَحَدِكُمْ إِذَا وَلَغَ فِيهِ الْكَلْبُ أَنْ يَغْسِلَهُ سَبْعَ مَرَّاتٍ أُولَاهُنَّ بِالتُّرَابِ\n\n\"Kesucian bejana salah seorang di antara kalian apabila dijilat anjing adalah dengan membasuhnya sebanyak tujuh kali, salah satunya (atau yang pertama) dicampur dengan tanah.\"", "question": "Berdasarkan petunjuk hadits tersebut, tata cara mensucikan bejana yang terkena najis mughalazhah adalah...", "options": ["Membasuhnya sebanyak 7 kali dengan air mutlak, di mana salah satu basuhannya dicampur dengan tanah/debu yang suci", "Cukup memercikkan air mutlak secara merata ke seluruh permukaan bejana", "Mencuci bejana dengan sabun detergen wangi sebanyak 3 kali tanpa air", "Merendam bejana di dalam air sungai yang mengalir selama satu hari satu malam"], "correct": 0, "explanation": "Hadits shahih riwayat Muslim menetapkan bahwa benda yang dijilat anjing (najis mughalazhah) wajib dibasuh sebanyak 7 kali dengan air mutlak, dan salah satu basuhannya dicampur dengan tanah/debu yang suci agar kuman, virus, dan najisnya hilang sempurna."}, {"id": "q6_2", "type": "pg", "stimulus": "Sebuah ember plastik di teras rumah dijilat oleh anjing liar hingga basah terkena air liurnya. Pemilik ember mencucinya dengan air bersih sebanyak 10 kali menggunakan sabun antiseptik modern, namun sama sekali tidak menggunakan tanah atau debu suci.", "question": "Bagaimanakah status kesucian ember tersebut menurut pandangan fiqih mazhab Syafi'i?", "options": ["Belum suci, karena membasuh dengan campuran tanah suci merupakan syarat wajib yang tidak dapat digantikan sepenuhnya oleh sabun", "Sudah suci sempurna, karena sabun antiseptik lebih bersih daripada tanah", "Menjadi makruh untuk digunakan memasak", "Menjadi halal dan suci secara mutlak asalkan baunya telah hilang"], "correct": 0, "explanation": "Dalam madzhab Syafi'i (dan jumhur ulama), pencampuran tanah pada salah satu dari tujuh basuhan adalah ketetapan syariat (ta'abbudi) yang wajib dipenuhi. Penggunaan sabun saja tanpa tanah tidak menggugurkan kewajiban membasuh dengan tanah suci."}]}, {"no_ind": 7, "elemen": "Tata Cara Bersuci dari Hadast dan Najis", "cp": "Memahami tata cara beribadah yang baik dan benar melalui kajian naqli dan aqli yang meliputi thaharah dari hadas dan najis.", "materi": "Identifikasi Hukum Air", "indikator": "Disajikan peristiwa, peserta didik dapat mengidentifikasi hukum air", "bentuk": "PG", "no_soal": 7, "level": "C4", "bobot": "Sukar", "questions": [{"id": "q7_1", "type": "pg", "stimulus": "Bak penampungan air wudhu di masjid berkapasitas 350 liter (lebih dari dua qullah). Suatu hari, seekor cecak mati dan jatuh ke dalam bak penampungan tersebut. Pengurus masjid memeriksa air dan mendapati bahwa warna, bau, serta rasa air sama sekali tidak mengalami perubahan sedikit pun.", "question": "Berdasarkan kaidah fiqih, hukum air wudhu di dalam bak penampungan tersebut adalah...", "options": ["Tetap suci dan menyucikan (thahir muthahhir), cukup bangkai cecak tersebut dibuang", "Menjadi najis mutanajjis dan seluruh air di dalam bak wajib dikuras habis", "Berubah menjadi air makruh yang hanya boleh dipakai untuk mencuci piring", "Menjadi air musta'mal yang tidak sah dipakai untuk shalat"], "correct": 0, "explanation": "Kaidah fiqih air menyebutkan bahwa air yang mencapai dua qullah (sekitar 216 liter ke atas) apabila kejatuhan najis tidak menjadi najis SELAMA tidak mengalami perubahan pada salah satu dari tiga sifatnya (warna, bau, atau rasa). Karena air berjumlah 350 liter dan sifatnya tidak berubah, statusnya tetap suci dan menyucikan."}, {"id": "q7_2", "type": "pg", "stimulus": "Di sebuah ember kecil terdapat air sebanyak 15 liter (kurang dari 2 qullah). Tanpa sengaja, adik kecil mengencingi air di ember tersebut sebanyak beberapa tetes. Meskipun air tetap terlihat bening, tercium sedikit aroma pesing.", "question": "Hukum air di ember tersebut menurut syariat Islam adalah...", "options": ["Air mutanajjis (air bernajis), haram diminum dan tidak sah dipakai untuk bersuci", "Air thahir muthahhir, karena jumlah air masih lebih banyak dari air kencing", "Air makruh, boleh dipakai bersuci jika tidak ada air lain", "Air musta'mal, sah untuk berwudhu tetapi tidak sah untuk mandi"], "correct": 0, "explanation": "Air yang kurang dari 2 qullah jika terkena benda najis secara otomatis menjadi mutanajjis (air bernajis), baik sifatnya berubah maupun tidak berubah. Apalagi dalam peristiwa ini tercium aroma pesing, sehingga hukumnya mutanajjis dan mutlak tidak boleh digunakan untuk thaharah."}]}, {"no_ind": 8, "elemen": "Tata Cara Bersuci dari Hadast dan Najis", "cp": "Memahami tata cara beribadah yang baik dan benar melalui kajian naqli dan aqli yang meliputi thaharah dari hadas dan najis.", "materi": "Hal-Hal yang Membatalkan Wudhu", "indikator": "Disajikan tabel, peserta didik dapat menunjukkan hal-hal yang membatalkan wudlu", "bentuk": "PG", "no_soal": 8, "level": "C2", "bobot": "Sedang", "questions": [{"id": "q8_1", "type": "pg", "stimulus": "Perhatikan tabel peristiwa berikut:\n\n| No | Peristiwa / Perbuatan |\n|---|---|\n| 1 | Keluar angin (kentut) dari dubur |\n| 2 | Makan sepiring nasi padang yang pedas |\n| 3 | Menyentuh kemaluan (qubul/dubur) dengan telapak tangan tanpa pembatas |\n| 4 | Hilang akal karena pingsan atau tertidur lelap posisi telentang |\n| 5 | Menggunting kuku jari tangan hingga bersih |", "question": "Berdasarkan tabel tersebut, perbuatan yang secara sah membatalkan wudhu menurut fikih mazhab Syafi'i adalah nomor...", "options": ["1, 3, dan 4", "1, 2, dan 3", "2, 4, dan 5", "3, 4, dan 5"], "correct": 0, "explanation": "Hal-hal yang membatalkan wudhu dalam mazhab Syafi'i antara lain: (1) Keluarnya sesuatu dari qubul atau dubur, (2) Hilang akal (tidur pulas tidak duduk mantap, pingsan, mabuk, gila), (3) Bersentuhan kulit pria dan wanita bukan mahram tanpa penghalang, dan (4) Menyentuh kemaluan atau lingkaran dubur manusia dengan telapak tangan/jari bagian dalam tanpa alas. Makan pedas dan memotong kuku tidak membatalkan wudhu."}, {"id": "q8_2", "type": "pg", "stimulus": "Perhatikan tabel kondisi siswa berikut:\n\n| Siswa | Kondisi yang Dialami |\n|---|---|\n| Aisyah | Mengantuk berat dan tertidur sambil duduk bersila rapat di lantai madrasah |\n| Bima | Bersentuhan kulit dengan ibu kandungnya saat bersalaman |\n| Coki | Menyentuh kulit teman wanitanya yang bukan mahram tanpa alas kain |\n| Dani | Mengeluarkan darah mimisan dari hidung akibat kelelahan olahraga |", "question": "Berdasarkan tabel tersebut, siswa yang wudhunya batal menurut mazhab Syafi'i adalah...", "options": ["Coki", "Aisyah", "Bima", "Dani"], "correct": 0, "explanation": "Dalam mazhab Syafi'i, persentuhan kulit antara laki-laki dan perempuan yang bukan mahram tanpa penghalang membatalkan wudhu (Coki). Tidur duduk dengan pantat menetap di lantai tidak batal (Aisyah), bersentuhan dengan mahram sendiri (ibu kandung) tidak batal (Bima), dan keluarnya darah mimisan dari hidung tidak membatalkan wudhu menurut mazhab Syafi'i."}]}, {"no_ind": 9, "elemen": "Tata Cara Bersuci dari Hadast dan Najis", "cp": "Memahami tata cara beribadah yang baik dan benar melalui kajian naqli dan aqli yang meliputi thaharah dari hadas dan najis.", "materi": "Sebab-Sebab Mandi Wajib", "indikator": "Disajikan pernyataan, peserta didik dapat menentukan sebab-sebab mandi wajib", "bentuk": "PG", "no_soal": 9, "level": "C2", "bobot": "Sedang", "questions": [{"id": "q9_1", "type": "pg", "stimulus": "Mandi wajib (mandi janabah) adalah meratakan air mutlak ke seluruh permukaan tubuh dari ujung rambut hingga ujung kaki yang disertai niat untuk menghilangkan hadas besar.", "question": "Di antara pernyataan berikut, manakah faktor yang mewajibkan seseorang melaksanakan mandi wajib?", "options": ["Keluarnya air mani baik melalui mimpi basah maupun sebab lainnya", "Keluarnya darah mimisan dari lubang hidung", "Buang air besar setelah menahan perut seharian", "Terkena jilatan anjing pada bagian kaki"], "correct": 0, "explanation": "Sebab-sebab yang mewajibkan mandi besar ada 6 perkara: (1) Bersetubuh (jima'), (2) Keluarnya air mani, (3) Haid (menstruasi), (4) Nifas, (5) Wiladah (melahirkan anak), dan (6) Meninggal dunia (kecuali mati syahid). Terkena jilatan anjing disucikan dengan basuhan 7 kali salah satunya tanah, bukan mandi wajib."}, {"id": "q9_2", "type": "pg", "stimulus": "Perhatikan daftar peristiwa berikut:\n(1) Berhentinya darah nifas setelah 40 hari melahirkan.\n(2) Tertidur pulas selama 3 jam di kasur.\n(3) Meninggal dunia dalam keadaan wajar (bukan mati syahid di medan perang).\n(4) Buang air kecil di toilet.", "question": "Peristiwa yang menyebabkan wajibnya pelaksanaan mandi besar ditunjukkan oleh nomor...", "options": ["(1) dan (3)", "(1) dan (2)", "(2) dan (4)", "(3) dan (4)"], "correct": 0, "explanation": "Selesainya masa nifas (1) dan meninggal dunia orang muslim secara wajar (3) merupakan sebab syar'i yang mewajibkan mandi besar. Sedangkan tertidur pulas dan buang air kecil hanya berstatus hadas kecil yang cukup disucikan dengan berwudhu."}]}, {"no_ind": 10, "elemen": "Ketentuan Shalat Fardlu Lima Waktu", "cp": "Menganalisis ketentuan shalat fardlu lima waktu.", "materi": "Waktu-Waktu Shalat Fardhu", "indikator": "Disajikan peristiwa, peserta didik dapat mengidentifikasi waktu sholat fardhu (lima waktu)", "bentuk": "PG", "no_soal": 10, "level": "C3", "bobot": "Sedang", "questions": [{"id": "q10_1", "type": "pg", "stimulus": "Pak Ahmad sedang bekerja di sawah. Pada tengah hari, ia mengamati posisi matahari telah bergeser/tergelincir ke arah barat dari puncak langit tengah (zawal syams), dan bayangan sebuah tiang kayu mulai condong ke arah timur melampaui ukuran bayangan saat tengah hari tepat.", "question": "Berdasarkan tanda-tanda alam tersebut, waktu shalat fardhu yang telah masuk adalah...", "options": ["Shalat Zhuhur", "Shalat Ashar", "Shalat Maghrib", "Shalat Subuh"], "correct": 0, "explanation": "Awal waktu shalat Zhuhur ditandai dengan tergelincirnya matahari dari titik tengah langit (puncak zawal) ke arah barat, hingga panjang bayangan suatu benda sama dengan panjang benda aslinya (selain bayangan zawal)."}, {"id": "q10_2", "type": "pg", "stimulus": "Seorang musafir melihat matahari telah terbenam sempurna di cakrawala barat. Semburat cahaya mega merah (as-syafaq al-ahmar) di langit barat perlahan-lahan menghilang dan berganti dengan kegelapan malam yang pekat.", "question": "Peristiwa hilangnya mega merah di ufuk barat menandai masuknya waktu shalat fardhu...", "options": ["Shalat Isya", "Shalat Maghrib", "Shalat Ashar", "Shalat Subuh"], "correct": 0, "explanation": "Waktu shalat Maghrib berlangsung sejak matahari terbenam hingga mega merah (syafaqul ahmar) lenyap. Ketika mega merah telah hilang sepenuhnya dari ufuk barat, maka itu adalah tanda masuknya waktu shalat Isya."}]}, {"no_ind": 11, "elemen": "Ketentuan Shalat Fardlu Lima Waktu", "cp": "Menganalisis ketentuan shalat fardlu lima waktu.", "materi": "Dalil Kewajiban Shalat Lima Waktu", "indikator": "Disajikan peristiwa, peserta didik dapat menunjukkan dalil tentang shalat lima waktu", "bentuk": "PG", "no_soal": 11, "level": "C4", "bobot": "Sukar", "questions": [{"id": "q11_1", "type": "pg", "stimulus": "Dalam sebuah pengajian, Ustadz membacakan potongan firman Allah SWT dari Surah An-Nisa ayat 103:\n\nإِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا\n\nAyat ini menjadi dasar hukum utama mengenai pelaksanaan shalat lima waktu.", "question": "Makna pokok yang terkandung dalam dalil Al-Qur'an tersebut adalah...", "options": ["Shalat fardhu merupakan kewajiban yang telah ditentukan waktu-waktunya secara pasti bagi orang-orang yang beriman", "Shalat boleh dikerjakan kapan saja tanpa batasan waktu asalkan berniat ikhlas", "Kewajiban shalat hanya dibebankan kepada para ulama dan pemimpin agama", "Shalat fardhu dapat ditinggalkan ketika seseorang sedang sibuk bekerja"], "correct": 0, "explanation": "Makna firman Allah dalam QS. An-Nisa': 103 tersebut adalah bahwa shalat adalah fardhu/kewajiban yang 'kitaban mauquta' (ditentukan waktu-waktunya). Oleh sebab itu, mengerjakan shalat fardhu harus tepat pada rentang waktu yang telah digariskan syariat."}, {"id": "q11_2", "type": "pg", "stimulus": "Ketika Rasulullah SAW mengutus sahabat Mu'adz bin Jabal ra. berdakwah ke negeri Yaman, beliau berpesan agar memberitahukan kepada penduduk Yaman bahwa Allah SWT mewajibkan atas mereka shalat lima waktu dalam sehari semalam.", "question": "Pesan Rasulullah SAW kepada Mu'adz bin Jabal tersebut menegaskan kedudukan shalat fardhu lima waktu sebagai...", "options": ["Rukun Islam yang fundamental dan wajib ditunaikan oleh setiap muslim yang mukallaf sehari semalam", "Amalan sunnah pilihan bagi penduduk yang sudah makmur", "Kewajiban tambahan khusus bagi prajurit perang", "Syarat untuk mendapatkan kewarganegaraan di Madinah"], "correct": 0, "explanation": "Hadits shahih riwayat Bukhari dan Muslim tentang pengutusan Mu'adz bin Jabal menegaskan bahwa shalat lima waktu sehari semalam adalah pilar utama Islam (rukun Islam kedua) yang menjadi kewajiban mutlak bagi setiap muslim mukallaf."}]}, {"no_ind": 12, "elemen": "Ketentuan Shalat Fardlu Lima Waktu", "cp": "Menganalisis ketentuan shalat fardlu lima waktu.", "materi": "Hikmah Shalat Fardhu", "indikator": "Peserta didik dapat mengidentifikasi hikmah shalat fardlu (wajib)", "bentuk": "PG", "no_soal": 12, "level": "C2", "bobot": "Sedang", "questions": [{"id": "q12_1", "type": "pg", "stimulus": "Allah SWT berfirman dalam Surah Al-'Ankabut ayat 45:\n\nإِنَّ الصَّلَاةَ تَنْهَىٰ عَنِ الْفَحْشَاءِ وَالْمُنكَرِ\n\nAyat ini menerangkan pengaruh shalat yang dikerjakan secara khusyuk dan benar terhadap perilaku seorang hamba.", "question": "Hikmah utama shalat fardhu yang ditegaskan dalam ayat tersebut adalah...", "options": ["Mencegah pelakunya dari perbuatan-perbuatan yang keji dan munkar", "Menjamin pelakunya menjadi kaya raya dalam urusan perniagaan dunia", "Menghilangkan rasa lapar dan dahaga sepanjang hari", "Mendapatkan sanjungan dan pujian dari masyarakat sekitar"], "correct": 0, "explanation": "QS. Al-'Ankabut: 45 menegaskan bahwa hikmah shalat fardhu yang dikerjakan dengan benar dan penuh penghayatan adalah menjadi benteng moral spiritual yang mencegah seseorang dari perbuatan keji (dosa syahwat) dan munkar (kemaksiatan sosial)."}, {"id": "q12_2", "type": "pg", "stimulus": "Shalat fardhu dilaksanakan lima kali dalam sehari semalam secara teratur, mulai dari fajar hingga malam hari. Pelaksanaannya menuntut disiplin waktu, kebersihan pakaian, dan ketundukan raga menghadap Allah SWT.", "question": "Hikmah sosial dan karakter pribadi yang terbentuk dari rutinitas ibadah shalat fardhu adalah...", "options": ["Melatih kedisiplinan hidup, menjaga kebersihan diri, serta menumbuhkan kerendahan hati di hadapan Allah", "Membuat seseorang merasa lebih suci dan boleh merendahkan orang lain", "Menjadikan seseorang pasif dan tidak perlu berusaha mencari nafkah", "Menuntut hak-hak istimewa di tengah masyarakat"], "correct": 0, "explanation": "Di antara hikmah besar shalat fardhu adalah menanamkan kedisiplinan terhadap waktu, membiasakan pola hidup bersih dan suci (thaharah), menenangkan jiwa dari kegelisahan, serta menanamkan rasa tawadhu' (rendah hati) di hadapan kebesaran Allah SWT."}]}, {"no_ind": 13, "elemen": "Ketentuan Shalat Fardlu Lima Waktu", "cp": "Menganalisis ketentuan shalat fardlu lima waktu.", "materi": "Rukun Qauli dalam Shalat Fardhu", "indikator": "Disajikan peristiwa, peserta didik dapat mengidentifikasi rukun qouli dalam shalat fardlu", "bentuk": "PG", "no_soal": 13, "level": "C3", "bobot": "Sukar", "questions": [{"id": "q13_1", "type": "pg", "stimulus": "Dalam kajian fiqih shalat, rukun shalat dibedakan menjadi rukun qalbi (hati), fi'li (gerakan badan), dan qauli (ucapan lisan). Rukun qauli wajib dilafalkan dengan suara yang minimal dapat didengar oleh telinga orang yang shalat itu sendiri jika pendengarannya normal dan tidak ada kebisingan.", "question": "Di antara bacaan shalat berikut, yang merupakan rukun qauli dalam shalat fardhu adalah...", "options": ["Membaca Surah Al-Fatihah dan membaca Tasyahud Akhir", "Membaca Doa Iftitah dan membaca Surah pendek setelah Al-Fatihah", "Membaca doa ruku' (Subhana Rabbiyal 'Azhim) dan doa sujud", "Membaca doa duduk di antara dua sujud (Rabbighfirli)"], "correct": 0, "explanation": "Rukun Qauli dalam shalat ada 5: (1) Takbiratul Ihram ('Allahu Akbar'), (2) Membaca Surah Al-Fatihah, (3) Membaca Tasyahud Akhir, (4) Membaca Shalawat atas Nabi SAW pada tasyahud akhir, dan (5) Membaca Salam yang pertama ('Assalamu'alaikum warahmatullah'). Doa iftitah, surat pendek, tasbih ruku/sujud adalah sunnah hai'at."}, {"id": "q13_2", "type": "pg", "stimulus": "Saat melaksanakan shalat Zhuhur, Fikri membaca Surah Al-Fatihah hanya di dalam hatinya saja tanpa menggerakkan bibir dan lidahnya sama sekali, sehingga tidak ada suara lafal yang keluar.", "question": "Bagaimanakah status keabsahan shalat yang dilakukan oleh Fikri tersebut?", "options": ["Shalatnya tidak sah, karena membaca Al-Fatihah adalah rukun qauli yang wajib dilafalkan dengan lisan dan bibir", "Shalatnya sah sempurna, karena yang terpenting adalah kekhusyukan dalam hati", "Shalatnya sah tetapi makruh", "Shalatnya cukup disempurnakan dengan sujud sahwi di akhir shalat"], "correct": 0, "explanation": "Rukun qauli (seperti takbiratul ihram dan membaca Al-Fatihah) wajib diucapkan dengan menggerakkan bibir dan lidah hingga terdengar oleh diri sendiri. Membacanya hanya di dalam hati tidak dianggap membaca secara syar'i sehingga rukun shalatnya gugur dan shalatnya menjadi batal/tidak sah."}]}, {"no_ind": 14, "elemen": "Ketentuan Shalat Berjamaah", "cp": "Menganalisis ketentuan shalat berjamaah.", "materi": "Urutan dan Posisi Shaf Shalat Berjamaah", "indikator": "Disajikan peristiwa, peserta didik dapat menjelaskan tatacara urutan shaf shalat", "bentuk": "PG", "no_soal": 14, "level": "C2", "bobot": "Sedang", "questions": [{"id": "q14_1", "type": "pg", "stimulus": "Di sebuah musholla madrasah yang luas, hadir jamaah shalat yang terdiri atas: seorang imam laki-laki dewasa, 10 orang bapak guru (laki-laki dewasa), 15 orang siswa laki-laki (anak-anak/remaja), dan 15 orang siswi perempuan.", "question": "Susunan formasi shaf shalat berjamaah yang benar sesuai sunnah Rasulullah SAW adalah...", "options": ["Imam paling depan, shaf pertama laki-laki dewasa, shaf kedua anak-anak laki-laki, dan shaf berikutnya jamaah perempuan", "Imam di depan, jamaah perempuan di samping kanan imam, dan jamaah laki-laki di samping kiri", "Imam paling depan, disusul anak-anak di depan agar tidak ribut, lalu laki-laki dewasa dan perempuan bercampur", "Imam paling depan, seluruh jamaah berbaris bebas acak tanpa membedakan gender dan usia"], "correct": 0, "explanation": "Urutan shaf dalam shalat berjamaah sesuai sunnah Nabi SAW adalah: Imam di posisi terdepan, diikuti shaf pertama oleh laki-laki dewasa (rijal), kemudian di belakangnya anak-anak laki-laki (shibyan), lalu shaf paling belakang diperuntukkan bagi jamaah perempuan (nisa')."}, {"id": "q14_2", "type": "pg", "stimulus": "Zaid dan Umar hendak melaksanakan shalat Maghrib berjamaah berdua saja di dalam kamar asrama. Zaid bertindak sebagai imam dan Umar menjadi makmumnya.", "question": "Posisi berdiri Umar sebagai makmum tunggal laki-laki yang tepat menurut sunnah adalah...", "options": ["Berdiri di sebelah kanan Zaid (imam), dengan ujung jari kaki agak sedikit mundur dari tumit imam", "Berdiri tepat sejajar di sebelah kiri imam", "Berdiri di belakang imam sejauh satu meter", "Berdiri berhadapan muka dengan imam"], "correct": 0, "explanation": "Jika makmum hanya terdiri dari satu orang laki-laki, posisinya berdiri di sebelah kanan imam dan sedikit mundur (tumit makmum tidak mendahului tumit imam). Jika kemudian datang makmum lain, makmum baru berdiri di samping kiri imam lalu imam maju atau kedua makmum mundur membentuk shaf di belakang imam."}]}, {"no_ind": 15, "elemen": "Ketentuan Shalat Berjamaah", "cp": "Menganalisis ketentuan shalat berjamaah.", "materi": "Hukum Shalat Berjamaah", "indikator": "Disajikan peristiwa, peserta didik dapat mengidentifikasi hukum shalat jamaah", "bentuk": "PG", "no_soal": 15, "level": "C3", "bobot": "Sedang", "questions": [{"id": "q15_1", "type": "pg", "stimulus": "Di sebuah dusun terpencil berpenduduk mayoritas muslim, tidak pernah terdengar kumandang adzan dan tidak ada satu pun warga yang menyelenggarakan shalat fardhu berjamaah di musholla dusun tersebut selama berbulan-bulan.", "question": "Berdasarkan pandangan muktamad mazhab Syafi'i, hukum mendirikan shalat fardhu berjamaah bagi suatu komunitas penduduk muslim adalah...", "options": ["Fardhu Kifayah, sehingga seluruh warga dusun berdosa jika tidak ada yang menegakkannya", "Fardhu 'Ain bagi setiap individu muslim laki-laki dan perempuan tanpa terkecuali", "Sunnah Ghairu Muakkad yang boleh ditinggalkan begitu saja", "Mubah dan tidak ada kaitannya dengan syiar agama"], "correct": 0, "explanation": "Menurut pendapat mu'tamad (resmi) dalam mazhab Syafi'i, hukum shalat fardhu berjamaah bagi kaum laki-laki yang mukim di suatu daerah adalah Fardhu Kifayah. Jika telah ada sebagian yang mendirikannya maka gugur dosa yang lain, namun jika seluruh warga meninggalkannya maka berdosa semuanya karena memadamkan syiar Islam."}, {"id": "q15_2", "type": "pg", "stimulus": "Setiap hari Jumat siang, seluruh siswa laki-laki dan dewan guru di MTs Negeri 6 Demak berkumpul di masjid madrasah untuk menunaikan ibadah Shalat Jumat berjamaah.", "question": "Hukum pelaksanaan shalat secara berjamaah khusus pada ibadah Shalat Jumat adalah...", "options": ["Fardhu 'Ain bagi setiap muslim laki-laki yang memenuhi syarat dan tidak sah dikerjakan sendirian", "Sunnah Muakkad yang dianjurkan sekali", "Fardhu Kifayah bagi orang tua saja", "Makruh jika dikerjakan di masjid madrasah"], "correct": 0, "explanation": "Berbeda dengan shalat lima waktu biasa, pelaksanaan shalat Jumat secara berjamaah merupakan syarat sah shalat Jumat dan hukum melaksanakannya adalah Fardhu 'Ain bagi setiap muslim laki-laki, baligh, berakal, merdeka, dan mukim/sehat."}]}, {"no_ind": 16, "elemen": "Ketentuan Shalat Berjamaah", "cp": "Menganalisis ketentuan shalat berjamaah.", "materi": "Syarat Menjadi Imam Shalat", "indikator": "Disajikan tabel, peserta didik dapat menentukan syarat-syarat menjadi imam shalat", "bentuk": "PG", "no_soal": 16, "level": "C3", "bobot": "Sedang", "questions": [{"id": "q16_1", "type": "pg", "stimulus": "Perhatikan tabel kriteria calon imam shalat berikut:\n\n| No | Kriteria Syarat Calon Imam |\n|---|---|\n| 1 | Beragama Islam dan berakal sehat |\n| 2 | Memiliki jabatan tinggi di pemerintahan |\n| 3 | Fasih membaca ayat-ayat Al-Qur'an (khususnya Surah Al-Fatihah) |\n| 4 | Laki-laki (apabila di antara makmumnya ada yang laki-laki) |\n| 5 | Memiliki harta kekayaan melimpah |", "question": "Kriteria yang merupakan syarat sah menjadi imam shalat berjamaah ditunjukkan oleh nomor...", "options": ["1, 3, dan 4", "1, 2, dan 3", "2, 4, dan 5", "3, 4, dan 5"], "correct": 0, "explanation": "Syarat sah menjadi imam shalat antara lain: beragama Islam, berakal sehat, baligh/tamyiz, fasih membaca rukun shalat (terutama Al-Fatihah dengan makhraj dan tajwid yang benar), tidak sedang menjadi makmum, serta imam laki-laki jika makmumnya laki-laki atau campuran. Jabatan dan harta bukan syarat imam."}, {"id": "q16_2", "type": "pg", "stimulus": "Di sebuah ruangan kelas, sekelompok siswa laki-laki dan siswi perempuan hendak shalat berjamaah. Mereka menunjuk Hanifah (siswi perempuan yang paling cerdas dan juara MTQ) untuk menjadi imam bagi seluruh siswa laki-laki dan siswi perempuan tersebut.", "question": "Bagaimanakah hukum shalat jamaah tersebut menurut syariat Islam?", "options": ["Tidak sah bagi makmum laki-laki, karena perempuan tidak sah menjadi imam bagi makmum laki-laki", "Sah dan mulia, karena Hanifah berprestasi sebagai juara MTQ", "Sah bagi laki-laki asalkan suara Hanifah tidak menggunakan pelantang suara", "Makruh tanzih bagi semua jamaah yang hadir"], "correct": 0, "explanation": "Salah satu syarat sah imam adalah: seorang wanita sah menjadi imam hanya jika SEMUA makmumnya adalah sesama wanita. Wanita TIDAK sah menjadi imam bagi makmum laki-laki (dewasa maupun anak-anak). Sehingga shalat jamaah makmum laki-laki tersebut tidak sah."}]}, {"no_ind": 17, "elemen": "Ketentuan Shalat Berjamaah", "cp": "Menganalisis ketentuan shalat berjamaah.", "materi": "Hukum dan Keutamaan Shalat Berjamaah", "indikator": "Disajikan peristiwa, peserta didik dapat mengidentifikasi hukum shalat jamaah", "bentuk": "PG", "no_soal": 17, "level": "C3", "bobot": "Sedang", "questions": [{"id": "q17_1", "type": "pg", "stimulus": "Rendi mendengar adzan berkumandang dari masjid yang berjarak hanya 50 meter dari rumahnya. Rendi dalam kondisi sehat dan tidak ada halangan (uzur syar'i). Namun, karena malas keluar rumah, Rendi memilih shalat fardhu sendirian (munfarid) di kamarnya.", "question": "Berdasarkan tinjauan fiqih mazhab Syafi'i, status shalat yang dilakukan oleh Rendi adalah...", "options": ["Shalatnya sah, namun ia kehilangan keutamaan pahala 27 derajat dan makruh meninggalkan jamaah tanpa uzur", "Shalatnya batal total dan wajib mengulang bersama imam", "Shalatnya haram dan tidak diganjar pahala sama sekali", "Shalatnya berstatus shalat sunnah biasa"], "correct": 0, "explanation": "Shalat fardhu yang dikerjakan secara munfarid (sendirian) oleh seseorang yang mampu berjamaah tetap sah selama rukun dan syaratnya terpenuhi, namun ia merugi karena kehilangan pelipatgandaan pahala 27 derajat dan dihukumi makruh/tercela bila meninggalkan jamaah tanpa uzur syar'i."}, {"id": "q17_2", "type": "pg", "stimulus": "Pada malam bulan Ramadhan, warga muslim berbondong-bondong datang ke masjid untuk melaksanakan shalat Tarawih dan shalat Witir secara bersama-sama dipimpin oleh seorang imam.", "question": "Hukum pelaksanaan shalat berjamaah pada shalat sunnah Tarawih tersebut adalah...", "options": ["Sunnah Muakkad", "Fardhu 'Ain", "Fardhu Kifayah", "Mubah"], "correct": 0, "explanation": "Shalat sunnah Tarawih sangat dianjurkan (Sunnah Muakkad) untuk dikerjakan secara berjamaah di masjid/musholla sebagaimana yang dicontohkan Rasulullah SAW dan disepakati oleh para sahabat pada masa Khalifah Umar bin Khattab ra."}]}, {"no_ind": 18, "elemen": "Ketentuan Shalat Berjamaah", "cp": "Menganalisis ketentuan shalat berjamaah.", "materi": "Syarat Makmum Mengikuti Imam", "indikator": "Disajikan tabel, peserta didik dapat menentukan syarat-syarat menjadi imam shalat", "bentuk": "PG", "no_soal": 18, "level": "C3", "bobot": "Sedang", "questions": [{"id": "q18_1", "type": "pg", "stimulus": "Perhatikan tabel ketentuan shalat berjamaah berikut:\n\n| No | Ketentuan |\n|---|---|\n| 1 | Posisi tumit imam tidak boleh berada di belakang makmumnya |\n| 2 | Makmum wajib mendahului takbiratul ihram imam |\n| 3 | Makmum berniat mengikuti imam (qudwah) |\n| 4 | Imam dan makmum berada dalam satu tempat yang bersambung |\n| 5 | Gerakan makmum dilakukan serentak bersamaan tepat detik per detik dengan imam |", "question": "Syarat-syarat sahnya keterikatan makmum dengan imam dalam shalat berjamaah ditunjukkan oleh nomor...", "options": ["1, 3, dan 4", "1, 2, dan 5", "2, 3, dan 5", "2, 4, dan 5"], "correct": 0, "explanation": "Syarat sah bermakmum meliputi: posisi makmum tidak boleh mendahului posisi imam (1), makmum berniat mengikut (3), berada dalam satu tempat bersambung (4), makmum mengetahui gerak-gerik imam, serta gerakan makmum mengikuti setelah imam bergerak (bukan mendahului atau bersamaan persis)."}, {"id": "q18_2", "type": "pg", "stimulus": "Di sebuah aula bertingkat, para makmum di lantai dua shalat mengikuti imam yang berada di lantai satu melalui pengeras suara. Shaf shalat di lantai dua tersambung dengan tangga yang terbuka menuju lantai satu tanpa penghalang yang menutup total jalan.", "question": "Hukum shalat berjamaah makmum di lantai dua tersebut adalah...", "options": ["Sah, karena tempatnya masih bersambung dan makmum dapat mengetahui perpindahan gerakan imam", "Batal, karena lantai dua lebih tinggi dari tempat berdiri imam", "Tidak sah, karena imam wajib dapat melihat wajah setiap makmumnya secara langsung", "Makruh dan wajib diulang secara munfarid"], "correct": 0, "explanation": "Dalam fiqih mazhab Syafi'i, makmum sah mengikuti imam meski berbeda lantai (misal lantai dua) asalkan masih berada di dalam satu bangunan masjid/aula yang akses jalannya bersambung (ada tangga terbuka) dan makmum dapat memantau pergerakan imam (baik lewat suara maupun melihat shaf)."}]}, {"no_ind": 19, "elemen": "Ketentuan Shalat Berjamaah", "cp": "Menganalisis ketentuan shalat berjamaah.", "materi": "Prioritas Pemilihan Imam Shalat", "indikator": "Disajikan data, peserta didik dapat menunjukkan urutan prioritas dalam memilih imam shalat", "bentuk": "PG", "no_soal": 19, "level": "C3", "bobot": "Sedang", "questions": [{"id": "q19_1", "type": "pg", "stimulus": "Rasulullah SAW bersabda dalam hadits riwayat Abu Mas'ud Al-Anshari ra.:\n\nيَؤُمُّ الْقَوْمَ أَقْرَؤُهُمْ لِكِتَابِ اللَّهِ فَإِنْ كَانُوا فِي الْقِرَاءَةِ سَوَاءً فَأَعْلَمُهُمْ بِالسُّنَّةِ...\n\n\"Yang mengimami suatu kaum adalah orang yang paling baik/banyak bacaan Al-Qur'annya. Jika dalam bacaan mereka sama, maka yang paling mengerti tentang As-Sunnah (fiqih shalat)...\"", "question": "Berdasarkan hadits tersebut, jika di suatu majelis terdapat beberapa orang, maka urutan prioritas yang paling utama ditunjuk menjadi imam shalat adalah...", "options": ["Orang yang paling fasih dan paling banyak hafalan Al-Qur'annya serta memahami hukum syariat shalat", "Orang yang paling kaya dan menanggung biaya pembangunan masjid", "Orang yang memiliki perawakan tubuh paling tinggi dan bersuara paling keras", "Orang yang jabatannya paling tinggi di kantor kelurahan"], "correct": 0, "explanation": "Sesuai hadits Rasulullah SAW, urutan prioritas imam shalat adalah: (1) Yang paling aqra' (paling fasih tajwidnya dan banyak hafalan Al-Qur'annya), (2) Yang paling mengerti As-Sunnah/hukum fikih shalat, (3) Yang lebih dahulu berhijrah/masuk Islam, (4) Yang lebih tua usianya dan memiliki sifat wara'."}, {"id": "q19_2", "type": "pg", "stimulus": "Perhatikan data profil 4 calon imam shalat rawatib di sebuah masjid:\n(A) Ustadz Hasan: Hafizh 10 juz Al-Qur'an, bacaan fasih tartil, dan menguasai fiqih ibadah.\n(B) Pak Budi: Tokoh masyarakat terpandang dan dermawan, namun bacaan Al-Fatihah sering keliru makhrajnya.\n(C) Pak Ridwan: Usia 70 tahun, namun sering lupa rakaat shalat.\n(D) Mas Ilham: Pemuda tampan yang pandai berorganisasi.", "question": "Berdasarkan syariat Islam, figur yang paling berhak dan utama diprioritaskan menjadi imam adalah...", "options": ["Ustadz Hasan", "Pak Budi", "Pak Ridwan", "Mas Ilham"], "correct": 0, "explanation": "Ustadz Hasan paling berhak diutamakan menjadi imam karena memenuhi kriteria syar'i tertinggi: bacaan fasih (aqra'), hafalan Al-Qur'an baik, dan menguasai fiqih ibadah. Menunjuk imam yang salah makhraj atau pikun berisiko merusak keabsahan shalat berjamaah."}]}, {"no_ind": 20, "elemen": "Ketentuan Dzikir dan Do’a", "cp": "Menganalisis keutamaan berdzikir dan berdoa setelah shalat.", "materi": "Kandungan Dalil Dzikir", "indikator": "Disajikan dalil, peserta didik dapat menjelaskan isi kandungannya", "bentuk": "PG", "no_soal": 20, "level": "C3", "bobot": "Sukar", "questions": [{"id": "q20_1", "type": "pg", "stimulus": "Perhatikan firman Allah SWT dalam Surah Ar-Ra'd ayat 28 berikut:\n\nالَّذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ اللَّهِ ۗ أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ", "question": "Isi kandungan pokok yang dijelaskan dalam ayat tersebut adalah...", "options": ["Orang-orang beriman akan senantiasa memperoleh ketenangan jiwa dan ketenteraman hati yang hakiki hanya dengan mengingat (berdzikir kepada) Allah", "Dzikir hanya wajib dibaca saat seseorang sedang dilanda musibah dan kesedihan mendalam", "Berdzikir dengan suara kencang di depan umum akan meninggikan derajat sosial seseorang", "Ketenangan hidup seorang manusia semata-mata diukur dari jumlah materi yang dikumpulkan"], "correct": 0, "explanation": "QS. Ar-Ra'd: 28 menegaskan prinsip spiritual bahwa obat paling mujarab bagi kegelisahan jiwa adalah mengingat Allah SWT (dzikrullah). Dengan melazimkan dzikir, hati orang-orang beriman akan diliputi kedamaian, ketenangan, dan ketenteraman batin yang tidak dapat digantikan oleh materi duniawi."}, {"id": "q20_2", "type": "pg", "stimulus": "Perhatikan firman Allah SWT dalam Surah Al-Baqarah ayat 152 berikut:\n\nفَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ", "question": "Pesan moral dan spiritual yang terkandung dalam ayat tersebut adalah...", "options": ["Perintah Allah kepada hamba-Nya untuk senantiasa mengingat-Nya dan bersyukur, niscaya Allah akan membalas dengan curahan rahmat, perlindungan, dan ampunan-Nya", "Anjuran untuk berdzikir hanya pada saat selesai shalat Idul Fitri", "Kewajiban manusia untuk menuntut balasan setimpal atas ibadah yang telah dipersembahkan", "Larangan bersedekah sebelum menyelesaikan bacaan wirid seribu kali"], "correct": 0, "explanation": "Surah Al-Baqarah: 152 mengandung janji agung dari Allah SWT: apabila seorang hamba mengingat Allah dalam ketaatan dan bersyukur atas nikmat-Nya, maka Allah akan mengingatnya dengan limpahan rahmat, pertolongan, dan ampunan, serta melarang keras perbuatan kufur nikmat."}]}, {"no_ind": 21, "elemen": "Tata Cara Bersuci dari Hadast dan Najis", "cp": "Memahami tata cara beribadah yang baik dan benar melalui kajian naqli dan aqli yang meliputi thaharah dari hadas dan najis.", "materi": "Macam-Macam Hadats dan Cara Thaharahnya", "indikator": "Disajikan tabel peserta didik mengidentifikasi macam-macam hadats beserta cara thaharahnya", "bentuk": "PGK", "no_soal": 21, "level": "C3", "bobot": "Sedang", "questions": [{"id": "q21_1", "type": "pgk", "stimulus": "Perhatikan tabel korelasi antara kondisi hadas dan cara bersucinya berikut:\n\n| No | Kondisi Penyebab Hadas | Kategori Hadas | Cara Thaharah Mensucikannya |\n|---|---|---|---|\n| 1 | Keluar darah haid pada wanita | Hadas Besar | Mandi janabah meratakan air ke seluruh badan |\n| 2 | Buang angin (kentut) saat shalat | Hadas Kecil | Berwudhu membasuh anggota wudhu wajib |\n| 3 | Selesai masa nifas setelah melahirkan | Hadas Kecil | Cukup mengusap telapak kaki dan kepala |\n| 4 | Terlelap tidur dalam posisi miring | Hadas Kecil | Berwudhu (atau tayamum bila uzur air) |\n| 5 | Mengalami mimpi basah (keluar mani) | Hadas Besar | Mandi wajib disertai niat mengangkat hadas besar |", "question": "Berdasarkan tabel tersebut, pasangan kondisi hadas, kategori, dan cara pensuciannya yang BENAR menurut syariat Islam adalah... (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Pernyataan No. 1: Darah haid berstatus hadas besar dan disucikan dengan mandi janabah", "Pernyataan No. 2: Buang angin berstatus hadas kecil dan disucikan dengan berwudhu", "Pernyataan No. 3: Nifas berstatus hadas kecil dan cukup mengusap sebagian kepala", "Pernyataan No. 4: Tidur miring berstatus hadas kecil dan disucikan dengan wudhu", "Pernyataan No. 5: Mimpi basah berstatus hadas besar dan disucikan dengan mandi wajib"], "correct": [0, 1, 3, 4], "explanation": "Pernyataan 1, 2, 4, dan 5 adalah benar. Sedangkan pernyataan 3 salah, karena darah nifas merupakan penyebab hadas besar yang wajib disucikan dengan mandi janabah/mandi besar meratakan air ke seluruh tubuh, bukan hanya mengusap kepala."}, {"id": "q21_2", "type": "pgk", "stimulus": "Dalam ilmu fiqih, hadas dikelompokkan menjadi dua jenis: Hadats Ashghar (kecil) dan Hadats Akbar (besar). Masing-masing memiliki konsekuensi hukum dan media pensucian yang berbeda.", "question": "Manakah pernyataan di bawah ini yang TEPAT mengenai ketentuan pensucian hadas dalam Islam? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Hadas kecil disucikan dengan berwudhu atau tayamum bila ada uzur air syar'i", "Hadas besar disucikan dengan mandi wajib yang meratakan air ke seluruh tubuh dan rambut", "Orang yang berhadas kecil boleh melaksanakan shalat asalkan memakai wangi-wangian", "Tayamum dapat menggantikan wudhu sekaligus menggantikan mandi wajib dalam kondisi darurat ketiadaan air", "Membaca Al-Qur'an haram hukumnya bagi orang yang sedang berhadas kecil"], "correct": [0, 1, 3], "explanation": "Pernyataan yang tepat adalah (1) Hadas kecil disucikan dengan wudhu/tayamum, (2) Hadas besar dengan mandi wajib, dan (4) Tayamum adalah rukhshah darurat pengganti wudhu maupun mandi wajib saat tidak ada air atau sakit parah. Orang berhadas kecil tidak boleh shalat walau wangi, dan orang berhadas kecil tetap boleh membaca Al-Quran (yang haram bagi hadas kecil adalah menyentuh mushaf)."}]}, {"no_ind": 22, "elemen": "Tata Cara Bersuci dari Hadast dan Najis", "cp": "Memahami tata cara beribadah yang baik dan benar melalui kajian naqli dan aqli yang meliputi thaharah dari hadas dan najis.", "materi": "Syarat-Syarat Diperbolehkan Tayamum", "indikator": "Disajikan peristiwa, peserta didik dapat menunjukan syarat-syarat diperbolehkan tayamum", "bentuk": "PGK", "no_soal": 22, "level": "C3", "bobot": "Sedang", "questions": [{"id": "q22_1", "type": "pgk", "stimulus": "Regu Pramuka MTs Negeri 6 Demak sedang melakukan penjelajahan di lereng perbukitan tandus saat musim kemarau panjang. Saat waktu shalat Ashar tiba, mereka menghadapi beberapa kendala terkait ketersediaan air dan kondisi fisik anggota regu.", "question": "Di antara kondisi-kondisi berikut, manakah kondisi yang MEMBOLEHKAN seorang anggota regu melakukan tayamum sebagai pengganti wudhu? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Sama sekali tidak menemukan air setelah berusaha mencari di sekitar lokasi perkemahan", "Terdapat seorang anggota yang sakit luka bakar parah di bagian tangan dan muka yang dilarang dokter terkena air", "Air yang tersisa hanya satu botol kecil dan sangat dibutuhkan untuk menyambung hidup (minum) agar tidak dehidrasi", "Malas berjalan mengambil air ke sumber mata air yang jaraknya hanya 10 meter dari tenda", "Waktu shalat Ashar telah masuk dan tanah/debu yang digunakan suci dari najis"], "correct": [0, 1, 2, 4], "explanation": "Sebab-sebab diperbolehkan tayamum: (1) Benar-benar tidak ada air setelah ikhtiar mencari, (2) Sakit parah yang berbahaya jika terkena air berdasarkan rekomendasi dokter, (3) Ada air namun hanya cukup untuk kebutuhan minum menjaga kelangsungan hidup manusia/hewan, (4) Dilakukan setelah masuk waktu shalat dengan debu suci. Malas berjalan bukan uzur syar'i."}, {"id": "q22_2", "type": "pgk", "stimulus": "Tayamum merupakan rukhshah (keringanan) dari Allah SWT bagi umat Islam untuk memudahkan pelaksanaan ibadah shalat saat menghadapi kesulitan air.", "question": "Manakah rukun dan syarat sah tayamum yang BENAR menurut fiqih mazhab Syafi'i? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Menggunakan debu tanah yang suci, murni, dan tidak bercampur kapur atau najis", "Berniat tayamum untuk memperbolehkan shalat (istibahatas-shalah)", "Mengusap muka dan kedua tangan sampai ke siku dengan dua kali tepukan debu", "Membasuh kedua kaki hingga mata kaki dengan debu tanah", "Telah masuk waktu shalat fardhu yang hendak dikerjakan"], "correct": [0, 1, 2, 4], "explanation": "Rukun dan syarat tayamum: menggunakan debu suci murni, niat istibahah shalat, mengusap muka, mengusap kedua tangan sampai siku, tertib, dan dikerjakan setelah masuk waktu shalat. Anggota tayamum HANYA wajah dan kedua tangan; kaki TIDAK diusap debu dalam tayamum."}]}, {"no_ind": 23, "elemen": "Ketentuan Shalat Fardlu Lima Waktu", "cp": "Menganalisis ketentuan shalat fardlu lima waktu.", "materi": "Sunah Ab'ad dalam Shalat", "indikator": "Disajikan data, peserta didik dapat menentukan sunah ab’ad shalat", "bentuk": "PGK", "no_soal": 23, "level": "C4", "bobot": "Sukar", "questions": [{"id": "q23_1", "type": "pgk", "stimulus": "Dalam shalat fardhu terdapat dua jenis amalan sunnah: Sunnah Ab'ad (amalan sunnah yang sangat ditekankan sehingga apabila tertinggal dianjurkan sujud sahwi) dan Sunnah Hai'at (amalan sunnah yang bila tertinggal tidak perlu sujud sahwi).\n\nPerhatikan daftar amalan sunnah berikut:\n(1) Duduk tasyahud awal pada rakaat kedua shalat Zhuhur.\n(2) Membaca doa iftitah setelah takbiratul ihram.\n(3) Membaca bacaan tasyahud awal.\n(4) Membaca doa qunut pada rakaat kedua shalat Subuh.\n(5) Mengangkat kedua tangan saat takbiratul ihram, ruku', dan bangun dari ruku'.\n(6) Membaca shalawat kepada Nabi Muhammad SAW pada tasyahud awal.", "question": "Berdasarkan data tersebut, amalan yang termasuk ke dalam kategori SUNNAH AB'AD menurut mazhab Syafi'i adalah... (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Nomor (1): Duduk tasyahud awal", "Nomor (2): Membaca doa iftitah", "Nomor (3): Membaca bacaan tasyahud awal", "Nomor (4): Membaca doa qunut pada shalat Subuh", "Nomor (6): Membaca shalawat kepada Nabi SAW pada tasyahud awal"], "correct": [0, 2, 3, 4], "explanation": "Sunnah Ab'ad dalam mazhab Syafi'i meliputi amalan yang terkait dengan Tasyahud Awal (duduknya, bacaan tasyahudnya, shalawat atas Nabi SAW) serta amalan yang terkait dengan Qunut Subuh dan witir separuh akhir Ramadhan (berdiri qunut, bacaan qunut, shalawat dalam qunut). Doa iftitah dan mengangkat tangan adalah Sunnah Hai'at."}, {"id": "q23_2", "type": "pgk", "stimulus": "Saat memimpin shalat Isya berjamaah, Pak Imam lupa duduk tasyahud awal dan langsung berdiri tegak menuju rakaat ketiga. Para makmum mengingatkan dengan tasbih, namun imam tetap melanjutkan rakaat ketiga hingga selesai.", "question": "Berdasarkan fiqih shalat, manakah tindakan dan hukum yang BENAR terkait peristiwa lupa sunnah ab'ad tersebut? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Imam tidak boleh kembali duduk tasyahud awal jika telah berdiri tegak dan sempurna di rakaat ketiga", "Shalat berjamaah tersebut tetap sah karena tasyahud awal berstatus sunnah ab'ad, bukan rukun shalat", "Imam disunnahkan melakukan sujud sahwi sebanyak dua kali sebelum membaca salam", "Makmum wajib membatalkan shalat karena imam meninggalkan kewajiban pokok", "Jika imam lupa sujud sahwi sebelum salam, shalatnya otomatis batal"], "correct": [0, 1, 2], "explanation": "Jika imam sudah berdiri tegak di rakaat ketiga, haram kembali duduk tasyahud awal. Kekurangan sunnah ab'ad diganti dengan sujud sahwi dua kali sebelum salam. Shalat jamaah tetap sah karena sunnah ab'ad bukan rukun shalat, dan sujud sahwi berhukum sunnah bukan rukun pemutus keabsahan shalat."}]}, {"no_ind": 24, "elemen": "Ketentuan Shalat Fardlu Lima Waktu", "cp": "Menganalisis ketentuan shalat fardlu lima waktu.", "materi": "Perbedaan Syarat Wajib dan Syarat Sah Shalat", "indikator": "Disajikan tabel, peserta didik dapat membedakan antara syarat sah dan syarat wajib shalat", "bentuk": "PGK", "no_soal": 24, "level": "C4", "bobot": "Sukar", "questions": [{"id": "q24_1", "type": "pgk", "stimulus": "Perhatikan tabel perbandingan syarat shalat berikut:\n\n| Kategori A | Kategori B |\n|---|---|\n| 1. Beragama Islam | a. Suci dari hadas kecil dan hadas besar |\n| 2. Telah mencapai usia baligh | b. Menutup aurat dengan pakaian yang suci |\n| 3. Berakal sehat (tidak gila/pingsan) | c. Masuk waktu shalat fardhu |\n| 4. Telah sampai dakwah Islam | d. Menghadap ke arah kiblat Ka'bah |", "question": "Manakah analisis perbandingan yang TEPAT mengenai pembagian tabel tersebut? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Kategori A merupakan Syarat Wajib Shalat, yaitu kriteria yang menyebabkan seseorang dibebani kewajiban melaksanakan shalat", "Kategori B merupakan Syarat Sah Shalat, yaitu hal-hal yang wajib dipenuhi sebelum shalat agar ibadahnya diterima dan dihukumi sah oleh syariat", "Anak kecil yang belum baligh tetap sah shalatnya jika memenuhi kriteria Kategori B", "Orang yang shalat tanpa menghadap kiblat tetap sah shalatnya asalkan ia beragama Islam dan berakal sehat", "Jika seseorang gila, maka gugur kewajiban shalatnya berdasarkan ketentuan Kategori A"], "correct": [0, 1, 2, 4], "explanation": "Kategori A adalah Syarat Wajib Shalat (Islam, baligh, berakal, sampai dakwah). Kategori B adalah Syarat Sah Shalat (suci hadas & najis, tutup aurat, masuk waktu, hadap kiblat). Anak tamyiz belum baligh shalatnya sah jika memenuhi syarat sah. Orang gila tidak wajib shalat. Shalat tanpa menghadap kiblat (tanpa uzur darurat perang/kendaraan) tidak sah."}, {"id": "q24_2", "type": "pgk", "stimulus": "Sebelum takbiratul ihram dimulai, seorang mukmin harus memastikan seluruh syarat sah shalat telah terpenuhi dengan sempurna.", "question": "Manakah hal-hal di bawah ini yang termasuk ke dalam SYARAT SAH SHALAT? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Suci badan, pakaian, dan tempat sujud dari najis", "Mengetahui bahwa waktu shalat telah benar-benar masuk", "Menutup aurat dengan penutup yang suci dan tidak tembus pandang", "Memiliki status sosial yang terpandang di masyarakat", "Menghadap ke arah kiblat (Ka'bah Baitullah)"], "correct": [0, 1, 2, 4], "explanation": "Syarat sah shalat mencakup: suci dari hadas kecil & besar, suci badan/pakaian/tempat dari najis, menutup aurat, masuk waktu shalat, menghadap kiblat, dan mengetahui rukun serta fardhunya shalat. Status sosial bukan syarat sah ibadah."}]}, {"no_ind": 25, "elemen": "Ketentuan Shalat Fardlu Lima Waktu", "cp": "Menganalisis ketentuan shalat fardlu lima waktu.", "materi": "Hal-Hal yang Membatalkan Shalat", "indikator": "Disajikan sebuah peristiwa, peserta didik dapat menidentifikasi hal yang membatalkan shalat", "bentuk": "PGK", "no_soal": 25, "level": "C3", "bobot": "Sukar", "questions": [{"id": "q25_1", "type": "pgk", "stimulus": "Saat melaksanakan shalat Maghrib berjamaah, terjadi beberapa kejadian di saf jamaah:\n1. Zaky tertawa terbahak-bahak hingga mengeluarkan suara 'hahaha' karena melihat temannya tersandung.\n2. Arfan melangkah sebanyak tiga langkah besar berturut-turut ke samping tanpa ada hajat shalat.\n3. Faris menelan sisa sebutir nasi di sela-sela giginya dengan sengaja.\n4. Wildan menggaruk gatal di pipinya hanya dengan menggerakkan jari telunjuknya sekali saja.\n5. Sarung Haikal tersingkap angin kencang sehingga aurat lututnya terbuka dan dibiarkan terbuka beberapa detik tanpa ditutup kembali.", "question": "Peristiwa yang secara syar'i MEMBATALKAN shalat pelakunya ditunjukkan oleh nomor... (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Nomor 1: Zaky tertawa terbahak-bahak hingga mengeluarkan suara kata", "Nomor 2: Arfan bergerak tiga langkah besar secara berturut-turut", "Nomor 3: Faris menelan sisa makanan di mulutnya dengan sengaja", "Nomor 4: Wildan menggerakkan satu jari untuk menggaruk pipi", "Nomor 5: Haikal terbuka auratnya dan tidak segera ditutup kembali"], "correct": [0, 1, 2, 4], "explanation": "Hal-hal yang membatalkan shalat: (1) Tertawa bersuara (mengeluarkan 2 huruf/kata berfaedah), (2) Gerakan besar 3 kali berturut-turut (melangkah 3 kali), (3) Makan atau menelan sesuatu dengan sengaja meski sedikit, (5) Terbuka aurat jika tidak segera ditutup seketika. Menggerakkan anggota kecil seperti satu jari tangan tidak membatalkan shalat."}, {"id": "q25_2", "type": "pgk", "stimulus": "Setiap muslim wajib menjaga shalatnya agar tidak gugur keabsahannya akibat perbuatan yang dilarang syariat di tengah shalat.", "question": "Manakah perbuatan di bawah ini yang dapat MEMBATALKAN shalat fardhu? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Berbicara sengaja dengan mengucapkan kata yang dapat dipahami di luar bacaan shalat", "Terkena najis yang tidak dimaafkan pada pakaian dan tidak segera dibuang seketika", "Mendahului imam sebanyak dua rukun fi'li berturut-turut tanpa uzur", "Berniat memutuskan shalat (niat keluar dari shalat)", "Menangis tersedu-sedu karena takut kepada siksa neraka dan terharu pada ayat Al-Qur'an tanpa keluar kata-kata asing"], "correct": [0, 1, 2, 3], "explanation": "Pembatal shalat antara lain: berkata-kata sengaja di luar shalat, terkena najis basah yang tidak dimaafkan, mendahului imam 2 rukun fi'li, dan timbulnya niat memutus shalat (fasakh niat). Adapun menangis karena khusyuk menghayati ayat tanpa mengeluarkan huruf selain tangisan tidak membatalkan shalat."}]}, {"no_ind": 26, "elemen": "Ketentuan Shalat Berjamaah", "cp": "Menganalisis ketentuan shalat berjamaah.", "materi": "Keutamaan Shalat Berjamaah", "indikator": "Disajikan hadist, peserta didik dapat menunjukkan keutamaan shalat berjamaah", "bentuk": "PGK", "no_soal": 26, "level": "C4", "bobot": "Sukar", "questions": [{"id": "q26_1", "type": "pgk", "stimulus": "Perhatikan hadits shahih riwayat Imam Al-Bukhari dan Imam Muslim berikut:\n\nصَلَاةُ الْجَمَاعَةِ تَفْضُلُ صَلَاةَ الْفَذِّ بِسَبْعٍ وَعِشْرِينَ دَرَجَةً\n\n\"Shalat berjamaah lebih utama daripada shalat sendirian dengan terpaut dua puluh tujuh derajat.\"", "question": "Berdasarkan hadits mulia tersebut dan keterangan para ulama, manakah keutamaan shalat berjamaah yang BENAR? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Mendapatkan pahala kebaikan yang dilipatgandakan hingga 27 derajat dibandingkan shalat sendirian", "Menjadi sarana mempererat tali persaudaraan (ukhuwah islamiyah) dan silaturahmi antar jamaah", "Membebaskan seorang muslim dari kewajiban berwudhu untuk shalat berikutnya", "Menumbuhkan rasa kesetaraan derajat tanpa memandang kasta dan jabatan sosial di hadapan Allah", "Mendapat naungan rahmat dan ketenteraman dari Allah SWT serta syiar Islam semakin hidup"], "correct": [0, 1, 3, 4], "explanation": "Keutamaan shalat berjamaah meliputi: pahala berlipat ganda 27 derajat, memperkuat ukhuwah islamiyah, melatih persatuan, meruntuhkan sekat sosial, mendatangkan ampunan dosa pada setiap langkah menuju masjid, serta menegakkan syiar Islam. Shalat berjamaah tidak pernah menggugurkan kewajiban wudhu."}, {"id": "q26_2", "type": "pgk", "stimulus": "Dalam hadits lain, Rasulullah SAW mengabarkan bahwa barangsiapa yang shalat Isya dan shalat Subuh secara berjamaah, maka pahalanya seumpama ia shalat semalam suntuk.", "question": "Nilai-nilai hikmah pendidikan apa sajakah yang dapat dipetik dari kebiasaan shalat berjamaah di masjid? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Melatih kedisiplinan dan kepatuhan terhadap kepemimpinan yang benar", "Menghilangkan sifat egois dan sombong dalam pergaulan bermasyarakat", "Memperoleh kesempatan untuk memamerkan pakaian termahal kepada tetangga", "Membiasakan hidup teratur sesuai jadwal waktu shalat", "Menjaga kerukunan dan persatuan umat Islam dalam satu komando imam"], "correct": [0, 1, 3, 4], "explanation": "Pendidikan karakter dari shalat berjamaah mencakup: disiplin waktu, kepatuhan pada imam yang benar, kerendahan hati, keteraturan saf, dan persatuan umat. Riya atau pamer pakaian justru merusak pahala ibadah."}]}, {"no_ind": 27, "elemen": "Ketentuan Shalat Berjamaah", "cp": "Menganalisis ketentuan shalat berjamaah.", "materi": "Hikmah Shalat Berjama'ah", "indikator": "Disajikan tabel, Peserta didik dapat mengidentifikasi hikmah shalat berjama’ah", "bentuk": "PGK", "no_soal": 27, "level": "C3", "bobot": "Sedang", "questions": [{"id": "q27_1", "type": "pgk", "stimulus": "Perhatikan tabel dimensi hikmah ibadah shalat berjamaah berikut:\n\n| Aspek Kehidupan | Butir Nilai / Manfaat |\n|---|---|\n| Spiritual | (A) Menghidupkan syiar rumah Allah dan menghapus dosa pada setiap langkah kaki |\n| Sosial | (B) Saling mengenal kondisi tetangga dan tolong-menolong bila ada jamaah yang tertimpa kesulitan |\n| Kedisiplinan | (C) Melatih kekompakan gerak dan taat patuh kepada imam selama imam tidak berbuat salah |\n| Kebersamaan | (D) Menghapuskan sekat diskriminasi antara orang kaya, pejabat, dan rakyat jelata dalam satu shaf |\n| Individual | (E) Mendapatkan kebebasan bergerak sendiri tanpa perlu peduli pada komando imam |", "question": "Berdasarkan tabel tersebut, butir-butir yang mencerminkan HIKMAH NYATA dari shalat berjamaah adalah... (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Butir (A): Menghidupkan syiar rumah Allah dan melebur dosa", "Butir (B): Mempererat kepedulian sosial terhadap kondisi jamaah lain", "Butir (C): Melatih kedisiplinan dan kepatuhan terhadap pemimpin", "Butir (D): Menghilangkan diskriminasi status sosial dalam shaf yang rapi", "Butir (E): Bebas bergerak sendiri tanpa mempedulikan imam"], "correct": [0, 1, 2, 3], "explanation": "Butir A, B, C, dan D merupakan hikmah komprehensif shalat berjamaah dalam aspek spiritual, sosial, disiplin, dan persaudaraan setara. Butir E salah karena makmum wajib terikat dan mengikuti imam, bukan bergerak seenaknya sendiri."}, {"id": "q27_2", "type": "pgk", "stimulus": "Penyelenggaraan shalat berjamaah di madrasah secara rutin melahirkan banyak dampak positif bagi pembentukan iklim madrasah yang religius.", "question": "Manfaat langsung bagi para siswa dalam pelaksanaan shalat berjamaah di madrasah adalah... (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Meningkatkan rasa empati dan kebersamaan antar sesama peserta didik", "Menumbuhkan kebiasaan shalat di awal waktu secara konsisten", "Menjadi sarana evaluasi dan pembinaan akhlak siswa secara langsung", "Menghilangkan waktu istirahat secara berlebihan untuk kegiatan yang sia-sia", "Menjamin kelulusan ujian madrasah tanpa perlu belajar keras"], "correct": [0, 1, 2, 3], "explanation": "Shalat berjamaah di madrasah membentuk karakter: empati sesama teman, disiplin waktu shalat, evaluasi akhlak, dan optimalisasi waktu untuk ibadah berkah. Jaminan lulus ujian tetap memerlukan ikhtiar belajar yang sungguh-sungguh."}]}, {"no_ind": 28, "elemen": "Ketentuan Shalat Berjamaah", "cp": "Menganalisis ketentuan shalat berjamaah.", "materi": "Ketentuan Makmum Masbuq", "indikator": "Disajikan pernyataan, peserta didik dapat mengidentifikasi makmum masbuq", "bentuk": "PGK", "no_soal": 28, "level": "C4", "bobot": "Sedang", "questions": [{"id": "q28_1", "type": "pgk", "stimulus": "Perhatikan pernyataan tentang status makmum dalam shalat berjamaah:\nMakmum masbuq adalah makmum yang terlambat datang dalam shalat berjamaah, yaitu ketika ia takbiratul ihram bersama imam, imam sudah berada pada posisi ruku', sujud, atau duduk, atau ia tidak sempat membaca Surah Al-Fatihah bersama imam dalam tempo yang cukup sebelum imam ruku'.", "question": "Manakah ketentuan fiqih yang BENAR mengenai makmum masbuq? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Makmum yang sempat ruku' bersama imam dengan thuma'ninah sebelum imam bangkit I'tidal terhitung telah mendapatkan rakaat tersebut", "Makmum masbuq wajib takbiratul ihram sambil berdiri terlebih dahulu sebelum bergerak mengikuti posisi imam yang sedang sujud atau duduk", "Setelah imam membaca salam kedua, makmum masbuq langsung berdiri menyempurnakan rakaat yang tertinggal tanpa membaca salam", "Makmum yang mendapati imam sedang sujud pada rakaat terakhir tidak perlu ikut shalat dan lebih baik menunggu shalat selesai", "Bacaan Al-Fatihah makmum masbuq yang tidak selesai karena imam terlanjur ruku' ditanggung oleh imam"], "correct": [0, 1, 2, 4], "explanation": "Ketentuan makmum masbuq: (1) Mendapati ruku' imam dengan thuma'ninah dihitung dapat 1 rakaat, (2) Wajib takbiratul ihram berdiri dulu lalu langsung menyesuaikan posisi imam, (3) Berdiri menyempurnakan sisa rakaat setelah salam imam, (5) Fatihah makmum masbuq ditanggung imam. Menunggu shalat selesai saat imam sujud adalah keliru; sunnahnya langsung bergabung agar tetap dapat pahala jamaah."}, {"id": "q28_2", "type": "pgk", "stimulus": "Dany datang ke masjid untuk shalat Isya berjamaah saat imam sedang berada pada rakaat ketiga posisi sujud kedua. Dany segera bertakbiratul ihram lalu langsung turun sujud mengikuti imam hingga shalat selesai bersama salamnya imam.", "question": "Tindakan yang wajib dilakukan oleh Dany setelah imam mengucap salam kedua adalah... (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Dany tidak boleh ikut mengucap salam bersama imam", "Dany wajib langsung bangkit berdiri untuk menyempurnakan 4 rakaat penuh shalat Isya", "Dany hanya perlu menambah 1 rakaat saja karena sudah ikut tasyahud akhir bersama imam", "Dany membaca Surah Al-Fatihah pada rakaat-rakaat tambahan yang ia kerjakan sendiri", "Dany tetap mendapatkan keutamaan pahala shalat berjamaah walaupun terlambat"], "correct": [0, 1, 3, 4], "explanation": "Karena Dany mendapati imam sedang sujud di rakaat ketiga (tidak sempat ruku'), maka Dany terhitung belum mendapatkan rakaat sama sekali. Oleh karena itu, setelah imam salam, Dany berdiri menyempurnakan 4 rakaat penuh shalat Isya dan tetap membaca Al-Fatihah, serta insyaAllah tetap memperoleh pahala shalat berjamaah."}]}, {"no_ind": 29, "elemen": "Ketentuan Dzikir dan Do’a", "cp": "Menganalisis keutamaan berdzikir dan berdoa setelah shalat.", "materi": "Kalimat-Kalimat Dzikir Thayyibah", "indikator": "Disajikan tabel, peserta didik dapat mengidentifikasi kalimat dzikir", "bentuk": "PGK", "no_soal": 29, "level": "C2", "bobot": "Sedang", "questions": [{"id": "q29_1", "type": "pgk", "stimulus": "Perhatikan tabel lafal kalimat thayyibah berikut:\n\n| No | Lafal Kalimat Dzikir | Sebutan Istilah |\n|---|---|---|\n| 1 | سُبْحَانَ اللهِ (Subhanallah) | Tasbih |\n| 2 | اَلْحَمْدُ لِلّٰهِ (Alhamdulillah) | Tahmid |\n| 3 | لَا إِلٰهَ إِلَّا اللهُ (Laa ilaaha illallaah) | Tahlil |\n| 4 | اللهُ أَكْبَرُ (Allahu Akbar) | Takbir |\n| 5 | أَسْتَغْفِرُ اللهَ الْعَظِيمَ (Astaghfirullahal 'azhiim) | Istighfar |", "question": "Berdasarkan tabel tersebut, manakah pernyataan yang BENAR mengenai kalimat-kalimat dzikir thayyibah yang masyhur dibaca sesudah shalat fardhu? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Lafal Tasbih 'Subhanallah' bermakna Maha Suci Allah dari segala kekurangan", "Lafal Tahmid 'Alhamdulillah' bermakna Segala Puji hanya bagi Allah", "Lafal Tahlil 'Laa ilaaha illallaah' adalah kalimat tauhid yang paling utama", "Lafal Takbir 'Allahu Akbar' bermakna Maha Besar Allah atas segala ciptaan-Nya", "Dzikir tasbih, tahmid, dan takbir setelah shalat fardhu disunnahkan dibaca masing-masing sebanyak 33 kali"], "correct": [0, 1, 2, 3, 4], "explanation": "Semua pernyataan adalah benar. Tasbih, tahmid, tahlil, takbir, dan istighfar adalah kalimat thayyibah yang sangat dicintai Allah. Berdasarkan hadits shahih riwayat Muslim, membaca tasbih (33x), tahmid (33x), dan takbir (33x) lalu ditutup dengan tahlil setelah shalat fardhu akan mengampuni dosa-dosa hamba walaupun sebanyak buih di lautan."}, {"id": "q29_2", "type": "pgk", "stimulus": "Rasulullah SAW bersabda: 'Ada dua kalimat yang ringan di lisan, berat di timbangan mizan, dan sangat dicintai oleh Ar-Rahman (Allah Yang Maha Pengasih)'.", "question": "Manakah kalimat dzikir yang dimaksud dalam hadits penutup Kitab Shahih Al-Bukhari tersebut? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["سُبْحَانَ اللهِ وَبِحَمْدِهِ (Subhanallahi wa bihamdih)", "سُبْحَانَ اللهِ الْعَظِيمِ (Subhanallahil 'Azhiim)", "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللهِ (Laa hawla wa laa quwwata illa billaah)", "حَسْبُنَا اللهُ وَنِعْمَ الْوَكِيلُ (Hasbunallah wa ni'mal wakiil)"], "correct": [0, 1], "explanation": "Dua kalimat yang dimaksud dalam hadits riwayat Bukhari & Muslim adalah: 'Subhanallahi wa bihamdihi' dan 'Subhanallahil 'Azhiim'. Kedua kalimat ini sangat ringan diucapkan lidah namun timbangan kebaikannya sangat berat di akhirat."}]}, {"no_ind": 30, "elemen": "Ketentuan Dzikir dan Do’a", "cp": "Menganalisis keutamaan berdzikir dan berdoa setelah shalat.", "materi": "Tata Cara Berdzikir dan Berdoa yang Benar", "indikator": "Peserta didik dapat menunjukkan tata cara dzikir dan do’a yang benar", "bentuk": "PGK", "no_soal": 30, "level": "C2", "bobot": "Sedang", "questions": [{"id": "q30_1", "type": "pgk", "stimulus": "Berdzikir dan memanjatkan doa kepada Allah SWT memiliki adab dan tata cara agar bernilai ibadah sempurna dan diijabah oleh Allah SWT.", "question": "Di antara adab dan tata cara berdzikir serta berdoa yang BENAR menurut tuntunan Islam adalah... (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Menghadap ke arah kiblat dalam keadaan suci dari hadas dan najis", "Memulai doa dengan memuji Allah (tahmid) dan membaca shalawat kepada Nabi Muhammad SAW", "Merendahkan suara, penuh rasa harap (raja'), cemas (khauf), dan khusyuk (tadharru')", "Berteriak sekeras-kerasnya agar cepat didengar oleh Allah SWT", "Mengangkat kedua telapak tangan setinggi dada dan mengusapkannya ke wajah di akhir doa"], "correct": [0, 1, 2, 4], "explanation": "Adab berdoa dan berdzikir yang benar: suci dan menghadap kiblat, mengawali dengan tahmid dan shalawat, bersuara lembut/tidak berteriak (sebagaimana larangan dalam QS. Al-A'raf: 55), penuh harap dan takut, mengangkat tangan, serta yakin doanya akan diijabah. Berteriak-teriak dilarang dalam syariat."}, {"id": "q30_2", "type": "pgk", "stimulus": "Allah SWT berfirman dalam Surah Al-A'raf ayat 55:\n\nادْعُوا رَبَّكُمْ تَضَرُّعًا وَخُفْيَةً ۚ إِنَّهُ لَا يُحِبُّ الْمُعْتَدِينَ\n\n\"Berdoalah kepada Tuhanmu dengan rendah hati dan suara yang lembut. Sungguh, Allah tidak menyukai orang-orang yang melampaui batas.\"", "question": "Manakah sikap batin yang diajarkan oleh ayat tersebut saat memanjatkan doa kepada Allah? (Pilihlah LEBIH DARI SATU jawaban yang benar!)", "options": ["Tadharru', yaitu merasa rendah, hina, dan sangat membutuhkan pertolongan Allah", "Khufyah, yaitu melafalkan doa secara tenang, santun, dan tidak riya di hadapan manusia", "Optimis dan berprasangka baik bahwa Allah pasti mengabulkan doa terbaik bagi hamba-Nya", "Memaksa Allah dan putus asa bila doanya belum terlihat hasilnya dalam waktu singkat", "Ikhlas semata mengharapkan ridha Allah SWT"], "correct": [0, 1, 2, 4], "explanation": "Ayat ini mengajarkan sikap tadharru' (merendahkan diri), khufyah (suara lirih lembut), husnuzhan kepada Allah, dan keikhlasan. Memaksa takdir atau berputus asa dilarang dalam Islam karena pengabulan doa adalah hak prerogatif Allah yang pasti mengandung hikmah terbaik."}]}, {"no_ind": 31, "elemen": "Tata Cara Bersuci dari Hadast dan Najis", "cp": "Memahami tata cara beribadah yang baik dan benar melalui kajian naqli dan aqli yang meliputi thaharah dari hadas dan najis.", "materi": "Rukun Wudhu", "indikator": "Disajikan peristiwa peserta didik dapat menunjukkan rukun wudlu", "bentuk": "Uraian", "no_soal": 31, "level": "C2", "bobot": "Sedang", "questions": [{"id": "q31_1", "type": "essay", "stimulus": "Dalam Surah Al-Ma'idah ayat 6, Allah SWT menjelaskan ketentuan bersuci sebelum mendirikan shalat. Dari ayat tersebut, para ulama fiqih merumuskan 6 rukun wudhu yang wajib dipenuhi agar wudhu sah.", "question": "Sebutkan dan jelaskan secara urut 6 (enam) rukun wudhu sesuai ketentuan fiqih mazhab Syafi'i!", "keywords": ["niat", "membasuh muka", "membasuh kedua tangan sampai siku", "mengusap sebagian kepala", "membasuh kedua kaki sampai mata kaki", "tertib"], "model_answer": "Enam rukun wudhu secara urut adalah:\n1. Niat dalam hati berwudhu untuk menghilangkan hadas kecil bersamaan saat membasuh wajah.\n2. Membasuh seluruh permukaan wajah, mulai dari tempat tumbuhnya rambut kepala hingga dagu dan dari telinga kanan ke telinga kiri.\n3. Membasuh kedua tangan sampai ke kedua siku.\n4. Mengusap sebagian rambut atau kulit kepala.\n5. Membasuh kedua kaki sampai kedua mata kaki.\n6. Tertib, yaitu melaksanakan rukun-rukun tersebut secara berurutan dari nomor 1 hingga 5 tanpa dibalik.", "rubric": "Skor 100: Menyebutkan 6 rukun wudhu secara lengkap dan berurutan sesuai syariat. Skor 70: Menyebutkan 4-5 rukun wudhu dengan benar. Skor 40: Menyebutkan 1-3 rukun wudhu."}, {"id": "q31_2", "type": "essay", "stimulus": "Seorang siswa berwudhu dengan tergesa-gesa karena adzan shalat hampir selesai. Ia berkumur, menghirup air ke hidung, membasuh wajah, dan membasuh tangan, namun ia melewatkan membasuh sebagian kepala dan langsung membasuh kakinya.", "question": "Bagaimanakah status keabsahan wudhu siswa tersebut? Jelaskan alasannya berdasarkan rukun wudhu dan tertib dalam fiqih!", "keywords": ["tidak sah", "rukun wudhu terlewat", "mengusap sebagian kepala", "tertib dilanggar", "wajib mengulang"], "model_answer": "Status wudhu siswa tersebut adalah TIDAK SAH. Alasannya:\n1. Mengusap sebagian kepala adalah salah satu rukun wudhu wajib yang tidak boleh ditinggalkan.\n2. Tertib adalah rukun wudhu, yaitu harus dilakukan berurutan. Karena siswa tersebut melompati rukun mengusap kepala dan langsung membasuh kaki, maka urutan rukunnya rusak.\nKonsekuensinya, siswa tersebut masih berstatus hadas kecil dan wajib mengulang wudhunya secara tertib dan lengkap agar shalatnya sah.", "rubric": "Skor 100: Menjelaskan status wudhu tidak sah, menyebutkan rukun kepala yang terlewat, dan pelanggaran rukun tertib. Skor 70: Menyatakan tidak sah dengan 1 alasan. Skor 40: Menjawab singkat tanpa analisis fiqih mendalam."}]}, {"no_ind": 32, "elemen": "Ketentuan Shalat Fardlu Lima Waktu", "cp": "Menganalisis ketentuan shalat fardlu lima waktu.", "materi": "Sunah Hai'at dalam Shalat", "indikator": "Disajikan pernyataan, peserta didik dapat menentukan sunah hai’at shalat", "bentuk": "Uraian", "no_soal": 32, "level": "C2", "bobot": "Sedang", "questions": [{"id": "q32_1", "type": "essay", "stimulus": "Dalam pelaksanaan shalat fardhu, terdapat amalan-amalan pelengkap yang berstatus Sunnah Hai'at. Amalan ini memperindah dan menyempurnakan pahala shalat.", "question": "Jelaskan apa yang dimaksud dengan Sunnah Hai'at dalam shalat, dan sebutkan minimal 4 (empat) contoh perbuatannya!", "keywords": ["sunnah hai'at", "tidak sujud sahwi", "doa iftitah", "mengangkat tangan takbir", "membaca ta'awwudz", "membaca surah pendek", "bacaan ruku", "bacaan sujud", "salam kedua"], "model_answer": "Pengertian Sunnah Hai'at:\nSunnah Hai'at adalah amalan-amalan sunnah di dalam shalat yang apabila ditinggalkan (baik sengaja maupun lupa) tidak membatalkan shalat dan tidak disunnahkan untuk melakukan sujud sahwi.\n\nContoh amalan Sunnah Hai'at (minimal 4):\n1. Mengangkat kedua tangan sejajar telinga/bahu saat takbiratul ihram, saat hendak ruku', bangun dari ruku' (i'tidal), dan bangun dari tasyahud awal.\n2. Meletakkan tangan kanan di atas punggung pergelangan tangan kiri di bawah dada (sedekap).\n3. Membaca doa iftitah setelah takbiratul ihram.\n4. Membaca ta'awwudz (A'udzu billahi minasy-syaithanir-rajiim) sebelum membaca Al-Fatihah.\n5. Membaca 'Aamiin' setelah membaca Surah Al-Fatihah.\n6. Membaca surah atau ayat Al-Qur'an setelah Al-Fatihah pada dua rakaat pertama.\n7. Membaca tasbih saat ruku' dan sujud.\n8. Membaca salam yang kedua ke arah kiri.", "rubric": "Skor 100: Menjelaskan pengertian sunnah hai'at dengan tepat dan menyebutkan 4 contoh yang benar. Skor 70: Menjelaskan pengertian dan menyebutkan 2-3 contoh. Skor 40: Hanya menyebutkan contoh tanpa pengertian yang jelas."}, {"id": "q32_2", "type": "essay", "stimulus": "Banyak umat Islam yang masih bingung membedakan antara Sunnah Ab'ad dan Sunnah Hai'at saat mengalami kelupaan amalan dalam shalat fardhu.", "question": "Uraikan perbedaan mendasar antara Sunnah Ab'ad dan Sunnah Hai'at ditinjau dari pengertian dan konsekuensinya terhadap sujud sahwi jika amalan tersebut tertinggal!", "keywords": ["perbedaan", "sunnah ab'ad", "sunnah hai'at", "sujud sahwi", "dianjurkan sujud sahwi", "tidak perlu sujud sahwi"], "model_answer": "Perbedaan mendasar antara Sunnah Ab'ad dan Sunnah Hai'at:\n\n1. Sunnah Ab'ad:\n- Pengertian: Amalan sunnah yang sangat ditekankan posisinya dalam shalat (menyerupai rukun karena memiliki bobot besar seperti tasyahud awal dan qunut subuh).\n- Konsekuensi: Jika tertinggal (baik karena lupa maupun sengaja), DIANJURKAN untuk melakukan sujud sahwi dua kali sebelum salam untuk mengganti kekurangannya.\n\n2. Sunnah Hai'at:\n- Pengertian: Amalan sunnah yang bersifat etika pelengkap gerakan dan bacaan shalat (seperti doa iftitah, bacaan ruku/sujud, mengangkat tangan).\n- Konsekuensi: Jika tertinggal, TIDAK DIANJURKAN sujud sahwi. Bahkan jika sengaja sujud sahwi khusus karena lupa sunnah hai'at, sebagian ulama menilai shalatnya dapat batal karena menambah sujud tanpa sebab syar'i.", "rubric": "Skor 100: Memaparkan perbandingan pengertian dan konsekuensi sujud sahwi kedua jenis sunnah secara tepat dan sistematis. Skor 70: Menjelaskan perbedaan konsekuensi sujud sahwi saja secara benar. Skor 40: Menjawab singkat tanpa perbandingan komparatif."}]}, {"no_ind": 33, "elemen": "Ketentuan Shalat Fardlu Lima Waktu", "cp": "Menganalisis ketentuan shalat fardlu lima waktu.", "materi": "Tata Cara Sujud Sahwi", "indikator": "Disajikan pernyataan, peserta didik dapat menentukan tata cara sujud sahwi", "bentuk": "Uraian", "no_soal": 33, "level": "C3", "bobot": "Sukar", "questions": [{"id": "q33_1", "type": "essay", "stimulus": "Sujud sahwi disyariatkan untuk menambal kekurangan atau keraguan yang terjadi dalam shalat akibat lupa, seperti meninggalkan sunnah ab'ad atau ragu-ragu menentukan jumlah rakaat yang telah dikerjakan.", "question": "Jelaskan langkah apa yang harus diambil jika seseorang ragu menentukan jumlah rakaat shalatnya (misalnya ragu antara rakaat ke-3 atau ke-4), dan jelaskan bagaimana tata cara pelaksanaan sujud sahwi yang benar!", "keywords": ["yakin bilangan terkecil", "rakaat ke-3", "menambah satu rakaat", "tata cara sujud sahwi", "dua kali sujud", "sebelum salam", "bacaan sujud sahwi"], "model_answer": "Langkah menghadapi keraguan rakaat dan tata cara sujud sahwi:\n\n1. Menetapkan Keyakinan pada Bilangan Terkecil:\nJika seseorang ragu apakah ia sudah rakaat ke-3 atau ke-4, maka kaidah fiqih menetapkan ia harus mengambil yang yakin yaitu bilangan terkecil (rakaat ke-3). Kemudian ia wajib menambah 1 rakaat lagi untuk menyempurnakan shalatnya menjadi 4 rakaat.\n\n2. Tata Cara Pelaksanaan Sujud Sahwi:\n- Dilakukan di akhir shalat setelah selesai membaca doa tasyahud akhir dan shalawat, tepat SEBELUM membaca salam pertama.\n- Bertakbir ('Allahu Akbar') lalu melakukan sujud pertama seperti sujud shalat biasa dan membaca doa sujud sahwi: 'سُبْحَانَ مَنْ لَا يَنَامُ وَلَا يَسْهُو' (Subhana man laa yanaamu wa laa yas-huu).\n- Bangkit dari sujud dengan takbir, lalu duduk sejenak di antara dua sujud (iftirasy).\n- Bertakbir lalu melakukan sujud kedua dengan membaca doa yang sama.\n- Bangkit duduk kembali lalu membaca salam ke kanan dan ke kiri.", "rubric": "Skor 100: Menjelaskan kaidah mengambil rakaat terkecil dan menjabarkan tata cara sujud sahwi (2 kali sujud, sebelum salam, bacaan doa) secara runtut. Skor 70: Menjelaskan kaidah rakaat dan cara sujud sahwi namun kurang detail. Skor 40: Hanya menyebutkan sujud dua kali sebelum salam."}, {"id": "q33_2", "type": "essay", "stimulus": "Dalam mazhab Syafi'i, posisi pelaksanaan sujud sahwi memiliki aturan waktu yang tegas.", "question": "Kapan waktu pelaksanaan sujud sahwi dilakukan menurut mazhab Syafi'i, berapa kali sujud yang dikerjakan, dan tuliskan lafal bacaan doanya beserta artinya!", "keywords": ["sebelum salam", "dua kali sujud", "subhana man laa yanaamu wa laa yas-huu", "maha suci dzat yang tidak pernah tidur dan tidak pernah lupa"], "model_answer": "Ketentuan Sujud Sahwi menurut mazhab Syafi'i:\n1. Waktu Pelaksanaan: Dikerjakan di akhir shalat, yaitu setelah selesai tasyahud akhir dan sebelum mengucapkan salam pertama.\n2. Jumlah Sujud: Dilakukan sebanyak 2 (dua) kali sujud dengan dipisahkan oleh satu kali duduk di antara dua sujud.\n3. Lafal Bacaan Doa:\nسُبْحَانَ مَنْ لَا يَنَامُ وَلَا يَسْهُو\n(Subhana man laa yanaamu wa laa yas-huu)\nArtinya: 'Maha Suci Dzat (Allah) yang tidak pernah tidur dan tidak pernah lupa.'", "rubric": "Skor 100: Menjawab waktu sebelum salam, 2 kali sujud, dan menuliskan lafal bacaan beserta artinya dengan benar. Skor 70: Menjawab waktu dan jumlah sujud benar, lafal/arti kurang lengkap. Skor 40: Menjawab sebagian poin saja."}]}, {"no_ind": 34, "elemen": "Ketentuan Shalat Berjamaah", "cp": "Menganalisis ketentuan shalat berjamaah.", "materi": "Tata Cara Mengganti Imam yang Batal (Istikhlaf)", "indikator": "Disajikan peristiwa, peserta didik dapat menentukan tata cara mengganti Imam yang batal", "bentuk": "Uraian", "no_soal": 34, "level": "C4", "bobot": "Sukar", "questions": [{"id": "q34_1", "type": "essay", "stimulus": "Ketika shalat Isya berjamaah sedang berlangsung di rakaat kedua, tiba-tiba imam shalat merasakan hadas (buang angin/kentut) sehingga wudhunya batal seketika di hadapan para makmum.", "question": "Berdasarkan fiqih Islam, jelaskan tata cara pergantian imam yang batal (istikhlaf) agar shalat berjamaah seluruh makmum tetap sah dan dapat dilanjutkan sampai selesai!", "keywords": ["istikhlaf", "imam mundur memegang hidung", "makmum di belakang maju menggantikan", "melanjutkan sisa rakaat", "shalat jamaah tetap sah"], "model_answer": "Tata cara mengganti imam yang batal (istikhlaf) secara syar'i:\n1. Imam yang batal wudhunya wajib berniat keluar dari shalat (memutus shalatnya). Imam disunnahkan menutup hidungnya dengan tangan seolah-olah sedang mimisan agar tidak malu, lalu mundur keluar dari tempat imam secara tenang tanpa mengganggu barisan shaf.\n2. Salah satu makmum yang berada tepat di belakang imam (yang memiliki pemahaman fiqih shalat paling baik) secara tanggap melangkah maju ke depan menempati posisi imam.\n3. Makmum pengganti tersebut berniat menjadi imam baru, lalu langsung melanjutkan gerakan shalat pada rakaat yang sedang berlangsung tanpa perlu mengulang dari rakaat awal.\n4. Seluruh makmum di belakang tetap melanjutkan shalat berjamaah mengikuti komando imam pengganti hingga selesai membaca salam.", "rubric": "Skor 100: Menjelaskan adab imam mundur, makmum belakang maju menggantikan, melanjutkan sisa rakaat, dan status keabsahan shalat secara runtut. Skor 70: Menjelaskan proses imam mundur dan makmum maju. Skor 40: Menjelaskan secara singkat tanpa langkah teknis fiqih."}, {"id": "q34_2", "type": "essay", "stimulus": "Pada rakaat ketiga shalat Ashar, imam shalat tiba-tiba jatuh pingsan akibat serangan jantung dan tidak sadarkan diri di tempat shalatnya.", "question": "Uraikan langkah-langkah yang harus dilakukan oleh para makmum yang berada di saf pertama dalam merespons kejadian darurat tersebut sesuai tuntunan syariat!", "keywords": ["makmum di belakang maju", "menggantikan imam", "menyelamatkan/mengevakuasi imam pingsan", "melanjutkan shalat", "shalat tidak perlu diulang"], "model_answer": "Langkah-langkah yang harus dilakukan para makmum saf pertama:\n1. Makmum yang berada tepat di belakang imam segera maju ke depan menggantikan posisi imam untuk memimpin kelanjutan shalat Ashar agar jamaah tidak terputus.\n2. Makmum lain di samping atau di saf kedua secara tenang mengevakuasi/menolong imam yang pingsan ke tempat aman untuk diberi pertolongan medis pertama (menyelamatkan nyawa manusia hukumnya wajib dan diutamakan).\n3. Imam pengganti memimpin rakaat ketiga dan keempat hingga selesai salam bersama makmum yang tersisa.\n4. Shalat para makmum yang tetap melanjutkan jamaah dihukumi sah dan tidak perlu diulang dari awal.", "rubric": "Skor 100: Menguraikan langkah penunjukan imam pengganti maju dan tindakan menolong korban pingsan secara tepat. Skor 70: Menjelaskan makmum maju menjadi imam saja. Skor 40: Menjawab singkat tanpa langkah operasional darurat."}]}, {"no_ind": 35, "elemen": "Ketentuan Dzikir dan Do’a", "cp": "Menganalisis keutamaan berdzikir dan berdoa setelah shalat.", "materi": "Manfaat Dzikir dan Do'a dalam Kehidupan Sehari-hari", "indikator": "Peserta didik dapat mengidentifikasi manfaat dzikir dan do'a dalam kehidupan sehari-hari", "bentuk": "Uraian", "no_soal": 35, "level": "C3", "bobot": "Sedang", "questions": [{"id": "q35_1", "type": "essay", "stimulus": "Berdzikir dan berdoa bukan sekadar ritual lisan selepas shalat, melainkan memiliki dampak psikologis, spiritual, dan sosial yang sangat mendalam bagi seorang peserta didik madrasah.", "question": "Uraikan minimal 3 (tiga) manfaat nyata dari membiasakan dzikir dan doa dalam kehidupan sehari-hari bagi seorang siswa madrasah!", "keywords": ["ketenangan hati", "menghilangkan stres", "mencegah perbuatan maksiat", "membentuk akhlak mulia", "mendapat perlindungan allah", "fokus belajar"], "model_answer": "Tiga manfaat nyata merutinkan dzikir dan doa bagi siswa madrasah:\n1. Ketenangan Hati dan Mengurangi Stres/Kecemasan: Mengingat Allah membuat jiwa tenteram (QS. Ar-Ra'd: 28), membantu siswa mengendalikan emosi, meredakan kecemasan saat menghadapi ujian, dan melahirkan pikiran yang jernih untuk belajar.\n2. Membentuk Karakter dan Menjaga Diri dari Maksiat: Dzikir menumbuhkan kesadaran muraqabah (merasa selalu diawasi Allah SWT), sehingga siswa terhindar dari pergaulan bebas, kecurangan saat ujian, perundungan (bullying), dan kemaksiatan digital.\n3. Memperoleh Perlindungan dan Keberkahan Hidup: Doa adalah senjata orang beriman (silahul mu'min). Rutin berdoa mendatangkan pertolongan, kemudahan meraih cita-cita, serta perlindungan dari marabahaya dalam kehidupan sehari-hari.", "rubric": "Skor 100: Menjelaskan 3 manfaat konkret (psikologis, moral/karakter, dan spiritual) disertai argumen yang relevan bagi siswa. Skor 70: Menjelaskan 2 manfaat dengan baik. Skor 40: Menyebutkan 1 manfaat secara umum."}, {"id": "q35_2", "type": "essay", "stimulus": "Dalam pergaulan remaja saat ini, banyak pengaruh negatif seperti kecanduan game online, kenakalan remaja, dan kata-kata kotor di media sosial yang mengikis moral generasi muda.", "question": "Bagaimanakah amalan dzikir dapat membentengi lisan dan perilaku seorang remaja muslim dari pengaruh buruk lingkungan tersebut? Jelaskan secara logis!", "keywords": ["membentengi lisan", "menjaga dari kata kotor", "kesadaran muraqabah", "membersihkan hati", "kebiasaan kalimat thayyibah"], "model_answer": "Cara amalan dzikir membentengi lisan dan perilaku remaja:\n1. Mensucikan Lisan dengan Kalimat Thayyibah: Lisan yang terbiasa melafalkan tasbih, tahmid, istighfar, dan shalawat akan merasa risih dan enggan untuk mengeluarkan kata-kata kotor, caci maki, fitnah, maupun ghibah di dunia nyata maupun media sosial.\n2. Menghidupkan Pengawasan Hati (Muraqabah): Dzikir mengaitkan ingatan remaja secara kontinu kepada keagungan Allah SWT, sehingga saat ada ajakan berbuat maksiat atau pergaulan bebas, hatinya akan menolak karena sadar malaikat mencatat setiap perbuatannya.\n3. Menyejukkan Hati dan Mengendalikan Nafsu: Dzikir menghaluskan nurani, menumbuhkan rasa malu berbuat dosa, serta memberikan kebahagiaan batin yang hakiki sehingga remaja tidak mencari pelarian pada kenakalan atau hal-hal destruktif.", "rubric": "Skor 100: Menganalisis peran dzikir terhadap pengendalian lisan, pengawasan batin (muraqabah), dan pengendalian nafsu remaja secara logis. Skor 70: Menganalisis 2 aspek dengan baik. Skor 40: Menjawab singkat tanpa korelasi mendalam."}]}];
+
+        // State management
+        let currentCpFilter = 'all';
+        let activeModalIndNum = null;
+        let orderedFilteredIndicators = [];
+        let userProgress = {};
+
+        // Normalized CP metadata per Elemen
+        const CP_MAP = {
+            'Tata Cara Bersuci dari Hadast dan Najis': {
+                cpNum: '1',
+                cpBadge: 'CP 1 • Thaharah',
+                elemen: 'Tata Cara Bersuci dari Hadast dan Najis',
+                cp: 'Memahami tata cara beribadah yang baik dan benar melalui kajian naqli dan aqli yang meliputi thaharah dari hadas dan najis, berbagai macam salat dan rukhshohnya.'
+            },
+            'Ketentuan Shalat Fardlu Lima Waktu': {
+                cpNum: '2',
+                cpBadge: 'CP 2 • Shalat Fardlu',
+                elemen: 'Ketentuan Shalat Fardlu Lima Waktu',
+                cp: 'Menganalisis ketentuan shalat fardlu lima waktu.'
+            },
+            'Ketentuan Shalat Berjamaah': {
+                cpNum: '3',
+                cpBadge: 'CP 3 • Shalat Berjamaah',
+                elemen: 'Ketentuan Shalat Berjamaah',
+                cp: 'Menganalisis ketentuan shalat berjamaah.'
+            },
+            'Ketentuan Dzikir dan Do’a': {
+                cpNum: '4',
+                cpBadge: 'CP 4 • Dzikir & Do\'a',
+                elemen: 'Ketentuan Dzikir dan Do’a',
+                cp: 'Menganalisis keutamaan berdzikir dan berdoa setelah shalat.'
+            }
+        };
+
+        function getNormalizedMeta(item) {
+            if (CP_MAP[item.elemen]) return CP_MAP[item.elemen];
+            return {
+                cpNum: '1',
+                cpBadge: 'CP 1',
+                elemen: item.elemen || 'Fiqih',
+                cp: item.cp || ''
+            };
+        }
+
+        // Subtle Web Audio feedback
+        let audioCtx = null;
+        function playSound(type) {
+            try {
+                if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                if (type === 'correct') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(523.25, now);
+                    osc.frequency.exponentialRampToValueAtTime(783.99, now + 0.14);
+                    gain.gain.setValueAtTime(0.14, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                } else if (type === 'wrong') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(329.63, now);
+                    osc.frequency.exponentialRampToValueAtTime(261.63, now + 0.18);
+                    gain.gain.setValueAtTime(0.16, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                }
+            } catch (e) {}
+        }
+
+        // Helper: Find a question by its ID
+        function findQuestion(qId) {
+            for (let ind of KISI_DATA) {
+                if (Array.isArray(ind.questions)) {
+                    for (let q of ind.questions) {
+                        if (q.id === qId) return q;
+                    }
+                }
+            }
+            return null;
+        }
+
+        // Helper: Fisher-Yates shuffle
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function shuffleQuestionOptions(q) {
+            if (!q || !Array.isArray(q.options) || q.options.length < 2) return;
+            if (q.type === 'pg') {
+                const correctText = q.options[q.correct];
+                shuffleArray(q.options);
+                q.correct = q.options.indexOf(correctText);
+            } else if (q.type === 'pgk' && Array.isArray(q.correct)) {
+                const correctTexts = q.correct.map(idx => q.options[idx]);
+                shuffleArray(q.options);
+                q.correct = correctTexts.map(text => q.options.indexOf(text)).sort((a, b) => a - b);
+            }
+        }
+
+        function shuffleAllQuestions() {
+            KISI_DATA.forEach(ind => {
+                if (Array.isArray(ind.questions)) {
+                    ind.questions.forEach(q => shuffleQuestionOptions(q));
+                }
+            });
+        }
+
+        // Helper: Normalize saved progress entry (backward compatible with previous Fiqih format)
+        function isQuestionAnswered(qId) {
+            const st = userProgress[qId];
+            return !!(st && (st.answered === true || st.type !== undefined));
+        }
+
+        function isQuestionCorrect(st) {
+            if (!st) return false;
+            if (typeof st.correct === 'boolean') return st.correct;
+            if (typeof st.isCorrect === 'boolean') return st.isCorrect;
+            return false;
+        }
+
+        // Load & save progress
+        function loadProgress() {
+            try {
+                const saved = localStorage.getItem('asas_fiqih_progress_2026');
+                if (saved) userProgress = JSON.parse(saved);
+            } catch (e) {
+                console.error("Failed to load progress", e);
+            }
+            updateProgressStats();
+        }
+
+        function saveProgress() {
+            try {
+                localStorage.setItem('asas_fiqih_progress_2026', JSON.stringify(userProgress));
+            } catch (e) {
+                console.error("Failed to save progress", e);
+            }
+            updateProgressStats();
+        }
+
+        function updateProgressStats() {
+            const totalQuestions = 70;
+            const solvedCount = Object.keys(userProgress).length;
+            const percent = Math.min(100, Math.round((solvedCount / totalQuestions) * 100));
+
+            const statCountElem = document.getElementById('stat-solved-count');
+            if (statCountElem) statCountElem.innerText = `${solvedCount} / ${totalQuestions}`;
+
+            const percentElem = document.getElementById('progress-percent');
+            if (percentElem) percentElem.innerText = `${percent}% Selesai (${solvedCount} Soal)`;
+
+            const barFill = document.getElementById('progress-bar-fill');
+            if (barFill) barFill.style.width = `${percent}%`;
+        }
+
+        function resetAllProgress() {
+            if (confirm("Apakah Anda yakin ingin mereset seluruh hasil latihan soal interaktif?")) {
+                userProgress = {};
+                localStorage.removeItem('asas_fiqih_progress_2026');
+                shuffleAllQuestions();
+                renderTable();
+                if (activeModalIndNum !== null) {
+                    renderModalContent(false);
+                }
+                updateProgressStats();
+            }
+        }
+
+        // Compute filtered indicators grouped cleanly by CP (1 -> 2 -> 3 -> 4), sorted by no_soal inside each CP
+        function getFilteredGroups() {
+            const searchQuery = (document.getElementById('kisi-search')?.value || '').toLowerCase().trim();
+            const bentukFilter = document.getElementById('filter-bentuk')?.value || 'all';
+            const bobotFilter = document.getElementById('filter-bobot')?.value || 'all';
+
+            const filtered = KISI_DATA.filter(item => {
+                const meta = getNormalizedMeta(item);
+
+                if (currentCpFilter !== 'all' && currentCpFilter !== meta.cpNum) return false;
+                if (bentukFilter !== 'all' && item.bentuk !== bentukFilter) return false;
+                if (bobotFilter !== 'all' && item.bobot !== bobotFilter) return false;
+
+                if (searchQuery) {
+                    const fullText = `${item.no_ind} ${item.no_soal} ${item.indikator} ${item.materi || ''} ${meta.elemen} ${meta.cp} ${item.bentuk} ${item.bobot} ${item.level}`.toLowerCase();
+                    if (!fullText.includes(searchQuery)) return false;
+                }
+
+                return true;
+            });
+
+            // Group by CP number (1..4) so each CP merges into one continuous rowspan block
+            const groupMap = new Map();
+            filtered.forEach(item => {
+                const meta = getNormalizedMeta(item);
+                if (!groupMap.has(meta.cpNum)) {
+                    groupMap.set(meta.cpNum, { cpNum: meta.cpNum, meta: meta, items: [] });
+                }
+                groupMap.get(meta.cpNum).items.push(item);
+            });
+
+            const groups = Array.from(groupMap.values()).sort((a, b) => Number(a.cpNum) - Number(b.cpNum));
+            groups.forEach(g => g.items.sort((a, b) => a.no_soal - b.no_soal));
+            return groups;
+        }
+
+        // Render Official Kisi-Kisi Table with CP-based Rowspan Grouping
+        function renderTable() {
+            const tbody = document.getElementById('kisi-table-body');
+            if (!tbody) return;
+
+            const groups = getFilteredGroups();
+            orderedFilteredIndicators = groups.flatMap(g => g.items);
+
+            let html = '';
+
+            groups.forEach(group => {
+                const rowCount = group.items.length;
+                const m = group.meta;
+
+                let elemenBadge = 'bg-teal-50 text-teal-800 border-teal-200';
+                if (m.cpNum === '2') elemenBadge = 'bg-blue-50 text-blue-800 border-blue-200';
+                else if (m.cpNum === '3') elemenBadge = 'bg-amber-50 text-amber-800 border-amber-200';
+                else if (m.cpNum === '4') elemenBadge = 'bg-purple-50 text-purple-800 border-purple-200';
+
+                group.items.forEach((item, idxInGroup) => {
+                    // Bobot badge
+                    let bobotClass = 'bg-emerald-50 text-emerald-700 border-emerald-200';
+                    if (item.bobot === 'Sedang') bobotClass = 'bg-amber-50 text-amber-700 border-amber-200';
+                    else if (item.bobot === 'Sukar') bobotClass = 'bg-rose-50 text-rose-700 border-rose-200';
+
+                    // Bentuk badge
+                    let bentukShort = item.bentuk;
+                    let bentukSub = 'Pilihan Ganda';
+                    let bentukClass = 'bg-teal-50 text-teal-800 border-teal-200';
+                    if (item.bentuk === 'PGK') {
+                        bentukSub = 'PG Kompleks';
+                        bentukClass = 'bg-blue-50 text-blue-800 border-blue-200';
+                    } else if (item.bentuk === 'Uraian') {
+                        bentukSub = 'Uraian / Esai';
+                        bentukClass = 'bg-purple-50 text-purple-800 border-purple-200';
+                    }
+
+                    // Progress badge inside indicator cell
+                    const q1Solved = isQuestionAnswered(item.questions[0]?.id);
+                    const q2Solved = isQuestionAnswered(item.questions[1]?.id);
+                    const solvedInRow = (q1Solved ? 1 : 0) + (q2Solved ? 1 : 0);
+
+                    let statusPill = '';
+                    if (solvedInRow === 2) {
+                        statusPill = `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 text-[10px] font-bold border border-emerald-200"><i class="fa-solid fa-check-double"></i> 2/2 Selesai &bull; Lihat Soal</span>`;
+                    } else if (solvedInRow === 1) {
+                        statusPill = `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-amber-100 text-amber-800 text-[10px] font-bold border border-amber-200"><i class="fa-solid fa-hourglass-half"></i> 1/2 Selesai &bull; Lanjutkan</span>`;
+                    } else {
+                        statusPill = `<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-teal-50 text-teal-700 text-[10px] font-semibold border border-teal-200/80 group-hover:bg-teal-600 group-hover:text-white group-hover:border-teal-600 transition-colors"><i class="fa-solid fa-up-right-from-square text-[9px]"></i> Buka 2 Contoh Soal</span>`;
+                    }
+
+                    const mergedCols = idxInGroup === 0 ? `
+                        <td rowspan="${rowCount}" class="px-2 py-3 text-center align-top font-bold text-slate-800 bg-slate-50/40">
+                            <div class="sticky top-20 print:static">
+                                ${m.cpNum}
+                            </div>
+                        </td>
+                        <td rowspan="${rowCount}" class="px-3 py-3 align-top bg-slate-50/60 text-[11px] sm:text-xs leading-relaxed">
+                            <div class="sticky top-20 print:static">
+                                <span class="inline-block px-2 py-0.5 rounded-md border font-bold text-[10px] mb-2 ${elemenBadge}">
+                                    ${m.elemen}
+                                </span>
+                                <div>
+                                    <span class="font-bold text-slate-800">CP:</span>
+                                    <span class="text-slate-600">${m.cp}</span>
+                                </div>
+                            </div>
+                        </td>
+                    ` : '';
+
+                    html += `
+                        <tr class="bg-white">
+                            ${mergedCols}
+                            <td class="px-3 py-3 align-top bg-white font-semibold text-slate-800 text-xs leading-snug">
+                                ${item.materi || m.elemen}
+                            </td>
+                            <td class="kisi-indicator-cell px-3.5 py-3 align-top cursor-pointer group" onclick="openQuestionModal(${item.no_ind})" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQuestionModal(${item.no_ind});}">
+                                <div class="flex items-start gap-2">
+                                    <span class="mt-0.5 text-teal-600 text-xs shrink-0 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform no-print">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    </span>
+                                    <div class="space-y-1.5">
+                                        <div class="font-semibold text-slate-800 group-hover:text-teal-700 group-hover:underline leading-snug">
+                                            ${item.indikator}
+                                        </div>
+                                        <div class="no-print">
+                                            ${statusPill}
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-2 py-3 text-center align-top">
+                                <div class="font-bold text-slate-800 text-xs mb-1">${item.level}</div>
+                                <span class="inline-block px-2 py-0.5 rounded-md text-[10px] font-bold border ${bobotClass}">
+                                    ${item.bobot}
+                                </span>
+                            </td>
+                            <td class="px-2 py-3 text-center align-top">
+                                <span class="inline-block px-2 py-0.5 rounded-md text-[11px] font-bold border ${bentukClass}">
+                                    ${bentukShort}
+                                </span>
+                                <div class="text-[10px] text-slate-500 mt-1 font-medium">${bentukSub}</div>
+                            </td>
+                            <td class="px-2 py-3 text-center align-top font-extrabold text-slate-900 text-sm">
+                                ${item.no_soal}
+                            </td>
+                        </tr>
+                    `;
+                });
+            });
+
+            tbody.innerHTML = html;
+
+            // Update status text & reset filter button visibility
+            const statusElem = document.getElementById('filter-status-text');
+            if (statusElem) {
+                statusElem.innerText = `Menampilkan ${orderedFilteredIndicators.length} dari ${KISI_DATA.length} Indikator Asesmen`;
+            }
+
+            const hasActiveFilter = currentCpFilter !== 'all'
+                || (document.getElementById('filter-bentuk')?.value || 'all') !== 'all'
+                || (document.getElementById('filter-bobot')?.value || 'all') !== 'all'
+                || (document.getElementById('kisi-search')?.value || '').trim() !== '';
+
+            const resetBtn = document.getElementById('btn-reset-filter');
+            if (resetBtn) {
+                if (hasActiveFilter) resetBtn.classList.remove('hidden');
+                else resetBtn.classList.add('hidden');
+            }
+
+            const noResults = document.getElementById('no-results');
+            if (noResults) {
+                if (orderedFilteredIndicators.length === 0) noResults.classList.remove('hidden');
+                else noResults.classList.add('hidden');
+            }
+        }
+
+        // Helper to format stimulus (markdown tables, Arabic verses/hadits, bullet points, paragraphs)
+        function formatStimulusContent(rawText) {
+            if (!rawText) return '';
+
+            const lines = rawText.split('\n');
+            let resultHtml = [];
+            let tableBuffer = [];
+            let inTable = false;
+
+            function flushTable() {
+                if (tableBuffer.length === 0) return;
+
+                const headerLine = tableBuffer[0];
+                const headerCells = headerLine.split('|')
+                    .map(c => c.trim())
+                    .filter((c, idx, arr) => idx > 0 && idx < arr.length - 1);
+
+                let thead = `<thead><tr class="bg-teal-900 text-white font-bold text-[11px] sm:text-xs tracking-wide">`;
+                headerCells.forEach((h) => {
+                    const isShort = h.toLowerCase() === 'no' || h.toLowerCase() === 'kondisi';
+                    const alignClass = isShort ? 'text-center w-12 sm:w-16' : 'text-left';
+                    thead += `<th class="px-3 py-2.5 border-r border-teal-800 last:border-r-0 ${alignClass}">${h}</th>`;
+                });
+                thead += `</tr></thead>`;
+
+                let tbody = `<tbody class="divide-y divide-slate-100 bg-white text-slate-800 text-xs">`;
+                for (let rIdx = 2; rIdx < tableBuffer.length; rIdx++) {
+                    const rowLine = tableBuffer[rIdx];
+                    const cells = rowLine.split('|')
+                        .map(c => c.trim())
+                        .filter((c, idx, arr) => idx > 0 && idx < arr.length - 1);
+
+                    if (cells.length > 0) {
+                        const trBg = rIdx % 2 === 0 ? 'bg-white' : 'bg-slate-50/70';
+                        tbody += `<tr class="${trBg} hover:bg-teal-50/60 transition-colors">`;
+                        cells.forEach((cellText, cIdx) => {
+                            const isFirstCol = cIdx === 0 && (cellText.length <= 3 || !isNaN(cellText));
+                            const alignClass = isFirstCol ? 'text-center font-bold text-teal-800' : 'leading-relaxed font-medium';
+                            tbody += `<td class="px-3 py-2.5 border-r border-slate-100 last:border-r-0 ${alignClass}">${cellText}</td>`;
+                        });
+                        tbody += `</tr>`;
+                    }
+                }
+                tbody += `</tbody>`;
+
+                resultHtml.push(`
+                    <div class="my-2.5 overflow-x-auto rounded-xl border border-teal-200/90 shadow-2xs bg-white">
+                        <table class="w-full text-left border-collapse">
+                            ${thead}
+                            ${tbody}
+                        </table>
+                    </div>
+                `);
+
+                tableBuffer = [];
+                inTable = false;
+            }
+
+            let textBuffer = [];
+            function flushText() {
+                if (textBuffer.length > 0) {
+                    resultHtml.push(`<p class="leading-relaxed mb-2 font-medium">${textBuffer.join('<br/>')}</p>`);
+                    textBuffer = [];
+                }
+            }
+
+            const arabicRegex = /[\u0600-\u06FF]/;
+
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i].trim();
+
+                if (line.startsWith('|') && line.endsWith('|')) {
+                    flushText();
+                    inTable = true;
+                    tableBuffer.push(line);
+                } else {
+                    if (inTable) {
+                        flushTable();
+                    }
+                    if (line && arabicRegex.test(line)) {
+                        flushText();
+                        resultHtml.push(`
+                            <div class="font-arabic text-lg sm:text-xl text-teal-950 bg-teal-50/70 px-4 py-3 rounded-xl border border-teal-200/70 my-2.5">
+                                ${line}
+                            </div>
+                        `);
+                    } else if (line.startsWith('- ')) {
+                        flushText();
+                        resultHtml.push(`
+                            <div class="flex items-start gap-2 py-1 pl-1">
+                                <span class="w-2 h-2 rounded-full bg-teal-600 mt-1.5 shrink-0 shadow-2xs"></span>
+                                <span class="text-xs text-slate-800 leading-relaxed font-medium">${line.substring(2)}</span>
+                            </div>
+                        `);
+                    } else if (line) {
+                        textBuffer.push(line);
+                    } else {
+                        flushText();
+                    }
+                }
+            }
+
+            if (inTable) flushTable();
+            flushText();
+
+            return resultHtml.join('');
+        }
+
+        // Render Single Interactive Question Card inside Pop-up Modal
+        function renderQuestionCard(q, qIndex) {
+            if (!q) return '<div class="p-4 bg-white rounded-xl text-xs text-slate-400">Soal belum dimuat</div>';
+
+            const userState = userProgress[q.id] || {};
+            const isAnswered = isQuestionAnswered(q.id);
+            const isCorrectState = isQuestionCorrect(userState);
+
+            let badgeHtml = '';
+            if (q.type === 'pg') {
+                badgeHtml = '<span class="px-2.5 py-0.5 rounded-md bg-teal-100 text-teal-800 text-[10px] font-bold">Pilihan Ganda</span>';
+            } else if (q.type === 'pgk') {
+                badgeHtml = '<span class="px-2.5 py-0.5 rounded-md bg-blue-100 text-blue-800 text-[10px] font-bold">Pilihan Ganda Kompleks (Centang)</span>';
+            } else {
+                badgeHtml = '<span class="px-2.5 py-0.5 rounded-md bg-purple-100 text-purple-800 text-[10px] font-bold">Uraian / Esai</span>';
+            }
+
+            let contentHtml = '';
+
+            // 1. PG Rendering
+            if (q.type === 'pg') {
+                const savedIdx = userState.selected !== undefined ? userState.selected : userState.selectedIdx;
+                contentHtml = `
+                    <div class="space-y-2.5 my-4">
+                        ${q.options.map((opt, oIdx) => {
+                            let optClass = "p-3 rounded-xl border border-slate-200 bg-white hover:bg-teal-50/50 hover:border-teal-400 cursor-pointer flex items-start gap-3 transition-all text-xs sm:text-sm";
+                            let iconHtml = `<span class="w-6 h-6 rounded-lg bg-slate-100 text-slate-700 font-bold flex items-center justify-center shrink-0 text-xs">${String.fromCharCode(65 + oIdx)}</span>`;
+
+                            if (isAnswered) {
+                                const isUserChoice = (userState.selectedText === opt) || (savedIdx === oIdx && !userState.selectedText);
+                                if (oIdx === q.correct) {
+                                    optClass = "p-3 rounded-xl border-2 border-emerald-500 bg-emerald-50/80 text-emerald-950 flex items-start gap-3 text-xs sm:text-sm shadow-xs";
+                                    iconHtml = `<span class="w-6 h-6 rounded-lg bg-emerald-600 text-white font-bold flex items-center justify-center shrink-0 text-xs"><i class="fa-solid fa-check"></i></span>`;
+                                } else if (isUserChoice) {
+                                    optClass = "p-3 rounded-xl border-2 border-rose-400 bg-rose-50/80 text-rose-950 flex items-start gap-3 text-xs sm:text-sm";
+                                    iconHtml = `<span class="w-6 h-6 rounded-lg bg-rose-600 text-white font-bold flex items-center justify-center shrink-0 text-xs"><i class="fa-solid fa-xmark"></i></span>`;
+                                } else {
+                                    optClass = "p-3 rounded-xl border border-slate-200 bg-slate-50/60 opacity-60 flex items-start gap-3 text-xs sm:text-sm";
+                                }
+                            }
+
+                            const clickHandler = isAnswered ? '' : `onclick="answerPG('${q.id}', ${oIdx}, ${q.correct})"`;
+                            return `
+                                <div class="${optClass}" ${clickHandler}>
+                                    ${iconHtml}
+                                    <div class="leading-relaxed font-medium flex-grow">${opt}</div>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                `;
+            }
+
+            // 2. PGK Rendering (Checkbox)
+            else if (q.type === 'pgk') {
+                const selectedTexts = userState.selectedTexts || [];
+                const selectedIndices = userState.selected || userState.selectedIndices || [];
+                contentHtml = `
+                    <div class="space-y-2 my-4" id="pgk-container-${q.id}">
+                        ${q.options.map((opt, oIdx) => {
+                            const isChecked = isAnswered
+                                ? (selectedTexts.length > 0 ? selectedTexts.includes(opt) : selectedIndices.includes(oIdx))
+                                : false;
+                            let optClass = "p-3 rounded-xl border border-slate-200 bg-white hover:bg-teal-50/50 hover:border-teal-400 cursor-pointer flex items-start gap-3 transition-all text-xs sm:text-sm";
+
+                            if (isAnswered) {
+                                const isCorrectAnswer = q.correct.includes(oIdx);
+                                if (isCorrectAnswer) {
+                                    optClass = "p-3 rounded-xl border-2 border-emerald-500 bg-emerald-50/80 text-emerald-950 flex items-start gap-3 text-xs sm:text-sm font-semibold";
+                                } else if (isChecked && !isCorrectAnswer) {
+                                    optClass = "p-3 rounded-xl border-2 border-rose-400 bg-rose-50/80 text-rose-950 flex items-start gap-3 text-xs sm:text-sm";
+                                } else {
+                                    optClass = "p-3 rounded-xl border border-slate-200 bg-slate-50/60 opacity-60 flex items-start gap-3 text-xs sm:text-sm";
+                                }
+                            }
+
+                            return `
+                                <label class="${optClass}">
+                                    <input type="checkbox" name="pgk_${q.id}" value="${oIdx}" ${isChecked ? 'checked' : ''} ${isAnswered ? 'disabled' : ''}
+                                        class="mt-0.5 rounded text-teal-600 focus:ring-teal-500 h-4 w-4 shrink-0">
+                                    <div class="leading-relaxed font-medium flex-grow">${opt}</div>
+                                </label>
+                            `;
+                        }).join('')}
+                    </div>
+                    ${!isAnswered ? `
+                        <div class="mt-3">
+                            <button onclick="checkPGK('${q.id}')" class="btn-clay-primary px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check"></i> Periksa Jawaban Pilihan Ganda Kompleks
+                            </button>
+                        </div>
+                    ` : ''}
+                `;
+            }
+
+            // 3. Essay Rendering
+            else if (q.type === 'essay') {
+                const textVal = userState.textAnswer || userState.userText || '';
+                contentHtml = `
+                    <div class="my-4">
+                        <textarea id="essay-input-${q.id}" rows="3" placeholder="Ketikkan jawaban uraian Anda di sini untuk latihan mandiri..."
+                            ${isAnswered ? 'readonly' : ''}
+                            class="w-full p-3 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-teal-500 bg-white">${textVal}</textarea>
+
+                        ${!isAnswered ? `
+                            <button onclick="submitEssay('${q.id}')" class="mt-2.5 btn-clay-primary px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+                                <i class="fa-solid fa-eye"></i> Periksa &amp; Buka Kunci Jawaban Lengkap
+                            </button>
+                        ` : ''}
+                    </div>
+                `;
+            }
+
+            // Explanation container
+            let explanationHtml = '';
+            if (isAnswered) {
+                let expTitle = "Jawaban Tepat! Pembahasan Syar'i:";
+                let expBg = "bg-emerald-50 border-emerald-200 text-emerald-950";
+                let expIcon = '<i class="fa-solid fa-circle-check text-emerald-600"></i>';
+
+                if (q.type === 'essay') {
+                    expTitle = "Kunci Jawaban & Panduan Rubrik:";
+                    expBg = "bg-purple-50 border-purple-200 text-purple-950";
+                    expIcon = '<i class="fa-solid fa-graduation-cap text-purple-600"></i>';
+                } else if (!isCorrectState) {
+                    expTitle = "Belum Tepat — Pembahasan & Solusi:";
+                    expBg = "bg-amber-50 border-amber-200 text-amber-950";
+                    expIcon = '<i class="fa-solid fa-lightbulb text-amber-600"></i>';
+                }
+
+                explanationHtml = `
+                    <div class="mt-4 p-4 rounded-xl border ${expBg} text-xs leading-relaxed fade-in">
+                        <div class="font-bold flex items-center justify-between mb-2 pb-1.5 border-b border-black/10">
+                            <span class="flex items-center gap-1.5">${expIcon} ${expTitle}</span>
+                            <button onclick="resetSingleQuestion('${q.id}')" class="text-[11px] underline text-slate-600 hover:text-black">
+                                <i class="fa-solid fa-rotate-left"></i> Coba Lagi
+                            </button>
+                        </div>
+
+                        ${q.type === 'essay' ? `
+                            <div class="space-y-2">
+                                <div><strong>Model Jawaban Resmi:</strong><br/><span class="whitespace-pre-line text-slate-700">${q.model_answer || ''}</span></div>
+                                ${Array.isArray(q.keywords) && q.keywords.length > 0 ? `
+                                    <div class="pt-2 border-t border-purple-200/80"><strong>Kata Kunci Penilaian:</strong> ${q.keywords.map(k => `<span class="inline-block px-2 py-0.5 m-0.5 rounded bg-white text-purple-800 border border-purple-200 text-[10px] font-semibold">${k}</span>`).join('')}</div>
+                                ` : ''}
+                                ${q.rubric ? `<div class="pt-1 text-[11px] text-slate-500 italic">${q.rubric}</div>` : ''}
+                                ${q.explanation ? `<div class="pt-2 border-t border-purple-200/80 text-slate-700">${q.explanation}</div>` : ''}
+                            </div>
+                        ` : `
+                            <div>${q.explanation || ''}</div>
+                        `}
+                    </div>
+                `;
+            }
+
+            return `
+                <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200 shadow-xs">
+                    <!-- Header Question -->
+                    <div class="flex items-center justify-between pb-2.5 mb-3 border-b border-slate-100">
+                        <span class="font-bold text-xs sm:text-sm text-teal-800 flex items-center gap-1.5 font-heading">
+                            <i class="fa-solid fa-pencil text-teal-600"></i> Contoh Soal ${qIndex}
+                        </span>
+                        ${badgeHtml}
+                    </div>
+
+                    <!-- Stimulus Box -->
+                    ${q.stimulus ? `
+                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 text-xs text-slate-700 mb-3.5 leading-relaxed font-medium">
+                            <span class="font-bold text-teal-800 uppercase tracking-wider flex items-center gap-1.5 mb-2 text-[10px]">
+                                <i class="fa-solid fa-quote-left"></i> Stimulus / Kasus:
+                            </span>
+                            ${formatStimulusContent(q.stimulus)}
+                        </div>
+                    ` : ''}
+
+                    <!-- Question Prompt -->
+                    <div class="text-xs sm:text-sm font-bold text-slate-900 leading-snug mb-2 font-heading">
+                        ${q.question}
+                    </div>
+
+                    <!-- Options or Input -->
+                    ${contentHtml}
+
+                    <!-- Explanation -->
+                    ${explanationHtml}
+                </div>
+            `;
+        }
+
+        // ================= POPUP MODAL CONTOH SOAL HANDLERS =================
+        function openQuestionModal(noInd) {
+            activeModalIndNum = noInd;
+            renderModalContent(false);
+
+            const modal = document.getElementById('question-modal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function renderModalContent(preserveScroll) {
+            if (activeModalIndNum === null) return;
+            const item = KISI_DATA.find(x => x.no_ind === activeModalIndNum);
+            if (!item) return;
+
+            const scrollBody = document.getElementById('modal-scroll-body');
+            const prevScrollTop = scrollBody ? scrollBody.scrollTop : 0;
+
+            const meta = getNormalizedMeta(item);
+
+            let bentukLabel = 'Pilihan Ganda (PG)';
+            if (item.bentuk === 'PGK') bentukLabel = 'Pilihan Ganda Kompleks (PGK)';
+            else if (item.bentuk === 'Uraian') bentukLabel = 'Uraian / Esai';
+
+            document.getElementById('modal-ind-badge').innerText = `#${String(item.no_soal).padStart(2, '0')}`;
+            document.getElementById('modal-badge-bentuk').innerText = item.bentuk;
+            document.getElementById('modal-badge-nosoal').innerText = `No. Soal ${item.no_soal}`;
+            document.getElementById('modal-badge-level').innerText = `Level ${item.level} • ${item.bobot}`;
+            document.getElementById('modal-title').innerText = `${item.materi || meta.elemen} — 2 Contoh Soal`;
+            document.getElementById('modal-badge-cp').innerText = meta.cpBadge;
+            document.getElementById('modal-indikator-text').innerText = item.indikator;
+
+            document.getElementById('modal-kurikulum-detail').innerHTML = `
+                <div><strong>Elemen:</strong> ${meta.elemen}</div>
+                <div><strong>Materi Pokok:</strong> ${item.materi || meta.elemen}</div>
+                <div><strong>Capaian Pembelajaran (CP):</strong> ${meta.cp}</div>
+                <div><strong>Level Kognitif / Bobot:</strong> ${item.level} (${item.bobot}) &bull; <strong>Bentuk:</strong> ${bentukLabel} (No. Soal ${item.no_soal})</div>
+            `;
+
+            const listEl = document.getElementById('modal-questions-list');
+            if (listEl) {
+                listEl.innerHTML = item.questions.map((q, idx) => renderQuestionCard(q, idx + 1)).join('');
+            }
+
+            // Update Prev / Next button states based on current table order
+            const navList = orderedFilteredIndicators.length > 0 ? orderedFilteredIndicators : KISI_DATA;
+            const currentPos = navList.findIndex(x => x.no_ind === activeModalIndNum);
+            const prevBtn = document.getElementById('modal-prev-btn');
+            const nextBtn = document.getElementById('modal-next-btn');
+            if (prevBtn) prevBtn.disabled = currentPos <= 0;
+            if (nextBtn) nextBtn.disabled = currentPos === -1 || currentPos >= navList.length - 1;
+
+            if (scrollBody) {
+                scrollBody.scrollTop = preserveScroll ? prevScrollTop : 0;
+            }
+        }
+
+        function navigateModal(direction) {
+            if (activeModalIndNum === null) return;
+            const navList = orderedFilteredIndicators.length > 0 ? orderedFilteredIndicators : KISI_DATA;
+            const currentPos = navList.findIndex(x => x.no_ind === activeModalIndNum);
+            const nextPos = currentPos + direction;
+            if (nextPos >= 0 && nextPos < navList.length) {
+                activeModalIndNum = navList[nextPos].no_ind;
+                renderModalContent(false);
+            }
+        }
+
+        function closeQuestionModal() {
+            const modal = document.getElementById('question-modal');
+            if (modal) modal.classList.add('hidden');
+            activeModalIndNum = null;
+            document.body.style.overflow = '';
+        }
+
+        function handleModalBackdropClick(event) {
+            if (event.target && event.target.id === 'question-modal') {
+                closeQuestionModal();
+            }
+        }
+
+        // ================= QUESTION INTERACTIVITY HANDLERS =================
+        function answerPG(qId, selectedIdx, correctIdx) {
+            const q = findQuestion(qId);
+            const isCorrect = selectedIdx === correctIdx;
+            const selectedText = q ? q.options[selectedIdx] : '';
+
+            userProgress[qId] = {
+                answered: true,
+                correct: isCorrect,
+                selectedText: selectedText,
+                selected: selectedIdx
+            };
+            playSound(isCorrect ? 'correct' : 'wrong');
+            saveProgress();
+            renderTable();
+            renderModalContent(true);
+        }
+
+        function checkPGK(qId) {
+            const checkboxes = document.querySelectorAll(`input[name="pgk_${qId}"]:checked`);
+            if (checkboxes.length === 0) {
+                alert("Silakan centang minimal satu pilihan jawaban sebelum memeriksa!");
+                return;
+            }
+
+            const selectedIndices = Array.from(checkboxes).map(cb => parseInt(cb.value));
+            const q = findQuestion(qId);
+            if (!q) return;
+
+            const selectedTexts = selectedIndices.map(idx => q.options[idx]);
+
+            const correctSet = new Set(q.correct);
+            const userSet = new Set(selectedIndices);
+            const isPerfect = (correctSet.size === userSet.size) && [...correctSet].every(x => userSet.has(x));
+
+            userProgress[qId] = {
+                answered: true,
+                correct: isPerfect,
+                selectedTexts: selectedTexts,
+                selected: selectedIndices
+            };
+            playSound(isPerfect ? 'correct' : 'wrong');
+            saveProgress();
+            renderTable();
+            renderModalContent(true);
+        }
+
+        function submitEssay(qId) {
+            const textarea = document.getElementById(`essay-input-${qId}`);
+            const answerText = textarea ? textarea.value.trim() : '';
+
+            userProgress[qId] = {
+                answered: true,
+                correct: true,
+                textAnswer: answerText
+            };
+            playSound('correct');
+            saveProgress();
+            renderTable();
+            renderModalContent(true);
+        }
+
+        function resetSingleQuestion(qId) {
+            delete userProgress[qId];
+            saveProgress();
+
+            const q = findQuestion(qId);
+            if (q) {
+                shuffleQuestionOptions(q);
+            }
+
+            renderTable();
+            renderModalContent(true);
+        }
+
+        // ================= FILTER HANDLERS =================
+        function setCpFilter(cp) {
+            currentCpFilter = cp;
+            document.querySelectorAll('.filter-cp-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-teal-600', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
+            });
+
+            const activeBtn = document.getElementById(`tab-cp-${cp}`);
+            if (activeBtn) {
+                activeBtn.classList.add('active', 'bg-teal-600', 'text-white', 'shadow-sm');
+                activeBtn.classList.remove('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
+            }
+
+            renderTable();
+        }
+
+        function filterIndicators() {
+            renderTable();
+        }
+
+        function resetFilters() {
+            document.getElementById('kisi-search').value = '';
+            document.getElementById('filter-bentuk').value = 'all';
+            document.getElementById('filter-bobot').value = 'all';
+            setCpFilter('all');
+        }
+
+        // Keyboard shortcuts for Modal
+        document.addEventListener('keydown', (e) => {
+            if (activeModalIndNum === null) return;
+            if (e.key === 'Escape') {
+                closeQuestionModal();
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                const tag = (document.activeElement?.tagName || '').toLowerCase();
+                if (tag === 'textarea' || tag === 'input') return;
+                navigateModal(e.key === 'ArrowLeft' ? -1 : 1);
+            }
+        });
+
+        // Init on DOM loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            shuffleAllQuestions();
+            loadProgress();
+            renderTable();
+        });
+    </script>
+</body>
+</html>
