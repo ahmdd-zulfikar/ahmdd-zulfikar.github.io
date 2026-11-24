@@ -838,6 +838,11 @@
                     }
 
                     const mergedCols = idxInGroup === 0 ? `
+                        <td rowspan="${rowCount}" class="px-2 py-3 text-center align-top font-bold text-slate-800 bg-slate-50/40">
+                            <div class="sticky top-20 print:static">
+                                ${m.babNum}
+                            </div>
+                        </td>
                         <td rowspan="${rowCount}" class="px-3 py-3 align-top bg-slate-50/60 text-[11px] sm:text-xs leading-relaxed">
                             <div class="sticky top-20 print:static">
                                 <span class="inline-block px-2 py-0.5 rounded-md border font-bold text-[10px] mb-2 ${elemenBadge}">
@@ -862,9 +867,6 @@
 
                     html += `
                         <tr class="bg-white">
-                            <td class="px-2 py-3 text-center align-top font-bold text-slate-700">
-                                ${item.no_ind}
-                            </td>
                             ${mergedCols}
                             <td class="kisi-indicator-cell px-3.5 py-3 align-top cursor-pointer group" onclick="openQuestionModal(${item.no_ind})" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openQuestionModal(${item.no_ind});}">
                                 <div class="flex items-start gap-2">
