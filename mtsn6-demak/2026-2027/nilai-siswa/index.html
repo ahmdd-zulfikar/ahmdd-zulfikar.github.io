@@ -818,7 +818,6 @@
         import { initializeApp } from "../firebase-mock.js";
         import { getAuth, signInAnonymously, onAuthStateChanged } from "../firebase-mock.js";
         import { getFirestore, collection, addDoc, getDocs, doc, deleteDoc, onSnapshot, verifyPinBackend } from "../firebase-mock.js";
-        import { EDUVERSE_SCORES } from "./eduverse-scores.js";
 
         // --- FIREBASE CONFIG ---
         const firebaseConfig = {
@@ -837,39 +836,8 @@
         const COLLECTION_NAME = 'scores_2026';
         
         let globalData = [];
-        let lastLiveRawData = [];
         let currentSort = { column: 'timestamp', direction: 'desc' };
-        let currentExportType = '';
-        const HIDDEN_EDUVERSE_KEY = 'hidden_eduverse_score_ids_v1';
-
-        function getHiddenEduverseIds() {
-            try { return new Set(JSON.parse(localStorage.getItem(HIDDEN_EDUVERSE_KEY) || '[]')); }
-            catch (_) { return new Set(); }
-        }
-        function hideEduverseId(id) {
-            const set = getHiddenEduverseIds();
-            set.add(id);
-            try { localStorage.setItem(HIDDEN_EDUVERSE_KEY, JSON.stringify(Array.from(set))); } catch (_) {}
-        }
-        function applyCombinedData(liveRawData) {
-            lastLiveRawData = Array.isArray(liveRawData) ? liveRawData : [];
-            const hidden = getHiddenEduverseIds();
-            const liveKeys = new Set(lastLiveRawData.map(item => {
-                const n = matchToMasterName((item.name || '').toUpperCase().trim(), normalizeClass(item.kelas));
-                const k = normalizeClass(item.kelas);
-                const m = normalizeMateri(item.materi || item.mapel || item.type || '-');
-                return `${n}|${k}|${m}`;
-            }));
-            const staticItems = (EDUVERSE_SCORES || []).filter(item => {
-                if (hidden.has(item.id)) return false;
-                const key = `${item.name.toUpperCase().trim()}|${normalizeClass(item.kelas)}|${normalizeMateri(item.materi)}`;
-                return !liveKeys.has(key);
-            });
-            const processed = processAndAggregateData([...lastLiveRawData, ...staticItems]);
-            globalData = processed;
-            window.filterTable();
-            updateStats(processed);
-        }
+        let currentExportType = ''; 
 
         // ========================================================
         // MASTER STUDENTS LIST (Integrasi Absensi/Nilai Kosong)
@@ -1093,8 +1061,6 @@
 
         // --- DATA SUBSCRIBER ---
         function subscribeToData() {
-            applyCombinedData([]);
-
             const q = collection(db, 'artifacts', appId, 'public', 'data', COLLECTION_NAME);
             
             onSnapshot(q, (snapshot) => {
@@ -1103,10 +1069,12 @@
                     rawData.push({ id: doc.id, ...doc.data() });
                 });
 
-                applyCombinedData(rawData);
+                const processed = processAndAggregateData(rawData);
+                globalData = processed;
+                window.filterTable(); 
+                updateStats(processed);
             }, (err) => {
                 console.error("Firebase Snapshot Error:", err);
-                applyCombinedData(lastLiveRawData);
             });
         }
 
@@ -1558,23 +1526,6 @@
                 });
                 html += `</div>`;
                 
-            } else if (studentData.source === 'eduverse') {
-                const pred = studentData.score >= 90 ? 'A (Sangat Baik)' : studentData.score >= 83 ? 'B (Baik)' : 'C (Cukup)';
-                html += `
-                    <div class="bg-white border border-teal-200 rounded-3xl p-8 text-center flex flex-col items-center justify-center shadow-sm">
-                        <div class="bg-teal-50 p-4 rounded-full border border-teal-100 mb-4 text-teal-600">
-                            <i data-lucide="gamepad-2" class="w-10 h-10"></i>
-                        </div>
-                        <h5 class="text-slate-800 font-bold font-heading text-lg mb-2">Rekap Total Game EduVerse</h5>
-                        <p class="text-sm text-slate-600 max-w-md leading-relaxed mb-4">
-                            Nilai ini merupakan akumulasi keseluruhan sesi kuis dan tantangan pada game EduVerse (No. Absen <b>${studentData.absen || '-'}</b>).
-                        </p>
-                        <div class="flex flex-wrap justify-center gap-3 text-xs font-bold">
-                            <span class="bg-teal-50 text-teal-700 border border-teal-200 px-3.5 py-1.5 rounded-full">Total Sesi: ${studentData.sessions || 1}x</span>
-                            <span class="bg-emerald-50 text-emerald-700 border border-emerald-200 px-3.5 py-1.5 rounded-full">Predikat: ${pred}</span>
-                        </div>
-                    </div>
-                `;
             } else {
                 html += `
                     <div class="bg-white border border-slate-200 rounded-3xl p-10 text-center flex flex-col items-center justify-center shadow-sm">
@@ -1614,12 +1565,7 @@
 
             if (pin && (await verifyPinBackend(pin))) {
                 try {
-                    if (String(docId).startsWith('eduverse-')) {
-                        hideEduverseId(docId);
-                        applyCombinedData(lastLiveRawData);
-                    } else {
-                        await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', COLLECTION_NAME, docId));
-                    }
+                    await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', COLLECTION_NAME, docId));
                     Swal.fire('Terhapus', 'Data berhasil dihapus.', 'success');
                 } catch(e) {
                     Swal.fire('Gagal', e.message, 'error');
